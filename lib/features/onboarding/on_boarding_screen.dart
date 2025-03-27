@@ -21,11 +21,12 @@ class OnBoardingScreen extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  verticalSpace(24.5),
-                  const Center(
-                      child: CareerkText(),
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 24.5.h),
+                    child: const Center(
+                        child: CareerkText(),
+                    ),
                   ),
-                  verticalSpace(24.5),
                   Image.asset(
                    'assets/images/on_boarding.png'
                   ),
