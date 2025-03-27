@@ -9,5 +9,3 @@ void main() async{
   await ScreenUtil.ensureScreenSize();
   runApp(CareerkApp(appRouter: AppRouter(),));
 }
-
-
