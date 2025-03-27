@@ -2,6 +2,7 @@ import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
+import 'package:carrerk/features/authentication/login/widgets/divider_or_divider.dart';
 import 'package:carrerk/features/authentication/login/widgets/email_and_password.dart';
 import 'package:carrerk/features/authentication/login/widgets/login_to_your_account_text.dart';
 import 'package:carrerk/features/authentication/login/widgets/remember_me_forget_password.dart';
@@ -38,6 +39,9 @@ class LoginScreen extends StatelessWidget {
                       context.pushNamed(Routes.loginScreen);
                     }
                 ),
+                verticalSpace(24),
+                DividerOrDivider(),
+                verticalSpace(16),
               ],
             ),
           )
