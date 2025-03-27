@@ -4,7 +4,7 @@ import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
 import 'package:carrerk/features/authentication/onboarding/widgets/careerk_text.dart';
-import 'package:carrerk/features/authentication/onboarding/widgets/dont_have_an_account_text.dart';
+import 'package:carrerk/features/authentication/widgets/dont_have_an_account_text.dart';
 import 'package:carrerk/features/authentication/onboarding/widgets/enter_your_journey_text.dart';
 import 'package:carrerk/features/authentication/onboarding/widgets/welcome_text.dart';
 import 'package:flutter/material.dart';

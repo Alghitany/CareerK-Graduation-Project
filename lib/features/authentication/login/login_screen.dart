@@ -5,7 +5,9 @@ import 'package:carrerk/core/widgets/app_text_button.dart';
 import 'package:carrerk/features/authentication/login/widgets/divider_or_divider.dart';
 import 'package:carrerk/features/authentication/login/widgets/email_and_password.dart';
 import 'package:carrerk/features/authentication/login/widgets/login_to_your_account_text.dart';
+import 'package:carrerk/features/authentication/login/widgets/login_with.dart';
 import 'package:carrerk/features/authentication/login/widgets/remember_me_forget_password.dart';
+import 'package:carrerk/features/authentication/widgets/dont_have_an_account_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -26,7 +28,7 @@ class LoginScreen extends StatelessWidget {
                 const AppBackIcon(),
                 verticalSpace(16),
                 const LoginToYourAccountText(),
-                verticalSpace(32),
+                verticalSpace(24),
                 const EmailAndPassword(),
                 verticalSpace(8),
                 const RememberMeForgetPassword(),
@@ -40,8 +42,30 @@ class LoginScreen extends StatelessWidget {
                     }
                 ),
                 verticalSpace(24),
-                DividerOrDivider(),
+                const DividerOrDivider(),
                 verticalSpace(16),
+                LoginWith(
+                  onPressed: (){
+                    //TODO: Apply Sign in with Google
+                  },
+                  text: 'Google',
+                  icon: 'assets/svgs/google.svg',),
+                verticalSpace(8),
+                LoginWith(
+                  onPressed: (){
+                    //TODO: Apply sign in with facebook
+                  },
+                  text: 'Facebook',
+                  icon: 'assets/svgs/facebook.svg',),
+                verticalSpace(8),
+                LoginWith(
+                  onPressed: (){
+                    //TODO: Apply sign in with github
+                  },
+                  text: 'GitHub',
+                  icon: 'assets/svgs/github.svg',),
+                verticalSpace(32),
+                const DontHaveAnAccountText(),
               ],
             ),
           )

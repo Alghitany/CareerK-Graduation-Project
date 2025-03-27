@@ -11,5 +11,5 @@ class ColorsManager{
   static const Color blueBell = Color(0xFF97A1CF);
   static const Color glaucous = Color(0xFF6B78AC);
   static const Color lemonGrass = Color(0xFF999999);
-
+  static const Color softPeach = Color(0xFFEDEFF5);
 }
