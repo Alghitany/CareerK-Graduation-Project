@@ -65,6 +65,9 @@ dependencies:
   shared_preferences: ^2.5.2
   # Provides API to store data in secure storage.
   flutter_secure_storage: ^9.2.4
+  # Pin code input (OTP) text field
+  pinput: ^5.0.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
