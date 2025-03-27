@@ -3,7 +3,8 @@ import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/routing/routes.dart';
+import '../../../../core/routing/routes.dart';
+
 
 class DontHaveAnAccountText extends StatelessWidget {
   const DontHaveAnAccountText({super.key});
