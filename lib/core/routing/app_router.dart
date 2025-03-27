@@ -1,3 +1,4 @@
+import 'package:carrerk/features/authentication/verify_code/verify_code_screen.dart';
 import 'package:carrerk/features/company/home/main_page/company_home_main_page.dart';
 import 'package:carrerk/features/developer/home/main_page/developer_home_main_page.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +29,10 @@ class AppRouter{
       case Routes.resetPasswordScreen:
         return MaterialPageRoute(
           builder: (_) => const ResetPasswordScreen(),
+        );
+      case Routes.verifyCodeScreen:
+        return MaterialPageRoute(
+          builder: (_) => const VerifyCodeScreen(),
         );
       case Routes.companyHomeMainPage:
         return MaterialPageRoute(
