@@ -82,5 +82,10 @@ class AppTextStyles{
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.medium,
   );
-
+  static TextStyle font14RockBluePoppinsMedium = TextStyle(
+    fontSize: 14.sp,
+    color: ColorsManager.rockBlue,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.medium,
+  );
 }

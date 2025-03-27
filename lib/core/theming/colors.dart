@@ -12,4 +12,5 @@ class ColorsManager{
   static const Color glaucous = Color(0xFF6B78AC);
   static const Color lemonGrass = Color(0xFF999999);
   static const Color softPeach = Color(0xFFEDEFF5);
+  static const Color rockBlue = Color(0xFFA2AACA);
 }
