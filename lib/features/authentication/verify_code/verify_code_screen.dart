@@ -1,3 +1,6 @@
+import 'package:carrerk/core/helpers/extensions.dart';
+import 'package:carrerk/core/widgets/app_text_button.dart';
+import 'package:carrerk/features/authentication/verify_code/widgets/verify_button_and_alert_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -49,7 +52,8 @@ class VerifyCodeScreen extends StatelessWidget {
                       // TODO: Call API to resend OTP
                     },
                   ),
-
+                  verticalSpace(40),
+                  const VerifyButtonAndAlertDialog(),
                 ],
               ),
             )

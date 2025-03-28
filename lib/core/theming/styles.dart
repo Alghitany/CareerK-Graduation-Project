@@ -28,6 +28,12 @@ class AppTextStyles{
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.semiBold,
   );
+  static TextStyle font20BlackPoppinsMedium = TextStyle(
+    fontSize: 20.sp,
+    fontWeight: FontWeightHelper.medium,
+    fontFamily: "Poppins",
+    color: Colors.black,
+  );
   static TextStyle font14BlackPoppinsMedium = TextStyle(
     fontSize: 14.sp,
     color: Colors.black,
