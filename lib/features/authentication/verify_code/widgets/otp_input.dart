@@ -29,6 +29,7 @@ class OtpInput extends StatelessWidget {
     return Center(
       child: Pinput(
         length: fieldsNumber ?? 4,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         defaultPinTheme: PinTheme(
           width: fieldWidth ?? 72.w,
           height: fieldHeight ?? 72.h,

@@ -13,4 +13,6 @@ class ColorsManager{
   static const Color lemonGrass = Color(0xFF999999);
   static const Color softPeach = Color(0xFFEDEFF5);
   static const Color rockBlue = Color(0xFFA2AACA);
+  static const Color blueJay = Color(0xFF384579);
+  static const Color schoolBusYellow = Color(0xFFEBA61E);
 }

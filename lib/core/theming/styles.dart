@@ -89,8 +89,20 @@ class AppTextStyles{
     fontWeight: FontWeightHelper.medium,
   );
   static TextStyle font14RockBluePoppinsMedium = TextStyle(
-    fontSize: 14.sp,
+    fontSize: 12.sp,
     color: ColorsManager.rockBlue,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.medium,
+  );
+  static TextStyle font14BlueJayPoppinsMedium = TextStyle(
+    fontSize: 14.sp,
+    color: ColorsManager.blueJay,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.medium,
+  );
+  static TextStyle font14SchoolBusYellowPoppinsMedium = TextStyle(
+    fontSize: 14.sp,
+    color: ColorsManager.schoolBusYellow,
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.medium,
   );

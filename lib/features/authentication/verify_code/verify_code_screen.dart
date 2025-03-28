@@ -5,6 +5,7 @@ import '../../../core/helpers/spacing.dart';
 import '../../../core/theming/styles.dart';
 import '../../../core/widgets/app_back_icon.dart';
 import 'widgets/otp_input.dart';
+import 'widgets/resend_and_didnt_get_code.dart';
 
 class VerifyCodeScreen extends StatelessWidget {
   const VerifyCodeScreen({super.key});
@@ -42,6 +43,13 @@ class VerifyCodeScreen extends StatelessWidget {
                   verticalSpace(24),
                   const OtpInput(),
                   verticalSpace(16),
+                  ResendAndDidntGetCode(
+                    onResend: () {
+                      debugPrint("Resend button clicked!");
+                      // TODO: Call API to resend OTP
+                    },
+                  ),
+
                 ],
               ),
             )
