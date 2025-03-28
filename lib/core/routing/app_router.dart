@@ -2,6 +2,7 @@ import 'package:carrerk/features/authentication/verify_code/verify_code_screen.d
 import 'package:carrerk/features/company/home/main_page/company_home_main_page.dart';
 import 'package:carrerk/features/developer/home/main_page/developer_home_main_page.dart';
 import 'package:flutter/material.dart';
+import '../../features/authentication/change_password/change_password_screen.dart';
 import '../../features/authentication/login/login_screen.dart';
 import '../../features/authentication/onboarding/on_boarding_screen.dart';
 import '../../features/authentication/reset_password/reset_password_screen.dart';
@@ -33,6 +34,10 @@ class AppRouter{
       case Routes.verifyCodeScreen:
         return MaterialPageRoute(
           builder: (_) => const VerifyCodeScreen(),
+        );
+      case Routes.changePasswordScreen:
+        return MaterialPageRoute(
+          builder: (_) => const ChangePasswordScreen(),
         );
       case Routes.companyHomeMainPage:
         return MaterialPageRoute(
