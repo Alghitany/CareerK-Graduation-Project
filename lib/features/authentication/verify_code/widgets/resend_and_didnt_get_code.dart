@@ -58,7 +58,9 @@ class _ResendAndDidntGetCodeState extends State<ResendAndDidntGetCode> {
           onTap: _resendCode,
           child: Text(
             "Didn't get code?",
-            style: AppTextStyles.font14SchoolBusYellowPoppinsMedium,
+            style: _canResend
+                ? AppTextStyles.font14SchoolBusYellowPoppinsMedium
+                : AppTextStyles.font14BlueJayPoppinsMedium,
           ),
         ),
         RichText(

@@ -37,14 +37,13 @@ class ResetPasswordScreen extends StatelessWidget {
                 ),
               ],
             ),
-            verticalSpace(24),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.0.w),
               child: Column(
                 children: [
                   Text(
                     'We will email you\na link to reset your password',
-                    style: AppTextStyles.font14RockBluePoppinsMedium,
+                    style: AppTextStyles.font13RockBluePoppinsMedium,
                     textAlign: TextAlign.center,
                   ),
                   verticalSpace(24),

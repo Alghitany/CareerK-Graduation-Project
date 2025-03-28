@@ -33,14 +33,13 @@ class VerifyCodeScreen extends StatelessWidget {
                 Image.asset('assets/images/verify_code.png'),
               ],
             ),
-            verticalSpace(24),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.0.w),
               child: Column(
                 children: [
                   Text(
                     'Please enter the code we just sent to email\nexample@gmail.com',
-                    style: AppTextStyles.font14RockBluePoppinsMedium,
+                    style: AppTextStyles.font13RockBluePoppinsMedium,
                     textAlign: TextAlign.center,
                   ),
                   verticalSpace(24),
