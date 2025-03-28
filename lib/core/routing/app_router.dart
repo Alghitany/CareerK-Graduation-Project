@@ -6,6 +6,7 @@ import '../../features/authentication/change_password/change_password_screen.dar
 import '../../features/authentication/login/login_screen.dart';
 import '../../features/authentication/onboarding/on_boarding_screen.dart';
 import '../../features/authentication/reset_password/reset_password_screen.dart';
+import '../../features/authentication/successful_change_password/successful_change_password.dart';
 import '../../features/sign_up_user_type/sign_up_user_type.dart';
 import 'routes.dart';
 
@@ -38,6 +39,10 @@ class AppRouter{
       case Routes.changePasswordScreen:
         return MaterialPageRoute(
           builder: (_) => const ChangePasswordScreen(),
+        );
+      case Routes.successfulChangePasswordScreen:
+        return MaterialPageRoute(
+          builder: (_) => const SuccessfulChangePasswordScreen(),
         );
       case Routes.companyHomeMainPage:
         return MaterialPageRoute(
