@@ -9,4 +9,8 @@ class AppRegex{
       r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$',
     ).hasMatch(password);
   }
+  static bool doPasswordsMatch(String password, String confirmPassword) {
+    return password == confirmPassword;
+  }
+
 }
