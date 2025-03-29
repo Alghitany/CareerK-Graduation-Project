@@ -17,7 +17,7 @@ class EmailAndPassword extends StatefulWidget {
 
 class _EmailAndPasswordState extends State<EmailAndPassword> {
   final formKey = GlobalKey<FormState>();
-  bool isObscureText = false;
+  bool isObscurePassword = false;
 
   @override
   Widget build(BuildContext context) {
@@ -40,15 +40,15 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
             verticalSpace(12),
             AppTextFormField(
                 hintText: '•••••••••',
-                isObscureText: isObscureText,
+                isObscureText: isObscurePassword,
                 suffixIcon: GestureDetector(
                   onTap: () {
                     setState(() {
-                      isObscureText = !isObscureText;
+                      isObscurePassword = !isObscurePassword;
                     });
                   },
-                  child: isObscureText ?
-                      //TODO: AA eye_closed
+                  child: isObscurePassword ?
+                      //TODO: Add eye_closed
                     const Icon(
                      Icons.visibility,
                     ):
