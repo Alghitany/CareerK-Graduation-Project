@@ -50,27 +50,22 @@ class UserTypeCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(borderRadius ?? 16),
           border: Border.all(color: borderColor ?? ColorsManager.cadetBlue),
         ),
-        child: Padding(
-          padding: EdgeInsets.only(
-            top: contentTopPadding  ?? 24.h,
-            left: contentLeftPadding ?? 16.w,
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SvgPicture.asset(
-                icon,
-                height: iconHeight ?? 24.h,
-                width: iconWidth ?? 24.w,
-              ),
-              verticalSpace(4),
-              Text(
-                text,
-                style: textStyle ?? AppTextStyles.font14GranitePoppinsRegular
-              ),
-            ],
-          ),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SvgPicture.asset(
+              icon,
+              height: iconHeight ?? 24.h,
+              width: iconWidth ?? 24.w,
+            ),
+            verticalSpace(4),
+            Text(
+              text,
+              style: textStyle ?? AppTextStyles.font14GranitePoppinsRegular
+            ),
+          ],
         ),
       ),
     );

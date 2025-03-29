@@ -18,11 +18,10 @@ class SignUpUserTypeScreen extends StatelessWidget {
             child: Column(
               children: [
                 const AppBackIcon(),
-                verticalSpace(16),
                 Image.asset(
                   'assets/images/splash_android12_logo.png',
-                  height: 250.h,
-                  width: 250.w,
+                  height: 200.h,
+                  width: double.infinity,
                 ),
                 Text(
                   'Please Select one of the following',
@@ -33,7 +32,7 @@ class SignUpUserTypeScreen extends StatelessWidget {
                   'You are A',
                   style: AppTextStyles.font16BlackPoppinsMedium,
                 ),
-                verticalSpace(48),
+                verticalSpace(80),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
