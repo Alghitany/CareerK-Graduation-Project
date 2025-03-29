@@ -13,8 +13,6 @@ class UserTypeCard extends StatelessWidget {
   final double? containerWidth;
   final double? borderRadius;
   final Color? borderColor;
-  final double? contentTopPadding;
-  final double? contentLeftPadding;
   final String icon;
   final double? iconHeight;
   final double? iconWidth;
@@ -28,8 +26,6 @@ class UserTypeCard extends StatelessWidget {
     this.containerWidth,
     this.borderRadius,
     this.borderColor,
-    this.contentTopPadding,
-    this.contentLeftPadding,
     required this.icon,
     this.iconHeight,
     this.iconWidth,
