@@ -34,6 +34,18 @@ class AppTextStyles{
     fontFamily: "Poppins",
     color: Colors.black,
   );
+  static TextStyle font16BlackPoppinsRegular = TextStyle(
+    fontSize: 16.sp,
+    color: Colors.black,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.regular,
+  );
+  static TextStyle font16BlackPoppinsMedium = TextStyle(
+    fontSize: 16.sp,
+    color: Colors.black,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.medium,
+  );
   static TextStyle font14BlackPoppinsMedium = TextStyle(
     fontSize: 14.sp,
     color: Colors.black,
@@ -117,5 +129,11 @@ class AppTextStyles{
     color: ColorsManager.schoolBusYellow,
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.medium,
+  );
+  static TextStyle font14GranitePoppinsRegular = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.regular,
+    fontFamily: 'Poppins',
+    color: ColorsManager.granite,
   );
 }
