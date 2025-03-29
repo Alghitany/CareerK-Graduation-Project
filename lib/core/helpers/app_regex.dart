@@ -12,5 +12,7 @@ class AppRegex{
   static bool doPasswordsMatch(String password, String confirmPassword) {
     return password == confirmPassword;
   }
-
+  static bool isValidName(String name) {
+    return RegExp(r"^[A-Za-z\s]{2,50}$").hasMatch(name);
+  }
 }

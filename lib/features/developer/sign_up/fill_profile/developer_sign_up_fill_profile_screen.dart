@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class DeveloperSignUpCompulsoryDataScreen extends StatelessWidget {
-  const DeveloperSignUpCompulsoryDataScreen({super.key});
+class DeveloperSignUpFillProfileScreen extends StatelessWidget {
+  const DeveloperSignUpFillProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

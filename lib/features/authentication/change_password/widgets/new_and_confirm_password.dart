@@ -17,7 +17,8 @@ class NewAndConfirmPassword extends StatefulWidget {
 
 class _NewAndConfirmPasswordState extends State<NewAndConfirmPassword> {
   final formKey = GlobalKey<FormState>();
-  bool isObscureText = false;
+  bool isObscureNewPassword = false;
+  bool isObscureConfirmPassword = false;
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -28,14 +29,14 @@ class _NewAndConfirmPasswordState extends State<NewAndConfirmPassword> {
             verticalSpace(8),
             AppTextFormField(
                 hintText: 'New Password',
-                isObscureText: isObscureText,
+                isObscureText: isObscureNewPassword,
                 suffixIcon: GestureDetector(
                   onTap: () {
                     setState(() {
-                      isObscureText = !isObscureText;
+                      isObscureNewPassword = !isObscureNewPassword;
                     });
                   },
-                  child: isObscureText ?
+                  child: isObscureNewPassword ?
                   const Icon(
                     Icons.visibility,
                   ):
@@ -62,14 +63,14 @@ class _NewAndConfirmPasswordState extends State<NewAndConfirmPassword> {
             verticalSpace(8),
             AppTextFormField(
                 hintText: 'Confirm Password',
-                isObscureText: isObscureText,
+                isObscureText: isObscureConfirmPassword,
                 suffixIcon: GestureDetector(
                   onTap: () {
                     setState(() {
-                      isObscureText = !isObscureText;
+                      isObscureConfirmPassword = !isObscureConfirmPassword;
                     });
                   },
-                  child: isObscureText ?
+                  child: isObscureConfirmPassword ?
                   const Icon(
                     Icons.visibility,
                   ):

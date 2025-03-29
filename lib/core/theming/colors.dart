@@ -17,4 +17,5 @@ class ColorsManager{
   static const Color schoolBusYellow = Color(0xFFEBA61E);
   static const Color cadetBlue = Color(0xFFA4AED5);
   static const Color granite = Color(0xFF808080);
+  static const Color plantation = Color(0xCC235347);
 }

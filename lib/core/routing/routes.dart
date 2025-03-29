@@ -12,6 +12,7 @@ class Routes{
   static const String companyHomeMainPageScreen = "/companyHomeMainPageScreen";
   // Developer
   static const String developerSignUpCompulsoryDataScreen = "/developerSignUpCompulsoryDataScreen";
+  static const String developerSignUpFillProfileScreen = "/developerSignUpFillProfileScreen";
   static const String developerHomeMainPageScreen = "/developerHomeMainPageScreen";
   // Customer
   static const String customerSignUpCompulsoryDataScreen = "/customerSignUpCompulsoryDataScreen";
