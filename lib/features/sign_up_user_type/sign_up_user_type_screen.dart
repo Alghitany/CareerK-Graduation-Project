@@ -6,8 +6,8 @@ import 'package:carrerk/features/sign_up_user_type/widgets/user_type_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SignUpUserType extends StatelessWidget {
-  const SignUpUserType({super.key});
+class SignUpUserTypeScreen extends StatelessWidget {
+  const SignUpUserTypeScreen ({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,12 +38,12 @@ class SignUpUserType extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     UserTypeCard(
-                      routeName: Routes.developerSignUpCompulsoryData,
+                      routeName: Routes.developerSignUpCompulsoryDataScreen,
                       icon: 'assets/svgs/person.svg',
                       text: 'Developer',
                     ),
                     UserTypeCard(
-                      routeName: Routes.companySignUpCompulsoryData,
+                      routeName: Routes.companySignUpCompulsoryDataScreen,
                       icon: 'assets/svgs/company.svg',
                       text: 'Company',
                     ),
@@ -52,7 +52,7 @@ class SignUpUserType extends StatelessWidget {
                 verticalSpace(24),
                 // TODO: Replace Customer Icon With a good one to be appeared in UI
                 const UserTypeCard(
-                  routeName: Routes.customerSignUpCompulsoryData,
+                  routeName: Routes.customerSignUpCompulsoryDataScreen,
                   icon: 'assets/svgs/customer.svg',
                   text: 'Customer',
                 ),

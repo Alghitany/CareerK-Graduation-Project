@@ -8,12 +8,12 @@ class Routes{
   static const String changePasswordScreen = "/changePasswordScreen";
   static const String successfulChangePasswordScreen = "/successfulChangePasswordScreen";
   // Company
-  static const String companySignUpCompulsoryData = "/companySignUpCompulsoryData";
-  static const String companyHomeMainPage = "/companyHomeMainPage";
+  static const String companySignUpCompulsoryDataScreen = "/companySignUpCompulsoryDataScreen";
+  static const String companyHomeMainPageScreen = "/companyHomeMainPageScreen";
   // Developer
-  static const String developerSignUpCompulsoryData = "/developerSignUpCompulsoryData";
-  static const String developerHomeMainPage = "/developerHomeMainPage";
+  static const String developerSignUpCompulsoryDataScreen = "/developerSignUpCompulsoryDataScreen";
+  static const String developerHomeMainPageScreen = "/developerHomeMainPageScreen";
   // Customer
-  static const String customerSignUpCompulsoryData = "/customerSignUpCompulsoryData";
+  static const String customerSignUpCompulsoryDataScreen = "/customerSignUpCompulsoryDataScreen";
 
 }
