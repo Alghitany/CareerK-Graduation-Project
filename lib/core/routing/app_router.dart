@@ -11,6 +11,7 @@ import '../../features/authentication/login/login_screen.dart';
 import '../../features/authentication/onboarding/on_boarding_screen.dart';
 import '../../features/authentication/reset_password/reset_password_screen.dart';
 import '../../features/authentication/successful_change_password/successful_change_password.dart';
+import '../../features/developer/sign_up/bio_and_skills/developer_sign_up_bio_and_skills.dart';
 import '../../features/developer/sign_up/enter_location/developer_sign_up_enter_location_screen.dart';
 import '../../features/developer/sign_up/fill_profile/developer_sign_up_fill_profile_screen.dart';
 import '../../features/sign_up_user_type/sign_up_user_type_screen.dart';
@@ -72,6 +73,10 @@ class AppRouter {
       case Routes.developerSignUpEnterLocationScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperSignUpEnterLocationScreen(),
+        );
+      case Routes.developerSignUpBioAndSkills:
+        return MaterialPageRoute(
+          builder: (_) => const DeveloperSignUpBioAndSkills(),
         );
       // Home
       case Routes.developerHomeMainPageScreen:
