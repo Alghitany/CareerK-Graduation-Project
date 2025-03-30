@@ -15,7 +15,7 @@ class ResetPasswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    GlobalKey <FormState> formState = GlobalKey();
+    GlobalKey<FormState> formState = GlobalKey();
 
     return Scaffold(
       body: SafeArea(
@@ -32,9 +32,7 @@ class ResetPasswordScreen extends StatelessWidget {
                   style: AppTextStyles.font24DunePoppinsMedium,
                 ),
                 verticalSpace(16),
-                Image.asset(
-                  'assets/images/reset_password.png'
-                ),
+                Image.asset('assets/images/reset_password.png'),
               ],
             ),
             Padding(
@@ -51,21 +49,20 @@ class ResetPasswordScreen extends StatelessWidget {
                     key: formState,
                     child: AppTextFormField(
                         hintText: 'email@email.com',
-                        validator: (email){
-                          if(email.isNullOrEmpty() || !AppRegex.isValidEmail(email!)){
+                        validator: (email) {
+                          if (email.isNullOrEmpty() ||
+                              !AppRegex.isValidEmail(email!)) {
                             return 'Please enter a valid email';
                           }
-                        }
-                    ),
+                        }),
                   ),
                   verticalSpace(44),
                   AppTextButton(
                       buttonText: 'Send Code',
                       textStyle: AppTextStyles.font14WhitePoppinsMedium,
-                      onPressed: (){
+                      onPressed: () {
                         context.pushNamed(Routes.verifyCodeScreen);
-                      }
-                  ),
+                      }),
                 ],
               ),
             )

@@ -7,6 +7,7 @@ import 'core/routing/routes.dart';
 
 class CareerkApp extends StatelessWidget {
   final AppRouter appRouter;
+
   const CareerkApp({super.key, required this.appRouter});
 
   @override
@@ -18,8 +19,7 @@ class CareerkApp extends StatelessWidget {
         title: 'Doc App',
         theme: ThemeData(
             primaryColor: ColorsManager.primaryWildBlueYonder,
-            scaffoldBackgroundColor: Colors.white
-        ),
+            scaffoldBackgroundColor: Colors.white),
         debugShowCheckedModeBanner: false,
         initialRoute: Routes.onBoardingScreen,
         onGenerateRoute: appRouter.generateRoute,

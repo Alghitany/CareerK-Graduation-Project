@@ -17,48 +17,46 @@ class ChangePasswordScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: Column(
+        children: [
+          Column(
             children: [
-              Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(16.0.w, 16.0.h, 16.0.w, 8.0.h),
-                    child: const AppBackIcon(),
-                  ),
-                  Text(
-                    'Change Password',
-                    style: AppTextStyles.font24DunePoppinsMedium,
-                  ),
-                  verticalSpace(16),
-                  Image.asset('assets/images/change_password.png'),
-                ],
-              ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0.w),
-                child: Column(
-                  children: [
-                    Text(
-                      'Your new password must be different\nfrom previously used passwords.',
-                      style: AppTextStyles.font13RockBluePoppinsMedium,
-                      textAlign: TextAlign.center,
-                    ),
-                    verticalSpace(24),
-                    const NewAndConfirmPassword(),
-                    verticalSpace(16),
-                    AppTextButton(
-                      buttonText: 'Create New Password',
-                      textStyle: AppTextStyles.font14WhitePoppinsMedium,
-                      onPressed: () {
-                        //TODO: All fields should be valid
-                        context.pushNamed(Routes.successfulChangePasswordScreen);
-                      },
-                    )
-                  ],
-                ),
+                padding: EdgeInsets.fromLTRB(16.0.w, 16.0.h, 16.0.w, 8.0.h),
+                child: const AppBackIcon(),
               ),
-
+              Text(
+                'Change Password',
+                style: AppTextStyles.font24DunePoppinsMedium,
+              ),
+              verticalSpace(16),
+              Image.asset('assets/images/change_password.png'),
             ],
-          )
-      ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0.w),
+            child: Column(
+              children: [
+                Text(
+                  'Your new password must be different\nfrom previously used passwords.',
+                  style: AppTextStyles.font13RockBluePoppinsMedium,
+                  textAlign: TextAlign.center,
+                ),
+                verticalSpace(24),
+                const NewAndConfirmPassword(),
+                verticalSpace(16),
+                AppTextButton(
+                  buttonText: 'Create New Password',
+                  textStyle: AppTextStyles.font14WhitePoppinsMedium,
+                  onPressed: () {
+                    //TODO: All fields should be valid
+                    context.pushNamed(Routes.successfulChangePasswordScreen);
+                  },
+                )
+              ],
+            ),
+          ),
+        ],
+      )),
     );
   }
 }

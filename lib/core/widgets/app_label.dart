@@ -3,17 +3,19 @@ import 'package:flutter/material.dart';
 
 class AppLabel extends StatelessWidget {
   final String text;
-  const AppLabel({
-    super.key,
-    required this.text});
+  final AlignmentGeometry? alignment;
+  final TextStyle? textStyle;
+
+  const AppLabel(
+      {super.key, required this.text, this.alignment, this.textStyle});
 
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: Alignment.centerLeft,
+      alignment: alignment ?? Alignment.centerLeft,
       child: Text(
         text,
-        style: AppTextStyles.font16LiverPoppinsRegular,
+        style: textStyle ?? AppTextStyles.font16LiverPoppinsRegular,
       ),
     );
   }

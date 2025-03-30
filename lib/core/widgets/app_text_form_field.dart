@@ -8,6 +8,8 @@ class AppTextFormField extends StatelessWidget {
   final EdgeInsetsGeometry? contentPadding;
   final InputBorder? focusedBorder;
   final InputBorder? enabledBorder;
+  final InputBorder? errorBorder;
+  final InputBorder? focusedErrorBorder;
   final TextStyle? inputTextStyle;
   final TextStyle? hintStyle;
   final String hintText;
@@ -16,56 +18,71 @@ class AppTextFormField extends StatelessWidget {
   final Color? backgroundColor;
   final TextEditingController? controller;
   final Function(String?) validator;
+  final bool? readOnly;
+  final void Function()? onTap;
+  final TextInputType? keyboardType;
+  final void Function(String)? onChanged;
 
-  const AppTextFormField({
-    super.key,
-    this.contentPadding,
-    this.focusedBorder,
-    this.enabledBorder,
-    this.inputTextStyle,
-    this.hintStyle,
-    required this.hintText,
-    this.isObscureText,
-    this.suffixIcon,
-    this.backgroundColor,
-    this.controller,
-    required this.validator});
+  const AppTextFormField(
+      {super.key,
+      this.contentPadding,
+      this.focusedBorder,
+      this.enabledBorder,
+      this.errorBorder,
+      this.focusedErrorBorder,
+      this.inputTextStyle,
+      this.hintStyle,
+      required this.hintText,
+      this.isObscureText,
+      this.suffixIcon,
+      this.backgroundColor,
+      this.controller,
+      required this.validator,
+      this.readOnly,
+      this.onTap,
+      this.keyboardType,
+      this.onChanged});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
+      readOnly: readOnly ?? false,
+      onChanged: onChanged ?? (value) {},
+      onTap: onTap ?? () {},
+      keyboardType: keyboardType ?? TextInputType.phone,
       decoration: InputDecoration(
         isDense: true,
-        contentPadding: contentPadding ?? EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
-        focusedBorder: focusedBorder ?? OutlineInputBorder(
-            borderSide: const BorderSide(
-              color: ColorsManager.blueBell,
-              width: 1.3,
-            ),
-            borderRadius: BorderRadius.circular(8.0)
-        ),
-        enabledBorder: enabledBorder ?? OutlineInputBorder(
-            borderSide: const BorderSide(
-              color: ColorsManager.blueBell,
-              width: 1.3,
-            ),
-            borderRadius: BorderRadius.circular(8.0)
-        ),
-        errorBorder: OutlineInputBorder(
-            borderSide: const BorderSide(
-              color: Colors.red,
-              width: 1.3,
-            ),
-            borderRadius: BorderRadius.circular(8.0)
-        ),
-        focusedErrorBorder: OutlineInputBorder(
-            borderSide: const BorderSide(
-              color: Colors.red,
-              width: 1.3,
-            ),
-            borderRadius: BorderRadius.circular(8.0)
-        ),
+        contentPadding: contentPadding ??
+            EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
+        focusedBorder: focusedBorder ??
+            OutlineInputBorder(
+                borderSide: const BorderSide(
+                  color: ColorsManager.blueBell,
+                  width: 1.3,
+                ),
+                borderRadius: BorderRadius.circular(8.0)),
+        enabledBorder: enabledBorder ??
+            OutlineInputBorder(
+                borderSide: const BorderSide(
+                  color: ColorsManager.blueBell,
+                  width: 1.3,
+                ),
+                borderRadius: BorderRadius.circular(8.0)),
+        errorBorder: errorBorder ??
+            OutlineInputBorder(
+                borderSide: const BorderSide(
+                  color: Colors.red,
+                  width: 1.3,
+                ),
+                borderRadius: BorderRadius.circular(8.0)),
+        focusedErrorBorder: focusedErrorBorder ??
+            OutlineInputBorder(
+                borderSide: const BorderSide(
+                  color: Colors.red,
+                  width: 1.3,
+                ),
+                borderRadius: BorderRadius.circular(8.0)),
         hintStyle: hintStyle ?? AppTextStyles.font14MercuryPoppinsMedium,
         hintText: hintText,
         suffixIcon: suffixIcon,
@@ -74,7 +91,7 @@ class AppTextFormField extends StatelessWidget {
       ),
       obscureText: isObscureText ?? false,
       style: AppTextStyles.font14BlackPoppinsMedium,
-      validator: (value){
+      validator: (value) {
         return validator(value);
       },
     );

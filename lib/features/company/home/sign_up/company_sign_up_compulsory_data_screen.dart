@@ -8,11 +8,8 @@ class CompanySignUpCompulsoryDataScreen extends StatelessWidget {
     return const Scaffold(
       body: SafeArea(
           child: Column(
-            children: [
-
-            ],
-          )
-      ),
+        children: [],
+      )),
     );
   }
 }

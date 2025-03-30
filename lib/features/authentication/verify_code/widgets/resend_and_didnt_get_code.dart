@@ -1,5 +1,7 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
+
 import '../../../../core/theming/styles.dart';
 
 class ResendAndDidntGetCode extends StatefulWidget {

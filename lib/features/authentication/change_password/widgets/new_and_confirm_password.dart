@@ -19,6 +19,7 @@ class _NewAndConfirmPasswordState extends State<NewAndConfirmPassword> {
   final formKey = GlobalKey<FormState>();
   bool isObscureNewPassword = false;
   bool isObscureConfirmPassword = false;
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -36,28 +37,28 @@ class _NewAndConfirmPasswordState extends State<NewAndConfirmPassword> {
                       isObscureNewPassword = !isObscureNewPassword;
                     });
                   },
-                  child: isObscureNewPassword ?
-                  const Icon(
-                    Icons.visibility,
-                  ):
-                  Container(
-                    width: 32.w,
-                    height: 12.h,
-                    alignment: Alignment.center,
-                    child: SvgPicture.asset(
-                      'assets/svgs/visibility_off.svg',
-                      width: 23.w,
-                      height: 15.h,
-                      fit: BoxFit.contain,
-                    ),
-                  ),
+                  child: isObscureNewPassword
+                      ? const Icon(
+                          Icons.visibility,
+                        )
+                      : Container(
+                          width: 32.w,
+                          height: 12.h,
+                          alignment: Alignment.center,
+                          child: SvgPicture.asset(
+                            'assets/svgs/visibility_off.svg',
+                            width: 23.w,
+                            height: 15.h,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
                 ),
-                validator: (password){
-                  if(password!.isNullOrEmpty() || !AppRegex.isValidPassword(password)){
+                validator: (password) {
+                  if (password!.isNullOrEmpty() ||
+                      !AppRegex.isValidPassword(password)) {
                     return 'Please enter a valid password';
                   }
-                }
-            ),
+                }),
             verticalSpace(8),
             const AppLabel(text: 'Confirm Password'),
             verticalSpace(8),
@@ -70,28 +71,26 @@ class _NewAndConfirmPasswordState extends State<NewAndConfirmPassword> {
                       isObscureConfirmPassword = !isObscureConfirmPassword;
                     });
                   },
-                  child: isObscureConfirmPassword ?
-                  const Icon(
-                    Icons.visibility,
-                  ):
-                  Container(
-                    width: 32.w,
-                    height: 12.h,
-                    alignment: Alignment.center,
-                    child: SvgPicture.asset(
-                      'assets/svgs/visibility_off.svg',
-                      width: 23.w,
-                      height: 15.h,
-                      fit: BoxFit.contain,
-                    ),
-                  ),
+                  child: isObscureConfirmPassword
+                      ? const Icon(
+                          Icons.visibility,
+                        )
+                      : Container(
+                          width: 32.w,
+                          height: 12.h,
+                          alignment: Alignment.center,
+                          child: SvgPicture.asset(
+                            'assets/svgs/visibility_off.svg',
+                            width: 23.w,
+                            height: 15.h,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
                 ),
-                validator: (confirmPassword){
+                validator: (confirmPassword) {
                   //TODO: Check if the confirm password = new password
-                }
-            )
+                })
           ],
-        )
-    );
+        ));
   }
 }

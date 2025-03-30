@@ -3,7 +3,7 @@ import 'package:carrerk/core/theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class AppTextStyles{
+class AppTextStyles {
   static TextStyle font34SecondaryWildBlueYonderPoppinsSemiBold = TextStyle(
     fontSize: 34.sp,
     color: ColorsManager.secondaryWildBlueYonder,
@@ -118,6 +118,12 @@ class AppTextStyles{
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.medium,
   );
+  static TextStyle font14MercuryMulishBold = TextStyle(
+    fontSize: 14.sp,
+    color: ColorsManager.mercury,
+    fontFamily: 'Mulish',
+    fontWeight: FontWeightHelper.bold,
+  );
   static TextStyle font13RockBluePoppinsMedium = TextStyle(
     fontSize: 13.sp,
     color: ColorsManager.rockBlue,
@@ -147,5 +153,11 @@ class AppTextStyles{
     fontWeight: FontWeightHelper.medium,
     fontFamily: 'Poppins',
     color: ColorsManager.plantation,
+  );
+  static TextStyle font12MuleFawnPoppinsRegular = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.regular,
+    fontFamily: 'Poppins',
+    color: ColorsManager.muleFawn,
   );
 }

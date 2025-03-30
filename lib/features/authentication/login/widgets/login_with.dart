@@ -17,19 +17,19 @@ class LoginWith extends StatelessWidget {
   final TextStyle? textStyle;
   final String icon;
 
-  const LoginWith({
-    super.key,
-    this.onPressed,
-    this.backgroundColor,
-    this.disabledBackgroundColor,
-    this.buttonWidth,
-    this.buttonHeight,
-    this.borderRadius,
-    this.contentWidth,
-    this.contentHeight,
-    required this.text,
-    this.textStyle,
-    required this.icon});
+  const LoginWith(
+      {super.key,
+      this.onPressed,
+      this.backgroundColor,
+      this.disabledBackgroundColor,
+      this.buttonWidth,
+      this.buttonHeight,
+      this.borderRadius,
+      this.contentWidth,
+      this.contentHeight,
+      required this.text,
+      this.textStyle,
+      required this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,8 @@ class LoginWith extends StatelessWidget {
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: backgroundColor ?? ColorsManager.softPeach,
-          disabledBackgroundColor: disabledBackgroundColor ?? ColorsManager.softPeach,
+          disabledBackgroundColor:
+              disabledBackgroundColor ?? ColorsManager.softPeach,
           minimumSize: Size(buttonWidth ?? double.infinity, buttonHeight ?? 48),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius ?? 8),
@@ -49,17 +50,11 @@ class LoginWith extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                "Login with $text",
-                style: textStyle ?? AppTextStyles.font14BlackPoppinsRegular
-              ),
-              SvgPicture.asset(
-                icon,
-                height: 24.h,
-                width: 24.w)
+              Text("Login with $text",
+                  style: textStyle ?? AppTextStyles.font14BlackPoppinsRegular),
+              SvgPicture.asset(icon, height: 24.h, width: 24.w)
             ],
           ),
-        )
-    );
+        ));
   }
 }

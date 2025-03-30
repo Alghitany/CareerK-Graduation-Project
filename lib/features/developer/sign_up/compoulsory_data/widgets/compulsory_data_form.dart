@@ -8,7 +8,6 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../../../core/helpers/app_regex.dart';
 
-
 class CompulsoryDataForm extends StatefulWidget {
   const CompulsoryDataForm({super.key});
 
