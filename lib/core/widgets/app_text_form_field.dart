@@ -16,6 +16,8 @@ class AppTextFormField extends StatelessWidget {
   final Color? backgroundColor;
   final TextEditingController? controller;
   final Function(String?) validator;
+  final bool? readOnly;
+  final void Function()? onTap;
 
   const AppTextFormField({
     super.key,
@@ -29,12 +31,16 @@ class AppTextFormField extends StatelessWidget {
     this.suffixIcon,
     this.backgroundColor,
     this.controller,
-    required this.validator});
+    required this.validator,
+    this.readOnly,
+    this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
+      readOnly: readOnly ?? false,
+      onTap: onTap ?? (){},
       decoration: InputDecoration(
         isDense: true,
         contentPadding: contentPadding ?? EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),

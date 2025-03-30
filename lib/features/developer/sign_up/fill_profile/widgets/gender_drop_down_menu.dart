@@ -8,6 +8,8 @@ import '../../../../../core/theming/colors.dart';
 class GenderDropDownMenu extends StatefulWidget {
   final String? hintText;
   final TextStyle? hintStyle;
+  /*TODO: Make the controller non-nullable and should be required
+     dispose will happen in the parent widget*/
   final TextEditingController? gender;
   final TextStyle? textStyle;
   final double? dropDownMenuItemHorizontalPadding;
@@ -31,8 +33,11 @@ class GenderDropDownMenu extends StatefulWidget {
 }
 
 class _GenderDropDownMenuState extends State<GenderDropDownMenu> {
-
-
+  @override
+  void dispose() {
+    super.dispose();
+    widget.gender?.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField<String>(
