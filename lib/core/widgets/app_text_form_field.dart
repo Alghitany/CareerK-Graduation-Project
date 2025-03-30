@@ -22,6 +22,9 @@ class AppTextFormField extends StatelessWidget {
   final void Function()? onTap;
   final TextInputType? keyboardType;
   final void Function(String)? onChanged;
+  final int? minLines;
+  final int? maxLines;
+  final double? borderRadius;
 
   const AppTextFormField(
       {super.key,
@@ -41,16 +44,21 @@ class AppTextFormField extends StatelessWidget {
       this.readOnly,
       this.onTap,
       this.keyboardType,
-      this.onChanged});
+      this.onChanged,
+      this.minLines,
+      this.maxLines,
+      this.borderRadius});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
       readOnly: readOnly ?? false,
-      onChanged: onChanged ?? (value) {},
-      onTap: onTap ?? () {},
-      keyboardType: keyboardType ?? TextInputType.phone,
+      onChanged: onChanged,
+      onTap: onTap,
+      keyboardType: keyboardType,
+      minLines: minLines,
+      maxLines: maxLines,
       decoration: InputDecoration(
         isDense: true,
         contentPadding: contentPadding ??
@@ -61,28 +69,28 @@ class AppTextFormField extends StatelessWidget {
                   color: ColorsManager.blueBell,
                   width: 1.3,
                 ),
-                borderRadius: BorderRadius.circular(8.0)),
+                borderRadius: BorderRadius.circular(borderRadius ?? 8.0)),
         enabledBorder: enabledBorder ??
             OutlineInputBorder(
                 borderSide: const BorderSide(
                   color: ColorsManager.blueBell,
                   width: 1.3,
                 ),
-                borderRadius: BorderRadius.circular(8.0)),
+                borderRadius: BorderRadius.circular(borderRadius ?? 8.0)),
         errorBorder: errorBorder ??
             OutlineInputBorder(
                 borderSide: const BorderSide(
                   color: Colors.red,
                   width: 1.3,
                 ),
-                borderRadius: BorderRadius.circular(8.0)),
+                borderRadius: BorderRadius.circular(borderRadius ?? 8.0)),
         focusedErrorBorder: focusedErrorBorder ??
             OutlineInputBorder(
                 borderSide: const BorderSide(
                   color: Colors.red,
                   width: 1.3,
                 ),
-                borderRadius: BorderRadius.circular(8.0)),
+                borderRadius: BorderRadius.circular(borderRadius ?? 8.0)),
         hintStyle: hintStyle ?? AppTextStyles.font14MercuryPoppinsMedium,
         hintText: hintText,
         suffixIcon: suffixIcon,

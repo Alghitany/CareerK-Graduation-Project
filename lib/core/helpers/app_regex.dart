@@ -22,4 +22,8 @@ class AppRegex {
   static bool isValidPhoneNumber(String phoneNumber) {
     return RegExp(r'^[0-9]{8,12}$').hasMatch(phoneNumber);
   }
+
+  static bool isValidDescription(String description) {
+    return RegExp(r'^\s*(?:\S\s*){20,50}$').hasMatch(description);
+  }
 }
