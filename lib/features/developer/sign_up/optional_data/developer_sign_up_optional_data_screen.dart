@@ -1,7 +1,8 @@
+
 import 'package:flutter/material.dart';
 
-class DeveloperSignUpBioAndSkills extends StatelessWidget {
-  const DeveloperSignUpBioAndSkills({super.key});
+class DeveloperSignUpOptionalDataScreen extends StatelessWidget {
+  const DeveloperSignUpOptionalDataScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

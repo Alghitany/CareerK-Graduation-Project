@@ -1,5 +1,5 @@
 class Routes {
-  // Authentication
+  // ---------------- Authentication ----------------
   static const String onBoardingScreen = "/onBoardingScreen";
   static const String loginScreen = "/loginScreen";
   static const String signUpUserTypeScreen = "/signUpUserTypeScreen";
@@ -9,24 +9,31 @@ class Routes {
   static const String successfulChangePasswordScreen =
       "/successfulChangePasswordScreen";
 
-  // Company
+  // ---------------- Company ----------------
+  // Sign Up
   static const String companySignUpCompulsoryDataScreen =
       "/companySignUpCompulsoryDataScreen";
+  // Home
   static const String companyHomeMainPageScreen = "/companyHomeMainPageScreen";
 
-  // Developer
+  // ---------------- Developer ----------------
+  //Sign Up
   static const String developerSignUpCompulsoryDataScreen =
       "/developerSignUpCompulsoryDataScreen";
   static const String developerSignUpFillProfileScreen =
       "/developerSignUpFillProfileScreen";
   static const String developerSignUpEnterLocationScreen =
       "/developerSignUpEnterLocationScreen";
-  static const String developerSignUpBioAndSkills =
-      "/developerSignUpBioAndSkills";
+  static const String developerSignUpBioAndSkillsScreen =
+      "/developerSignUpBioAndSkillsScreen";
+  static const String developerSignUpOptionalDataScreen =
+      "/developerSignUpOptionalDataScreen";
+  // Home
   static const String developerHomeMainPageScreen =
       "/developerHomeMainPageScreen";
 
-  // Customer
+  // ---------------- Customer ----------------
+  // Sign Up
   static const String customerSignUpCompulsoryDataScreen =
       "/customerSignUpCompulsoryDataScreen";
 }

@@ -33,7 +33,7 @@ class DeveloperSignUpEnterLocationScreen extends StatelessWidget {
                     textStyle: AppTextStyles.font14WhitePoppinsMedium,
                     onPressed: (){
                       //TODO: Check Validation that data is correct to go to next page
-                      context.pushNamed(Routes.developerSignUpBioAndSkills);
+                      context.pushNamed(Routes.developerSignUpBioAndSkillsScreen);
                     }),
               ],
             ),
