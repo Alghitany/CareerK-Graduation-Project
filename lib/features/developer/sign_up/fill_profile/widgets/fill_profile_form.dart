@@ -1,24 +1,51 @@
+import 'package:carrerk/core/widgets/app_label.dart';
+import 'package:carrerk/features/developer/sign_up/fill_profile/widgets/phone_number_form_field.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/helpers/spacing.dart';
 import 'date_of_birth_form_field.dart';
 import 'gender_drop_down_menu.dart';
 
-class FillProfileForm extends StatelessWidget {
+class FillProfileForm extends StatefulWidget {
   const FillProfileForm({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final formKey = GlobalKey<FormState>();
+  State<FillProfileForm> createState() => _FillProfileFormState();
+}
 
+class _FillProfileFormState extends State<FillProfileForm> {
+  final formKey = GlobalKey<FormState>();
+  final TextEditingController dobController = TextEditingController();
+  final TextEditingController genderController = TextEditingController();
+
+  @override
+  void dispose() {
+    super.dispose();
+    dobController.dispose();
+    genderController.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Form(
       key: formKey,
       child: Column(
         children: [
           //TODO: Controllers should be reviewed to prevent memory leak
+          const AppLabel(text: 'Gender'),
+          verticalSpace(8),
           const GenderDropDownMenu(),
-          verticalSpace(28),
-          const DateOfBirthFormField(),
+          verticalSpace(16),
+          const AppLabel(text: 'Date Of Birth'),
+          verticalSpace(8),
+          // Note: Date of birth will appear when controller work
+          DateOfBirthFormField(
+            dobController: dobController,
+          ),
+          verticalSpace(16),
+          const AppLabel(text: 'Phone Number'),
+          verticalSpace(8),
+          const PhoneNumberFormField(),
         ],
       ),
     );

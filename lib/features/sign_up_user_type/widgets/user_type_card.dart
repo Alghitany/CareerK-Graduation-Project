@@ -7,7 +7,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class UserTypeCard extends StatelessWidget {
-
   final String routeName;
   final double? containerHeight;
   final double? containerWidth;
@@ -57,10 +56,8 @@ class UserTypeCard extends StatelessWidget {
               width: iconWidth ?? 24.w,
             ),
             verticalSpace(4),
-            Text(
-              text,
-              style: textStyle ?? AppTextStyles.font14GranitePoppinsRegular
-            ),
+            Text(text,
+                style: textStyle ?? AppTextStyles.font14GranitePoppinsRegular),
           ],
         ),
       ),

@@ -29,12 +29,11 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
             verticalSpace(12),
             AppTextFormField(
                 hintText: 'email@email.com',
-                validator: (email){
-                  if(email.isNullOrEmpty() || !AppRegex.isValidEmail(email!)){
+                validator: (email) {
+                  if (email.isNullOrEmpty() || !AppRegex.isValidEmail(email!)) {
                     return 'Please enter a valid email';
                   }
-                }
-            ),
+                }),
             verticalSpace(16),
             const AppLabel(text: 'Password'),
             verticalSpace(12),
@@ -47,31 +46,31 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
                       isObscurePassword = !isObscurePassword;
                     });
                   },
-                  child: isObscurePassword ?
+                  child: isObscurePassword
+                      ?
                       //TODO: Add eye_closed
-                    const Icon(
-                     Icons.visibility,
-                    ):
-                  Container(
-                    width: 32.w,
-                    height: 12.h,
-                    alignment: Alignment.center,
-                    child: SvgPicture.asset(
-                      'assets/svgs/visibility_off.svg',
-                      width: 23.w,
-                      height: 15.h,
-                      fit: BoxFit.contain,
-                    ),
-                  ),
+                      const Icon(
+                          Icons.visibility,
+                        )
+                      : Container(
+                          width: 32.w,
+                          height: 12.h,
+                          alignment: Alignment.center,
+                          child: SvgPicture.asset(
+                            'assets/svgs/visibility_off.svg',
+                            width: 23.w,
+                            height: 15.h,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
                 ),
-                validator: (password){
-                  if(password.isNullOrEmpty() || !AppRegex.isValidPassword(password!)){
+                validator: (password) {
+                  if (password.isNullOrEmpty() ||
+                      !AppRegex.isValidPassword(password!)) {
                     return 'Please enter a valid password';
                   }
-                }
-            )
+                })
           ],
-        )
-    );
+        ));
   }
 }

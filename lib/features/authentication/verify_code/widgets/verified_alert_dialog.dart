@@ -2,6 +2,7 @@ import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/app_text_button.dart';
@@ -24,24 +25,18 @@ class VerifiedAlertDialog extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Image.asset(
-                  "assets/images/verified_successfully.png",
-                  height: 100.h,
-                  width: 100.w),
-
+              Image.asset("assets/images/verified_successfully.png",
+                  height: 100.h, width: 100.w),
               verticalSpace(24),
-
               Text(
                 "Verified Successfully",
                 style: AppTextStyles.font20BlackPoppinsMedium,
               ),
-
               verticalSpace(36),
-
               AppTextButton(
                 buttonText: 'Next',
-                buttonHeight: 53.w,
-                buttonWidth: 185.h,
+                buttonHeight: 53.h,
+                buttonWidth: 185.w,
                 textStyle: AppTextStyles.font14WhitePoppinsMedium,
                 onPressed: () {
                   context.pushNamed(Routes.changePasswordScreen);

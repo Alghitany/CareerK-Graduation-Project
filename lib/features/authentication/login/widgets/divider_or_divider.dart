@@ -17,12 +17,9 @@ class DividerOrDivider extends StatelessWidget {
           ),
         ),
         Padding(
-            padding: EdgeInsets.symmetric(horizontal: 12.0.w), // Space between dividers
-            child:Text(
-              'Or',
-              style: AppTextStyles.font14BlackPoppinsMedium
-            )
-        ),
+            padding: EdgeInsets.symmetric(
+                horizontal: 12.0.w), // Space between dividers
+            child: Text('Or', style: AppTextStyles.font14BlackPoppinsMedium)),
         const Expanded(
           child: Divider(
             color: ColorsManager.lemonGrass,

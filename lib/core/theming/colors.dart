@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-class ColorsManager{
+class ColorsManager {
   static const Color primaryWildBlueYonder = Color(0xFF7D8AC3);
   static const Color secondaryWildBlueYonder = Color(0xFF7E89B7);
   static const Color rangoonGreen = Color(0xFF1A1A1A);
@@ -21,5 +21,5 @@ class ColorsManager{
   static const Color titanWhite = Color(0xFFE8F1FF);
   static const Color ghostWhite = Color(0xFFF5F9FF);
   static const Color surfieGreen = Color(0xFF167F71);
-  static const Color casper = Color(0xFFB0B8E3);
+  static const Color muleFawn = Color(0xFF964233);
 }

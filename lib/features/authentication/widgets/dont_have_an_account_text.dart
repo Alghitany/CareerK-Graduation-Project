@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 
 import '../../../core/routing/routes.dart';
 
-
 class DontHaveAnAccountText extends StatelessWidget {
   const DontHaveAnAccountText({super.key});
 
