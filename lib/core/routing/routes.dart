@@ -21,6 +21,8 @@ class Routes {
       "/developerSignUpFillProfileScreen";
   static const String developerSignUpEnterLocationScreen =
       "/developerSignUpEnterLocationScreen";
+  static const String developerSignUpBioAndSkills =
+      "/developerSignUpBioAndSkills";
   static const String developerHomeMainPageScreen =
       "/developerHomeMainPageScreen";
 
