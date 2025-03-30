@@ -67,6 +67,8 @@ dependencies:
   flutter_secure_storage: ^9.2.4
   # Pin code input (OTP) text field
   pinput: ^5.0.1
+  # Selecting images from library, and taking new pictures with the camera.
+  image_picker: ^1.1.2
 
 dev_dependencies:
   flutter_test:

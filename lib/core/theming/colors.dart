@@ -18,4 +18,8 @@ class ColorsManager{
   static const Color cadetBlue = Color(0xFFA4AED5);
   static const Color granite = Color(0xFF808080);
   static const Color plantation = Color(0xCC235347);
+  static const Color titanWhite = Color(0xFFE8F1FF);
+  static const Color ghostWhite = Color(0xFFF5F9FF);
+  static const Color surfieGreen = Color(0xFF167F71);
+  static const Color casper = Color(0xFFB0B8E3);
 }
