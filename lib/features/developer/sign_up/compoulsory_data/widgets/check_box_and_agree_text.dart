@@ -13,9 +13,7 @@ class CheckBoxAndAgreeText extends StatelessWidget {
     return Row(
       children: [
         AppCheckBox(isChecked: isChecked),
-
         horizontalSpace(8),
-
         RichText(
           textAlign: TextAlign.center,
           text: TextSpan(

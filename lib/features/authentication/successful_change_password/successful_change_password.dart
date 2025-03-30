@@ -15,33 +15,29 @@ class SuccessfulChangePasswordScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              verticalSpace(12),
-              Image.asset(
-                'assets/images/successful_change_password.png'
-              ),
-              verticalSpace(36),
-              Text(
-                  'You have successfully change password.\nPlease use the new password when Sign in.',
-                  style: AppTextStyles.font14DunePoppinsMedium,
-                  textAlign: TextAlign.center,),
-              verticalSpace(52),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0.w),
-                child: AppTextButton(
-                    buttonText: 'Ok',
-                    textStyle: AppTextStyles.font14WhitePoppinsMedium,
-                    onPressed: (){
-                      context.pushNamedAndRemoveUntil(
-                          Routes.loginScreen,
-                          predicate: (route) => false
-                      );
-                    }),
-              )
-            ],
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          verticalSpace(12),
+          Image.asset('assets/images/successful_change_password.png'),
+          verticalSpace(36),
+          Text(
+            'You have successfully change password.\nPlease use the new password when Sign in.',
+            style: AppTextStyles.font14DunePoppinsMedium,
+            textAlign: TextAlign.center,
+          ),
+          verticalSpace(52),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0.w),
+            child: AppTextButton(
+                buttonText: 'Ok',
+                textStyle: AppTextStyles.font14WhitePoppinsMedium,
+                onPressed: () {
+                  context.pushNamedAndRemoveUntil(Routes.loginScreen,
+                      predicate: (route) => false);
+                }),
           )
-      ),
+        ],
+      )),
     );
   }
 }

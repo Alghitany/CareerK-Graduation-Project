@@ -5,10 +5,29 @@ import '../theming/colors.dart';
 
 class AppCheckBox extends StatefulWidget {
   final bool isChecked;
+  final double? width;
+  final double? height;
+  final double? scale;
+  final double? borderRadius;
+  final Color? borderColor;
+  final Color? activeColor;
+  final Color? checkColor;
+  final MaterialTapTargetSize? materialTapTargetSize;
+  final VisualDensity? visualDensity;
+
   const AppCheckBox({
     super.key,
     required this.isChecked,
-    });
+    this.width,
+    this.height,
+    this.scale,
+    this.borderRadius,
+    this.borderColor,
+    this.activeColor,
+    this.checkColor,
+    this.materialTapTargetSize,
+    this.visualDensity,
+  });
 
   @override
   State<AppCheckBox> createState() => _AppCheckBoxState();
@@ -26,10 +45,10 @@ class _AppCheckBoxState extends State<AppCheckBox> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 24.0.w,
-      height: 24.0.h,
+      width: widget.width?.w ?? 24.0.w,
+      height: widget.height?.h ?? 24.0.h,
       child: Transform.scale(
-        scale: 1.2,
+        scale: widget.scale ?? 1.2,
         child: Checkbox(
           value: _isChecked,
           onChanged: (value) {
@@ -38,16 +57,16 @@ class _AppCheckBoxState extends State<AppCheckBox> {
             });
           },
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(6.0),
+            borderRadius: BorderRadius.circular(widget.borderRadius ?? 6.0),
           ),
-          side: const BorderSide(
-            color: ColorsManager.liver,
-            width: 1,
+          side: BorderSide(
+            color: widget.borderColor ?? ColorsManager.liver,
           ),
-          activeColor: ColorsManager.blueBell,
-          checkColor: Colors.white,
-          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          visualDensity: VisualDensity.compact,
+          activeColor: widget.activeColor ?? ColorsManager.blueBell,
+          checkColor: widget.checkColor ?? Colors.white,
+          materialTapTargetSize:
+              widget.materialTapTargetSize ?? MaterialTapTargetSize.shrinkWrap,
+          visualDensity: widget.visualDensity ?? VisualDensity.compact,
         ),
       ),
     );
