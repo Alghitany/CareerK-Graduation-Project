@@ -17,9 +17,9 @@ class DeveloperSignUpOptionalDataScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
-            child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 16.h),
-                    child: Column(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 16.h),
+          child: Column(
             children: [
               const AppBackIcon(),
               Text(
@@ -37,15 +37,14 @@ class DeveloperSignUpOptionalDataScreen extends StatelessWidget {
               AppTextButton(
                   buttonText: 'Continue',
                   textStyle: AppTextStyles.font14WhitePoppinsMedium,
-                  onPressed: (){
+                  onPressed: () {
                     //TODO: Check Validation that data is correct to go to next page
                     context.pushNamed(Routes.developerSignUpSelectedCourses);
-                  }
-              )
+                  })
             ],
-                    ),
-                  ),
-          )),
+          ),
+        ),
+      )),
     );
   }
 }

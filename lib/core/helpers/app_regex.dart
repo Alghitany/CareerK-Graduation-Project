@@ -26,6 +26,7 @@ class AppRegex {
   static bool isValidDescription(String description) {
     return RegExp(r'^\s*(?:\S\s*){20,50}$').hasMatch(description);
   }
+
   static bool isValidNumber(String number) {
     return RegExp(r'^\d+$').hasMatch(number); // Only digits
   }
