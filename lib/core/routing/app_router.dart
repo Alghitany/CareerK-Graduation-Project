@@ -18,6 +18,7 @@ import '../../features/developer/sign_up/optional_data/developer_sign_up_optiona
 import '../../features/developer/sign_up/selected_courses/developer_sign_up_selected_courses.dart';
 import '../../features/developer/sign_up_completed/cv_downloaded/developer_sign_up_completed_cv_downloaded.dart';
 import '../../features/developer/sign_up_completed/cv_is_done/developer_sign_up_completed_cv_is_done.dart';
+import '../../features/developer/sign_up_completed/ready_to_go/developer_sign_up_completed_ready_to_go.dart';
 import '../../features/sign_up_user_type/sign_up_user_type_screen.dart';
 import 'routes.dart';
 
@@ -98,6 +99,10 @@ class AppRouter {
       case Routes.developerSignUpCompletedCvDownloaded:
         return MaterialPageRoute(
           builder: (_) => const DeveloperSignUpCompletedCvDownloaded(),
+        );
+      case Routes.developerSignUpCompletedReadyToGo:
+        return MaterialPageRoute(
+          builder: (_) => const DeveloperSignUpCompletedReadyToGo(),
         );
       // Home
       case Routes.developerHomeMainPageScreen:

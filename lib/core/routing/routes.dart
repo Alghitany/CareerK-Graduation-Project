@@ -37,7 +37,8 @@ class Routes {
       "/developerSignUpCompletedCvIsDone";
   static const String developerSignUpCompletedCvDownloaded =
       "/developerSignUpCompletedCvDownloaded";
-
+  static const String developerSignUpCompletedReadyToGo =
+      "/developerSignUpCompletedReadyToGo";
   // Home
   static const String developerHomeMainPageScreen =
       "/developerHomeMainPageScreen";
