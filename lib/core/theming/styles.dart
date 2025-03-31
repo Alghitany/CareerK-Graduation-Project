@@ -58,6 +58,12 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.regular,
   );
+  static TextStyle font30MountainMistPoppinsMedium = TextStyle(
+    fontSize: 30.sp,
+    color: ColorsManager.mountainMist,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.medium,
+  );
   static TextStyle font24DunePoppinsMedium = TextStyle(
     fontSize: 24.sp,
     color: ColorsManager.dune,
