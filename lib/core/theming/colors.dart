@@ -22,4 +22,5 @@ class ColorsManager {
   static const Color ghostWhite = Color(0xFFF5F9FF);
   static const Color surfieGreen = Color(0xFF167F71);
   static const Color muleFawn = Color(0xFF964233);
+  static const Color geyser = Color(0xFFD8DCED);
 }

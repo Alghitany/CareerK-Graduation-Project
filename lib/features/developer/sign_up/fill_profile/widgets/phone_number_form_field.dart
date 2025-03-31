@@ -44,102 +44,94 @@ class PhoneNumberFormFieldState extends State<PhoneNumberFormField> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        FormField<String>(
-          validator: (phoneNumber) {
-            if (phoneNumber.isNullOrEmpty() ||
-                AppRegex.isValidPhoneNumber(phoneNumber!)) {
-              return "Phone Number is required";
-            }
-            return null;
-          },
-          builder: (FormFieldState<String> field) {
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10.w),
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                        color: field.hasError
-                            ? ColorsManager.muleFawn
-                            : ColorsManager.blueBell),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  height: 48.h,
-                  child: Row(
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          showCountryPicker(
-                            context: context,
-                            showPhoneCode: true,
-                            onSelect: (Country country) {
-                              setState(() {
-                                initialSelectedCountry = country;
-                              });
-                            },
-                          );
+    return FormField<String>(
+      validator: (phoneNumber) {
+        if (phoneNumber.isNullOrEmpty() ||
+            !AppRegex.isValidPhoneNumber(phoneNumber!)) {
+          return "Phone Number is required";
+        }
+        return null;
+      },
+      builder: (FormFieldState<String> field) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              decoration: BoxDecoration(
+                border: Border.all(
+                    color: field.hasError
+                        ? ColorsManager.muleFawn
+                        : ColorsManager.blueBell),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              height: 42.h,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      showCountryPicker(
+                        context: context,
+                        showPhoneCode: true,
+                        onSelect: (Country country) {
+                          setState(() {
+                            initialSelectedCountry = country;
+                          });
                         },
-                        child: Row(
-                          children: [
-                            Text(initialSelectedCountry.flagEmoji,
-                                style: TextStyle(fontSize: 20.sp)),
-                            horizontalSpace(8),
-                            SvgPicture.asset(
-                              'assets/svgs/keyboard_arrow_down.svg',
-                              height: 8.h,
-                              width: 12.w,
-                            ),
-                          ],
+                      );
+                    },
+                    child: Row(
+                      children: [
+                        Text(initialSelectedCountry.flagEmoji,
+                            style: TextStyle(fontSize: 20.sp)),
+                        horizontalSpace(8),
+                        SvgPicture.asset(
+                          'assets/svgs/keyboard_arrow_down.svg',
+                          height: 8.h,
+                          width: 12.w,
                         ),
-                      ),
-                      horizontalSpace(6),
-                      Text("(+${initialSelectedCountry.phoneCode}) ",
-                          style: AppTextStyles.font14MercuryMulishBold),
-                      Expanded(
-                        child: Column(
-                          children: [
-                            AppTextFormField(
-                              contentPadding:
-                                  EdgeInsets.symmetric(vertical: 12.h),
-                              hintText: '01278522505',
-                              hintStyle: AppTextStyles.font14MercuryMulishBold,
-                              validator: (phoneNumber) {},
-                              keyboardType: TextInputType.phone,
-                              focusedBorder: InputBorder.none,
-                              enabledBorder: InputBorder.none,
-                              errorBorder: InputBorder.none,
-                              focusedErrorBorder: InputBorder.none,
-                              onChanged: (value) {
-                                field.didChange(value);
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                AnimatedSize(
-                  duration: const Duration(milliseconds: 100),
-                  child: field.hasError
-                      ? Padding(
-                          padding: const EdgeInsets.only(top: 5, left: 14),
-                          child: Text(
-                            field.errorText!,
-                            style: AppTextStyles.font12MuleFawnPoppinsRegular,
-                          ),
-                        )
-                      : const SizedBox.shrink(),
-                ),
-              ],
-            );
-          },
-        ),
-      ],
+                  horizontalSpace(6),
+                  Text("(+${initialSelectedCountry.phoneCode}) ",
+                      style: AppTextStyles.font14MercuryMulishBold),
+                  Expanded(
+                    child: AppTextFormField(
+                      contentPadding:
+                          EdgeInsets.symmetric(vertical: 10.h),
+                      hintText: '01278522505',
+                      hintStyle: AppTextStyles.font14MercuryMulishBold,
+                      validator: (phoneNumber) {},
+                      keyboardType: TextInputType.phone,
+                      focusedBorder: InputBorder.none,
+                      enabledBorder: InputBorder.none,
+                      errorBorder: InputBorder.none,
+                      focusedErrorBorder: InputBorder.none,
+                      onChanged: (value) {
+                        field.didChange(value);
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            AnimatedSize(
+              duration: const Duration(milliseconds: 100),
+              child: field.hasError
+                  ? Padding(
+                      padding: const EdgeInsets.only(top: 5, left: 14),
+                      child: Text(
+                        field.errorText!,
+                        style: AppTextStyles.font12MuleFawnPoppinsRegular,
+                      ),
+                    )
+                  : const SizedBox.shrink(),
+            ),
+          ],
+        );
+      },
     );
   }
 }

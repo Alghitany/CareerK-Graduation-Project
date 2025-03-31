@@ -17,30 +17,32 @@ class DeveloperSignUpFillProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 16.h),
-          child: Column(
-            children: [
-              const AppBackIcon(),
-              verticalSpace(16),
-              Text(
-                'Fill Your Profile',
-                style: AppTextStyles.font24DunePoppinsMedium,
-              ),
-              verticalSpace(24),
-              const AppEditProfilePicture(),
-              verticalSpace(24),
-              const FillProfileForm(),
-              verticalSpace(40),
-              AppTextButton(
-                buttonText: 'Continue',
-                textStyle: AppTextStyles.font14WhitePoppinsMedium,
-                onPressed: () {
-                  //TODO: Check the validation of form fields and navigate
-                  context.pushNamed(Routes.developerSignUpEnterLocationScreen);
-                },
-              )
-            ],
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 16.h),
+            child: Column(
+              children: [
+                const AppBackIcon(),
+                verticalSpace(16),
+                Text(
+                  'Fill Your Profile',
+                  style: AppTextStyles.font24DunePoppinsMedium,
+                ),
+                verticalSpace(24),
+                const AppEditProfilePicture(),
+                verticalSpace(24),
+                const FillProfileForm(),
+                verticalSpace(40),
+                AppTextButton(
+                  buttonText: 'Continue',
+                  textStyle: AppTextStyles.font14WhitePoppinsMedium,
+                  onPressed: () {
+                    //TODO: Check the validation of form fields and navigate
+                    context.pushNamed(Routes.developerSignUpEnterLocationScreen);
+                  },
+                )
+              ],
+            ),
           ),
         ),
       ),

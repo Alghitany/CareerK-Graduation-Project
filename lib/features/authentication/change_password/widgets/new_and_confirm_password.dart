@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../../core/helpers/app_regex.dart';
 import '../../../../core/helpers/spacing.dart';
+import '../../../../core/theming/colors.dart';
 import '../../../../core/widgets/app_label.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
 
@@ -17,8 +18,8 @@ class NewAndConfirmPassword extends StatefulWidget {
 
 class _NewAndConfirmPasswordState extends State<NewAndConfirmPassword> {
   final formKey = GlobalKey<FormState>();
-  bool isObscureNewPassword = false;
-  bool isObscureConfirmPassword = false;
+  bool isObscureNewPassword = true;
+  bool isObscureConfirmPassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -38,20 +39,32 @@ class _NewAndConfirmPasswordState extends State<NewAndConfirmPassword> {
                     });
                   },
                   child: isObscureNewPassword
-                      ? const Icon(
-                          Icons.visibility,
-                        )
+                      ?
+                  Container(
+                    width: 32.w,
+                    height: 12.h,
+                    alignment: Alignment.center,
+                    child: SvgPicture.asset(
+                      'assets/svgs/visibility_on.svg',
+                      width: 26.w,
+                      height: 23.h,
+                      fit: BoxFit.contain,
+                      colorFilter: const ColorFilter.mode(
+                          ColorsManager.geyser,
+                          BlendMode.srcIn),
+                    ),
+                  )
                       : Container(
-                          width: 32.w,
-                          height: 12.h,
-                          alignment: Alignment.center,
-                          child: SvgPicture.asset(
-                            'assets/svgs/visibility_off.svg',
-                            width: 23.w,
-                            height: 15.h,
-                            fit: BoxFit.contain,
-                          ),
-                        ),
+                    width: 32.w,
+                    height: 12.h,
+                    alignment: Alignment.center,
+                    child: SvgPicture.asset(
+                      'assets/svgs/visibility_off.svg',
+                      width: 23.w,
+                      height: 15.h,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
                 ),
                 validator: (password) {
                   if (password!.isNullOrEmpty() ||
@@ -72,20 +85,32 @@ class _NewAndConfirmPasswordState extends State<NewAndConfirmPassword> {
                     });
                   },
                   child: isObscureConfirmPassword
-                      ? const Icon(
-                          Icons.visibility,
-                        )
+                      ?
+                  Container(
+                    width: 32.w,
+                    height: 12.h,
+                    alignment: Alignment.center,
+                    child: SvgPicture.asset(
+                      'assets/svgs/visibility_on.svg',
+                      width: 26.w,
+                      height: 23.h,
+                      fit: BoxFit.contain,
+                      colorFilter: const ColorFilter.mode(
+                          ColorsManager.geyser,
+                          BlendMode.srcIn),
+                    ),
+                  )
                       : Container(
-                          width: 32.w,
-                          height: 12.h,
-                          alignment: Alignment.center,
-                          child: SvgPicture.asset(
-                            'assets/svgs/visibility_off.svg',
-                            width: 23.w,
-                            height: 15.h,
-                            fit: BoxFit.contain,
-                          ),
-                        ),
+                    width: 32.w,
+                    height: 12.h,
+                    alignment: Alignment.center,
+                    child: SvgPicture.asset(
+                      'assets/svgs/visibility_off.svg',
+                      width: 23.w,
+                      height: 15.h,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
                 ),
                 validator: (confirmPassword) {
                   //TODO: Check if the confirm password = new password

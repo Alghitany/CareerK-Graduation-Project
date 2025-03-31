@@ -15,46 +15,48 @@ class VerifyCodeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.fromLTRB(16.0.w, 16.0.h, 16.0.w, 8.0.h),
-                  child: const AppBackIcon(),
-                ),
-                Text(
-                  'Verify Code',
-                  style: AppTextStyles.font24DunePoppinsMedium,
-                ),
-                verticalSpace(16),
-                Image.asset('assets/images/verify_code.png'),
-              ],
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0.w),
-              child: Column(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Column(
                 children: [
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(16.0.w, 16.0.h, 16.0.w, 8.0.h),
+                    child: const AppBackIcon(),
+                  ),
                   Text(
-                    'Please enter the code we just sent to email\nexample@gmail.com',
-                    style: AppTextStyles.font13RockBluePoppinsMedium,
-                    textAlign: TextAlign.center,
+                    'Verify Code',
+                    style: AppTextStyles.font24DunePoppinsMedium,
                   ),
-                  verticalSpace(24),
-                  const OtpInput(),
                   verticalSpace(16),
-                  ResendAndDidntGetCode(
-                    onResend: () {
-                      debugPrint("Resend button clicked!");
-                      // TODO: Call API to resend OTP
-                    },
-                  ),
-                  verticalSpace(40),
-                  const VerifyButtonAndAlertDialog(),
+                  Image.asset('assets/images/verify_code.png'),
                 ],
               ),
-            )
-          ],
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0.w),
+                child: Column(
+                  children: [
+                    Text(
+                      'Please enter the code we just sent to email\nexample@gmail.com',
+                      style: AppTextStyles.font13RockBluePoppinsMedium,
+                      textAlign: TextAlign.center,
+                    ),
+                    verticalSpace(24),
+                    const OtpInput(),
+                    verticalSpace(16),
+                    ResendAndDidntGetCode(
+                      onResend: () {
+                        debugPrint("Resend button clicked!");
+                        // TODO: Call API to resend OTP
+                      },
+                    ),
+                    verticalSpace(40),
+                    const VerifyButtonAndAlertDialog(),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
