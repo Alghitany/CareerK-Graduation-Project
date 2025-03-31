@@ -178,6 +178,12 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     color: ColorsManager.plantation,
   );
+  static TextStyle font14PrimaryWildBlueYonderPoppinsMedium = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.medium,
+    fontFamily: 'Poppins',
+    color: ColorsManager.primaryWildBlueYonder,
+  );
   static TextStyle font12MuleFawnPoppinsRegular = TextStyle(
     fontSize: 12.sp,
     fontWeight: FontWeightHelper.regular,
