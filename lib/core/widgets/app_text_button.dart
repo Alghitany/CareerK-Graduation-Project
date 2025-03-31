@@ -9,11 +9,12 @@ class AppTextButton extends StatelessWidget {
   final double? verticalPadding;
   final double? buttonWidth;
   final double? buttonHeight;
-  final String buttonText;
-  final TextStyle textStyle;
+  final String? buttonText;
+  final TextStyle? textStyle;
   final VoidCallback onPressed;
   final Color? borderColor;
   final double? borderWidth;
+  final Widget? child;
 
   const AppTextButton(
       {super.key,
@@ -23,11 +24,12 @@ class AppTextButton extends StatelessWidget {
       this.verticalPadding,
       this.buttonWidth,
       this.buttonHeight,
-      required this.buttonText,
-      required this.textStyle,
+      this.buttonText,
+      this.textStyle,
       required this.onPressed,
       this.borderColor,
-      this.borderWidth});
+      this.borderWidth,
+      this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -52,9 +54,10 @@ class AppTextButton extends StatelessWidget {
             minimumSize: WidgetStateProperty.all(Size(
                 buttonWidth?.w ?? double.infinity, buttonHeight?.h ?? 53.h))),
         onPressed: onPressed,
-        child: Text(
-          buttonText,
-          style: textStyle,
-        ));
+        child: child ??
+            Text(
+              buttonText!,
+              style: textStyle,
+            ));
   }
 }
