@@ -28,6 +28,8 @@ class Routes {
       "/developerSignUpBioAndSkillsScreen";
   static const String developerSignUpOptionalDataScreen =
       "/developerSignUpOptionalDataScreen";
+  static const String developerSignUpSelectedCourses =
+      "/developerSignUpSelectedCourses";
   // Home
   static const String developerHomeMainPageScreen =
       "/developerHomeMainPageScreen";

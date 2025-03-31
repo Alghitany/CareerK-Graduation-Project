@@ -14,55 +14,57 @@ class OnBoardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Column(
-        children: [
-          Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 24.5.h),
-                child: Center(
-                  child: Text(
-                    'Careerk',
-                    style: AppTextStyles
-                        .font34SecondaryWildBlueYonderPoppinsSemiBold,
-                  ),
-                ),
-              ),
-              Image.asset('assets/images/on_boarding.png'),
-            ],
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0.w),
+          child: SingleChildScrollView(
             child: Column(
+                    children: [
+            Column(
               children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Welcome!',
-                    style: AppTextStyles.font32BlackPoppinsSemiBold,
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 24.5.h),
+                  child: Center(
+                    child: Text(
+                      'Careerk',
+                      style: AppTextStyles
+                          .font34SecondaryWildBlueYonderPoppinsSemiBold,
+                    ),
                   ),
                 ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Enjoy Your Journey',
-                    style: AppTextStyles.font16RangoonGreenPoppinsRegular,
-                  ),
-                ),
-                verticalSpace(42),
-                AppTextButton(
-                    buttonText: 'Login',
-                    textStyle: AppTextStyles.font14WhitePoppinsMedium,
-                    onPressed: () {
-                      context.pushNamed(Routes.loginScreen);
-                    }),
+                Image.asset('assets/images/on_boarding.png'),
               ],
             ),
-          ),
-          verticalSpace(28),
-          const DontHaveAnAccountText(),
-        ],
-      )),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0.w),
+              child: Column(
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Welcome!',
+                      style: AppTextStyles.font32BlackPoppinsSemiBold,
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Enjoy Your Journey',
+                      style: AppTextStyles.font16RangoonGreenPoppinsRegular,
+                    ),
+                  ),
+                  verticalSpace(42),
+                  AppTextButton(
+                      buttonText: 'Login',
+                      textStyle: AppTextStyles.font14WhitePoppinsMedium,
+                      onPressed: () {
+                        context.pushNamed(Routes.loginScreen);
+                      }),
+                ],
+              ),
+            ),
+            verticalSpace(28),
+            const DontHaveAnAccountText(),
+                    ],
+                  ),
+          )),
     );
   }
 }

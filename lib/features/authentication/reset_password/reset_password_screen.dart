@@ -19,54 +19,56 @@ class ResetPasswordScreen extends StatelessWidget {
 
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.fromLTRB(16.0.w, 16.0.h, 16.0.w, 8.0.h),
-                  child: const AppBackIcon(),
-                ),
-                Text(
-                  'Reset Password',
-                  style: AppTextStyles.font24DunePoppinsMedium,
-                ),
-                verticalSpace(16),
-                Image.asset('assets/images/reset_password.png'),
-              ],
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0.w),
-              child: Column(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Column(
                 children: [
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(16.0.w, 16.0.h, 16.0.w, 8.0.h),
+                    child: const AppBackIcon(),
+                  ),
                   Text(
-                    'We will email you\na link to reset your password',
-                    style: AppTextStyles.font13RockBluePoppinsMedium,
-                    textAlign: TextAlign.center,
+                    'Reset Password',
+                    style: AppTextStyles.font24DunePoppinsMedium,
                   ),
-                  verticalSpace(24),
-                  Form(
-                    key: formState,
-                    child: AppTextFormField(
-                        hintText: 'email@email.com',
-                        validator: (email) {
-                          if (email.isNullOrEmpty() ||
-                              !AppRegex.isValidEmail(email!)) {
-                            return 'Please enter a valid email';
-                          }
-                        }),
-                  ),
-                  verticalSpace(44),
-                  AppTextButton(
-                      buttonText: 'Send Code',
-                      textStyle: AppTextStyles.font14WhitePoppinsMedium,
-                      onPressed: () {
-                        context.pushNamed(Routes.verifyCodeScreen);
-                      }),
+                  verticalSpace(16),
+                  Image.asset('assets/images/reset_password.png'),
                 ],
               ),
-            )
-          ],
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0.w),
+                child: Column(
+                  children: [
+                    Text(
+                      'We will email you\na link to reset your password',
+                      style: AppTextStyles.font13RockBluePoppinsMedium,
+                      textAlign: TextAlign.center,
+                    ),
+                    verticalSpace(24),
+                    Form(
+                      key: formState,
+                      child: AppTextFormField(
+                          hintText: 'email@email.com',
+                          validator: (email) {
+                            if (email.isNullOrEmpty() ||
+                                !AppRegex.isValidEmail(email!)) {
+                              return 'Please enter a valid email';
+                            }
+                          }),
+                    ),
+                    verticalSpace(44),
+                    AppTextButton(
+                        buttonText: 'Send Code',
+                        textStyle: AppTextStyles.font14WhitePoppinsMedium,
+                        onPressed: () {
+                          context.pushNamed(Routes.verifyCodeScreen);
+                        }),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

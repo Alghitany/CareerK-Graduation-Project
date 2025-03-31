@@ -16,24 +16,26 @@ class DeveloperSignUpBioAndSkillsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 16.h),
-        child: Column(
-          children: [
-            const AppBackIcon(),
-            verticalSpace(32),
-            const BioAndSkillsForm(),
-            verticalSpace(48),
-            AppTextButton(
-              buttonText: 'Continue',
-              textStyle: AppTextStyles.font14WhitePoppinsMedium,
-              onPressed: () {
-                //TODO: Check the validation of form fields and navigate
-                context.pushNamed(Routes.developerSignUpOptionalDataScreen);
-              },),
-          ],
-        ),
-      )),
+          child: SingleChildScrollView(
+            child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 16.h),
+                    child: Column(
+            children: [
+              const AppBackIcon(),
+              verticalSpace(32),
+              const BioSkillsAndCVForm(),
+              verticalSpace(36),
+              AppTextButton(
+                buttonText: 'Continue',
+                textStyle: AppTextStyles.font14WhitePoppinsMedium,
+                onPressed: () {
+                  //TODO: Check the validation of form fields and navigate
+                  context.pushNamed(Routes.developerSignUpOptionalDataScreen);
+                },),
+            ],
+                    ),
+                  ),
+          )),
     );
   }
 }

@@ -16,37 +16,39 @@ class DeveloperSignUpCompulsoryDataScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 16.h),
-        //TODO: Modify spaces when validation return message appear "Overflow"
-        child: Column(
-          children: [
-            const AppBackIcon(),
-            verticalSpace(16),
-            Text(
-              'Developer',
-              style: AppTextStyles.font24DunePoppinsMedium,
-            ),
-            verticalSpace(16),
-            Text(
-              'Please enter the following data',
-              style: AppTextStyles.font15LiverPoppinsMedium,
-            ),
-            verticalSpace(32),
-            const CompulsoryDataForm(),
-            verticalSpace(16),
-            const CheckBoxAndAgreeText(),
-            verticalSpace(32),
-            AppTextButton(
-                buttonText: 'Next Step',
-                textStyle: AppTextStyles.font14WhitePoppinsMedium,
-                onPressed: () {
-                  //TODO: Check Validation that data is correct to go to next page
-                  context.pushNamed(Routes.developerSignUpFillProfileScreen);
-                })
-          ],
-        ),
-      )),
+          child: SingleChildScrollView(
+            child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 16.h),
+                    //TODO: Modify spaces when validation return message appear "Overflow"
+                    child: Column(
+            children: [
+              const AppBackIcon(),
+              verticalSpace(16),
+              Text(
+                'Developer',
+                style: AppTextStyles.font24DunePoppinsMedium,
+              ),
+              verticalSpace(16),
+              Text(
+                'Please enter the following data',
+                style: AppTextStyles.font15LiverPoppinsMedium,
+              ),
+              verticalSpace(32),
+              const CompulsoryDataForm(),
+              verticalSpace(32),
+              const CheckBoxAndAgreeText(),
+              verticalSpace(24),
+              AppTextButton(
+                  buttonText: 'Next Step',
+                  textStyle: AppTextStyles.font14WhitePoppinsMedium,
+                  onPressed: () {
+                    //TODO: Check Validation that data is correct to go to next page
+                    context.pushNamed(Routes.developerSignUpFillProfileScreen);
+                  })
+            ],
+                    ),
+                  ),
+          )),
     );
   }
 }

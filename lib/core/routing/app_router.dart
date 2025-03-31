@@ -15,6 +15,7 @@ import '../../features/developer/sign_up/bio_and_skills/developer_sign_up_bio_an
 import '../../features/developer/sign_up/enter_location/developer_sign_up_enter_location_screen.dart';
 import '../../features/developer/sign_up/fill_profile/developer_sign_up_fill_profile_screen.dart';
 import '../../features/developer/sign_up/optional_data/developer_sign_up_optional_data_screen.dart';
+import '../../features/developer/sign_up/selected_courses/developer_sign_up_selected_courses.dart';
 import '../../features/sign_up_user_type/sign_up_user_type_screen.dart';
 import 'routes.dart';
 
@@ -82,6 +83,10 @@ class AppRouter {
       case Routes.developerSignUpOptionalDataScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperSignUpOptionalDataScreen(),
+        );
+      case Routes.developerSignUpSelectedCourses:
+        return MaterialPageRoute(
+          builder: (_) => const DeveloperSignUpSelectedCourses(),
         );
       // Home
       case Routes.developerHomeMainPageScreen:
