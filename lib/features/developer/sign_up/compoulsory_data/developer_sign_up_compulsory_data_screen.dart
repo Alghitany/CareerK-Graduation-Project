@@ -17,10 +17,10 @@ class DeveloperSignUpCompulsoryDataScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
-            child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 16.h),
-                    //TODO: Modify spaces when validation return message appear "Overflow"
-                    child: Column(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 16.h),
+          //TODO: Modify spaces when validation return message appear "Overflow"
+          child: Column(
             children: [
               const AppBackIcon(),
               verticalSpace(16),
@@ -46,9 +46,9 @@ class DeveloperSignUpCompulsoryDataScreen extends StatelessWidget {
                     context.pushNamed(Routes.developerSignUpFillProfileScreen);
                   })
             ],
-                    ),
-                  ),
-          )),
+          ),
+        ),
+      )),
     );
   }
 }

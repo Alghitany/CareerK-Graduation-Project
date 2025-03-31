@@ -70,11 +70,29 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.medium,
   );
+  static TextStyle font24CloudBurstPoppinsMedium = TextStyle(
+    fontSize: 24.sp,
+    color: ColorsManager.cloudBurst,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.medium,
+  );
+  static TextStyle font20NobelPoppinsMedium = TextStyle(
+    fontSize: 20.sp,
+    color: ColorsManager.nobel,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.medium,
+  );
   static TextStyle font16RangoonGreenPoppinsRegular = TextStyle(
     fontSize: 16.sp,
     color: ColorsManager.rangoonGreen,
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.regular,
+  );
+  static TextStyle font16RangoonGreenPoppinsMedium = TextStyle(
+    fontSize: 16.sp,
+    color: ColorsManager.rangoonGreen,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.medium,
   );
   static TextStyle font14RangoonGreenPoppinsMedium = TextStyle(
     fontSize: 14.sp,
@@ -99,6 +117,12 @@ class AppTextStyles {
     color: ColorsManager.glaucous,
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.semiBold,
+  );
+  static TextStyle font16WhitePoppinsMedium = TextStyle(
+    fontSize: 16.sp,
+    color: Colors.white,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.medium,
   );
   static TextStyle font14WhitePoppinsMedium = TextStyle(
     fontSize: 14.sp,

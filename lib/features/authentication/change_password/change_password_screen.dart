@@ -17,8 +17,8 @@ class ChangePasswordScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
-            child: Column(
-                    children: [
+        child: Column(
+          children: [
             Column(
               children: [
                 Padding(
@@ -56,9 +56,9 @@ class ChangePasswordScreen extends StatelessWidget {
                 ],
               ),
             ),
-                    ],
-                  ),
-          )),
+          ],
+        ),
+      )),
     );
   }
 }

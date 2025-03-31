@@ -23,4 +23,6 @@ class ColorsManager {
   static const Color surfieGreen = Color(0xFF167F71);
   static const Color muleFawn = Color(0xFF964233);
   static const Color geyser = Color(0xFFD8DCED);
+  static const Color cloudBurst = Color(0xFF2A345B);
+  static const Color nobel = Color(0xFFB3B3B3);
 }

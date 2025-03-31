@@ -89,32 +89,30 @@ class _CompulsoryDataFormState extends State<CompulsoryDataForm> {
                     });
                   },
                   child: isObscurePassword
-                      ?
-                  Container(
-                    width: 32.w,
-                    height: 12.h,
-                    alignment: Alignment.center,
-                    child: SvgPicture.asset(
-                      'assets/svgs/visibility_on.svg',
-                      width: 26.w,
-                      height: 23.h,
-                      fit: BoxFit.contain,
-                      colorFilter: const ColorFilter.mode(
-                          ColorsManager.geyser,
-                          BlendMode.srcIn),
-                    ),
-                  )
+                      ? Container(
+                          width: 32.w,
+                          height: 12.h,
+                          alignment: Alignment.center,
+                          child: SvgPicture.asset(
+                            'assets/svgs/visibility_on.svg',
+                            width: 26.w,
+                            height: 23.h,
+                            fit: BoxFit.contain,
+                            colorFilter: const ColorFilter.mode(
+                                ColorsManager.geyser, BlendMode.srcIn),
+                          ),
+                        )
                       : Container(
-                    width: 32.w,
-                    height: 12.h,
-                    alignment: Alignment.center,
-                    child: SvgPicture.asset(
-                      'assets/svgs/visibility_off.svg',
-                      width: 23.w,
-                      height: 15.h,
-                      fit: BoxFit.contain,
-                    ),
-                  ),
+                          width: 32.w,
+                          height: 12.h,
+                          alignment: Alignment.center,
+                          child: SvgPicture.asset(
+                            'assets/svgs/visibility_off.svg',
+                            width: 23.w,
+                            height: 15.h,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
                 ),
                 validator: (password) {
                   if (password!.isNullOrEmpty() ||
@@ -135,32 +133,30 @@ class _CompulsoryDataFormState extends State<CompulsoryDataForm> {
                     });
                   },
                   child: isObscureConfirmPassword
-                      ?
-                  Container(
-                    width: 32.w,
-                    height: 12.h,
-                    alignment: Alignment.center,
-                    child: SvgPicture.asset(
-                      'assets/svgs/visibility_on.svg',
-                      width: 26.w,
-                      height: 23.h,
-                      fit: BoxFit.contain,
-                      colorFilter: const ColorFilter.mode(
-                          ColorsManager.geyser,
-                          BlendMode.srcIn),
-                    ),
-                  )
+                      ? Container(
+                          width: 32.w,
+                          height: 12.h,
+                          alignment: Alignment.center,
+                          child: SvgPicture.asset(
+                            'assets/svgs/visibility_on.svg',
+                            width: 26.w,
+                            height: 23.h,
+                            fit: BoxFit.contain,
+                            colorFilter: const ColorFilter.mode(
+                                ColorsManager.geyser, BlendMode.srcIn),
+                          ),
+                        )
                       : Container(
-                    width: 32.w,
-                    height: 12.h,
-                    alignment: Alignment.center,
-                    child: SvgPicture.asset(
-                      'assets/svgs/visibility_off.svg',
-                      width: 23.w,
-                      height: 15.h,
-                      fit: BoxFit.contain,
-                    ),
-                  ),
+                          width: 32.w,
+                          height: 12.h,
+                          alignment: Alignment.center,
+                          child: SvgPicture.asset(
+                            'assets/svgs/visibility_off.svg',
+                            width: 23.w,
+                            height: 15.h,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
                 ),
                 validator: (confirmPassword) {
                   //TODO: Check if the confirm password = new password

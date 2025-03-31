@@ -38,7 +38,8 @@ class DeveloperSignUpFillProfileScreen extends StatelessWidget {
                   textStyle: AppTextStyles.font14WhitePoppinsMedium,
                   onPressed: () {
                     //TODO: Check the validation of form fields and navigate
-                    context.pushNamed(Routes.developerSignUpEnterLocationScreen);
+                    context
+                        .pushNamed(Routes.developerSignUpEnterLocationScreen);
                   },
                 )
               ],

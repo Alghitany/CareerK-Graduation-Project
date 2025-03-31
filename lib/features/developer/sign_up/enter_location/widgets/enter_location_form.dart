@@ -32,8 +32,7 @@ class EnterLocationForm extends StatelessWidget {
             AppTextFormField(
                 hintText: 'Cairo',
                 validator: (city) {
-                  if (city.isNullOrEmpty() ||
-                      !AppRegex.isValidName(city!)) {
+                  if (city.isNullOrEmpty() || !AppRegex.isValidName(city!)) {
                     return 'Please enter a valid city';
                   }
                 }),
