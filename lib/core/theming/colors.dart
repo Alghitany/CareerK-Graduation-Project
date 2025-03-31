@@ -27,4 +27,5 @@ class ColorsManager {
   static const Color nobel = Color(0xFFB3B3B3);
   static const Color duskyBlue = Color(0xFF465697);
   static const Color darkJungleGreen = Color(0xFF1E1E1E);
+  static const Color mountainMist = Color(0xFF979797);
 }
