@@ -13,11 +13,12 @@ class Routes {
   // Sign Up
   static const String companySignUpCompulsoryDataScreen =
       "/companySignUpCompulsoryDataScreen";
+
   // Home
   static const String companyHomeMainPageScreen = "/companyHomeMainPageScreen";
 
   // ---------------- Developer ----------------
-  //Sign Up
+  // Sign Up
   static const String developerSignUpCompulsoryDataScreen =
       "/developerSignUpCompulsoryDataScreen";
   static const String developerSignUpFillProfileScreen =
@@ -30,6 +31,11 @@ class Routes {
       "/developerSignUpOptionalDataScreen";
   static const String developerSignUpSelectedCourses =
       "/developerSignUpSelectedCourses";
+
+  // Sign Up Completed
+  static const String developerSignUpCompletedCvIsDone =
+      "/developerSignUpCompletedCvIsDone";
+
   // Home
   static const String developerHomeMainPageScreen =
       "/developerHomeMainPageScreen";

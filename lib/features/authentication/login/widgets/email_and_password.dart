@@ -48,8 +48,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
                     });
                   },
                   child: isObscurePassword
-                      ?
-                        Container(
+                      ? Container(
                           width: 32.w,
                           height: 12.h,
                           alignment: Alignment.center,
@@ -59,8 +58,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
                             height: 23.h,
                             fit: BoxFit.contain,
                             colorFilter: const ColorFilter.mode(
-                                ColorsManager.geyser,
-                                BlendMode.srcIn),
+                                ColorsManager.geyser, BlendMode.srcIn),
                           ),
                         )
                       : Container(

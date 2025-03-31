@@ -17,9 +17,9 @@ class DeveloperSignUpBioAndSkillsScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
-            child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 16.h),
-                    child: Column(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 16.h),
+          child: Column(
             children: [
               const AppBackIcon(),
               verticalSpace(32),
@@ -31,11 +31,12 @@ class DeveloperSignUpBioAndSkillsScreen extends StatelessWidget {
                 onPressed: () {
                   //TODO: Check the validation of form fields and navigate
                   context.pushNamed(Routes.developerSignUpOptionalDataScreen);
-                },),
+                },
+              ),
             ],
-                    ),
-                  ),
-          )),
+          ),
+        ),
+      )),
     );
   }
 }

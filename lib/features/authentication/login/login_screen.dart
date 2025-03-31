@@ -21,9 +21,9 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
-            child: Padding(
-                    padding: EdgeInsets.fromLTRB(16.0.w, 16.0.h, 16.0.w, 0.h),
-                    child: Column(
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(16.0.w, 16.0.h, 16.0.w, 0.h),
+          child: Column(
             children: [
               const AppBackIcon(),
               verticalSpace(16),
@@ -72,9 +72,9 @@ class LoginScreen extends StatelessWidget {
               verticalSpace(32),
               const DontHaveAnAccountText(),
             ],
-                    ),
-                  ),
-          )),
+          ),
+        ),
+      )),
     );
   }
 }

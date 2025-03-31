@@ -15,8 +15,8 @@ class OnBoardingScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
-            child: Column(
-                    children: [
+        child: Column(
+          children: [
             Column(
               children: [
                 Padding(
@@ -62,9 +62,9 @@ class OnBoardingScreen extends StatelessWidget {
             ),
             verticalSpace(28),
             const DontHaveAnAccountText(),
-                    ],
-                  ),
-          )),
+          ],
+        ),
+      )),
     );
   }
 }

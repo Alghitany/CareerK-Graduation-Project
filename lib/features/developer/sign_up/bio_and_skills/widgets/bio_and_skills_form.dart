@@ -32,6 +32,7 @@ class _BioAndSkillsFormState extends State<BioSkillsAndCVForm> {
       });
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -48,14 +49,13 @@ class _BioAndSkillsFormState extends State<BioSkillsAndCVForm> {
               minLines: 13,
               maxLines: 15,
               validator: (bio) {
-                if (bio!.isNullOrEmpty() ||
-                    !AppRegex.isValidDescription(bio)) {
+                if (bio!.isNullOrEmpty() || !AppRegex.isValidDescription(bio)) {
                   return "Please enter a valid bio";
                 }
               },
               borderRadius: 0,
               contentPadding:
-              EdgeInsets.symmetric(vertical: 24.h, horizontal: 24.w),
+                  EdgeInsets.symmetric(vertical: 24.h, horizontal: 24.w),
             ),
             verticalSpace(24),
             const AppLabel(text: 'Your Skills'),
@@ -68,14 +68,13 @@ class _BioAndSkillsFormState extends State<BioSkillsAndCVForm> {
               minLines: 13,
               maxLines: 15,
               validator: (bio) {
-                if (bio.isNullOrEmpty() ||
-                    !AppRegex.isValidDescription(bio!)) {
+                if (bio.isNullOrEmpty() || !AppRegex.isValidDescription(bio!)) {
                   return "Please enter a valid bio";
                 }
               },
               borderRadius: 0,
               contentPadding:
-              EdgeInsets.symmetric(vertical: 24.h, horizontal: 24.w),
+                  EdgeInsets.symmetric(vertical: 24.h, horizontal: 24.w),
             ),
             verticalSpace(24),
             const AppLabel(text: 'Upload Your CV (Optional)'),
@@ -84,21 +83,21 @@ class _BioAndSkillsFormState extends State<BioSkillsAndCVForm> {
               onTap: pickFile,
               child: AbsorbPointer(
                 child: AppTextFormField(
-                    hintText: fileName ?? 'CV',
-                    validator: (cv){
-                      if(cv.isNullOrEmpty() || !AppRegex.isValidName(cv!)){
-                        return "Please enter a valid cv";
-                      }
-                    },
-                    suffixIcon: const Icon(
-                        Icons.drive_folder_upload,
-                        color: ColorsManager.granite,
-                        size: 24,),
+                  hintText: fileName ?? 'CV',
+                  validator: (cv) {
+                    if (cv.isNullOrEmpty() || !AppRegex.isValidName(cv!)) {
+                      return "Please enter a valid cv";
+                    }
+                  },
+                  suffixIcon: const Icon(
+                    Icons.drive_folder_upload,
+                    color: ColorsManager.granite,
+                    size: 24,
+                  ),
                 ),
               ),
             ),
           ],
-        )
-    );
+        ));
   }
 }

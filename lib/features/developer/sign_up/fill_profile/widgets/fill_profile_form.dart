@@ -2,6 +2,7 @@ import 'package:carrerk/core/widgets/app_drop_down_menu.dart';
 import 'package:carrerk/core/widgets/app_label.dart';
 import 'package:carrerk/features/developer/sign_up/fill_profile/widgets/phone_number_form_field.dart';
 import 'package:flutter/material.dart';
+
 import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/theming/styles.dart';
 import 'date_of_birth_form_field.dart';
@@ -36,11 +37,12 @@ class _FillProfileFormState extends State<FillProfileForm> {
           verticalSpace(8),
           AppDropDownMenu(
             hintText: 'Female',
-            items:  <String>['Male', 'Female']
+            items: <String>['Male', 'Female']
                 .map<DropdownMenuItem<String>>((String value) {
               return DropdownMenuItem<String>(
                 value: value,
-                child: Text(value, style: AppTextStyles.font14BlackPoppinsRegular),
+                child:
+                    Text(value, style: AppTextStyles.font14BlackPoppinsRegular),
               );
             }).toList(),
           ),
