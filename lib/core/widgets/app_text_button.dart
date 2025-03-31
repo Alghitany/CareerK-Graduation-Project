@@ -12,6 +12,8 @@ class AppTextButton extends StatelessWidget {
   final String buttonText;
   final TextStyle textStyle;
   final VoidCallback onPressed;
+  final Color? borderColor;
+  final double? borderWidth;
 
   const AppTextButton(
       {super.key,
@@ -23,15 +25,24 @@ class AppTextButton extends StatelessWidget {
       this.buttonHeight,
       required this.buttonText,
       required this.textStyle,
-      required this.onPressed});
+      required this.onPressed,
+      this.borderColor,
+      this.borderWidth});
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
         style: ButtonStyle(
             shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(borderRadius ?? 8))),
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(borderRadius ?? 8),
+                side: BorderSide(
+                  color: borderColor ?? Colors.transparent,
+                  // Set your border color
+                  width: borderWidth ?? 1.0,
+                ),
+              ),
+            ),
             backgroundColor: WidgetStateProperty.all(
                 backgroundColor ?? ColorsManager.primaryWildBlueYonder),
             padding: WidgetStateProperty.all<EdgeInsets>(EdgeInsets.symmetric(

@@ -25,4 +25,5 @@ class ColorsManager {
   static const Color geyser = Color(0xFFD8DCED);
   static const Color cloudBurst = Color(0xFF2A345B);
   static const Color nobel = Color(0xFFB3B3B3);
+  static const Color duskyBlue = Color(0xFF465697);
 }
