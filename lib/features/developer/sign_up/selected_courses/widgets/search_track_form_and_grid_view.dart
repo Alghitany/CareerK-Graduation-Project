@@ -95,10 +95,10 @@ class _SearchTrackFormAndGridViewState
               radius: const Radius.circular(10),
               child: GridView.builder(
                 physics: const BouncingScrollPhysics(),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 10.w,
+                  mainAxisSpacing: 10.h,
                   childAspectRatio: 3,
                 ),
                 itemCount: courses.length,
