@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../theming/colors.dart';
 import '../theming/styles.dart';
 
@@ -25,6 +24,8 @@ class AppTextFormField extends StatelessWidget {
   final int? minLines;
   final int? maxLines;
   final double? borderRadius;
+  final double? height;
+  final double? width;
 
   const AppTextFormField(
       {super.key,
@@ -47,61 +48,67 @@ class AppTextFormField extends StatelessWidget {
       this.onChanged,
       this.minLines,
       this.maxLines,
-      this.borderRadius});
+      this.borderRadius,
+      this.height,
+      this.width});
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      controller: controller,
-      readOnly: readOnly ?? false,
-      onChanged: onChanged,
-      onTap: onTap,
-      keyboardType: keyboardType,
-      minLines: minLines,
-      maxLines: maxLines,
-      decoration: InputDecoration(
-        isDense: true,
-        contentPadding: contentPadding ??
-            EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
-        focusedBorder: focusedBorder ??
-            OutlineInputBorder(
-                borderSide: const BorderSide(
-                  color: ColorsManager.blueBell,
-                  width: 1.3,
-                ),
-                borderRadius: BorderRadius.circular(borderRadius ?? 8.0)),
-        enabledBorder: enabledBorder ??
-            OutlineInputBorder(
-                borderSide: const BorderSide(
-                  color: ColorsManager.blueBell,
-                  width: 1.3,
-                ),
-                borderRadius: BorderRadius.circular(borderRadius ?? 8.0)),
-        errorBorder: errorBorder ??
-            OutlineInputBorder(
-                borderSide: const BorderSide(
-                  color: Colors.red,
-                  width: 1.3,
-                ),
-                borderRadius: BorderRadius.circular(borderRadius ?? 8.0)),
-        focusedErrorBorder: focusedErrorBorder ??
-            OutlineInputBorder(
-                borderSide: const BorderSide(
-                  color: Colors.red,
-                  width: 1.3,
-                ),
-                borderRadius: BorderRadius.circular(borderRadius ?? 8.0)),
-        hintStyle: hintStyle ?? AppTextStyles.font14MercuryPoppinsMedium,
-        hintText: hintText,
-        suffixIcon: suffixIcon,
-        fillColor: Colors.white,
-        filled: true,
+    return SizedBox(
+      height: height?.h ?? 40.h,
+      width: width?.w ?? double.infinity.h,
+      child: TextFormField(
+        controller: controller,
+        readOnly: readOnly ?? false,
+        onChanged: onChanged,
+        onTap: onTap,
+        keyboardType: keyboardType,
+        minLines: minLines,
+        maxLines: maxLines ?? 1,
+        decoration: InputDecoration(
+          isDense: true,
+          contentPadding: contentPadding ??
+              EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
+          focusedBorder: focusedBorder ??
+              OutlineInputBorder(
+                  borderSide: const BorderSide(
+                    color: ColorsManager.blueBell,
+                    width: 1.3,
+                  ),
+                  borderRadius: BorderRadius.circular(borderRadius ?? 8.0)),
+          enabledBorder: enabledBorder ??
+              OutlineInputBorder(
+                  borderSide: const BorderSide(
+                    color: ColorsManager.blueBell,
+                    width: 1.3,
+                  ),
+                  borderRadius: BorderRadius.circular(borderRadius ?? 8.0)),
+          errorBorder: errorBorder ??
+              OutlineInputBorder(
+                  borderSide: const BorderSide(
+                    color: Colors.red,
+                    width: 1.3,
+                  ),
+                  borderRadius: BorderRadius.circular(borderRadius ?? 8.0)),
+          focusedErrorBorder: focusedErrorBorder ??
+              OutlineInputBorder(
+                  borderSide: const BorderSide(
+                    color: Colors.red,
+                    width: 1.3,
+                  ),
+                  borderRadius: BorderRadius.circular(borderRadius ?? 8.0)),
+          hintStyle: hintStyle ?? AppTextStyles.font14MercuryPoppinsMedium,
+          hintText: hintText,
+          suffixIcon: suffixIcon,
+          fillColor: Colors.white,
+          filled: true,
+        ),
+        obscureText: isObscureText ?? false,
+        style: AppTextStyles.font14BlackPoppinsMedium,
+        validator: (value) {
+          return validator(value);
+        },
       ),
-      obscureText: isObscureText ?? false,
-      style: AppTextStyles.font14BlackPoppinsMedium,
-      validator: (value) {
-        return validator(value);
-      },
     );
   }
 }

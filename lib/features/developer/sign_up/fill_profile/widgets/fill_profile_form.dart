@@ -1,10 +1,10 @@
+import 'package:carrerk/core/widgets/app_drop_down_menu.dart';
 import 'package:carrerk/core/widgets/app_label.dart';
 import 'package:carrerk/features/developer/sign_up/fill_profile/widgets/phone_number_form_field.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../../core/helpers/spacing.dart';
+import '../../../../../core/theming/styles.dart';
 import 'date_of_birth_form_field.dart';
-import 'gender_drop_down_menu.dart';
 
 class FillProfileForm extends StatefulWidget {
   const FillProfileForm({super.key});
@@ -34,7 +34,16 @@ class _FillProfileFormState extends State<FillProfileForm> {
           //TODO: Controllers should be reviewed to prevent memory leak
           const AppLabel(text: 'Gender'),
           verticalSpace(8),
-          const GenderDropDownMenu(),
+          AppDropDownMenu(
+            hintText: 'Female',
+            items:  <String>['Male', 'Female']
+                .map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value, style: AppTextStyles.font14BlackPoppinsRegular),
+              );
+            }).toList(),
+          ),
           verticalSpace(16),
           const AppLabel(text: 'Date Of Birth'),
           verticalSpace(8),

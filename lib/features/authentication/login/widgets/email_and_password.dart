@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../core/helpers/spacing.dart';
+import '../../../../core/theming/colors.dart';
 import '../../../../core/widgets/app_label.dart';
 
 class EmailAndPassword extends StatefulWidget {
@@ -17,7 +18,7 @@ class EmailAndPassword extends StatefulWidget {
 
 class _EmailAndPasswordState extends State<EmailAndPassword> {
   final formKey = GlobalKey<FormState>();
-  bool isObscurePassword = false;
+  bool isObscurePassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -48,9 +49,19 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
                   },
                   child: isObscurePassword
                       ?
-                      //TODO: Add eye_closed
-                      const Icon(
-                          Icons.visibility,
+                        Container(
+                          width: 32.w,
+                          height: 12.h,
+                          alignment: Alignment.center,
+                          child: SvgPicture.asset(
+                            'assets/svgs/visibility_on.svg',
+                            width: 26.w,
+                            height: 23.h,
+                            fit: BoxFit.contain,
+                            colorFilter: const ColorFilter.mode(
+                                ColorsManager.geyser,
+                                BlendMode.srcIn),
+                          ),
                         )
                       : Container(
                           width: 32.w,
