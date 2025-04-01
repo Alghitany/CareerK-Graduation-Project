@@ -1,18 +1,18 @@
 import 'package:carrerk/features/authentication/verify_code/verify_code_screen.dart';
 import 'package:carrerk/features/company/home/main_page/company_home_main_page_screen.dart';
-import 'package:carrerk/features/company/home/sign_up/compulsory_data/company_sign_up_compulsory_data_screen.dart';
-import 'package:carrerk/features/company/home/sign_up/fill_profile/company_sign_up_fill_profile_screen.dart';
 import 'package:carrerk/features/customer/sign_up/customer_sign_up_compulsory_data_screen.dart';
 import 'package:carrerk/features/developer/home/main_page/developer_home_main_page_screen.dart';
 import 'package:carrerk/features/developer/sign_up/compoulsory_data/developer_sign_up_compulsory_data_screen.dart';
 import 'package:flutter/material.dart';
-
 import '../../features/authentication/change_password/change_password_screen.dart';
 import '../../features/authentication/login/login_screen.dart';
 import '../../features/authentication/onboarding/on_boarding_screen.dart';
 import '../../features/authentication/reset_password/reset_password_screen.dart';
 import '../../features/authentication/successful_change_password/successful_change_password.dart';
-import '../../features/company/home/sign_up/enter_location/company_sign_up_enter_location_screen.dart';
+import '../../features/company/sign_up/compulsory_data/company_sign_up_compulsory_data_screen.dart';
+import '../../features/company/sign_up/contact_information/company_sign_up_contact_information.dart';
+import '../../features/company/sign_up/enter_location/company_sign_up_enter_location_screen.dart';
+import '../../features/company/sign_up/fill_profile/company_sign_up_fill_profile_screen.dart';
 import '../../features/developer/sign_up/bio_and_skills/developer_sign_up_bio_and_skills_screen.dart';
 import '../../features/developer/sign_up/enter_location/developer_sign_up_enter_location_screen.dart';
 import '../../features/developer/sign_up/fill_profile/developer_sign_up_fill_profile_screen.dart';
@@ -71,6 +71,10 @@ class AppRouter {
       case Routes.companySignUpEnterLocationScreen:
         return MaterialPageRoute(
           builder: (_) => const CompanySignUpEnterLocationScreen(),
+        );
+      case Routes.companySignUpContactInformation:
+        return MaterialPageRoute(
+          builder: (_) => const CompanySignUpContactInformation(),
         );
       // Home
       case Routes.companyHomeMainPageScreen:

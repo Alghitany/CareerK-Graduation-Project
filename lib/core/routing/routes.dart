@@ -17,7 +17,8 @@ class Routes {
       "/companySignUpFillProfileScreen";
   static const String companySignUpEnterLocationScreen =
       "/companySignUpEnterLocationScreen";
-
+  static const String companySignUpContactInformation =
+      "/companySignUpContactInformation";
   // Home
   static const String companyHomeMainPageScreen = "/companyHomeMainPageScreen";
 
