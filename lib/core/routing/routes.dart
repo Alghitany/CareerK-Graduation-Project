@@ -53,4 +53,6 @@ class Routes {
   // Sign Up
   static const String customerSignUpCompulsoryDataScreen =
       "/customerSignUpCompulsoryDataScreen";
+  static const String customerSignUpFillProfileScreen =
+      "/customerSignUpFillProfileScreen";
 }

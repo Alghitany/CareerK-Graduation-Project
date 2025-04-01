@@ -32,6 +32,7 @@ class AppRegex {
   }
 
   static bool isValidUrl(String url) {
-    return RegExp(r'^(www\.)?[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+(/.*)?$').hasMatch(url);
+    return RegExp(r'^(www\.)?[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+(/.*)?$')
+        .hasMatch(url);
   }
 }
