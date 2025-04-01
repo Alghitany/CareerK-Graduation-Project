@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../../../core/helpers/app_regex.dart';
-import '../../../../../../core/helpers/spacing.dart';
-import '../../../../../../core/theming/colors.dart';
-import '../../../../../../core/widgets/app_label.dart';
-import '../../../../../../core/widgets/app_text_form_field.dart';
+import '../../../../../core/helpers/app_regex.dart';
+import '../../../../../core/helpers/spacing.dart';
+import '../../../../../core/theming/colors.dart';
+import '../../../../../core/widgets/app_label.dart';
+import '../../../../../core/widgets/app_text_form_field.dart';
 
 class CompulsoryDataForm extends StatefulWidget {
   const CompulsoryDataForm({super.key});
@@ -27,13 +27,12 @@ class _CompulsoryDataFormState extends State<CompulsoryDataForm> {
         key: formKey,
         child: Column(
           children: [
-            const AppLabel(text: 'Company Name'),
+            const AppLabel(text: 'Name'),
             verticalSpace(8),
             AppTextFormField(
-                hintText: 'Toyota',
-                validator: (companyName) {
-                  if (companyName!.isNullOrEmpty() ||
-                      !AppRegex.isValidName(companyName)) {
+                hintText: 'John A.Wick',
+                validator: (name) {
+                  if (name!.isNullOrEmpty() || !AppRegex.isValidName(name)) {
                     return 'Please enter a valid name';
                   }
                 }),

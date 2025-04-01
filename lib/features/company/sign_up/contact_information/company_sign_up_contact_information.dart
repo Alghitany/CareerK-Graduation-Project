@@ -32,11 +32,10 @@ class CompanySignUpContactInformation extends StatelessWidget {
                 AppTextButton(
                     buttonText: 'Start Journey',
                     textStyle: AppTextStyles.font14WhitePoppinsMedium,
-                    onPressed: (){
+                    onPressed: () {
                       //TODO: Check Fields validations then navigate
                       context.pushNamed(Routes.companyHomeMainPageScreen);
-                    }
-                )
+                    })
               ],
             ),
           ),
