@@ -30,4 +30,8 @@ class AppRegex {
   static bool isValidNumber(String number) {
     return RegExp(r'^\d+$').hasMatch(number); // Only digits
   }
+
+  static bool isValidUrl(String url) {
+    return RegExp(r'^(www\.)?[a-zA-Z0-9-]+(\.[a-zA-Z]{2,})(/\S*)?$').hasMatch(url);
+  }
 }

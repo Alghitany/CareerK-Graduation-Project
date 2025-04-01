@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CompanySignUpEnterLocationScreen extends StatelessWidget {
-  const CompanySignUpEnterLocationScreen({super.key});
+class CompanySignUpContactInformation extends StatelessWidget {
+  const CompanySignUpContactInformation({super.key});
 
   @override
   Widget build(BuildContext context) {
