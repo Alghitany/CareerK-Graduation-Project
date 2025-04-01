@@ -12,6 +12,7 @@ import '../../features/authentication/login/login_screen.dart';
 import '../../features/authentication/onboarding/on_boarding_screen.dart';
 import '../../features/authentication/reset_password/reset_password_screen.dart';
 import '../../features/authentication/successful_change_password/successful_change_password.dart';
+import '../../features/company/home/sign_up/enter_location/company_sign_up_enter_location_screen.dart';
 import '../../features/developer/sign_up/bio_and_skills/developer_sign_up_bio_and_skills_screen.dart';
 import '../../features/developer/sign_up/enter_location/developer_sign_up_enter_location_screen.dart';
 import '../../features/developer/sign_up/fill_profile/developer_sign_up_fill_profile_screen.dart';
@@ -66,6 +67,10 @@ class AppRouter {
       case Routes.companySignUpFillProfileScreen:
         return MaterialPageRoute(
           builder: (_) => const CompanySignUpFillProfileScreen(),
+        );
+      case Routes.companySignUpEnterLocationScreen:
+        return MaterialPageRoute(
+          builder: (_) => const CompanySignUpEnterLocationScreen(),
         );
       // Home
       case Routes.companyHomeMainPageScreen:
