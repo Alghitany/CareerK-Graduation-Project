@@ -16,37 +16,36 @@ class DeveloperSignUpCompletedReadyToGo extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 16.h),
-                child: const AppBackIcon(),
-              ),
-              Image.asset(
-                'assets/images/ready_to_go.png',
-              ),
-              verticalSpace(48),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 18.0.w),
-                child: Column(
-                  children: [
-                    Text(
-                      'You are ready to go',
-                      style: AppTextStyles.font30MountainMistPoppinsMedium,
-                    ),
-                    verticalSpace(40),
-                    AppTextButton(
-                      buttonText: 'Start Journey',
-                      textStyle: AppTextStyles.font14WhitePoppinsMedium,
-                      onPressed: () {
-                        context.pushNamed(Routes.developerHomeMainPageScreen);
-                      },
-                    ),
-                  ],
+        children: [
+          Padding(
+            padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 16.h),
+            child: const AppBackIcon(),
+          ),
+          Image.asset(
+            'assets/images/ready_to_go.png',
+          ),
+          verticalSpace(48),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 18.0.w),
+            child: Column(
+              children: [
+                Text(
+                  'You are ready to go',
+                  style: AppTextStyles.font30MountainMistPoppinsMedium,
                 ),
-              )
-            ],
+                verticalSpace(40),
+                AppTextButton(
+                  buttonText: 'Start Journey',
+                  textStyle: AppTextStyles.font14WhitePoppinsMedium,
+                  onPressed: () {
+                    context.pushNamed(Routes.developerHomeMainPageScreen);
+                  },
+                ),
+              ],
+            ),
           )
-      ),
+        ],
+      )),
     );
   }
 }

@@ -15,6 +15,8 @@ class Routes {
       "/companySignUpCompulsoryDataScreen";
   static const String companySignUpFillProfileScreen =
       "/companySignUpFillProfileScreen";
+  static const String companySignUpEnterLocationScreen =
+      "/companySignUpEnterLocationScreen";
 
   // Home
   static const String companyHomeMainPageScreen = "/companyHomeMainPageScreen";
@@ -41,6 +43,7 @@ class Routes {
       "/developerSignUpCompletedCvDownloaded";
   static const String developerSignUpCompletedReadyToGo =
       "/developerSignUpCompletedReadyToGo";
+
   // Home
   static const String developerHomeMainPageScreen =
       "/developerHomeMainPageScreen";
