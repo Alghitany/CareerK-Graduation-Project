@@ -1,6 +1,6 @@
 import 'package:carrerk/features/authentication/verify_code/verify_code_screen.dart';
 import 'package:carrerk/features/company/home/main_page/company_home_main_page_screen.dart';
-import 'package:carrerk/features/customer/sign_up/customer_sign_up_compulsory_data_screen.dart';
+import 'package:carrerk/features/customer/sign_up/compulsory_data/customer_sign_up_compulsory_data_screen.dart';
 import 'package:carrerk/features/developer/home/main_page/developer_home_main_page_screen.dart';
 import 'package:carrerk/features/developer/sign_up/compoulsory_data/developer_sign_up_compulsory_data_screen.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +13,7 @@ import '../../features/company/sign_up/compulsory_data/company_sign_up_compulsor
 import '../../features/company/sign_up/contact_information/company_sign_up_contact_information.dart';
 import '../../features/company/sign_up/enter_location/company_sign_up_enter_location_screen.dart';
 import '../../features/company/sign_up/fill_profile/company_sign_up_fill_profile_screen.dart';
+import '../../features/customer/sign_up/fill_profile/customer_sign_up_fill_profile_screen.dart';
 import '../../features/developer/sign_up/bio_and_skills/developer_sign_up_bio_and_skills_screen.dart';
 import '../../features/developer/sign_up/enter_location/developer_sign_up_enter_location_screen.dart';
 import '../../features/developer/sign_up/fill_profile/developer_sign_up_fill_profile_screen.dart';
@@ -129,6 +130,10 @@ class AppRouter {
       case Routes.customerSignUpCompulsoryDataScreen:
         return MaterialPageRoute(
           builder: (_) => const CustomerSignUpCompulsoryDataScreen(),
+        );
+      case Routes.customerSignUpFillProfileScreen:
+        return MaterialPageRoute(
+          builder: (_) => const CustomerSignUpFillProfileScreen(),
         );
       default:
         return null;

@@ -130,7 +130,8 @@ class _ContactInformationFormState extends State<ContactInformationForm> {
                                 child: SizedBox(
                                   height: 15.h,
                                   width: 15.w,
-                                  child: SvgPicture.asset('assets/svgs/add.svg'),
+                                  child:
+                                      SvgPicture.asset('assets/svgs/add.svg'),
                                 ),
                               ),
                             ),
