@@ -18,8 +18,8 @@ class CompulsoryDataForm extends StatefulWidget {
 
 class _CompulsoryDataFormState extends State<CompulsoryDataForm> {
   final formKey = GlobalKey<FormState>();
-  bool isObscurePassword = false;
-  bool isObscureConfirmPassword = false;
+  bool isObscurePassword = true;
+  bool isObscureConfirmPassword = true;
 
   @override
   Widget build(BuildContext context) {

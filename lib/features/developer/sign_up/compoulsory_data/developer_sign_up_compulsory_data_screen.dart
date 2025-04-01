@@ -3,8 +3,8 @@ import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_back_icon.dart';
+import 'package:carrerk/core/widgets/app_check_box_and_agree_text.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
-import 'package:carrerk/features/developer/sign_up/compoulsory_data/widgets/check_box_and_agree_text.dart';
 import 'package:carrerk/features/developer/sign_up/compoulsory_data/widgets/compulsory_data_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -36,7 +36,7 @@ class DeveloperSignUpCompulsoryDataScreen extends StatelessWidget {
               verticalSpace(32),
               const CompulsoryDataForm(),
               verticalSpace(32),
-              const CheckBoxAndAgreeText(),
+              const AppCheckBoxAndAgreeText(),
               verticalSpace(24),
               AppTextButton(
                   buttonText: 'Next Step',

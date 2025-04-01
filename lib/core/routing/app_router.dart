@@ -1,6 +1,7 @@
 import 'package:carrerk/features/authentication/verify_code/verify_code_screen.dart';
 import 'package:carrerk/features/company/home/main_page/company_home_main_page_screen.dart';
-import 'package:carrerk/features/company/home/sign_up/company_sign_up_compulsory_data_screen.dart';
+import 'package:carrerk/features/company/home/sign_up/compulsory_data/company_sign_up_compulsory_data_screen.dart';
+import 'package:carrerk/features/company/home/sign_up/fill_profile/company_sign_up_fill_profile_screen.dart';
 import 'package:carrerk/features/customer/sign_up/customer_sign_up_compulsory_data_screen.dart';
 import 'package:carrerk/features/developer/home/main_page/developer_home_main_page_screen.dart';
 import 'package:carrerk/features/developer/sign_up/compoulsory_data/developer_sign_up_compulsory_data_screen.dart';
@@ -57,10 +58,16 @@ class AppRouter {
           builder: (_) => const SuccessfulChangePasswordScreen(),
         );
       // ---------------- Company ----------------
+      // Sign Up
       case Routes.companySignUpCompulsoryDataScreen:
         return MaterialPageRoute(
           builder: (_) => const CompanySignUpCompulsoryDataScreen(),
         );
+      case Routes.companySignUpFillProfileScreen:
+        return MaterialPageRoute(
+          builder: (_) => const CompanySignUpFillProfileScreen(),
+        );
+      // Home
       case Routes.companyHomeMainPageScreen:
         return MaterialPageRoute(
           builder: (_) => const CompanyHomeMainPageScreen(),
