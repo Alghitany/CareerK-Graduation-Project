@@ -43,8 +43,7 @@ class CompanySignUpCompulsoryDataScreen extends StatelessWidget {
                     onPressed: () {
                       //TODO: Check that all inputs are valid then navigate to next page
                       context.pushNamed(Routes.companySignUpFillProfileScreen);
-                    }
-                )
+                    })
               ],
             ),
           ),
