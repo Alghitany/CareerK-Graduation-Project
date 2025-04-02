@@ -1,5 +1,6 @@
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/features/developer/home_main_page/widgets/main_page_choice_chips.dart';
+import 'package:carrerk/features/developer/home_main_page/widgets/main_page_popular_courses.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -29,7 +30,8 @@ class DeveloperHomeMainPageScreen extends StatelessWidget {
               const PopularCoursesAndSeeAll(),
               verticalSpace(12),
               const MainPageChoiceChips(),
-              verticalSpace(10),
+              verticalSpace(8),
+              const MainPagePopularCourses()
             ],
           ),
         ),

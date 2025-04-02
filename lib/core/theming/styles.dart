@@ -64,6 +64,12 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.regular,
   );
+  static TextStyle font14BlackMulishBold = TextStyle(
+    fontSize: 14.sp,
+    color: Colors.black,
+    fontFamily: 'Mulish',
+    fontWeight: FontWeightHelper.bold,
+  );
   static TextStyle font30MountainMistPoppinsMedium = TextStyle(
     fontSize: 30.sp,
     color: ColorsManager.mountainMist,
@@ -87,6 +93,12 @@ class AppTextStyles {
     color: ColorsManager.dune,
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.medium,
+  );
+  static TextStyle font12DuneMulishExtraBold = TextStyle(
+    fontSize: 12.sp,
+    color: ColorsManager.dune,
+    fontFamily: 'Mulish',
+    fontWeight: FontWeightHelper.extraBold,
   );
   static TextStyle font24CloudBurstPoppinsMedium = TextStyle(
     fontSize: 24.sp,
