@@ -28,6 +28,12 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.semiBold,
   );
+  static TextStyle font20BlackPoppinsBold = TextStyle(
+    fontSize: 20.sp,
+    fontWeight: FontWeightHelper.bold,
+    fontFamily: "Poppins",
+    color: Colors.black,
+  );
   static TextStyle font20BlackPoppinsMedium = TextStyle(
     fontSize: 20.sp,
     fontWeight: FontWeightHelper.medium,
@@ -66,6 +72,12 @@ class AppTextStyles {
   );
   static TextStyle font24DunePoppinsMedium = TextStyle(
     fontSize: 24.sp,
+    color: ColorsManager.dune,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.medium,
+  );
+  static TextStyle font20DunePoppinsMedium = TextStyle(
+    fontSize: 20.sp,
     color: ColorsManager.dune,
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.medium,
@@ -130,6 +142,12 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.bold,
   );
+  static TextStyle font16PastelGreyPoppinsMedium = TextStyle(
+    fontSize: 16.sp,
+    color: ColorsManager.pastelGrey,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.medium,
+  );
   static TextStyle font16WhitePoppinsBold = TextStyle(
     fontSize: 16.sp,
     color: Colors.white,
@@ -184,8 +202,14 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.medium,
   );
+  static TextStyle font14GranitePoppinsSemiBold = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.semiBold,
+    fontFamily: 'Poppins',
+    color: ColorsManager.granite,
+  );
   static TextStyle font14GranitePoppinsRegular = TextStyle(
-    fontSize: 16.sp,
+    fontSize: 14.sp,
     fontWeight: FontWeightHelper.regular,
     fontFamily: 'Poppins',
     color: ColorsManager.granite,
@@ -207,5 +231,11 @@ class AppTextStyles {
     fontWeight: FontWeightHelper.regular,
     fontFamily: 'Poppins',
     color: ColorsManager.muleFawn,
+  );
+  static TextStyle font12DuskyBluePoppinsSemiBold = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.semiBold,
+    fontFamily: 'Poppins',
+    color: ColorsManager.duskyBlue,
   );
 }

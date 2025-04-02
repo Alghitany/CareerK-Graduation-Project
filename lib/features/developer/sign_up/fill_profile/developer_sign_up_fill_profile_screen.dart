@@ -3,7 +3,7 @@ import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
-import 'package:carrerk/features/developer/sign_up/fill_profile/widgets/fill_profile_form.dart';
+import 'package:carrerk/features/developer/sign_up/fill_profile/widgets/developer_fill_profile_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -31,7 +31,7 @@ class DeveloperSignUpFillProfileScreen extends StatelessWidget {
                 verticalSpace(24),
                 const AppEditProfilePicture(),
                 verticalSpace(24),
-                const FillProfileForm(),
+                const DeveloperFillProfileForm(),
                 verticalSpace(40),
                 AppTextButton(
                   buttonText: 'Continue',

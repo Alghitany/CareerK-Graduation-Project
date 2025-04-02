@@ -1,5 +1,5 @@
 import 'package:carrerk/core/helpers/extensions.dart';
-import 'package:carrerk/features/customer/sign_up/fill_profile/widgets/fill_profile_form.dart';
+import 'package:carrerk/features/customer/sign_up/fill_profile/widgets/customer_fill_profile_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -31,7 +31,7 @@ class CustomerSignUpFillProfileScreen extends StatelessWidget {
                 verticalSpace(16),
                 const AppEditProfilePicture(),
                 verticalSpace(16),
-                const FillProfileForm(),
+                const CustomerFillProfileForm(),
                 verticalSpace(32),
                 AppTextButton(
                     buttonText: 'Continue',

@@ -49,6 +49,18 @@ class Routes {
   static const String developerHomeMainPageScreen =
       "/developerHomeMainPageScreen";
 
+  // Community
+  static const String developerCommunityAllCommunitiesScreen =
+      "/developerCommunityAllCommunitiesScreen";
+
+  // Notifications
+  static const String developerNotificationsScreen =
+      "/developerNotificationsScreen";
+
+  // Search
+  static const String developerSearchScreen =
+      "/developerSearchScreen";
+
   // ---------------- Customer ----------------
   // Sign Up
   static const String customerSignUpCompulsoryDataScreen =

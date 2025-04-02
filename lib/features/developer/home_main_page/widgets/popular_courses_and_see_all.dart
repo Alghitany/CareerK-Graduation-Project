@@ -1,0 +1,34 @@
+import 'package:carrerk/core/helpers/spacing.dart';
+import 'package:carrerk/core/theming/colors.dart';
+import 'package:carrerk/core/theming/styles.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+
+class PopularCoursesAndSeeAll extends StatelessWidget {
+  const PopularCoursesAndSeeAll({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Text(
+            'Popular Courses',
+            style: AppTextStyles.font20DunePoppinsMedium,),
+        const Spacer(),
+        Text(
+          'SEE ALL',
+          style: AppTextStyles.font12DuskyBluePoppinsSemiBold,
+        ),
+        horizontalSpace(5),
+        SvgPicture.asset(
+          'assets/svgs/keyboard_arrow_right.svg',
+          fit: BoxFit.contain,
+          height: 10.h,
+          width: 7.w,
+          colorFilter:const ColorFilter.mode(ColorsManager.duskyBlue, BlendMode.srcIn),
+        ),
+      ],
+    );
+  }
+}

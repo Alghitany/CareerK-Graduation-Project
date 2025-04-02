@@ -7,14 +7,14 @@ import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/widgets/app_label.dart';
 import '../../../../../core/widgets/app_text_form_field.dart';
 
-class FillProfileForm extends StatefulWidget {
-  const FillProfileForm({super.key});
+class CustomerFillProfileForm extends StatefulWidget {
+  const CustomerFillProfileForm({super.key});
 
   @override
-  State<FillProfileForm> createState() => _FillProfileFormState();
+  State<CustomerFillProfileForm> createState() => _CustomerFillProfileFormState();
 }
 
-class _FillProfileFormState extends State<FillProfileForm> {
+class _CustomerFillProfileFormState extends State<CustomerFillProfileForm> {
   final formKey = GlobalKey<FormState>();
 
   @override
