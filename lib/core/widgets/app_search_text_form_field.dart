@@ -19,19 +19,17 @@ class AppSearchTextFormField extends StatelessWidget {
   final double? spreadRadius;
   final Offset? offset;
 
-
-
-  const AppSearchTextFormField({
-    super.key,
-    this.contentPadding,
-    this.height,
-    this.width,
-    this.backgroundColor,
-    this.borderRadius,
-    this.shadowColor,
-    this.blurRadius,
-    this.spreadRadius,
-    this.offset});
+  const AppSearchTextFormField(
+      {super.key,
+      this.contentPadding,
+      this.height,
+      this.width,
+      this.backgroundColor,
+      this.borderRadius,
+      this.shadowColor,
+      this.blurRadius,
+      this.spreadRadius,
+      this.offset});
 
   @override
   Widget build(BuildContext context) {
@@ -52,30 +50,32 @@ class AppSearchTextFormField extends StatelessWidget {
         ],
       ),
       child: GestureDetector(
-        onTap: (){
+        onTap: () {
           context.pushNamed(Routes.developerSearchScreen);
         },
         child: Row(
           children: [
-            SvgPicture.asset(
-                "assets/svgs/search.svg",
+            SvgPicture.asset("assets/svgs/search.svg",
                 fit: BoxFit.contain,
-                colorFilter: const ColorFilter.mode(Colors.black, BlendMode.srcIn)
-            ),
+                colorFilter:
+                    const ColorFilter.mode(Colors.black, BlendMode.srcIn)),
             horizontalSpace(5),
             //TODO: Please someone center this field it is annoying i can't center it
             Expanded(
               child: AppTextFormField(
+                  readOnly: true,
+                  onTap: () {
+                    context.pushNamed(Routes.developerSearchScreen);
+                  },
                   enabledBorder: InputBorder.none,
                   errorBorder: InputBorder.none,
                   focusedBorder: InputBorder.none,
                   focusedErrorBorder: InputBorder.none,
                   hintText: 'Search for...',
                   hintStyle: AppTextStyles.font16PastelGreyPoppinsMedium,
-                  validator: (search){
+                  validator: (search) {
                     //TODO: Add search validation if exist
-                  }
-              ),
+                  }),
             ),
           ],
         ),

@@ -15,6 +15,7 @@ import '../../features/company/sign_up/enter_location/company_sign_up_enter_loca
 import '../../features/company/sign_up/fill_profile/company_sign_up_fill_profile_screen.dart';
 import '../../features/customer/sign_up/fill_profile/customer_sign_up_fill_profile_screen.dart';
 import '../../features/developer/community/all_communities/developer_community_all_communities_screen.dart';
+import '../../features/developer/courses/categories/developer_courses_categories_screen.dart';
 import '../../features/developer/home_main_page/developer_home_main_page_screen.dart';
 import '../../features/developer/search/developer_search_screen.dart';
 import '../../features/developer/sign_up/bio_and_skills/developer_sign_up_bio_and_skills_screen.dart';
@@ -143,6 +144,11 @@ class AppRouter {
       case Routes.developerSearchScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperSearchScreen(),
+        );
+      // Courses
+      case Routes.developerCoursesCategoriesScreen:
+        return MaterialPageRoute(
+          builder: (_) => const DeveloperCoursesCategoriesScreen(),
         );
       // ---------------- Customer ----------------
       case Routes.customerSignUpCompulsoryDataScreen:

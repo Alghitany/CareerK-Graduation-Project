@@ -1,4 +1,6 @@
+import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
+import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
@@ -16,18 +18,27 @@ class PopularCoursesAndSeeAll extends StatelessWidget {
             'Popular Courses',
             style: AppTextStyles.font20DunePoppinsMedium,),
         const Spacer(),
-        Text(
-          'SEE ALL',
-          style: AppTextStyles.font12DuskyBluePoppinsSemiBold,
-        ),
-        horizontalSpace(5),
-        SvgPicture.asset(
-          'assets/svgs/keyboard_arrow_right.svg',
-          fit: BoxFit.contain,
-          height: 10.h,
-          width: 7.w,
-          colorFilter:const ColorFilter.mode(ColorsManager.duskyBlue, BlendMode.srcIn),
-        ),
+        GestureDetector(
+          onTap: (){
+            context.pushNamed(Routes.developerCoursesCategoriesScreen);
+          },
+          child: Row(
+            children: [
+              Text(
+                'SEE ALL',
+                style: AppTextStyles.font12DuskyBluePoppinsSemiBold,
+              ),
+              horizontalSpace(5),
+              SvgPicture.asset(
+                'assets/svgs/keyboard_arrow_right.svg',
+                fit: BoxFit.contain,
+                height: 10.h,
+                width: 7.w,
+                colorFilter:const ColorFilter.mode(ColorsManager.duskyBlue, BlendMode.srcIn),
+              ),
+            ],
+          ),
+        )
       ],
     );
   }
