@@ -1,6 +1,7 @@
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/features/developer/home_main_page/widgets/main_page_choice_chips.dart';
 import 'package:carrerk/features/developer/home_main_page/widgets/main_page_popular_courses.dart';
+import 'package:carrerk/features/developer/home_main_page/widgets/recommended_jobs_and_see_all.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -26,12 +27,16 @@ class DeveloperHomeMainPageScreen extends StatelessWidget {
               ),
               verticalSpace(16),
               const AppSearchTextFormField(),
-              verticalSpace(24),
+              verticalSpace(16),
               const PopularCoursesAndSeeAll(),
-              verticalSpace(12),
+              verticalSpace(8),
               const MainPageChoiceChips(),
               verticalSpace(8),
-              const MainPagePopularCourses()
+              const MainPagePopularCourses(),
+              verticalSpace(16),
+              const RecommendedJobsAndSeeAll(),
+              verticalSpace(8),
+
             ],
           ),
         ),
