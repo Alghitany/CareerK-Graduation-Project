@@ -1,11 +1,7 @@
-import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
-import 'package:carrerk/core/routing/routes.dart';
-import 'package:carrerk/core/theming/styles.dart';
-import 'package:carrerk/core/widgets/app_text_form_field.dart';
+import 'package:carrerk/features/developer/home_main_page/widgets/main_page_choice_chips.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../core/widgets/app_developer_home_top_bar.dart';
 import '../../../core/widgets/app_search_text_form_field.dart';
@@ -32,7 +28,8 @@ class DeveloperHomeMainPageScreen extends StatelessWidget {
               verticalSpace(24),
               const PopularCoursesAndSeeAll(),
               verticalSpace(12),
-
+              const MainPageChoiceChips(),
+              verticalSpace(10),
             ],
           ),
         ),
