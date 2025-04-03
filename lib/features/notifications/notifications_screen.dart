@@ -1,11 +1,11 @@
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_back_icon.dart';
-import 'package:carrerk/features/developer/notifications/widgets/developer_notification_card.dart';
+import 'package:carrerk/features/notifications/widgets/notification_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class DeveloperNotificationsScreen extends StatelessWidget {
+class NotificationsScreen extends StatelessWidget {
   final List<Map<String, dynamic>> notifications = [
     {
       'title': 'Apply Success',
@@ -57,7 +57,7 @@ class DeveloperNotificationsScreen extends StatelessWidget {
     },
   ];
 
-  DeveloperNotificationsScreen({super.key});
+  NotificationsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +74,7 @@ class DeveloperNotificationsScreen extends StatelessWidget {
                 style: AppTextStyles.font24DunePoppinsSemiBold,
               ),
               verticalSpace(32),
-              DeveloperNotificationList(notifications: notifications)
+              NotificationList(notifications: notifications)
             ],
           ),
         ),

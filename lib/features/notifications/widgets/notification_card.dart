@@ -4,20 +4,19 @@ import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class DeveloperNotificationList extends StatefulWidget {
+class NotificationList extends StatefulWidget {
   final List<Map<String, dynamic>> notifications;
 
-  const DeveloperNotificationList({
+  const NotificationList({
     super.key,
     required this.notifications,
   });
 
   @override
-  State<DeveloperNotificationList> createState() =>
-      _DeveloperNotificationListState();
+  State<NotificationList> createState() => _NotificationListState();
 }
 
-class _DeveloperNotificationListState extends State<DeveloperNotificationList> {
+class _NotificationListState extends State<NotificationList> {
   void deleteNotification(int index) {
     setState(() {
       widget.notifications.removeAt(index);
