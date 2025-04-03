@@ -4,7 +4,7 @@ import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
-import 'package:carrerk/features/company/sign_up/enter_location/widgets/enter_location_form.dart';
+import 'package:carrerk/features/company/sign_up/enter_location/widgets/company_enter_location_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -27,7 +27,7 @@ class CompanySignUpEnterLocationScreen extends StatelessWidget {
                   style: AppTextStyles.font24DunePoppinsMedium,
                 ),
                 verticalSpace(32),
-                const EnterLocationForm(),
+                const CompanyEnterLocationForm(),
                 verticalSpace(56),
                 AppTextButton(
                     buttonText: 'Continue',

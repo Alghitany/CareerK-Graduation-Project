@@ -15,6 +15,7 @@ class AppTextFormField extends StatelessWidget {
   final String hintText;
   final bool? isObscureText;
   final Widget? suffixIcon;
+  final Widget? prefixIcon;
   final Color? backgroundColor;
   final TextEditingController? controller;
   final Function(String?) validator;
@@ -51,7 +52,8 @@ class AppTextFormField extends StatelessWidget {
       this.maxLines,
       this.borderRadius,
       this.height,
-      this.width});
+      this.width,
+      this.prefixIcon});
 
   @override
   Widget build(BuildContext context) {
@@ -101,6 +103,7 @@ class AppTextFormField extends StatelessWidget {
           hintStyle: hintStyle ?? AppTextStyles.font14MercuryPoppinsMedium,
           hintText: hintText,
           suffixIcon: suffixIcon,
+          prefixIcon: prefixIcon,
           fillColor: Colors.white,
           filled: true,
         ),

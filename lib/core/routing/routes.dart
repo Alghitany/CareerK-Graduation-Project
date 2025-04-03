@@ -49,6 +49,32 @@ class Routes {
   static const String developerHomeMainPageScreen =
       "/developerHomeMainPageScreen";
 
+  // Community
+  static const String developerCommunityAllCommunitiesScreen =
+      "/developerCommunityAllCommunitiesScreen";
+
+  // Notifications
+  static const String developerNotificationsScreen =
+      "/developerNotificationsScreen";
+
+  // Search
+  static const String developerSearchScreen =
+      "/developerSearchScreen";
+
+  // Courses
+  static const String developerCoursesMainPageScreen =
+      "/developerCoursesMainPageScreen";
+  static const String developerCoursesCategoriesScreen =
+      "/developerCoursesCategoriesScreen";
+
+  // Jobs
+  static const String developerJobsMainPageScreen =
+      "/developerJobsMainPageScreen";
+
+  // Profile
+  static const String developerProfileMainPageScreen =
+      "/developerProfileMainPageScreen";
+
   // ---------------- Customer ----------------
   // Sign Up
   static const String customerSignUpCompulsoryDataScreen =

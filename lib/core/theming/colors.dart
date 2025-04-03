@@ -29,4 +29,6 @@ class ColorsManager {
   static const Color darkJungleGreen = Color(0xFF1E1E1E);
   static const Color mountainMist = Color(0xFF979797);
   static const Color pastelGrey = Color(0xFFCCCCCC);
+  static const Color catskillWhite = Color(0xFFF2F4F9);
+  static const Color amethystSmoke = Color(0xFF8A96C9);
 }

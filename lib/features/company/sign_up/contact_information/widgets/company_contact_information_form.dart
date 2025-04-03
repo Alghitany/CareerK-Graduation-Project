@@ -9,14 +9,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../../core/theming/colors.dart';
 
-class ContactInformationForm extends StatefulWidget {
-  const ContactInformationForm({super.key});
+class CompanyContactInformationForm extends StatefulWidget {
+  const CompanyContactInformationForm({super.key});
 
   @override
-  State<ContactInformationForm> createState() => _ContactInformationFormState();
+  State<CompanyContactInformationForm> createState() => _CompanyContactInformationFormState();
 }
 
-class _ContactInformationFormState extends State<ContactInformationForm> {
+class _CompanyContactInformationFormState extends State<CompanyContactInformationForm> {
   final formKey = GlobalKey<FormState>();
 
   List<TextEditingController> socialMediaControllers = [

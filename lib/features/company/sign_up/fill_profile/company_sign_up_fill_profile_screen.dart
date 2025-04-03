@@ -4,7 +4,7 @@ import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:carrerk/core/widgets/app_edit_profile_picture.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
-import 'package:carrerk/features/company/sign_up/fill_profile/widgets/fill_profile_form.dart';
+import 'package:carrerk/features/company/sign_up/fill_profile/widgets/company_fill_profile_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -31,7 +31,7 @@ class CompanySignUpFillProfileScreen extends StatelessWidget {
                 verticalSpace(32),
                 const AppEditProfilePicture(),
                 verticalSpace(48),
-                const FillProfileForm(),
+                const CompanyFillProfileForm(),
                 verticalSpace(56),
                 AppTextButton(
                     buttonText: 'Continue',

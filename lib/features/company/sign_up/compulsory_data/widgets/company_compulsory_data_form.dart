@@ -9,14 +9,14 @@ import '../../../../../../core/theming/colors.dart';
 import '../../../../../../core/widgets/app_label.dart';
 import '../../../../../../core/widgets/app_text_form_field.dart';
 
-class CompulsoryDataForm extends StatefulWidget {
-  const CompulsoryDataForm({super.key});
+class CompanyCompulsoryDataForm extends StatefulWidget {
+  const CompanyCompulsoryDataForm({super.key});
 
   @override
-  State<CompulsoryDataForm> createState() => _CompulsoryDataFormState();
+  State<CompanyCompulsoryDataForm> createState() => _CompanyCompulsoryDataFormState();
 }
 
-class _CompulsoryDataFormState extends State<CompulsoryDataForm> {
+class _CompanyCompulsoryDataFormState extends State<CompanyCompulsoryDataForm> {
   final formKey = GlobalKey<FormState>();
   bool isObscurePassword = true;
   bool isObscureConfirmPassword = true;
