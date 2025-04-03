@@ -16,14 +16,15 @@ class AppBottomNavigationBar extends StatefulWidget {
 class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
   int _selectedIndex = 0;
 
-  final Color _selectedColor =  ColorsManager.duskyBlue;
-  final Color _unselectedColor =  ColorsManager.granite;
+  final Color _selectedColor = ColorsManager.duskyBlue;
+  final Color _unselectedColor = ColorsManager.granite;
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
@@ -43,12 +44,10 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
                     ),
                     fit: BoxFit.contain,
                   ),
-                  Text(
-                    "Home",
-                    style: _selectedIndex == 0 ?
-                    AppTextStyles.font12DuskyBluePoppinsMedium :
-                    AppTextStyles.font12GranitePoppinsMedium
-                  ),
+                  Text("Home",
+                      style: _selectedIndex == 0
+                          ? AppTextStyles.font12DuskyBluePoppinsMedium
+                          : AppTextStyles.font12GranitePoppinsMedium),
                 ],
               ),
               onPressed: () {
@@ -71,12 +70,10 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
                     ),
                     fit: BoxFit.contain,
                   ),
-                  Text(
-                    "Courses",
-                    style: _selectedIndex == 1 ?
-                    AppTextStyles.font12DuskyBluePoppinsMedium :
-                    AppTextStyles.font12GranitePoppinsMedium
-                  ),
+                  Text("Courses",
+                      style: _selectedIndex == 1
+                          ? AppTextStyles.font12DuskyBluePoppinsMedium
+                          : AppTextStyles.font12GranitePoppinsMedium),
                 ],
               ),
               onPressed: () {
@@ -99,12 +96,10 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
                     ),
                     fit: BoxFit.contain,
                   ),
-                  Text(
-                      "Jobs",
-                      style: _selectedIndex == 2 ?
-                      AppTextStyles.font12DuskyBluePoppinsMedium :
-                      AppTextStyles.font12GranitePoppinsMedium
-                  ),
+                  Text("Jobs",
+                      style: _selectedIndex == 2
+                          ? AppTextStyles.font12DuskyBluePoppinsMedium
+                          : AppTextStyles.font12GranitePoppinsMedium),
                 ],
               ),
               onPressed: () {
@@ -125,12 +120,10 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
                     ),
                     fit: BoxFit.contain,
                   ),
-                  Text(
-                    "Profile",
-                      style: _selectedIndex == 3 ?
-                      AppTextStyles.font12DuskyBluePoppinsMedium :
-                      AppTextStyles.font12GranitePoppinsMedium
-                  ),
+                  Text("Profile",
+                      style: _selectedIndex == 3
+                          ? AppTextStyles.font12DuskyBluePoppinsMedium
+                          : AppTextStyles.font12GranitePoppinsMedium),
                 ],
               ),
               onPressed: () {

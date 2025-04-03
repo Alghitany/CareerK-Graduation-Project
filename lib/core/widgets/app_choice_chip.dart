@@ -10,15 +10,16 @@ class AppChoiceChip extends StatefulWidget {
   final Color? selectedColor;
   final Color? unSelectedColor;
   final double? borderRadius;
-  const AppChoiceChip({
-    super.key,
-    required this.options,
-    required this.selectedTextStyle,
-    required this.unSelectedTextStyle,
-    this.contentPadding,
-    this.selectedColor,
-    this.unSelectedColor,
-    this.borderRadius});
+
+  const AppChoiceChip(
+      {super.key,
+      required this.options,
+      required this.selectedTextStyle,
+      required this.unSelectedTextStyle,
+      this.contentPadding,
+      this.selectedColor,
+      this.unSelectedColor,
+      this.borderRadius});
 
   @override
   State<AppChoiceChip> createState() => _AppChoiceChipState();
@@ -39,7 +40,8 @@ class _AppChoiceChipState extends State<AppChoiceChip> {
           child: ChoiceChip(
             label: Text(
               widget.options[index],
-              style: index == selectedIndex ? widget.selectedTextStyle
+              style: index == selectedIndex
+                  ? widget.selectedTextStyle
                   : widget.unSelectedTextStyle,
             ),
             selected: index == selectedIndex,
@@ -49,9 +51,11 @@ class _AppChoiceChipState extends State<AppChoiceChip> {
               });
             },
             showCheckmark: false,
-            padding: widget.contentPadding ?? EdgeInsets.symmetric(horizontal: 17.w,vertical: 7.h),
+            padding: widget.contentPadding ??
+                EdgeInsets.symmetric(horizontal: 17.w, vertical: 7.h),
             selectedColor: widget.selectedColor ?? ColorsManager.amethystSmoke,
-            backgroundColor: widget.unSelectedColor ?? ColorsManager.catskillWhite,
+            backgroundColor:
+                widget.unSelectedColor ?? ColorsManager.catskillWhite,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(widget.borderRadius ?? 30),
             ),

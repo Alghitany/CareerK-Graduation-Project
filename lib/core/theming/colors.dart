@@ -31,4 +31,6 @@ class ColorsManager {
   static const Color pastelGrey = Color(0xFFCCCCCC);
   static const Color catskillWhite = Color(0xFFF2F4F9);
   static const Color amethystSmoke = Color(0xFF8A96C9);
+  static const Color aquaHaze = Color(0xFFF2F4F5);
+  static const Color artyClickRed = Color(0xFFFF0000);
 }

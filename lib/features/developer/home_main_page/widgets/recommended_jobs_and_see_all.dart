@@ -17,10 +17,11 @@ class RecommendedJobsAndSeeAll extends StatelessWidget {
       children: [
         Text(
           'Recommended Jobs',
-          style: AppTextStyles.font20DunePoppinsMedium,),
+          style: AppTextStyles.font20DunePoppinsMedium,
+        ),
         const Spacer(),
         GestureDetector(
-          onTap: (){
+          onTap: () {
             context.pushNamed(Routes.developerJobsMainPageScreen);
           },
           child: Row(
@@ -35,7 +36,8 @@ class RecommendedJobsAndSeeAll extends StatelessWidget {
                 fit: BoxFit.contain,
                 height: 10.h,
                 width: 7.w,
-                colorFilter:const ColorFilter.mode(ColorsManager.duskyBlue, BlendMode.srcIn),
+                colorFilter: const ColorFilter.mode(
+                    ColorsManager.duskyBlue, BlendMode.srcIn),
               ),
             ],
           ),
