@@ -1,22 +1,22 @@
 import 'package:carrerk/core/helpers/extensions.dart';
+import 'package:carrerk/core/helpers/spacing.dart';
+import 'package:carrerk/core/theming/colors.dart';
+import 'package:carrerk/core/widgets/app_label.dart';
+import 'package:carrerk/core/widgets/app_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../../core/helpers/app_regex.dart';
-import '../../../../../core/helpers/spacing.dart';
-import '../../../../../core/theming/colors.dart';
-import '../../../../../core/widgets/app_label.dart';
-import '../../../../../core/widgets/app_text_form_field.dart';
 
-class CompulsoryDataForm extends StatefulWidget {
-  const CompulsoryDataForm({super.key});
+class DeveloperCompulsoryDataForm extends StatefulWidget {
+  const DeveloperCompulsoryDataForm({super.key});
 
   @override
-  State<CompulsoryDataForm> createState() => _CompulsoryDataFormState();
+  State<DeveloperCompulsoryDataForm> createState() => _DeveloperCompulsoryDataFormState();
 }
 
-class _CompulsoryDataFormState extends State<CompulsoryDataForm> {
+class _DeveloperCompulsoryDataFormState extends State<DeveloperCompulsoryDataForm> {
   final formKey = GlobalKey<FormState>();
   bool isObscurePassword = true;
   bool isObscureConfirmPassword = true;
@@ -27,15 +27,45 @@ class _CompulsoryDataFormState extends State<CompulsoryDataForm> {
         key: formKey,
         child: Column(
           children: [
-            const AppLabel(text: 'Name'),
-            verticalSpace(8),
-            AppTextFormField(
-                hintText: 'John A.Wick',
-                validator: (name) {
-                  if (name!.isNullOrEmpty() || !AppRegex.isValidName(name)) {
-                    return 'Please enter a valid name';
-                  }
-                }),
+            Row(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const AppLabel(
+                      text: 'First Name',
+                    ),
+                    verticalSpace(8),
+                    AppTextFormField(
+                        width: 160,
+                        hintText: "Micheal",
+                        validator: (firstName) {
+                          if (firstName!.isNullOrEmpty() ||
+                              !AppRegex.isValidName(firstName)) {
+                            return 'Please enter a valid name';
+                          }
+                        }),
+                  ],
+                ),
+                const Spacer(),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const AppLabel(text: 'Last name'),
+                    verticalSpace(8),
+                    AppTextFormField(
+                        width: 160,
+                        hintText: 'Jordon',
+                        validator: (lastName) {
+                          if (lastName!.isNullOrEmpty() ||
+                              !AppRegex.isValidName(lastName)) {
+                            return 'Please enter a valid name';
+                          }
+                        }),
+                  ],
+                )
+              ],
+            ),
             verticalSpace(16),
             const AppLabel(text: 'Email'),
             verticalSpace(8),

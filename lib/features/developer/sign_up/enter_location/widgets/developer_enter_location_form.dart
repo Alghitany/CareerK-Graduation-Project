@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/helpers/app_regex.dart';
 
-class EnterLocationForm extends StatelessWidget {
-  const EnterLocationForm({super.key});
+class DeveloperEnterLocationForm extends StatelessWidget {
+  const DeveloperEnterLocationForm({super.key});
 
   @override
   Widget build(BuildContext context) {

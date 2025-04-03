@@ -5,7 +5,7 @@ import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:carrerk/core/widgets/app_check_box_and_agree_text.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
-import 'package:carrerk/features/customer/sign_up/compulsory_data/widgets/compulsory_data_form.dart';
+import 'package:carrerk/features/customer/sign_up/compulsory_data/widgets/customer_compulsory_data_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -33,7 +33,7 @@ class CustomerSignUpCompulsoryDataScreen extends StatelessWidget {
                   style: AppTextStyles.font15LiverPoppinsMedium,
                 ),
                 verticalSpace(32),
-                const CompulsoryDataForm(),
+                const CustomerCompulsoryDataForm(),
                 verticalSpace(16),
                 const AppCheckBoxAndAgreeText(),
                 verticalSpace(40),

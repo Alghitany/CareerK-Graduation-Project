@@ -8,14 +8,14 @@ import 'package:flutter/material.dart';
 import '../../../../../../core/helpers/app_regex.dart';
 import '../../../../../../core/theming/styles.dart';
 
-class EnterLocationForm extends StatefulWidget {
-  const EnterLocationForm({super.key});
+class CompanyEnterLocationForm extends StatefulWidget {
+  const CompanyEnterLocationForm({super.key});
 
   @override
-  State<EnterLocationForm> createState() => _EnterLocationFormState();
+  State<CompanyEnterLocationForm> createState() => _CompanyEnterLocationFormState();
 }
 
-class _EnterLocationFormState extends State<EnterLocationForm> {
+class _CompanyEnterLocationFormState extends State<CompanyEnterLocationForm> {
   final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {

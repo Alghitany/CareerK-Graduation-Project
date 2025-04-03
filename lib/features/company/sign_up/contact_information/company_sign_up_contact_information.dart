@@ -4,7 +4,7 @@ import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
-import 'package:carrerk/features/company/sign_up/contact_information/widgets/contact_information_form.dart';
+import 'package:carrerk/features/company/sign_up/contact_information/widgets/company_contact_information_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -27,7 +27,7 @@ class CompanySignUpContactInformation extends StatelessWidget {
                   style: AppTextStyles.font24DunePoppinsMedium,
                 ),
                 verticalSpace(32),
-                const ContactInformationForm(),
+                const CompanyContactInformationForm(),
                 verticalSpace(48),
                 AppTextButton(
                     buttonText: 'Start Journey',
