@@ -12,11 +12,13 @@ class CompanyEnterLocationForm extends StatefulWidget {
   const CompanyEnterLocationForm({super.key});
 
   @override
-  State<CompanyEnterLocationForm> createState() => _CompanyEnterLocationFormState();
+  State<CompanyEnterLocationForm> createState() =>
+      _CompanyEnterLocationFormState();
 }
 
 class _CompanyEnterLocationFormState extends State<CompanyEnterLocationForm> {
   final formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Form(

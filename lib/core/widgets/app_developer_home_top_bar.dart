@@ -11,12 +11,12 @@ class AppDeveloperHomeTopBar extends StatelessWidget {
   final String subText;
   final TextStyle? subTextStyle;
 
-  const AppDeveloperHomeTopBar({
-    super.key,
-    required this.hiText,
-    this.hiTextStyle,
-    required this.subText,
-    this.subTextStyle});
+  const AppDeveloperHomeTopBar(
+      {super.key,
+      required this.hiText,
+      this.hiTextStyle,
+      required this.subText,
+      this.subTextStyle});
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,9 @@ class AppDeveloperHomeTopBar extends StatelessWidget {
           ],
         ),
 
-        const Spacer(flex: 1,),
+        const Spacer(
+          flex: 1,
+        ),
 
         IconButton(
           onPressed: () {
@@ -54,7 +56,7 @@ class AppDeveloperHomeTopBar extends StatelessWidget {
         //TODO: Need an svg icon for notifications
         IconButton(
           onPressed: () {
-            context.pushNamed(Routes.developerNotificationsScreen);
+            context.pushNamed(Routes.notificationsScreen);
           },
           icon: Image.asset(
             "assets/svgs/notifications.png",

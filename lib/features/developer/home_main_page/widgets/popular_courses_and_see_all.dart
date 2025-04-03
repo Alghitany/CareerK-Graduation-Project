@@ -15,11 +15,12 @@ class PopularCoursesAndSeeAll extends StatelessWidget {
     return Row(
       children: [
         Text(
-            'Popular Courses',
-            style: AppTextStyles.font20DunePoppinsMedium,),
+          'Popular Courses',
+          style: AppTextStyles.font20DunePoppinsMedium,
+        ),
         const Spacer(),
         GestureDetector(
-          onTap: (){
+          onTap: () {
             context.pushNamed(Routes.developerCoursesCategoriesScreen);
           },
           child: Row(
@@ -34,7 +35,8 @@ class PopularCoursesAndSeeAll extends StatelessWidget {
                 fit: BoxFit.contain,
                 height: 10.h,
                 width: 7.w,
-                colorFilter:const ColorFilter.mode(ColorsManager.duskyBlue, BlendMode.srcIn),
+                colorFilter: const ColorFilter.mode(
+                    ColorsManager.duskyBlue, BlendMode.srcIn),
               ),
             ],
           ),

@@ -11,7 +11,6 @@ import '../../../core/widgets/app_developer_home_top_bar.dart';
 import '../../../core/widgets/app_search_text_form_field.dart';
 import 'widgets/popular_courses_and_see_all.dart';
 
-
 class DeveloperHomeMainPageScreen extends StatelessWidget {
   const DeveloperHomeMainPageScreen({super.key});
 

@@ -1,9 +1,9 @@
 import 'package:carrerk/features/authentication/verify_code/verify_code_screen.dart';
 import 'package:carrerk/features/company/home/main_page/company_home_main_page_screen.dart';
 import 'package:carrerk/features/customer/sign_up/compulsory_data/customer_sign_up_compulsory_data_screen.dart';
-import 'package:carrerk/features/developer/notifications/developer_notifications_screen.dart';
 import 'package:carrerk/features/developer/sign_up/compoulsory_data/developer_sign_up_compulsory_data_screen.dart';
 import 'package:flutter/material.dart';
+
 import '../../features/authentication/change_password/change_password_screen.dart';
 import '../../features/authentication/login/login_screen.dart';
 import '../../features/authentication/onboarding/on_boarding_screen.dart';
@@ -29,6 +29,7 @@ import '../../features/developer/sign_up/selected_courses/developer_sign_up_sele
 import '../../features/developer/sign_up_completed/cv_downloaded/developer_sign_up_completed_cv_downloaded.dart';
 import '../../features/developer/sign_up_completed/cv_is_done/developer_sign_up_completed_cv_is_done.dart';
 import '../../features/developer/sign_up_completed/ready_to_go/developer_sign_up_completed_ready_to_go.dart';
+import '../../features/notifications/notifications_screen.dart';
 import '../../features/sign_up_user_type/sign_up_user_type_screen.dart';
 import 'routes.dart';
 
@@ -139,9 +140,9 @@ class AppRouter {
           builder: (_) => const DeveloperHomeCommunityAllCommunitiesScreen(),
         );
       // Notification
-      case Routes.developerNotificationsScreen:
+      case Routes.notificationsScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperNotificationsScreen(),
+          builder: (_) => NotificationsScreen(),
         );
       // Search
       case Routes.developerSearchScreen:
