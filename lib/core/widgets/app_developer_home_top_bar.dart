@@ -56,7 +56,7 @@ class AppDeveloperHomeTopBar extends StatelessWidget {
         //TODO: Need an svg icon for notifications
         IconButton(
           onPressed: () {
-            context.pushNamed(Routes.developerNotificationsScreen);
+            context.pushNamed(Routes.notificationsScreen);
           },
           icon: Image.asset(
             "assets/svgs/notifications.png",
