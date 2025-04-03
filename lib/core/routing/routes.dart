@@ -62,12 +62,18 @@ class Routes {
       "/developerSearchScreen";
 
   // Courses
+  static const String developerCoursesMainPageScreen =
+      "/developerCoursesMainPageScreen";
   static const String developerCoursesCategoriesScreen =
       "/developerCoursesCategoriesScreen";
 
   // Jobs
   static const String developerJobsMainPageScreen =
       "/developerJobsMainPageScreen";
+
+  // Profile
+  static const String developerProfileMainPageScreen =
+      "/developerProfileMainPageScreen";
 
   // ---------------- Customer ----------------
   // Sign Up

@@ -14,26 +14,26 @@ class MainPagePopularCourses extends StatefulWidget {
 }
 
 class _MainPagePopularCoursesState extends State<MainPagePopularCourses> {
-  bool isBookmarked = false;
+  final List<Map<String, dynamic>> courses = [
+    {
+      'imagePath': 'assets/images/main_page_course.png',
+      'courseCategory': 'Photoshop',
+      'courseTitle': 'Graphic Design Advanced',
+      'views': 10230,
+      'rating': 4.5,
+      'isBookmarked': false
+    },
+    {
+      'imagePath': 'assets/images/main_page_course.png',
+      'courseCategory': 'Graphic Design',
+      'courseTitle': 'Graphic Design Advanced',
+      'views': 7830,
+      'rating': 4.2,
+      'isBookmarked': false
+    },
+  ];
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, dynamic>> courses = [
-      {
-        'imagePath': 'assets/images/main_page_course.png',
-        'courseCategory': 'Photoshop',
-        'courseTitle': 'Graphic Design Advanced',
-        'views': 10230,
-        'rating': 4.5,
-      },
-      {
-        'imagePath': 'assets/images/main_page_course.png',
-        'courseCategory': 'Graphic Design',
-        'courseTitle': 'Graphic Design Advanced',
-        'views': 7830,
-        'rating': 4.2,
-      },
-      // Add more courses as needed
-    ];
     return SizedBox(
       height: 240.h,
       child: ListView.builder(
@@ -116,11 +116,11 @@ class _MainPagePopularCoursesState extends State<MainPagePopularCourses> {
                             child: IconButton(
                               onPressed: () {
                                 setState(() {
-                                  isBookmarked = !isBookmarked;
+                                  course['isBookmarked'] = !course['isBookmarked'];
                                 });
                               },
                               icon:SvgPicture.asset(
-                                  isBookmarked ?
+                                  course['isBookmarked'] ?
                                   "assets/svgs/bookmark_filled.svg" :
                                   "assets/svgs/bookmark_outlined.svg",
                                   width: 22,

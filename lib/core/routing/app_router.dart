@@ -16,8 +16,10 @@ import '../../features/company/sign_up/fill_profile/company_sign_up_fill_profile
 import '../../features/customer/sign_up/fill_profile/customer_sign_up_fill_profile_screen.dart';
 import '../../features/developer/community/all_communities/developer_community_all_communities_screen.dart';
 import '../../features/developer/courses/categories/developer_courses_categories_screen.dart';
+import '../../features/developer/courses/main_page/developer_courses_main_page_screen.dart';
 import '../../features/developer/home_main_page/developer_home_main_page_screen.dart';
 import '../../features/developer/jobs/main_page/developer_jobs_main_page_screen.dart';
+import '../../features/developer/profile/main_page/developer_profile_main_page_screen.dart';
 import '../../features/developer/search/developer_search_screen.dart';
 import '../../features/developer/sign_up/bio_and_skills/developer_sign_up_bio_and_skills_screen.dart';
 import '../../features/developer/sign_up/enter_location/developer_sign_up_enter_location_screen.dart';
@@ -147,6 +149,10 @@ class AppRouter {
           builder: (_) => const DeveloperSearchScreen(),
         );
       // Courses
+      case Routes.developerCoursesMainPageScreen:
+        return MaterialPageRoute(
+          builder: (_) => const DeveloperCoursesMainPageScreen(),
+        );
       case Routes.developerCoursesCategoriesScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperCoursesCategoriesScreen(),
@@ -155,6 +161,11 @@ class AppRouter {
       case Routes.developerJobsMainPageScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperJobsMainPageScreen(),
+        );
+      // Profile
+      case Routes.developerProfileMainPageScreen:
+        return MaterialPageRoute(
+          builder: (_) => const DeveloperProfileMainPageScreen(),
         );
       // ---------------- Customer ----------------
       case Routes.customerSignUpCompulsoryDataScreen:
