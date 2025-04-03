@@ -38,8 +38,7 @@ class CustomerSignUpFillProfileScreen extends StatelessWidget {
                     textStyle: AppTextStyles.font14WhitePoppinsMedium,
                     onPressed: () {
                       //TODO: Check input validations adn go to next page
-                      context
-                          .pushNamed(Routes.companyHomeMainPageScreen);
+                      context.pushNamed(Routes.companyHomeMainPageScreen);
                     })
               ],
             ),

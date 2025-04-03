@@ -32,6 +32,7 @@ class _MainPagePopularCoursesState extends State<MainPagePopularCourses> {
       'isBookmarked': false
     },
   ];
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -73,16 +74,18 @@ class _MainPagePopularCoursesState extends State<MainPagePopularCourses> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: EdgeInsets.only(top: 8.0.h, left: 16.0.w),
+                                padding:
+                                    EdgeInsets.only(top: 8.0.h, left: 16.0.w),
                                 child: Text(course["courseCategory"],
-                                    style:
-                                        AppTextStyles.font12DuskyBluePoppinsSemiBold),
+                                    style: AppTextStyles
+                                        .font12DuskyBluePoppinsSemiBold),
                               ),
                               verticalSpace(4),
                               Padding(
                                 padding: EdgeInsets.only(left: 13.0.w),
                                 child: Text(course["courseTitle"],
-                                    style: AppTextStyles.font14DunePoppinsMedium),
+                                    style:
+                                        AppTextStyles.font14DunePoppinsMedium),
                               ),
                               verticalSpace(8),
                               Padding(
@@ -91,13 +94,13 @@ class _MainPagePopularCoursesState extends State<MainPagePopularCourses> {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    Text(
-                                      course["views"].toString(),
-                                      style: AppTextStyles.font12DuneMulishExtraBold),
+                                    Text(course["views"].toString(),
+                                        style: AppTextStyles
+                                            .font12DuneMulishExtraBold),
                                     horizontalSpace(8),
-                                    Text(
-                                      "|",
-                                      style: AppTextStyles.font14BlackMulishBold),
+                                    Text("|",
+                                        style: AppTextStyles
+                                            .font14BlackMulishBold),
                                     horizontalSpace(8),
                                     const Icon(Icons.star,
                                         color: ColorsManager.schoolBusYellow,
@@ -105,7 +108,9 @@ class _MainPagePopularCoursesState extends State<MainPagePopularCourses> {
                                     horizontalSpace(4),
                                     Text(
                                       course["rating"].toString(),
-                                      style: AppTextStyles.font12DuneMulishExtraBold,),
+                                      style: AppTextStyles
+                                          .font12DuneMulishExtraBold,
+                                    ),
                                   ],
                                 ),
                               ),
@@ -116,13 +121,14 @@ class _MainPagePopularCoursesState extends State<MainPagePopularCourses> {
                             child: IconButton(
                               onPressed: () {
                                 setState(() {
-                                  course['isBookmarked'] = !course['isBookmarked'];
+                                  course['isBookmarked'] =
+                                      !course['isBookmarked'];
                                 });
                               },
-                              icon:SvgPicture.asset(
-                                  course['isBookmarked'] ?
-                                  "assets/svgs/bookmark_filled.svg" :
-                                  "assets/svgs/bookmark_outlined.svg",
+                              icon: SvgPicture.asset(
+                                  course['isBookmarked']
+                                      ? "assets/svgs/bookmark_filled.svg"
+                                      : "assets/svgs/bookmark_outlined.svg",
                                   width: 22,
                                   height: 22),
                             ),

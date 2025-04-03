@@ -36,7 +36,7 @@ class AppSearchTextFormField extends StatelessWidget {
     return Container(
       padding: contentPadding ?? EdgeInsets.symmetric(horizontal: 15.w),
       height: height ?? 56.h,
-      width: width ?? 345.w,
+      width: width ?? double.infinity.w,
       decoration: BoxDecoration(
         color: backgroundColor ?? Colors.white,
         borderRadius: BorderRadius.circular(borderRadius ?? 20),

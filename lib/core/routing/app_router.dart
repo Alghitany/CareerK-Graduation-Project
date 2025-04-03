@@ -4,6 +4,7 @@ import 'package:carrerk/features/customer/sign_up/compulsory_data/customer_sign_
 import 'package:carrerk/features/developer/notifications/developer_notifications_screen.dart';
 import 'package:carrerk/features/developer/sign_up/compoulsory_data/developer_sign_up_compulsory_data_screen.dart';
 import 'package:flutter/material.dart';
+
 import '../../features/authentication/change_password/change_password_screen.dart';
 import '../../features/authentication/login/login_screen.dart';
 import '../../features/authentication/onboarding/on_boarding_screen.dart';
@@ -141,7 +142,7 @@ class AppRouter {
       // Notification
       case Routes.developerNotificationsScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperNotificationsScreen(),
+          builder: (_) => DeveloperNotificationsScreen(),
         );
       // Search
       case Routes.developerSearchScreen:

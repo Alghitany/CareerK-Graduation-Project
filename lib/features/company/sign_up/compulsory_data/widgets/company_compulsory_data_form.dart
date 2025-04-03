@@ -13,7 +13,8 @@ class CompanyCompulsoryDataForm extends StatefulWidget {
   const CompanyCompulsoryDataForm({super.key});
 
   @override
-  State<CompanyCompulsoryDataForm> createState() => _CompanyCompulsoryDataFormState();
+  State<CompanyCompulsoryDataForm> createState() =>
+      _CompanyCompulsoryDataFormState();
 }
 
 class _CompanyCompulsoryDataFormState extends State<CompanyCompulsoryDataForm> {

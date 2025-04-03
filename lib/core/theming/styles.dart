@@ -40,17 +40,23 @@ class AppTextStyles {
     fontFamily: "Poppins",
     color: Colors.black,
   );
-  static TextStyle font16BlackPoppinsRegular = TextStyle(
+  static TextStyle font16BlackPoppinsSemiBold = TextStyle(
     fontSize: 16.sp,
     color: Colors.black,
     fontFamily: 'Poppins',
-    fontWeight: FontWeightHelper.regular,
+    fontWeight: FontWeightHelper.semiBold,
   );
   static TextStyle font16BlackPoppinsMedium = TextStyle(
     fontSize: 16.sp,
     color: Colors.black,
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.medium,
+  );
+  static TextStyle font16BlackPoppinsRegular = TextStyle(
+    fontSize: 16.sp,
+    color: Colors.black,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.regular,
   );
   static TextStyle font14BlackPoppinsSemiBold = TextStyle(
     fontSize: 14.sp,
@@ -87,6 +93,12 @@ class AppTextStyles {
     color: ColorsManager.mountainMist,
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.medium,
+  );
+  static TextStyle font24DunePoppinsSemiBold = TextStyle(
+    fontSize: 24.sp,
+    color: ColorsManager.dune,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.semiBold,
   );
   static TextStyle font24DunePoppinsMedium = TextStyle(
     fontSize: 24.sp,
@@ -178,6 +190,12 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.bold,
   );
+  static TextStyle font16WhitePoppinsSemiBold = TextStyle(
+    fontSize: 16.sp,
+    color: Colors.white,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.semiBold,
+  );
   static TextStyle font16WhitePoppinsMedium = TextStyle(
     fontSize: 16.sp,
     color: Colors.white,
@@ -189,6 +207,12 @@ class AppTextStyles {
     color: Colors.white,
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.medium,
+  );
+  static TextStyle font14WhitePoppinsRegular = TextStyle(
+    fontSize: 14.sp,
+    color: Colors.white,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.regular,
   );
   static TextStyle font14WhiteMulishBold = TextStyle(
     fontSize: 14.sp,
@@ -273,6 +297,18 @@ class AppTextStyles {
     fontWeight: FontWeightHelper.regular,
     fontFamily: 'Poppins',
     color: ColorsManager.muleFawn,
+  );
+  static TextStyle font14LemonGrassPoppinsRegular = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.regular,
+    fontFamily: 'Poppins',
+    color: ColorsManager.lemonGrass,
+  );
+  static TextStyle font14ArtyClickRedPoppinsMedium = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.medium,
+    fontFamily: 'Poppins',
+    color: ColorsManager.artyClickRed,
   );
   static TextStyle font14DuskyBluePoppinsSemiBold = TextStyle(
     fontSize: 14.sp,

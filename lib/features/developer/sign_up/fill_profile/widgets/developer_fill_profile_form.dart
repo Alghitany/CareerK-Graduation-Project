@@ -11,7 +11,8 @@ class DeveloperFillProfileForm extends StatefulWidget {
   const DeveloperFillProfileForm({super.key});
 
   @override
-  State<DeveloperFillProfileForm> createState() => _DeveloperFillProfileFormState();
+  State<DeveloperFillProfileForm> createState() =>
+      _DeveloperFillProfileFormState();
 }
 
 class _DeveloperFillProfileFormState extends State<DeveloperFillProfileForm> {

@@ -8,7 +8,8 @@ class MainPageRecommendedJobs extends StatefulWidget {
   const MainPageRecommendedJobs({super.key});
 
   @override
-  State<MainPageRecommendedJobs> createState() => _MainPageRecommendedJobsState();
+  State<MainPageRecommendedJobs> createState() =>
+      _MainPageRecommendedJobsState();
 }
 
 class _MainPageRecommendedJobsState extends State<MainPageRecommendedJobs> {
@@ -70,13 +71,11 @@ class _MainPageRecommendedJobsState extends State<MainPageRecommendedJobs> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        job['jobTitle'],
-                        style: AppTextStyles.font14BlackPoppinsSemiBold ),
+                      Text(job['jobTitle'],
+                          style: AppTextStyles.font14BlackPoppinsSemiBold),
                       verticalSpace(4),
-                      Text(
-                        job['location'],
-                        style: AppTextStyles.font12BlackPoppinsLight),
+                      Text(job['location'],
+                          style: AppTextStyles.font12BlackPoppinsLight),
                       verticalSpace(8),
                       Row(
                         children: [
@@ -86,9 +85,9 @@ class _MainPageRecommendedJobsState extends State<MainPageRecommendedJobs> {
                             height: 20.h,
                           ),
                           horizontalSpace(6),
-                          Text(
-                            job['salary'],
-                            style: AppTextStyles.font14DuskyBluePoppinsSemiBold),
+                          Text(job['salary'],
+                              style:
+                                  AppTextStyles.font14DuskyBluePoppinsSemiBold),
                         ],
                       ),
                     ],

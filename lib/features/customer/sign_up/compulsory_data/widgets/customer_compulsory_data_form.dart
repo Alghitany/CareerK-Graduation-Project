@@ -13,10 +13,12 @@ class CustomerCompulsoryDataForm extends StatefulWidget {
   const CustomerCompulsoryDataForm({super.key});
 
   @override
-  State<CustomerCompulsoryDataForm> createState() => _CustomerCompulsoryDataFormState();
+  State<CustomerCompulsoryDataForm> createState() =>
+      _CustomerCompulsoryDataFormState();
 }
 
-class _CustomerCompulsoryDataFormState extends State<CustomerCompulsoryDataForm> {
+class _CustomerCompulsoryDataFormState
+    extends State<CustomerCompulsoryDataForm> {
   final formKey = GlobalKey<FormState>();
   bool isObscurePassword = true;
   bool isObscureConfirmPassword = true;

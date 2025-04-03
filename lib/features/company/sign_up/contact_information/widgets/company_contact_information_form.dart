@@ -13,10 +13,12 @@ class CompanyContactInformationForm extends StatefulWidget {
   const CompanyContactInformationForm({super.key});
 
   @override
-  State<CompanyContactInformationForm> createState() => _CompanyContactInformationFormState();
+  State<CompanyContactInformationForm> createState() =>
+      _CompanyContactInformationFormState();
 }
 
-class _CompanyContactInformationFormState extends State<CompanyContactInformationForm> {
+class _CompanyContactInformationFormState
+    extends State<CompanyContactInformationForm> {
   final formKey = GlobalKey<FormState>();
 
   List<TextEditingController> socialMediaControllers = [

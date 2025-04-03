@@ -11,7 +11,8 @@ class CustomerFillProfileForm extends StatefulWidget {
   const CustomerFillProfileForm({super.key});
 
   @override
-  State<CustomerFillProfileForm> createState() => _CustomerFillProfileFormState();
+  State<CustomerFillProfileForm> createState() =>
+      _CustomerFillProfileFormState();
 }
 
 class _CustomerFillProfileFormState extends State<CustomerFillProfileForm> {
@@ -39,7 +40,7 @@ class _CustomerFillProfileFormState extends State<CustomerFillProfileForm> {
             },
             borderRadius: 0,
             contentPadding:
-            EdgeInsets.symmetric(vertical: 24.h, horizontal: 24.w),
+                EdgeInsets.symmetric(vertical: 24.h, horizontal: 24.w),
           ),
           verticalSpace(16),
           const AppLabel(text: 'Contact Email'),
