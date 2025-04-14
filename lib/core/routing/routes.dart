@@ -14,6 +14,9 @@ class Routes {
   // ---------------- Notifications ----------------
   static const String notificationsScreen = "/notificationsScreen";
 
+  // ---------------- Search ----------------
+  static const String searchScreen = "/searchScreen";
+
   // ---------------- Company ----------------
   // Sign Up
   static const String companySignUpCompulsoryDataScreen =
@@ -60,9 +63,6 @@ class Routes {
       "/developerCommunityAllCommunitiesScreen";
   static const String developerCommunityChatScreen =
       "/developerCommunityChatScreen";
-
-  // Search
-  static const String developerSearchScreen = "/developerSearchScreen";
 
   // Courses
   static const String developerCoursesMainPageScreen =
