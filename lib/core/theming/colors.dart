@@ -33,4 +33,5 @@ class ColorsManager {
   static const Color amethystSmoke = Color(0xFF8A96C9);
   static const Color aquaHaze = Color(0xFFF2F4F5);
   static const Color artyClickRed = Color(0xFFFF0000);
+  static const Color waikawaGrey = Color(0xFF5967A2);
 }

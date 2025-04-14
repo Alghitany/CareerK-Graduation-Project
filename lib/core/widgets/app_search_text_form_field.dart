@@ -51,7 +51,7 @@ class AppSearchTextFormField extends StatelessWidget {
       ),
       child: GestureDetector(
         onTap: () {
-          context.pushNamed(Routes.developerSearchScreen);
+          context.pushNamed(Routes.searchScreen);
         },
         child: Row(
           children: [
@@ -65,7 +65,7 @@ class AppSearchTextFormField extends StatelessWidget {
               child: AppTextFormField(
                   readOnly: true,
                   onTap: () {
-                    context.pushNamed(Routes.developerSearchScreen);
+                    context.pushNamed(Routes.searchScreen);
                   },
                   enabledBorder: InputBorder.none,
                   errorBorder: InputBorder.none,
