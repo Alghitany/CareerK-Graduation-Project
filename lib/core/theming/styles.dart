@@ -136,6 +136,12 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.medium,
   );
+  static TextStyle font14NobelPoppinsRegular = TextStyle(
+    fontSize: 14.sp,
+    color: ColorsManager.nobel,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.regular,
+  );
   static TextStyle font16RangoonGreenPoppinsRegular = TextStyle(
     fontSize: 16.sp,
     color: ColorsManager.rangoonGreen,

@@ -15,6 +15,7 @@ import '../../features/company/sign_up/enter_location/company_sign_up_enter_loca
 import '../../features/company/sign_up/fill_profile/company_sign_up_fill_profile_screen.dart';
 import '../../features/customer/sign_up/fill_profile/customer_sign_up_fill_profile_screen.dart';
 import '../../features/developer/community/all_communities/developer_community_all_communities_screen.dart';
+import '../../features/developer/community/chat/developer_community_chat_screen.dart';
 import '../../features/developer/courses/categories/developer_courses_categories_screen.dart';
 import '../../features/developer/courses/main_page/developer_courses_main_page_screen.dart';
 import '../../features/developer/home_main_page/developer_home_main_page_screen.dart';
@@ -137,7 +138,11 @@ class AppRouter {
       // Community
       case Routes.developerCommunityAllCommunitiesScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperHomeCommunityAllCommunitiesScreen(),
+          builder: (_) => const DeveloperCommunityAllCommunitiesScreen(),
+        );
+      case Routes.developerCommunityChatScreen:
+        return MaterialPageRoute(
+          builder: (_) => const DeveloperCommunityChatScreen(),
         );
       // Notification
       case Routes.notificationsScreen:
