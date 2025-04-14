@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class AppBackIcon extends StatelessWidget {
+  final String? iconPath;
   final AlignmentGeometry? alignment;
   final double? width;
   final double? height;
@@ -17,7 +18,8 @@ class AppBackIcon extends StatelessWidget {
       this.width,
       this.height,
       this.borderColor,
-      this.fit});
+      this.fit,
+      this.iconPath});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,7 @@ class AppBackIcon extends StatelessWidget {
               shape: BoxShape.circle,
               border: Border.all(color: borderColor ?? ColorsManager.mercury)),
           child: SvgPicture.asset(
-            'assets/svgs/left_arrow.svg',
+            iconPath ?? 'assets/svgs/left_arrow.svg',
             fit: fit ?? BoxFit.scaleDown,
           ),
         ),
