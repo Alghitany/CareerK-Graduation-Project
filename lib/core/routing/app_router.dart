@@ -21,7 +21,6 @@ import '../../features/developer/courses/main_page/developer_courses_main_page_s
 import '../../features/developer/home_main_page/developer_home_main_page_screen.dart';
 import '../../features/developer/jobs/main_page/developer_jobs_main_page_screen.dart';
 import '../../features/developer/profile/main_page/developer_profile_main_page_screen.dart';
-import '../../features/developer/search/developer_search_screen.dart';
 import '../../features/developer/sign_up/bio_and_skills/developer_sign_up_bio_and_skills_screen.dart';
 import '../../features/developer/sign_up/enter_location/developer_sign_up_enter_location_screen.dart';
 import '../../features/developer/sign_up/fill_profile/developer_sign_up_fill_profile_screen.dart';
@@ -31,6 +30,7 @@ import '../../features/developer/sign_up_completed/cv_downloaded/developer_sign_
 import '../../features/developer/sign_up_completed/cv_is_done/developer_sign_up_completed_cv_is_done.dart';
 import '../../features/developer/sign_up_completed/ready_to_go/developer_sign_up_completed_ready_to_go.dart';
 import '../../features/notifications/notifications_screen.dart';
+import '../../features/search/search_screen.dart';
 import '../../features/sign_up_user_type/sign_up_user_type_screen.dart';
 import 'routes.dart';
 
@@ -150,9 +150,9 @@ class AppRouter {
           builder: (_) => NotificationsScreen(),
         );
       // Search
-      case Routes.developerSearchScreen:
+      case Routes.searchScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperSearchScreen(),
+          builder: (_) => const SearchScreen(),
         );
       // Courses
       case Routes.developerCoursesMainPageScreen:
