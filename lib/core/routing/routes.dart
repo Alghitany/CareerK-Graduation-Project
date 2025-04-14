@@ -58,6 +58,8 @@ class Routes {
   // Community
   static const String developerCommunityAllCommunitiesScreen =
       "/developerCommunityAllCommunitiesScreen";
+  static const String developerCommunityChatScreen =
+      "/developerCommunityChatScreen";
 
   // Search
   static const String developerSearchScreen = "/developerSearchScreen";
