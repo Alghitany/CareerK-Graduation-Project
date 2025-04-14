@@ -13,6 +13,7 @@ class DeveloperCommunityAllCommunitiesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO: I don't like this screen design
     return Scaffold(
       body: SafeArea(
           child: Padding(
