@@ -1,3 +1,4 @@
+import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/features/developer/home_main_page/widgets/main_page_choice_chips.dart';
 import 'package:carrerk/features/developer/home_main_page/widgets/main_page_popular_courses.dart';
@@ -6,6 +7,7 @@ import 'package:carrerk/features/developer/home_main_page/widgets/recommended_jo
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../core/routing/routes.dart';
 import '../../../core/widgets/app_bottom_navigation_bar.dart';
 import '../../../core/widgets/app_developer_home_top_bar.dart';
 import '../../../core/widgets/app_search_text_form_field.dart';
@@ -29,7 +31,11 @@ class DeveloperHomeMainPageScreen extends StatelessWidget {
                   subText: 'What Would you like to do \nToday? Search Below.',
                 ),
                 verticalSpace(16),
-                const AppSearchTextFormField(),
+                AppSearchTextFormField(
+                  onTap: () {
+                    context.pushNamed(Routes.searchScreen);
+                  },
+                ),
                 verticalSpace(16),
                 const PopularCoursesAndSeeAll(),
                 verticalSpace(8),

@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SentMessageContainer extends StatelessWidget {
   const SentMessageContainer({super.key, required this.message});
+
   final String message;
 
   @override
@@ -40,11 +41,11 @@ class SentMessageContainer extends StatelessWidget {
                 ),
                 verticalSpace(12),
                 Align(
-                    alignment: Alignment.topRight,
-                    child: Text(
-                      '$hour:$minute $amPm',
-                      style: AppTextStyles.font12BlackPoppinsRegular,
-                    ),
+                  alignment: Alignment.topRight,
+                  child: Text(
+                    '$hour:$minute $amPm',
+                    style: AppTextStyles.font12BlackPoppinsRegular,
+                  ),
                 )
               ],
             ),
