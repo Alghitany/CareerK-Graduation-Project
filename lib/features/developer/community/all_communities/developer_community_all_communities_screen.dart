@@ -1,3 +1,4 @@
+import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_back_icon.dart';
@@ -8,6 +9,8 @@ import 'package:carrerk/features/developer/community/all_communities/widgets/for
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/routing/routes.dart';
+
 class DeveloperCommunityAllCommunitiesScreen extends StatelessWidget {
   const DeveloperCommunityAllCommunitiesScreen({super.key});
 
@@ -17,34 +20,35 @@ class DeveloperCommunityAllCommunitiesScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 16.h),
-            child: Column(
-              children: [
-                const AppBackIcon(),
-                Text(
-                  'Community',
-                  style: AppTextStyles.font24BlackPoppinsSemiBold,
-                ),
-                verticalSpace(16),
-                const AppSearchTextFormField(),
-                verticalSpace(32),
-                const ForYouCommunityList(),
-                verticalSpace(32),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Communities by interests',
-                    style: AppTextStyles.font16BlackPoppinsSemiBold,
-                  ),
-                ),
-                verticalSpace(8),
-                const ByInterestChipsList(),
-                verticalSpace(16),
-                const ByInterestCommunityList(),
-              ],
+        padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 16.h),
+        child: Column(
+          children: [
+            const AppBackIcon(),
+            Text(
+              'Community',
+              style: AppTextStyles.font24BlackPoppinsSemiBold,
             ),
-          )
-      ),
+            verticalSpace(16),
+            AppSearchTextFormField(onTap: () {
+              context.pushNamed(Routes.searchScreen);
+            }),
+            verticalSpace(32),
+            const ForYouCommunityList(),
+            verticalSpace(32),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'Communities by interests',
+                style: AppTextStyles.font16BlackPoppinsSemiBold,
+              ),
+            ),
+            verticalSpace(8),
+            const ByInterestChipsList(),
+            verticalSpace(16),
+            const ByInterestCommunityList(),
+          ],
+        ),
+      )),
     );
   }
 }

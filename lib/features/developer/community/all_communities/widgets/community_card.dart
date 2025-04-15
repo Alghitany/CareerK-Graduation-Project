@@ -11,17 +11,18 @@ class CommunityCard extends StatelessWidget {
   final String communityName;
   final String memberCount;
   final String iconPath;
-  const CommunityCard({
-    super.key,
-    required this.communityName,
-    required this.memberCount,
-    required this.iconPath});
+
+  const CommunityCard(
+      {super.key,
+      required this.communityName,
+      required this.memberCount,
+      required this.iconPath});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       // TODO: Should Specify which chat to navigate according to the clicked option
-      onTap: (){
+      onTap: () {
         context.pushNamed(Routes.developerCommunityChatScreen);
       },
       child: Card(
@@ -63,17 +64,13 @@ class CommunityCard extends StatelessWidget {
               verticalSpace(8),
 
               // Community Name
-              Text(
-                communityName,
-                style: AppTextStyles.font16BlackPoppinsSemiBold
-              ),
+              Text(communityName,
+                  style: AppTextStyles.font16BlackPoppinsSemiBold),
               verticalSpace(4),
 
               // Member Count
-              Text(
-                "$memberCount people",
-                style: AppTextStyles.font14NobelPoppinsRegular
-              ),
+              Text("$memberCount people",
+                  style: AppTextStyles.font14NobelPoppinsRegular),
             ],
           ),
         ),

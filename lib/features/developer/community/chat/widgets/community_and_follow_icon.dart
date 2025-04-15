@@ -37,15 +37,11 @@ class CommunityAndFollowIcon extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-                'React',
-                style: AppTextStyles.font16RangoonGreenPoppinsSemiBold
-            ),
+            Text('React',
+                style: AppTextStyles.font16RangoonGreenPoppinsSemiBold),
             verticalSpace(8),
-            Text(
-                '10,602 people',
-                style: AppTextStyles.font14NobelPoppinsRegular
-            ),
+            Text('10,602 people',
+                style: AppTextStyles.font14NobelPoppinsRegular),
           ],
         ),
         const Spacer(),
@@ -68,7 +64,6 @@ class CommunityAndFollowIcon extends StatelessWidget {
           ),
           onTap: () {
             // TODO: The Icon Should be changed and the follow added to database
-
           },
         ),
       ],

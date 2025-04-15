@@ -1,14 +1,14 @@
-import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../helpers/spacing.dart';
-import '../routing/routes.dart';
 import '../theming/styles.dart';
 import 'app_text_form_field.dart';
 
 class AppSearchTextFormField extends StatelessWidget {
+  final bool? readOnly;
+  final void Function()? onTap;
   final EdgeInsetsGeometry? contentPadding;
   final double? height;
   final double? width;
@@ -29,7 +29,9 @@ class AppSearchTextFormField extends StatelessWidget {
       this.shadowColor,
       this.blurRadius,
       this.spreadRadius,
-      this.offset});
+      this.offset,
+      this.onTap,
+      this.readOnly});
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +53,7 @@ class AppSearchTextFormField extends StatelessWidget {
       ),
       child: GestureDetector(
         onTap: () {
-          context.pushNamed(Routes.searchScreen);
+          onTap;
         },
         child: Row(
           children: [
@@ -63,10 +65,8 @@ class AppSearchTextFormField extends StatelessWidget {
             //TODO: Please someone center this field it is annoying i can't center it
             Expanded(
               child: AppTextFormField(
-                  readOnly: true,
-                  onTap: () {
-                    context.pushNamed(Routes.searchScreen);
-                  },
+                  readOnly: readOnly ?? true,
+                  onTap: onTap,
                   enabledBorder: InputBorder.none,
                   errorBorder: InputBorder.none,
                   focusedBorder: InputBorder.none,
