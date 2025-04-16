@@ -130,6 +130,12 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.medium,
   );
+  static TextStyle font14DunePoppinsRegular = TextStyle(
+    fontSize: 14.sp,
+    color: ColorsManager.dune,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.regular,
+  );
   static TextStyle font12DuneMulishExtraBold = TextStyle(
     fontSize: 12.sp,
     color: ColorsManager.dune,
@@ -159,6 +165,18 @@ class AppTextStyles {
     color: ColorsManager.nobel,
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.regular,
+  );
+  static TextStyle font24RangoonGreenPoppinsSemiBold = TextStyle(
+    fontSize: 24.sp,
+    color: ColorsManager.rangoonGreen,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.semiBold,
+  );
+  static TextStyle font20RangoonGreenPoppinsSemiBold = TextStyle(
+    fontSize: 20.sp,
+    color: ColorsManager.rangoonGreen,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.semiBold,
   );
   static TextStyle font16RangoonGreenPoppinsSemiBold = TextStyle(
     fontSize: 16.sp,
