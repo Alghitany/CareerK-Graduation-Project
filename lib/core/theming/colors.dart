@@ -35,4 +35,5 @@ class ColorsManager {
   static const Color artyClickRed = Color(0xFFFF0000);
   static const Color waikawaGrey = Color(0xFF5967A2);
   static const Color silverChalice = Color(0xFFAEAEAE);
+  static const Color porcelain = Color(0xFFF2F2F2);
 }
