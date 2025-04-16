@@ -18,6 +18,7 @@ class AppSearchTextFormField extends StatelessWidget {
   final double? blurRadius;
   final double? spreadRadius;
   final Offset? offset;
+  final String? hintText;
 
   const AppSearchTextFormField(
       {super.key,
@@ -31,7 +32,8 @@ class AppSearchTextFormField extends StatelessWidget {
       this.spreadRadius,
       this.offset,
       this.onTap,
-      this.readOnly});
+      this.readOnly,
+      this.hintText});
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +73,7 @@ class AppSearchTextFormField extends StatelessWidget {
                   errorBorder: InputBorder.none,
                   focusedBorder: InputBorder.none,
                   focusedErrorBorder: InputBorder.none,
-                  hintText: 'Search for...',
+                  hintText: hintText ?? 'Search for...',
                   hintStyle: AppTextStyles.font16PastelGreyPoppinsMedium,
                   validator: (search) {
                     //TODO: Add search validation if exist
