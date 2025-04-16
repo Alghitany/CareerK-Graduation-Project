@@ -7,14 +7,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class AppBottomNavigationBar extends StatefulWidget {
-  const AppBottomNavigationBar({super.key});
+  final int? selectedIndex;
+
+  const AppBottomNavigationBar({super.key, this.selectedIndex});
 
   @override
   State<AppBottomNavigationBar> createState() => _AppBottomNavigationBarState();
 }
 
 class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
-  int _selectedIndex = 0;
+  late int _selectedIndex;
 
   final Color _selectedColor = ColorsManager.duskyBlue;
   final Color _unselectedColor = ColorsManager.granite;
@@ -23,6 +25,12 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
     setState(() {
       _selectedIndex = index;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedIndex = widget.selectedIndex ?? 0;
   }
 
   @override

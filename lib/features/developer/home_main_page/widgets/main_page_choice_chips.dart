@@ -14,6 +14,7 @@ class MainPageChoiceChips extends StatelessWidget {
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: [
+          // TODO: Filter courses according to the selected Choice
           AppChoiceChip(
               options: const ["UI", "Graphic Design", "Frontend", "Backend"],
               selectedTextStyle: AppTextStyles.font14WhiteMulishBold,

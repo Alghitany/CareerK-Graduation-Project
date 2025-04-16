@@ -9,17 +9,21 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class InputFieldWithSendButton extends StatefulWidget {
   final void Function(Widget) onSend;
+
   const InputFieldWithSendButton({
     super.key,
-    required this.onSend,});
+    required this.onSend,
+  });
 
   @override
-  State<InputFieldWithSendButton> createState() => _InputFieldWithSendButtonState();
+  State<InputFieldWithSendButton> createState() =>
+      _InputFieldWithSendButtonState();
 }
 
 class _InputFieldWithSendButtonState extends State<InputFieldWithSendButton> {
   final TextEditingController _messageController = TextEditingController();
   bool _showEmojiPicker = false;
+  
   void _sendMessage() {
     String messageText = _messageController.text.trim();
     if (messageText.isNotEmpty) {
@@ -35,13 +39,14 @@ class _InputFieldWithSendButtonState extends State<InputFieldWithSendButton> {
     super.dispose();
     _messageController.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          padding: EdgeInsets.fromLTRB(16.w ,0.h ,16.w ,0.h),
+          padding: EdgeInsets.fromLTRB(16.w, 0.h, 16.w, 0.h),
           width: double.infinity,
           height: 60.h,
           color: Colors.white,
@@ -55,11 +60,9 @@ class _InputFieldWithSendButtonState extends State<InputFieldWithSendButton> {
                     _showEmojiPicker = !_showEmojiPicker;
                   });
                 },
-                child: SvgPicture.asset(
-                  'assets/svgs/emoji.svg',
-                  colorFilter: const ColorFilter.mode(
-                      ColorsManager.lemonGrass,
-                      BlendMode.srcIn)),
+                child: SvgPicture.asset('assets/svgs/emoji.svg',
+                    colorFilter: const ColorFilter.mode(
+                        ColorsManager.lemonGrass, BlendMode.srcIn)),
               ),
               horizontalSpace(15),
 
@@ -91,34 +94,32 @@ class _InputFieldWithSendButtonState extends State<InputFieldWithSendButton> {
                       ),
                       filled: true,
                       fillColor: Colors.white,
-                      contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+                      contentPadding: EdgeInsets.symmetric(
+                          horizontal: 16.w, vertical: 12.h),
                     ),
                   ),
                 ),
               ),
               horizontalSpace(8),
               GestureDetector(
-                onTap: (){
+                onTap: () {
                   // TODO: Record audio to send in chat
                 },
                 child: SvgPicture.asset(
                   'assets/svgs/mic.svg',
                   colorFilter: const ColorFilter.mode(
-                    ColorsManager.ironSideGrey,
-                    BlendMode.srcIn),
+                      ColorsManager.ironSideGrey, BlendMode.srcIn),
                 ),
               ),
               horizontalSpace(13.25),
               // Send button
               GestureDetector(
-                onTap: _sendMessage,
-                child: SvgPicture.asset(
-                  'assets/svgs/send.svg',
-                  colorFilter: const ColorFilter.mode(
-                    ColorsManager.duskyBlue,
-                    BlendMode.srcIn),
-                )
-              ),
+                  onTap: _sendMessage,
+                  child: SvgPicture.asset(
+                    'assets/svgs/send.svg',
+                    colorFilter: const ColorFilter.mode(
+                        ColorsManager.duskyBlue, BlendMode.srcIn),
+                  )),
             ],
           ),
         ),

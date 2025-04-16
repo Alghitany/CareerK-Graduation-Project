@@ -24,16 +24,15 @@ class ReceiveMessage extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  'Lorem ipsum dolor sit amet consectetur. Congue donec imperdiet accumsan faucibus id amet vel leo at. Tellus vitae lacinia tristique consequat laoreet non mus ac interdum.  Tellus vitae lacinia tristique consequat. ',
-                  style: AppTextStyles.font12BlackPoppinsRegular
-                ),
+                    'Lorem ipsum dolor sit amet consectetur. Congue donec imperdiet accumsan faucibus id amet vel leo at. Tellus vitae lacinia tristique consequat laoreet non mus ac interdum.  Tellus vitae lacinia tristique consequat. ',
+                    style: AppTextStyles.font12BlackPoppinsRegular),
                 verticalSpace(12),
                 Align(
-                    alignment: Alignment.centerRight,
-                    child: Text(
-                      '08:20 AM',
-                      style: AppTextStyles.font12BlackPoppinsRegular,
-                    ),
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    '08:20 AM',
+                    style: AppTextStyles.font12BlackPoppinsRegular,
+                  ),
                 )
               ],
             ),

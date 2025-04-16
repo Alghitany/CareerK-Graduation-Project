@@ -11,10 +11,12 @@ class DeveloperCommunityChatScreen extends StatefulWidget {
   const DeveloperCommunityChatScreen({super.key});
 
   @override
-  State<DeveloperCommunityChatScreen> createState() => _DeveloperCommunityChatScreenState();
+  State<DeveloperCommunityChatScreen> createState() =>
+      _DeveloperCommunityChatScreenState();
 }
 
-class _DeveloperCommunityChatScreenState extends State<DeveloperCommunityChatScreen> {
+class _DeveloperCommunityChatScreenState
+    extends State<DeveloperCommunityChatScreen> {
   List<Widget> messages = [const ReceiveMessage()];
   final ScrollController _scrollController = ScrollController();
 
@@ -30,44 +32,46 @@ class _DeveloperCommunityChatScreenState extends State<DeveloperCommunityChatScr
       );
     });
   }
+
   @override
   void dispose() {
     _scrollController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     // TODO: I think this Screen Can be refactored way better should be reviewed
     return Scaffold(
       body: SafeArea(
-          child: Column(
-            children: [
-              Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 16),
-                  child: Column(
-                    children: [
-                      const ExitIcon(),
-                      verticalSpace(16),
-                      const CommunityAndFollowIcon(),
-                    ],
-                  ),
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 16),
+              child: Column(
+                children: [
+                  const ExitIcon(),
+                  verticalSpace(16),
+                  const CommunityAndFollowIcon(),
+                ],
               ),
-              verticalSpace(8),
-              Expanded(
-                child: Container(
-                  padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 0.h),
-                  color: ColorsManager.aquaHaze,
-                  child: ListView(
-                    controller: _scrollController,
-                    children: [
-                      ...messages,
-                    ],
-                  ),
+            ),
+            verticalSpace(8),
+            Expanded(
+              child: Container(
+                padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 0.h),
+                color: ColorsManager.aquaHaze,
+                child: ListView(
+                  controller: _scrollController,
+                  children: [
+                    ...messages,
+                  ],
                 ),
               ),
-              InputFieldWithSendButton(onSend: addMessage),
-            ],
-          ),
+            ),
+            InputFieldWithSendButton(onSend: addMessage),
+          ],
+        ),
       ),
     );
   }

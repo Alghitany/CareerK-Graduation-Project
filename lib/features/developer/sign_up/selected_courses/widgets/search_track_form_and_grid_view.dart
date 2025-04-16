@@ -55,7 +55,7 @@ class _SearchTrackFormAndGridViewState
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AppTextFormField(
-              hintText: 'Search a course...',
+              hintText: 'Search a specific_category...',
               //TODO: Check if we need it
               validator: (track) => null,
             ),
