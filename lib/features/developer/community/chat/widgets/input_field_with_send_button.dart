@@ -2,6 +2,7 @@ import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/features/developer/community/chat/widgets/sent_message_container.dart';
+import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -21,7 +22,8 @@ class InputFieldWithSendButton extends StatefulWidget {
 
 class _InputFieldWithSendButtonState extends State<InputFieldWithSendButton> {
   final TextEditingController _messageController = TextEditingController();
-
+  bool _showEmojiPicker = false;
+  
   void _sendMessage() {
     String messageText = _messageController.text.trim();
     if (messageText.isNotEmpty) {
@@ -29,7 +31,9 @@ class _InputFieldWithSendButtonState extends State<InputFieldWithSendButton> {
       _messageController.clear();
     }
   }
-
+  void _onEmojiSelected(Emoji emoji) {
+    _messageController.text += emoji.emoji;
+  }
   @override
   void dispose() {
     super.dispose();
@@ -51,7 +55,10 @@ class _InputFieldWithSendButtonState extends State<InputFieldWithSendButton> {
             children: [
               GestureDetector(
                 onTap: () {
-                  // TODO: Show Emoji List
+                  FocusScope.of(context).unfocus();
+                  setState(() {
+                    _showEmojiPicker = !_showEmojiPicker;
+                  });
                 },
                 child: SvgPicture.asset('assets/svgs/emoji.svg',
                     colorFilter: const ColorFilter.mode(
@@ -114,6 +121,18 @@ class _InputFieldWithSendButtonState extends State<InputFieldWithSendButton> {
                         ColorsManager.duskyBlue, BlendMode.srcIn),
                   )),
             ],
+          ),
+        ),
+        Offstage(
+          offstage: !_showEmojiPicker,
+          child: SizedBox(
+            height: 250.h,
+            child: EmojiPicker(
+              onEmojiSelected: (category, emoji) {
+                _onEmojiSelected(emoji);
+              },
+              config: const Config(),
+            ),
           ),
         ),
       ],
