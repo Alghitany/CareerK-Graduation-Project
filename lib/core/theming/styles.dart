@@ -28,6 +28,12 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.semiBold,
   );
+  static TextStyle font24BlackPoppinsRegular = TextStyle(
+    fontSize: 24.sp,
+    color: Colors.black,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.regular,
+  );
   static TextStyle font20BlackPoppinsBold = TextStyle(
     fontSize: 20.sp,
     fontWeight: FontWeightHelper.bold,
@@ -129,6 +135,12 @@ class AppTextStyles {
     color: ColorsManager.dune,
     fontFamily: 'Mulish',
     fontWeight: FontWeightHelper.extraBold,
+  );
+  static TextStyle font12DunePoppinsRegular = TextStyle(
+    fontSize: 12.sp,
+    color: ColorsManager.dune,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.regular,
   );
   static TextStyle font24CloudBurstPoppinsMedium = TextStyle(
     fontSize: 24.sp,
@@ -345,5 +357,17 @@ class AppTextStyles {
     fontWeight: FontWeightHelper.medium,
     fontFamily: 'Poppins',
     color: ColorsManager.duskyBlue,
+  );
+  static TextStyle font10SilverChalicePoppinsMedium = TextStyle(
+    fontSize: 10.sp,
+    fontWeight: FontWeightHelper.medium,
+    fontFamily: 'Poppins',
+    color: ColorsManager.silverChalice,
+  );
+  static TextStyle font10IronSideGreyPoppinsRegular = TextStyle(
+    fontSize: 10.sp,
+    fontWeight: FontWeightHelper.regular,
+    fontFamily: 'Poppins',
+    color: ColorsManager.ironSideGrey,
   );
 }
