@@ -120,12 +120,12 @@ class AppPhoneNumberFormFieldState extends State<AppPhoneNumberFormField> {
               duration: const Duration(milliseconds: 100),
               child: field.hasError
                   ? Padding(
-                padding: const EdgeInsets.only(top: 5, left: 14),
-                child: Text(
-                  field.errorText!,
-                  style: AppTextStyles.font12MuleFawnPoppinsRegular,
-                ),
-              )
+                      padding: const EdgeInsets.only(top: 5, left: 14),
+                      child: Text(
+                        field.errorText!,
+                        style: AppTextStyles.font12MuleFawnPoppinsRegular,
+                      ),
+                    )
                   : const SizedBox.shrink(),
             ),
           ],

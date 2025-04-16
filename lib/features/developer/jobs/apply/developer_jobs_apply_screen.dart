@@ -16,7 +16,7 @@ class DeveloperJobsApplyScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(16.0.w ,16.0.h ,16.0.w ,0.0.w),
+          padding: EdgeInsets.fromLTRB(16.0.w, 16.0.h, 16.0.w, 0.0.w),
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -29,13 +29,14 @@ class DeveloperJobsApplyScreen extends StatelessWidget {
                 verticalSpace(24),
                 const JobApplyForm(),
                 verticalSpace(32),
-                //TODO: Add validation to form 
+                //TODO: Add validation to form
                 AppTextButton(
-                    onPressed: (){
-                      context.pushNamed(Routes.developerJobsApplicationSubmittedScreen);
-                    },
-                    buttonText: 'Apply',
-                    textStyle: AppTextStyles.font14WhitePoppinsMedium,
+                  onPressed: () {
+                    context.pushNamed(
+                        Routes.developerJobsApplicationSubmittedScreen);
+                  },
+                  buttonText: 'Apply',
+                  textStyle: AppTextStyles.font14WhitePoppinsMedium,
                 ),
               ],
             ),

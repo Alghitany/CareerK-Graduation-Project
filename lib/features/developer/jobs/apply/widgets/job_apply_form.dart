@@ -19,6 +19,7 @@ class JobApplyForm extends StatefulWidget {
 class _JobApplyFormState extends State<JobApplyForm> {
   final formKey = GlobalKey<FormState>();
   String? fileName;
+
   Future<void> pickFile() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
@@ -31,10 +32,11 @@ class _JobApplyFormState extends State<JobApplyForm> {
       });
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: formKey,
+        key: formKey,
         child: Column(
           children: [
             const AppLabel(text: 'Name'),
@@ -80,7 +82,8 @@ class _JobApplyFormState extends State<JobApplyForm> {
             AppTextFormField(
                 hintText: '12000 EGP',
                 validator: (salary) {
-                  if (salary.isNullOrEmpty() || !AppRegex.isValidNumber(salary!)) {
+                  if (salary.isNullOrEmpty() ||
+                      !AppRegex.isValidNumber(salary!)) {
                     return "Please enter a valid salary";
                   }
                 }),
@@ -106,7 +109,6 @@ class _JobApplyFormState extends State<JobApplyForm> {
               ),
             ),
           ],
-        )
-    );
+        ));
   }
 }
