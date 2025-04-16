@@ -78,6 +78,7 @@ class Routes {
   static const String developerJobsSearchScreen = "/developerJobsSearchScreen";
   static const String developerJobsServiceDetailsScreen =
       "/developerJobsServiceDetailsScreen";
+  static const String developerJobsApplyScreen = "/developerJobsApplyScreen";
 
   // Profile
   static const String developerProfileMainPageScreen =
