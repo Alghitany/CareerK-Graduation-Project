@@ -21,6 +21,7 @@ import '../../features/developer/courses/main_page/developer_courses_main_page_s
 import '../../features/developer/courses/specific_category/developer_courses_course_screen.dart';
 import '../../features/developer/home_main_page/developer_home_main_page_screen.dart';
 import '../../features/developer/jobs/main_page/developer_jobs_main_page_screen.dart';
+import '../../features/developer/jobs/search/developer_jobs_search_screen.dart';
 import '../../features/developer/profile/main_page/developer_profile_main_page_screen.dart';
 import '../../features/developer/sign_up/bio_and_skills/developer_sign_up_bio_and_skills_screen.dart';
 import '../../features/developer/sign_up/enter_location/developer_sign_up_enter_location_screen.dart';
@@ -172,6 +173,10 @@ class AppRouter {
       case Routes.developerJobsMainPageScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperJobsMainPageScreen(),
+        );
+      case Routes.developerJobsSearchScreen:
+        return MaterialPageRoute(
+          builder: (_) => const DeveloperJobsSearchScreen(),
         );
       // Profile
       case Routes.developerProfileMainPageScreen:
