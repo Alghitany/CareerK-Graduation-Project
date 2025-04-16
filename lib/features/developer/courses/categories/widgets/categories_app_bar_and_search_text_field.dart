@@ -5,8 +5,8 @@ import 'package:carrerk/core/widgets/app_search_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class AppBarAndSearchTextField extends StatelessWidget {
-  const AppBarAndSearchTextField({super.key});
+class CategoriesAppBarAndSearchTextField extends StatelessWidget {
+  const CategoriesAppBarAndSearchTextField({super.key});
 
   @override
   Widget build(BuildContext context) {
