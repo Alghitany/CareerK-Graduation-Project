@@ -7,14 +7,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class CourseCategoryCard extends StatefulWidget {
+class CategoryCard extends StatefulWidget {
   final String imagePath;
   final String categoryName;
   final String coursesCount;
   final String rating;
   final bool isFavourite;
 
-  const CourseCategoryCard({
+  const CategoryCard({
     super.key,
     required this.imagePath,
     required this.categoryName,
@@ -24,10 +24,10 @@ class CourseCategoryCard extends StatefulWidget {
   });
 
   @override
-  State<CourseCategoryCard> createState() => _CourseCategoryCardState();
+  State<CategoryCard> createState() => _CategoryCardState();
 }
 
-class _CourseCategoryCardState extends State<CourseCategoryCard> {
+class _CategoryCardState extends State<CategoryCard> {
   late bool _isFavourite;
 
   @override
