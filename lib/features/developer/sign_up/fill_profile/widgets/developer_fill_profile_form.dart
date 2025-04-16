@@ -1,10 +1,10 @@
 import 'package:carrerk/core/widgets/app_drop_down_menu.dart';
 import 'package:carrerk/core/widgets/app_label.dart';
-import 'package:carrerk/features/developer/sign_up/fill_profile/widgets/phone_number_form_field.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/theming/styles.dart';
+import '../../../../../core/widgets/app_phone_number_form_field.dart';
 import 'date_of_birth_form_field.dart';
 
 class DeveloperFillProfileForm extends StatefulWidget {
@@ -57,7 +57,7 @@ class _DeveloperFillProfileFormState extends State<DeveloperFillProfileForm> {
           verticalSpace(16),
           const AppLabel(text: 'Phone Number'),
           verticalSpace(8),
-          const PhoneNumberFormField(),
+          const AppPhoneNumberFormField(),
         ],
       ),
     );
