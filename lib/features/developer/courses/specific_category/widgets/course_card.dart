@@ -24,7 +24,7 @@ class CourseCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         //TODO: After reviewing Database add the information screen for the course *important*
         //context.pushNamed(Routes.developerCoursesCourseInformationScreen);
       },
@@ -61,10 +61,8 @@ class CourseCard extends StatelessWidget {
                         style: AppTextStyles.font11RangoonGreenPoppinsMedium,
                       ),
                       const Spacer(),
-                      Text(
-                        '($totalLessons Lessons)',
-                        style: AppTextStyles.font11SilverChalicePoppinsMedium
-                      )
+                      Text('($totalLessons Lessons)',
+                          style: AppTextStyles.font11SilverChalicePoppinsMedium)
                     ],
                   ),
                   verticalSpace(4),
@@ -75,19 +73,14 @@ class CourseCard extends StatelessWidget {
                         height: 14.h,
                         width: 14.w,
                         colorFilter: const ColorFilter.mode(
-                            ColorsManager.liver,
-                            BlendMode.srcIn),
+                            ColorsManager.liver, BlendMode.srcIn),
                       ),
                       horizontalSpace(4),
-                      Text(
-                        views,
-                        style: AppTextStyles.font12LiverPoppinsRegular
-                      ),
+                      Text(views,
+                          style: AppTextStyles.font12LiverPoppinsRegular),
                       const Spacer(),
-                      Text(
-                        date,
-                        style: AppTextStyles.font12LiverPoppinsRegular
-                      ),
+                      Text(date,
+                          style: AppTextStyles.font12LiverPoppinsRegular),
                     ],
                   ),
                 ],

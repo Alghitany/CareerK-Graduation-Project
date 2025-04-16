@@ -31,7 +31,6 @@ class _AppChoiceChipState extends State<AppChoiceChip> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(widget.options.length, (index) {
         return Padding(
           padding: index == 0 || index == widget.options.length - 1

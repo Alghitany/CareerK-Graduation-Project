@@ -25,7 +25,7 @@ class RecommendedJobsAndSeeAll extends StatelessWidget {
             context.pushNamed(Routes.developerJobsMainPageScreen);
           },
           child: GestureDetector(
-            onTap: (){
+            onTap: () {
               context.pushNamed(Routes.developerJobsSearchScreen);
             },
             child: Row(
