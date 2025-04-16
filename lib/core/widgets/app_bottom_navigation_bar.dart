@@ -71,7 +71,7 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
                   SvgPicture.asset(
                     height: 21.h,
                     width: 21.w,
-                    "assets/svgs/course.svg",
+                    "assets/svgs/specific_category.svg",
                     colorFilter: ColorFilter.mode(
                       _selectedIndex == 1 ? _selectedColor : _unselectedColor,
                       BlendMode.srcIn,

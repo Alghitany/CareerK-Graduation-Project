@@ -40,7 +40,7 @@ class _CourseCategoryCardState extends State<CourseCategoryCard> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushNamed(Routes.developerCoursesCourseScreen);
+        context.pushNamed(Routes.developerCoursesSpecificCategoryScreen);
       },
       child: Container(
         width: 172.w,

@@ -29,7 +29,7 @@ class DeveloperSignUpSelectedCourses extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        'Select the course\nYou are interested..',
+                        'Select the specific_category\nYou are interested..',
                         style: AppTextStyles.font24CloudBurstPoppinsMedium,
                       ),
                     ),
