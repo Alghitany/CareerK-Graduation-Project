@@ -23,7 +23,7 @@ class InputFieldWithSendButton extends StatefulWidget {
 class _InputFieldWithSendButtonState extends State<InputFieldWithSendButton> {
   final TextEditingController _messageController = TextEditingController();
   bool _showEmojiPicker = false;
-  
+
   void _sendMessage() {
     String messageText = _messageController.text.trim();
     if (messageText.isNotEmpty) {
@@ -31,9 +31,11 @@ class _InputFieldWithSendButtonState extends State<InputFieldWithSendButton> {
       _messageController.clear();
     }
   }
+
   void _onEmojiSelected(Emoji emoji) {
     _messageController.text += emoji.emoji;
   }
+
   @override
   void dispose() {
     super.dispose();
