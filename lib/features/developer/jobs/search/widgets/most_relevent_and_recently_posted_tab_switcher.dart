@@ -59,7 +59,11 @@ class MostRelevantAndRecentlyPostedTabSwitcherState
             );
           }),
         ),
-        const Divider(height: 1,thickness: 1,color: ColorsManager.mercury,)
+        const Divider(
+          height: 1,
+          thickness: 1,
+          color: ColorsManager.mercury,
+        )
       ],
     );
   }

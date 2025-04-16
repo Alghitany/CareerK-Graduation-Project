@@ -48,7 +48,7 @@ class _MainPagePopularCoursesState extends State<MainPagePopularCourses> {
               SizedBox(
                 width: 277.h,
                 child: GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     //TODO: After reviewing Database add the information screen for the course *important*
                     //context.pushNamed(Routes.developerCoursesCourseInformationScreen);
                   },
@@ -89,15 +89,16 @@ class _MainPagePopularCoursesState extends State<MainPagePopularCourses> {
                                 Padding(
                                   padding: EdgeInsets.only(left: 13.0.w),
                                   child: Text(course["courseTitle"],
-                                      style:
-                                          AppTextStyles.font14DunePoppinsMedium),
+                                      style: AppTextStyles
+                                          .font14DunePoppinsMedium),
                                 ),
                                 verticalSpace(8),
                                 Padding(
                                   padding: EdgeInsets.only(left: 34.0.w),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
                                       Text(course["views"].toString(),
                                           style: AppTextStyles

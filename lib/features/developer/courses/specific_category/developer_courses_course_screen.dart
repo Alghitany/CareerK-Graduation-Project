@@ -3,6 +3,7 @@ import 'package:carrerk/features/developer/courses/specific_category/widgets/cou
 import 'package:carrerk/features/developer/courses/specific_category/widgets/specific_category_app_bar_and_search_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../../core/helpers/spacing.dart';
 
 class DeveloperCoursesSpecificCategoryScreen extends StatelessWidget {
@@ -11,15 +12,17 @@ class DeveloperCoursesSpecificCategoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const AppBottomNavigationBar(selectedIndex: 1,),
+      bottomNavigationBar: const AppBottomNavigationBar(
+        selectedIndex: 1,
+      ),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.fromLTRB(8.0.w, 16.h, 8.0.w, 0.h),
           child: Column(
             children: [
-                const SpecificCategoryAppBarAndSearchTextField(),
-                verticalSpace(24),
-                const CoursesGridView(),
+              const SpecificCategoryAppBarAndSearchTextField(),
+              verticalSpace(24),
+              const CoursesGridView(),
             ],
           ),
         ),

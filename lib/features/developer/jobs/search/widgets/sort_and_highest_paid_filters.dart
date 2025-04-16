@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-
 class SortAndHighestPaidFilters extends StatefulWidget {
   const SortAndHighestPaidFilters({super.key});
 
   @override
-  State<SortAndHighestPaidFilters> createState() => _SortAndHighestPaidFiltersState();
+  State<SortAndHighestPaidFilters> createState() =>
+      _SortAndHighestPaidFiltersState();
 }
 
 class _SortAndHighestPaidFiltersState extends State<SortAndHighestPaidFilters> {
@@ -23,7 +23,7 @@ class _SortAndHighestPaidFiltersState extends State<SortAndHighestPaidFilters> {
       child: Container(
         height: 32.h,
         width: 109.w,
-        padding: EdgeInsets.symmetric(horizontal: 12.w,vertical: 4.h),
+        padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
         decoration: BoxDecoration(
           border: Border.all(color: ColorsManager.mercury),
           borderRadius: BorderRadius.circular(24.r),
@@ -35,9 +35,7 @@ class _SortAndHighestPaidFiltersState extends State<SortAndHighestPaidFilters> {
             isExpanded: true,
             hint: Center(
               child: Text(
-                selectedValue == null
-                    ? 'Sort'
-                    : 'Sort • ${selectedValue!} ',
+                selectedValue == null ? 'Sort' : 'Sort • ${selectedValue!} ',
                 style: AppTextStyles.font14LiverPoppinsMedium,
                 overflow: TextOverflow.ellipsis,
               ),
@@ -46,14 +44,15 @@ class _SortAndHighestPaidFiltersState extends State<SortAndHighestPaidFilters> {
               'assets/svgs/keyboard_arrow_down.svg',
               height: 4.h,
               width: 7.w,
-              colorFilter: const ColorFilter.mode(ColorsManager.liver, BlendMode.srcIn),
+              colorFilter:
+                  const ColorFilter.mode(ColorsManager.liver, BlendMode.srcIn),
             ),
             items: items.map((String item) {
               return DropdownMenuItem<String>(
                 value: item,
                 child: Text(
                   item,
-                  style:AppTextStyles.font14LiverPoppinsMedium,
+                  style: AppTextStyles.font14LiverPoppinsMedium,
                 ),
               );
             }).toList(),
