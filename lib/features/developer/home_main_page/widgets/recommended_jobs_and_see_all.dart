@@ -24,22 +24,27 @@ class RecommendedJobsAndSeeAll extends StatelessWidget {
           onTap: () {
             context.pushNamed(Routes.developerJobsMainPageScreen);
           },
-          child: Row(
-            children: [
-              Text(
-                'SEE ALL',
-                style: AppTextStyles.font12DuskyBluePoppinsSemiBold,
-              ),
-              horizontalSpace(5),
-              SvgPicture.asset(
-                'assets/svgs/keyboard_arrow_right.svg',
-                fit: BoxFit.contain,
-                height: 10.h,
-                width: 7.w,
-                colorFilter: const ColorFilter.mode(
-                    ColorsManager.duskyBlue, BlendMode.srcIn),
-              ),
-            ],
+          child: GestureDetector(
+            onTap: (){
+              context.pushNamed(Routes.developerJobsSearchScreen);
+            },
+            child: Row(
+              children: [
+                Text(
+                  'SEE ALL',
+                  style: AppTextStyles.font12DuskyBluePoppinsSemiBold,
+                ),
+                horizontalSpace(5),
+                SvgPicture.asset(
+                  'assets/svgs/keyboard_arrow_right.svg',
+                  fit: BoxFit.contain,
+                  height: 10.h,
+                  width: 7.w,
+                  colorFilter: const ColorFilter.mode(
+                      ColorsManager.duskyBlue, BlendMode.srcIn),
+                ),
+              ],
+            ),
           ),
         )
       ],
