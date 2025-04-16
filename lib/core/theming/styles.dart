@@ -280,6 +280,12 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.medium,
   );
+  static TextStyle font18WhitePoppinsMedium = TextStyle(
+    fontSize: 18.sp,
+    color: Colors.white,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.medium,
+  );
   static TextStyle font16WhitePoppinsBold = TextStyle(
     fontSize: 16.sp,
     color: Colors.white,
