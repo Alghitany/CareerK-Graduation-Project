@@ -10,18 +10,18 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../../core/helpers/app_regex.dart';
 import '../../../../../core/theming/styles.dart';
 
-class PhoneNumberFormField extends StatefulWidget {
+class AppPhoneNumberFormField extends StatefulWidget {
   final TextEditingController? controller;
   final Country? initialSelectedCountry;
 
-  const PhoneNumberFormField(
+  const AppPhoneNumberFormField(
       {super.key, this.controller, this.initialSelectedCountry});
 
   @override
-  PhoneNumberFormFieldState createState() => PhoneNumberFormFieldState();
+  AppPhoneNumberFormFieldState createState() => AppPhoneNumberFormFieldState();
 }
 
-class PhoneNumberFormFieldState extends State<PhoneNumberFormField> {
+class AppPhoneNumberFormFieldState extends State<AppPhoneNumberFormField> {
   late Country initialSelectedCountry;
 
   @override
@@ -120,12 +120,12 @@ class PhoneNumberFormFieldState extends State<PhoneNumberFormField> {
               duration: const Duration(milliseconds: 100),
               child: field.hasError
                   ? Padding(
-                      padding: const EdgeInsets.only(top: 5, left: 14),
-                      child: Text(
-                        field.errorText!,
-                        style: AppTextStyles.font12MuleFawnPoppinsRegular,
-                      ),
-                    )
+                padding: const EdgeInsets.only(top: 5, left: 14),
+                child: Text(
+                  field.errorText!,
+                  style: AppTextStyles.font12MuleFawnPoppinsRegular,
+                ),
+              )
                   : const SizedBox.shrink(),
             ),
           ],
