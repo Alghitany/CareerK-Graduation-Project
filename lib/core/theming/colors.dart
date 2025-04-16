@@ -36,4 +36,5 @@ class ColorsManager {
   static const Color waikawaGrey = Color(0xFF5967A2);
   static const Color silverChalice = Color(0xFFAEAEAE);
   static const Color porcelain = Color(0xFFF2F2F2);
+  static const Color cloverGreen = Color(0xFF209D3D);
 }
