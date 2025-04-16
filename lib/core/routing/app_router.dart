@@ -17,8 +17,8 @@ import '../../features/customer/sign_up/fill_profile/customer_sign_up_fill_profi
 import '../../features/developer/community/all_communities/developer_community_all_communities_screen.dart';
 import '../../features/developer/community/chat/developer_community_chat_screen.dart';
 import '../../features/developer/courses/categories/developer_courses_categories_screen.dart';
-import '../../features/developer/courses/course/developer_courses_course_screen.dart';
 import '../../features/developer/courses/main_page/developer_courses_main_page_screen.dart';
+import '../../features/developer/courses/specific_category/developer_courses_course_screen.dart';
 import '../../features/developer/home_main_page/developer_home_main_page_screen.dart';
 import '../../features/developer/jobs/main_page/developer_jobs_main_page_screen.dart';
 import '../../features/developer/profile/main_page/developer_profile_main_page_screen.dart';
@@ -164,9 +164,9 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const DeveloperCoursesCategoriesScreen(),
         );
-      case Routes.developerCoursesCourseScreen:
+      case Routes.developerCoursesSpecificCategoryScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperCoursesCourseScreen(),
+          builder: (_) => const DeveloperCoursesSpecificCategoryScreen(),
         );
       // Jobs
       case Routes.developerJobsMainPageScreen:

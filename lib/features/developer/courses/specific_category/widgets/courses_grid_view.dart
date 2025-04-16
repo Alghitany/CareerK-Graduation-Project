@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'category_card.dart';
+import 'course_card.dart';
 
-class CategoriesGridView extends StatelessWidget {
-  const CategoriesGridView({super.key});
+class CoursesGridView extends StatelessWidget {
+  const CoursesGridView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Should be replaced with the real list
     return Expanded(
       child: GridView.builder(
-        padding: EdgeInsets.only(bottom: 16.h),
+        padding: EdgeInsets.only(bottom: 8.h),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 16.w,
@@ -19,14 +18,13 @@ class CategoriesGridView extends StatelessWidget {
         ),
         itemCount: 12,
         itemBuilder: (context, index) {
-          //TODO: The favourites functionality should work correctly
-          return const CategoryCard(
+          //TODO:Add the real list from database
+          return const CourseCard(
             imagePath: 'assets/images/html_course.png',
-            // Replace with your image path
-            categoryName: 'Front-end Developer',
-            coursesCount: '10',
-            rating: '4.6',
-            isFavourite: false,
+            title: 'HTML Course',
+            totalLessons: 30,
+            views: '28K',
+            date: '28 Jan 2024',
           );
         },
       ),

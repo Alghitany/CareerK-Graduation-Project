@@ -184,6 +184,12 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.medium,
   );
+  static TextStyle font11RangoonGreenPoppinsMedium = TextStyle(
+    fontSize: 11.sp,
+    color: ColorsManager.rangoonGreen,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.medium,
+  );
   static TextStyle font16LiverPoppinsRegular = TextStyle(
     fontSize: 16.sp,
     color: ColorsManager.liver,
@@ -195,6 +201,12 @@ class AppTextStyles {
     color: ColorsManager.liver,
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.medium,
+  );
+  static TextStyle font12LiverPoppinsRegular = TextStyle(
+    fontSize: 12.sp,
+    color: ColorsManager.liver,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.regular,
   );
   static TextStyle font15GlaucousPoppinsSemiBold = TextStyle(
     fontSize: 15.sp,
@@ -357,6 +369,12 @@ class AppTextStyles {
     fontWeight: FontWeightHelper.medium,
     fontFamily: 'Poppins',
     color: ColorsManager.duskyBlue,
+  );
+  static TextStyle font11SilverChalicePoppinsMedium = TextStyle(
+    fontSize: 11.sp,
+    fontWeight: FontWeightHelper.medium,
+    fontFamily: 'Poppins',
+    color: ColorsManager.silverChalice,
   );
   static TextStyle font10SilverChalicePoppinsMedium = TextStyle(
     fontSize: 10.sp,
