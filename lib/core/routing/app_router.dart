@@ -18,6 +18,7 @@ import '../../features/developer/community/all_communities/developer_community_a
 import '../../features/developer/community/chat/developer_community_chat_screen.dart';
 import '../../features/developer/courses/categories/developer_courses_categories_screen.dart';
 import '../../features/developer/courses/main_page/developer_courses_main_page_screen.dart';
+import '../../features/developer/courses/my_courses/developer_courses_my_courses_screen.dart';
 import '../../features/developer/courses/roadmaps/developer_courses_roadmaps_screen.dart';
 import '../../features/developer/courses/specific_category/developer_courses_course_screen.dart';
 import '../../features/developer/home_main_page/developer_home_main_page_screen.dart';
@@ -178,6 +179,10 @@ class AppRouter {
       case Routes.developerCoursesRoadmapsScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperCoursesRoadmapsScreen(),
+        );
+      case Routes.developerCoursesMyCoursesScreen:
+        return MaterialPageRoute(
+          builder: (_) => const DeveloperCoursesMyCoursesScreen(),
         );
       // Jobs
       case Routes.developerJobsMainPageScreen:

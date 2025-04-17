@@ -370,6 +370,12 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.medium,
   );
+  static TextStyle font12BlueJayPoppinsMedium = TextStyle(
+    fontSize: 12.sp,
+    color: ColorsManager.blueJay,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.medium,
+  );
   static TextStyle font14SchoolBusYellowPoppinsMedium = TextStyle(
     fontSize: 14.sp,
     color: ColorsManager.schoolBusYellow,
@@ -483,6 +489,12 @@ class AppTextStyles {
     fontWeight: FontWeightHelper.medium,
     fontFamily: 'Poppins',
     color: ColorsManager.duskyBlue,
+  );
+  static TextStyle font12SilverChalicePoppinsMedium = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.medium,
+    fontFamily: 'Poppins',
+    color: ColorsManager.silverChalice,
   );
   static TextStyle font11SilverChalicePoppinsMedium = TextStyle(
     fontSize: 11.sp,

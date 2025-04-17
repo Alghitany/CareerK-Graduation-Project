@@ -1,7 +1,9 @@
 import 'package:carrerk/core/helpers/spacing.dart';
+import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_bottom_navigation_bar.dart';
 import 'package:carrerk/core/widgets/app_search_text_form_field.dart';
 import 'package:carrerk/features/developer/courses/main_page/widgets/courses_main_page_top_bar.dart';
+import 'package:carrerk/features/developer/courses/main_page/widgets/ongoing_courses_list.dart';
 import 'package:carrerk/features/developer/courses/main_page/widgets/roadmaps_suggestions.dart';
 import 'package:carrerk/features/developer/courses/main_page/widgets/roadmaps_text_and_view_all.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +28,7 @@ class DeveloperCoursesMainPageScreen extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.fromLTRB(16.0.w,0.0.h,16.w,0.h),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const AppSearchTextFormField(),
                     verticalSpace(24),
@@ -33,9 +36,16 @@ class DeveloperCoursesMainPageScreen extends StatelessWidget {
                     verticalSpace(8),
                     const RoadmapsSuggestions(),
                     verticalSpace(16),
+                    Text(
+                      'Ongoing Courses',
+                      style: AppTextStyles.font20DunePoppinsMedium,
+                    ),
                   ],
                 ),
               ),
+              verticalSpace(8),
+              const OngoingCoursesList(),
+
             ],
           ),
         ),
