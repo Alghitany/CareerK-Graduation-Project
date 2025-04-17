@@ -15,6 +15,7 @@ class CommunityAndFollowIcon extends StatefulWidget {
 
 class _CommunityAndFollowIconState extends State<CommunityAndFollowIcon> {
   bool isFollow = false;
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -62,9 +63,9 @@ class _CommunityAndFollowIconState extends State<CommunityAndFollowIcon> {
             ),
             child: Center(
               child: SvgPicture.asset(
-                isFollow ?
-                "assets/svgs/follow.svg":
-                "assets/svgs/unfollow.svg",
+                isFollow
+                    ? "assets/svgs/follow.svg"
+                    : "assets/svgs/unfollow.svg",
                 width: 19.w,
                 height: 19.h,
               ),
