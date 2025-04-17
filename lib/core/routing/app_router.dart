@@ -23,6 +23,7 @@ import '../../features/developer/home_main_page/developer_home_main_page_screen.
 import '../../features/developer/jobs/all_categories/developer_jobs_all_categories_screen.dart';
 import '../../features/developer/jobs/application_submitted/developer_jobs_application_submitted_screen.dart';
 import '../../features/developer/jobs/apply/developer_jobs_apply_screen.dart';
+import '../../features/developer/jobs/job_details/developer_jobs_job_details_screen.dart';
 import '../../features/developer/jobs/main_page/developer_jobs_main_page_screen.dart';
 import '../../features/developer/jobs/search/developer_jobs_search_screen.dart';
 import '../../features/developer/jobs/service_details/developer_jobs_service_details_screen.dart';
@@ -197,6 +198,10 @@ class AppRouter {
       case Routes.developerJobsAllCategoriesScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperJobsAllCategoriesScreen(),
+        );
+      case Routes.developerJobsJobDetailsScreen:
+        return MaterialPageRoute(
+          builder: (_) => const DeveloperJobsJobDetailsScreen(),
         );
       // Profile
       case Routes.developerProfileMainPageScreen:
