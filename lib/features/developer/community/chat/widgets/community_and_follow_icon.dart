@@ -6,8 +6,15 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../../../core/theming/colors.dart';
 
-class CommunityAndFollowIcon extends StatelessWidget {
+class CommunityAndFollowIcon extends StatefulWidget {
   const CommunityAndFollowIcon({super.key});
+
+  @override
+  State<CommunityAndFollowIcon> createState() => _CommunityAndFollowIconState();
+}
+
+class _CommunityAndFollowIconState extends State<CommunityAndFollowIcon> {
+  bool isFollow = false;
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +63,9 @@ class CommunityAndFollowIcon extends StatelessWidget {
             ),
             child: Center(
               child: SvgPicture.asset(
-                "assets/svgs/follow.svg",
+                isFollow
+                    ? "assets/svgs/follow.svg"
+                    : "assets/svgs/unfollow.svg",
                 width: 19.w,
                 height: 19.h,
               ),
@@ -64,6 +73,9 @@ class CommunityAndFollowIcon extends StatelessWidget {
           ),
           onTap: () {
             // TODO: The Icon Should be changed and the follow added to database
+            setState(() {
+              isFollow = !isFollow;
+            });
           },
         ),
       ],

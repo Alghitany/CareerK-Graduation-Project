@@ -42,7 +42,7 @@ class _MainPageRecommendedJobsState extends State<MainPageRecommendedJobs> {
         itemBuilder: (context, index) {
           final job = jobs[index];
           return GestureDetector(
-            onTap: (){
+            onTap: () {
               //TODO: Pass the job details to screen
               context.pushNamed(Routes.developerJobsJobDetailsScreen);
             },
@@ -93,8 +93,8 @@ class _MainPageRecommendedJobsState extends State<MainPageRecommendedJobs> {
                             ),
                             horizontalSpace(6),
                             Text(job['salary'],
-                                style:
-                                    AppTextStyles.font14DuskyBluePoppinsSemiBold),
+                                style: AppTextStyles
+                                    .font14DuskyBluePoppinsSemiBold),
                           ],
                         ),
                       ],

@@ -394,6 +394,12 @@ class AppTextStyles {
     fontFamily: 'Raleway',
     color: ColorsManager.granite,
   );
+  static TextStyle font10GranitePoppinsMedium = TextStyle(
+    fontSize: 10.sp,
+    fontWeight: FontWeightHelper.medium,
+    fontFamily: 'Poppins',
+    color: ColorsManager.granite,
+  );
   static TextStyle font10GranitePoppinsRegular = TextStyle(
     fontSize: 10.sp,
     fontWeight: FontWeightHelper.regular,
@@ -439,6 +445,12 @@ class AppTextStyles {
   static TextStyle font14DuskyBluePoppinsSemiBold = TextStyle(
     fontSize: 14.sp,
     fontWeight: FontWeightHelper.semiBold,
+    fontFamily: 'Poppins',
+    color: ColorsManager.duskyBlue,
+  );
+  static TextStyle font14DuskyBluePoppinsMedium = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.medium,
     fontFamily: 'Poppins',
     color: ColorsManager.duskyBlue,
   );
