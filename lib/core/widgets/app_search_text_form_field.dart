@@ -46,7 +46,7 @@ class AppSearchTextFormField extends StatelessWidget {
         borderRadius: BorderRadius.circular(borderRadius ?? 20),
         boxShadow: [
           BoxShadow(
-            color: shadowColor ?? Colors.black.withOpacity(0.05),
+            color: shadowColor ?? Colors.black.withOpacity(0.1),
             blurRadius: blurRadius ?? 10,
             spreadRadius: spreadRadius ?? 1,
             offset: offset ?? const Offset(0, 4),

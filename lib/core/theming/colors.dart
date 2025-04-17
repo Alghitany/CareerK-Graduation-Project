@@ -37,4 +37,8 @@ class ColorsManager {
   static const Color silverChalice = Color(0xFFAEAEAE);
   static const Color porcelain = Color(0xFFF2F2F2);
   static const Color cloverGreen = Color(0xFF209D3D);
+  static const Color magnolia = Color(0xFFF5F6FA);
+  static const Color charcoalGrey = Color(0xFF3F3F3F);
+  static const Color chambray = Color(0xFF3F4A7A);
+  static const Color iron = Color(0xFFD0D5DD);
 }
