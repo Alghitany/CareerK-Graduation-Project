@@ -1,4 +1,6 @@
+import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
+import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -39,77 +41,83 @@ class _MainPageRecommendedJobsState extends State<MainPageRecommendedJobs> {
         itemCount: jobs.length,
         itemBuilder: (context, index) {
           final job = jobs[index];
-          return Container(
-            margin: EdgeInsets.symmetric(vertical: 8.h, horizontal: 16.w),
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(16),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
-                  blurRadius: 8,
-                  offset: const Offset(0, 4),
-                ),
-              ],
-            ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: Image.asset(
-                    job['imagePath'],
-                    width: 88.w,
-                    height: 88.h,
-                    fit: BoxFit.cover,
+          return GestureDetector(
+            onTap: (){
+              //TODO: Pass the job details to screen
+              context.pushNamed(Routes.developerJobsJobDetailsScreen);
+            },
+            child: Container(
+              margin: EdgeInsets.symmetric(vertical: 8.h, horizontal: 16.w),
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(16),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    blurRadius: 8,
+                    offset: const Offset(0, 4),
                   ),
-                ),
-                horizontalSpace(12),
-                // Job Details
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(job['jobTitle'],
-                          style: AppTextStyles.font14BlackPoppinsSemiBold),
-                      verticalSpace(4),
-                      Text(job['location'],
-                          style: AppTextStyles.font12BlackPoppinsLight),
-                      verticalSpace(8),
-                      Row(
-                        children: [
-                          SvgPicture.asset(
-                            "assets/svgs/coin.svg",
-                            width: 20.w,
-                            height: 20.h,
-                          ),
-                          horizontalSpace(6),
-                          Text(job['salary'],
-                              style:
-                                  AppTextStyles.font14DuskyBluePoppinsSemiBold),
-                        ],
-                      ),
-                    ],
+                ],
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: Image.asset(
+                      job['imagePath'],
+                      width: 88.w,
+                      height: 88.h,
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                ),
+                  horizontalSpace(12),
+                  // Job Details
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(job['jobTitle'],
+                            style: AppTextStyles.font14BlackPoppinsSemiBold),
+                        verticalSpace(4),
+                        Text(job['location'],
+                            style: AppTextStyles.font12BlackPoppinsLight),
+                        verticalSpace(8),
+                        Row(
+                          children: [
+                            SvgPicture.asset(
+                              "assets/svgs/coin.svg",
+                              width: 20.w,
+                              height: 20.h,
+                            ),
+                            horizontalSpace(6),
+                            Text(job['salary'],
+                                style:
+                                    AppTextStyles.font14DuskyBluePoppinsSemiBold),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
 
-                // Bookmark Icon
-                IconButton(
-                  onPressed: () {
-                    setState(() {
-                      job['isBookmarked'] = !job['isBookmarked'];
-                    });
-                  },
-                  icon: SvgPicture.asset(
-                    job['isBookmarked']
-                        ? "assets/svgs/bookmark_filled.svg"
-                        : "assets/svgs/bookmark_outlined.svg",
-                    width: 22.w,
-                    height: 22.h,
+                  // Bookmark Icon
+                  IconButton(
+                    onPressed: () {
+                      setState(() {
+                        job['isBookmarked'] = !job['isBookmarked'];
+                      });
+                    },
+                    icon: SvgPicture.asset(
+                      job['isBookmarked']
+                          ? "assets/svgs/bookmark_filled.svg"
+                          : "assets/svgs/bookmark_outlined.svg",
+                      width: 22.w,
+                      height: 22.h,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           );
         },
