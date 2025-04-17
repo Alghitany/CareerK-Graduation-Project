@@ -490,6 +490,12 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     color: ColorsManager.duskyBlue,
   );
+  static TextStyle font12WaikawaGreyPoppinsRegular = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.regular,
+    fontFamily: 'Poppins',
+    color: ColorsManager.waikawaGrey,
+  );
   static TextStyle font12SilverChalicePoppinsMedium = TextStyle(
     fontSize: 12.sp,
     fontWeight: FontWeightHelper.medium,

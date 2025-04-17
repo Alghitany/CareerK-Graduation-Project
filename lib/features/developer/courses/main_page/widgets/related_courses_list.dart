@@ -1,5 +1,4 @@
 import 'package:carrerk/core/helpers/extensions.dart';
-import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/theming/styles.dart';
@@ -7,27 +6,31 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class OngoingCoursesList extends StatefulWidget {
-  const OngoingCoursesList({super.key});
+import '../../../../../core/helpers/spacing.dart';
+
+class RelatedCoursesList extends StatefulWidget {
+  const RelatedCoursesList({super.key});
 
   @override
-  State<OngoingCoursesList> createState() => _OngoingCoursesListState();
+  State<RelatedCoursesList> createState() => _RelatedCoursesListState();
 }
 
-class _OngoingCoursesListState extends State<OngoingCoursesList> {
+class _RelatedCoursesListState extends State<RelatedCoursesList> {
   final List<Map<String, dynamic>> courses = [
     {
       'imagePath': "assets/images/html_course.png",
-      'title': "React Js",
-      'completed': 12,
-      'total': 30,
+      'title': "Front end Developer",
+      'totalCourses': 10,
+      'duration': '8h 30min',
+      'rating': 4.6,
       'isFavourite': false
     },
     {
       'imagePath': "assets/images/html_course.png",
-      'title': "React Js",
-      'completed': 12,
-      'total': 30,
+      'title': "Front end Developer",
+      'totalCourses': 10,
+      'duration': '8h 30min',
+      'rating': 4.6,
       'isFavourite': false
     },
   ];
@@ -35,7 +38,7 @@ class _OngoingCoursesListState extends State<OngoingCoursesList> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 188.h,
+      height: 190,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -43,10 +46,9 @@ class _OngoingCoursesListState extends State<OngoingCoursesList> {
         separatorBuilder: (context, index) => horizontalSpace(14),
         itemBuilder: (context, index) {
           final course = courses[index];
-          double progress = course['completed'] / course['total'];
           return GestureDetector(
             onTap: () {
-              context.pushNamed(Routes.developerCoursesMyCoursesScreen);
+              context.pushNamed(Routes.developerCoursesSpecificCategoryScreen);
             },
             child: Card(
               elevation: 2,
@@ -58,6 +60,7 @@ class _OngoingCoursesListState extends State<OngoingCoursesList> {
                 width: 230.w,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     Stack(
                       children: [
@@ -99,19 +102,24 @@ class _OngoingCoursesListState extends State<OngoingCoursesList> {
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsets.all(8.h),
+                      padding: EdgeInsets.fromLTRB(8.w, 2.h, 8.w, 0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Text(
-                                course['title'],
-                                style: AppTextStyles.font14DunePoppinsRegular,
+                              Expanded(
+                                child: Text(
+                                  course['title'],
+                                  style: AppTextStyles.font14DunePoppinsRegular,
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1,
+                                ),
                               ),
-                              const Spacer(),
+                              horizontalSpace(8),
                               Text(
-                                "(${course['total']} lessons)",
+                                "(${course['totalCourses']} lessons)",
                                 style: AppTextStyles
                                     .font12SilverChalicePoppinsMedium,
                               ),
@@ -119,22 +127,35 @@ class _OngoingCoursesListState extends State<OngoingCoursesList> {
                           ),
                           verticalSpace(4),
                           Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Expanded(
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(4.r),
-                                  child: LinearProgressIndicator(
-                                    value: progress,
-                                    backgroundColor: ColorsManager.mercury,
-                                    color: ColorsManager.waikawaGrey,
-                                    minHeight: 4,
-                                  ),
+                              Container(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 8.w, vertical: 4.h),
+                                decoration: BoxDecoration(
+                                  color: ColorsManager.softPeach,
+                                  borderRadius: BorderRadius.circular(8.r),
+                                ),
+                                child: Text(
+                                  course['duration'],
+                                  style: AppTextStyles
+                                      .font12WaikawaGreyPoppinsRegular,
                                 ),
                               ),
-                              horizontalSpace(8),
+                              horizontalSpace(72),
                               Text(
-                                "${course['completed']}/${course['total']}",
-                                style: AppTextStyles.font12BlueJayPoppinsMedium,
+                                course['rating'].toString(),
+                                style: AppTextStyles.font12DunePoppinsRegular,
+                              ),
+                              horizontalSpace(4),
+                              SvgPicture.asset(
+                                'assets/svgs/star.svg',
+                                height: 16.h,
+                                width: 16.w,
+                                colorFilter: const ColorFilter.mode(
+                                  ColorsManager.schoolBusYellow,
+                                  BlendMode.srcIn,
+                                ),
                               ),
                             ],
                           ),

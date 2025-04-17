@@ -15,13 +15,10 @@ class RoadmapsTextAndViewAll extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text(
-          'Roadmaps',
-          style: AppTextStyles.font18CharcoalGreyPoppinsRegular
-        ),
+        Text('Roadmaps', style: AppTextStyles.font18CharcoalGreyPoppinsRegular),
         const Spacer(),
         GestureDetector(
-          onTap: (){
+          onTap: () {
             context.pushNamed(Routes.developerCoursesRoadmapsScreen);
           },
           child: Row(
@@ -36,9 +33,7 @@ class RoadmapsTextAndViewAll extends StatelessWidget {
                 height: 10.h,
                 width: 5.w,
                 colorFilter: const ColorFilter.mode(
-                    ColorsManager.duskyBlue,
-                    BlendMode.srcIn
-                ),
+                    ColorsManager.duskyBlue, BlendMode.srcIn),
               ),
             ],
           ),
