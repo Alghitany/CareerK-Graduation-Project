@@ -22,19 +22,19 @@ class DeveloperCoursesMainPageScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(0.0.w, 24.0.h, 0.w, 0.h),
+          padding: EdgeInsets.fromLTRB(0.0.w, 16.0.h, 0.w, 0.h),
           child: SingleChildScrollView(
             child: Column(
               children: [
                 const CoursesMainPageTopBar(),
-                verticalSpace(24),
+                verticalSpace(16),
                 Padding(
                   padding: EdgeInsets.fromLTRB(16.0.w, 0.0.h, 16.w, 0.h),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const AppSearchTextFormField(),
-                      verticalSpace(24),
+                      verticalSpace(16),
                       const RoadmapsTextAndViewAll(),
                       verticalSpace(8),
                       const RoadmapsSuggestions(),
