@@ -47,19 +47,15 @@ class RoadmapsSuggestions extends StatelessWidget {
                   item['icon']!,
                   width: 32.w,
                   height: 32.h,
-                  colorFilter: const ColorFilter.mode(
-                      Colors.white,
-                      BlendMode.srcIn
-                  ),
+                  colorFilter:
+                      const ColorFilter.mode(Colors.white, BlendMode.srcIn),
                 ),
               ),
             ),
             verticalSpace(8),
-            Text(
-              item['name']!,
-              textAlign: TextAlign.center,
-              style: AppTextStyles.font14IronPoppinsMedium
-            ),
+            Text(item['name']!,
+                textAlign: TextAlign.center,
+                style: AppTextStyles.font14IronPoppinsMedium),
           ],
         );
       }).toList(),
