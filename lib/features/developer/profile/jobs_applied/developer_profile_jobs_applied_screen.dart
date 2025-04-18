@@ -24,6 +24,7 @@ class DeveloperProfileJobsAppliedScreen extends StatelessWidget {
                 ),
                 verticalSpace(32),
                 //TODO: Refactoring this container should be done
+                //TODO: I FORGET TO SWITCH BRANCHES SORRY UWU :)
                 const AppliedJobsList(),
               ],
             ),
