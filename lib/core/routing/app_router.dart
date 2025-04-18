@@ -36,7 +36,7 @@ import '../../features/developer/profile/edit_profile/developer_profile_edit_pro
 import '../../features/developer/profile/jobs_applied/developer_profile_jobs_applied_screen.dart';
 import '../../features/developer/profile/logout/developer_profile_logout_screen.dart';
 import '../../features/developer/profile/main_page/developer_profile_main_page_screen.dart';
-import '../../features/developer/profile/payment/add_new_cart/developer_profile_payment_add_new_cart_screen.dart';
+import '../../features/developer/profile/payment/add_new_cart/developer_profile_payment_add_new_card_screen.dart';
 import '../../features/developer/profile/payment/option/developer_profile_payment_option_screen.dart';
 import '../../features/developer/profile/saved_jobs/developer_profile_saved_jobs_screen.dart';
 import '../../features/developer/profile/settings/developer_profile_settings_screen.dart';
@@ -269,7 +269,7 @@ class AppRouter {
         );
       case Routes.developerProfilePaymentAddNewCartScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperProfilePaymentAddNewCartScreen(),
+          builder: (_) => const DeveloperProfilePaymentAddNewCardScreen(),
         );
       // ---------------- Customer ----------------
       case Routes.customerSignUpCompulsoryDataScreen:
