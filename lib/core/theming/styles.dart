@@ -352,6 +352,12 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.medium,
   );
+  static TextStyle font16WhitePoppinsRegular = TextStyle(
+    fontSize: 16.sp,
+    color: Colors.white,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.regular,
+  );
   static TextStyle font14WhitePoppinsSemiBold = TextStyle(
     fontSize: 14.sp,
     color: Colors.white,
@@ -549,6 +555,12 @@ class AppTextStyles {
     fontWeight: FontWeightHelper.medium,
     fontFamily: 'Poppins',
     color: ColorsManager.duskyBlue,
+  );
+  static TextStyle font16WaikawaGreyPoppinsRegular = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.regular,
+    fontFamily: 'Poppins',
+    color: ColorsManager.waikawaGrey,
   );
   static TextStyle font12WaikawaGreyPoppinsRegular = TextStyle(
     fontSize: 12.sp,

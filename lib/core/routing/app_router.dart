@@ -34,7 +34,6 @@ import '../../features/developer/jobs/search/developer_jobs_search_screen.dart';
 import '../../features/developer/jobs/service_details/developer_jobs_service_details_screen.dart';
 import '../../features/developer/profile/edit_profile/developer_profile_edit_profile_screen.dart';
 import '../../features/developer/profile/jobs_applied/developer_profile_jobs_applied_screen.dart';
-import '../../features/developer/profile/logout/developer_profile_logout_screen.dart';
 import '../../features/developer/profile/main_page/developer_profile_main_page_screen.dart';
 import '../../features/developer/profile/payment/add_new_cart/developer_profile_payment_add_new_card_screen.dart';
 import '../../features/developer/profile/payment/option/developer_profile_payment_option_screen.dart';
@@ -257,10 +256,6 @@ class AppRouter {
       case Routes.developerProfileJobsAppliedScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperProfileJobsAppliedScreen(),
-        );
-      case Routes.developerProfileLogoutScreen:
-        return MaterialPageRoute(
-          builder: (_) => const DeveloperProfileLogoutScreen(),
         );
       // Profile --> Payment
       case Routes.developerProfilePaymentOptionScreen:

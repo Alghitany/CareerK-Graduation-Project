@@ -109,8 +109,6 @@ class Routes {
       "/developerProfileEditProfileScreen";
   static const String developerProfileJobsAppliedScreen =
       "/developerProfileJobsAppliedScreen";
-  static const String developerProfileLogoutScreen =
-      "/developerProfileLogoutScreen";
 
   // Profile --> Payment
   static const String developerProfilePaymentOptionScreen =

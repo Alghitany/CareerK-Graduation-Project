@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../../core/routing/routes.dart';
+import '../../logout/developer_profile_logout_screen.dart';
 
 class SettingsOptionsList extends StatelessWidget {
   const SettingsOptionsList({super.key});
@@ -96,7 +97,12 @@ class SettingsOptionsList extends StatelessWidget {
               leadingIconHeight: 17,
               leadingIconWidth: 18,
               onTap: () {
-                context.pushNamed(Routes.developerProfileLogoutScreen);
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return developerProfileLogoutScreen(context);
+                  },
+                );
               },
             ),
           ],
