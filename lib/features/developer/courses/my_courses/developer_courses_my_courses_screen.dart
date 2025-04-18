@@ -12,25 +12,27 @@ class DeveloperCoursesMyCoursesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.fromLTRB(16..w,16.h,16.w,0.h),
-              child: Column(
-                children: [
-                  const BackIconAndMyCoursesText(),
-                  verticalSpace(32),
-                  AppSearchTextFormField(
-                    readOnly: false,
-                    shadowColor: Colors.black.withOpacity(0.1),
-                    hintText: 'Search for course',
-                  ),
-                ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.fromLTRB(16..w, 16.h, 16.w, 0.h),
+                child: Column(
+                  children: [
+                    const BackIconAndMyCoursesText(),
+                    verticalSpace(32),
+                    AppSearchTextFormField(
+                      readOnly: false,
+                      shadowColor: Colors.black.withOpacity(0.1),
+                      hintText: 'Search for course',
+                    ),
+                  ],
+                ),
               ),
-            ),
-            verticalSpace(24),
-            const OngoingAndCompletedTabSwitcher(),
-          ],
+              verticalSpace(24),
+              const OngoingAndCompletedTabSwitcher(),
+            ],
+          ),
         ),
       ),
     );

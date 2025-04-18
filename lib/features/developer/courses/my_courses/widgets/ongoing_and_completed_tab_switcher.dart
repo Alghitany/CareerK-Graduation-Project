@@ -1,8 +1,8 @@
-import 'package:carrerk/core/helpers/spacing.dart';
-import 'package:carrerk/core/theming/colors.dart';
-import 'package:carrerk/core/theming/styles.dart';
+import 'package:carrerk/features/developer/courses/my_courses/widgets/ongoing_courses.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../../core/widgets/app_tab_switcher.dart';
+import 'completed_course.dart';
 
 class OngoingAndCompletedTabSwitcher extends StatefulWidget {
   const OngoingAndCompletedTabSwitcher({super.key});
@@ -14,56 +14,15 @@ class OngoingAndCompletedTabSwitcher extends StatefulWidget {
 
 class OngoingAndCompletedTabSwitcherState
     extends State<OngoingAndCompletedTabSwitcher> {
-  int selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) {
-    final tabs = ['Ongoing', 'Completed'];
-
-    return Column(
-      mainAxisSize: MainAxisSize.min,
+    return const Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: List.generate(tabs.length, (index) {
-            final isSelected = selectedIndex == index;
-            return GestureDetector(
-              onTap: () {
-                setState(() {
-                  selectedIndex = index;
-                });
-              },
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    tabs[index],
-                    style: isSelected
-                        ? AppTextStyles.font16BlueBellPoppinsMedium
-                        : AppTextStyles.font16IronSideGreyPoppinsMedium,
-                  ),
-                  verticalSpace(4),
-                  AnimatedContainer(
-                    duration: const Duration(milliseconds: 200),
-                    height: 4.h,
-                    width: 100.w,
-                    decoration: BoxDecoration(
-                      color: isSelected
-                          ? ColorsManager.blueBell
-                          : Colors.transparent,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                ],
-              ),
-            );
-          }),
+        AppTabSwitcher(
+          tabs: ['Ongoing', 'Completed'],
+          option0: OngoingCourses(),
+          option1: CompletedCourses(),
         ),
-        const Divider(
-          height: 1,
-          thickness: 1,
-          color: ColorsManager.mercury,
-        )
       ],
     );
   }

@@ -75,6 +75,8 @@ class Routes {
       "/developerCoursesRoadmapsScreen";
   static const String developerCoursesMyCoursesScreen =
       "/developerCoursesMyCoursesScreen";
+  static const String developerCoursesCertificationScreen =
+      "/developerCoursesCertificationScreen";
 
   // Jobs
   static const String developerJobsMainPageScreen =
