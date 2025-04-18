@@ -89,12 +89,22 @@ class Routes {
       "/developerJobsAllCategoriesScreen";
   static const String developerJobsJobDetailsScreen =
       "/developerJobsJobDetailsScreen";
+  static const String developerProfileSavedJobsScreen =
+      "/developerProfileSavedJobsScreen";
 
   // Profile
   static const String developerProfileMainPageScreen =
       "/developerProfileMainPageScreen";
   static const String developerProfileSettingsScreen =
       "/developerProfileSettingsScreen";
+  static const String developerProfileEditProfileScreen =
+      "/developerProfileEditProfileScreen";
+  static const String developerProfileJobsAppliedScreen =
+      "/developerProfileJobsAppliedScreen";
+  static const String developerProfilePaymentOptionScreen =
+      "/developerProfilePaymentOptionScreen";
+  static const String developerProfileLogoutScreen =
+      "/developerProfileLogoutScreen";
 
   // ---------------- Customer ----------------
   // Sign Up
