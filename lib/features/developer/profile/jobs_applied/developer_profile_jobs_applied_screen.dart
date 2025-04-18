@@ -14,13 +14,14 @@ class DeveloperProfileJobsAppliedScreen extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.fromLTRB(16.w,16.h,16.w,0.h),
+            padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 0.h),
             child: Column(
               children: [
                 const AppBackIcon(),
                 Text(
                   'Job Applied',
-                  style: AppTextStyles.font24SecondaryWildBlueYonderPoppinsSemiBold,
+                  style: AppTextStyles
+                      .font24SecondaryWildBlueYonderPoppinsSemiBold,
                 ),
                 verticalSpace(32),
                 //TODO: Refactoring this container should be done
