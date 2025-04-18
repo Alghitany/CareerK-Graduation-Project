@@ -77,6 +77,7 @@ class Routes {
       "/developerCoursesMyCoursesScreen";
   static const String developerCoursesCertificationScreen =
       "/developerCoursesCertificationScreen";
+
   // Courses --> CvUpdated
   static const String developerCoursesCvUpdatedUpdateCvScreen =
       "/developerCoursesCvUpdatedUpdateCvScreen";
@@ -110,6 +111,7 @@ class Routes {
       "/developerProfileJobsAppliedScreen";
   static const String developerProfileLogoutScreen =
       "/developerProfileLogoutScreen";
+
   // Profile --> Payment
   static const String developerProfilePaymentOptionScreen =
       "/developerProfilePaymentOptionScreen";
