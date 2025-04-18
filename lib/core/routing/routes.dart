@@ -93,6 +93,8 @@ class Routes {
   // Profile
   static const String developerProfileMainPageScreen =
       "/developerProfileMainPageScreen";
+  static const String developerProfileSettingsScreen =
+      "/developerProfileSettingsScreen";
 
   // ---------------- Customer ----------------
   // Sign Up
