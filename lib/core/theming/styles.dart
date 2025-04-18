@@ -268,6 +268,12 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.medium,
   );
+  static TextStyle font14LiverPoppinsRegular = TextStyle(
+    fontSize: 14.sp,
+    color: ColorsManager.liver,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.regular,
+  );
   static TextStyle font14LiverRalewayRegular = TextStyle(
     fontSize: 14.sp,
     color: ColorsManager.liver,
