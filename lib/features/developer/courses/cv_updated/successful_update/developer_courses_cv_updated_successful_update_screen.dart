@@ -1,10 +1,8 @@
-import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../../core/helpers/spacing.dart';
-import '../../../../../core/routing/routes.dart';
 import '../../../../../core/theming/colors.dart';
 import '../../../../../core/theming/styles.dart';
 import '../../../../../core/widgets/app_back_icon.dart';
@@ -39,7 +37,8 @@ class DeveloperCoursesCvUpdatedSuccessfulUpdateScreen extends StatelessWidget {
                 buttonWidth: 127,
                 backgroundColor: ColorsManager.duskyBlue,
                 onPressed: () {
-                  context.pushNamed(Routes.developerSignUpCompletedReadyToGo);
+                  //TODO: Need to know where it will go
+                  //context.pushNamed(Routes.developerSignUpCompletedReadyToGo);
                 },
                 child: Row(
                   mainAxisSize: MainAxisSize.min, // Keeps the row compact
