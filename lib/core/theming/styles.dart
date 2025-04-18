@@ -10,6 +10,12 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.semiBold,
   );
+  static TextStyle font24SecondaryWildBlueYonderPoppinsSemiBold = TextStyle(
+    fontSize: 24.sp,
+    color: ColorsManager.secondaryWildBlueYonder,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.semiBold,
+  );
   static TextStyle font14SecondaryWildBlueYonderPoppinsSemiBold = TextStyle(
     fontSize: 14.sp,
     color: ColorsManager.secondaryWildBlueYonder,

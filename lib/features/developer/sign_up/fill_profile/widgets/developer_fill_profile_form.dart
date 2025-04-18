@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/theming/styles.dart';
+import '../../../../../core/widgets/app_date_of_birth_form_field.dart';
 import '../../../../../core/widgets/app_phone_number_form_field.dart';
-import 'date_of_birth_form_field.dart';
 
 class DeveloperFillProfileForm extends StatefulWidget {
   const DeveloperFillProfileForm({super.key});
@@ -51,7 +51,7 @@ class _DeveloperFillProfileFormState extends State<DeveloperFillProfileForm> {
           const AppLabel(text: 'Date Of Birth'),
           verticalSpace(8),
           // Note: Date of birth will appear when controller work
-          DateOfBirthFormField(
+          AppDateOfBirthFormField(
             dobController: dobController,
           ),
           verticalSpace(16),
