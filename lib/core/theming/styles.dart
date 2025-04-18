@@ -238,6 +238,12 @@ class AppTextStyles {
     fontFamily: 'Raleway',
     fontWeight: FontWeightHelper.medium,
   );
+  static TextStyle font12RangoonGreenPoppinsRegular = TextStyle(
+    fontSize: 12.sp,
+    color: ColorsManager.rangoonGreen,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.regular,
+  );
   static TextStyle font11RangoonGreenPoppinsMedium = TextStyle(
     fontSize: 11.sp,
     color: ColorsManager.rangoonGreen,
@@ -364,6 +370,12 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.medium,
   );
+  static TextStyle font12IronSideGreyPoppinsSemiBold = TextStyle(
+    fontSize: 12.sp,
+    color: ColorsManager.ironSideGrey,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.semiBold,
+  );
   static TextStyle font14MercuryPoppinsMedium = TextStyle(
     fontSize: 14.sp,
     color: ColorsManager.mercury,
@@ -442,6 +454,12 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     color: ColorsManager.plantation,
   );
+  static TextStyle font16PrimaryWildBlueYonderPoppinsMedium = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.medium,
+    fontFamily: 'Poppins',
+    color: ColorsManager.primaryWildBlueYonder,
+  );
   static TextStyle font14PrimaryWildBlueYonderPoppinsMedium = TextStyle(
     fontSize: 14.sp,
     fontWeight: FontWeightHelper.medium,
@@ -519,6 +537,14 @@ class AppTextStyles {
     fontWeight: FontWeightHelper.medium,
     fontFamily: 'Poppins',
     color: ColorsManager.santaGrey,
+  );
+  static TextStyle font12BlueBerryPoppinsSemiBoldUnderlined = TextStyle(
+    decoration: TextDecoration.underline,
+    decorationColor: ColorsManager.blueBerry,
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.semiBold,
+    fontFamily: 'Poppins',
+    color: ColorsManager.blueBerry,
   );
   static TextStyle font12SilverChalicePoppinsMedium = TextStyle(
     fontSize: 12.sp,
