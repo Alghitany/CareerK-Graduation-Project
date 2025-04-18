@@ -16,7 +16,7 @@ class DeveloperCoursesCertificationScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(16.w,16.h,16.w,0.h),
+          padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 0.h),
           child: Column(
             children: [
               const CertificationTopBar(),
@@ -34,17 +34,18 @@ class DeveloperCoursesCertificationScreen extends StatelessWidget {
               ),
               verticalSpace(32),
               AppTextButton(
-                  onPressed: (){
-                    //TODO: No screen for it probably the cv will be downloaded.
-                    //context.pushNamed(Routes.developerCoursesCvUpdatedDownloadCvScreen);
-                  },
-                  buttonText: 'Download',
-                  textStyle: AppTextStyles.font14WhitePoppinsSemiBold,
+                onPressed: () {
+                  //TODO: No screen for it probably the cv will be downloaded.
+                  //context.pushNamed(Routes.developerCoursesCvUpdatedDownloadCvScreen);
+                },
+                buttonText: 'Download',
+                textStyle: AppTextStyles.font14WhitePoppinsSemiBold,
               ),
               verticalSpace(16),
               AppTextButton(
-                onPressed: (){
-                  context.pushNamed(Routes.developerCoursesCvUpdatedUpdateCvScreen);
+                onPressed: () {
+                  context.pushNamed(
+                      Routes.developerCoursesCvUpdatedUpdateCvScreen);
                 },
                 buttonText: 'Update CV',
                 textStyle: AppTextStyles.font14PrimaryWildBlueYonderPoppinsBold,

@@ -204,7 +204,8 @@ class AppRouter {
         );
       case Routes.developerCoursesCvUpdatedSuccessfulUpdateScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperCoursesCvUpdatedSuccessfulUpdateScreen(),
+          builder: (_) =>
+              const DeveloperCoursesCvUpdatedSuccessfulUpdateScreen(),
         );
       // Jobs
       case Routes.developerJobsMainPageScreen:

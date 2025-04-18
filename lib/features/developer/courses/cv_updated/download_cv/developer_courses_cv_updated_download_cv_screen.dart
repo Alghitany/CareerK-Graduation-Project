@@ -1,6 +1,7 @@
 import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/routing/routes.dart';
 import '../../../../../core/theming/styles.dart';
@@ -41,8 +42,8 @@ class DeveloperCoursesCvUpdatedUpdateCvScreen extends StatelessWidget {
                   textStyle: AppTextStyles.font14WhitePoppinsMedium,
                   onPressed: () {
                     //TODO: Download the pdf file to device storage and navigate
-                    context
-                        .pushNamed(Routes.developerCoursesCvUpdatedSuccessfulUpdateScreen);
+                    context.pushNamed(
+                        Routes.developerCoursesCvUpdatedSuccessfulUpdateScreen);
                   }),
             ],
           ),
@@ -51,4 +52,3 @@ class DeveloperCoursesCvUpdatedUpdateCvScreen extends StatelessWidget {
     );
   }
 }
-
