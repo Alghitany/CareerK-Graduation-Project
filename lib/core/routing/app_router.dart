@@ -19,6 +19,7 @@ import '../../features/developer/community/chat/developer_community_chat_screen.
 import '../../features/developer/courses/categories/developer_courses_categories_screen.dart';
 import '../../features/developer/courses/certification/developer_courses_certification_screen.dart';
 import '../../features/developer/courses/cv_updated/download_cv/developer_courses_cv_updated_download_cv_screen.dart';
+import '../../features/developer/courses/cv_updated/successful_update/developer_courses_cv_updated_successful_update_screen.dart';
 import '../../features/developer/courses/main_page/developer_courses_main_page_screen.dart';
 import '../../features/developer/courses/my_courses/developer_courses_my_courses_screen.dart';
 import '../../features/developer/courses/roadmaps/developer_courses_roadmaps_screen.dart';
@@ -200,6 +201,10 @@ class AppRouter {
       case Routes.developerCoursesCvUpdatedUpdateCvScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperCoursesCvUpdatedUpdateCvScreen(),
+        );
+      case Routes.developerCoursesCvUpdatedSuccessfulUpdateScreen:
+        return MaterialPageRoute(
+          builder: (_) => const DeveloperCoursesCvUpdatedSuccessfulUpdateScreen(),
         );
       // Jobs
       case Routes.developerJobsMainPageScreen:

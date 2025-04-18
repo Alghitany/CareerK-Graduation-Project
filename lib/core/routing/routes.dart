@@ -80,6 +80,8 @@ class Routes {
   // Courses --> CvUpdated
   static const String developerCoursesCvUpdatedUpdateCvScreen =
       "/developerCoursesCvUpdatedUpdateCvScreen";
+  static const String developerCoursesCvUpdatedSuccessfulUpdateScreen =
+      "/developerCoursesCvUpdatedSuccessfulUpdateScreen";
 
   // Jobs
   static const String developerJobsMainPageScreen =
