@@ -115,6 +115,8 @@ class Routes {
   // Profile --> Payment
   static const String developerProfilePaymentOptionScreen =
       "/developerProfilePaymentOptionScreen";
+  static const String developerProfilePaymentAddNewCartScreen =
+      "/developerProfilePaymentAddNewCartScreen";
 
   // ---------------- Customer ----------------
   // Sign Up
