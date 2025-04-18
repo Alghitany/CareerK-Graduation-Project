@@ -30,6 +30,7 @@ import '../../features/developer/jobs/main_page/developer_jobs_main_page_screen.
 import '../../features/developer/jobs/search/developer_jobs_search_screen.dart';
 import '../../features/developer/jobs/service_details/developer_jobs_service_details_screen.dart';
 import '../../features/developer/profile/main_page/developer_profile_main_page_screen.dart';
+import '../../features/developer/profile/settings/developer_profile_settings_screen.dart';
 import '../../features/developer/sign_up/bio_and_skills/developer_sign_up_bio_and_skills_screen.dart';
 import '../../features/developer/sign_up/enter_location/developer_sign_up_enter_location_screen.dart';
 import '../../features/developer/sign_up/fill_profile/developer_sign_up_fill_profile_screen.dart';
@@ -217,6 +218,10 @@ class AppRouter {
       case Routes.developerProfileMainPageScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperProfileMainPageScreen(),
+        );
+      case Routes.developerProfileSettingsScreen:
+        return MaterialPageRoute(
+          builder: (_) => const DeveloperProfileSettingsScreen(),
         );
       // ---------------- Customer ----------------
       case Routes.customerSignUpCompulsoryDataScreen:

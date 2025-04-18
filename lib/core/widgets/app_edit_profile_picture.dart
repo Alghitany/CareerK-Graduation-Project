@@ -85,7 +85,7 @@ class _AppEditProfilePictureState extends State<AppEditProfilePicture> {
       clipBehavior: Clip.none,
       children: [
         CircleAvatar(
-          radius: widget.imageRadius ?? 70,
+          radius: widget.imageRadius?.r ?? 70.r,
           backgroundColor: widget.backgroundColor ?? ColorsManager.titanWhite,
           backgroundImage:
               _imagePath != null ? FileImage(File(_imagePath!)) : null,

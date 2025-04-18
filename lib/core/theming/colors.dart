@@ -41,4 +41,5 @@ class ColorsManager {
   static const Color charcoalGrey = Color(0xFF3F3F3F);
   static const Color chambray = Color(0xFF3F4A7A);
   static const Color iron = Color(0xFFD0D5DD);
+  static const Color blueBerry = Color(0xFF3F4D88);
 }
