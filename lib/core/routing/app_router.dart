@@ -244,12 +244,12 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const DeveloperProfileLogoutScreen(),
         );
-    // Profile --> Payment
+      // Profile --> Payment
       case Routes.developerProfilePaymentOptionScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperProfilePaymentOptionScreen(),
         );
-    // ---------------- Customer ----------------
+      // ---------------- Customer ----------------
       case Routes.customerSignUpCompulsoryDataScreen:
         return MaterialPageRoute(
           builder: (_) => const CustomerSignUpCompulsoryDataScreen(),

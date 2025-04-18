@@ -11,7 +11,8 @@ class AppDateOfBirthFormField extends StatefulWidget {
   const AppDateOfBirthFormField({super.key, this.dobController});
 
   @override
-  State<AppDateOfBirthFormField> createState() => _AppDateOfBirthFormFieldState();
+  State<AppDateOfBirthFormField> createState() =>
+      _AppDateOfBirthFormFieldState();
 }
 
 class _AppDateOfBirthFormFieldState extends State<AppDateOfBirthFormField> {
@@ -37,7 +38,7 @@ class _AppDateOfBirthFormFieldState extends State<AppDateOfBirthFormField> {
         if (pickedDate != null) {
           setState(() {
             widget.dobController?.text =
-            "${pickedDate.year}-${pickedDate.month}-${pickedDate.day}";
+                "${pickedDate.year}-${pickedDate.month}-${pickedDate.day}";
           });
         }
       },
@@ -63,7 +64,7 @@ class _AppDateOfBirthFormFieldState extends State<AppDateOfBirthFormField> {
           if (pickedDate != null) {
             setState(() {
               widget.dobController?.text =
-              "${pickedDate.year}-${pickedDate.month}-${pickedDate.day}";
+                  "${pickedDate.year}-${pickedDate.month}-${pickedDate.day}";
             });
           }
         },

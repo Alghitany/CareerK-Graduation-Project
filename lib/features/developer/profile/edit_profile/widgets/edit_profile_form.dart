@@ -45,7 +45,7 @@ class EditProfileForm extends StatelessWidget {
               return DropdownMenuItem<String>(
                 value: value,
                 child:
-                Text(value, style: AppTextStyles.font14BlackPoppinsRegular),
+                    Text(value, style: AppTextStyles.font14BlackPoppinsRegular),
               );
             }).toList(),
           ),

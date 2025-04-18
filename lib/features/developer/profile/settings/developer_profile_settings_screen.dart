@@ -15,7 +15,7 @@ class DeveloperProfileSettingsScreen extends StatelessWidget {
       backgroundColor: ColorsManager.magnolia,
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(16.w,8.h,16.w,0.h),
+          padding: EdgeInsets.fromLTRB(16.w, 8.h, 16.w, 0.h),
           child: Column(
             children: [
               const AppBackIcon(

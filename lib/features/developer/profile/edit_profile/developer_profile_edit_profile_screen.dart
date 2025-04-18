@@ -15,14 +15,15 @@ class DeveloperProfileEditProfileScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(16.0.w,16.h,16.w,0.h),
+          padding: EdgeInsets.fromLTRB(16.0.w, 16.h, 16.w, 0.h),
           child: Column(
             children: [
               const AppBackIcon(),
               verticalSpace(16),
               Text(
                 'Edit Profile',
-                style: AppTextStyles.font24SecondaryWildBlueYonderPoppinsSemiBold,
+                style:
+                    AppTextStyles.font24SecondaryWildBlueYonderPoppinsSemiBold,
               ),
               verticalSpace(24),
               const AppEditProfilePicture(
@@ -35,9 +36,9 @@ class DeveloperProfileEditProfileScreen extends StatelessWidget {
               const EditProfileForm(),
               verticalSpace(40),
               AppTextButton(
-                  onPressed: (){
-                    // TODO: I think a dialog should appear here
-                  },
+                onPressed: () {
+                  // TODO: I think a dialog should appear here
+                },
                 buttonText: 'Update',
                 textStyle: AppTextStyles.font14WhitePoppinsMedium,
               )

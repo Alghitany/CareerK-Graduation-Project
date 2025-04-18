@@ -15,7 +15,7 @@ class SettingsOptionsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
-        padding: EdgeInsets.fromLTRB(0.w,0.h,0.w,16.h),
+        padding: EdgeInsets.fromLTRB(0.w, 0.h, 0.w, 16.h),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -24,7 +24,7 @@ class SettingsOptionsList extends StatelessWidget {
               text: 'Edit Profile',
               leadingIconHeight: 19.5,
               leadingIconWidth: 15,
-              onTap: (){
+              onTap: () {
                 context.pushNamed(Routes.developerProfileEditProfileScreen);
               },
             ),
@@ -33,7 +33,7 @@ class SettingsOptionsList extends StatelessWidget {
               text: 'My Courses',
               leadingIconHeight: 21,
               leadingIconWidth: 21,
-              onTap: (){
+              onTap: () {
                 context.pushNamed(Routes.developerCoursesMyCoursesScreen);
               },
             ),
@@ -42,7 +42,7 @@ class SettingsOptionsList extends StatelessWidget {
               text: 'My CV',
               leadingIconHeight: 19.5,
               leadingIconWidth: 15,
-              onTap: (){
+              onTap: () {
                 context.pushNamed(Routes.developerSignUpCompletedCvIsDone);
               },
             ),
@@ -51,7 +51,7 @@ class SettingsOptionsList extends StatelessWidget {
               text: 'Test & Quiz',
               leadingIconHeight: 16.5,
               leadingIconWidth: 18,
-              onTap: (){
+              onTap: () {
                 //TODO: This feature may be removed since we don't present courses
                 //context.pushNamed(Routes.developerSignUpCompletedCvIsDone);
               },
@@ -61,14 +61,14 @@ class SettingsOptionsList extends StatelessWidget {
               text: 'Job Saved',
               leadingIconHeight: 18,
               leadingIconWidth: 15,
-              onTap: (){
+              onTap: () {
                 context.pushNamed(Routes.developerProfileSavedJobsScreen);
               },
             ),
             settingServiceRow(
               icon: 'assets/svgs/job.svg',
               text: 'Job Applied',
-              onTap: (){
+              onTap: () {
                 context.pushNamed(Routes.developerProfileJobsAppliedScreen);
               },
             ),
@@ -77,7 +77,7 @@ class SettingsOptionsList extends StatelessWidget {
               text: 'Notifications',
               leadingIconHeight: 18,
               leadingIconWidth: 16.5,
-              onTap: (){
+              onTap: () {
                 context.pushNamed(Routes.notificationsScreen);
               },
             ),
@@ -86,7 +86,7 @@ class SettingsOptionsList extends StatelessWidget {
               text: 'Payment Option',
               leadingIconHeight: 18,
               leadingIconWidth: 18,
-              onTap: (){
+              onTap: () {
                 context.pushNamed(Routes.developerProfilePaymentOptionScreen);
               },
             ),
@@ -95,7 +95,7 @@ class SettingsOptionsList extends StatelessWidget {
               text: 'Logout',
               leadingIconHeight: 17,
               leadingIconWidth: 18,
-              onTap: (){
+              onTap: () {
                 context.pushNamed(Routes.developerProfileLogoutScreen);
               },
             ),
@@ -104,14 +104,14 @@ class SettingsOptionsList extends StatelessWidget {
       ),
     );
   }
-  Widget settingServiceRow(
-      {
-        required icon,
-        required text,
-        required onTap,
-        double? leadingIconHeight,
-        double? leadingIconWidth,
-      }){
+
+  Widget settingServiceRow({
+    required icon,
+    required text,
+    required onTap,
+    double? leadingIconHeight,
+    double? leadingIconWidth,
+  }) {
     return GestureDetector(
       onTap: onTap,
       child: SizedBox(
@@ -123,9 +123,8 @@ class SettingsOptionsList extends StatelessWidget {
               icon,
               height: (leadingIconHeight ?? 24).h,
               width: (leadingIconWidth ?? 24).w,
-              colorFilter: const ColorFilter.mode(
-                  ColorsManager.dune,
-                  BlendMode.srcIn),
+              colorFilter:
+                  const ColorFilter.mode(ColorsManager.dune, BlendMode.srcIn),
             ),
             horizontalSpace(8),
             Text(
@@ -137,9 +136,8 @@ class SettingsOptionsList extends StatelessWidget {
               'assets/svgs/keyboard_arrow_right.svg',
               height: 13.h,
               width: 4.w,
-              colorFilter: const ColorFilter.mode(
-                  Colors.black,
-                  BlendMode.srcIn),
+              colorFilter:
+                  const ColorFilter.mode(Colors.black, BlendMode.srcIn),
             )
           ],
         ),
