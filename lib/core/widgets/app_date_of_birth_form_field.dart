@@ -5,16 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class DateOfBirthFormField extends StatefulWidget {
+class AppDateOfBirthFormField extends StatefulWidget {
   final TextEditingController? dobController;
 
-  const DateOfBirthFormField({super.key, this.dobController});
+  const AppDateOfBirthFormField({super.key, this.dobController});
 
   @override
-  State<DateOfBirthFormField> createState() => _DateOfBirthFormFieldState();
+  State<AppDateOfBirthFormField> createState() => _AppDateOfBirthFormFieldState();
 }
 
-class _DateOfBirthFormFieldState extends State<DateOfBirthFormField> {
+class _AppDateOfBirthFormFieldState extends State<AppDateOfBirthFormField> {
   @override
   Widget build(BuildContext context) {
     return AppTextFormField(
@@ -37,12 +37,12 @@ class _DateOfBirthFormFieldState extends State<DateOfBirthFormField> {
         if (pickedDate != null) {
           setState(() {
             widget.dobController?.text =
-                "${pickedDate.year}-${pickedDate.month}-${pickedDate.day}";
+            "${pickedDate.year}-${pickedDate.month}-${pickedDate.day}";
           });
         }
       },
       suffixIcon: IconButton(
-        padding: EdgeInsets.symmetric(vertical: 15.w, horizontal: 20.h),
+        padding: EdgeInsets.symmetric(vertical: 12.w, horizontal: 12.h),
         icon: SvgPicture.asset(
           "assets/svgs/calender.svg",
           height: 18.h,
@@ -63,7 +63,7 @@ class _DateOfBirthFormFieldState extends State<DateOfBirthFormField> {
           if (pickedDate != null) {
             setState(() {
               widget.dobController?.text =
-                  "${pickedDate.year}-${pickedDate.month}-${pickedDate.day}";
+              "${pickedDate.year}-${pickedDate.month}-${pickedDate.day}";
             });
           }
         },
