@@ -1,4 +1,6 @@
+import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
+import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_bottom_navigation_bar.dart';
 import 'package:carrerk/core/widgets/app_search_text_form_field.dart';
@@ -33,7 +35,11 @@ class DeveloperCoursesMainPageScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const AppSearchTextFormField(),
+                      AppSearchTextFormField(
+                        onTap: (){
+                          context.pushNamed(Routes.searchScreen);
+                        },
+                      ),
                       verticalSpace(16),
                       const RoadmapsTextAndViewAll(),
                       verticalSpace(8),
