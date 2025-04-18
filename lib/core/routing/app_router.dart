@@ -29,7 +29,12 @@ import '../../features/developer/jobs/job_details/developer_jobs_job_details_scr
 import '../../features/developer/jobs/main_page/developer_jobs_main_page_screen.dart';
 import '../../features/developer/jobs/search/developer_jobs_search_screen.dart';
 import '../../features/developer/jobs/service_details/developer_jobs_service_details_screen.dart';
+import '../../features/developer/profile/edit_profile/developer_profile_edit_profile_screen.dart';
+import '../../features/developer/profile/jobs_applied/developer_profile_jobs_applied_screen.dart';
+import '../../features/developer/profile/logout/developer_profile_logout_screen.dart';
 import '../../features/developer/profile/main_page/developer_profile_main_page_screen.dart';
+import '../../features/developer/profile/payment/option/developer_profile_payment_option_screen.dart';
+import '../../features/developer/profile/saved_jobs/developer_profile_saved_jobs_screen.dart';
 import '../../features/developer/profile/settings/developer_profile_settings_screen.dart';
 import '../../features/developer/sign_up/bio_and_skills/developer_sign_up_bio_and_skills_screen.dart';
 import '../../features/developer/sign_up/enter_location/developer_sign_up_enter_location_screen.dart';
@@ -223,7 +228,28 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const DeveloperProfileSettingsScreen(),
         );
-      // ---------------- Customer ----------------
+      case Routes.developerProfileEditProfileScreen:
+        return MaterialPageRoute(
+          builder: (_) => const DeveloperProfileEditProfileScreen(),
+        );
+      case Routes.developerProfileSavedJobsScreen:
+        return MaterialPageRoute(
+          builder: (_) => const DeveloperProfileSavedJobsScreen(),
+        );
+      case Routes.developerProfileJobsAppliedScreen:
+        return MaterialPageRoute(
+          builder: (_) => const DeveloperProfileJobsAppliedScreen(),
+        );
+      case Routes.developerProfileLogoutScreen:
+        return MaterialPageRoute(
+          builder: (_) => const DeveloperProfileLogoutScreen(),
+        );
+    // Profile --> Payment
+      case Routes.developerProfilePaymentOptionScreen:
+        return MaterialPageRoute(
+          builder: (_) => const DeveloperProfilePaymentOptionScreen(),
+        );
+    // ---------------- Customer ----------------
       case Routes.customerSignUpCompulsoryDataScreen:
         return MaterialPageRoute(
           builder: (_) => const CustomerSignUpCompulsoryDataScreen(),
