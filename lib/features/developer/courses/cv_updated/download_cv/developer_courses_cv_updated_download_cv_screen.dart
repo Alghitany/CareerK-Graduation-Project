@@ -13,7 +13,7 @@ class DeveloperCoursesCvUpdatedUpdateCvScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea
+      body: SafeArea(
         //TODO: The whole folder may be refactored cause there is redundant screen
         child: Padding(
           padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 0.h),
