@@ -4,7 +4,7 @@ import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_bottom_navigation_bar.dart';
 import 'package:carrerk/core/widgets/app_search_text_form_field.dart';
-import 'package:carrerk/features/developer/courses/main_page/widgets/courses_main_page_top_bar.dart';
+import 'package:carrerk/core/widgets/courses_and_jobs_main_page_top_bar.dart';
 import 'package:carrerk/features/developer/courses/main_page/widgets/ongoing_courses_list.dart';
 import 'package:carrerk/features/developer/courses/main_page/widgets/related_courses_and_view_all.dart';
 import 'package:carrerk/features/developer/courses/main_page/widgets/related_courses_list.dart';
@@ -28,7 +28,7 @@ class DeveloperCoursesMainPageScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                const CoursesMainPageTopBar(),
+                const CoursesAndJobsMainPageTopBar(),
                 verticalSpace(16),
                 Padding(
                   padding: EdgeInsets.fromLTRB(16.0.w, 0.0.h, 16.w, 0.h),

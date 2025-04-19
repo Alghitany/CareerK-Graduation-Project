@@ -148,6 +148,18 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.medium,
   );
+  static TextStyle font18DunePoppinsMedium = TextStyle(
+    fontSize: 18.sp,
+    color: ColorsManager.dune,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.medium,
+  );
+  static TextStyle font16DunePoppinsSemiBold = TextStyle(
+    fontSize: 16.sp,
+    color: ColorsManager.dune,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.semiBold,
+  );
   static TextStyle font14DunePoppinsMedium = TextStyle(
     fontSize: 14.sp,
     color: ColorsManager.dune,
