@@ -36,7 +36,7 @@ class DeveloperCoursesMainPageScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       AppSearchTextFormField(
-                        onTap: (){
+                        onTap: () {
                           context.pushNamed(Routes.searchScreen);
                         },
                       ),
