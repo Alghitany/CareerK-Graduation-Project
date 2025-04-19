@@ -292,6 +292,24 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.regular,
   );
+  static TextStyle font20DarkGreyPoppinsSemiBold = TextStyle(
+    fontSize: 20.sp,
+    color: ColorsManager.darkGrey,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.semiBold,
+  );
+  static TextStyle font16DarkGreyPoppinsRegular = TextStyle(
+    fontSize: 16.sp,
+    color: ColorsManager.darkGrey,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.regular,
+  );
+  static TextStyle font20GlaucousPoppinsSemiBold = TextStyle(
+    fontSize: 20.sp,
+    color: ColorsManager.glaucous,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.semiBold,
+  );
   static TextStyle font15GlaucousPoppinsSemiBold = TextStyle(
     fontSize: 15.sp,
     color: ColorsManager.glaucous,
@@ -454,6 +472,12 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     color: ColorsManager.granite,
   );
+  static TextStyle font12GranitePoppinsRegular = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.regular,
+    fontFamily: 'Poppins',
+    color: ColorsManager.granite,
+  );
   static TextStyle font12GraniteRalewayRegular = TextStyle(
     fontSize: 12.sp,
     fontWeight: FontWeightHelper.regular,
@@ -520,6 +544,12 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     color: ColorsManager.artyClickRed,
   );
+  static TextStyle font12ArtyClickRedPoppinsRegular = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.regular,
+    fontFamily: 'Poppins',
+    color: ColorsManager.artyClickRed,
+  );
   static TextStyle font14IronPoppinsMedium = TextStyle(
     fontSize: 14.sp,
     fontWeight: FontWeightHelper.medium,
@@ -581,6 +611,12 @@ class AppTextStyles {
     fontWeight: FontWeightHelper.semiBold,
     fontFamily: 'Poppins',
     color: ColorsManager.blueBerry,
+  );
+  static TextStyle font12CloverGreenPoppinsMedium = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.medium,
+    fontFamily: 'Poppins',
+    color: ColorsManager.cloverGreen,
   );
   static TextStyle font12SilverChalicePoppinsMedium = TextStyle(
     fontSize: 12.sp,

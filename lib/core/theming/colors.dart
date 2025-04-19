@@ -43,4 +43,6 @@ class ColorsManager {
   static const Color iron = Color(0xFFD0D5DD);
   static const Color blueBerry = Color(0xFF3F4D88);
   static const Color santaGrey = Color(0xFF909AC1);
+  static const Color darkGrey = Color(0xFF343434);
+  static const Color mirage = Color(0xFF0F172A);
 }
