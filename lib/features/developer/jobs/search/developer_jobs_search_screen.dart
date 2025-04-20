@@ -1,5 +1,5 @@
 import 'package:carrerk/core/helpers/spacing.dart';
-import 'package:carrerk/core/widgets/app_bottom_navigation_bar.dart';
+import 'package:carrerk/core/widgets/developer_bottom_navigation_bar.dart';
 import 'package:carrerk/features/developer/jobs/search/widgets/top_bar_and_search_field.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +11,7 @@ class DeveloperJobsSearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const AppBottomNavigationBar(
+      bottomNavigationBar: const DeveloperBottomNavigationBar(
         selectedIndex: 2,
       ),
       body: SafeArea(

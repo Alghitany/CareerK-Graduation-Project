@@ -1,4 +1,4 @@
-import 'package:carrerk/core/widgets/app_bottom_navigation_bar.dart';
+import 'package:carrerk/core/widgets/developer_bottom_navigation_bar.dart';
 import 'package:carrerk/features/developer/courses/specific_category/widgets/courses_grid_view.dart';
 import 'package:carrerk/features/developer/courses/specific_category/widgets/specific_category_app_bar_and_search_text_field.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +12,7 @@ class DeveloperCoursesSpecificCategoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const AppBottomNavigationBar(
+      bottomNavigationBar: const DeveloperBottomNavigationBar(
         selectedIndex: 1,
       ),
       body: SafeArea(

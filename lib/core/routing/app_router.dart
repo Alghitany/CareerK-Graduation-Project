@@ -9,6 +9,12 @@ import '../../features/authentication/login/login_screen.dart';
 import '../../features/authentication/onboarding/on_boarding_screen.dart';
 import '../../features/authentication/reset_password/reset_password_screen.dart';
 import '../../features/authentication/successful_change_password/successful_change_password.dart';
+import '../../features/company/chats/person_chat/company_chats_person_chat_screen.dart';
+import '../../features/company/home/see_details/company_home_see_details_screen.dart';
+import '../../features/company/home/see_resume/company_home_see_resume_screen.dart';
+import '../../features/company/jobs/company_jobs_screen.dart';
+import '../../features/company/jobs_post/first/company_job_post_first_screen.dart';
+import '../../features/company/profile/company_profile_screen.dart';
 import '../../features/company/sign_up/compulsory_data/company_sign_up_compulsory_data_screen.dart';
 import '../../features/company/sign_up/contact_information/company_sign_up_contact_information.dart';
 import '../../features/company/sign_up/enter_location/company_sign_up_enter_location_screen.dart';
@@ -109,6 +115,35 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const CompanyHomeMainPageScreen(),
         );
+      case Routes.companyHomeSeeDetailsScreen:
+        return MaterialPageRoute(
+          builder: (_) => const CompanyHomeSeeDetailsScreen(),
+        );
+      case Routes.companyHomeSeeResumeScreen:
+        return MaterialPageRoute(
+          builder: (_) => const CompanyHomeSeeResumeScreen(),
+        );
+      // Chats
+      case Routes.companyChatsPersonChatScreen:
+        return MaterialPageRoute(
+          builder: (_) => const CompanyChatsPersonChatScreen(),
+        );
+      // Jobs
+      case Routes.companyJobsScreen:
+        return MaterialPageRoute(
+          builder: (_) => const CompanyJobsScreen(),
+        );
+      // Profile
+      case Routes.companyProfileScreen:
+        return MaterialPageRoute(
+          builder: (_) => const CompanyProfileScreen(),
+        );
+      // Jobs Post
+      case Routes.companyJobPostFirstScreen:
+        return MaterialPageRoute(
+          builder: (_) => const CompanyJobPostFirstScreen(),
+        );
+
       // ---------------- Developer ----------------
       // Sign Up
       case Routes.developerSignUpCompulsoryDataScreen:

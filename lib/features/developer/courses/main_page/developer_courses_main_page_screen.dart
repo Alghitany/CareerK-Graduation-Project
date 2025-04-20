@@ -2,9 +2,9 @@ import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/styles.dart';
-import 'package:carrerk/core/widgets/app_bottom_navigation_bar.dart';
 import 'package:carrerk/core/widgets/app_search_text_form_field.dart';
 import 'package:carrerk/core/widgets/courses_and_jobs_main_page_top_bar.dart';
+import 'package:carrerk/core/widgets/developer_bottom_navigation_bar.dart';
 import 'package:carrerk/features/developer/courses/main_page/widgets/ongoing_courses_list.dart';
 import 'package:carrerk/features/developer/courses/main_page/widgets/related_courses_and_view_all.dart';
 import 'package:carrerk/features/developer/courses/main_page/widgets/related_courses_list.dart';
@@ -19,7 +19,7 @@ class DeveloperCoursesMainPageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const AppBottomNavigationBar(
+      bottomNavigationBar: const DeveloperBottomNavigationBar(
         selectedIndex: 1,
       ),
       body: SafeArea(

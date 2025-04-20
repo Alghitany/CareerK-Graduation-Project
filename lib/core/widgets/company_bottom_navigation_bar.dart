@@ -1,25 +1,27 @@
 import 'package:carrerk/core/helpers/extensions.dart';
-import 'package:carrerk/core/routing/routes.dart';
-import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class AppBottomNavigationBar extends StatefulWidget {
+import '../routing/routes.dart';
+
+class CompanyBottomNavigationBar extends StatefulWidget {
   final int? selectedIndex;
 
-  const AppBottomNavigationBar({super.key, this.selectedIndex});
+  const CompanyBottomNavigationBar({super.key, this.selectedIndex});
 
   @override
-  State<AppBottomNavigationBar> createState() => _AppBottomNavigationBarState();
+  State<CompanyBottomNavigationBar> createState() =>
+      _CompanyBottomNavigationBarState();
 }
 
-class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
+class _CompanyBottomNavigationBarState
+    extends State<CompanyBottomNavigationBar> {
   late int _selectedIndex;
 
-  final Color _selectedColor = ColorsManager.duskyBlue;
-  final Color _unselectedColor = ColorsManager.granite;
+  final Color _selectedColor = const Color(0xFF465697);
+  final Color _unselectedColor = const Color(0xFF808080);
 
   void _onItemTapped(int index) {
     setState(() {
@@ -60,7 +62,7 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
               ),
               onPressed: () {
                 _onItemTapped(0);
-                context.pushNamed(Routes.developerHomeMainPageScreen);
+                context.pushNamed(Routes.companyHomeMainPageScreen);
               },
             ),
           ),
@@ -71,14 +73,14 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
                   SvgPicture.asset(
                     height: 21.h,
                     width: 21.w,
-                    "assets/svgs/course.svg",
+                    "assets/svgs/search.svg",
                     colorFilter: ColorFilter.mode(
                       _selectedIndex == 1 ? _selectedColor : _unselectedColor,
                       BlendMode.srcIn,
                     ),
                     fit: BoxFit.contain,
                   ),
-                  Text("Courses",
+                  Text("Search",
                       style: _selectedIndex == 1
                           ? AppTextStyles.font12DuskyBluePoppinsMedium
                           : AppTextStyles.font12GranitePoppinsMedium),
@@ -86,10 +88,11 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
               ),
               onPressed: () {
                 _onItemTapped(1);
-                context.pushNamed(Routes.developerCoursesMainPageScreen);
+                context.pushNamed(Routes.searchScreen);
               },
             ),
           ),
+          const SizedBox(width: 10),
           Expanded(
             child: IconButton(
               icon: Column(
@@ -112,7 +115,7 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
               ),
               onPressed: () {
                 _onItemTapped(2);
-                context.pushNamed(Routes.developerJobsMainPageScreen);
+                context.pushNamed(Routes.companyJobsScreen);
               },
             ),
           ),
@@ -136,7 +139,7 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
               ),
               onPressed: () {
                 _onItemTapped(3);
-                context.pushNamed(Routes.developerProfileMainPageScreen);
+                context.pushNamed(Routes.companyProfileScreen);
               },
             ),
           ),
