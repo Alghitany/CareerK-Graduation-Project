@@ -9,8 +9,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../successful/company_send_to_applicants_successful_screen.dart';
 
-class CompanySendToClientsScreen extends StatelessWidget {
-  const CompanySendToClientsScreen({super.key});
+class CompanySendToApplicantsMessageApplicantScreen extends StatelessWidget {
+  const CompanySendToApplicantsMessageApplicantScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
