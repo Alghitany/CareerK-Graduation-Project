@@ -15,6 +15,7 @@ import '../../features/company/home/see_resume/company_home_see_resume_screen.da
 import '../../features/company/jobs/company_jobs_screen.dart';
 import '../../features/company/jobs_post/first/company_job_post_first_screen.dart';
 import '../../features/company/profile/company_profile_screen.dart';
+import '../../features/company/send_to_clients/company_send_to_clients_screen.dart';
 import '../../features/company/sign_up/compulsory_data/company_sign_up_compulsory_data_screen.dart';
 import '../../features/company/sign_up/contact_information/company_sign_up_contact_information.dart';
 import '../../features/company/sign_up/enter_location/company_sign_up_enter_location_screen.dart';
@@ -142,6 +143,11 @@ class AppRouter {
       case Routes.companyJobPostFirstScreen:
         return MaterialPageRoute(
           builder: (_) => const CompanyJobPostFirstScreen(),
+        );
+      // Send To Clients
+      case Routes.companySendToClientsScreen:
+        return MaterialPageRoute(
+          builder: (_) => const CompanySendToClientsScreen(),
         );
 
       // ---------------- Developer ----------------
