@@ -48,6 +48,10 @@ class Routes {
   // Job Post
   static const String companyJobPostFirstScreen = "/companyJobPostFirstScreen";
 
+  // Send To Clients
+  static const String companySendToClientsScreen =
+      "/companySendToClientsScreen";
+
   // ---------------- Developer ----------------
   // Sign Up
   static const String developerSignUpCompulsoryDataScreen =
