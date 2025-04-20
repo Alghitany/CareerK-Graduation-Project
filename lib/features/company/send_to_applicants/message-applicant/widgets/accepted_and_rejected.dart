@@ -42,17 +42,15 @@ class AcceptedAndRejected extends StatelessWidget {
                       ),
                       horizontalSpace(6),
                       Column(
-                        crossAxisAlignment:
-                        CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             'Client name',
-                            style: AppTextStyles
-                                .font12RangoonGreenPoppinsRegular,
+                            style:
+                                AppTextStyles.font12RangoonGreenPoppinsRegular,
                           ),
                           Text('Mansoura,Egypt.',
-                              style: AppTextStyles
-                                  .font12LiverPoppinsLight)
+                              style: AppTextStyles.font12LiverPoppinsLight)
                         ],
                       ),
                       const Spacer(),
@@ -64,8 +62,7 @@ class AcceptedAndRejected extends StatelessWidget {
                           radius: 16.r,
                           backgroundColor: ColorsManager.porcelain,
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 8),
+                            padding: const EdgeInsets.symmetric(horizontal: 8),
                             child: SvgPicture.asset(
                               "assets/svgs/phone_outlined.svg",
                               height: 16.h,
@@ -82,15 +79,14 @@ class AcceptedAndRejected extends StatelessWidget {
                       horizontalSpace(10),
                       GestureDetector(
                         onTap: () {
-                          context.pushNamed(
-                              Routes.companyChatsPersonChatScreen);
+                          context
+                              .pushNamed(Routes.companyChatsPersonChatScreen);
                         },
                         child: CircleAvatar(
                           radius: 16.r,
                           backgroundColor: ColorsManager.porcelain,
                           child: Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 8.w),
+                            padding: EdgeInsets.symmetric(horizontal: 8.w),
                             child: SvgPicture.asset(
                               "assets/svgs/message_outlined.svg",
                               height: 16.h,
@@ -107,8 +103,7 @@ class AcceptedAndRejected extends StatelessWidget {
                     ],
                   ),
                   Padding(
-                    padding:
-                    EdgeInsets.fromLTRB(40.w, 8.h, 0.w, 0.h),
+                    padding: EdgeInsets.fromLTRB(40.w, 8.h, 0.w, 0.h),
                     child: Row(
                       children: [
                         AppTextButton(
@@ -116,12 +111,11 @@ class AcceptedAndRejected extends StatelessWidget {
                             buttonHeight: 25.h,
                             buttonWidth: 100.w,
                             backgroundColor: Colors.white,
-                            borderColor:
-                            ColorsManager.primaryWildBlueYonder,
+                            borderColor: ColorsManager.primaryWildBlueYonder,
                             borderRadius: 4.r,
                             buttonText: 'Rejected',
-                            textStyle: AppTextStyles
-                                .font11DuskyBluePoppinsMedium,
+                            textStyle:
+                                AppTextStyles.font11DuskyBluePoppinsMedium,
                             onPressed: () {
                               //TODO: their on pressed is undefined
                             }),
@@ -131,13 +125,11 @@ class AcceptedAndRejected extends StatelessWidget {
                             buttonHeight: 25.h,
                             buttonWidth: 100.w,
                             backgroundColor:
-                            ColorsManager.primaryWildBlueYonder,
-                            borderColor:
-                            ColorsManager.primaryWildBlueYonder,
+                                ColorsManager.primaryWildBlueYonder,
+                            borderColor: ColorsManager.primaryWildBlueYonder,
                             borderRadius: 4.r,
                             buttonText: 'Accepted',
-                            textStyle: AppTextStyles
-                                .font11WhitePoppinsMedium,
+                            textStyle: AppTextStyles.font11WhitePoppinsMedium,
                             onPressed: () {
                               //TODO: their on pressed is undefined
                             }),

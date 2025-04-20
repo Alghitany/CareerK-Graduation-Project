@@ -35,7 +35,9 @@ class AppRegex {
     return RegExp(r'^(www\.)?[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+(/.*)?$')
         .hasMatch(url);
   }
+
   static bool isValidMessage(String message) {
-    return RegExp(r"^[\s\S]{10,200}$").hasMatch(message); // Allows any character including newlines
+    return RegExp(r"^[\s\S]{10,200}$")
+        .hasMatch(message); // Allows any character including newlines
   }
 }
