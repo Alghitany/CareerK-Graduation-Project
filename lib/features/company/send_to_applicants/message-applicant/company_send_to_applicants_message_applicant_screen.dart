@@ -17,7 +17,7 @@ class CompanySendToApplicantsMessageApplicantScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(16.w,16.h,16.w,0.h),
+          padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 0.h),
           child: Column(
             children: [
               const AppBackIcon(),
@@ -32,16 +32,16 @@ class CompanySendToApplicantsMessageApplicantScreen extends StatelessWidget {
               const MessageForm(),
               verticalSpace(48),
               AppTextButton(
-                buttonText: 'Send to Applicant',
+                  buttonText: 'Send to Applicant',
                   textStyle: AppTextStyles.font14WhitePoppinsMedium,
-                  onPressed:(){
+                  onPressed: () {
                     showDialog(
                       context: context,
                       builder: (context) {
                         return companySendToApplicantsSuccessfulScreen(context);
                       },
                     );
-                  } )
+                  })
             ],
           ),
         ),

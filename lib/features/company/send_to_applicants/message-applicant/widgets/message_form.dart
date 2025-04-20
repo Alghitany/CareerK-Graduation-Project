@@ -9,7 +9,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/helpers/app_regex.dart';
 
-
 class MessageForm extends StatefulWidget {
   const MessageForm({super.key});
 
@@ -24,18 +23,20 @@ class _MessageFormState extends State<MessageForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: formKey,
+        key: formKey,
         child: Column(
           children: [
             const AppLabel(text: 'Message'),
             Padding(
-              padding: EdgeInsets.fromLTRB(0.w,8.0.h,0.w,32.h),
+              padding: EdgeInsets.fromLTRB(0.w, 8.0.h, 0.w, 32.h),
               child: AppTextFormField(
                   width: double.infinity,
                   height: 185.h,
-                  hintText: 'Hi, Ali\nCongratulations!\nAfter reviewing the resume, We would like to invite you for interview on Saturday.\nBest Regards,\nHiring Manager.',
+                  hintText:
+                      'Hi, Ali\nCongratulations!\nAfter reviewing the resume, We would like to invite you for interview on Saturday.\nBest Regards,\nHiring Manager.',
                   hintStyle: AppTextStyles.font14MercuryPoppinsMedium,
-                  contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
                   keyboardType: TextInputType.multiline,
                   minLines: 3,
                   maxLines: 7,
@@ -45,14 +46,12 @@ class _MessageFormState extends State<MessageForm> {
                         !AppRegex.isValidMessage(message)) {
                       return 'Please enter a valid name';
                     }
-                  }
-              ),
+                  }),
             ),
             const AppLabel(text: 'Date Interview'),
             verticalSpace(8),
             const AppDateOfBirthFormField()
           ],
-        )
-    );
+        ));
   }
 }

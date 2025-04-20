@@ -214,6 +214,12 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.semiBold,
   );
+  static TextStyle font24RangoonGreenPoppinsMedium = TextStyle(
+    fontSize: 24.sp,
+    color: ColorsManager.rangoonGreen,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.medium,
+  );
   static TextStyle font20RangoonGreenPoppinsSemiBold = TextStyle(
     fontSize: 20.sp,
     color: ColorsManager.rangoonGreen,
