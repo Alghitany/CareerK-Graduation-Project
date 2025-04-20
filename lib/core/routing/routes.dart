@@ -49,6 +49,8 @@ class Routes {
   static const String companyJobPostFirstScreen = "/companyJobPostFirstScreen";
   static const String companyJobPostSecondScreen =
       "/companyJobPostSecondScreen";
+  static const String companyJobPostSuccessScreen =
+      "/companyJobPostSuccessScreen";
 
   // Send To Clients
   static const String companySendToClientsScreen =
