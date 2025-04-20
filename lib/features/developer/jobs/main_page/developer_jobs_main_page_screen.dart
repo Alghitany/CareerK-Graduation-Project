@@ -1,4 +1,5 @@
 import 'package:carrerk/core/widgets/courses_and_jobs_main_page_top_bar.dart';
+import 'package:carrerk/core/widgets/developer_bottom_navigation_bar.dart';
 import 'package:carrerk/features/developer/jobs/main_page/widgets/related_jobs_and_view_all.dart';
 import 'package:carrerk/features/developer/jobs/main_page/widgets/related_jobs_list.dart';
 import 'package:carrerk/features/developer/jobs/main_page/widgets/services_for_you_and_view_all.dart';
@@ -14,6 +15,9 @@ class DeveloperJobsMainPageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const DeveloperBottomNavigationBar(
+        selectedIndex: 2,
+      ),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.fromLTRB(0.0.w, 16.0.h, 0.w, 0.h),

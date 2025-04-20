@@ -30,6 +30,23 @@ class Routes {
 
   // Home
   static const String companyHomeMainPageScreen = "/companyHomeMainPageScreen";
+  static const String companyHomeSeeDetailsScreen =
+      "/companyHomeSeeDetailsScreen";
+  static const String companyHomeSeeResumeScreen =
+      "/companyHomeSeeResumeScreen";
+
+  // Chats
+  static const String companyChatsPersonChatScreen =
+      "/companyChatsPersonChatScreen";
+
+  // Jobs
+  static const String companyJobsScreen = "/companyJobsScreen";
+
+  // Profile
+  static const String companyProfileScreen = "/companyProfileScreen";
+
+  // Job Post
+  static const String companyJobPostFirstScreen = "/companyJobPostFirstScreen";
 
   // ---------------- Developer ----------------
   // Sign Up

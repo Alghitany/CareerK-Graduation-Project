@@ -1,4 +1,4 @@
-import 'package:carrerk/core/widgets/app_bottom_navigation_bar.dart';
+import 'package:carrerk/core/widgets/developer_bottom_navigation_bar.dart';
 import 'package:carrerk/features/developer/courses/categories/widgets/categories_app_bar_and_search_text_field.dart';
 import 'package:carrerk/features/developer/courses/categories/widgets/categories_grid_view.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +13,7 @@ class DeveloperCoursesCategoriesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       //TODO: I think this screen can work much better than this.
-      bottomNavigationBar: const AppBottomNavigationBar(
+      bottomNavigationBar: const DeveloperBottomNavigationBar(
         selectedIndex: 1,
       ),
       body: SafeArea(

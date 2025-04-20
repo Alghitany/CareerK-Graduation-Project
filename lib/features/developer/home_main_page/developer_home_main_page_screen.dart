@@ -8,9 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/routing/routes.dart';
-import '../../../core/widgets/app_bottom_navigation_bar.dart';
 import '../../../core/widgets/app_developer_home_top_bar.dart';
 import '../../../core/widgets/app_search_text_form_field.dart';
+import '../../../core/widgets/developer_bottom_navigation_bar.dart';
 import 'widgets/popular_courses_and_see_all.dart';
 
 class DeveloperHomeMainPageScreen extends StatelessWidget {
@@ -19,7 +19,9 @@ class DeveloperHomeMainPageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const AppBottomNavigationBar(),
+      bottomNavigationBar: const DeveloperBottomNavigationBar(
+        selectedIndex: 0,
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(

@@ -1,5 +1,5 @@
 import 'package:carrerk/core/helpers/spacing.dart';
-import 'package:carrerk/core/widgets/app_bottom_navigation_bar.dart';
+import 'package:carrerk/core/widgets/developer_bottom_navigation_bar.dart';
 import 'package:carrerk/features/developer/profile/main_page/widgets/name_and_title.dart';
 import 'package:carrerk/features/developer/profile/main_page/widgets/phone_message_and_location_icons.dart';
 import 'package:carrerk/features/developer/profile/main_page/widgets/profile_top_bar.dart';
@@ -13,7 +13,7 @@ class DeveloperProfileMainPageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const AppBottomNavigationBar(
+      bottomNavigationBar: const DeveloperBottomNavigationBar(
         selectedIndex: 3,
       ),
       body: SafeArea(
