@@ -28,6 +28,7 @@ class AppTextFormField extends StatelessWidget {
   final double? borderRadius;
   final double? height;
   final double? width;
+  final int? maxLength;
 
   const AppTextFormField(
       {super.key,
@@ -53,7 +54,8 @@ class AppTextFormField extends StatelessWidget {
       this.borderRadius,
       this.height,
       this.width,
-      this.prefixIcon});
+      this.prefixIcon,
+      this.maxLength});
 
   @override
   Widget build(BuildContext context) {
@@ -68,6 +70,7 @@ class AppTextFormField extends StatelessWidget {
         keyboardType: keyboardType,
         minLines: minLines,
         maxLines: maxLines ?? 1,
+        maxLength: maxLength,
         decoration: InputDecoration(
           isDense: true,
           contentPadding: contentPadding ??
