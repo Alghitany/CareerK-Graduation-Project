@@ -32,7 +32,7 @@ class _AllJobsState extends State<AllJobs> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height,
+      height: MediaQuery.of(context).size.height - 100,
       child: ListView.builder(
         itemCount: jobs.length,
         itemBuilder: (context, index) {
