@@ -58,7 +58,7 @@ dependencies:
   flutter_svg: ^2.0.17
   # for adapting screen and font size.
   flutter_screenutil: ^5.9.3
-  firebase_core: ^3.12.1
+  firebase_core: ^3.13.0
   # Flutter library to load and cache network images.
   cached_network_image: ^3.4.1
   # Reading and writing simple key-value pairs.
