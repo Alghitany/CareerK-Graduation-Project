@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "715895660929",
+    "project_id": "app-distribution-25377",
+    "storage_bucket": "app-distribution-25377.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:715895660929:android:f68cf6bd19f71995ae4880",
+        "android_client_info": {
+          "package_name": "com.example.carrerk"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjE151DnwaFn1fAGezhtZwVbQSYP27hyc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
