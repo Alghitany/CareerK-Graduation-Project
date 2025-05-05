@@ -22,7 +22,7 @@ class CompanyProfileScreen extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(16.w,48.h,16.w,0.h),
+          padding: EdgeInsets.fromLTRB(16.w, 48.h, 16.w, 0.h),
           child: SingleChildScrollView(
             child: Column(
               children: [

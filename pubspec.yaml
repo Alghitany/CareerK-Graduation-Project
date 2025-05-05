@@ -16,7 +16,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.1+1
+version: 1.0.2+1
 
 environment:
   sdk: ^3.5.4
@@ -77,6 +77,13 @@ dependencies:
   emoji_picker_flutter: ^4.3.0
   # Display progress widgets based on percentage
   percent_indicator: ^4.2.4
+  # Simplifies the task of updating your Flutter app's launcher icon.
+  flutter_launcher_icons: ^0.14.3
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/splash_android12_logo.png"
+
 
 dev_dependencies:
   flutter_test:
