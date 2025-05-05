@@ -1,17 +1,18 @@
-import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
-import 'package:carrerk/features/authentication/login/widgets/divider_or_divider.dart';
-import 'package:carrerk/features/authentication/login/widgets/email_and_password.dart';
-import 'package:carrerk/features/authentication/login/widgets/login_with.dart';
-import 'package:carrerk/features/authentication/login/widgets/remember_me_forget_password.dart';
+import 'package:carrerk/features/authentication/login/ui/widgets/divider_or_divider.dart';
+import 'package:carrerk/features/authentication/login/ui/widgets/email_and_password.dart';
+import 'package:carrerk/features/authentication/login/ui/widgets/login_bloc_listener.dart';
+import 'package:carrerk/features/authentication/login/ui/widgets/login_with.dart';
+import 'package:carrerk/features/authentication/login/ui/widgets/remember_me_forget_password.dart';
 import 'package:carrerk/features/authentication/widgets/dont_have_an_account_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../core/routing/routes.dart';
-import '../../../core/theming/styles.dart';
+import '../../../../core/theming/styles.dart';
+import '../data/model/login_request_body.dart';
+import '../logic/login_cubit.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -40,9 +41,8 @@ class LoginScreen extends StatelessWidget {
                   buttonText: 'Login',
                   textStyle: AppTextStyles.font14WhitePoppinsMedium,
                   onPressed: () {
-                    //Todo We should know which user kind it will be so i can redirect him to his own home page
-                    context.pushNamed(Routes.loginScreen);
-                  }),
+                    validateThenDoLogin(context);
+                  },),
               verticalSpace(24),
               const DividerOrDivider(),
               verticalSpace(16),
@@ -71,10 +71,21 @@ class LoginScreen extends StatelessWidget {
               ),
               verticalSpace(32),
               const DontHaveAnAccountText(),
+              const LoginBlocListener(),
             ],
           ),
         ),
       )),
     );
+  }
+  void validateThenDoLogin(BuildContext context) {
+    if (context.read<LoginCubit>().formKey.currentState!.validate()){
+      context.read<LoginCubit>().emitLoginStates(
+          LoginRequestBody(
+              email: context.read<LoginCubit>().emailController.text,
+              password: context.read<LoginCubit>().passwordController.text
+          )
+      );
+    }
   }
 }
