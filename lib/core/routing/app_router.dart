@@ -3,9 +3,11 @@ import 'package:carrerk/features/company/home/main_page/company_home_main_page_s
 import 'package:carrerk/features/customer/sign_up/compulsory_data/customer_sign_up_compulsory_data_screen.dart';
 import 'package:carrerk/features/developer/sign_up/compoulsory_data/developer_sign_up_compulsory_data_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../features/authentication/change_password/change_password_screen.dart';
-import '../../features/authentication/login/login_screen.dart';
+import '../../features/authentication/login/logic/login_cubit.dart';
+import '../../features/authentication/login/ui/login_screen.dart';
 import '../../features/authentication/onboarding/on_boarding_screen.dart';
 import '../../features/authentication/reset_password/reset_password_screen.dart';
 import '../../features/authentication/successful_change_password/successful_change_password.dart';
@@ -59,6 +61,7 @@ import '../../features/developer/sign_up_completed/ready_to_go/developer_sign_up
 import '../../features/notifications/notifications_screen.dart';
 import '../../features/search/search_screen.dart';
 import '../../features/sign_up_user_type/sign_up_user_type_screen.dart';
+import '../di/dependency_injection.dart';
 import 'routes.dart';
 
 class AppRouter {
@@ -73,7 +76,11 @@ class AppRouter {
         );
       case Routes.loginScreen:
         return MaterialPageRoute(
-          builder: (_) => const LoginScreen(),
+          builder: (_) =>
+              BlocProvider(
+                create: (context) => getIt<LoginCubit>(),
+                child: const LoginScreen(),
+              )
         );
       case Routes.signUpUserTypeScreen:
         return MaterialPageRoute(

@@ -2,12 +2,14 @@ import 'package:carrerk/core/helpers/app_regex.dart';
 import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/widgets/app_text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../../core/helpers/spacing.dart';
-import '../../../../core/theming/colors.dart';
-import '../../../../core/widgets/app_label.dart';
+import '../../../../../core/helpers/spacing.dart';
+import '../../../../../core/theming/colors.dart';
+import '../../../../../core/widgets/app_label.dart';
+import '../../logic/login_cubit.dart';
 
 class EmailAndPassword extends StatefulWidget {
   const EmailAndPassword({super.key});
@@ -17,13 +19,23 @@ class EmailAndPassword extends StatefulWidget {
 }
 
 class _EmailAndPasswordState extends State<EmailAndPassword> {
-  final formKey = GlobalKey<FormState>();
   bool isObscurePassword = true;
+  late TextEditingController passwordController;
 
+  @override
+  void initState() {
+    super.initState();
+    passwordController = context.read<LoginCubit>().passwordController;
+  }
+  @override
+  void dispose() {
+    super.dispose();
+    passwordController.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Form(
-        key: formKey,
+        key: context.read<LoginCubit>().formKey,
         child: Column(
           children: [
             const AppLabel(text: 'Email'),
@@ -31,15 +43,18 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
             AppTextFormField(
                 hintText: 'email@email.com',
                 validator: (email) {
-                  if (email.isNullOrEmpty() || !AppRegex.isValidEmail(email!)) {
-                    return 'Please enter a valid email';
-                  }
-                }),
+                  // if (email.isNullOrEmpty() || !AppRegex.isValidEmail(email!)) {
+                  //   return 'Please enter a valid email';
+                  // }
+                },
+              controller: context.read<LoginCubit>().emailController
+            ),
             verticalSpace(16),
             const AppLabel(text: 'Password'),
             verticalSpace(12),
             AppTextFormField(
                 hintText: '•••••••••',
+                controller: context.read<LoginCubit>().passwordController,
                 isObscureText: isObscurePassword,
                 suffixIcon: GestureDetector(
                   onTap: () {
@@ -74,10 +89,10 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
                         ),
                 ),
                 validator: (password) {
-                  if (password.isNullOrEmpty() ||
-                      !AppRegex.isValidPassword(password!)) {
-                    return 'Please enter a valid password';
-                  }
+                  // if (password.isNullOrEmpty() ||
+                  //     !AppRegex.isValidPassword(password!)) {
+                  //   return 'Please enter a valid password';
+                  // }
                 })
           ],
         ));
