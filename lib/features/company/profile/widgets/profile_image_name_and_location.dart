@@ -17,8 +17,7 @@ class ProfileImageNameAndLocation extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(64.r),
                 image: const DecorationImage(
-                    image: AssetImage(
-                        'assets/images/company_logo.png'))),
+                    image: AssetImage('assets/images/company_logo.png'))),
           ),
         ),
         verticalSpace(34),

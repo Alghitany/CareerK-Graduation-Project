@@ -1,5 +1,4 @@
 import 'package:carrerk/core/helpers/spacing.dart';
-import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/widgets/app_tab_switcher.dart';
 import 'package:carrerk/features/company/jobs/widgets/all_jobs.dart';
 import 'package:carrerk/features/company/jobs/widgets/chats.dart';
@@ -26,29 +25,28 @@ class CompanyJobsScreen extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.fromLTRB(0.w,0.h,16.w,0.h),
+                padding: EdgeInsets.fromLTRB(0.w, 0.h, 16.w, 0.h),
                 child: Align(
                   alignment: Alignment.centerRight,
                   child: IconButton(
-                    onPressed: (){
+                    onPressed: () {
                       //TODO: SEARCH IN THE SCREEN SHOULD ADD AN TEXT FIELD FOR IT
                     },
                     icon: SvgPicture.asset(
                       'assets/svgs/search.svg',
                       height: 22.h,
                       width: 22.w,
-                      colorFilter: const ColorFilter.mode(
-                          Colors.black,
-                          BlendMode.srcIn),
+                      colorFilter:
+                          const ColorFilter.mode(Colors.black, BlendMode.srcIn),
                     ),
                   ),
                 ),
               ),
               verticalSpace(8),
               const AppTabSwitcher(
-                  tabs: ['All Jobs', 'Chats'],
-                  option0: AllJobs(),
-                  option1: Chats(),
+                tabs: ['All Jobs', 'Chats'],
+                option0: AllJobs(),
+                option1: Chats(),
               )
             ],
           ),

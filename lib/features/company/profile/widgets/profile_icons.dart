@@ -58,7 +58,7 @@ class ProfileIcons extends StatelessWidget {
           height: 21.h,
           width: 21.w,
           colorFilter:
-          const ColorFilter.mode(ColorsManager.duskyBlue, BlendMode.srcIn),
+              const ColorFilter.mode(ColorsManager.duskyBlue, BlendMode.srcIn),
         ),
       ),
     );
