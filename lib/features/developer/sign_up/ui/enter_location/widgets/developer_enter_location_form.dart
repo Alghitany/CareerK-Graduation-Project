@@ -4,7 +4,7 @@ import 'package:carrerk/core/widgets/app_label.dart';
 import 'package:carrerk/core/widgets/app_text_form_field.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/helpers/app_regex.dart';
+import '../../../../../../core/helpers/app_regex.dart';
 
 class DeveloperEnterLocationForm extends StatelessWidget {
   const DeveloperEnterLocationForm({super.key});

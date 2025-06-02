@@ -2,12 +2,12 @@ import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
-import 'package:carrerk/features/developer/sign_up/enter_location/widgets/developer_enter_location_form.dart';
+import 'package:carrerk/features/developer/sign_up/ui/enter_location/widgets/developer_enter_location_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/routing/routes.dart';
-import '../../../../core/theming/styles.dart';
+import '../../../../../core/routing/routes.dart';
+import '../../../../../core/theming/styles.dart';
 
 class DeveloperSignUpEnterLocationScreen extends StatelessWidget {
   const DeveloperSignUpEnterLocationScreen({super.key});

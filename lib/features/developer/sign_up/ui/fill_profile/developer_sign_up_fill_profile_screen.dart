@@ -3,12 +3,12 @@ import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
-import 'package:carrerk/features/developer/sign_up/fill_profile/widgets/developer_fill_profile_form.dart';
+import 'package:carrerk/features/developer/sign_up/ui/fill_profile/widgets/developer_fill_profile_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/routing/routes.dart';
-import '../../../../core/widgets/app_edit_profile_picture.dart';
+import '../../../../../core/routing/routes.dart';
+import '../../../../../core/widgets/app_edit_profile_picture.dart';
 
 class DeveloperSignUpFillProfileScreen extends StatelessWidget {
   const DeveloperSignUpFillProfileScreen({super.key});

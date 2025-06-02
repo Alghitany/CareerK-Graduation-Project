@@ -3,11 +3,10 @@ import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
-import 'package:carrerk/features/developer/sign_up/bio_and_skills/widgets/bio_and_skills_and_cv_form.dart';
+import 'package:carrerk/features/developer/sign_up/ui/bio_and_skills/widgets/bio_and_skills_and_cv_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../core/routing/routes.dart';
+import '../../../../../core/routing/routes.dart';
 
 class DeveloperSignUpBioAndSkillsScreen extends StatelessWidget {
   const DeveloperSignUpBioAndSkillsScreen({super.key});

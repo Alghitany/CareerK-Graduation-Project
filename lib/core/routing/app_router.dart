@@ -1,7 +1,6 @@
 import 'package:carrerk/features/authentication/verify_code/verify_code_screen.dart';
 import 'package:carrerk/features/company/home/main_page/company_home_main_page_screen.dart';
 import 'package:carrerk/features/customer/sign_up/compulsory_data/customer_sign_up_compulsory_data_screen.dart';
-import 'package:carrerk/features/developer/sign_up/compoulsory_data/developer_sign_up_compulsory_data_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -50,11 +49,12 @@ import '../../features/developer/profile/payment/add_new_cart/developer_profile_
 import '../../features/developer/profile/payment/option/developer_profile_payment_option_screen.dart';
 import '../../features/developer/profile/saved_jobs/developer_profile_saved_jobs_screen.dart';
 import '../../features/developer/profile/settings/developer_profile_settings_screen.dart';
-import '../../features/developer/sign_up/bio_and_skills/developer_sign_up_bio_and_skills_screen.dart';
-import '../../features/developer/sign_up/enter_location/developer_sign_up_enter_location_screen.dart';
-import '../../features/developer/sign_up/fill_profile/developer_sign_up_fill_profile_screen.dart';
-import '../../features/developer/sign_up/optional_data/developer_sign_up_optional_data_screen.dart';
-import '../../features/developer/sign_up/selected_courses/developer_sign_up_selected_courses.dart';
+import '../../features/developer/sign_up/ui/bio_and_skills/developer_sign_up_bio_and_skills_screen.dart';
+import '../../features/developer/sign_up/ui/compoulsory_data/developer_sign_up_compulsory_data_screen.dart';
+import '../../features/developer/sign_up/ui/enter_location/developer_sign_up_enter_location_screen.dart';
+import '../../features/developer/sign_up/ui/fill_profile/developer_sign_up_fill_profile_screen.dart';
+import '../../features/developer/sign_up/ui/optional_data/developer_sign_up_optional_data_screen.dart';
+import '../../features/developer/sign_up/ui/selected_courses/developer_sign_up_selected_courses.dart';
 import '../../features/developer/sign_up_completed/cv_downloaded/developer_sign_up_completed_cv_downloaded.dart';
 import '../../features/developer/sign_up_completed/cv_is_done/developer_sign_up_completed_cv_is_done.dart';
 import '../../features/developer/sign_up_completed/ready_to_go/developer_sign_up_completed_ready_to_go.dart';

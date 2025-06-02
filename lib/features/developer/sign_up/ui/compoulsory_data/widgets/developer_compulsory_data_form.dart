@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../../core/helpers/app_regex.dart';
+import '../../../../../../core/helpers/app_regex.dart';
 
 class DeveloperCompulsoryDataForm extends StatefulWidget {
   const DeveloperCompulsoryDataForm({super.key});

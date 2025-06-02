@@ -3,11 +3,10 @@ import 'package:carrerk/core/theming/colors.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../../core/helpers/app_regex.dart';
-import '../../../../../core/helpers/spacing.dart';
-import '../../../../../core/widgets/app_label.dart';
-import '../../../../../core/widgets/app_text_form_field.dart';
+import '../../../../../../core/helpers/app_regex.dart';
+import '../../../../../../core/helpers/spacing.dart';
+import '../../../../../../core/widgets/app_label.dart';
+import '../../../../../../core/widgets/app_text_form_field.dart';
 
 class BioSkillsAndCVForm extends StatefulWidget {
   const BioSkillsAndCVForm({super.key});

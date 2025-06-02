@@ -5,8 +5,8 @@ import 'package:carrerk/core/widgets/app_label.dart';
 import 'package:carrerk/core/widgets/app_text_form_field.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/theming/styles.dart';
-import '../../../../../core/widgets/app_drop_down_menu.dart';
+import '../../../../../../core/theming/styles.dart';
+import '../../../../../../core/widgets/app_drop_down_menu.dart';
 
 class OptionalDataForm extends StatefulWidget {
   const OptionalDataForm({super.key});

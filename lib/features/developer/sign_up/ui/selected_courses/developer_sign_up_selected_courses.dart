@@ -4,7 +4,7 @@ import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
-import 'package:carrerk/features/developer/sign_up/selected_courses/widgets/search_track_form_and_grid_view.dart';
+import 'package:carrerk/features/developer/sign_up/ui/selected_courses/widgets/search_track_form_and_grid_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
