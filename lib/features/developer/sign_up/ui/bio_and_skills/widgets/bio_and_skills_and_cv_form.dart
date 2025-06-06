@@ -2,11 +2,13 @@ import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../core/helpers/app_regex.dart';
 import '../../../../../../core/helpers/spacing.dart';
 import '../../../../../../core/widgets/app_label.dart';
 import '../../../../../../core/widgets/app_text_form_field.dart';
+import '../../../logic/developer_sign_up_cubit.dart';
 
 class BioSkillsAndCVForm extends StatefulWidget {
   const BioSkillsAndCVForm({super.key});
@@ -17,9 +19,10 @@ class BioSkillsAndCVForm extends StatefulWidget {
 
 class _BioAndSkillsFormState extends State<BioSkillsAndCVForm> {
   String? fileName;
-  final formKey = GlobalKey<FormState>();
 
   Future<void> pickFile() async {
+    final cubit = context.read<DeveloperSignupCubit>();
+
     FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
       allowedExtensions: ['pdf', 'doc', 'docx'],
@@ -29,18 +32,20 @@ class _BioAndSkillsFormState extends State<BioSkillsAndCVForm> {
       setState(() {
         fileName = result.files.single.name;
       });
+      cubit.setCVFilePath(result.files.single.path!);
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Form(
-        key: formKey,
+        key: context.read<DeveloperSignupCubit>().bioSkillsFormKey,
         child: Column(
           children: [
             const AppLabel(text: 'Brief Bio'),
             verticalSpace(8),
             AppTextFormField(
+              controller: context.read<DeveloperSignupCubit>().briefBioController,
               width: double.infinity.w,
               height: 234.h,
               hintText: 'Enter a short bio....',
@@ -60,6 +65,8 @@ class _BioAndSkillsFormState extends State<BioSkillsAndCVForm> {
             const AppLabel(text: 'Your Skills'),
             verticalSpace(8),
             AppTextFormField(
+              controller: context.read<DeveloperSignupCubit>().skillsController,
+              onChanged: (value) => context.read<DeveloperSignupCubit>().setSkills(value),
               width: double.infinity.w,
               height: 131.h,
               hintText: 'Enter your skills...',
@@ -84,9 +91,9 @@ class _BioAndSkillsFormState extends State<BioSkillsAndCVForm> {
                 child: AppTextFormField(
                   hintText: fileName ?? 'CV',
                   validator: (cv) {
-                    if (cv.isNullOrEmpty() || !AppRegex.isValidName(cv!)) {
-                      return "Please enter a valid cv";
-                    }
+                    // if (cv.isNullOrEmpty() || !AppRegex.isValidName(cv!)) {
+                    //   return "Please enter a valid cv";
+                    // }
                   },
                   suffixIcon: const Icon(
                     Icons.drive_folder_upload,

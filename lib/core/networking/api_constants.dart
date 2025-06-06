@@ -1,6 +1,11 @@
 class ApiConstants{
-  static const String apiBaseUrl = "https://1788-197-162-87-234.ngrok-free.app/";
+  static const String apiBaseUrl = "https://cf21-197-166-228-248.ngrok-free.app/";
+  //------ Authentication -------
   static const String authenticationLogin = "api/auth/login";
+
+  //------ Developer ------------
+  //->Sign up
+  static const String developerSignup = "api/developer/register";
 }
 class ApiErrors {
   static const String badRequestError = "badRequestError";

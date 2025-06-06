@@ -5,9 +5,12 @@ import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:carrerk/core/widgets/app_check_box_and_agree_text.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
-import 'package:carrerk/features/developer/sign_up/ui/compoulsory_data/widgets/developer_compulsory_data_form.dart';
+import 'package:carrerk/features/developer/sign_up/ui/compulsory_data/widgets/developer_compulsory_data_form.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../logic/developer_sign_up_cubit.dart';
 
 class DeveloperSignUpCompulsoryDataScreen extends StatelessWidget {
   const DeveloperSignUpCompulsoryDataScreen({super.key});
@@ -42,13 +45,17 @@ class DeveloperSignUpCompulsoryDataScreen extends StatelessWidget {
                   buttonText: 'Next Step',
                   textStyle: AppTextStyles.font14WhitePoppinsMedium,
                   onPressed: () {
-                    //TODO: Check Validation that data is correct to go to next page
-                    context.pushNamed(Routes.developerSignUpFillProfileScreen);
+                    validateThenGoNext(context);
                   })
             ],
           ),
         ),
       )),
     );
+  }
+  void validateThenGoNext(BuildContext context) {
+    if (context.read<DeveloperSignupCubit>().compulsoryDataFormKey.currentState!.validate()) {
+      context.pushNamed(Routes.developerSignUpFillProfileScreen);
+    }
   }
 }

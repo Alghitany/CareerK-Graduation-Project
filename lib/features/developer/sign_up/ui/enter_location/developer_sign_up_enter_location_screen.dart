@@ -4,10 +4,12 @@ import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
 import 'package:carrerk/features/developer/sign_up/ui/enter_location/widgets/developer_enter_location_form.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/routing/routes.dart';
 import '../../../../../core/theming/styles.dart';
+import '../../logic/developer_sign_up_cubit.dart';
 
 class DeveloperSignUpEnterLocationScreen extends StatelessWidget {
   const DeveloperSignUpEnterLocationScreen({super.key});
@@ -35,12 +37,17 @@ class DeveloperSignUpEnterLocationScreen extends StatelessWidget {
                   textStyle: AppTextStyles.font14WhitePoppinsMedium,
                   onPressed: () {
                     //TODO: Check Validation that data is correct to go to next page
-                    context.pushNamed(Routes.developerSignUpBioAndSkillsScreen);
+                    validateThenGoNext(context);
                   }),
             ],
           ),
         ),
       )),
     );
+  }
+  void validateThenGoNext(BuildContext context) {
+    if (context.read<DeveloperSignupCubit>().locationFormKey.currentState!.validate()) {
+      context.pushNamed(Routes.developerSignUpBioAndSkillsScreen);
+    }
   }
 }

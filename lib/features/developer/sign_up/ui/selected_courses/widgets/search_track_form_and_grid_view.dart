@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../core/helpers/spacing.dart';
 import '../../../../../../core/theming/colors.dart';
 import '../../../../../../core/theming/styles.dart';
 import '../../../../../../core/widgets/app_text_form_field.dart';
+import '../../../logic/developer_sign_up_cubit.dart';
 
 class SearchTrackFormAndGridView extends StatefulWidget {
   const SearchTrackFormAndGridView({super.key});
@@ -44,6 +46,7 @@ class _SearchTrackFormAndGridViewState
       } else {
         selectedCourses.add(course);
       }
+      context.read<DeveloperSignupCubit>().setInterestedCourses(selectedCourses.toList());
     });
   }
 

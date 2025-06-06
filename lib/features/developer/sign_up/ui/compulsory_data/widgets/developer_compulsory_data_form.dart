@@ -3,7 +3,9 @@ import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/widgets/app_label.dart';
 import 'package:carrerk/core/widgets/app_text_form_field.dart';
+import 'package:carrerk/features/developer/sign_up/logic/developer_sign_up_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -19,14 +21,13 @@ class DeveloperCompulsoryDataForm extends StatefulWidget {
 
 class _DeveloperCompulsoryDataFormState
     extends State<DeveloperCompulsoryDataForm> {
-  final formKey = GlobalKey<FormState>();
   bool isObscurePassword = true;
   bool isObscureConfirmPassword = true;
 
   @override
   Widget build(BuildContext context) {
     return Form(
-        key: formKey,
+        key: context.read<DeveloperSignupCubit>().compulsoryDataFormKey,
         child: Column(
           children: [
             Row(
@@ -39,6 +40,7 @@ class _DeveloperCompulsoryDataFormState
                     ),
                     verticalSpace(8),
                     AppTextFormField(
+                        controller: context.read<DeveloperSignupCubit>().firstNameController,
                         width: 160,
                         hintText: "Micheal",
                         validator: (firstName) {
@@ -56,6 +58,7 @@ class _DeveloperCompulsoryDataFormState
                     const AppLabel(text: 'Last name'),
                     verticalSpace(8),
                     AppTextFormField(
+                        controller: context.read<DeveloperSignupCubit>().lastNameController,
                         width: 160,
                         hintText: 'Jordon',
                         validator: (lastName) {
@@ -72,6 +75,7 @@ class _DeveloperCompulsoryDataFormState
             const AppLabel(text: 'Email'),
             verticalSpace(8),
             AppTextFormField(
+                controller: context.read<DeveloperSignupCubit>().emailController,
                 hintText: 'example@email.com',
                 validator: (email) {
                   if (email!.isNullOrEmpty() || !AppRegex.isValidEmail(email)) {
@@ -82,6 +86,7 @@ class _DeveloperCompulsoryDataFormState
             const AppLabel(text: 'Password'),
             verticalSpace(8),
             AppTextFormField(
+                controller: context.read<DeveloperSignupCubit>().passwordController,
                 hintText: '•••••••••',
                 isObscureText: isObscurePassword,
                 suffixIcon: GestureDetector(
@@ -117,15 +122,16 @@ class _DeveloperCompulsoryDataFormState
                         ),
                 ),
                 validator: (password) {
-                  if (password!.isNullOrEmpty() ||
-                      !AppRegex.isValidPassword(password)) {
-                    return 'Please enter a valid password';
-                  }
+                  // if (password!.isNullOrEmpty() ||
+                  //     !AppRegex.isValidPassword(password)) {
+                  //   return 'Please enter a valid password';
+                  // }
                 }),
             verticalSpace(16),
             const AppLabel(text: 'Confirm Password'),
             verticalSpace(8),
             AppTextFormField(
+                controller: context.read<DeveloperSignupCubit>().confirmPasswordController,
                 hintText: '•••••••••',
                 isObscureText: isObscureConfirmPassword,
                 suffixIcon: GestureDetector(

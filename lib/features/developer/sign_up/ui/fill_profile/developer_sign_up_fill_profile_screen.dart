@@ -1,3 +1,4 @@
+
 import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/theming/styles.dart';
@@ -5,10 +6,11 @@ import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
 import 'package:carrerk/features/developer/sign_up/ui/fill_profile/widgets/developer_fill_profile_form.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../../core/routing/routes.dart';
 import '../../../../../core/widgets/app_edit_profile_picture.dart';
+import '../../logic/developer_sign_up_cubit.dart';
 
 class DeveloperSignUpFillProfileScreen extends StatelessWidget {
   const DeveloperSignUpFillProfileScreen({super.key});
@@ -29,7 +31,11 @@ class DeveloperSignUpFillProfileScreen extends StatelessWidget {
                   style: AppTextStyles.font24DunePoppinsMedium,
                 ),
                 verticalSpace(24),
-                const AppEditProfilePicture(),
+                AppEditProfilePicture(
+                  onImageSelected: (imageFile) {
+                    context.read<DeveloperSignupCubit>().setProfileImage(imageFile);
+                  },
+                ),
                 verticalSpace(24),
                 const DeveloperFillProfileForm(),
                 verticalSpace(40),
@@ -37,9 +43,7 @@ class DeveloperSignUpFillProfileScreen extends StatelessWidget {
                   buttonText: 'Continue',
                   textStyle: AppTextStyles.font14WhitePoppinsMedium,
                   onPressed: () {
-                    //TODO: Check the validation of form fields and navigate
-                    context
-                        .pushNamed(Routes.developerSignUpEnterLocationScreen);
+                    validateThenGoNext(context);
                   },
                 )
               ],
@@ -48,5 +52,10 @@ class DeveloperSignUpFillProfileScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+  void validateThenGoNext(BuildContext context) {
+    if (context.read<DeveloperSignupCubit>().fillProfileFormKey.currentState!.validate()) {
+      context
+          .pushNamed(Routes.developerSignUpEnterLocationScreen);    }
   }
 }

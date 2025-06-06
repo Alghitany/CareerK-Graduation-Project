@@ -5,8 +5,10 @@ import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
 import 'package:carrerk/features/developer/sign_up/ui/bio_and_skills/widgets/bio_and_skills_and_cv_form.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/routing/routes.dart';
+import '../../logic/developer_sign_up_cubit.dart';
 
 class DeveloperSignUpBioAndSkillsScreen extends StatelessWidget {
   const DeveloperSignUpBioAndSkillsScreen({super.key});
@@ -29,7 +31,7 @@ class DeveloperSignUpBioAndSkillsScreen extends StatelessWidget {
                 textStyle: AppTextStyles.font14WhitePoppinsMedium,
                 onPressed: () {
                   //TODO: Check the validation of form fields and navigate
-                  context.pushNamed(Routes.developerSignUpOptionalDataScreen);
+                  validateThenGoNext(context);
                 },
               ),
             ],
@@ -37,5 +39,10 @@ class DeveloperSignUpBioAndSkillsScreen extends StatelessWidget {
         ),
       )),
     );
+  }
+  void validateThenGoNext(BuildContext context) {
+    if (context.read<DeveloperSignupCubit>().bioSkillsFormKey.currentState!.validate()) {
+      context.pushNamed(Routes.developerSignUpOptionalDataScreen);
+    }
   }
 }
