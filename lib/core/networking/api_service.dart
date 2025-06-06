@@ -1,11 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-
 import '../../features/authentication/login/data/model/login_request_body.dart';
 import '../../features/authentication/login/data/model/login_response.dart';
 import 'api_constants.dart';
-
-
 part 'api_service.g.dart';
 
 @RestApi(baseUrl: ApiConstants.apiBaseUrl)
@@ -17,8 +14,7 @@ abstract class ApiService {
       @Body() LoginRequestBody loginRequestBody,
       );
 
-// @POST(ApiConstants.signup)
-// Future<SignupResponse> signup(
-//     @Body() SignupRequestBody signupRequestBody,
-//     );
+  // The Developer Sign up is being posted with dio directly since we are using form-data we can' use Retrofit.
+
+
 }

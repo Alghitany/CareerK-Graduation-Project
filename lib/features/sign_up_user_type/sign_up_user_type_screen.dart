@@ -37,7 +37,7 @@ class SignUpUserTypeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 UserTypeCard(
-                  routeName: Routes.developerSignUpCompulsoryDataScreen,
+                  routeName: Routes.developerSignUpFlow,
                   icon: 'assets/svgs/person_outlined.svg',
                   text: 'Developer',
                 ),

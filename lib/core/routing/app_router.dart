@@ -1,7 +1,6 @@
 import 'package:carrerk/features/authentication/verify_code/verify_code_screen.dart';
 import 'package:carrerk/features/company/home/main_page/company_home_main_page_screen.dart';
 import 'package:carrerk/features/customer/sign_up/compulsory_data/customer_sign_up_compulsory_data_screen.dart';
-import 'package:carrerk/features/developer/sign_up/compoulsory_data/developer_sign_up_compulsory_data_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -50,11 +49,7 @@ import '../../features/developer/profile/payment/add_new_cart/developer_profile_
 import '../../features/developer/profile/payment/option/developer_profile_payment_option_screen.dart';
 import '../../features/developer/profile/saved_jobs/developer_profile_saved_jobs_screen.dart';
 import '../../features/developer/profile/settings/developer_profile_settings_screen.dart';
-import '../../features/developer/sign_up/bio_and_skills/developer_sign_up_bio_and_skills_screen.dart';
-import '../../features/developer/sign_up/enter_location/developer_sign_up_enter_location_screen.dart';
-import '../../features/developer/sign_up/fill_profile/developer_sign_up_fill_profile_screen.dart';
-import '../../features/developer/sign_up/optional_data/developer_sign_up_optional_data_screen.dart';
-import '../../features/developer/sign_up/selected_courses/developer_sign_up_selected_courses.dart';
+import '../../features/developer/sign_up/logic/developer_sign_up_cubit.dart';
 import '../../features/developer/sign_up_completed/cv_downloaded/developer_sign_up_completed_cv_downloaded.dart';
 import '../../features/developer/sign_up_completed/cv_is_done/developer_sign_up_completed_cv_is_done.dart';
 import '../../features/developer/sign_up_completed/ready_to_go/developer_sign_up_completed_ready_to_go.dart';
@@ -62,6 +57,7 @@ import '../../features/notifications/notifications_screen.dart';
 import '../../features/search/search_screen.dart';
 import '../../features/sign_up_user_type/sign_up_user_type_screen.dart';
 import '../di/dependency_injection.dart';
+import 'developer_router/signup_router.dart';
 import 'routes.dart';
 
 class AppRouter {
@@ -169,29 +165,12 @@ class AppRouter {
 
       // ---------------- Developer ----------------
       // Sign Up
-      case Routes.developerSignUpCompulsoryDataScreen:
+      case Routes.developerSignUpFlow:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperSignUpCompulsoryDataScreen(),
-        );
-      case Routes.developerSignUpFillProfileScreen:
-        return MaterialPageRoute(
-          builder: (_) => const DeveloperSignUpFillProfileScreen(),
-        );
-      case Routes.developerSignUpEnterLocationScreen:
-        return MaterialPageRoute(
-          builder: (_) => const DeveloperSignUpEnterLocationScreen(),
-        );
-      case Routes.developerSignUpBioAndSkillsScreen:
-        return MaterialPageRoute(
-          builder: (_) => const DeveloperSignUpBioAndSkillsScreen(),
-        );
-      case Routes.developerSignUpOptionalDataScreen:
-        return MaterialPageRoute(
-          builder: (_) => const DeveloperSignUpOptionalDataScreen(),
-        );
-      case Routes.developerSignUpSelectedCourses:
-        return MaterialPageRoute(
-          builder: (_) => const DeveloperSignUpSelectedCourses(),
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<DeveloperSignupCubit>(),
+            child: const DeveloperSignUpFlow(),
+          ),
         );
       // Sign Up Completed
       case Routes.developerSignUpCompletedCvIsDone:

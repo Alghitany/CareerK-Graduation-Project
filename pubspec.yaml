@@ -79,6 +79,8 @@ dependencies:
   percent_indicator: ^4.2.4
   # Simplifies the task of updating your Flutter app's launcher icon.
   flutter_launcher_icons: ^0.14.3
+  # Parsing and serializing HTTP formats.
+  http_parser: ^4.0.0
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true

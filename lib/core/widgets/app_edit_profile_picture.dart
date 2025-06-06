@@ -17,6 +17,7 @@ class AppEditProfilePicture extends StatefulWidget {
   final Color? editIconBackgroundColor;
   final double? editIconHeight;
   final double? editIconWidth;
+  final void Function(File? imageFile)? onImageSelected;
 
   const AppEditProfilePicture(
       {super.key,
@@ -29,7 +30,8 @@ class AppEditProfilePicture extends StatefulWidget {
       this.editIconBackgroundRadius,
       this.editIconBackgroundColor,
       this.editIconHeight,
-      this.editIconWidth});
+      this.editIconWidth,
+      this.onImageSelected,});
 
   @override
   State<AppEditProfilePicture> createState() => _AppEditProfilePictureState();
@@ -53,11 +55,13 @@ class _AppEditProfilePictureState extends State<AppEditProfilePicture> {
                 title: const Text("Camera"),
                 onTap: () async {
                   Navigator.pop(context);
-                  final pickedFile =
-                      await _picker.pickImage(source: ImageSource.camera);
+                  final pickedFile = await _picker.pickImage(source: ImageSource.camera);
+                  final file = pickedFile != null ? File(pickedFile.path) : null;
+
                   setState(() {
-                    _imagePath = pickedFile?.path;
+                    _imagePath = file?.path;
                   });
+                  widget.onImageSelected?.call(file);
                 },
               ),
               ListTile(
@@ -67,9 +71,12 @@ class _AppEditProfilePictureState extends State<AppEditProfilePicture> {
                   Navigator.pop(context);
                   final pickedFile =
                       await _picker.pickImage(source: ImageSource.gallery);
+                  final file = pickedFile != null ? File(pickedFile.path) : null;
+
                   setState(() {
-                    _imagePath = pickedFile?.path;
+                    _imagePath = file?.path;
                   });
+                  widget.onImageSelected?.call(file);
                 },
               ),
             ],

@@ -21,14 +21,14 @@ lib/
 │   │   ├── change_password/ # Change password functionality
 │   │
 │   ├── Developer/         # Developer-specific features
-│   │   ├── signup/        # Developer signup process
+│   │   ├── sign up/        # Developer sign up process
 │   │   │   ├── compulsory_data/
 │   │   │   ├── fill_your_profile/
 │   │   │   ├── enter_location/
 │   │   │   ├── bio_and_skills/
 │   │   │   ├── optional_data/
 │   │   │   ├── courses_interested_selection/
-│   │   ├── signup_completed/  # Signup completion screens
+│   │   ├── sign up_completed/  # Sign up completion screens
 │   │   │   ├── my_cv_is_done/
 │   │   │   ├── cv_downloaded_successfully/
 │   │   │   ├── ready_to_go/
@@ -66,7 +66,7 @@ lib/
 │   │   │   │   ├── success_update/
 │   │
 │   ├── Company/            # Company-related features
-│   │   ├── signup/
+│   │   ├── sign up/
 │   │   │   ├── compulsory_data/
 │   │   │   ├── fill_your_profile/
 │   │   │   ├── company_location/
@@ -89,7 +89,7 @@ lib/
 │   │   ├── profile/
 │   │
 │   ├── Customer/           # Customer-specific features
-│   │   ├── signup/
+│   │   ├── sign up/
 │   │   │   ├── compulsory_data/
 │   │   │   ├── fill_your_profile/
 │   │   │   ├── contact_information/

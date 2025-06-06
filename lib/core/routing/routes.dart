@@ -58,6 +58,7 @@ class Routes {
 
   // ---------------- Developer ----------------
   // Sign Up
+  static const developerSignUpFlow = '/developerSignUpFlow';
   static const String developerSignUpCompulsoryDataScreen =
       "/developerSignUpCompulsoryDataScreen";
   static const String developerSignUpFillProfileScreen =
