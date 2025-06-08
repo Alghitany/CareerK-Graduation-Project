@@ -11,7 +11,6 @@ class VerifyCodeCubit extends Cubit<VerifyCodeState> {
   VerifyCodeCubit(this._verifyCodeRepo)
       : super(const VerifyCodeState.initial());
 
-  TextEditingController emailController = TextEditingController();
   TextEditingController otpController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 

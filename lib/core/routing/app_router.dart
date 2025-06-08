@@ -6,6 +6,7 @@ import 'package:carrerk/features/customer/sign_up/compulsory_data/customer_sign_
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../features/authentication/change_password/logic/change_password_cubit.dart';
 import '../../features/authentication/change_password/ui/change_password_screen.dart';
 import '../../features/authentication/login/logic/login_cubit.dart';
 import '../../features/authentication/login/ui/login_screen.dart';
@@ -103,7 +104,16 @@ class AppRouter {
         );
       case Routes.changePasswordScreen:
         return MaterialPageRoute(
-          builder: (_) => const ChangePasswordScreen(),
+          builder: (context) {
+            return MultiBlocProvider(
+              providers: [
+                BlocProvider.value(value: getIt<ResetPasswordCubit>()),
+                BlocProvider.value(value: getIt<VerifyCodeCubit>()),
+                BlocProvider(create: (_) => getIt<ChangePasswordCubit>()),
+              ],
+              child: const ChangePasswordScreen(),
+            );
+          },
         );
       case Routes.successfulChangePasswordScreen:
         return MaterialPageRoute(

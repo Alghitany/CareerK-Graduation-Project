@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
+import '../../features/authentication/change_password/data/models/change_password_request_body.dart';
+import '../../features/authentication/change_password/data/models/change_password_response.dart';
 import '../../features/authentication/login/data/model/login_request_body.dart';
 import '../../features/authentication/login/data/model/login_response.dart';
 import '../../features/authentication/reset_password/data/models/reset_password_request_body.dart';
@@ -28,6 +30,11 @@ abstract class ApiService {
   @POST(ApiConstants.authenticationVerifyCode)
   Future<VerifyCodeResponse> verifyCode(
     @Body() VerifyCodeRequestBody verifyCodeRequestBody,
+  );
+
+  @POST(ApiConstants.authenticationChangePassword)
+  Future<ChangePasswordResponse> changePassword(
+    @Body() ChangePasswordRequestBody changePasswordRequestBody,
   );
 // The Developer Sign up is being posted with dio directly since we are using form-data we can' use Retrofit.
 }
