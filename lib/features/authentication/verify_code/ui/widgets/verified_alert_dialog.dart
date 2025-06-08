@@ -39,6 +39,7 @@ class VerifiedAlertDialog extends StatelessWidget {
                 buttonWidth: 185.w,
                 textStyle: AppTextStyles.font14WhitePoppinsMedium,
                 onPressed: () {
+                  context.pop();
                   context.pushNamed(Routes.changePasswordScreen);
                 },
               ),

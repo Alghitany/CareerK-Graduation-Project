@@ -5,6 +5,8 @@ import '../../features/authentication/login/data/repos/login_repo.dart';
 import '../../features/authentication/login/logic/login_cubit.dart';
 import '../../features/authentication/reset_password/data/repos/reset_password_repo.dart';
 import '../../features/authentication/reset_password/logic/reset_password_cubit.dart';
+import '../../features/authentication/verify_code/data/repo/verify_code_repo.dart';
+import '../../features/authentication/verify_code/logic/verify_code_cubit.dart';
 import '../../features/developer/sign_up/data/repos/developer_sign_up_repo.dart';
 import '../../features/developer/sign_up/logic/developer_sign_up_cubit.dart';
 import '../networking/api_service.dart';
@@ -24,8 +26,13 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<LoginRepo>(() => LoginRepo(getIt()));
   getIt.registerLazySingleton<LoginCubit>(() => LoginCubit(getIt()));
   // -> Reset Password
-  getIt.registerLazySingleton<ResetPasswordRepo>(() => ResetPasswordRepo(getIt()));
-  getIt.registerLazySingleton<ResetPasswordCubit>(() => ResetPasswordCubit(getIt()));
+  getIt.registerLazySingleton<ResetPasswordRepo>(
+      () => ResetPasswordRepo(getIt()));
+  getIt.registerLazySingleton<ResetPasswordCubit>(
+      () => ResetPasswordCubit(getIt()));
+  // -> Verify Code
+  getIt.registerLazySingleton<VerifyCodeRepo>(() => VerifyCodeRepo(getIt()));
+  getIt.registerLazySingleton<VerifyCodeCubit>(() => VerifyCodeCubit(getIt()));
 
   // Developer -> Signup
   getIt.registerLazySingleton<DeveloperSignupRepo>(
