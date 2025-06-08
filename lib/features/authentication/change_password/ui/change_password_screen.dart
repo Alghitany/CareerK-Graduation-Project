@@ -1,13 +1,17 @@
-import 'package:carrerk/core/helpers/extensions.dart';
-import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
+import 'package:carrerk/features/authentication/change_password/logic/change_password_cubit.dart';
+import 'package:carrerk/features/authentication/change_password/ui/widgets/change_password_bloc_listener.dart';
 import 'package:carrerk/features/authentication/change_password/ui/widgets/new_and_confirm_password.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../core/helpers/spacing.dart';
 import '../../../../../../core/theming/styles.dart';
 import '../../../../../../core/widgets/app_back_icon.dart';
+import '../../reset_password/logic/reset_password_cubit.dart';
+import '../../verify_code/logic/verify_code_cubit.dart';
+import '../data/models/change_password_request_body.dart';
 
 class ChangePasswordScreen extends StatelessWidget {
   const ChangePasswordScreen({super.key});
@@ -49,10 +53,10 @@ class ChangePasswordScreen extends StatelessWidget {
                     buttonText: 'Create New Password',
                     textStyle: AppTextStyles.font14WhitePoppinsMedium,
                     onPressed: () {
-                      //TODO: All fields should be valid
-                      context.pushNamed(Routes.successfulChangePasswordScreen);
+                      validateThenDoChangePassword(context);
                     },
-                  )
+                  ),
+                  const ChangePasswordBlocListener(),
                 ],
               ),
             ),
@@ -60,5 +64,22 @@ class ChangePasswordScreen extends StatelessWidget {
         ),
       )),
     );
+  }
+
+  void validateThenDoChangePassword(BuildContext context) {
+    if (context.read<ChangePasswordCubit>().formKey.currentState!.validate()) {
+      context.read<ChangePasswordCubit>().emitChangePasswordStates(
+          ChangePasswordRequestBody(
+              email: context.read<ResetPasswordCubit>().emailController.text,
+              otp: context.read<VerifyCodeCubit>().otpController.text,
+              password: context
+                  .read<ChangePasswordCubit>()
+                  .newPasswordController
+                  .text,
+              confirmPassword: context
+                  .read<ChangePasswordCubit>()
+                  .confirmPasswordController
+                  .text));
+    }
   }
 }

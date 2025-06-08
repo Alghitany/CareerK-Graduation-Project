@@ -7,6 +7,8 @@ class ApiConstants {
   static const String authenticationResetPassword =
       "api/password/forgot-password";
   static const String authenticationVerifyCode = "api/password/verify-otp";
+  static const String authenticationChangePassword =
+      "api/password/reset-password";
 
   //------ Developer ------------
   //->Sign up
