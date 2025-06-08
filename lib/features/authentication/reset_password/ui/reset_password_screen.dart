@@ -11,7 +11,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../data/models/reset_password_request_body.dart';
 
-
 class ResetPasswordScreen extends StatelessWidget {
   const ResetPasswordScreen({super.key});
 
@@ -49,7 +48,9 @@ class ResetPasswordScreen extends StatelessWidget {
                     Form(
                       key: context.read<ResetPasswordCubit>().formKey,
                       child: AppTextFormField(
-                        controller: context.read<ResetPasswordCubit>().emailController,
+                          controller: context
+                              .read<ResetPasswordCubit>()
+                              .emailController,
                           hintText: 'email@email.com',
                           validator: (email) {
                             // if (email.isNullOrEmpty() ||
@@ -75,10 +76,12 @@ class ResetPasswordScreen extends StatelessWidget {
       ),
     );
   }
+
   void validateThenDoResetPassword(BuildContext context) {
     if (context.read<ResetPasswordCubit>().formKey.currentState!.validate()) {
-      context.read<ResetPasswordCubit>().emitResetPasswordStates(ResetPasswordRequestBody(
-          email: context.read<ResetPasswordCubit>().emailController.text));
+      context.read<ResetPasswordCubit>().emitResetPasswordStates(
+          ResetPasswordRequestBody(
+              email: context.read<ResetPasswordCubit>().emailController.text));
     }
   }
 }

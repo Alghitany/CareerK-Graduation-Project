@@ -1,11 +1,18 @@
+import 'package:carrerk/features/authentication/reset_password/logic/reset_password_cubit.dart';
+import 'package:carrerk/features/authentication/verify_code/logic/verify_code_cubit.dart';
 import 'package:carrerk/features/authentication/verify_code/ui/widgets/otp_input.dart';
 import 'package:carrerk/features/authentication/verify_code/ui/widgets/resend_and_didnt_get_code.dart';
-import 'package:carrerk/features/authentication/verify_code/ui/widgets/verify_button_and_alert_dialog.dart';
+import 'package:carrerk/features/authentication/verify_code/ui/widgets/verify_code_bloc_listener.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../../../../core/helpers/spacing.dart';
 import '../../../../../../core/theming/styles.dart';
 import '../../../../../../core/widgets/app_back_icon.dart';
+import '../../../../core/widgets/app_text_button.dart';
+import '../data/model/verify_code_request_body.dart';
+
 class VerifyCodeScreen extends StatelessWidget {
   const VerifyCodeScreen({super.key});
 
@@ -49,14 +56,33 @@ class VerifyCodeScreen extends StatelessWidget {
                       },
                     ),
                     verticalSpace(40),
-                    const VerifyButtonAndAlertDialog(),
+                    AppTextButton(
+                      buttonText: 'Verify',
+                      textStyle: AppTextStyles.font14WhitePoppinsMedium,
+                      onPressed: () {
+                        validateThenDoVerifyCode(context);
+                      },
+                    ),
                   ],
                 ),
-              )
+              ),
+              const VerifyCodeBlocListener(),
             ],
           ),
         ),
       ),
     );
+  }
+
+  void validateThenDoVerifyCode(BuildContext context) {
+    final cubit = context.read<VerifyCodeCubit>();
+    if (cubit.formKey.currentState?.validate() ?? false) {
+      cubit.emitVerifyCodeStates(
+        VerifyCodeRequestBody(
+          email: context.read<ResetPasswordCubit>().emailController.text,
+          otp: cubit.otpController.text,
+        ),
+      );
+    }
   }
 }

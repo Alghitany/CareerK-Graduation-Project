@@ -13,7 +13,7 @@ class ResetPasswordRepo {
       ResetPasswordRequestBody resetPasswordRequestBody) async {
     try {
       final response =
-      await _apiService.resetPassword(resetPasswordRequestBody);
+          await _apiService.resetPassword(resetPasswordRequestBody);
       return ApiResult.success(response);
     } catch (error) {
       return ApiResult.failure(ErrorHandler.handle(error));
