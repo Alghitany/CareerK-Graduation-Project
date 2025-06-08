@@ -7,6 +7,7 @@ import 'package:carrerk/features/developer/sign_up/ui/bio_and_skills/widgets/bio
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../../../core/routing/routes.dart';
 import '../../logic/developer_sign_up_cubit.dart';
 
@@ -40,8 +41,13 @@ class DeveloperSignUpBioAndSkillsScreen extends StatelessWidget {
       )),
     );
   }
+
   void validateThenGoNext(BuildContext context) {
-    if (context.read<DeveloperSignupCubit>().bioSkillsFormKey.currentState!.validate()) {
+    if (context
+        .read<DeveloperSignupCubit>()
+        .bioSkillsFormKey
+        .currentState!
+        .validate()) {
       context.pushNamed(Routes.developerSignUpOptionalDataScreen);
     }
   }

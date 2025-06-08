@@ -18,7 +18,6 @@ class DeveloperFillProfileForm extends StatefulWidget {
 }
 
 class _DeveloperFillProfileFormState extends State<DeveloperFillProfileForm> {
-
   @override
   void dispose() {
     super.dispose();
@@ -50,13 +49,15 @@ class _DeveloperFillProfileFormState extends State<DeveloperFillProfileForm> {
           verticalSpace(8),
           // Note: Date of birth will appear when controller work
           AppDateOfBirthFormField(
-            dobController: context.read<DeveloperSignupCubit>().dateOfBirthController,
+            dobController:
+                context.read<DeveloperSignupCubit>().dateOfBirthController,
           ),
           verticalSpace(16),
           const AppLabel(text: 'Phone Number'),
           verticalSpace(8),
           AppPhoneNumberFormField(
-            controller: context.read<DeveloperSignupCubit>().phoneNumberController,
+            controller:
+                context.read<DeveloperSignupCubit>().phoneNumberController,
           ),
         ],
       ),

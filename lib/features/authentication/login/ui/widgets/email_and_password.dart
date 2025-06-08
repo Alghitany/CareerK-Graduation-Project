@@ -1,5 +1,3 @@
-import 'package:carrerk/core/helpers/app_regex.dart';
-import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/widgets/app_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,11 +25,13 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
     super.initState();
     passwordController = context.read<LoginCubit>().passwordController;
   }
+
   @override
   void dispose() {
     super.dispose();
     passwordController.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -47,8 +47,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
                   //   return 'Please enter a valid email';
                   // }
                 },
-              controller: context.read<LoginCubit>().emailController
-            ),
+                controller: context.read<LoginCubit>().emailController),
             verticalSpace(16),
             const AppLabel(text: 'Password'),
             verticalSpace(12),

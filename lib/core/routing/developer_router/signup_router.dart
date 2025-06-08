@@ -28,20 +28,22 @@ class DeveloperSignUpFlow extends StatelessWidget {
                 case Routes.developerSignUpCompulsoryDataScreen:
                   return MaterialPageRoute(
                       builder: (_) =>
-                      const DeveloperSignUpCompulsoryDataScreen());
+                          const DeveloperSignUpCompulsoryDataScreen());
                 case Routes.developerSignUpFillProfileScreen:
                   return MaterialPageRoute(
                       builder: (_) => const DeveloperSignUpFillProfileScreen());
                 case Routes.developerSignUpEnterLocationScreen:
                   return MaterialPageRoute(
                       builder: (_) =>
-                      const DeveloperSignUpEnterLocationScreen());
+                          const DeveloperSignUpEnterLocationScreen());
                 case Routes.developerSignUpBioAndSkillsScreen:
                   return MaterialPageRoute(
-                      builder: (_) => const DeveloperSignUpBioAndSkillsScreen());
+                      builder: (_) =>
+                          const DeveloperSignUpBioAndSkillsScreen());
                 case Routes.developerSignUpOptionalDataScreen:
                   return MaterialPageRoute(
-                      builder: (_) => const DeveloperSignUpOptionalDataScreen());
+                      builder: (_) =>
+                          const DeveloperSignUpOptionalDataScreen());
                 case Routes.developerSignUpSelectedCourses:
                   return MaterialPageRoute(
                       builder: (_) => const DeveloperSignUpSelectedCourses());

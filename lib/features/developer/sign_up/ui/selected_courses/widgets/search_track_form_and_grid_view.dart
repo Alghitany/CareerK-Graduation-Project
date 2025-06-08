@@ -46,7 +46,9 @@ class _SearchTrackFormAndGridViewState
       } else {
         selectedCourses.add(course);
       }
-      context.read<DeveloperSignupCubit>().setInterestedCourses(selectedCourses.toList());
+      context
+          .read<DeveloperSignupCubit>()
+          .setInterestedCourses(selectedCourses.toList());
     });
   }
 

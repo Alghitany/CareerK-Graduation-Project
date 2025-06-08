@@ -53,6 +53,7 @@ class DeveloperSignUpSelectedCourses extends StatelessWidget {
       )),
     );
   }
+
   void validateThenDoSignup(BuildContext context) {
     final cubit = context.read<DeveloperSignupCubit>();
     final isCourseValid = cubit.isCourseSelected();

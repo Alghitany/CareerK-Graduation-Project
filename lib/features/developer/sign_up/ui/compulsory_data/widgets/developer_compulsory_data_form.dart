@@ -40,7 +40,9 @@ class _DeveloperCompulsoryDataFormState
                     ),
                     verticalSpace(8),
                     AppTextFormField(
-                        controller: context.read<DeveloperSignupCubit>().firstNameController,
+                        controller: context
+                            .read<DeveloperSignupCubit>()
+                            .firstNameController,
                         width: 160,
                         hintText: "Micheal",
                         validator: (firstName) {
@@ -58,7 +60,9 @@ class _DeveloperCompulsoryDataFormState
                     const AppLabel(text: 'Last name'),
                     verticalSpace(8),
                     AppTextFormField(
-                        controller: context.read<DeveloperSignupCubit>().lastNameController,
+                        controller: context
+                            .read<DeveloperSignupCubit>()
+                            .lastNameController,
                         width: 160,
                         hintText: 'Jordon',
                         validator: (lastName) {
@@ -75,7 +79,8 @@ class _DeveloperCompulsoryDataFormState
             const AppLabel(text: 'Email'),
             verticalSpace(8),
             AppTextFormField(
-                controller: context.read<DeveloperSignupCubit>().emailController,
+                controller:
+                    context.read<DeveloperSignupCubit>().emailController,
                 hintText: 'example@email.com',
                 validator: (email) {
                   if (email!.isNullOrEmpty() || !AppRegex.isValidEmail(email)) {
@@ -86,7 +91,8 @@ class _DeveloperCompulsoryDataFormState
             const AppLabel(text: 'Password'),
             verticalSpace(8),
             AppTextFormField(
-                controller: context.read<DeveloperSignupCubit>().passwordController,
+                controller:
+                    context.read<DeveloperSignupCubit>().passwordController,
                 hintText: '•••••••••',
                 isObscureText: isObscurePassword,
                 suffixIcon: GestureDetector(
@@ -131,7 +137,9 @@ class _DeveloperCompulsoryDataFormState
             const AppLabel(text: 'Confirm Password'),
             verticalSpace(8),
             AppTextFormField(
-                controller: context.read<DeveloperSignupCubit>().confirmPasswordController,
+                controller: context
+                    .read<DeveloperSignupCubit>()
+                    .confirmPasswordController,
                 hintText: '•••••••••',
                 isObscureText: isObscureConfirmPassword,
                 suffixIcon: GestureDetector(

@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -8,6 +9,7 @@ import 'developer_sign_up_state.dart';
 
 class DeveloperSignupCubit extends Cubit<DeveloperSignupState> {
   final DeveloperSignupRepo _developerSignupRepo;
+
   DeveloperSignupCubit(this._developerSignupRepo)
       : super(const DeveloperSignupState.initial());
 
@@ -38,6 +40,7 @@ class DeveloperSignupCubit extends Cubit<DeveloperSignupState> {
   final optionalDataFormKey = GlobalKey<FormState>();
 
   List<String> skills = [];
+
   void setSkills(String skillsText) {
     skills = skillsText
         .split(',')
@@ -47,7 +50,9 @@ class DeveloperSignupCubit extends Cubit<DeveloperSignupState> {
   }
 
   List<String> interestedCourses = [];
+
   bool isCourseSelected() => interestedCourses.isNotEmpty;
+
   void setInterestedCourses(List<String> courses) {
     interestedCourses
       ..clear()
@@ -57,11 +62,13 @@ class DeveloperSignupCubit extends Cubit<DeveloperSignupState> {
   List<String> getInterestedCourses() => interestedCourses;
 
   String? cvFilePath;
+
   void setCVFilePath(String path) {
     cvFilePath = path;
   }
 
   String? profilePicFilePath;
+
   void setProfileImage(File? imageFile) {
     profilePicFilePath = imageFile?.path;
   }
@@ -88,8 +95,7 @@ class DeveloperSignupCubit extends Cubit<DeveloperSignupState> {
         trackLevel: trackLevelController.text.trim(),
         previousJob: previousJobController.text.trim(),
         typeOfJob: typeOfJobController.text.trim(),
-        yearsOfExperience:
-        int.tryParse(yearsOfExperienceController.text) ?? 0,
+        yearsOfExperience: int.tryParse(yearsOfExperienceController.text) ?? 0,
         expectedSalary: int.tryParse(expectedSalaryController.text) ?? 0,
         interestedCourses: interestedCourses,
       ),
@@ -99,7 +105,8 @@ class DeveloperSignupCubit extends Cubit<DeveloperSignupState> {
 
     response.when(
       success: (developerSignupResponse) {
-        emit(DeveloperSignupState.developerSignupSuccess(developerSignupResponse));
+        emit(DeveloperSignupState.developerSignupSuccess(
+            developerSignupResponse));
       },
       failure: (error) {
         emit(DeveloperSignupState.developerSignupError(

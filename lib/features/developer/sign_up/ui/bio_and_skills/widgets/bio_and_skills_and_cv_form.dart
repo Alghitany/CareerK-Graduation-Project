@@ -4,6 +4,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../../../../core/helpers/app_regex.dart';
 import '../../../../../../core/helpers/spacing.dart';
 import '../../../../../../core/widgets/app_label.dart';
@@ -45,7 +46,8 @@ class _BioAndSkillsFormState extends State<BioSkillsAndCVForm> {
             const AppLabel(text: 'Brief Bio'),
             verticalSpace(8),
             AppTextFormField(
-              controller: context.read<DeveloperSignupCubit>().briefBioController,
+              controller:
+                  context.read<DeveloperSignupCubit>().briefBioController,
               width: double.infinity.w,
               height: 234.h,
               hintText: 'Enter a short bio....',
@@ -66,7 +68,8 @@ class _BioAndSkillsFormState extends State<BioSkillsAndCVForm> {
             verticalSpace(8),
             AppTextFormField(
               controller: context.read<DeveloperSignupCubit>().skillsController,
-              onChanged: (value) => context.read<DeveloperSignupCubit>().setSkills(value),
+              onChanged: (value) =>
+                  context.read<DeveloperSignupCubit>().setSkills(value),
               width: double.infinity.w,
               height: 131.h,
               hintText: 'Enter your skills...',
