@@ -49,8 +49,13 @@ class DeveloperSignUpOptionalDataScreen extends StatelessWidget {
       )),
     );
   }
+
   void validateThenGoNext(BuildContext context) {
-    if (context.read<DeveloperSignupCubit>().optionalDataFormKey.currentState!.validate()) {
+    if (context
+        .read<DeveloperSignupCubit>()
+        .optionalDataFormKey
+        .currentState!
+        .validate()) {
       context.pushNamed(Routes.developerSignUpSelectedCourses);
     }
   }

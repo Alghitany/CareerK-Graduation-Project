@@ -20,7 +20,8 @@ class DeveloperEnterLocationForm extends StatelessWidget {
             const AppLabel(text: 'Enter Your Country'),
             verticalSpace(8),
             AppTextFormField(
-                controller: context.read<DeveloperSignupCubit>().countryController,
+                controller:
+                    context.read<DeveloperSignupCubit>().countryController,
                 hintText: 'Egypt',
                 validator: (country) {
                   if (country.isNullOrEmpty() ||
@@ -43,7 +44,8 @@ class DeveloperEnterLocationForm extends StatelessWidget {
             const AppLabel(text: 'Enter Your Address'),
             verticalSpace(8),
             AppTextFormField(
-                controller: context.read<DeveloperSignupCubit>().addressController,
+                controller:
+                    context.read<DeveloperSignupCubit>().addressController,
                 hintText: 'Obour',
                 validator: (address) {
                   // if (address.isNullOrEmpty() ||

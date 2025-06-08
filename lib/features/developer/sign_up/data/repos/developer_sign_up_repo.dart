@@ -1,8 +1,9 @@
 import 'package:carrerk/core/networking/api_constants.dart';
 import 'package:dio/dio.dart';
 import 'package:http_parser/http_parser.dart';
-import '../../../../../core/networking/api_result.dart';
+
 import '../../../../../core/networking/api_error_handler.dart';
+import '../../../../../core/networking/api_result.dart';
 import '../models/developer_sign_up_request_body.dart';
 import '../models/developer_sign_up_response.dart';
 
@@ -76,7 +77,8 @@ class DeveloperSignupRepo {
         options: Options(headers: {'Content-Type': 'multipart/form-data'}),
       );
 
-      final developerSignupResponse = DeveloperSignupResponse.fromJson(response.data);
+      final developerSignupResponse =
+          DeveloperSignupResponse.fromJson(response.data);
       return ApiResult.success(developerSignupResponse);
     } catch (error) {
       return ApiResult.failure(ErrorHandler.handle(error));

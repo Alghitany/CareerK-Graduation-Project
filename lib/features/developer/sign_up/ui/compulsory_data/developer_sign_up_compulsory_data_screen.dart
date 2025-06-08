@@ -53,8 +53,13 @@ class DeveloperSignUpCompulsoryDataScreen extends StatelessWidget {
       )),
     );
   }
+
   void validateThenGoNext(BuildContext context) {
-    if (context.read<DeveloperSignupCubit>().compulsoryDataFormKey.currentState!.validate()) {
+    if (context
+        .read<DeveloperSignupCubit>()
+        .compulsoryDataFormKey
+        .currentState!
+        .validate()) {
       context.pushNamed(Routes.developerSignUpFillProfileScreen);
     }
   }

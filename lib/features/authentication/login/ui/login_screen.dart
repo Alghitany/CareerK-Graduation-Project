@@ -10,6 +10,7 @@ import 'package:carrerk/features/authentication/widgets/dont_have_an_account_tex
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../../core/theming/styles.dart';
 import '../data/model/login_request_body.dart';
 import '../logic/login_cubit.dart';
@@ -38,11 +39,12 @@ class LoginScreen extends StatelessWidget {
               const RememberMeForgetPassword(),
               verticalSpace(38),
               AppTextButton(
-                  buttonText: 'Login',
-                  textStyle: AppTextStyles.font14WhitePoppinsMedium,
-                  onPressed: () {
-                    validateThenDoLogin(context);
-                  },),
+                buttonText: 'Login',
+                textStyle: AppTextStyles.font14WhitePoppinsMedium,
+                onPressed: () {
+                  validateThenDoLogin(context);
+                },
+              ),
               verticalSpace(24),
               const DividerOrDivider(),
               verticalSpace(16),
@@ -78,14 +80,12 @@ class LoginScreen extends StatelessWidget {
       )),
     );
   }
+
   void validateThenDoLogin(BuildContext context) {
-    if (context.read<LoginCubit>().formKey.currentState!.validate()){
-      context.read<LoginCubit>().emitLoginStates(
-          LoginRequestBody(
-              email: context.read<LoginCubit>().emailController.text,
-              password: context.read<LoginCubit>().passwordController.text
-          )
-      );
+    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+      context.read<LoginCubit>().emitLoginStates(LoginRequestBody(
+          email: context.read<LoginCubit>().emailController.text,
+          password: context.read<LoginCubit>().passwordController.text));
     }
   }
 }

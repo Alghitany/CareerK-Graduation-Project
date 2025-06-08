@@ -15,7 +15,7 @@ class SignupBlocListener extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<DeveloperSignupCubit, DeveloperSignupState>(
       listenWhen: (previous, current) =>
-      current is DeveloperSignupLoading ||
+          current is DeveloperSignupLoading ||
           current is DeveloperSignupSuccess ||
           current is DeveloperSignupError,
       listener: (context, state) {
@@ -59,7 +59,9 @@ class SignupBlocListener extends StatelessWidget {
           actions: <Widget>[
             TextButton(
               style: TextButton.styleFrom(
-                foregroundColor: Colors.white, backgroundColor: Colors.blue, disabledForegroundColor: Colors.grey.withOpacity(0.38),
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.blue,
+                disabledForegroundColor: Colors.grey.withOpacity(0.38),
               ),
               onPressed: () {
                 context.pushNamed(Routes.loginScreen);
@@ -76,27 +78,27 @@ class SignupBlocListener extends StatelessWidget {
     context.pop();
     showDialog(
         context: context,
-        builder: (context)=>  AlertDialog(
-          icon: const Icon(Icons.error,
-            color: Colors.red,
-            size: 32,
-          ),
-          content: Text(
-            error,
-            style: AppTextStyles.font15GlaucousPoppinsSemiBold,
-          ),
-          actions: [
-            TextButton(
-              onPressed: (){
-                context.pop();
-              },
-              child: Text(
-                'Got it',
+        builder: (context) => AlertDialog(
+              icon: const Icon(
+                Icons.error,
+                color: Colors.red,
+                size: 32,
+              ),
+              content: Text(
+                error,
                 style: AppTextStyles.font15GlaucousPoppinsSemiBold,
               ),
-            )
-          ],
-        )
-    );
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    context.pop();
+                  },
+                  child: Text(
+                    'Got it',
+                    style: AppTextStyles.font15GlaucousPoppinsSemiBold,
+                  ),
+                )
+              ],
+            ));
   }
 }

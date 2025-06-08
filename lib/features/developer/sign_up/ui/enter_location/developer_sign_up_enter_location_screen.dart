@@ -45,8 +45,13 @@ class DeveloperSignUpEnterLocationScreen extends StatelessWidget {
       )),
     );
   }
+
   void validateThenGoNext(BuildContext context) {
-    if (context.read<DeveloperSignupCubit>().locationFormKey.currentState!.validate()) {
+    if (context
+        .read<DeveloperSignupCubit>()
+        .locationFormKey
+        .currentState!
+        .validate()) {
       context.pushNamed(Routes.developerSignUpBioAndSkillsScreen);
     }
   }
