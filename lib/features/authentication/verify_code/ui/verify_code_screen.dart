@@ -1,13 +1,11 @@
-import 'package:carrerk/features/authentication/verify_code/widgets/verify_button_and_alert_dialog.dart';
+import 'package:carrerk/features/authentication/verify_code/ui/widgets/otp_input.dart';
+import 'package:carrerk/features/authentication/verify_code/ui/widgets/resend_and_didnt_get_code.dart';
+import 'package:carrerk/features/authentication/verify_code/ui/widgets/verify_button_and_alert_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../core/helpers/spacing.dart';
-import '../../../core/theming/styles.dart';
-import '../../../core/widgets/app_back_icon.dart';
-import 'widgets/otp_input.dart';
-import 'widgets/resend_and_didnt_get_code.dart';
-
+import '../../../../../../core/helpers/spacing.dart';
+import '../../../../../../core/theming/styles.dart';
+import '../../../../../../core/widgets/app_back_icon.dart';
 class VerifyCodeScreen extends StatelessWidget {
   const VerifyCodeScreen({super.key});
 

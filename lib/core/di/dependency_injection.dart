@@ -3,6 +3,8 @@ import 'package:get_it/get_it.dart';
 
 import '../../features/authentication/login/data/repos/login_repo.dart';
 import '../../features/authentication/login/logic/login_cubit.dart';
+import '../../features/authentication/reset_password/data/repos/reset_password_repo.dart';
+import '../../features/authentication/reset_password/logic/reset_password_cubit.dart';
 import '../../features/developer/sign_up/data/repos/developer_sign_up_repo.dart';
 import '../../features/developer/sign_up/logic/developer_sign_up_cubit.dart';
 import '../networking/api_service.dart';
@@ -17,9 +19,13 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<Dio>(() => dio);
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
 
-  // Authentication -> Login
+  // Authentication
+  // -> Login
   getIt.registerLazySingleton<LoginRepo>(() => LoginRepo(getIt()));
   getIt.registerLazySingleton<LoginCubit>(() => LoginCubit(getIt()));
+  // -> Reset Password
+  getIt.registerLazySingleton<ResetPasswordRepo>(() => ResetPasswordRepo(getIt()));
+  getIt.registerLazySingleton<ResetPasswordCubit>(() => ResetPasswordCubit(getIt()));
 
   // Developer -> Signup
   getIt.registerLazySingleton<DeveloperSignupRepo>(

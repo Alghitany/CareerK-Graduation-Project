@@ -4,6 +4,7 @@ class ApiConstants {
 
   //------ Authentication -------
   static const String authenticationLogin = "api/auth/login";
+  static const String authenticationResetPassword = "api/password/forgot-password";
 
   //------ Developer ------------
   //->Sign up

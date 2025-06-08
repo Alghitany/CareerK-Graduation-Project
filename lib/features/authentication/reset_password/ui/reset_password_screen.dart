@@ -1,22 +1,22 @@
-import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
-import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
 import 'package:carrerk/core/widgets/app_text_form_field.dart';
+import 'package:carrerk/features/authentication/reset_password/logic/reset_password_cubit.dart';
+import 'package:carrerk/features/authentication/reset_password/ui/widgets/reset_password_bloc_listener.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../core/helpers/app_regex.dart';
+import '../data/models/reset_password_request_body.dart';
+
 
 class ResetPasswordScreen extends StatelessWidget {
   const ResetPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    GlobalKey<FormState> formState = GlobalKey();
-
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -47,14 +47,15 @@ class ResetPasswordScreen extends StatelessWidget {
                     ),
                     verticalSpace(24),
                     Form(
-                      key: formState,
+                      key: context.read<ResetPasswordCubit>().formKey,
                       child: AppTextFormField(
+                        controller: context.read<ResetPasswordCubit>().emailController,
                           hintText: 'email@email.com',
                           validator: (email) {
-                            if (email.isNullOrEmpty() ||
-                                !AppRegex.isValidEmail(email!)) {
-                              return 'Please enter a valid email';
-                            }
+                            // if (email.isNullOrEmpty() ||
+                            //     !AppRegex.isValidEmail(email!)) {
+                            //   return 'Please enter a valid email';
+                            // }
                           }),
                     ),
                     verticalSpace(44),
@@ -62,8 +63,9 @@ class ResetPasswordScreen extends StatelessWidget {
                         buttonText: 'Send Code',
                         textStyle: AppTextStyles.font14WhitePoppinsMedium,
                         onPressed: () {
-                          context.pushNamed(Routes.verifyCodeScreen);
+                          validateThenDoResetPassword(context);
                         }),
+                    const ResetPasswordBlocListener(),
                   ],
                 ),
               )
@@ -72,5 +74,11 @@ class ResetPasswordScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+  void validateThenDoResetPassword(BuildContext context) {
+    if (context.read<ResetPasswordCubit>().formKey.currentState!.validate()) {
+      context.read<ResetPasswordCubit>().emitResetPasswordStates(ResetPasswordRequestBody(
+          email: context.read<ResetPasswordCubit>().emailController.text));
+    }
   }
 }
