@@ -27,7 +27,6 @@ class LoginBlocListener extends StatelessWidget {
               ),
             );
           }, success: (loginResponse) {
-            context.pop;
             context.pop();
 
             final role = loginResponse.user?.role?.toLowerCase();

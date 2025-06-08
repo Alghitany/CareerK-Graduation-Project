@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/theming/styles.dart';
-import '../../../../core/widgets/app_text_button.dart';
+import '../../../../../../core/theming/styles.dart';
+import '../../../../../../core/widgets/app_text_button.dart';
 import 'verified_alert_dialog.dart';
 
 class VerifyButtonAndAlertDialog extends StatelessWidget {

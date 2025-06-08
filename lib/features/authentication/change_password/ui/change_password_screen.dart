@@ -1,13 +1,14 @@
 import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
-import 'package:carrerk/features/authentication/change_password/widgets/new_and_confirm_password.dart';
+import 'package:carrerk/features/authentication/change_password/ui/widgets/new_and_confirm_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../core/helpers/spacing.dart';
-import '../../../core/theming/styles.dart';
-import '../../../core/widgets/app_back_icon.dart';
+import '../../../../../../core/helpers/spacing.dart';
+import '../../../../../../core/theming/styles.dart';
+import '../../../../../../core/widgets/app_back_icon.dart';
+
 
 class ChangePasswordScreen extends StatelessWidget {
   const ChangePasswordScreen({super.key});

@@ -1,14 +1,15 @@
-import 'package:carrerk/features/authentication/verify_code/verify_code_screen.dart';
+import 'package:carrerk/features/authentication/reset_password/logic/reset_password_cubit.dart';
+import 'package:carrerk/features/authentication/verify_code/ui/verify_code_screen.dart';
 import 'package:carrerk/features/company/home/main_page/company_home_main_page_screen.dart';
 import 'package:carrerk/features/customer/sign_up/compulsory_data/customer_sign_up_compulsory_data_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../features/authentication/change_password/change_password_screen.dart';
+import '../../features/authentication/change_password/ui/change_password_screen.dart';
 import '../../features/authentication/login/logic/login_cubit.dart';
 import '../../features/authentication/login/ui/login_screen.dart';
 import '../../features/authentication/onboarding/on_boarding_screen.dart';
-import '../../features/authentication/reset_password/reset_password_screen.dart';
+import '../../features/authentication/reset_password/ui/reset_password_screen.dart';
 import '../../features/authentication/successful_change_password/successful_change_password.dart';
 import '../../features/company/chats/person_chat/company_chats_person_chat_screen.dart';
 import '../../features/company/home/see_details/company_home_see_details_screen.dart';
@@ -65,14 +66,15 @@ class AppRouter {
     // Maybe used later But it is unnecessary now.
     // final arguments = settings.arguments;
     switch (settings.name) {
-      // ---------------- Authentication ----------------
+    // ---------------- Authentication ----------------
       case Routes.onBoardingScreen:
         return MaterialPageRoute(
           builder: (_) => const OnBoardingScreen(),
         );
       case Routes.loginScreen:
         return MaterialPageRoute(
-            builder: (_) => BlocProvider(
+            builder: (_) =>
+                BlocProvider(
                   create: (context) => getIt<LoginCubit>(),
                   child: const LoginScreen(),
                 ));
@@ -82,8 +84,11 @@ class AppRouter {
         );
       case Routes.resetPasswordScreen:
         return MaterialPageRoute(
-          builder: (_) => const ResetPasswordScreen(),
-        );
+          builder: (_) =>
+              BlocProvider(
+                create: (context) => getIt<ResetPasswordCubit>(),
+                child: const ResetPasswordScreen(),
+              ),);
       case Routes.verifyCodeScreen:
         return MaterialPageRoute(
           builder: (_) => const VerifyCodeScreen(),
@@ -96,8 +101,8 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const SuccessfulChangePasswordScreen(),
         );
-      // ---------------- Company ----------------
-      // Sign Up
+    // ---------------- Company ----------------
+    // Sign Up
       case Routes.companySignUpCompulsoryDataScreen:
         return MaterialPageRoute(
           builder: (_) => const CompanySignUpCompulsoryDataScreen(),
@@ -114,7 +119,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const CompanySignUpContactInformation(),
         );
-      // Home
+    // Home
       case Routes.companyHomeMainPageScreen:
         return MaterialPageRoute(
           builder: (_) => const CompanyHomeMainPageScreen(),
@@ -127,22 +132,22 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const CompanyHomeSeeResumeScreen(),
         );
-      // Chats
+    // Chats
       case Routes.companyChatsPersonChatScreen:
         return MaterialPageRoute(
           builder: (_) => const CompanyChatsPersonChatScreen(),
         );
-      // Jobs
+    // Jobs
       case Routes.companyJobsScreen:
         return MaterialPageRoute(
           builder: (_) => const CompanyJobsScreen(),
         );
-      // Profile
+    // Profile
       case Routes.companyProfileScreen:
         return MaterialPageRoute(
           builder: (_) => const CompanyProfileScreen(),
         );
-      // Jobs Post
+    // Jobs Post
       case Routes.companyJobPostFirstScreen:
         return MaterialPageRoute(
           builder: (_) => const CompanyJobPostFirstScreen(),
@@ -155,22 +160,23 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const CompanyJobPostSuccessScreen(),
         );
-      // Send To Clients
+    // Send To Clients
       case Routes.companySendToClientsScreen:
         return MaterialPageRoute(
           builder: (_) => const CompanySendToApplicantsMessageApplicantScreen(),
         );
 
-      // ---------------- Developer ----------------
-      // Sign Up
+    // ---------------- Developer ----------------
+    // Sign Up
       case Routes.developerSignUpFlow:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (_) => getIt<DeveloperSignupCubit>(),
-            child: const DeveloperSignUpFlow(),
-          ),
+          builder: (_) =>
+              BlocProvider(
+                create: (_) => getIt<DeveloperSignupCubit>(),
+                child: const DeveloperSignUpFlow(),
+              ),
         );
-      // Sign Up Completed
+    // Sign Up Completed
       case Routes.developerSignUpCompletedCvIsDone:
         return MaterialPageRoute(
           builder: (_) => const DeveloperSignUpCompletedCvIsDone(),
@@ -183,12 +189,12 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const DeveloperSignUpCompletedReadyToGo(),
         );
-      // Home
+    // Home
       case Routes.developerHomeMainPageScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperHomeMainPageScreen(),
         );
-      // Community
+    // Community
       case Routes.developerCommunityAllCommunitiesScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperCommunityAllCommunitiesScreen(),
@@ -197,17 +203,17 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const DeveloperCommunityChatScreen(),
         );
-      // Notification
+    // Notification
       case Routes.notificationsScreen:
         return MaterialPageRoute(
           builder: (_) => NotificationsScreen(),
         );
-      // Search
+    // Search
       case Routes.searchScreen:
         return MaterialPageRoute(
           builder: (_) => const SearchScreen(),
         );
-      // Courses
+    // Courses
       case Routes.developerCoursesMainPageScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperCoursesMainPageScreen(),
@@ -232,7 +238,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const DeveloperCoursesCertificationScreen(),
         );
-      // Courses --> CvUpdated
+    // Courses --> CvUpdated
       case Routes.developerCoursesCvUpdatedUpdateCvScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperCoursesCvUpdatedUpdateCvScreen(),
@@ -240,9 +246,9 @@ class AppRouter {
       case Routes.developerCoursesCvUpdatedSuccessfulUpdateScreen:
         return MaterialPageRoute(
           builder: (_) =>
-              const DeveloperCoursesCvUpdatedSuccessfulUpdateScreen(),
+          const DeveloperCoursesCvUpdatedSuccessfulUpdateScreen(),
         );
-      // Jobs
+    // Jobs
       case Routes.developerJobsMainPageScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperJobsMainPageScreen(),
@@ -271,7 +277,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const DeveloperJobsJobDetailsScreen(),
         );
-      // Profile
+    // Profile
       case Routes.developerProfileMainPageScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperProfileMainPageScreen(),
@@ -292,7 +298,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const DeveloperProfileJobsAppliedScreen(),
         );
-      // Profile --> Payment
+    // Profile --> Payment
       case Routes.developerProfilePaymentOptionScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperProfilePaymentOptionScreen(),
@@ -301,7 +307,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const DeveloperProfilePaymentAddNewCardScreen(),
         );
-      // ---------------- Customer ----------------
+    // ---------------- Customer ----------------
       case Routes.customerSignUpCompulsoryDataScreen:
         return MaterialPageRoute(
           builder: (_) => const CustomerSignUpCompulsoryDataScreen(),

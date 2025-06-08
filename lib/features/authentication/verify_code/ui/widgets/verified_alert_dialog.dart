@@ -3,9 +3,9 @@ import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/routing/routes.dart';
-import '../../../../core/theming/styles.dart';
-import '../../../../core/widgets/app_text_button.dart';
+import '../../../../../../core/routing/routes.dart';
+import '../../../../../../core/theming/styles.dart';
+import '../../../../../../core/widgets/app_text_button.dart';
 
 class VerifiedAlertDialog extends StatelessWidget {
   const VerifiedAlertDialog({super.key});
