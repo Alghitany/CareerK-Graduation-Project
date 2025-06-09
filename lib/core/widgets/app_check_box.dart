@@ -5,6 +5,7 @@ import '../theming/colors.dart';
 
 class AppCheckBox extends StatefulWidget {
   final bool isChecked;
+  final void Function(bool?)? onChanged;
   final double? width;
   final double? height;
   final double? scale;
@@ -27,6 +28,7 @@ class AppCheckBox extends StatefulWidget {
     this.checkColor,
     this.materialTapTargetSize,
     this.visualDensity,
+    this.onChanged,
   });
 
   @override
@@ -55,6 +57,7 @@ class _AppCheckBoxState extends State<AppCheckBox> {
             setState(() {
               _isChecked = value!;
             });
+            widget.onChanged!(value ?? false);
           },
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(widget.borderRadius ?? 6.0),
