@@ -33,7 +33,7 @@ class LoginScreen extends StatelessWidget {
                 'Login to your Account',
                 style: AppTextStyles.font24DunePoppinsMedium,
               ),
-              verticalSpace(24),
+              verticalSpace(16),
               const EmailAndPassword(),
               verticalSpace(8),
               const RememberMeForgetPassword(),
