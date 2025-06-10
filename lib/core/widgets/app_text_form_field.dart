@@ -91,13 +91,13 @@ class AppTextFormField extends StatelessWidget {
                   fillColor: backgroundColor ?? Colors.white,
                   hintText: hintText,
                   hintStyle:
-                  hintStyle ?? AppTextStyles.font14MercuryPoppinsMedium,
+                      hintStyle ?? AppTextStyles.font14MercuryPoppinsMedium,
                   prefixIcon: prefixIcon,
                   suffixIcon: suffixIcon,
                   enabledBorder: enabledBorder ??
                       OutlineInputBorder(
                         borderRadius:
-                        BorderRadius.circular(borderRadius ?? 8.0),
+                            BorderRadius.circular(borderRadius ?? 8.0),
                         borderSide: const BorderSide(
                           color: ColorsManager.blueBell,
                           width: 1.3,
@@ -106,7 +106,7 @@ class AppTextFormField extends StatelessWidget {
                   focusedBorder: focusedBorder ??
                       OutlineInputBorder(
                         borderRadius:
-                        BorderRadius.circular(borderRadius ?? 8.0),
+                            BorderRadius.circular(borderRadius ?? 8.0),
                         borderSide: const BorderSide(
                           color: ColorsManager.blueBell,
                           width: 1.3,
@@ -115,7 +115,7 @@ class AppTextFormField extends StatelessWidget {
                   errorBorder: errorBorder ??
                       OutlineInputBorder(
                         borderRadius:
-                        BorderRadius.circular(borderRadius ?? 8.0),
+                            BorderRadius.circular(borderRadius ?? 8.0),
                         borderSide: const BorderSide(
                           color: Colors.red,
                           width: 1.3,
@@ -124,7 +124,7 @@ class AppTextFormField extends StatelessWidget {
                   focusedErrorBorder: focusedErrorBorder ??
                       OutlineInputBorder(
                         borderRadius:
-                        BorderRadius.circular(borderRadius ?? 8.0),
+                            BorderRadius.circular(borderRadius ?? 8.0),
                         borderSide: const BorderSide(
                           color: Colors.red,
                           width: 1.3,
@@ -139,16 +139,16 @@ class AppTextFormField extends StatelessWidget {
               child: state.errorText == null
                   ? const SizedBox(height: 0)
                   : Padding(
-                padding: EdgeInsets.only(top: 6.h, left: 8.w),
-                child: Text(
-                  state.errorText!,
-                  style: TextStyle(
-                    color: Colors.red,
-                    fontSize: 12.sp,
-                    height: 1.2,
-                  ),
-                ),
-              ),
+                      padding: EdgeInsets.only(top: 6.h, left: 8.w),
+                      child: Text(
+                        state.errorText!,
+                        style: TextStyle(
+                          color: Colors.red,
+                          fontSize: 12.sp,
+                          height: 1.2,
+                        ),
+                      ),
+                    ),
             ),
           ],
         );

@@ -48,6 +48,7 @@ class _JobApplyFormState extends State<JobApplyForm> {
                       !AppRegex.isValidName(firstName)) {
                     return 'Please enter a valid name';
                   }
+                  return null;
                 }),
             verticalSpace(16),
             const AppLabel(text: 'Email Address'),
@@ -55,9 +56,10 @@ class _JobApplyFormState extends State<JobApplyForm> {
             AppTextFormField(
                 hintText: 'example@email.com',
                 validator: (email) {
-                  if (email!.isNullOrEmpty() || !AppRegex.isValidEmail(email)) {
+                  if (!AppRegex.isValidEmail(email!)) {
                     return 'Please enter a valid email';
                   }
+                  return null;
                 }),
             verticalSpace(16),
             const AppLabel(text: 'Phone Number'),
@@ -73,6 +75,7 @@ class _JobApplyFormState extends State<JobApplyForm> {
                     !AppRegex.isValidNumber(experience!)) {
                   return "Please enter a valid number";
                 }
+                return null;
               },
               keyboardType: TextInputType.number,
             ),
@@ -86,6 +89,7 @@ class _JobApplyFormState extends State<JobApplyForm> {
                       !AppRegex.isValidNumber(salary!)) {
                     return "Please enter a valid salary";
                   }
+                  return null;
                 }),
             verticalSpace(16),
             const AppLabel(text: 'Upload your CV'),
@@ -99,6 +103,7 @@ class _JobApplyFormState extends State<JobApplyForm> {
                     if (cv.isNullOrEmpty() || !AppRegex.isValidName(cv!)) {
                       return "Please enter a valid cv";
                     }
+                    return null;
                   },
                   suffixIcon: const Icon(
                     Icons.drive_folder_upload,

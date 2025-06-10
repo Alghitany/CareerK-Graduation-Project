@@ -17,9 +17,9 @@ class RememberMeForgetPassword extends StatelessWidget {
       children: [
         AppCheckBox(
           isChecked: context.read<LoginCubit>().isRememberMeChecked,
-            onChanged: (value) {
-              context.read<LoginCubit>().setRememberMe(value!);
-            },
+          onChanged: (value) {
+            context.read<LoginCubit>().setRememberMe(value!);
+          },
         ),
         horizontalSpace(2),
         Text(

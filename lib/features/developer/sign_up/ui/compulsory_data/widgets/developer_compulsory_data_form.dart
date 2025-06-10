@@ -50,6 +50,7 @@ class _DeveloperCompulsoryDataFormState
                               !AppRegex.isValidName(firstName)) {
                             return 'Please enter a valid name';
                           }
+                          return null;
                         }),
                   ],
                 ),
@@ -70,6 +71,7 @@ class _DeveloperCompulsoryDataFormState
                               !AppRegex.isValidName(lastName)) {
                             return 'Please enter a valid name';
                           }
+                          return null;
                         }),
                   ],
                 )
@@ -86,6 +88,7 @@ class _DeveloperCompulsoryDataFormState
                   if (email!.isNullOrEmpty() || !AppRegex.isValidEmail(email)) {
                     return 'Please enter a valid email';
                   }
+                  return null;
                 }),
             verticalSpace(16),
             const AppLabel(text: 'Password'),
@@ -128,10 +131,10 @@ class _DeveloperCompulsoryDataFormState
                         ),
                 ),
                 validator: (password) {
-                  // if (password!.isNullOrEmpty() ||
-                  //     !AppRegex.isValidPassword(password)) {
-                  //   return 'Please enter a valid password';
-                  // }
+                  if (!AppRegex.isValidPassword(password!)) {
+                    return 'Please enter a valid password';
+                  }
+                  return null;
                 }),
             verticalSpace(16),
             const AppLabel(text: 'Confirm Password'),
@@ -175,8 +178,16 @@ class _DeveloperCompulsoryDataFormState
                         ),
                 ),
                 validator: (confirmPassword) {
-                  //TODO: Check if the confirm password = new password
-                })
+                  if (!AppRegex.doPasswordsMatch(
+                      context
+                          .read<DeveloperSignupCubit>()
+                          .passwordController
+                          .text,
+                      confirmPassword!)) {
+                    return "Password doesn't match";
+                  }
+                  return null;
+                }),
           ],
         ));
   }

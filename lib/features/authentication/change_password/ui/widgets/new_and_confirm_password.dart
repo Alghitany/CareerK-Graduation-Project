@@ -8,6 +8,7 @@ import '../../../../../../core/helpers/spacing.dart';
 import '../../../../../../core/theming/colors.dart';
 import '../../../../../../core/widgets/app_label.dart';
 import '../../../../../../core/widgets/app_text_form_field.dart';
+import '../../../../../core/helpers/app_regex.dart';
 
 class NewAndConfirmPassword extends StatefulWidget {
   const NewAndConfirmPassword({super.key});
@@ -66,10 +67,10 @@ class _NewAndConfirmPasswordState extends State<NewAndConfirmPassword> {
                         ),
                 ),
                 validator: (password) {
-                  // if (password!.isNullOrEmpty() ||
-                  //     !AppRegex.isValidPassword(password)) {
-                  //   return 'Please enter a valid password';
-                  // }
+                  if (!AppRegex.isValidPassword(password!)) {
+                    return 'Please enter a valid password';
+                  }
+                  return null;
                 }),
             verticalSpace(8),
             const AppLabel(text: 'Confirm Password'),
@@ -113,8 +114,16 @@ class _NewAndConfirmPasswordState extends State<NewAndConfirmPassword> {
                         ),
                 ),
                 validator: (confirmPassword) {
-                  //TODO: Check if the confirm password = new password
-                })
+                  if (!AppRegex.doPasswordsMatch(
+                      context
+                          .read<ChangePasswordCubit>()
+                          .newPasswordController
+                          .text,
+                      confirmPassword!)) {
+                    return "Password doesn't match";
+                  }
+                  return null;
+                }),
           ],
         ));
   }
