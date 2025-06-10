@@ -60,6 +60,7 @@ class _CompanyContactInformationFormState
                   !AppRegex.isValidName(contactName!)) {
                 return "Please enter a valid name";
               }
+              return null;
             },
           ),
           verticalSpace(16),
@@ -68,9 +69,10 @@ class _CompanyContactInformationFormState
           AppTextFormField(
               hintText: 'example@email.com',
               validator: (email) {
-                if (email!.isNullOrEmpty() || !AppRegex.isValidEmail(email)) {
+                if (!AppRegex.isValidEmail(email!)) {
                   return 'Please enter a valid email';
                 }
+                return null;
               }),
           verticalSpace(16),
           const AppLabel(text: 'Enter Phone number'),
@@ -82,6 +84,7 @@ class _CompanyContactInformationFormState
                     !AppRegex.isValidPhoneNumber(phoneNumber!)) {
                   return "Please enter a valid number";
                 }
+                return null;
               }),
           verticalSpace(16),
           const AppLabel(text: 'Social media links'),

@@ -37,6 +37,7 @@ class _CompanyCompulsoryDataFormState extends State<CompanyCompulsoryDataForm> {
                       !AppRegex.isValidName(companyName)) {
                     return 'Please enter a valid name';
                   }
+                  return null;
                 }),
             verticalSpace(16),
             const AppLabel(text: 'Email'),
@@ -44,9 +45,10 @@ class _CompanyCompulsoryDataFormState extends State<CompanyCompulsoryDataForm> {
             AppTextFormField(
                 hintText: 'example@email.com',
                 validator: (email) {
-                  if (email!.isNullOrEmpty() || !AppRegex.isValidEmail(email)) {
+                  if (!AppRegex.isValidEmail(email!)) {
                     return 'Please enter a valid email';
                   }
+                  return null;
                 }),
             verticalSpace(16),
             const AppLabel(text: 'Password'),
@@ -87,10 +89,10 @@ class _CompanyCompulsoryDataFormState extends State<CompanyCompulsoryDataForm> {
                         ),
                 ),
                 validator: (password) {
-                  if (password!.isNullOrEmpty() ||
-                      !AppRegex.isValidPassword(password)) {
+                  if (!AppRegex.isValidPassword(password!)) {
                     return 'Please enter a valid password';
                   }
+                  return null;
                 }),
             verticalSpace(16),
             const AppLabel(text: 'Confirm Password'),
@@ -131,6 +133,8 @@ class _CompanyCompulsoryDataFormState extends State<CompanyCompulsoryDataForm> {
                         ),
                 ),
                 validator: (confirmPassword) {
+                  return null;
+
                   //TODO: Check if the confirm password = new password
                 })
           ],

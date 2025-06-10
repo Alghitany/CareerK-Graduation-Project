@@ -1,4 +1,3 @@
-import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/widgets/app_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -45,7 +44,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
             AppTextFormField(
                 hintText: 'email@email.com',
                 validator: (email) {
-                  if (email.isNullOrEmpty() || !AppRegex.isValidEmail(email!)) {
+                  if (!AppRegex.isValidEmail(email!)) {
                     return 'Please enter a valid email';
                   }
                   return null;
@@ -91,8 +90,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
                         ),
                 ),
                 validator: (password) {
-                  if (password.isNullOrEmpty() ||
-                      !AppRegex.isValidPassword(password!)) {
+                  if (!AppRegex.isValidPassword(password!)) {
                     return 'Please enter a valid password';
                   }
                   return null;

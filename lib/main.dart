@@ -18,12 +18,14 @@ void main() async {
     appRouter: AppRouter(),
   ));
 }
-checkIfLoggedUser() async{
-  String? userToken = await SharedPrefHelper.getSecuredString(SharedPrefKeys.userAccessToken);
+
+checkIfLoggedUser() async {
+  String? userToken =
+      await SharedPrefHelper.getSecuredString(SharedPrefKeys.userAccessToken);
   String? role = await SharedPrefHelper.getString(SharedPrefKeys.userRole);
-  if(!userToken.isNullOrEmpty()){
+  if (!userToken.isNullOrEmpty()) {
     isLoggedInUser = true;
-  } else{
+  } else {
     isLoggedInUser = false;
   }
   loggedInUserRole = role;

@@ -37,6 +37,7 @@ class _CustomerFillProfileFormState extends State<CustomerFillProfileForm> {
               if (bio!.isNullOrEmpty() || !AppRegex.isValidDescription(bio)) {
                 return "Please enter a valid description";
               }
+              return null;
             },
             borderRadius: 0,
             contentPadding:
@@ -48,9 +49,10 @@ class _CustomerFillProfileFormState extends State<CustomerFillProfileForm> {
           AppTextFormField(
               hintText: 'example@email.com',
               validator: (email) {
-                if (email!.isNullOrEmpty() || !AppRegex.isValidEmail(email)) {
+                if (!AppRegex.isValidEmail(email!)) {
                   return 'Please enter a valid email';
                 }
+                return null;
               }),
           verticalSpace(16),
           const AppLabel(text: 'Enter Phone number'),
@@ -62,6 +64,7 @@ class _CustomerFillProfileFormState extends State<CustomerFillProfileForm> {
                     !AppRegex.isValidPhoneNumber(phoneNumber!)) {
                   return "Please enter a valid number";
                 }
+                return null;
               }),
         ],
       ),

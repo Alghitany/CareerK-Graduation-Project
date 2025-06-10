@@ -27,6 +27,7 @@ class CareerkApp extends StatelessWidget {
       ),
     );
   }
+
   String _getInitialRoute() {
     if (!isLoggedInUser) return Routes.onBoardingScreen;
 
@@ -40,5 +41,4 @@ class CareerkApp extends StatelessWidget {
         return Routes.onBoardingScreen; // Fallback
     }
   }
-
 }
