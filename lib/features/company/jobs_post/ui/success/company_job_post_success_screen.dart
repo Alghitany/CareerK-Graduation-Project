@@ -2,12 +2,11 @@ import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
-import 'package:carrerk/features/company/jobs_post/success/widgets/job_post_review.dart';
+import 'package:carrerk/features/company/jobs_post/ui/success/widgets/job_post_review.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../core/routing/routes.dart';
-import '../../../../core/theming/styles.dart';
+import '../../../../../core/routing/routes.dart';
+import '../../../../../core/theming/styles.dart';
 
 class CompanyJobPostSuccessScreen extends StatelessWidget {
   const CompanyJobPostSuccessScreen({super.key});

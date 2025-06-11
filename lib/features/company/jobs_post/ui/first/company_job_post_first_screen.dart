@@ -4,9 +4,12 @@ import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
-import 'package:carrerk/features/company/jobs_post/first/widgets/post_job_first_form.dart';
+import 'package:carrerk/features/company/jobs_post/ui/first/widgets/post_job_first_form.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../logic/company_jobs_post_cubit.dart';
 
 class CompanyJobPostFirstScreen extends StatelessWidget {
   const CompanyJobPostFirstScreen({super.key});
@@ -33,12 +36,21 @@ class CompanyJobPostFirstScreen extends StatelessWidget {
                   buttonText: 'Next',
                   textStyle: AppTextStyles.font14WhitePoppinsMedium,
                   onPressed: () {
-                    context.pushNamed(Routes.companyJobPostSecondScreen);
+                    validateThenGoNext(context);
                   })
             ],
           ),
         ),
       ),
     );
+  }
+  void validateThenGoNext(BuildContext context) {
+    if (context
+        .read<CompanyJobsPostCubit>()
+        .companyJobsPostFirstFormKey
+        .currentState!
+        .validate()) {
+      context.pushNamed(Routes.companyJobPostSecondScreen);
+    }
   }
 }

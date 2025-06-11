@@ -1,7 +1,9 @@
+import 'package:carrerk/core/routing/company_router/jobs_post_router.dart';
 import 'package:carrerk/features/authentication/reset_password/logic/reset_password_cubit.dart';
 import 'package:carrerk/features/authentication/verify_code/logic/verify_code_cubit.dart';
 import 'package:carrerk/features/authentication/verify_code/ui/verify_code_screen.dart';
 import 'package:carrerk/features/company/home/main_page/company_home_main_page_screen.dart';
+import 'package:carrerk/features/company/jobs_post/logic/company_jobs_post_cubit.dart';
 import 'package:carrerk/features/customer/sign_up/compulsory_data/customer_sign_up_compulsory_data_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,9 +19,7 @@ import '../../features/company/chats/person_chat/company_chats_person_chat_scree
 import '../../features/company/home/see_details/company_home_see_details_screen.dart';
 import '../../features/company/home/see_resume/company_home_see_resume_screen.dart';
 import '../../features/company/jobs/company_jobs_screen.dart';
-import '../../features/company/jobs_post/first/company_job_post_first_screen.dart';
-import '../../features/company/jobs_post/second/company_job_post_second_screen.dart';
-import '../../features/company/jobs_post/success/company_job_post_success_screen.dart';
+import '../../features/company/jobs_post/ui/success/company_job_post_success_screen.dart';
 import '../../features/company/profile/company_profile_screen.dart';
 import '../../features/company/send_to_applicants/message-applicant/company_send_to_applicants_message_applicant_screen.dart';
 import '../../features/company/sign_up/compulsory_data/company_sign_up_compulsory_data_screen.dart';
@@ -166,13 +166,12 @@ class AppRouter {
           builder: (_) => const CompanyProfileScreen(),
         );
       // Jobs Post
-      case Routes.companyJobPostFirstScreen:
+      case Routes.companyJobsPostFlow:
         return MaterialPageRoute(
-          builder: (_) => const CompanyJobPostFirstScreen(),
-        );
-      case Routes.companyJobPostSecondScreen:
-        return MaterialPageRoute(
-          builder: (_) => const CompanyJobPostSecondScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<CompanyJobsPostCubit>(),
+            child: const CompanyJobsPostFlow(),
+          ),
         );
       case Routes.companyJobPostSuccessScreen:
         return MaterialPageRoute(

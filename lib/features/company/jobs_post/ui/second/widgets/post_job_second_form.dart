@@ -1,15 +1,17 @@
 import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../../core/helpers/app_regex.dart';
-import '../../../../../core/helpers/spacing.dart';
-import '../../../../../core/theming/colors.dart';
-import '../../../../../core/theming/styles.dart';
-import '../../../../../core/widgets/app_drop_down_menu.dart';
-import '../../../../../core/widgets/app_label.dart';
-import '../../../../../core/widgets/app_text_form_field.dart';
+import '../../../../../../core/helpers/app_regex.dart';
+import '../../../../../../core/helpers/spacing.dart';
+import '../../../../../../core/theming/colors.dart';
+import '../../../../../../core/theming/styles.dart';
+import '../../../../../../core/widgets/app_drop_down_menu.dart';
+import '../../../../../../core/widgets/app_label.dart';
+import '../../../../../../core/widgets/app_text_form_field.dart';
+import '../../../logic/company_jobs_post_cubit.dart';
 
 class PostJobSecondForm extends StatefulWidget {
   const PostJobSecondForm({super.key});
@@ -17,27 +19,26 @@ class PostJobSecondForm extends StatefulWidget {
   @override
   State<PostJobSecondForm> createState() => _PostJobSecondFormState();
 }
-
+ // TODO:Ahmed Hany Make this screen work replace controllers to make it work and the skills controllers will be like the social links in company sign up PLEASE DO IT FAST!!!! After this test it
 class _PostJobSecondFormState extends State<PostJobSecondForm> {
-  final formKey = GlobalKey<FormState>();
-  List<TextEditingController> skillsContollers = [TextEditingController()];
+  List<TextEditingController> skillsControllers = [TextEditingController()];
 
   void addSkillField() {
     setState(() {
-      skillsContollers.add(TextEditingController());
+      skillsControllers.add(TextEditingController());
     });
   }
 
   void removeSkillField(int index) {
     setState(() {
-      skillsContollers.removeAt(index);
+      skillsControllers.removeAt(index);
     });
   }
 
   @override
   void dispose() {
     super.dispose();
-    for (var controller in skillsContollers) {
+    for (var controller in skillsControllers) {
       controller.dispose();
     }
   }
@@ -45,7 +46,7 @@ class _PostJobSecondFormState extends State<PostJobSecondForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: formKey,
+      key: context.read<CompanyJobsPostCubit>().companyJobsPostSecondFormKey,
       child: Column(
         children: [
           const AppLabel(text: 'Skills Required'),
@@ -53,7 +54,7 @@ class _PostJobSecondFormState extends State<PostJobSecondForm> {
           ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            itemCount: skillsContollers.length,
+            itemCount: skillsControllers.length,
             itemBuilder: (context, index) {
               return Padding(
                 padding: EdgeInsets.only(bottom: 8.0.h),
@@ -61,19 +62,20 @@ class _PostJobSecondFormState extends State<PostJobSecondForm> {
                   children: [
                     Expanded(
                       child: AppTextFormField(
-                        controller: skillsContollers[index],
+                        controller: skillsControllers[index],
                         hintText: "Add Skills",
                         validator: (skills) {
                           if (skills.isNullOrEmpty() ||
                               !AppRegex.isValidName(skills!)) {
                             return "Enter a valid skills";
                           }
+                          return null;
                         },
                         suffixIcon: Row(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            skillsContollers.length > 1
+                            skillsControllers.length > 1
                                 ? Padding(
                                     padding: EdgeInsets.only(right: 10.0.w),
                                     child: InkWell(
@@ -158,6 +160,7 @@ class _PostJobSecondFormState extends State<PostJobSecondForm> {
                 if (time.isNullOrEmpty() || !AppRegex.isValidName(time!)) {
                   return "Please enter a valid time";
                 }
+                return null;
               }),
         ],
       ),

@@ -1,6 +1,6 @@
 class ApiConstants {
   static const String apiBaseUrl =
-      "https://cf21-197-166-228-248.ngrok-free.app/";
+      "https://3e6a-197-166-238-191.ngrok-free.app/";
 
   //------ Authentication -------
   static const String authenticationLogin = "api/auth/login";
@@ -13,6 +13,10 @@ class ApiConstants {
   //------ Developer ------------
   //->Sign up
   static const String developerSignup = "api/developer/register";
+
+  //------ Company ------------
+  //->Post A Job
+  static const String companyJobsPost = "api/jobs/create-job-post";
 }
 
 class ApiErrors {

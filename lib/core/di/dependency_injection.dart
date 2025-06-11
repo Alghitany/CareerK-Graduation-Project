@@ -1,3 +1,5 @@
+import 'package:carrerk/features/company/jobs_post/data/repos/company_jobs_post_repo.dart';
+import 'package:carrerk/features/company/jobs_post/logic/company_jobs_post_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -48,4 +50,9 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<DeveloperSignupCubit>(
     () => DeveloperSignupCubit(getIt<DeveloperSignupRepo>()),
   );
+
+  // Company
+  // -> Jobs Post
+  getIt.registerLazySingleton<CompanyJobsPostRepo>(() => CompanyJobsPostRepo(getIt()));
+  getIt.registerLazySingleton<CompanyJobsPostCubit>(() => CompanyJobsPostCubit(getIt()));
 }
