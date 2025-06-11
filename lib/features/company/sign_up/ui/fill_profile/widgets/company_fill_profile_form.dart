@@ -1,11 +1,13 @@
 import 'package:carrerk/core/helpers/extensions.dart';
+import 'package:carrerk/features/company/sign_up/logic/company_sign_up_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../../core/helpers/app_regex.dart';
-import '../../../../../../core/helpers/spacing.dart';
-import '../../../../../../core/widgets/app_label.dart';
-import '../../../../../../core/widgets/app_text_form_field.dart';
+import '../../../../../../../core/helpers/app_regex.dart';
+import '../../../../../../../core/helpers/spacing.dart';
+import '../../../../../../../core/widgets/app_label.dart';
+import '../../../../../../../core/widgets/app_text_form_field.dart';
 
 class CompanyFillProfileForm extends StatefulWidget {
   const CompanyFillProfileForm({super.key});
@@ -15,17 +17,17 @@ class CompanyFillProfileForm extends StatefulWidget {
 }
 
 class _CompanyFillProfileFormState extends State<CompanyFillProfileForm> {
-  final formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: formKey,
+      key: context.read<CompanySignUpCubit>().fillProfileFormKey,
       child: Column(
         children: [
           const AppLabel(text: 'Brief Description'),
           verticalSpace(8),
           AppTextFormField(
+            controller:
+                context.read<CompanySignUpCubit>().briefDescriptionController,
             width: double.infinity.w,
             height: 234.h,
             hintText: 'Enter the details....',
@@ -33,9 +35,9 @@ class _CompanyFillProfileFormState extends State<CompanyFillProfileForm> {
             minLines: 13,
             maxLines: 15,
             validator: (bio) {
-              if (bio!.isNullOrEmpty() || !AppRegex.isValidDescription(bio)) {
-                return "Please enter a valid description";
-              }
+              // if (bio!.isNullOrEmpty() || !AppRegex.isValidDescription(bio)) {
+              //   return "Please enter a valid description";
+              // }
             },
             borderRadius: 0,
             contentPadding:

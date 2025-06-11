@@ -4,11 +4,13 @@ import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:carrerk/core/widgets/app_edit_profile_picture.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
-import 'package:carrerk/features/company/sign_up/fill_profile/widgets/company_fill_profile_form.dart';
+import 'package:carrerk/features/company/sign_up/logic/company_sign_up_cubit.dart';
+import 'package:carrerk/features/company/sign_up/ui/fill_profile/widgets/company_fill_profile_form.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../core/routing/routes.dart';
+import '../../../../../../core/routing/routes.dart';
 
 class CompanySignUpFillProfileScreen extends StatelessWidget {
   const CompanySignUpFillProfileScreen({super.key});
@@ -29,7 +31,13 @@ class CompanySignUpFillProfileScreen extends StatelessWidget {
                   style: AppTextStyles.font24DunePoppinsMedium,
                 ),
                 verticalSpace(32),
-                const AppEditProfilePicture(),
+                AppEditProfilePicture(
+                  onImageSelected: (imageFile) {
+                    context
+                        .read<CompanySignUpCubit>()
+                        .setProfileImage(imageFile);
+                  },
+                ),
                 verticalSpace(48),
                 const CompanyFillProfileForm(),
                 verticalSpace(56),
@@ -38,8 +46,7 @@ class CompanySignUpFillProfileScreen extends StatelessWidget {
                     textStyle: AppTextStyles.font14WhitePoppinsMedium,
                     onPressed: () {
                       //TODO: Check input validations adn go to next page
-                      context
-                          .pushNamed(Routes.companySignUpEnterLocationScreen);
+                      validateThenGoNext(context);
                     })
               ],
             ),
@@ -47,5 +54,15 @@ class CompanySignUpFillProfileScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void validateThenGoNext(BuildContext context) {
+    if (context
+        .read<CompanySignUpCubit>()
+        .fillProfileFormKey
+        .currentState!
+        .validate()) {
+      context.pushNamed(Routes.companySignUpEnterLocationScreen);
+    }
   }
 }

@@ -4,12 +4,14 @@ import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
-import 'package:carrerk/features/company/sign_up/contact_information/widgets/company_contact_information_form.dart';
+import 'package:carrerk/features/company/sign_up/logic/company_sign_up_cubit.dart';
+import 'package:carrerk/features/company/sign_up/ui/enter_location/widgets/company_enter_location_form.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CompanySignUpContactInformation extends StatelessWidget {
-  const CompanySignUpContactInformation({super.key});
+class CompanySignUpEnterLocationScreen extends StatelessWidget {
+  const CompanySignUpEnterLocationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,18 +25,18 @@ class CompanySignUpContactInformation extends StatelessWidget {
                 const AppBackIcon(),
                 verticalSpace(16),
                 Text(
-                  'Contact Information',
+                  'Company Location',
                   style: AppTextStyles.font24DunePoppinsMedium,
                 ),
                 verticalSpace(32),
-                const CompanyContactInformationForm(),
-                verticalSpace(48),
+                const CompanyEnterLocationForm(),
+                verticalSpace(56),
                 AppTextButton(
-                    buttonText: 'Start Journey',
+                    buttonText: 'Continue',
                     textStyle: AppTextStyles.font14WhitePoppinsMedium,
                     onPressed: () {
-                      //TODO: Check Fields validations then navigate
-                      context.pushNamed(Routes.companyHomeMainPageScreen);
+                      // TODO: Check input validation then navigate to next page
+                      context.pushNamed(Routes.companySignUpContactInformation);
                     })
               ],
             ),
@@ -42,5 +44,15 @@ class CompanySignUpContactInformation extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void validateThenGoNext(BuildContext context) {
+    if (context
+        .read<CompanySignUpCubit>()
+        .fillProfileFormKey
+        .currentState!
+        .validate()) {
+      context.pushNamed(Routes.companySignUpContactInformation);
+    }
   }
 }

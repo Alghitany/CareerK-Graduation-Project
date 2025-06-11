@@ -19,7 +19,8 @@ class PostJobSecondForm extends StatefulWidget {
   @override
   State<PostJobSecondForm> createState() => _PostJobSecondFormState();
 }
- // TODO:Ahmed Hany Make this screen work replace controllers to make it work and the skills controllers will be like the social links in company sign up PLEASE DO IT FAST!!!! After this test it
+
+// TODO:Ahmed Hany Make this screen work replace controllers to make it work and the skills controllers will be like the social links in company sign up PLEASE DO IT FAST!!!! After this test it
 class _PostJobSecondFormState extends State<PostJobSecondForm> {
   List<TextEditingController> skillsControllers = [TextEditingController()];
 
@@ -65,11 +66,11 @@ class _PostJobSecondFormState extends State<PostJobSecondForm> {
                         controller: skillsControllers[index],
                         hintText: "Add Skills",
                         validator: (skills) {
-                          if (skills.isNullOrEmpty() ||
-                              !AppRegex.isValidName(skills!)) {
-                            return "Enter a valid skills";
-                          }
-                          return null;
+                          // if (skills.isNullOrEmpty() ||
+                          //     !AppRegex.isValidName(skills!)) {
+                          //   return "Enter a valid skills";
+                          // }
+                          // return null;
                         },
                         suffixIcon: Row(
                           mainAxisSize: MainAxisSize.min,
@@ -113,6 +114,9 @@ class _PostJobSecondFormState extends State<PostJobSecondForm> {
           const AppLabel(text: 'Enter Experience Level'),
           verticalSpace(8),
           AppDropDownMenu(
+            controller: context
+                .read<CompanyJobsPostCubit>()
+                .experienceRequiredController,
             hintText: 'Midlevel',
             items: <String>['Junior', 'Midlevel', 'Senior']
                 .map<DropdownMenuItem<String>>((String value) {
@@ -127,6 +131,9 @@ class _PostJobSecondFormState extends State<PostJobSecondForm> {
           const AppLabel(text: 'Company Department'),
           verticalSpace(8),
           AppDropDownMenu(
+            controller: context
+                .read<CompanyJobsPostCubit>()
+                .companyDepartmentController,
             hintText: 'IT',
             items: <String>['IT', 'Software Engineering', 'Medical']
                 .map<DropdownMenuItem<String>>((String value) {
@@ -141,6 +148,8 @@ class _PostJobSecondFormState extends State<PostJobSecondForm> {
           const AppLabel(text: 'Job Availability'),
           verticalSpace(8),
           AppDropDownMenu(
+            controller:
+                context.read<CompanyJobsPostCubit>().jobAvailabilityController,
             hintText: 'Remotely',
             items: <String>['Remotely', 'Hybrid', 'In-Site']
                 .map<DropdownMenuItem<String>>((String value) {
@@ -155,12 +164,14 @@ class _PostJobSecondFormState extends State<PostJobSecondForm> {
           const AppLabel(text: 'Deadline Task'),
           verticalSpace(8),
           AppTextFormField(
+              controller:
+                  context.read<CompanyJobsPostCubit>().deadlineTaskController,
               hintText: '10 Days',
               validator: (time) {
-                if (time.isNullOrEmpty() || !AppRegex.isValidName(time!)) {
-                  return "Please enter a valid time";
-                }
-                return null;
+                // if (time.isNullOrEmpty() || !AppRegex.isValidName(time!)) {
+                //   return "Please enter a valid time";
+                // }
+                // return null;
               }),
         ],
       ),

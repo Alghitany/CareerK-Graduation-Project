@@ -3,15 +3,15 @@ import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_back_icon.dart';
-import 'package:carrerk/core/widgets/app_check_box_and_agree_text.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
+import 'package:carrerk/features/company/sign_up/logic/company_sign_up_cubit.dart';
+import 'package:carrerk/features/company/sign_up/ui/contact_information/widgets/company_contact_information_form.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'widgets/company_compulsory_data_form.dart';
-
-class CompanySignUpCompulsoryDataScreen extends StatelessWidget {
-  const CompanySignUpCompulsoryDataScreen({super.key});
+class CompanySignUpContactInformationScreen extends StatelessWidget {
+  const CompanySignUpContactInformationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,25 +25,18 @@ class CompanySignUpCompulsoryDataScreen extends StatelessWidget {
                 const AppBackIcon(),
                 verticalSpace(16),
                 Text(
-                  'Company',
+                  'Contact Information',
                   style: AppTextStyles.font24DunePoppinsMedium,
                 ),
-                verticalSpace(16),
-                Text(
-                  'Please enter the following data',
-                  style: AppTextStyles.font15LiverPoppinsMedium,
-                ),
                 verticalSpace(32),
-                const CompanyCompulsoryDataForm(),
-                verticalSpace(16),
-                const AppCheckBoxAndAgreeText(),
-                verticalSpace(40),
+                const CompanyContactInformationForm(),
+                verticalSpace(48),
                 AppTextButton(
-                    buttonText: 'Next step',
+                    buttonText: 'Start Journey',
                     textStyle: AppTextStyles.font14WhitePoppinsMedium,
                     onPressed: () {
-                      //TODO: Check that all inputs are valid then navigate to next page
-                      context.pushNamed(Routes.companySignUpFillProfileScreen);
+                      //TODO: Check Fields validations then navigate
+                      validateThenDoSignup(context);
                     })
               ],
             ),
@@ -51,5 +44,9 @@ class CompanySignUpCompulsoryDataScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void validateThenDoSignup(BuildContext context) {
+    context.read<CompanySignUpCubit>().signupCompany();
   }
 }

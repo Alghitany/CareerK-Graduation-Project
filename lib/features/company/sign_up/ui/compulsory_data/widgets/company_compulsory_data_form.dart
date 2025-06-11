@@ -1,13 +1,15 @@
 import 'package:carrerk/core/helpers/extensions.dart';
+import 'package:carrerk/features/company/sign_up/logic/company_sign_up_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../../../core/helpers/app_regex.dart';
-import '../../../../../../core/helpers/spacing.dart';
-import '../../../../../../core/theming/colors.dart';
-import '../../../../../../core/widgets/app_label.dart';
-import '../../../../../../core/widgets/app_text_form_field.dart';
+import '../../../../../../../core/helpers/app_regex.dart';
+import '../../../../../../../core/helpers/spacing.dart';
+import '../../../../../../../core/theming/colors.dart';
+import '../../../../../../../core/widgets/app_label.dart';
+import '../../../../../../../core/widgets/app_text_form_field.dart';
 
 class CompanyCompulsoryDataForm extends StatefulWidget {
   const CompanyCompulsoryDataForm({super.key});
@@ -18,42 +20,44 @@ class CompanyCompulsoryDataForm extends StatefulWidget {
 }
 
 class _CompanyCompulsoryDataFormState extends State<CompanyCompulsoryDataForm> {
-  final formKey = GlobalKey<FormState>();
   bool isObscurePassword = true;
   bool isObscureConfirmPassword = true;
 
   @override
   Widget build(BuildContext context) {
     return Form(
-        key: formKey,
+        key: context.read<CompanySignUpCubit>().compulsoryDataFormKey,
         child: Column(
           children: [
             const AppLabel(text: 'Company Name'),
             verticalSpace(8),
             AppTextFormField(
+                controller:
+                    context.read<CompanySignUpCubit>().companyNameController,
                 hintText: 'Toyota',
                 validator: (companyName) {
-                  if (companyName!.isNullOrEmpty() ||
-                      !AppRegex.isValidName(companyName)) {
-                    return 'Please enter a valid name';
-                  }
-                  return null;
+                  // if (companyName!.isNullOrEmpty() ||
+                  //     !AppRegex.isValidName(companyName)) {
+                  //   return 'Please enter a valid name';
+                  // }
                 }),
             verticalSpace(16),
             const AppLabel(text: 'Email'),
             verticalSpace(8),
             AppTextFormField(
+                controller: context.read<CompanySignUpCubit>().emailController,
                 hintText: 'example@email.com',
                 validator: (email) {
-                  if (!AppRegex.isValidEmail(email!)) {
-                    return 'Please enter a valid email';
-                  }
-                  return null;
+                  // if (email!.isNullOrEmpty() || !AppRegex.isValidEmail(email)) {
+                  //   return 'Please enter a valid email';
+                  // }
                 }),
             verticalSpace(16),
             const AppLabel(text: 'Password'),
             verticalSpace(8),
             AppTextFormField(
+                controller:
+                    context.read<CompanySignUpCubit>().passwordController,
                 hintText: '•••••••••',
                 isObscureText: isObscurePassword,
                 suffixIcon: GestureDetector(
@@ -89,15 +93,18 @@ class _CompanyCompulsoryDataFormState extends State<CompanyCompulsoryDataForm> {
                         ),
                 ),
                 validator: (password) {
-                  if (!AppRegex.isValidPassword(password!)) {
-                    return 'Please enter a valid password';
-                  }
-                  return null;
+                  // if (password!.isNullOrEmpty() ||
+                  //     !AppRegex.isValidPassword(password)) {
+                  //   return 'Please enter a valid password';
+                  // }
                 }),
             verticalSpace(16),
             const AppLabel(text: 'Confirm Password'),
             verticalSpace(8),
             AppTextFormField(
+                controller: context
+                    .read<CompanySignUpCubit>()
+                    .confirmPasswordController,
                 hintText: '•••••••••',
                 isObscureText: isObscureConfirmPassword,
                 suffixIcon: GestureDetector(
@@ -133,8 +140,6 @@ class _CompanyCompulsoryDataFormState extends State<CompanyCompulsoryDataForm> {
                         ),
                 ),
                 validator: (confirmPassword) {
-                  return null;
-
                   //TODO: Check if the confirm password = new password
                 })
           ],
