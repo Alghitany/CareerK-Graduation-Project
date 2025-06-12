@@ -24,12 +24,42 @@ class CompanyJobsPostCubit extends Cubit<CompanyJobsPostState> {
   final TextEditingController experienceRequiredController = TextEditingController();
   final TextEditingController companyDepartmentController = TextEditingController();
   final TextEditingController jobAvailabilityController = TextEditingController();
+  final List<TextEditingController> selectedSkillsControllers = [];
+
 
   List<String> selectedSkills = [];
+  void addSkillField() {
+    selectedSkillsControllers.add(TextEditingController());
+    emit(state);
+  }
+  void removeSkillField(int index) {
+    selectedSkillsControllers.removeAt(index);
+  }
+  List<String> getSelectedSkills() {
+    return selectedSkillsControllers
+        .map((controller) => controller.text.trim())
+        .where((text) => text.isNotEmpty)
+        .toList();
+  }
+  void dispose() {
+    jobTitleController.dispose();
+    jobDescriptionController.dispose();
+    jobTypeController.dispose();
+    locationController.dispose();
+    salaryRangeController.dispose();
+    deadlineTaskController.dispose();
+    experienceRequiredController.dispose();
+    companyDepartmentController.dispose();
+    jobAvailabilityController.dispose();
+
+    for (final controller in selectedSkillsControllers) {
+      controller.dispose();
+    }
+    selectedSkillsControllers.clear();
+  }
 
   Future<void> postJob(CompanyJobsPostRequestBody requestBody) async {
     emit(const CompanyJobsPostState.loading());
-
     final response = await _companyJobsPostRepo.postJob(requestBody);
     response.when(
       success: (data) {

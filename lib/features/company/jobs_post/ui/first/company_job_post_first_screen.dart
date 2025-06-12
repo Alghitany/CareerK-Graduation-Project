@@ -18,27 +18,29 @@ class CompanyJobPostFirstScreen extends StatelessWidget {
   //TODO: Try to change name of this screen it is a little bit strange.
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 0.h),
-          child: Column(
-            children: [
-              const AppBackIcon(),
-              verticalSpace(8),
-              Text(
-                'Post a job',
-                style: AppTextStyles.font24DunePoppinsMedium,
-              ),
-              verticalSpace(16),
-              const PostJobFirstForm(),
-              verticalSpace(40),
-              AppTextButton(
-                  buttonText: 'Next',
-                  textStyle: AppTextStyles.font14WhitePoppinsMedium,
-                  onPressed: () {
-                    validateThenGoNext(context);
-                  })
-            ],
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 0.h),
+            child: Column(
+              children: [
+                const AppBackIcon(),
+                verticalSpace(8),
+                Text(
+                  'Post a job',
+                  style: AppTextStyles.font24DunePoppinsMedium,
+                ),
+                verticalSpace(16),
+                const PostJobFirstForm(),
+                verticalSpace(40),
+                AppTextButton(
+                    buttonText: 'Next',
+                    textStyle: AppTextStyles.font14WhitePoppinsMedium,
+                    onPressed: () {
+                      validateThenGoNext(context);
+                    })
+              ],
+            ),
           ),
         ),
       ),

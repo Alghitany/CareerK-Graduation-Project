@@ -20,29 +20,19 @@ class PostJobSecondForm extends StatefulWidget {
   State<PostJobSecondForm> createState() => _PostJobSecondFormState();
 }
 
-// TODO:Ahmed Hany Make this screen work replace controllers to make it work and the skills controllers will be like the social links in company sign up PLEASE DO IT FAST!!!! After this test it
 class _PostJobSecondFormState extends State<PostJobSecondForm> {
-  List<TextEditingController> skillsControllers = [TextEditingController()];
-
-  void addSkillField() {
-    setState(() {
-      skillsControllers.add(TextEditingController());
-    });
-  }
-
-  void removeSkillField(int index) {
-    setState(() {
-      skillsControllers.removeAt(index);
-    });
-  }
+  late CompanyJobsPostCubit cubit;
 
   @override
-  void dispose() {
-    super.dispose();
-    for (var controller in skillsControllers) {
-      controller.dispose();
+  void initState() {
+    super.initState();
+    cubit = context.read<CompanyJobsPostCubit>();
+    if (cubit.selectedSkillsControllers.isEmpty) {
+      cubit.addSkillField(); // Add initial field
     }
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +45,7 @@ class _PostJobSecondFormState extends State<PostJobSecondForm> {
           ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            itemCount: skillsControllers.length,
+            itemCount: cubit.selectedSkillsControllers.length,
             itemBuilder: (context, index) {
               return Padding(
                 padding: EdgeInsets.only(bottom: 8.0.h),
@@ -63,24 +53,23 @@ class _PostJobSecondFormState extends State<PostJobSecondForm> {
                   children: [
                     Expanded(
                       child: AppTextFormField(
-                        controller: skillsControllers[index],
+                        controller: cubit.selectedSkillsControllers[index],
                         hintText: "Add Skills",
                         validator: (skills) {
-                          // if (skills.isNullOrEmpty() ||
-                          //     !AppRegex.isValidName(skills!)) {
-                          //   return "Enter a valid skills";
-                          // }
-                          // return null;
+                          if (!AppRegex.isValidName(skills!)) {
+                            return "Enter a valid skills";
+                          }
+                          return null;
                         },
                         suffixIcon: Row(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            skillsControllers.length > 1
+                            cubit.selectedSkillsControllers.length > 1
                                 ? Padding(
                                     padding: EdgeInsets.only(right: 10.0.w),
                                     child: InkWell(
-                                      onTap: () => removeSkillField(index),
+                                      onTap: () => cubit.removeSkillField(index),
                                       child: const Icon(
                                         Icons.remove,
                                         color: ColorsManager.pastelGrey,
@@ -92,7 +81,7 @@ class _PostJobSecondFormState extends State<PostJobSecondForm> {
                             Padding(
                               padding: EdgeInsets.only(right: 10.0.w),
                               child: InkWell(
-                                onTap: addSkillField,
+                                onTap: () => setState(() => cubit.addSkillField()),
                                 child: SizedBox(
                                   height: 15.h,
                                   width: 15.w,
@@ -126,6 +115,12 @@ class _PostJobSecondFormState extends State<PostJobSecondForm> {
                     Text(value, style: AppTextStyles.font14BlackPoppinsRegular),
               );
             }).toList(),
+            validator: (experienceLevel){
+              if(experienceLevel.isNullOrEmpty()){
+                return 'Please enter a valid experience level';
+              }
+              return null;
+            },
           ),
           verticalSpace(16),
           const AppLabel(text: 'Company Department'),
@@ -143,6 +138,12 @@ class _PostJobSecondFormState extends State<PostJobSecondForm> {
                     Text(value, style: AppTextStyles.font14BlackPoppinsRegular),
               );
             }).toList(),
+            validator: (companyDepartment){
+              if(companyDepartment.isNullOrEmpty()){
+                return 'Please enter a valid Company Department';
+              }
+              return null;
+            },
           ),
           verticalSpace(16),
           const AppLabel(text: 'Job Availability'),
@@ -159,6 +160,12 @@ class _PostJobSecondFormState extends State<PostJobSecondForm> {
                     Text(value, style: AppTextStyles.font14BlackPoppinsRegular),
               );
             }).toList(),
+            validator: (jobAvailability){
+              if(jobAvailability.isNullOrEmpty()){
+                return 'Please enter a valid job availability';
+              }
+              return null;
+            },
           ),
           verticalSpace(16),
           const AppLabel(text: 'Deadline Task'),
@@ -166,12 +173,12 @@ class _PostJobSecondFormState extends State<PostJobSecondForm> {
           AppTextFormField(
               controller:
                   context.read<CompanyJobsPostCubit>().deadlineTaskController,
-              hintText: '10 Days',
+              hintText: '2025-07-01',
               validator: (time) {
-                // if (time.isNullOrEmpty() || !AppRegex.isValidName(time!)) {
-                //   return "Please enter a valid time";
-                // }
-                // return null;
+                if (!AppRegex.isValidDate(time!)) {
+                  return "Please enter a valid time";
+                }
+                return null;
               }),
         ],
       ),

@@ -17,27 +17,29 @@ class CompanyJobPostSecondScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 0.h),
-          child: Column(
-            children: [
-              const AppBackIcon(),
-              verticalSpace(8),
-              Text(
-                'Post a job',
-                style: AppTextStyles.font24DunePoppinsMedium,
-              ),
-              verticalSpace(16),
-              const PostJobSecondForm(),
-              verticalSpace(40),
-              AppTextButton(
-                  buttonText: 'Next',
-                  textStyle: AppTextStyles.font14WhitePoppinsMedium,
-                  onPressed: () {
-                    validateThenDoJobPost(context);
-                  })
-            ],
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 0.h),
+            child: Column(
+              children: [
+                const AppBackIcon(),
+                verticalSpace(8),
+                Text(
+                  'Post a job',
+                  style: AppTextStyles.font24DunePoppinsMedium,
+                ),
+                verticalSpace(16),
+                const PostJobSecondForm(),
+                verticalSpace(40),
+                AppTextButton(
+                    buttonText: 'Next',
+                    textStyle: AppTextStyles.font14WhitePoppinsMedium,
+                    onPressed: () {
+                      validateThenDoJobPost(context);
+                    })
+              ],
+            ),
           ),
         ),
       ),
@@ -54,7 +56,7 @@ class CompanyJobPostSecondScreen extends StatelessWidget {
         location: cubit.locationController.text,
         salaryRange: cubit.salaryRangeController.text,
         deadlineTask: cubit.deadlineTaskController.text,
-        skills: cubit.selectedSkills,
+        skills: cubit.getSelectedSkills(),
         experienceRequired: cubit.experienceRequiredController.text,
         companyDepartment: cubit.companyDepartmentController.text,
         jobAvailability: cubit.jobAvailabilityController.text,

@@ -34,11 +34,10 @@ class _PostJobFirstFormState extends State<PostJobFirstForm> {
               controller: context.read<CompanyJobsPostCubit>().jobTitleController,
               hintText: "Front end Developer",
               validator: (jobTitle) {
-                // if (jobTitle!.isNullOrEmpty() ||
-                //     !AppRegex.isValidName(jobTitle)) {
-                //   return 'Please enter a valid title';
-                // }
-                // return null;
+                if (!AppRegex.isValidName(jobTitle!)) {
+                  return 'Please enter a valid title';
+                }
+                return null;
               }),
           verticalSpace(16),
           const AppLabel(
@@ -51,11 +50,10 @@ class _PostJobFirstFormState extends State<PostJobFirstForm> {
               height: 92.h,
               maxLines: 3,
               validator: (jobDescription) {
-                // if (jobDescription!.isNullOrEmpty() ||
-                //     !AppRegex.isValidMessage(jobDescription)) {
-                //   return 'Please enter a valid title';
-                // }
-                // return null;
+                if (!AppRegex.isValidMessage(jobDescription!)) {
+                  return 'Please enter a valid description';
+                }
+                return null;
               }),
           verticalSpace(16),
           const AppLabel(
@@ -73,31 +71,36 @@ class _PostJobFirstFormState extends State<PostJobFirstForm> {
                     Text(value, style: AppTextStyles.font14BlackPoppinsRegular),
               );
             }).toList(),
+            validator: (jobType){
+              if(jobType.isNullOrEmpty()){
+                return 'Please enter a valid job type';
+              }
+              return null;
+            },
           ),
           verticalSpace(16),
           const AppLabel(text: 'Job Location'),
           verticalSpace(8),
           AppTextFormField(
               controller: context.read<CompanyJobsPostCubit>().locationController,
-              hintText: 'Street 12....',
+              hintText: 'Cairo, Egypt',
               validator: (location) {
-                // if (location.isNullOrEmpty() ||
-                //     !AppRegex.isValidName(location!)) {
-                //   return 'Please enter a valid location';
-                // }
-                // return null;
+                if (!AppRegex.isValidLocation(location!)) {
+                  return 'Please enter a valid location';
+                }
+                return null;
               }),
           verticalSpace(16),
           const AppLabel(text: 'Price Range'),
           verticalSpace(8),
           AppTextFormField(
               controller: context.read<CompanyJobsPostCubit>().salaryRangeController,
-              hintText: '1000\$',
+              hintText: '1000 - 5000\$',
               validator: (price) {
-                // if (price.isNullOrEmpty() || !AppRegex.isValidNumber(price!)) {
-                //   return "Please enter a valid salary";
-                // }
-                // return null;
+                if (!AppRegex.isValidPriceRange(price!)) {
+                  return "Please enter a valid Price";
+                }
+                return null;
               }),
         ],
       ),
