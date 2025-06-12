@@ -11,6 +11,7 @@ import '../../features/authentication/verify_code/data/model/verify_code_request
 import '../../features/authentication/verify_code/data/model/verify_code_response.dart';
 import '../../features/company/jobs_post/data/models/company_jobs_post_request_body.dart';
 import '../../features/company/jobs_post/data/models/company_jobs_post_response.dart';
+import '../../features/developer/jobs/job_details/data/model/job_details_response.dart';
 import 'api_constants.dart';
 
 part 'api_service.g.dart';
@@ -42,6 +43,9 @@ abstract class ApiService {
 
   @POST(ApiConstants.companyJobsPost)
   Future<CompanyJobsPostResponse> companyJobsPost(
-      @Body() CompanyJobsPostRequestBody companyJobsPostRequestBody,
-      );
+    @Body() CompanyJobsPostRequestBody companyJobsPostRequestBody,
+  );
+
+  @GET('${ApiConstants.getSingleJobPostBase}/{jobId}')
+  Future<JobDetailsResponse> getSingleJobPost(@Path('jobId') String jobId);
 }

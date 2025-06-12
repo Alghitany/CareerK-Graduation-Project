@@ -13,6 +13,8 @@ class ApiConstants {
   //------ Developer ------------
   //->Sign up
   static const String developerSignup = "api/developer/register";
+  //->Job Details
+  static const String getSingleJobPostBase = "api/jobs/get-single-job-post";
 
   //------ customer ------------
   //->Sign up

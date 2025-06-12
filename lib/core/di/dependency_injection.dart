@@ -11,6 +11,7 @@ import '../../features/authentication/reset_password/data/repos/reset_password_r
 import '../../features/authentication/reset_password/logic/reset_password_cubit.dart';
 import '../../features/authentication/verify_code/data/repo/verify_code_repo.dart';
 import '../../features/authentication/verify_code/logic/verify_code_cubit.dart';
+import '../../features/developer/jobs/job_details/data/repo/job_details_repo.dart';
 import '../../features/developer/sign_up/data/repos/developer_sign_up_repo.dart';
 import '../../features/developer/sign_up/logic/developer_sign_up_cubit.dart';
 import '../networking/api_service.dart';
@@ -50,6 +51,9 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<DeveloperSignupCubit>(
     () => DeveloperSignupCubit(getIt<DeveloperSignupRepo>()),
   );
+  // -> Job Details
+  getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
+  getIt.registerLazySingleton<JobsDetailsRepo>(() => JobsDetailsRepo(getIt()));
 
   // Company
   // -> Jobs Post

@@ -9,6 +9,7 @@ import 'package:carrerk/features/company/sign_up/ui/contact_information/company_
 import 'package:carrerk/features/company/sign_up/ui/enter_location/company_sign_up_enter_location_screen.dart';
 import 'package:carrerk/features/company/sign_up/ui/fill_profile/company_sign_up_fill_profile_screen.dart';
 import 'package:carrerk/features/customer/sign_up/compulsory_data/customer_sign_up_compulsory_data_screen.dart';
+import 'package:carrerk/features/developer/jobs/job_details/logic/job_details_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,7 +27,6 @@ import '../../features/company/jobs/company_jobs_screen.dart';
 import '../../features/company/jobs_post/ui/success/company_job_post_success_screen.dart';
 import '../../features/company/profile/company_profile_screen.dart';
 import '../../features/company/send_to_applicants/message-applicant/company_send_to_applicants_message_applicant_screen.dart';
-
 import '../../features/customer/sign_up/fill_profile/customer_sign_up_fill_profile_screen.dart';
 import '../../features/developer/community/all_communities/developer_community_all_communities_screen.dart';
 import '../../features/developer/community/chat/developer_community_chat_screen.dart';
@@ -42,7 +42,7 @@ import '../../features/developer/home_main_page/developer_home_main_page_screen.
 import '../../features/developer/jobs/all_categories/developer_jobs_all_categories_screen.dart';
 import '../../features/developer/jobs/application_submitted/developer_jobs_application_submitted_screen.dart';
 import '../../features/developer/jobs/apply/developer_jobs_apply_screen.dart';
-import '../../features/developer/jobs/job_details/developer_jobs_job_details_screen.dart';
+import '../../features/developer/jobs/job_details/ui/developer_jobs_job_details_screen.dart';
 import '../../features/developer/jobs/main_page/developer_jobs_main_page_screen.dart';
 import '../../features/developer/jobs/search/developer_jobs_search_screen.dart';
 import '../../features/developer/jobs/service_details/developer_jobs_service_details_screen.dart';
@@ -292,7 +292,10 @@ class AppRouter {
         );
       case Routes.developerJobsJobDetailsScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperJobsJobDetailsScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<JobDetailsCubit>(),
+            child: const DeveloperJobsJobDetailsScreen(),
+          ),
         );
       // Profile
       case Routes.developerProfileMainPageScreen:
