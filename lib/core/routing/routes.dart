@@ -46,6 +46,7 @@ class Routes {
   static const String companyProfileScreen = "/companyProfileScreen";
 
   // Job Post
+  static const String companyJobsPostFlow = "/companyJobsPostFlow";
   static const String companyJobPostFirstScreen = "/companyJobPostFirstScreen";
   static const String companyJobPostSecondScreen =
       "/companyJobPostSecondScreen";

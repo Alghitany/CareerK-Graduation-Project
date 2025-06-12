@@ -14,7 +14,7 @@ class _ApiService implements ApiService {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'https://cf21-197-166-228-248.ngrok-free.app/';
+    baseUrl ??= 'https://3e6a-197-166-238-191.ngrok-free.app/';
   }
 
   final Dio _dio;
@@ -155,6 +155,41 @@ class _ApiService implements ApiService {
     late ChangePasswordResponse _value;
     try {
       _value = ChangePasswordResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<CompanyJobsPostResponse> companyJobsPost(
+      CompanyJobsPostRequestBody companyJobsPostRequestBody) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(companyJobsPostRequestBody.toJson());
+    final _options = _setStreamType<CompanyJobsPostResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'api/jobs/create-job-post',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late CompanyJobsPostResponse _value;
+    try {
+      _value = CompanyJobsPostResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

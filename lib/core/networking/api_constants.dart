@@ -13,6 +13,16 @@ class ApiConstants {
   //------ Developer ------------
   //->Sign up
   static const String developerSignup = "api/developer/register";
+
+  //------ customer ------------
+  //->Sign up
+  static const String customerSignup = "api/customer/register";
+
+  //------ company ------------
+  //->Sign up
+  static const String companySignup = "api/customer/register";
+  //post job
+  static const String companyJobsPost = "api/jobs/create-job-post";
 }
 
 class ApiErrors {

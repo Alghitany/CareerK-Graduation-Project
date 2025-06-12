@@ -18,7 +18,14 @@ class AppRegex {
   }
 
   static bool isValidName(String name) {
+    if (name.isNullOrEmpty()) return false;
+
     return RegExp(r"^[A-Za-z\s]{2,50}$").hasMatch(name);
+  }
+  static bool isValidLocation(String location) {
+    if (location.isNullOrEmpty()) return false;
+
+    return RegExp(r"^[A-Za-z\s]+,\s[A-Za-z\s]+$").hasMatch(location);
   }
 
   static bool isValidPhoneNumber(String phoneNumber) {
@@ -30,7 +37,17 @@ class AppRegex {
   }
 
   static bool isValidNumber(String number) {
+    if (number.isNullOrEmpty()) return false;
+
     return RegExp(r'^\d+$').hasMatch(number); // Only digits
+  }
+
+  static bool isValidPriceRange(String number) {
+    if (number.isEmpty) return false;
+
+    return RegExp(
+      r'^\d{1,3}(,\d{3})*(\s*-\s*\d{1,3}(,\d{3})*)?\s*(EGP|\$)$',
+    ).hasMatch(number);
   }
 
   static bool isValidUrl(String url) {
@@ -39,7 +56,18 @@ class AppRegex {
   }
 
   static bool isValidMessage(String message) {
+    if (message.isNullOrEmpty()) return false;
+
     return RegExp(r"^[\s\S]{10,200}$")
         .hasMatch(message); // Allows any character including newlines
   }
+
+  static bool isValidDate(String date) {
+    if (date.isNullOrEmpty()) return false;
+
+    return RegExp(
+      r'^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$',
+    ).hasMatch(date);
+  }
+
 }

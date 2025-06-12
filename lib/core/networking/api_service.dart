@@ -9,6 +9,8 @@ import '../../features/authentication/reset_password/data/models/reset_password_
 import '../../features/authentication/reset_password/data/models/reset_password_response.dart';
 import '../../features/authentication/verify_code/data/model/verify_code_request_body.dart';
 import '../../features/authentication/verify_code/data/model/verify_code_response.dart';
+import '../../features/company/jobs_post/data/models/company_jobs_post_request_body.dart';
+import '../../features/company/jobs_post/data/models/company_jobs_post_response.dart';
 import 'api_constants.dart';
 
 part 'api_service.g.dart';
@@ -36,5 +38,10 @@ abstract class ApiService {
   Future<ChangePasswordResponse> changePassword(
     @Body() ChangePasswordRequestBody changePasswordRequestBody,
   );
-// The Developer Sign up is being posted with dio directly since we are using form-data we can' use Retrofit.
+  // The Developer Sign up is being posted with dio directly since we are using form-data we can't use Retrofit.
+
+  @POST(ApiConstants.companyJobsPost)
+  Future<CompanyJobsPostResponse> companyJobsPost(
+      @Body() CompanyJobsPostRequestBody companyJobsPostRequestBody,
+      );
 }
