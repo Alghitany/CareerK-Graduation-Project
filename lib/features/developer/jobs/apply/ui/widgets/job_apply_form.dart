@@ -55,6 +55,7 @@ class _JobApplyFormState extends State<JobApplyForm> {
                   return null;
                 }),
             verticalSpace(16),
+            //TODO: Remove this Field
             // const AppLabel(text: 'Email Address'),
             // verticalSpace(8),
             // AppTextFormField(
