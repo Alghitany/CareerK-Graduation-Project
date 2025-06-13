@@ -1,3 +1,4 @@
+import 'package:carrerk/core/routing/app_argument.dart';
 import 'package:carrerk/core/routing/company_router/jobs_post_router.dart';
 import 'package:carrerk/features/authentication/reset_password/logic/reset_password_cubit.dart';
 import 'package:carrerk/features/authentication/verify_code/logic/verify_code_cubit.dart';
@@ -41,7 +42,8 @@ import '../../features/developer/courses/specific_category/developer_courses_cou
 import '../../features/developer/home_main_page/developer_home_main_page_screen.dart';
 import '../../features/developer/jobs/all_categories/developer_jobs_all_categories_screen.dart';
 import '../../features/developer/jobs/application_submitted/developer_jobs_application_submitted_screen.dart';
-import '../../features/developer/jobs/apply/developer_jobs_apply_screen.dart';
+import '../../features/developer/jobs/apply/logic/developer_jobs_apply_cubit.dart';
+import '../../features/developer/jobs/apply/ui/developer_jobs_apply_screen.dart';
 import '../../features/developer/jobs/job_details/developer_jobs_job_details_screen.dart';
 import '../../features/developer/jobs/main_page/developer_jobs_main_page_screen.dart';
 import '../../features/developer/jobs/search/developer_jobs_search_screen.dart';
@@ -66,7 +68,6 @@ import 'routes.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
-    // Maybe used later But it is unnecessary now.
     // final arguments = settings.arguments;
     switch (settings.name) {
       // ---------------- Authentication ----------------
@@ -265,7 +266,7 @@ class AppRouter {
           builder: (_) =>
               const DeveloperCoursesCvUpdatedSuccessfulUpdateScreen(),
         );
-      // Jobs
+      //---> Jobs
       case Routes.developerJobsMainPageScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperJobsMainPageScreen(),
@@ -278,9 +279,14 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const DeveloperJobsServiceDetailsScreen(),
         );
+      // Apply
       case Routes.developerJobsApplyScreen:
+        final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-          builder: (_) => const DeveloperJobsApplyScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<DeveloperJobsApplyCubit>(),
+            child: DeveloperJobsApplyScreen(jobId: args.jobId!),
+          ),
         );
       case Routes.developerJobsApplicationSubmittedScreen:
         return MaterialPageRoute(

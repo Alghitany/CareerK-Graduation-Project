@@ -99,10 +99,13 @@ class AppPhoneNumberFormFieldState extends State<AppPhoneNumberFormField> {
                       style: AppTextStyles.font14MercuryMulishBold),
                   Expanded(
                     child: AppTextFormField(
+                      controller: widget.controller,
                       contentPadding: EdgeInsets.symmetric(vertical: 10.h),
                       hintText: '01278522505',
                       hintStyle: AppTextStyles.font14MercuryMulishBold,
-                      validator: (phoneNumber) {},
+                      validator: (phoneNumber) {
+                        return null;
+                      },
                       keyboardType: TextInputType.phone,
                       focusedBorder: InputBorder.none,
                       enabledBorder: InputBorder.none,
