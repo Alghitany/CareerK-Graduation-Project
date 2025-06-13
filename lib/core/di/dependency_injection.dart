@@ -11,6 +11,8 @@ import '../../features/authentication/reset_password/data/repos/reset_password_r
 import '../../features/authentication/reset_password/logic/reset_password_cubit.dart';
 import '../../features/authentication/verify_code/data/repo/verify_code_repo.dart';
 import '../../features/authentication/verify_code/logic/verify_code_cubit.dart';
+import '../../features/developer/jobs/apply/data/repo/developer_jobs_apply_repo.dart';
+import '../../features/developer/jobs/apply/logic/developer_jobs_apply_cubit.dart';
 import '../../features/developer/sign_up/data/repos/developer_sign_up_repo.dart';
 import '../../features/developer/sign_up/logic/developer_sign_up_cubit.dart';
 import '../networking/api_service.dart';
@@ -50,7 +52,13 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<DeveloperSignupCubit>(
     () => DeveloperSignupCubit(getIt<DeveloperSignupRepo>()),
   );
-
+  // -> Jobs -> Apply
+  getIt.registerLazySingleton<DeveloperJobsApplyRepo>(
+        () => DeveloperJobsApplyRepo(getIt<Dio>()),
+  );
+  getIt.registerFactory<DeveloperJobsApplyCubit>(
+        () => DeveloperJobsApplyCubit(getIt<DeveloperJobsApplyRepo>()),
+  );
   // Company
   // -> Jobs Post
   getIt.registerLazySingleton<CompanyJobsPostRepo>(() => CompanyJobsPostRepo(getIt()));

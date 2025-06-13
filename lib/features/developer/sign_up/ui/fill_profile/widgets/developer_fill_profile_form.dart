@@ -18,10 +18,6 @@ class DeveloperFillProfileForm extends StatefulWidget {
 }
 
 class _DeveloperFillProfileFormState extends State<DeveloperFillProfileForm> {
-  @override
-  void dispose() {
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {

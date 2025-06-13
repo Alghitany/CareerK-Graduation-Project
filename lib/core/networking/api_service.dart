@@ -38,8 +38,8 @@ abstract class ApiService {
   Future<ChangePasswordResponse> changePassword(
     @Body() ChangePasswordRequestBody changePasswordRequestBody,
   );
-  // The Developer Sign up is being posted with dio directly since we are using form-data we can't use Retrofit.
-
+  // Developer Sign up Handled with dio
+  // Developer Jobs Apply Handled with dio
   @POST(ApiConstants.companyJobsPost)
   Future<CompanyJobsPostResponse> companyJobsPost(
       @Body() CompanyJobsPostRequestBody companyJobsPostRequestBody,

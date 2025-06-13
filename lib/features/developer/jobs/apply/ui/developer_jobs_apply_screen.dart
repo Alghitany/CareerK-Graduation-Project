@@ -1,15 +1,18 @@
-import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
-import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
-import 'package:carrerk/features/developer/jobs/apply/widgets/job_apply_form.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../logic/developer_jobs_apply_cubit.dart';
+import 'widgets/job_apply_form.dart';
+import 'widgets/jobs_apply_bloc_listener.dart';
+
 class DeveloperJobsApplyScreen extends StatelessWidget {
-  const DeveloperJobsApplyScreen({super.key});
+  final String jobId;
+  const DeveloperJobsApplyScreen({super.key, required this.jobId});
 
   @override
   Widget build(BuildContext context) {
@@ -32,17 +35,33 @@ class DeveloperJobsApplyScreen extends StatelessWidget {
                 //TODO: Add validation to form
                 AppTextButton(
                   onPressed: () {
-                    context.pushNamed(
-                        Routes.developerJobsApplicationSubmittedScreen);
+                    validateThenDoSignup(context,jobId);
                   },
                   buttonText: 'Apply',
                   textStyle: AppTextStyles.font14WhitePoppinsMedium,
                 ),
+                const JobsApplyBlocListener(),
               ],
             ),
           ),
         ),
       ),
     );
+  }
+  void validateThenDoSignup(BuildContext context,String jobId) {
+    if (context
+        .read<DeveloperJobsApplyCubit>()
+        .jobApplicationFormKey
+        .currentState!
+        .validate()) {
+      context.read<DeveloperJobsApplyCubit>().applyToJob(jobId);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Job Application Failed, Wrong Info!'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
   }
 }

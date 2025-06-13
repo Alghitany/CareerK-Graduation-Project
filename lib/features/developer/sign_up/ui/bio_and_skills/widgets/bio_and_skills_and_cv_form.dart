@@ -58,6 +58,7 @@ class _BioAndSkillsFormState extends State<BioSkillsAndCVForm> {
                 if (bio!.isNullOrEmpty() || !AppRegex.isValidDescription(bio)) {
                   return "Please enter a valid bio";
                 }
+                return null;
               },
               borderRadius: 0,
               contentPadding:
@@ -80,6 +81,7 @@ class _BioAndSkillsFormState extends State<BioSkillsAndCVForm> {
                 if (bio.isNullOrEmpty() || !AppRegex.isValidDescription(bio!)) {
                   return "Please enter a valid bio";
                 }
+                return null;
               },
               borderRadius: 0,
               contentPadding:
@@ -94,6 +96,8 @@ class _BioAndSkillsFormState extends State<BioSkillsAndCVForm> {
                 child: AppTextFormField(
                   hintText: fileName ?? 'CV',
                   validator: (cv) {
+                    return null;
+
                     // if (cv.isNullOrEmpty() || !AppRegex.isValidName(cv!)) {
                     //   return "Please enter a valid cv";
                     // }

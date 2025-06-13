@@ -1,5 +1,6 @@
 import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
+import 'package:carrerk/core/routing/app_argument.dart';
 import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
@@ -31,7 +32,13 @@ class DeveloperJobsJobDetailsScreen extends StatelessWidget {
               verticalSpace(32),
               AppTextButton(
                 onPressed: () {
-                  context.pushNamed(Routes.developerJobsApplyScreen);
+                  context.pushNamed(
+                      Routes.developerJobsApplyScreen,
+                      arguments: AppArgument(
+                          jobId: '3ee6eb6f-163c-4841-9132-e2ad8e21df4a'
+                      )
+                  );
+
                 },
                 buttonText: 'Apply',
                 textStyle: AppTextStyles.font14WhitePoppinsMedium,
