@@ -9,7 +9,7 @@ class DeveloperJobsApplyState<T> with _$DeveloperJobsApplyState<T> {
   const factory DeveloperJobsApplyState.jobsApplyLoading() = JobsApplyLoading;
 
   const factory DeveloperJobsApplyState.jobsApplySuccess(T data) =
-  JobsApplySuccess<T>;
+      JobsApplySuccess<T>;
 
   const factory DeveloperJobsApplyState.jobsApplyError({
     required String error,

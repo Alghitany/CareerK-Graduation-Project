@@ -1,11 +1,9 @@
-import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/features/customer/sign_up/logic/customer_sign_up_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../../../core/helpers/app_regex.dart';
 import '../../../../../../core/helpers/spacing.dart';
 import '../../../../../../core/theming/colors.dart';
 import '../../../../../../core/widgets/app_label.dart';
@@ -36,6 +34,8 @@ class _CustomerCompulsoryDataFormState
                 controller: context.read<CustomerSignUpCubit>().nameController,
                 hintText: 'John A.Wick',
                 validator: (name) {
+                  return null;
+
                   // if (name!.isNullOrEmpty() || !AppRegex.isValidName(name)) {
                   //   return 'Please enter a valid name';
                   // }
@@ -47,6 +47,8 @@ class _CustomerCompulsoryDataFormState
                 controller: context.read<CustomerSignUpCubit>().emailController,
                 hintText: 'example@email.com',
                 validator: (email) {
+                  return null;
+
                   // if (email!.isNullOrEmpty() || !AppRegex.isValidEmail(email)) {
                   //   return 'Please enter a valid email';
                   // }
@@ -92,6 +94,8 @@ class _CustomerCompulsoryDataFormState
                         ),
                 ),
                 validator: (password) {
+                  return null;
+
                   // if (password!.isNullOrEmpty() ||
                   //     !AppRegex.isValidPassword(password)) {
                   //   return 'Please enter a valid password';
@@ -139,6 +143,8 @@ class _CustomerCompulsoryDataFormState
                         ),
                 ),
                 validator: (confirmPassword) {
+                  return null;
+
                   //TODO: Check if the confirm password = new password
                 })
           ],

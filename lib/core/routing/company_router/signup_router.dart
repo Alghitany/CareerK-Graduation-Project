@@ -1,6 +1,5 @@
 import 'package:carrerk/features/customer/sign_up/logic/customer_sign_up_cubit.dart';
 import 'package:carrerk/features/customer/sign_up/ui/compulsory_data/customer_sign_up_compulsory_data_screen.dart';
-
 import 'package:carrerk/features/customer/sign_up/ui/fill_profile/customer_sign_up_fill_profile_screen.dart';
 import 'package:carrerk/features/customer/sign_up/ui/fill_profile/widgets/customer_signup_bloc_listener.dart';
 import 'package:flutter/material.dart';

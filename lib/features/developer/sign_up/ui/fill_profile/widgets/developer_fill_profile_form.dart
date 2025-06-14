@@ -18,7 +18,6 @@ class DeveloperFillProfileForm extends StatefulWidget {
 }
 
 class _DeveloperFillProfileFormState extends State<DeveloperFillProfileForm> {
-
   @override
   Widget build(BuildContext context) {
     return Form(

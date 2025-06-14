@@ -1,6 +1,8 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../data/model/developer_jobs_apply_request_body.dart';
 import '../data/repo/developer_jobs_apply_repo.dart';
 import 'developer_jobs_apply_state.dart';
@@ -17,6 +19,7 @@ class DeveloperJobsApplyCubit extends Cubit<DeveloperJobsApplyState> {
   final expectedSalaryController = TextEditingController();
 
   String? _cvFilePath;
+
   File? get uploadedCV => _cvFilePath != null ? File(_cvFilePath!) : null;
 
   void setCVFilePath(String path) {
@@ -35,9 +38,8 @@ class DeveloperJobsApplyCubit extends Cubit<DeveloperJobsApplyState> {
       name: nameController.text.trim(),
       phone: phoneController.text.trim(),
       yearsOfExperience:
-      int.tryParse(yearsOfExperienceController.text.trim()) ?? 0,
-      expectedSalary:
-      int.tryParse(expectedSalaryController.text.trim()) ?? 0,
+          int.tryParse(yearsOfExperienceController.text.trim()) ?? 0,
+      expectedSalary: int.tryParse(expectedSalaryController.text.trim()) ?? 0,
       uploadedCV: uploadedCV,
     );
 
