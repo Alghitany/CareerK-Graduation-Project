@@ -46,7 +46,8 @@ class _JobApplyFormState extends State<JobApplyForm> {
             const AppLabel(text: 'Name'),
             verticalSpace(8),
             AppTextFormField(
-                controller: context.read<DeveloperJobsApplyCubit>().nameController,
+                controller:
+                    context.read<DeveloperJobsApplyCubit>().nameController,
                 hintText: "Ali Mohamed",
                 validator: (name) {
                   if (!AppRegex.isValidName(name!)) {
@@ -71,13 +72,16 @@ class _JobApplyFormState extends State<JobApplyForm> {
             const AppLabel(text: 'Phone Number'),
             verticalSpace(8),
             AppPhoneNumberFormField(
-              controller: context.read<DeveloperJobsApplyCubit>().phoneController,
+              controller:
+                  context.read<DeveloperJobsApplyCubit>().phoneController,
             ),
             verticalSpace(16),
             const AppLabel(text: 'Years of experience'),
             verticalSpace(8),
             AppTextFormField(
-              controller: context.read<DeveloperJobsApplyCubit>().yearsOfExperienceController,
+              controller: context
+                  .read<DeveloperJobsApplyCubit>()
+                  .yearsOfExperienceController,
               hintText: '2',
               validator: (experience) {
                 if (experience.isNullOrEmpty() ||
@@ -92,7 +96,9 @@ class _JobApplyFormState extends State<JobApplyForm> {
             const AppLabel(text: 'Expected salary'),
             verticalSpace(8),
             AppTextFormField(
-                controller: context.read<DeveloperJobsApplyCubit>().expectedSalaryController,
+                controller: context
+                    .read<DeveloperJobsApplyCubit>()
+                    .expectedSalaryController,
                 hintText: '12000 EGP',
                 validator: (salary) {
                   if (salary.isNullOrEmpty() ||
@@ -110,7 +116,8 @@ class _JobApplyFormState extends State<JobApplyForm> {
                 child: AppTextFormField(
                   hintText: fileName ?? 'CV',
                   validator: (_) {
-                    if (context.read<DeveloperJobsApplyCubit>().uploadedCV == null) {
+                    if (context.read<DeveloperJobsApplyCubit>().uploadedCV ==
+                        null) {
                       return 'Please upload your CV';
                     }
                     return null;

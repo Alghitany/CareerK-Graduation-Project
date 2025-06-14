@@ -12,6 +12,7 @@ import 'widgets/jobs_apply_bloc_listener.dart';
 
 class DeveloperJobsApplyScreen extends StatelessWidget {
   final String jobId;
+
   const DeveloperJobsApplyScreen({super.key, required this.jobId});
 
   @override
@@ -35,7 +36,7 @@ class DeveloperJobsApplyScreen extends StatelessWidget {
                 //TODO: Add validation to form
                 AppTextButton(
                   onPressed: () {
-                    validateThenDoSignup(context,jobId);
+                    validateThenDoSignup(context, jobId);
                   },
                   buttonText: 'Apply',
                   textStyle: AppTextStyles.font14WhitePoppinsMedium,
@@ -48,7 +49,8 @@ class DeveloperJobsApplyScreen extends StatelessWidget {
       ),
     );
   }
-  void validateThenDoSignup(BuildContext context,String jobId) {
+
+  void validateThenDoSignup(BuildContext context, String jobId) {
     if (context
         .read<DeveloperJobsApplyCubit>()
         .jobApplicationFormKey

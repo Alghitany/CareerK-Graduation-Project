@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../features/customer/sign_up/logic/customer_sign_up_cubit.dart';
 import '../../../features/customer/sign_up/ui/compulsory_data/customer_sign_up_compulsory_data_screen.dart';
 import '../../../features/customer/sign_up/ui/fill_profile/customer_sign_up_fill_profile_screen.dart';
-
 import '../../di/dependency_injection.dart';
 import '../routes.dart';
 

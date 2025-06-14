@@ -9,8 +9,9 @@ import '../../features/authentication/reset_password/data/models/reset_password_
 import '../../features/authentication/reset_password/data/models/reset_password_response.dart';
 import '../../features/authentication/verify_code/data/model/verify_code_request_body.dart';
 import '../../features/authentication/verify_code/data/model/verify_code_response.dart';
-import '../../features/company/jobs_post/data/models/company_jobs_post_request_body.dart';
-import '../../features/company/jobs_post/data/models/company_jobs_post_response.dart';
+import '../../features/company/data/model/company_jobs_delete_post_response.dart';
+import '../../features/company/ui/jobs_post/data/models/company_jobs_post_request_body.dart';
+import '../../features/company/ui/jobs_post/data/models/company_jobs_post_response.dart';
 import 'api_constants.dart';
 
 part 'api_service.g.dart';
@@ -19,6 +20,7 @@ part 'api_service.g.dart';
 abstract class ApiService {
   factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
 
+  // Authentication
   @POST(ApiConstants.authenticationLogin)
   Future<LoginResponse> login(
     @Body() LoginRequestBody loginRequestBody,
@@ -38,10 +40,20 @@ abstract class ApiService {
   Future<ChangePasswordResponse> changePassword(
     @Body() ChangePasswordRequestBody changePasswordRequestBody,
   );
+
   // Developer Sign up Handled with dio
   // Developer Jobs Apply Handled with dio
+
+  //----------------- Company
+  //->Post Job
   @POST(ApiConstants.companyJobsPost)
   Future<CompanyJobsPostResponse> companyJobsPost(
-      @Body() CompanyJobsPostRequestBody companyJobsPostRequestBody,
-      );
+    @Body() CompanyJobsPostRequestBody companyJobsPostRequestBody,
+  );
+
+  //-> Delete Job
+  @DELETE("${ApiConstants.companyJobsDeletePost}/{jobId}")
+  Future<CompanyJobsDeletePostResponse> deleteCompanyJobPost(
+    @Path("jobId") String jobId,
+  );
 }

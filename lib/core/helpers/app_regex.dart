@@ -22,6 +22,7 @@ class AppRegex {
 
     return RegExp(r"^[A-Za-z\s]{2,50}$").hasMatch(name);
   }
+
   static bool isValidLocation(String location) {
     if (location.isNullOrEmpty()) return false;
 
@@ -69,5 +70,4 @@ class AppRegex {
       r'^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$',
     ).hasMatch(date);
   }
-
 }

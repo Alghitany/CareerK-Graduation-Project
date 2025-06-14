@@ -15,7 +15,7 @@ class JobsApplyBlocListener extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<DeveloperJobsApplyCubit, DeveloperJobsApplyState>(
       listenWhen: (previous, current) =>
-      current is JobsApplyLoading ||
+          current is JobsApplyLoading ||
           current is JobsApplySuccess ||
           current is JobsApplyError,
       listener: (context, state) {
