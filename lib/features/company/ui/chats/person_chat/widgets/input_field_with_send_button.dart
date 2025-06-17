@@ -1,11 +1,12 @@
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/theming/styles.dart';
-import 'package:carrerk/features/developer/community/chat/widgets/sent_message_container.dart';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../../../../../developer/ui/community/chat/widgets/sent_message_container.dart';
 
 class InputFieldWithSendButton extends StatefulWidget {
   final void Function(Widget) onSend;
