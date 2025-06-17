@@ -61,9 +61,11 @@ import '../../features/developer/ui/sign_up_completed/cv_downloaded/developer_si
 import '../../features/developer/ui/sign_up_completed/cv_is_done/developer_sign_up_completed_cv_is_done.dart';
 import '../../features/developer/ui/sign_up_completed/ready_to_go/developer_sign_up_completed_ready_to_go.dart';
 import '../../features/notifications/notifications_screen.dart';
-import '../../features/search/search_screen.dart';
+import '../../features/search/logic/search_courses_cubit.dart';
+import '../../features/search/ui/search_screen.dart';
 import '../../features/sign_up_user_type/sign_up_user_type_screen.dart';
 import '../di/dependency_injection.dart';
+import '../helpers/enums.dart';
 import 'developer_router/signup_router.dart';
 import 'routes.dart';
 
@@ -233,8 +235,20 @@ class AppRouter {
         );
       // Search
       case Routes.searchScreen:
+        final args = settings.arguments as AppArgument?;
+        final query = args?.query ?? '';
+        final searchType = args?.searchType ?? SearchType.courses;
         return MaterialPageRoute(
-          builder: (_) => const SearchScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                  create: (_) => getIt<SearchCoursesCubit>()..searchCourses(query)              ),
+            ],
+            child: SearchScreen(
+              query: query,
+              searchType: searchType,
+            ),
+          ),
         );
       // Courses
       case Routes.developerCoursesMainPageScreen:

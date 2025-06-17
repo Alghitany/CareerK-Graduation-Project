@@ -31,13 +31,16 @@ class ApiConstants {
 
   //------ company ------------
   //->Sign up
-  static const String companySignup = "api/customer/register";
+  static const String companySignup = "api/company/register";
 
   //->Post Job
   static const String companyJobsPost = "api/jobs/create-job-post";
 
   //->Delete Post
   static const String companyJobsDeletePost = "api/jobs/delete-job-post";
+
+  //------ Search ------------
+  static const String searchCourses = "api/courses-page/search-courses";
 }
 
 class ApiErrors {

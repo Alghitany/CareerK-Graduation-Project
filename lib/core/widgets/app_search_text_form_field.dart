@@ -19,6 +19,8 @@ class AppSearchTextFormField extends StatelessWidget {
   final double? spreadRadius;
   final Offset? offset;
   final String? hintText;
+  final TextEditingController? controller;
+  final ValueChanged<String>? onChanged;
 
   const AppSearchTextFormField(
       {super.key,
@@ -33,7 +35,9 @@ class AppSearchTextFormField extends StatelessWidget {
       this.offset,
       this.onTap,
       this.readOnly,
-      this.hintText});
+      this.hintText,
+      this.controller,
+      this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -54,9 +58,7 @@ class AppSearchTextFormField extends StatelessWidget {
         ],
       ),
       child: GestureDetector(
-        onTap: () {
-          onTap;
-        },
+        onTap: onTap,
         child: Row(
           children: [
             SvgPicture.asset("assets/svgs/search.svg",
@@ -67,6 +69,8 @@ class AppSearchTextFormField extends StatelessWidget {
             //TODO: Please someone center this field it is annoying i can't center it
             Expanded(
               child: AppTextFormField(
+                  controller: controller,
+                  onChanged: onChanged,
                   readOnly: readOnly ?? true,
                   onTap: onTap,
                   enabledBorder: InputBorder.none,
@@ -76,6 +80,8 @@ class AppSearchTextFormField extends StatelessWidget {
                   hintText: hintText ?? 'Search for...',
                   hintStyle: AppTextStyles.font16PastelGreyPoppinsMedium,
                   validator: (search) {
+                    return null;
+
                     //TODO: Add search validation if exist
                   }),
             ),

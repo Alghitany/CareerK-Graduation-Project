@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/theming/styles.dart';
+import '../../../../core/theming/styles.dart';
+
 
 class NoResults extends StatelessWidget {
   const NoResults({super.key});
