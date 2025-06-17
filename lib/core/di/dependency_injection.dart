@@ -19,6 +19,8 @@ import '../../features/developer/ui/jobs/apply/data/repo/developer_jobs_apply_re
 import '../../features/developer/ui/jobs/apply/logic/developer_jobs_apply_cubit.dart';
 import '../../features/developer/ui/sign_up/data/repos/developer_sign_up_repo.dart';
 import '../../features/developer/ui/sign_up/logic/developer_sign_up_cubit.dart';
+import '../../features/search/data/repo/search_courses_repo.dart';
+import '../../features/search/logic/search_courses_cubit.dart';
 import '../networking/api_service.dart';
 import '../networking/dio_factory.dart';
 
@@ -56,7 +58,8 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<DeveloperSignupCubit>(
     () => DeveloperSignupCubit(getIt<DeveloperSignupRepo>()),
   );
-  // -> Jobs -> Apply
+  // -> Jobs
+  // Apply
   getIt.registerLazySingleton<DeveloperJobsApplyRepo>(
     () => DeveloperJobsApplyRepo(getIt<Dio>()),
   );
@@ -81,4 +84,11 @@ Future<void> setupGetIt() async {
       () => CompanyJobsDeletePostRepo(getIt()));
   getIt.registerLazySingleton<CompanyJobsDeletePostCubit>(
       () => CompanyJobsDeletePostCubit(getIt()));
+  // Search
+  getIt.registerLazySingleton<SearchCoursesRepo>(
+        () => SearchCoursesRepo(getIt()),
+  );
+  getIt.registerFactory<SearchCoursesCubit>(
+        () => SearchCoursesCubit(getIt()),
+  );
 }

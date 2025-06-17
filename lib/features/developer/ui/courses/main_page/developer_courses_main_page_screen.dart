@@ -7,6 +7,8 @@ import 'package:carrerk/core/widgets/developer_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../core/helpers/enums.dart';
+import '../../../../../core/routing/app_argument.dart';
 import 'widgets/ongoing_courses_list.dart';
 import 'widgets/related_courses_and_view_all.dart';
 import 'widgets/related_courses_list.dart';
@@ -39,7 +41,12 @@ class DeveloperCoursesMainPageScreen extends StatelessWidget {
                     children: [
                       AppSearchTextFormField(
                         onTap: () {
-                          context.pushNamed(Routes.searchScreen);
+                          context.pushNamed(
+                              Routes.searchScreen,
+                            arguments: AppArgument(
+                              query: "",
+                              searchType: SearchType.courses,
+                          ));
                         },
                       ),
                       verticalSpace(16),

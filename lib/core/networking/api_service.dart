@@ -13,6 +13,7 @@ import '../../features/company/data/model/company_jobs_delete_post_response.dart
 import '../../features/company/ui/jobs_post/data/models/company_jobs_post_request_body.dart';
 import '../../features/company/ui/jobs_post/data/models/company_jobs_post_response.dart';
 import '../../features/developer/data/model/developer_courses_and_jobs_main_page_profile_response_model.dart';
+import '../../features/search/data/model/search_courses_response_body.dart';
 import 'api_constants.dart';
 
 part 'api_service.g.dart';
@@ -21,7 +22,7 @@ part 'api_service.g.dart';
 abstract class ApiService {
   factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
 
-  // Authentication
+  //----------------- Authentication
   @POST(ApiConstants.authenticationLogin)
   Future<LoginResponse> login(
     @Body() LoginRequestBody loginRequestBody,
@@ -62,4 +63,9 @@ abstract class ApiService {
   Future<CompanyJobsDeletePostResponse> deleteCompanyJobPost(
     @Path("jobId") String jobId,
   );
+  //----------------- Search
+  @GET(ApiConstants.searchCourses)
+  Future<List<SearchCoursesResponseBody>> searchCourses(
+      @Query("search") String searchQuery,
+      );
 }
