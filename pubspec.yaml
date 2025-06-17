@@ -81,6 +81,8 @@ dependencies:
   flutter_launcher_icons: ^0.14.3
   # Parsing and serializing HTTP formats.
   http_parser: ^4.0.0
+  # Provides an easy way to add shimmer effect
+  shimmer: ^3.0.0
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true

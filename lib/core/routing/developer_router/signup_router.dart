@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../features/developer/sign_up/logic/developer_sign_up_cubit.dart';
-import '../../../features/developer/sign_up/ui/bio_and_skills/developer_sign_up_bio_and_skills_screen.dart';
-import '../../../features/developer/sign_up/ui/compulsory_data/developer_sign_up_compulsory_data_screen.dart';
-import '../../../features/developer/sign_up/ui/enter_location/developer_sign_up_enter_location_screen.dart';
-import '../../../features/developer/sign_up/ui/fill_profile/developer_sign_up_fill_profile_screen.dart';
-import '../../../features/developer/sign_up/ui/optional_data/developer_sign_up_optional_data_screen.dart';
-import '../../../features/developer/sign_up/ui/selected_courses/developer_sign_up_selected_courses.dart';
-import '../../../features/developer/sign_up/ui/selected_courses/widgets/sign_up_bloc_listener.dart';
+import '../../../features/developer/ui/sign_up/logic/developer_sign_up_cubit.dart';
+import '../../../features/developer/ui/sign_up/ui/bio_and_skills/developer_sign_up_bio_and_skills_screen.dart';
+import '../../../features/developer/ui/sign_up/ui/compulsory_data/developer_sign_up_compulsory_data_screen.dart';
+import '../../../features/developer/ui/sign_up/ui/enter_location/developer_sign_up_enter_location_screen.dart';
+import '../../../features/developer/ui/sign_up/ui/fill_profile/developer_sign_up_fill_profile_screen.dart';
+import '../../../features/developer/ui/sign_up/ui/optional_data/developer_sign_up_optional_data_screen.dart';
+import '../../../features/developer/ui/sign_up/ui/selected_courses/developer_sign_up_selected_courses.dart';
+import '../../../features/developer/ui/sign_up/ui/selected_courses/widgets/sign_up_bloc_listener.dart';
 import '../../di/dependency_injection.dart';
 import '../routes.dart';
 

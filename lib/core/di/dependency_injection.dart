@@ -13,10 +13,12 @@ import '../../features/authentication/verify_code/data/repo/verify_code_repo.dar
 import '../../features/authentication/verify_code/logic/verify_code_cubit.dart';
 import '../../features/company/ui/jobs_post/data/repos/company_jobs_post_repo.dart';
 import '../../features/company/ui/jobs_post/logic/company_jobs_post_cubit.dart';
-import '../../features/developer/jobs/apply/data/repo/developer_jobs_apply_repo.dart';
-import '../../features/developer/jobs/apply/logic/developer_jobs_apply_cubit.dart';
-import '../../features/developer/sign_up/data/repos/developer_sign_up_repo.dart';
-import '../../features/developer/sign_up/logic/developer_sign_up_cubit.dart';
+import '../../features/developer/data/repo/developer_courses_and_jobs_main_page_profile_repo.dart';
+import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
+import '../../features/developer/ui/jobs/apply/data/repo/developer_jobs_apply_repo.dart';
+import '../../features/developer/ui/jobs/apply/logic/developer_jobs_apply_cubit.dart';
+import '../../features/developer/ui/sign_up/data/repos/developer_sign_up_repo.dart';
+import '../../features/developer/ui/sign_up/logic/developer_sign_up_cubit.dart';
 import '../networking/api_service.dart';
 import '../networking/dio_factory.dart';
 
@@ -60,6 +62,13 @@ Future<void> setupGetIt() async {
   );
   getIt.registerFactory<DeveloperJobsApplyCubit>(
     () => DeveloperJobsApplyCubit(getIt<DeveloperJobsApplyRepo>()),
+  );
+  // -> Courses Main Page -> Profile
+  getIt.registerLazySingleton<DeveloperCoursesAndJobsMainPageProfileRepo>(
+        () => DeveloperCoursesAndJobsMainPageProfileRepo(getIt()),
+  );
+  getIt.registerFactory<DeveloperCoursesAndJobsMainPageProfileCubit>(
+        () => DeveloperCoursesAndJobsMainPageProfileCubit(getIt()),
   );
   // Company
   // -> Jobs Post

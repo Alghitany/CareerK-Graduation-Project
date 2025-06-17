@@ -22,7 +22,6 @@ mixin _$ApiResult<T> {
     required TResult Function(ErrorHandler errorHandler) failure,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T data)? success,
@@ -36,14 +35,12 @@ mixin _$ApiResult<T> {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Success<T> value) success,
     required TResult Function(Failure<T> value) failure,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Success<T> value)? success,
@@ -71,9 +68,9 @@ class _$ApiResultCopyWithImpl<T, $Res, $Val extends ApiResult<T>>
     implements $ApiResultCopyWith<T, $Res> {
   _$ApiResultCopyWithImpl(this._value, this._then);
 
-// ignore: unused_field
+  // ignore: unused_field
   final $Val _value;
-// ignore: unused_field
+  // ignore: unused_field
   final $Res Function($Val) _then;
 
   /// Create a copy of ApiResult
