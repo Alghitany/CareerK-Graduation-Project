@@ -1,5 +1,6 @@
 import 'package:carrerk/features/company/data/repo/company_jobs_delete_post_repo.dart';
 import 'package:carrerk/features/company/logic/company_jobs_delete_post_cubit.dart';
+import 'package:carrerk/features/developer/ui/courses/main_page/data/repo/developer_courses_main_page_roadmaps_repo.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -15,6 +16,7 @@ import '../../features/company/ui/jobs_post/data/repos/company_jobs_post_repo.da
 import '../../features/company/ui/jobs_post/logic/company_jobs_post_cubit.dart';
 import '../../features/developer/data/repo/developer_courses_and_jobs_main_page_profile_repo.dart';
 import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
+import '../../features/developer/ui/courses/main_page/logic/developer_courses_main_page_roadmaps_cubit.dart';
 import '../../features/developer/ui/jobs/apply/data/repo/developer_jobs_apply_repo.dart';
 import '../../features/developer/ui/jobs/apply/logic/developer_jobs_apply_cubit.dart';
 import '../../features/developer/ui/sign_up/data/repos/developer_sign_up_repo.dart';
@@ -66,12 +68,20 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<DeveloperJobsApplyCubit>(
     () => DeveloperJobsApplyCubit(getIt<DeveloperJobsApplyRepo>()),
   );
-  // -> Courses Main Page -> Profile
+  // -> Courses Main Page
+  // -> Profile
   getIt.registerLazySingleton<DeveloperCoursesAndJobsMainPageProfileRepo>(
         () => DeveloperCoursesAndJobsMainPageProfileRepo(getIt()),
   );
   getIt.registerFactory<DeveloperCoursesAndJobsMainPageProfileCubit>(
         () => DeveloperCoursesAndJobsMainPageProfileCubit(getIt()),
+  );
+  //-> Roadmaps
+  getIt.registerLazySingleton<DeveloperCoursesMainPageRoadmapsRepo>(
+        () => DeveloperCoursesMainPageRoadmapsRepo(getIt()),
+  );
+  getIt.registerFactory<DeveloperCoursesMainPageRoadmapsCubit>(
+        () => DeveloperCoursesMainPageRoadmapsCubit(getIt()),
   );
   // Company
   // -> Jobs Post
