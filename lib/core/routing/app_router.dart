@@ -36,7 +36,8 @@ import '../../features/developer/ui/courses/categories/developer_courses_categor
 import '../../features/developer/ui/courses/certification/developer_courses_certification_screen.dart';
 import '../../features/developer/ui/courses/cv_updated/download_cv/developer_courses_cv_updated_download_cv_screen.dart';
 import '../../features/developer/ui/courses/cv_updated/successful_update/developer_courses_cv_updated_successful_update_screen.dart';
-import '../../features/developer/ui/courses/main_page/developer_courses_main_page_screen.dart';
+import '../../features/developer/ui/courses/main_page/logic/developer_courses_main_page_roadmaps_cubit.dart';
+import '../../features/developer/ui/courses/main_page/ui/developer_courses_main_page_screen.dart';
 import '../../features/developer/ui/courses/my_courses/developer_courses_my_courses_screen.dart';
 import '../../features/developer/ui/courses/roadmaps/developer_courses_roadmaps_screen.dart';
 import '../../features/developer/ui/courses/specific_category/developer_courses_course_screen.dart';
@@ -258,6 +259,10 @@ class AppRouter {
               BlocProvider(
                 create: (_) => getIt<DeveloperCoursesAndJobsMainPageProfileCubit>()
                   ..getDeveloperCoursesMainPageProfile(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperCoursesMainPageRoadmapsCubit>()
+                  ..getDeveloperCoursesMainPageRoadmaps(),
               ),
             ],
             child: const DeveloperCoursesMainPageScreen(),

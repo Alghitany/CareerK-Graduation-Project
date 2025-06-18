@@ -7,14 +7,14 @@ import 'package:carrerk/core/widgets/developer_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../core/helpers/enums.dart';
-import '../../../../../core/routing/app_argument.dart';
+import '../../../../../../core/helpers/enums.dart';
+import '../../../../../../core/routing/app_argument.dart';
+import '../../../../../../core/widgets/courses_and_jobs_main_page_top_bar/courses_and_jobs_main_page_profile_bloc_builder.dart';
 import 'widgets/ongoing_courses_list.dart';
 import 'widgets/related_courses_and_view_all.dart';
 import 'widgets/related_courses_list.dart';
-import 'widgets/roadmaps_suggestions.dart';
+import 'widgets/roadmaps_suggestions/roadmaps_suggestions_bloc_builder.dart';
 import 'widgets/roadmaps_text_and_view_all.dart';
-import '../../../../../core/widgets/courses_and_jobs_main_page_top_bar/courses_and_jobs_main_page_profile_bloc_builder.dart';
 
 
 class DeveloperCoursesMainPageScreen extends StatelessWidget {
@@ -52,7 +52,7 @@ class DeveloperCoursesMainPageScreen extends StatelessWidget {
                       verticalSpace(16),
                       const RoadmapsTextAndViewAll(),
                       verticalSpace(8),
-                      const RoadmapsSuggestions(),
+                      const RoadmapsSuggestionsBlocBuilder(),
                       verticalSpace(16),
                       Text(
                         'Ongoing Courses',
