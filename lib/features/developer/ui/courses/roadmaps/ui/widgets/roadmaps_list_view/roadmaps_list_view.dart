@@ -114,14 +114,14 @@ class RoadmapsListView extends StatelessWidget {
                                 ],
                               ),
                               const Spacer(),
-                              IconButton(
-                                onPressed: () {},
-                                icon: SvgPicture.asset(
-                                  'assets/svgs/folder_download_outlined.svg',
-                                  colorFilter: const ColorFilter.mode(
-                                      ColorsManager.mirage, BlendMode.srcIn),
-                                ),
-                              ),
+                              // IconButton(
+                              //   onPressed: () {},
+                              //   icon: SvgPicture.asset(
+                              //     'assets/svgs/folder_download_outlined.svg',
+                              //     colorFilter: const ColorFilter.mode(
+                              //         ColorsManager.mirage, BlendMode.srcIn),
+                              //   ),
+                              // ),
                             ],
                           ),
             
