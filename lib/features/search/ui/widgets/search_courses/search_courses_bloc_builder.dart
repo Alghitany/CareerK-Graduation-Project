@@ -7,7 +7,6 @@ import '../no_results.dart';
 import 'search_course_shimmer.dart';
 import 'search_result_list.dart';
 
-
 class SearchCoursesBlocBuilder extends StatelessWidget {
   const SearchCoursesBlocBuilder({super.key});
 
@@ -15,7 +14,7 @@ class SearchCoursesBlocBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SearchCoursesCubit, SearchCoursesState>(
       buildWhen: (previous, current) =>
-      current is SearchCoursesLoading ||
+          current is SearchCoursesLoading ||
           current is SearchCoursesSuccess ||
           current is SearchCoursesError,
       builder: (context, state) {

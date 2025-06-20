@@ -19,7 +19,8 @@ class DeveloperCoursesAndJobsMainPageProfileResponseModel {
     this.profilePicture,
   });
 
-  factory DeveloperCoursesAndJobsMainPageProfileResponseModel.fromJson(Map<String, dynamic> json) =>
+  factory DeveloperCoursesAndJobsMainPageProfileResponseModel.fromJson(
+          Map<String, dynamic> json) =>
       _$DeveloperCoursesAndJobsMainPageProfileResponseModelFromJson(json);
 
   Map<String, dynamic> toJson() =>

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../data/models/developer_courses_specific_category_response_body.dart';
 import 'course_card.dart';
 
 class CoursesGridView extends StatelessWidget {
-  const CoursesGridView({super.key});
+  final List<DeveloperCoursesSpecificCategoryResponseBody> courses;
+
+  const CoursesGridView({super.key, required this.courses});
 
   @override
   Widget build(BuildContext context) {
@@ -16,15 +19,14 @@ class CoursesGridView extends StatelessWidget {
           crossAxisSpacing: 16.w,
           mainAxisSpacing: 16.h,
         ),
-        itemCount: 12,
+        itemCount: courses.length,
         itemBuilder: (context, index) {
-          //TODO:Add the real list from database
-          return const CourseCard(
-            imagePath: 'assets/images/html_course.png',
-            title: 'HTML Course',
-            totalLessons: 30,
-            views: '28K',
-            date: '28 Jan 2024',
+          final course = courses[index];
+          return CourseCard(
+            imagePath: course.imageUrl,
+            title: course.name,
+            totalLessons: course.totalLessons,
+            duration: course.duration,
           );
         },
       ),

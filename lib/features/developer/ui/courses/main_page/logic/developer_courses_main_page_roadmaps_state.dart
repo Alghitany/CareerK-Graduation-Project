@@ -4,18 +4,19 @@ import '../../../../../../core/networking/api_error_handler.dart';
 import '../data/models/developer_courses_main_page_roadmaps_response_model.dart';
 part 'developer_courses_main_page_roadmaps_state.freezed.dart';
 
-
 @freezed
-class DeveloperCoursesMainPageRoadmapsState with _$DeveloperCoursesMainPageRoadmapsState {
+class DeveloperCoursesMainPageRoadmapsState
+    with _$DeveloperCoursesMainPageRoadmapsState {
   const factory DeveloperCoursesMainPageRoadmapsState.initial() = _Initial;
 
-  const factory DeveloperCoursesMainPageRoadmapsState.loading() = DeveloperCoursesMainPageRoadmapsLoading;
+  const factory DeveloperCoursesMainPageRoadmapsState.loading() =
+      DeveloperCoursesMainPageRoadmapsLoading;
 
   const factory DeveloperCoursesMainPageRoadmapsState.success(
-      List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps,
-      ) = DeveloperCoursesMainPageRoadmapsSuccess;
+    List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps,
+  ) = DeveloperCoursesMainPageRoadmapsSuccess;
 
   const factory DeveloperCoursesMainPageRoadmapsState.error(
-      ErrorHandler errorHandler,
-      ) = DeveloperCoursesMainPageRoadmapsError;
+    ErrorHandler errorHandler,
+  ) = DeveloperCoursesMainPageRoadmapsError;
 }

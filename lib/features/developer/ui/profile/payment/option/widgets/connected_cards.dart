@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../../core/helpers/spacing.dart';
 import '../../../../../../../core/theming/styles.dart';
 
-
 class ConnectedCards extends StatelessWidget {
   const ConnectedCards({super.key});
 

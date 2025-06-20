@@ -70,14 +70,13 @@ class CourseCard extends StatelessWidget {
                   style: AppTextStyles.font16DarkGreyPoppinsBold,
                 ),
                 SizedBox(height: 8.h),
-                Text(
-                  'Duration: $formattedDuration',
-                  style: AppTextStyles.font14LemonGrassPoppinsRegular
-                ),
+                Text('Duration: $formattedDuration',
+                    style: AppTextStyles.font14LemonGrassPoppinsRegular),
                 SizedBox(height: 4.h),
                 Row(
                   children: [
-                    Icon(Icons.star, color: ColorsManager.schoolBusYellow, size: 16.w),
+                    Icon(Icons.star,
+                        color: ColorsManager.schoolBusYellow, size: 16.w),
                     SizedBox(width: 4.w),
                     Text(
                       '$rating',

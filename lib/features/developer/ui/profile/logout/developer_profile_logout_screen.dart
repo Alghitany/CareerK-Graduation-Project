@@ -8,7 +8,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/routing/routes.dart';
 import '../../../../../core/theming/styles.dart';
 
-
 Widget developerProfileLogoutScreen(BuildContext context) {
   //TODO: Maybe use better dialog
   // Commit that i pushed to development and didn't push here first

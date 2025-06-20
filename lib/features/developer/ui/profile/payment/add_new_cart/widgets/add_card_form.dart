@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../../../../core/helpers/app_regex.dart';
 
-
 class AddCardForm extends StatelessWidget {
   const AddCardForm({super.key});
 

@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import '../../../../../../core/theming/colors.dart';
 import '../../../../../../core/widgets/app_choice_chip.dart';
 
-
 class ServiceDescriptionAndKeywords extends StatelessWidget {
   const ServiceDescriptionAndKeywords({super.key});
 

@@ -8,7 +8,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../../../core/theming/colors.dart';
 
-
 class CompletedCourses extends StatelessWidget {
   const CompletedCourses({super.key});
 

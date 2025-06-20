@@ -8,7 +8,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../../../../core/routing/routes.dart';
 
-
 class RelatedJobsList extends StatelessWidget {
   const RelatedJobsList({super.key});
 

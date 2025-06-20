@@ -1,6 +1,8 @@
 import 'package:carrerk/features/company/data/repo/company_jobs_delete_post_repo.dart';
 import 'package:carrerk/features/company/logic/company_jobs_delete_post_cubit.dart';
 import 'package:carrerk/features/developer/ui/courses/main_page/data/repo/developer_courses_main_page_roadmaps_repo.dart';
+import 'package:carrerk/features/developer/ui/courses/specific_category/data/repo/developer_courses_specific_category_repo.dart';
+import 'package:carrerk/features/developer/ui/courses/specific_category/logic/developer_courses_specific_category_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -73,24 +75,31 @@ Future<void> setupGetIt() async {
   // -> Courses Main Page
   // -> Profile
   getIt.registerLazySingleton<DeveloperCoursesAndJobsMainPageProfileRepo>(
-        () => DeveloperCoursesAndJobsMainPageProfileRepo(getIt()),
+    () => DeveloperCoursesAndJobsMainPageProfileRepo(getIt()),
   );
   getIt.registerFactory<DeveloperCoursesAndJobsMainPageProfileCubit>(
-        () => DeveloperCoursesAndJobsMainPageProfileCubit(getIt()),
+    () => DeveloperCoursesAndJobsMainPageProfileCubit(getIt()),
   );
   //-> Roadmaps
   getIt.registerLazySingleton<DeveloperCoursesMainPageRoadmapsRepo>(
-        () => DeveloperCoursesMainPageRoadmapsRepo(getIt()),
+    () => DeveloperCoursesMainPageRoadmapsRepo(getIt()),
   );
   getIt.registerFactory<DeveloperCoursesMainPageRoadmapsCubit>(
-        () => DeveloperCoursesMainPageRoadmapsCubit(getIt()),
+    () => DeveloperCoursesMainPageRoadmapsCubit(getIt()),
   );
   //-> Courses Roadmaps
   getIt.registerLazySingleton<DeveloperCoursesRoadmapsRepo>(
-        () => DeveloperCoursesRoadmapsRepo(getIt()),
+    () => DeveloperCoursesRoadmapsRepo(getIt()),
   );
   getIt.registerFactory<DeveloperCoursesRoadmapsCubit>(
-        () => DeveloperCoursesRoadmapsCubit(getIt()),
+    () => DeveloperCoursesRoadmapsCubit(getIt()),
+  );
+  //-> Specific Category
+  getIt.registerLazySingleton<DeveloperCoursesSpecificCategoryRepo>(
+    () => DeveloperCoursesSpecificCategoryRepo(getIt()),
+  );
+  getIt.registerFactory<DeveloperCoursesSpecificCategoryCubit>(
+    () => DeveloperCoursesSpecificCategoryCubit(getIt()),
   );
   // Company
   // -> Jobs Post
@@ -105,9 +114,9 @@ Future<void> setupGetIt() async {
       () => CompanyJobsDeletePostCubit(getIt()));
   // Search
   getIt.registerLazySingleton<SearchCoursesRepo>(
-        () => SearchCoursesRepo(getIt()),
+    () => SearchCoursesRepo(getIt()),
   );
   getIt.registerFactory<SearchCoursesCubit>(
-        () => SearchCoursesCubit(getIt()),
+    () => SearchCoursesCubit(getIt()),
   );
 }

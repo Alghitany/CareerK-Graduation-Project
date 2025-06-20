@@ -9,7 +9,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/widgets/app_back_icon.dart';
 
-
 class DeveloperSignUpCompletedCvIsDone extends StatelessWidget {
   const DeveloperSignUpCompletedCvIsDone({super.key});
 

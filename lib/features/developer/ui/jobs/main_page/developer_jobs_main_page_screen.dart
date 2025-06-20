@@ -9,8 +9,6 @@ import 'widgets/related_jobs_list.dart';
 import 'widgets/services_for_you_and_view_all.dart';
 import 'widgets/services_list.dart';
 
-
-
 class DeveloperJobsMainPageScreen extends StatelessWidget {
   const DeveloperJobsMainPageScreen({super.key});
 

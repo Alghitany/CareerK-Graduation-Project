@@ -27,9 +27,9 @@ class ApiConstants {
   //-> Roadmaps List
   static const String developerCoursesMainPageRoadmaps =
       "api/courses-page/roadmaps/preview";
-  //-----> Roadmaps Page
-  static const String developerCoursesRoadmaps =
-      "api/tracks-page/tracks";
+  //-----> Roadmaps & Track Courses Base Path
+  static const String developerTracksBasePath = "api/tracks-page/tracks";
+
   //------ customer ------------
   //->Sign up
   static const String customerSignup = "api/customer/register";

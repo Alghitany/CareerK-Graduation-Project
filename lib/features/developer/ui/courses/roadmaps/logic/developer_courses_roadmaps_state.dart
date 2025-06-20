@@ -9,13 +9,14 @@ part 'developer_courses_roadmaps_state.freezed.dart';
 class DeveloperCoursesRoadmapsState with _$DeveloperCoursesRoadmapsState {
   const factory DeveloperCoursesRoadmapsState.initial() = _Initial;
 
-  const factory DeveloperCoursesRoadmapsState.loading() = DeveloperCoursesRoadmapsLoading;
+  const factory DeveloperCoursesRoadmapsState.loading() =
+      DeveloperCoursesRoadmapsLoading;
 
   const factory DeveloperCoursesRoadmapsState.success(
-      List<DeveloperCoursesRoadmapsResponseBody> roadmaps,
-      ) = DeveloperCoursesRoadmapsSuccess;
+    List<DeveloperCoursesRoadmapsResponseBody> roadmaps,
+  ) = DeveloperCoursesRoadmapsSuccess;
 
   const factory DeveloperCoursesRoadmapsState.error(
-      ErrorHandler errorHandler,
-      ) = DeveloperCoursesRoadmapsError;
+    ErrorHandler errorHandler,
+  ) = DeveloperCoursesRoadmapsError;
 }

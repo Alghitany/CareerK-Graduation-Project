@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'widgets/roadmaps_list_view/roadmaps_list_bloc_builder.dart';
 import 'widgets/roadmaps_screen_top_bar.dart';
 
-
 class DeveloperCoursesRoadmapsScreen extends StatelessWidget {
   const DeveloperCoursesRoadmapsScreen({super.key});
 

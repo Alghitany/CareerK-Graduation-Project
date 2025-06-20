@@ -8,8 +8,6 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../../../../../core/routing/routes.dart';
 
-
-
 class RoadmapsTextAndViewAll extends StatelessWidget {
   const RoadmapsTextAndViewAll({super.key});
 

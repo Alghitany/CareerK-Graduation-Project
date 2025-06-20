@@ -12,9 +12,10 @@ class RoadmapsSuggestionsBlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<DeveloperCoursesMainPageRoadmapsCubit, DeveloperCoursesMainPageRoadmapsState>(
+    return BlocBuilder<DeveloperCoursesMainPageRoadmapsCubit,
+        DeveloperCoursesMainPageRoadmapsState>(
       buildWhen: (previous, current) =>
-      current is DeveloperCoursesMainPageRoadmapsLoading ||
+          current is DeveloperCoursesMainPageRoadmapsLoading ||
           current is DeveloperCoursesMainPageRoadmapsSuccess ||
           current is DeveloperCoursesMainPageRoadmapsError,
       builder: (context, state) {
@@ -32,7 +33,8 @@ class RoadmapsSuggestionsBlocBuilder extends StatelessWidget {
     return const RoadmapsSuggestionsShimmer();
   }
 
-  Widget setupSuccess(List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps) {
+  Widget setupSuccess(
+      List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps) {
     return RoadmapsSuggestions(roadmaps: roadmaps);
   }
 

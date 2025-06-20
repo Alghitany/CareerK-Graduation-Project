@@ -6,14 +6,16 @@ import '../../../features/developer/logic/developer_courses_and_jobs_main_page_p
 import '../../../features/developer/logic/developer_courses_and_jobs_main_page_profile_state.dart';
 import 'courses_and_jobs_top_bar_shimmer.dart';
 
-class DeveloperCoursesAndJobsMainPageProfileBlocBuilder extends StatelessWidget {
+class DeveloperCoursesAndJobsMainPageProfileBlocBuilder
+    extends StatelessWidget {
   const DeveloperCoursesAndJobsMainPageProfileBlocBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<DeveloperCoursesAndJobsMainPageProfileCubit, DeveloperCoursesAndJobsMainPageProfileState>(
+    return BlocBuilder<DeveloperCoursesAndJobsMainPageProfileCubit,
+        DeveloperCoursesAndJobsMainPageProfileState>(
       buildWhen: (previous, current) =>
-      current is DeveloperCoursesAndJobsMainPageProfileLoading ||
+          current is DeveloperCoursesAndJobsMainPageProfileLoading ||
           current is DeveloperCoursesAndJobsMainPageProfileSuccess ||
           current is DeveloperCoursesAndJobsMainPageProfileError,
       builder: (context, state) {

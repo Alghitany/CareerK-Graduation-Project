@@ -3,7 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../data/repo/developer_courses_roadmaps_repo.dart';
 import 'developer_courses_roadmaps_state.dart';
 
-class DeveloperCoursesRoadmapsCubit extends Cubit<DeveloperCoursesRoadmapsState> {
+class DeveloperCoursesRoadmapsCubit
+    extends Cubit<DeveloperCoursesRoadmapsState> {
   final DeveloperCoursesRoadmapsRepo _repo;
 
   DeveloperCoursesRoadmapsCubit(this._repo)

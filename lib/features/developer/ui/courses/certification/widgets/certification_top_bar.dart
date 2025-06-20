@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../core/theming/styles.dart';
 import '../../../../../../core/widgets/app_back_icon.dart';
 
-
 class CertificationTopBar extends StatelessWidget {
   const CertificationTopBar({super.key});
 
