@@ -8,7 +8,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/routing/routes.dart';
 
-
 class DeveloperSignUpCompletedReadyToGo extends StatelessWidget {
   const DeveloperSignUpCompletedReadyToGo({super.key});
 

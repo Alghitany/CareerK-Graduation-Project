@@ -10,7 +10,6 @@ import '../../../../../../core/helpers/spacing.dart';
 import '../../../../../../core/routing/routes.dart';
 import '../../../../../../core/theming/styles.dart';
 
-
 class FilteredJobs extends StatefulWidget {
   const FilteredJobs({super.key});
 

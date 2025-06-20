@@ -8,7 +8,8 @@ class DeveloperCoursesMainPageRoadmapsRepo {
 
   DeveloperCoursesMainPageRoadmapsRepo(this._apiService);
 
-  Future<ApiResult<List<DeveloperCoursesMainPageRoadmapsResponseModel>>> getDeveloperCoursesMainPageRoadmaps() async {
+  Future<ApiResult<List<DeveloperCoursesMainPageRoadmapsResponseModel>>>
+      getDeveloperCoursesMainPageRoadmaps() async {
     try {
       final response = await _apiService.getDeveloperCoursesMainPageRoadmaps();
       return ApiResult.success(response);

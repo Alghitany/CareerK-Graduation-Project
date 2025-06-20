@@ -8,7 +8,6 @@ import '../../../../../core/routing/routes.dart';
 import '../../../../../core/theming/colors.dart';
 import '../../../../../core/theming/styles.dart';
 
-
 class RecommendedJobsAndSeeAll extends StatelessWidget {
   const RecommendedJobsAndSeeAll({super.key});
 

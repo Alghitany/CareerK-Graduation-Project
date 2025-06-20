@@ -8,7 +8,6 @@ import '../../../../../../core/theming/styles.dart';
 import '../../../../../../core/widgets/app_back_icon.dart';
 import '../../../../../../core/widgets/app_text_button.dart';
 
-
 class DeveloperCoursesCvUpdatedUpdateCvScreen extends StatelessWidget {
   const DeveloperCoursesCvUpdatedUpdateCvScreen({super.key});
 

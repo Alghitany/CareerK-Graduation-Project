@@ -16,7 +16,6 @@ import 'widgets/related_courses_list.dart';
 import 'widgets/roadmaps_suggestions/roadmaps_suggestions_bloc_builder.dart';
 import 'widgets/roadmaps_text_and_view_all.dart';
 
-
 class DeveloperCoursesMainPageScreen extends StatelessWidget {
   const DeveloperCoursesMainPageScreen({super.key});
 
@@ -41,12 +40,11 @@ class DeveloperCoursesMainPageScreen extends StatelessWidget {
                     children: [
                       AppSearchTextFormField(
                         onTap: () {
-                          context.pushNamed(
-                              Routes.searchScreen,
-                            arguments: AppArgument(
-                              query: "",
-                              searchType: SearchType.courses,
-                          ));
+                          context.pushNamed(Routes.searchScreen,
+                              arguments: AppArgument(
+                                query: "",
+                                searchType: SearchType.courses,
+                              ));
                         },
                       ),
                       verticalSpace(16),

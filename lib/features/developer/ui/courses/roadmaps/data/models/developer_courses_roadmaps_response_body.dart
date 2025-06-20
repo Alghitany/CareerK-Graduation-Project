@@ -31,8 +31,10 @@ class DeveloperCoursesRoadmapsResponseBody {
     required this.endCourse,
   });
 
-  factory DeveloperCoursesRoadmapsResponseBody.fromJson(Map<String, dynamic> json) =>
+  factory DeveloperCoursesRoadmapsResponseBody.fromJson(
+          Map<String, dynamic> json) =>
       _$DeveloperCoursesRoadmapsResponseBodyFromJson(json);
 
-  Map<String, dynamic> toJson() => _$DeveloperCoursesRoadmapsResponseBodyToJson(this);
+  Map<String, dynamic> toJson() =>
+      _$DeveloperCoursesRoadmapsResponseBodyToJson(this);
 }

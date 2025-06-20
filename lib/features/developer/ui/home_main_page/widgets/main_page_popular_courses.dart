@@ -6,7 +6,6 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../../../core/theming/styles.dart';
 
-
 class MainPagePopularCourses extends StatefulWidget {
   const MainPagePopularCourses({super.key});
 

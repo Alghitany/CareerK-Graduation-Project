@@ -11,9 +11,10 @@ class RoadmapsListBlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<DeveloperCoursesRoadmapsCubit, DeveloperCoursesRoadmapsState>(
+    return BlocBuilder<DeveloperCoursesRoadmapsCubit,
+        DeveloperCoursesRoadmapsState>(
       buildWhen: (previous, current) =>
-      current is DeveloperCoursesRoadmapsLoading ||
+          current is DeveloperCoursesRoadmapsLoading ||
           current is DeveloperCoursesRoadmapsSuccess ||
           current is DeveloperCoursesRoadmapsError,
       builder: (context, state) {

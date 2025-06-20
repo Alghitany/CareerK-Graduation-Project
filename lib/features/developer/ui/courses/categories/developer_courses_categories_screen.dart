@@ -6,7 +6,6 @@ import '../../../../../core/helpers/spacing.dart';
 import 'widgets/categories_app_bar_and_search_text_field.dart';
 import 'widgets/categories_grid_view.dart';
 
-
 class DeveloperCoursesCategoriesScreen extends StatelessWidget {
   const DeveloperCoursesCategoriesScreen({super.key});
 

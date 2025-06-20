@@ -8,8 +8,6 @@ import '../../../../../../../core/routing/routes.dart';
 import '../../../../../../../core/theming/colors.dart';
 import '../../../../../../../core/theming/styles.dart';
 
-
-
 class RelatedJobsAndViewAll extends StatelessWidget {
   const RelatedJobsAndViewAll({super.key});
 

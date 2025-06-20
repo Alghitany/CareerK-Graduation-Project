@@ -8,7 +8,8 @@ class DeveloperCoursesAndJobsMainPageProfileRepo {
 
   DeveloperCoursesAndJobsMainPageProfileRepo(this._apiService);
 
-  Future<ApiResult<DeveloperCoursesAndJobsMainPageProfileResponseModel>> getDeveloperCoursesMainPageProfile() async {
+  Future<ApiResult<DeveloperCoursesAndJobsMainPageProfileResponseModel>>
+      getDeveloperCoursesMainPageProfile() async {
     try {
       final response = await _apiService.getDeveloperCoursesMainPageProfile();
       return ApiResult.success(response);

@@ -3,30 +3,26 @@ import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class CourseCard extends StatelessWidget {
   final String imagePath;
   final String title;
   final int totalLessons;
-  final String views;
-  final String date;
+  final String duration;
 
   const CourseCard({
     super.key,
     required this.imagePath,
     required this.title,
     required this.totalLessons,
-    required this.views,
-    required this.date,
+    required this.duration,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        //TODO: After reviewing Database add the information screen for the course *important*
-        //context.pushNamed(Routes.developerCoursesCourseInformationScreen);
+        // TODO: Navigate to course information screen
       },
       child: Card(
         margin: EdgeInsets.zero,
@@ -42,11 +38,17 @@ class CourseCard extends StatelessWidget {
                 topLeft: Radius.circular(10),
                 topRight: Radius.circular(10),
               ),
-              child: Image.asset(
+              child: Image.network(
                 imagePath,
                 height: 120.h,
                 width: double.infinity,
                 fit: BoxFit.cover,
+                errorBuilder: (_, __, ___) => Image.asset(
+                  'assets/images/html_course.png',
+                  height: 120.h,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             Padding(
@@ -56,31 +58,30 @@ class CourseCard extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Text(
-                        title,
-                        style: AppTextStyles.font11RangoonGreenPoppinsMedium,
+                      Expanded(
+                        child: Text(
+                          title,
+                          style: AppTextStyles.font11RangoonGreenPoppinsMedium,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
-                      const Spacer(),
-                      Text('($totalLessons Lessons)',
-                          style: AppTextStyles.font11SilverChalicePoppinsMedium)
+                      horizontalSpace(4),
+                      Text(
+                        '($totalLessons Lessons)',
+                        style: AppTextStyles.font11SilverChalicePoppinsMedium,
+                      ),
                     ],
                   ),
                   verticalSpace(4),
                   Row(
                     children: [
-                      SvgPicture.asset(
-                        'assets/svgs/view_eye.svg',
-                        height: 14.h,
-                        width: 14.w,
-                        colorFilter: const ColorFilter.mode(
-                            ColorsManager.liver, BlendMode.srcIn),
-                      ),
+                      Icon(Icons.timer,
+                          size: 14.sp, color: ColorsManager.liver),
                       horizontalSpace(4),
-                      Text(views,
-                          style: AppTextStyles.font12LiverPoppinsRegular),
-                      const Spacer(),
-                      Text(date,
-                          style: AppTextStyles.font12LiverPoppinsRegular),
+                      Text(
+                        duration,
+                        style: AppTextStyles.font12LiverPoppinsRegular,
+                      ),
                     ],
                   ),
                 ],

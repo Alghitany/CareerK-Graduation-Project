@@ -11,7 +11,6 @@ import 'package:flutter_svg/svg.dart';
 import '../../../../../../../core/helpers/app_regex.dart';
 import '../../../logic/developer_sign_up_cubit.dart';
 
-
 class DeveloperCompulsoryDataForm extends StatefulWidget {
   const DeveloperCompulsoryDataForm({super.key});
 

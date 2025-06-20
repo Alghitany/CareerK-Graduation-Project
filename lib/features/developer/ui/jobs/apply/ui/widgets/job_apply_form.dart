@@ -11,7 +11,6 @@ import '../../../../../../../core/helpers/app_regex.dart';
 import '../../../../../../../core/theming/colors.dart';
 import '../../logic/developer_jobs_apply_cubit.dart';
 
-
 class JobApplyForm extends StatefulWidget {
   const JobApplyForm({super.key});
 

@@ -12,10 +12,10 @@ class SearchCoursesState with _$SearchCoursesState {
   const factory SearchCoursesState.loading() = SearchCoursesLoading;
 
   const factory SearchCoursesState.success(
-      List<SearchCoursesResponseBody> courses,
-      ) = SearchCoursesSuccess;
+    List<SearchCoursesResponseBody> courses,
+  ) = SearchCoursesSuccess;
 
   const factory SearchCoursesState.error(
-      ErrorHandler errorHandler,
-      ) = SearchCoursesError;
+    ErrorHandler errorHandler,
+  ) = SearchCoursesError;
 }

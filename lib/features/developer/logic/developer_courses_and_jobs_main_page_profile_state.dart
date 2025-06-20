@@ -6,16 +6,19 @@ import '../data/model/developer_courses_and_jobs_main_page_profile_response_mode
 part 'developer_courses_and_jobs_main_page_profile_state.freezed.dart';
 
 @freezed
-class DeveloperCoursesAndJobsMainPageProfileState with _$DeveloperCoursesAndJobsMainPageProfileState {
-  const factory DeveloperCoursesAndJobsMainPageProfileState.initial() = _Initial;
+class DeveloperCoursesAndJobsMainPageProfileState
+    with _$DeveloperCoursesAndJobsMainPageProfileState {
+  const factory DeveloperCoursesAndJobsMainPageProfileState.initial() =
+      _Initial;
 
-  const factory DeveloperCoursesAndJobsMainPageProfileState.loading() = DeveloperCoursesAndJobsMainPageProfileLoading;
+  const factory DeveloperCoursesAndJobsMainPageProfileState.loading() =
+      DeveloperCoursesAndJobsMainPageProfileLoading;
 
   const factory DeveloperCoursesAndJobsMainPageProfileState.success(
-      DeveloperCoursesAndJobsMainPageProfileResponseModel responseModel,
-      ) = DeveloperCoursesAndJobsMainPageProfileSuccess;
+    DeveloperCoursesAndJobsMainPageProfileResponseModel responseModel,
+  ) = DeveloperCoursesAndJobsMainPageProfileSuccess;
 
   const factory DeveloperCoursesAndJobsMainPageProfileState.error(
-      ErrorHandler errorHandler,
-      ) = DeveloperCoursesAndJobsMainPageProfileError;
+    ErrorHandler errorHandler,
+  ) = DeveloperCoursesAndJobsMainPageProfileError;
 }

@@ -8,7 +8,6 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../../../../../core/helpers/spacing.dart';
 
-
 class RelatedCoursesList extends StatefulWidget {
   const RelatedCoursesList({super.key});
 

@@ -52,19 +52,19 @@ class CoursesAndJobsMainPageTopBar extends StatelessWidget {
               clipBehavior: Clip.hardEdge,
               child: profilePicture != null && profilePicture!.isNotEmpty
                   ? Image.network(
-                "${ApiConstants.baseImageUrl}/$profilePicture",
-                fit: BoxFit.cover,
-              )
+                      "${ApiConstants.baseImageUrl}/$profilePicture",
+                      fit: BoxFit.cover,
+                    )
                   : Padding(
-                padding: EdgeInsets.all(12.w),
-                child: SvgPicture.asset(
-                  "assets/svgs/person_outlined.svg",
-                  colorFilter: const ColorFilter.mode(
-                    ColorsManager.lemonGrass,
-                    BlendMode.srcIn,
-                  ),
-                ),
-              ),
+                      padding: EdgeInsets.all(12.w),
+                      child: SvgPicture.asset(
+                        "assets/svgs/person_outlined.svg",
+                        colorFilter: const ColorFilter.mode(
+                          ColorsManager.lemonGrass,
+                          BlendMode.srcIn,
+                        ),
+                      ),
+                    ),
             ),
           ),
         ],

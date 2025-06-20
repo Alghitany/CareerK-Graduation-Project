@@ -41,7 +41,8 @@ import '../../features/developer/ui/courses/main_page/ui/developer_courses_main_
 import '../../features/developer/ui/courses/my_courses/developer_courses_my_courses_screen.dart';
 import '../../features/developer/ui/courses/roadmaps/logic/developer_courses_roadmaps_cubit.dart';
 import '../../features/developer/ui/courses/roadmaps/ui/developer_courses_roadmaps_screen.dart';
-import '../../features/developer/ui/courses/specific_category/developer_courses_course_screen.dart';
+import '../../features/developer/ui/courses/specific_category/logic/developer_courses_specific_category_cubit.dart';
+import '../../features/developer/ui/courses/specific_category/ui/developer_courses_course_screen.dart';
 import '../../features/developer/ui/home_main_page/developer_home_main_page_screen.dart';
 import '../../features/developer/ui/jobs/all_categories/developer_jobs_all_categories_screen.dart';
 import '../../features/developer/ui/jobs/application_submitted/developer_jobs_application_submitted_screen.dart';
@@ -244,7 +245,8 @@ class AppRouter {
           builder: (_) => MultiBlocProvider(
             providers: [
               BlocProvider(
-                  create: (_) => getIt<SearchCoursesCubit>()..searchCourses(query)              ),
+                  create: (_) =>
+                      getIt<SearchCoursesCubit>()..searchCourses(query)),
             ],
             child: SearchScreen(
               query: query,
@@ -258,8 +260,9 @@ class AppRouter {
           builder: (_) => MultiBlocProvider(
             providers: [
               BlocProvider(
-                create: (_) => getIt<DeveloperCoursesAndJobsMainPageProfileCubit>()
-                  ..getDeveloperCoursesMainPageProfile(),
+                create: (_) =>
+                    getIt<DeveloperCoursesAndJobsMainPageProfileCubit>()
+                      ..getDeveloperCoursesMainPageProfile(),
               ),
               BlocProvider(
                 create: (_) => getIt<DeveloperCoursesMainPageRoadmapsCubit>()
@@ -274,13 +277,19 @@ class AppRouter {
           builder: (_) => const DeveloperCoursesCategoriesScreen(),
         );
       case Routes.developerCoursesSpecificCategoryScreen:
+        final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-          builder: (_) => const DeveloperCoursesSpecificCategoryScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<DeveloperCoursesSpecificCategoryCubit>()
+              ..getDeveloperCoursesSpecificCategory(args.trackId!),
+            child: const DeveloperCoursesSpecificCategoryScreen(),
+          ),
         );
       case Routes.developerCoursesRoadmapsScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) => getIt<DeveloperCoursesRoadmapsCubit>()..getDeveloperCoursesRoadmaps(),
+            create: (context) => getIt<DeveloperCoursesRoadmapsCubit>()
+              ..getDeveloperCoursesRoadmaps(),
             child: const DeveloperCoursesRoadmapsScreen(),
           ),
         );
@@ -308,8 +317,9 @@ class AppRouter {
           builder: (_) => MultiBlocProvider(
             providers: [
               BlocProvider(
-                create: (_) => getIt<DeveloperCoursesAndJobsMainPageProfileCubit>()
-                  ..getDeveloperCoursesMainPageProfile(),
+                create: (_) =>
+                    getIt<DeveloperCoursesAndJobsMainPageProfileCubit>()
+                      ..getDeveloperCoursesMainPageProfile(),
               ),
             ],
             child: const DeveloperJobsMainPageScreen(),

@@ -15,6 +15,7 @@ import '../../features/company/ui/jobs_post/data/models/company_jobs_post_respon
 import '../../features/developer/data/model/developer_courses_and_jobs_main_page_profile_response_model.dart';
 import '../../features/developer/ui/courses/main_page/data/models/developer_courses_main_page_roadmaps_response_model.dart';
 import '../../features/developer/ui/courses/roadmaps/data/models/developer_courses_roadmaps_response_body.dart';
+import '../../features/developer/ui/courses/specific_category/data/models/developer_courses_specific_category_response_body.dart';
 import '../../features/search/data/model/search_courses_response_body.dart';
 import 'api_constants.dart';
 
@@ -50,13 +51,22 @@ abstract class ApiService {
   // Developer Jobs Apply Handled with dio
   //->Courses Main Page Profile
   @GET(ApiConstants.developerCoursesMainPageProfile)
-  Future<DeveloperCoursesAndJobsMainPageProfileResponseModel> getDeveloperCoursesMainPageProfile();
+  Future<DeveloperCoursesAndJobsMainPageProfileResponseModel>
+      getDeveloperCoursesMainPageProfile();
   //->Courses Main Page Roadmaps
   @GET(ApiConstants.developerCoursesMainPageRoadmaps)
-  Future<List<DeveloperCoursesMainPageRoadmapsResponseModel>> getDeveloperCoursesMainPageRoadmaps();
+  Future<List<DeveloperCoursesMainPageRoadmapsResponseModel>>
+      getDeveloperCoursesMainPageRoadmaps();
   //->Courses Roadmaps
-  @GET(ApiConstants.developerCoursesRoadmaps)
-  Future<List<DeveloperCoursesRoadmapsResponseBody>> getDeveloperCoursesRoadmaps();
+  @GET(ApiConstants.developerTracksBasePath)
+  Future<List<DeveloperCoursesRoadmapsResponseBody>>
+      getDeveloperCoursesRoadmaps();
+  //-> Specific Category
+  @GET("${ApiConstants.developerTracksBasePath}/{trackId}/courses")
+  Future<List<DeveloperCoursesSpecificCategoryResponseBody>>
+      getDeveloperCoursesSpecificCategory(
+    @Path("trackId") String trackId,
+  );
 
   //----------------- Company
   //->Post Job
@@ -73,6 +83,6 @@ abstract class ApiService {
   //----------------- Search
   @GET(ApiConstants.searchCourses)
   Future<List<SearchCoursesResponseBody>> searchCourses(
-      @Query("search") String searchQuery,
-      );
+    @Query("search") String searchQuery,
+  );
 }

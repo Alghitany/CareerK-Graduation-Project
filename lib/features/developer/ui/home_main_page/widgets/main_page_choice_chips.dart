@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/theming/styles.dart';
 
-
 class MainPageChoiceChips extends StatelessWidget {
   const MainPageChoiceChips({super.key});
 

@@ -22,8 +22,10 @@ class DeveloperCoursesMainPageRoadmapsResponseModel {
     required this.imageUrl,
   });
 
-  factory DeveloperCoursesMainPageRoadmapsResponseModel.fromJson(Map<String, dynamic> json) =>
+  factory DeveloperCoursesMainPageRoadmapsResponseModel.fromJson(
+          Map<String, dynamic> json) =>
       _$DeveloperCoursesMainPageRoadmapsResponseModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$DeveloperCoursesMainPageRoadmapsResponseModelToJson(this);
+  Map<String, dynamic> toJson() =>
+      _$DeveloperCoursesMainPageRoadmapsResponseModelToJson(this);
 }

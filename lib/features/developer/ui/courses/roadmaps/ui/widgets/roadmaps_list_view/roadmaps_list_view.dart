@@ -1,4 +1,5 @@
 import 'package:carrerk/core/helpers/spacing.dart';
+import 'package:carrerk/core/routing/app_argument.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
@@ -26,9 +27,8 @@ class RoadmapsListView extends StatelessWidget {
           child: GestureDetector(
             onTap: () {
               Navigator.pushNamed(
-                context,
-                Routes.developerCoursesSpecificCategoryScreen,
-              );
+                  context, Routes.developerCoursesSpecificCategoryScreen,
+                  arguments: AppArgument(trackId: roadmap.trackId));
             },
             child: Container(
               height: 170.h,
@@ -59,36 +59,37 @@ class RoadmapsListView extends StatelessWidget {
                     ),
                     child: (roadmap.imageUrl.isNotEmpty)
                         ? ClipRRect(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(16.r),
-                        bottomLeft: Radius.circular(16.r),
-                      ),
-                      child: Image.network(
-                        roadmap.imageUrl,
-                        fit: BoxFit.cover,
-                        errorBuilder: (context, error, stackTrace) {
-                          return Center(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(16.r),
+                              bottomLeft: Radius.circular(16.r),
+                            ),
+                            child: Image.network(
+                              roadmap.imageUrl,
+                              fit: BoxFit.cover,
+                              errorBuilder: (context, error, stackTrace) {
+                                return Center(
+                                  child: Text(
+                                    roadmap.trackTitle,
+                                    textAlign: TextAlign.center,
+                                    style: AppTextStyles
+                                        .font20GlaucousPoppinsSemiBold,
+                                  ),
+                                );
+                              },
+                            ),
+                          )
+                        : Center(
                             child: Text(
                               roadmap.trackTitle,
                               textAlign: TextAlign.center,
                               style:
-                              AppTextStyles.font20GlaucousPoppinsSemiBold,
+                                  AppTextStyles.font20GlaucousPoppinsSemiBold,
                             ),
-                          );
-                        },
-                      ),
-                    )
-                        : Center(
-                      child: Text(
-                        roadmap.trackTitle,
-                        textAlign: TextAlign.center,
-                        style: AppTextStyles.font20GlaucousPoppinsSemiBold,
-                      ),
-                    ),
+                          ),
                   ),
-            
+
                   horizontalSpace(9),
-            
+
                   // ✅ Textual Content
                   Expanded(
                     child: Padding(
@@ -104,54 +105,58 @@ class RoadmapsListView extends StatelessWidget {
                                 children: [
                                   Text(
                                     roadmap.trackTitle,
-                                    style: AppTextStyles.font20DarkGreyPoppinsSemiBold,
+                                    style: AppTextStyles
+                                        .font20DarkGreyPoppinsSemiBold,
                                   ),
                                   Text(
                                     roadmap.totalDuration,
-                                    style:
-                                    AppTextStyles.font16DarkGreyPoppinsRegular,
+                                    style: AppTextStyles
+                                        .font16DarkGreyPoppinsRegular,
                                   ),
                                 ],
                               ),
                               const Spacer(),
-                              IconButton(
-                                onPressed: () {},
-                                icon: SvgPicture.asset(
-                                  'assets/svgs/folder_download_outlined.svg',
-                                  colorFilter: const ColorFilter.mode(
-                                      ColorsManager.mirage, BlendMode.srcIn),
-                                ),
-                              ),
+                              // IconButton(
+                              //   onPressed: () {},
+                              //   icon: SvgPicture.asset(
+                              //     'assets/svgs/folder_download_outlined.svg',
+                              //     colorFilter: const ColorFilter.mode(
+                              //         ColorsManager.mirage, BlendMode.srcIn),
+                              //   ),
+                              // ),
                             ],
                           ),
-            
+
                           verticalSpace(12),
-            
+
                           // Start Point
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: EdgeInsets.fromLTRB(0.w, 4.h, 0.w, 0.h),
+                                padding:
+                                    EdgeInsets.fromLTRB(0.w, 4.h, 0.w, 0.h),
                                 child: SvgPicture.asset(
                                   'assets/svgs/start_point.svg',
                                   height: 9.h,
                                   width: 8.5.w,
                                   colorFilter: const ColorFilter.mode(
-                                      ColorsManager.cloverGreen, BlendMode.srcIn),
+                                      ColorsManager.cloverGreen,
+                                      BlendMode.srcIn),
                                 ),
                               ),
                               horizontalSpace(5),
                               Text(
                                 "Start point",
-                                style:
-                                AppTextStyles.font12CloverGreenPoppinsMedium,
+                                style: AppTextStyles
+                                    .font12CloverGreenPoppinsMedium,
                               ),
                               horizontalSpace(4),
                               Expanded(
                                 child: Text(
                                   roadmap.startCourse,
-                                  style: AppTextStyles.font12GranitePoppinsRegular,
+                                  style:
+                                      AppTextStyles.font12GranitePoppinsRegular,
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
                                 ),
@@ -164,13 +169,15 @@ class RoadmapsListView extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: EdgeInsets.fromLTRB(0.w, 4.h, 0.w, 0.h),
+                                padding:
+                                    EdgeInsets.fromLTRB(0.w, 4.h, 0.w, 0.h),
                                 child: SvgPicture.asset(
                                   'assets/svgs/end_point.svg',
                                   height: 9.h,
                                   width: 8.5.w,
                                   colorFilter: const ColorFilter.mode(
-                                      ColorsManager.artyClickRed, BlendMode.srcIn),
+                                      ColorsManager.artyClickRed,
+                                      BlendMode.srcIn),
                                 ),
                               ),
                               horizontalSpace(5),
@@ -183,7 +190,8 @@ class RoadmapsListView extends StatelessWidget {
                               Expanded(
                                 child: Text(
                                   roadmap.endCourse,
-                                  style: AppTextStyles.font12GranitePoppinsRegular,
+                                  style:
+                                      AppTextStyles.font12GranitePoppinsRegular,
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
                                 ),

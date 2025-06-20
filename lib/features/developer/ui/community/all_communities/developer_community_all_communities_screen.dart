@@ -11,7 +11,6 @@ import 'widgets/by_interest_chips_list.dart';
 import 'widgets/by_interest_community_list.dart';
 import 'widgets/for_you_horizontal_communities.dart';
 
-
 class DeveloperCommunityAllCommunitiesScreen extends StatelessWidget {
   const DeveloperCommunityAllCommunitiesScreen({super.key});
 

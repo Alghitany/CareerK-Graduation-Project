@@ -6,7 +6,6 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../../../../core/theming/colors.dart';
 
-
 class CommunityAndFollowIcon extends StatefulWidget {
   const CommunityAndFollowIcon({super.key});
 

@@ -5,7 +5,6 @@ import '../../../../../../core/helpers/spacing.dart';
 import '../../../../../../core/widgets/app_back_icon.dart';
 import '../../../../../../core/widgets/app_search_text_form_field.dart';
 
-
 class TopBarAndSearchField extends StatelessWidget {
   const TopBarAndSearchField({super.key});
 

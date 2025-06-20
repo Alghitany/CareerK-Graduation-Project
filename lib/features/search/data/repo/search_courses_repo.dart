@@ -8,7 +8,8 @@ class SearchCoursesRepo {
 
   SearchCoursesRepo(this._apiService);
 
-  Future<ApiResult<List<SearchCoursesResponseBody>>> searchCourses(String query) async {
+  Future<ApiResult<List<SearchCoursesResponseBody>>> searchCourses(
+      String query) async {
     try {
       final response = await _apiService.searchCourses(query);
       return ApiResult.success(response);

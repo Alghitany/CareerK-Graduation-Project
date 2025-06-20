@@ -17,11 +17,11 @@ class RoadmapsListShimmer extends StatelessWidget {
       itemBuilder: (context, index) => Container(
         height: 170.h,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: ColorsManager.ghostWhite,
           borderRadius: BorderRadius.circular(16.r),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1),
+              color: ColorsManager.darkGrey.withOpacity(0.05),
               blurRadius: 6,
               offset: const Offset(0, 3),
             ),
@@ -30,7 +30,7 @@ class RoadmapsListShimmer extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Image Shimmer
+            // Left shimmer image
             Container(
               width: 133.w,
               height: 170.h,
@@ -49,7 +49,7 @@ class RoadmapsListShimmer extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Title + Duration + Icon
+                    // Title and icon shimmer
                     Row(
                       children: [
                         Column(
@@ -65,7 +65,7 @@ class RoadmapsListShimmer extends StatelessWidget {
                       ],
                     ),
                     verticalSpace(12),
-                    // Start Point
+                    // Start Point shimmer
                     Row(
                       children: [
                         shimmerCircle(size: 10.r),
@@ -76,7 +76,7 @@ class RoadmapsListShimmer extends StatelessWidget {
                       ],
                     ),
                     verticalSpace(8),
-                    // End Point
+                    // End Point shimmer
                     Row(
                       children: [
                         shimmerCircle(size: 10.r),
@@ -98,13 +98,13 @@ class RoadmapsListShimmer extends StatelessWidget {
 
   Widget shimmerContainer({required double width, required double height}) {
     return Shimmer.fromColors(
-      baseColor: Colors.grey.shade300,
-      highlightColor: Colors.grey.shade100,
+      baseColor: ColorsManager.silverChalice,
+      highlightColor: ColorsManager.porcelain,
       child: Container(
         width: width,
         height: height,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: ColorsManager.ghostWhite,
           borderRadius: BorderRadius.circular(8.r),
         ),
       ),
@@ -113,13 +113,13 @@ class RoadmapsListShimmer extends StatelessWidget {
 
   Widget shimmerCircle({required double size}) {
     return Shimmer.fromColors(
-      baseColor: Colors.grey.shade300,
-      highlightColor: Colors.grey.shade100,
+      baseColor: ColorsManager.silverChalice,
+      highlightColor: ColorsManager.porcelain,
       child: Container(
         width: size,
         height: size,
         decoration: const BoxDecoration(
-          color: Colors.white,
+          color: ColorsManager.ghostWhite,
           shape: BoxShape.circle,
         ),
       ),
