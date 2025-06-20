@@ -2,8 +2,9 @@ import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'widgets/widgets/roadmaps_list_view.dart';
-import 'widgets/widgets/roadmaps_screen_top_bar.dart';
+import 'widgets/roadmaps_list_view/roadmaps_list_bloc_builder.dart';
+import 'widgets/roadmaps_screen_top_bar.dart';
+
 
 class DeveloperCoursesRoadmapsScreen extends StatelessWidget {
   const DeveloperCoursesRoadmapsScreen({super.key});
@@ -21,7 +22,7 @@ class DeveloperCoursesRoadmapsScreen extends StatelessWidget {
                 verticalSpace(24),
                 //TODO: This design may be refactored also check the download svg
                 //TODO: The navigation of the roadmap to the course should be fixed from UI It is ambiguous
-                const RoadmapsListView(),
+                const RoadmapsListBlocBuilder(),
               ],
             ),
           ),

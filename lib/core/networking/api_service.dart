@@ -14,6 +14,7 @@ import '../../features/company/ui/jobs_post/data/models/company_jobs_post_reques
 import '../../features/company/ui/jobs_post/data/models/company_jobs_post_response.dart';
 import '../../features/developer/data/model/developer_courses_and_jobs_main_page_profile_response_model.dart';
 import '../../features/developer/ui/courses/main_page/data/models/developer_courses_main_page_roadmaps_response_model.dart';
+import '../../features/developer/ui/courses/roadmaps/data/models/developer_courses_roadmaps_response_body.dart';
 import '../../features/search/data/model/search_courses_response_body.dart';
 import 'api_constants.dart';
 
@@ -53,7 +54,9 @@ abstract class ApiService {
   //->Courses Main Page Roadmaps
   @GET(ApiConstants.developerCoursesMainPageRoadmaps)
   Future<List<DeveloperCoursesMainPageRoadmapsResponseModel>> getDeveloperCoursesMainPageRoadmaps();
-
+  //->Courses Roadmaps
+  @GET(ApiConstants.developerCoursesRoadmaps)
+  Future<List<DeveloperCoursesRoadmapsResponseBody>> getDeveloperCoursesRoadmaps();
 
   //----------------- Company
   //->Post Job

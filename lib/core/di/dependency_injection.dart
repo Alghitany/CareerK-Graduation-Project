@@ -17,6 +17,8 @@ import '../../features/company/ui/jobs_post/logic/company_jobs_post_cubit.dart';
 import '../../features/developer/data/repo/developer_courses_and_jobs_main_page_profile_repo.dart';
 import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
 import '../../features/developer/ui/courses/main_page/logic/developer_courses_main_page_roadmaps_cubit.dart';
+import '../../features/developer/ui/courses/roadmaps/data/repo/developer_courses_roadmaps_repo.dart';
+import '../../features/developer/ui/courses/roadmaps/logic/developer_courses_roadmaps_cubit.dart';
 import '../../features/developer/ui/jobs/apply/data/repo/developer_jobs_apply_repo.dart';
 import '../../features/developer/ui/jobs/apply/logic/developer_jobs_apply_cubit.dart';
 import '../../features/developer/ui/sign_up/data/repos/developer_sign_up_repo.dart';
@@ -82,6 +84,13 @@ Future<void> setupGetIt() async {
   );
   getIt.registerFactory<DeveloperCoursesMainPageRoadmapsCubit>(
         () => DeveloperCoursesMainPageRoadmapsCubit(getIt()),
+  );
+  //-> Courses Roadmaps
+  getIt.registerLazySingleton<DeveloperCoursesRoadmapsRepo>(
+        () => DeveloperCoursesRoadmapsRepo(getIt()),
+  );
+  getIt.registerFactory<DeveloperCoursesRoadmapsCubit>(
+        () => DeveloperCoursesRoadmapsCubit(getIt()),
   );
   // Company
   // -> Jobs Post

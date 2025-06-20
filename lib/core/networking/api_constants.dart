@@ -24,10 +24,12 @@ class ApiConstants {
   //-> Developer Profile
   static const String developerCoursesMainPageProfile =
       "api/courses-page/developer/profile";
-  //-> Roadmaps
+  //-> Roadmaps List
   static const String developerCoursesMainPageRoadmaps =
       "api/courses-page/roadmaps/preview";
-
+  //-----> Roadmaps Page
+  static const String developerCoursesRoadmaps =
+      "api/tracks-page/tracks";
   //------ customer ------------
   //->Sign up
   static const String customerSignup = "api/customer/register";
