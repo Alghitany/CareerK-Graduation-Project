@@ -39,7 +39,8 @@ import '../../features/developer/ui/courses/cv_updated/successful_update/develop
 import '../../features/developer/ui/courses/main_page/logic/developer_courses_main_page_roadmaps_cubit.dart';
 import '../../features/developer/ui/courses/main_page/ui/developer_courses_main_page_screen.dart';
 import '../../features/developer/ui/courses/my_courses/developer_courses_my_courses_screen.dart';
-import '../../features/developer/ui/courses/roadmaps/developer_courses_roadmaps_screen.dart';
+import '../../features/developer/ui/courses/roadmaps/logic/developer_courses_roadmaps_cubit.dart';
+import '../../features/developer/ui/courses/roadmaps/ui/developer_courses_roadmaps_screen.dart';
 import '../../features/developer/ui/courses/specific_category/developer_courses_course_screen.dart';
 import '../../features/developer/ui/home_main_page/developer_home_main_page_screen.dart';
 import '../../features/developer/ui/jobs/all_categories/developer_jobs_all_categories_screen.dart';
@@ -278,7 +279,10 @@ class AppRouter {
         );
       case Routes.developerCoursesRoadmapsScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperCoursesRoadmapsScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<DeveloperCoursesRoadmapsCubit>()..getDeveloperCoursesRoadmaps(),
+            child: const DeveloperCoursesRoadmapsScreen(),
+          ),
         );
       case Routes.developerCoursesMyCoursesScreen:
         return MaterialPageRoute(
