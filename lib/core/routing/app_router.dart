@@ -14,8 +14,8 @@ import '../../features/authentication/login/ui/login_screen.dart';
 import '../../features/authentication/onboarding/on_boarding_screen.dart';
 import '../../features/authentication/reset_password/ui/reset_password_screen.dart';
 import '../../features/authentication/successful_change_password/successful_change_password.dart';
+import '../../features/chats/person_chat/chats_person_chat_screen.dart';
 import '../../features/company/logic/company_jobs_delete_post_cubit.dart';
-import '../../features/company/ui/chats/person_chat/company_chats_person_chat_screen.dart';
 import '../../features/company/ui/home/main_page/company_home_main_page_screen.dart';
 import '../../features/company/ui/home/see_details/company_home_see_details_screen.dart';
 import '../../features/company/ui/home/see_resume/company_home_see_resume_screen.dart';
@@ -159,9 +159,9 @@ class AppRouter {
           builder: (_) => const CompanyHomeSeeResumeScreen(),
         );
       // Chats
-      case Routes.companyChatsPersonChatScreen:
+      case Routes.chatsPersonChatScreen:
         return MaterialPageRoute(
-          builder: (_) => const CompanyChatsPersonChatScreen(),
+          builder: (_) => const ChatsPersonChatScreen(),
         );
       // Jobs
       case Routes.companyJobsScreen:

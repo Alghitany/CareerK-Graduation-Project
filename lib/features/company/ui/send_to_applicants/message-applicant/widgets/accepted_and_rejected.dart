@@ -80,7 +80,7 @@ class AcceptedAndRejected extends StatelessWidget {
                       GestureDetector(
                         onTap: () {
                           context
-                              .pushNamed(Routes.companyChatsPersonChatScreen);
+                              .pushNamed(Routes.chatsPersonChatScreen);
                         },
                         child: CircleAvatar(
                           radius: 16.r,

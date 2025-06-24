@@ -616,6 +616,12 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     color: ColorsManager.lemonGrass,
   );
+  static TextStyle font12LemonGrassPoppinsRegular = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.regular,
+    fontFamily: 'Poppins',
+    color: ColorsManager.lemonGrass,
+  );
   static TextStyle font14ArtyClickRedPoppinsMedium = TextStyle(
     fontSize: 14.sp,
     fontWeight: FontWeightHelper.medium,
