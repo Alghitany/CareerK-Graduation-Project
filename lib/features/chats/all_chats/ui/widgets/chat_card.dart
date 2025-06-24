@@ -3,6 +3,9 @@ import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+
+import '../../../../../core/networking/api_constants.dart';
 
 class ChatCard extends StatelessWidget {
   final String name;
@@ -39,8 +42,8 @@ class ChatCard extends StatelessWidget {
             child: Row(
               children: [
                 Container(
-                  width: 64.w,
-                  height: 64.w,
+                  width: 48.w,
+                  height: 48.w,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     border: Border.all(
@@ -49,9 +52,32 @@ class ChatCard extends StatelessWidget {
                     ),
                   ),
                   clipBehavior: Clip.hardEdge,
-                  child: Image.asset(
-                    imagePath,
+                  child: imagePath.isNotEmpty
+                      ? Image.network(
+                    "${ApiConstants.baseImageUrl}/$imagePath",
                     fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Padding(
+                        padding: EdgeInsets.all(12.w),
+                        child: SvgPicture.asset(
+                          "assets/svgs/person_outlined.svg",
+                          colorFilter: const ColorFilter.mode(
+                            ColorsManager.lemonGrass,
+                            BlendMode.srcIn,
+                          ),
+                        ),
+                      );
+                    },
+                  )
+                      : Padding(
+                    padding: EdgeInsets.all(12.w),
+                    child: SvgPicture.asset(
+                      "assets/svgs/person_outlined.svg",
+                      colorFilter: const ColorFilter.mode(
+                        ColorsManager.lemonGrass,
+                        BlendMode.srcIn,
+                      ),
+                    ),
                   ),
                 ),
                 horizontalSpace(16),
