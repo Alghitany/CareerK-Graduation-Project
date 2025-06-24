@@ -24,9 +24,11 @@ class ApiConstants {
   //-> Developer Profile
   static const String developerCoursesMainPageProfile =
       "api/courses-page/developer/profile";
+
   //-> Roadmaps List
   static const String developerCoursesMainPageRoadmaps =
       "api/courses-page/roadmaps/preview";
+
   //-----> Roadmaps & Track Courses Base Path
   static const String developerTracksBasePath = "api/tracks-page/tracks";
 
@@ -46,6 +48,9 @@ class ApiConstants {
 
   //------ Search ------------
   static const String searchCourses = "api/courses-page/search-courses";
+
+  //------ chats ------------
+  static const String allChats = "/api/private-chats";
 }
 
 class ApiErrors {

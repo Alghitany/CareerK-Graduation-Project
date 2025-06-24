@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'search_courses_state.dart';
+part of 'chats_all_chats_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$SearchCoursesState {
+mixin _$ChatsAllChatsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<SearchCoursesResponseBody> courses) success,
+    required TResult Function(ChatsAllChatsResponseBody chats) success,
     required TResult Function(ErrorHandler errorHandler) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -29,7 +29,7 @@ mixin _$SearchCoursesState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<SearchCoursesResponseBody> courses)? success,
+    TResult? Function(ChatsAllChatsResponseBody chats)? success,
     TResult? Function(ErrorHandler errorHandler)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ mixin _$SearchCoursesState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<SearchCoursesResponseBody> courses)? success,
+    TResult Function(ChatsAllChatsResponseBody chats)? success,
     TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) =>
@@ -46,49 +46,49 @@ mixin _$SearchCoursesState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(SearchCoursesLoading value) loading,
-    required TResult Function(SearchCoursesSuccess value) success,
-    required TResult Function(SearchCoursesError value) error,
+    required TResult Function(ChatsAllChatsLoading value) loading,
+    required TResult Function(ChatsAllChatsSuccess value) success,
+    required TResult Function(ChatsAllChatsError value) error,
   }) =>
       throw _privateConstructorUsedError;
 
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(SearchCoursesLoading value)? loading,
-    TResult? Function(SearchCoursesSuccess value)? success,
-    TResult? Function(SearchCoursesError value)? error,
+    TResult? Function(ChatsAllChatsLoading value)? loading,
+    TResult? Function(ChatsAllChatsSuccess value)? success,
+    TResult? Function(ChatsAllChatsError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(SearchCoursesLoading value)? loading,
-    TResult Function(SearchCoursesSuccess value)? success,
-    TResult Function(SearchCoursesError value)? error,
+    TResult Function(ChatsAllChatsLoading value)? loading,
+    TResult Function(ChatsAllChatsSuccess value)? success,
+    TResult Function(ChatsAllChatsError value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SearchCoursesStateCopyWith<$Res> {
-  factory $SearchCoursesStateCopyWith(
-          SearchCoursesState value, $Res Function(SearchCoursesState) then) =
-      _$SearchCoursesStateCopyWithImpl<$Res, SearchCoursesState>;
+abstract class $ChatsAllChatsStateCopyWith<$Res> {
+  factory $ChatsAllChatsStateCopyWith(
+          ChatsAllChatsState value, $Res Function(ChatsAllChatsState) then) =
+      _$ChatsAllChatsStateCopyWithImpl<$Res, ChatsAllChatsState>;
 }
 
 /// @nodoc
-class _$SearchCoursesStateCopyWithImpl<$Res, $Val extends SearchCoursesState>
-    implements $SearchCoursesStateCopyWith<$Res> {
-  _$SearchCoursesStateCopyWithImpl(this._value, this._then);
+class _$ChatsAllChatsStateCopyWithImpl<$Res, $Val extends ChatsAllChatsState>
+    implements $ChatsAllChatsStateCopyWith<$Res> {
+  _$ChatsAllChatsStateCopyWithImpl(this._value, this._then);
 
 // ignore: unused_field
   final $Val _value;
 // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of SearchCoursesState
+  /// Create a copy of ChatsAllChatsState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -101,13 +101,13 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$SearchCoursesStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$ChatsAllChatsStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of SearchCoursesState
+  /// Create a copy of ChatsAllChatsState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -118,7 +118,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'SearchCoursesState.initial()';
+    return 'ChatsAllChatsState.initial()';
   }
 
   @override
@@ -135,7 +135,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<SearchCoursesResponseBody> courses) success,
+    required TResult Function(ChatsAllChatsResponseBody chats) success,
     required TResult Function(ErrorHandler errorHandler) error,
   }) {
     return initial();
@@ -146,7 +146,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<SearchCoursesResponseBody> courses)? success,
+    TResult? Function(ChatsAllChatsResponseBody chats)? success,
     TResult? Function(ErrorHandler errorHandler)? error,
   }) {
     return initial?.call();
@@ -157,7 +157,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<SearchCoursesResponseBody> courses)? success,
+    TResult Function(ChatsAllChatsResponseBody chats)? success,
     TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) {
@@ -171,9 +171,9 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(SearchCoursesLoading value) loading,
-    required TResult Function(SearchCoursesSuccess value) success,
-    required TResult Function(SearchCoursesError value) error,
+    required TResult Function(ChatsAllChatsLoading value) loading,
+    required TResult Function(ChatsAllChatsSuccess value) success,
+    required TResult Function(ChatsAllChatsError value) error,
   }) {
     return initial(this);
   }
@@ -182,9 +182,9 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(SearchCoursesLoading value)? loading,
-    TResult? Function(SearchCoursesSuccess value)? success,
-    TResult? Function(SearchCoursesError value)? error,
+    TResult? Function(ChatsAllChatsLoading value)? loading,
+    TResult? Function(ChatsAllChatsSuccess value)? success,
+    TResult? Function(ChatsAllChatsError value)? error,
   }) {
     return initial?.call(this);
   }
@@ -193,9 +193,9 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(SearchCoursesLoading value)? loading,
-    TResult Function(SearchCoursesSuccess value)? success,
-    TResult Function(SearchCoursesError value)? error,
+    TResult Function(ChatsAllChatsLoading value)? loading,
+    TResult Function(ChatsAllChatsSuccess value)? success,
+    TResult Function(ChatsAllChatsError value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -205,44 +205,44 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements SearchCoursesState {
+abstract class _Initial implements ChatsAllChatsState {
   const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$SearchCoursesLoadingImplCopyWith<$Res> {
-  factory _$$SearchCoursesLoadingImplCopyWith(_$SearchCoursesLoadingImpl value,
-          $Res Function(_$SearchCoursesLoadingImpl) then) =
-      __$$SearchCoursesLoadingImplCopyWithImpl<$Res>;
+abstract class _$$ChatsAllChatsLoadingImplCopyWith<$Res> {
+  factory _$$ChatsAllChatsLoadingImplCopyWith(_$ChatsAllChatsLoadingImpl value,
+          $Res Function(_$ChatsAllChatsLoadingImpl) then) =
+      __$$ChatsAllChatsLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$SearchCoursesLoadingImplCopyWithImpl<$Res>
-    extends _$SearchCoursesStateCopyWithImpl<$Res, _$SearchCoursesLoadingImpl>
-    implements _$$SearchCoursesLoadingImplCopyWith<$Res> {
-  __$$SearchCoursesLoadingImplCopyWithImpl(_$SearchCoursesLoadingImpl _value,
-      $Res Function(_$SearchCoursesLoadingImpl) _then)
+class __$$ChatsAllChatsLoadingImplCopyWithImpl<$Res>
+    extends _$ChatsAllChatsStateCopyWithImpl<$Res, _$ChatsAllChatsLoadingImpl>
+    implements _$$ChatsAllChatsLoadingImplCopyWith<$Res> {
+  __$$ChatsAllChatsLoadingImplCopyWithImpl(_$ChatsAllChatsLoadingImpl _value,
+      $Res Function(_$ChatsAllChatsLoadingImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of SearchCoursesState
+  /// Create a copy of ChatsAllChatsState
   /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$SearchCoursesLoadingImpl implements SearchCoursesLoading {
-  const _$SearchCoursesLoadingImpl();
+class _$ChatsAllChatsLoadingImpl implements ChatsAllChatsLoading {
+  const _$ChatsAllChatsLoadingImpl();
 
   @override
   String toString() {
-    return 'SearchCoursesState.loading()';
+    return 'ChatsAllChatsState.loading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SearchCoursesLoadingImpl);
+            other is _$ChatsAllChatsLoadingImpl);
   }
 
   @override
@@ -253,7 +253,7 @@ class _$SearchCoursesLoadingImpl implements SearchCoursesLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<SearchCoursesResponseBody> courses) success,
+    required TResult Function(ChatsAllChatsResponseBody chats) success,
     required TResult Function(ErrorHandler errorHandler) error,
   }) {
     return loading();
@@ -264,7 +264,7 @@ class _$SearchCoursesLoadingImpl implements SearchCoursesLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<SearchCoursesResponseBody> courses)? success,
+    TResult? Function(ChatsAllChatsResponseBody chats)? success,
     TResult? Function(ErrorHandler errorHandler)? error,
   }) {
     return loading?.call();
@@ -275,7 +275,7 @@ class _$SearchCoursesLoadingImpl implements SearchCoursesLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<SearchCoursesResponseBody> courses)? success,
+    TResult Function(ChatsAllChatsResponseBody chats)? success,
     TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) {
@@ -289,9 +289,9 @@ class _$SearchCoursesLoadingImpl implements SearchCoursesLoading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(SearchCoursesLoading value) loading,
-    required TResult Function(SearchCoursesSuccess value) success,
-    required TResult Function(SearchCoursesError value) error,
+    required TResult Function(ChatsAllChatsLoading value) loading,
+    required TResult Function(ChatsAllChatsSuccess value) success,
+    required TResult Function(ChatsAllChatsError value) error,
   }) {
     return loading(this);
   }
@@ -300,9 +300,9 @@ class _$SearchCoursesLoadingImpl implements SearchCoursesLoading {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(SearchCoursesLoading value)? loading,
-    TResult? Function(SearchCoursesSuccess value)? success,
-    TResult? Function(SearchCoursesError value)? error,
+    TResult? Function(ChatsAllChatsLoading value)? loading,
+    TResult? Function(ChatsAllChatsSuccess value)? success,
+    TResult? Function(ChatsAllChatsError value)? error,
   }) {
     return loading?.call(this);
   }
@@ -311,9 +311,9 @@ class _$SearchCoursesLoadingImpl implements SearchCoursesLoading {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(SearchCoursesLoading value)? loading,
-    TResult Function(SearchCoursesSuccess value)? success,
-    TResult Function(SearchCoursesError value)? error,
+    TResult Function(ChatsAllChatsLoading value)? loading,
+    TResult Function(ChatsAllChatsSuccess value)? success,
+    TResult Function(ChatsAllChatsError value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -323,83 +323,75 @@ class _$SearchCoursesLoadingImpl implements SearchCoursesLoading {
   }
 }
 
-abstract class SearchCoursesLoading implements SearchCoursesState {
-  const factory SearchCoursesLoading() = _$SearchCoursesLoadingImpl;
+abstract class ChatsAllChatsLoading implements ChatsAllChatsState {
+  const factory ChatsAllChatsLoading() = _$ChatsAllChatsLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$SearchCoursesSuccessImplCopyWith<$Res> {
-  factory _$$SearchCoursesSuccessImplCopyWith(_$SearchCoursesSuccessImpl value,
-          $Res Function(_$SearchCoursesSuccessImpl) then) =
-      __$$SearchCoursesSuccessImplCopyWithImpl<$Res>;
+abstract class _$$ChatsAllChatsSuccessImplCopyWith<$Res> {
+  factory _$$ChatsAllChatsSuccessImplCopyWith(_$ChatsAllChatsSuccessImpl value,
+          $Res Function(_$ChatsAllChatsSuccessImpl) then) =
+      __$$ChatsAllChatsSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<SearchCoursesResponseBody> courses});
+  $Res call({ChatsAllChatsResponseBody chats});
 }
 
 /// @nodoc
-class __$$SearchCoursesSuccessImplCopyWithImpl<$Res>
-    extends _$SearchCoursesStateCopyWithImpl<$Res, _$SearchCoursesSuccessImpl>
-    implements _$$SearchCoursesSuccessImplCopyWith<$Res> {
-  __$$SearchCoursesSuccessImplCopyWithImpl(_$SearchCoursesSuccessImpl _value,
-      $Res Function(_$SearchCoursesSuccessImpl) _then)
+class __$$ChatsAllChatsSuccessImplCopyWithImpl<$Res>
+    extends _$ChatsAllChatsStateCopyWithImpl<$Res, _$ChatsAllChatsSuccessImpl>
+    implements _$$ChatsAllChatsSuccessImplCopyWith<$Res> {
+  __$$ChatsAllChatsSuccessImplCopyWithImpl(_$ChatsAllChatsSuccessImpl _value,
+      $Res Function(_$ChatsAllChatsSuccessImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of SearchCoursesState
+  /// Create a copy of ChatsAllChatsState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? courses = null,
+    Object? chats = null,
   }) {
-    return _then(_$SearchCoursesSuccessImpl(
-      null == courses
-          ? _value._courses
-          : courses // ignore: cast_nullable_to_non_nullable
-              as List<SearchCoursesResponseBody>,
+    return _then(_$ChatsAllChatsSuccessImpl(
+      null == chats
+          ? _value.chats
+          : chats // ignore: cast_nullable_to_non_nullable
+              as ChatsAllChatsResponseBody,
     ));
   }
 }
 
 /// @nodoc
 
-class _$SearchCoursesSuccessImpl implements SearchCoursesSuccess {
-  const _$SearchCoursesSuccessImpl(
-      final List<SearchCoursesResponseBody> courses)
-      : _courses = courses;
+class _$ChatsAllChatsSuccessImpl implements ChatsAllChatsSuccess {
+  const _$ChatsAllChatsSuccessImpl(this.chats);
 
-  final List<SearchCoursesResponseBody> _courses;
   @override
-  List<SearchCoursesResponseBody> get courses {
-    if (_courses is EqualUnmodifiableListView) return _courses;
-// ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_courses);
-  }
+  final ChatsAllChatsResponseBody chats;
 
   @override
   String toString() {
-    return 'SearchCoursesState.success(courses: $courses)';
+    return 'ChatsAllChatsState.success(chats: $chats)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SearchCoursesSuccessImpl &&
-            const DeepCollectionEquality().equals(other._courses, _courses));
+            other is _$ChatsAllChatsSuccessImpl &&
+            (identical(other.chats, chats) || other.chats == chats));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_courses));
+  int get hashCode => Object.hash(runtimeType, chats);
 
-  /// Create a copy of SearchCoursesState
+  /// Create a copy of ChatsAllChatsState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$SearchCoursesSuccessImplCopyWith<_$SearchCoursesSuccessImpl>
+  _$$ChatsAllChatsSuccessImplCopyWith<_$ChatsAllChatsSuccessImpl>
       get copyWith =>
-          __$$SearchCoursesSuccessImplCopyWithImpl<_$SearchCoursesSuccessImpl>(
+          __$$ChatsAllChatsSuccessImplCopyWithImpl<_$ChatsAllChatsSuccessImpl>(
               this, _$identity);
 
   @override
@@ -407,10 +399,10 @@ class _$SearchCoursesSuccessImpl implements SearchCoursesSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<SearchCoursesResponseBody> courses) success,
+    required TResult Function(ChatsAllChatsResponseBody chats) success,
     required TResult Function(ErrorHandler errorHandler) error,
   }) {
-    return success(courses);
+    return success(chats);
   }
 
   @override
@@ -418,10 +410,10 @@ class _$SearchCoursesSuccessImpl implements SearchCoursesSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<SearchCoursesResponseBody> courses)? success,
+    TResult? Function(ChatsAllChatsResponseBody chats)? success,
     TResult? Function(ErrorHandler errorHandler)? error,
   }) {
-    return success?.call(courses);
+    return success?.call(chats);
   }
 
   @override
@@ -429,12 +421,12 @@ class _$SearchCoursesSuccessImpl implements SearchCoursesSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<SearchCoursesResponseBody> courses)? success,
+    TResult Function(ChatsAllChatsResponseBody chats)? success,
     TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(courses);
+      return success(chats);
     }
     return orElse();
   }
@@ -443,9 +435,9 @@ class _$SearchCoursesSuccessImpl implements SearchCoursesSuccess {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(SearchCoursesLoading value) loading,
-    required TResult Function(SearchCoursesSuccess value) success,
-    required TResult Function(SearchCoursesError value) error,
+    required TResult Function(ChatsAllChatsLoading value) loading,
+    required TResult Function(ChatsAllChatsSuccess value) success,
+    required TResult Function(ChatsAllChatsError value) error,
   }) {
     return success(this);
   }
@@ -454,9 +446,9 @@ class _$SearchCoursesSuccessImpl implements SearchCoursesSuccess {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(SearchCoursesLoading value)? loading,
-    TResult? Function(SearchCoursesSuccess value)? success,
-    TResult? Function(SearchCoursesError value)? error,
+    TResult? Function(ChatsAllChatsLoading value)? loading,
+    TResult? Function(ChatsAllChatsSuccess value)? success,
+    TResult? Function(ChatsAllChatsError value)? error,
   }) {
     return success?.call(this);
   }
@@ -465,9 +457,9 @@ class _$SearchCoursesSuccessImpl implements SearchCoursesSuccess {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(SearchCoursesLoading value)? loading,
-    TResult Function(SearchCoursesSuccess value)? success,
-    TResult Function(SearchCoursesError value)? error,
+    TResult Function(ChatsAllChatsLoading value)? loading,
+    TResult Function(ChatsAllChatsSuccess value)? success,
+    TResult Function(ChatsAllChatsError value)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -477,45 +469,44 @@ class _$SearchCoursesSuccessImpl implements SearchCoursesSuccess {
   }
 }
 
-abstract class SearchCoursesSuccess implements SearchCoursesState {
-  const factory SearchCoursesSuccess(
-          final List<SearchCoursesResponseBody> courses) =
-      _$SearchCoursesSuccessImpl;
+abstract class ChatsAllChatsSuccess implements ChatsAllChatsState {
+  const factory ChatsAllChatsSuccess(final ChatsAllChatsResponseBody chats) =
+      _$ChatsAllChatsSuccessImpl;
 
-  List<SearchCoursesResponseBody> get courses;
+  ChatsAllChatsResponseBody get chats;
 
-  /// Create a copy of SearchCoursesState
+  /// Create a copy of ChatsAllChatsState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SearchCoursesSuccessImplCopyWith<_$SearchCoursesSuccessImpl>
+  _$$ChatsAllChatsSuccessImplCopyWith<_$ChatsAllChatsSuccessImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SearchCoursesErrorImplCopyWith<$Res> {
-  factory _$$SearchCoursesErrorImplCopyWith(_$SearchCoursesErrorImpl value,
-          $Res Function(_$SearchCoursesErrorImpl) then) =
-      __$$SearchCoursesErrorImplCopyWithImpl<$Res>;
+abstract class _$$ChatsAllChatsErrorImplCopyWith<$Res> {
+  factory _$$ChatsAllChatsErrorImplCopyWith(_$ChatsAllChatsErrorImpl value,
+          $Res Function(_$ChatsAllChatsErrorImpl) then) =
+      __$$ChatsAllChatsErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ErrorHandler errorHandler});
 }
 
 /// @nodoc
-class __$$SearchCoursesErrorImplCopyWithImpl<$Res>
-    extends _$SearchCoursesStateCopyWithImpl<$Res, _$SearchCoursesErrorImpl>
-    implements _$$SearchCoursesErrorImplCopyWith<$Res> {
-  __$$SearchCoursesErrorImplCopyWithImpl(_$SearchCoursesErrorImpl _value,
-      $Res Function(_$SearchCoursesErrorImpl) _then)
+class __$$ChatsAllChatsErrorImplCopyWithImpl<$Res>
+    extends _$ChatsAllChatsStateCopyWithImpl<$Res, _$ChatsAllChatsErrorImpl>
+    implements _$$ChatsAllChatsErrorImplCopyWith<$Res> {
+  __$$ChatsAllChatsErrorImplCopyWithImpl(_$ChatsAllChatsErrorImpl _value,
+      $Res Function(_$ChatsAllChatsErrorImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of SearchCoursesState
+  /// Create a copy of ChatsAllChatsState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? errorHandler = null,
   }) {
-    return _then(_$SearchCoursesErrorImpl(
+    return _then(_$ChatsAllChatsErrorImpl(
       null == errorHandler
           ? _value.errorHandler
           : errorHandler // ignore: cast_nullable_to_non_nullable
@@ -526,22 +517,22 @@ class __$$SearchCoursesErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SearchCoursesErrorImpl implements SearchCoursesError {
-  const _$SearchCoursesErrorImpl(this.errorHandler);
+class _$ChatsAllChatsErrorImpl implements ChatsAllChatsError {
+  const _$ChatsAllChatsErrorImpl(this.errorHandler);
 
   @override
   final ErrorHandler errorHandler;
 
   @override
   String toString() {
-    return 'SearchCoursesState.error(errorHandler: $errorHandler)';
+    return 'ChatsAllChatsState.error(errorHandler: $errorHandler)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SearchCoursesErrorImpl &&
+            other is _$ChatsAllChatsErrorImpl &&
             (identical(other.errorHandler, errorHandler) ||
                 other.errorHandler == errorHandler));
   }
@@ -549,13 +540,13 @@ class _$SearchCoursesErrorImpl implements SearchCoursesError {
   @override
   int get hashCode => Object.hash(runtimeType, errorHandler);
 
-  /// Create a copy of SearchCoursesState
+  /// Create a copy of ChatsAllChatsState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$SearchCoursesErrorImplCopyWith<_$SearchCoursesErrorImpl> get copyWith =>
-      __$$SearchCoursesErrorImplCopyWithImpl<_$SearchCoursesErrorImpl>(
+  _$$ChatsAllChatsErrorImplCopyWith<_$ChatsAllChatsErrorImpl> get copyWith =>
+      __$$ChatsAllChatsErrorImplCopyWithImpl<_$ChatsAllChatsErrorImpl>(
           this, _$identity);
 
   @override
@@ -563,7 +554,7 @@ class _$SearchCoursesErrorImpl implements SearchCoursesError {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<SearchCoursesResponseBody> courses) success,
+    required TResult Function(ChatsAllChatsResponseBody chats) success,
     required TResult Function(ErrorHandler errorHandler) error,
   }) {
     return error(errorHandler);
@@ -574,7 +565,7 @@ class _$SearchCoursesErrorImpl implements SearchCoursesError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<SearchCoursesResponseBody> courses)? success,
+    TResult? Function(ChatsAllChatsResponseBody chats)? success,
     TResult? Function(ErrorHandler errorHandler)? error,
   }) {
     return error?.call(errorHandler);
@@ -585,7 +576,7 @@ class _$SearchCoursesErrorImpl implements SearchCoursesError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<SearchCoursesResponseBody> courses)? success,
+    TResult Function(ChatsAllChatsResponseBody chats)? success,
     TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) {
@@ -599,9 +590,9 @@ class _$SearchCoursesErrorImpl implements SearchCoursesError {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(SearchCoursesLoading value) loading,
-    required TResult Function(SearchCoursesSuccess value) success,
-    required TResult Function(SearchCoursesError value) error,
+    required TResult Function(ChatsAllChatsLoading value) loading,
+    required TResult Function(ChatsAllChatsSuccess value) success,
+    required TResult Function(ChatsAllChatsError value) error,
   }) {
     return error(this);
   }
@@ -610,9 +601,9 @@ class _$SearchCoursesErrorImpl implements SearchCoursesError {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(SearchCoursesLoading value)? loading,
-    TResult? Function(SearchCoursesSuccess value)? success,
-    TResult? Function(SearchCoursesError value)? error,
+    TResult? Function(ChatsAllChatsLoading value)? loading,
+    TResult? Function(ChatsAllChatsSuccess value)? success,
+    TResult? Function(ChatsAllChatsError value)? error,
   }) {
     return error?.call(this);
   }
@@ -621,9 +612,9 @@ class _$SearchCoursesErrorImpl implements SearchCoursesError {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(SearchCoursesLoading value)? loading,
-    TResult Function(SearchCoursesSuccess value)? success,
-    TResult Function(SearchCoursesError value)? error,
+    TResult Function(ChatsAllChatsLoading value)? loading,
+    TResult Function(ChatsAllChatsSuccess value)? success,
+    TResult Function(ChatsAllChatsError value)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -633,15 +624,15 @@ class _$SearchCoursesErrorImpl implements SearchCoursesError {
   }
 }
 
-abstract class SearchCoursesError implements SearchCoursesState {
-  const factory SearchCoursesError(final ErrorHandler errorHandler) =
-      _$SearchCoursesErrorImpl;
+abstract class ChatsAllChatsError implements ChatsAllChatsState {
+  const factory ChatsAllChatsError(final ErrorHandler errorHandler) =
+      _$ChatsAllChatsErrorImpl;
 
   ErrorHandler get errorHandler;
 
-  /// Create a copy of SearchCoursesState
+  /// Create a copy of ChatsAllChatsState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SearchCoursesErrorImplCopyWith<_$SearchCoursesErrorImpl> get copyWith =>
+  _$$ChatsAllChatsErrorImplCopyWith<_$ChatsAllChatsErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

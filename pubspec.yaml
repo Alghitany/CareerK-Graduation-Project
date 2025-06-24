@@ -83,6 +83,8 @@ dependencies:
   http_parser: ^4.0.0
   # Provides an easy way to add shimmer effect
   shimmer: ^3.0.0
+  # Converts a date into a humanized text.
+  timeago: ^3.5.0
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true

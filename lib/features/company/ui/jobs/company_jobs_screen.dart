@@ -1,10 +1,12 @@
+import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
+
+import '../../../../core/routing/routes.dart';
 import '../../../../core/widgets/company_bottom_navigation_bar.dart';
 import '../../../../core/widgets/company_floating_action_button.dart';
-import '../../../chats/all_chats/chats_all_chats.dart';
 import 'widgets/all_jobs.dart';
 
 class CompanyJobsScreen extends StatefulWidget {
@@ -41,9 +43,13 @@ class _CompanyJobsScreenState extends State<CompanyJobsScreen> {
                           final isSelected = index == selectedTabIndex;
                           return GestureDetector(
                             onTap: () {
-                              setState(() {
-                                selectedTabIndex = index;
-                              });
+                              if (index == 1) {
+                                context.pushNamed(Routes.chatsAllChatsScreen);
+                              } else {
+                                setState(() {
+                                  selectedTabIndex = index;
+                                });
+                              }
                             },
                             child: Container(
                               padding: EdgeInsets.symmetric(
@@ -58,9 +64,8 @@ class _CompanyJobsScreenState extends State<CompanyJobsScreen> {
                               child: Text(
                                 tabs[index],
                                 style: TextStyle(
-                                  color: isSelected
-                                      ? Colors.white
-                                      : Colors.black,
+                                  color:
+                                      isSelected ? Colors.white : Colors.black,
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w600,
                                 ),
@@ -91,7 +96,6 @@ class _CompanyJobsScreenState extends State<CompanyJobsScreen> {
 
                 // Tab Content
                 if (selectedTabIndex == 0) const AllJobs(),
-                if (selectedTabIndex == 1) const ChatsAllChats(),
               ],
             ),
           ),
