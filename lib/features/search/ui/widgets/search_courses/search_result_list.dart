@@ -4,6 +4,7 @@ import 'course_card.dart';
 
 class SearchResultList extends StatelessWidget {
   final List courses;
+
   const SearchResultList({super.key, required this.courses});
 
   @override

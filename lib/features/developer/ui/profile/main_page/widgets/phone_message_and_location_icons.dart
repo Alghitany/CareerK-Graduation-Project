@@ -1,4 +1,6 @@
+import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
+import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,7 +24,7 @@ class PhoneMessageAndLocationIcons extends StatelessWidget {
         customCirclePhoneMessageLocationContainer(
           icon: "assets/svgs/mail_outlined.svg",
           onTap: () {
-            //TODO Navigation Here
+            context.pushNamed(Routes.chatsAllChatsScreen);
           },
         ),
         horizontalSpace(24),

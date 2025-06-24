@@ -14,6 +14,8 @@ import '../../features/authentication/login/ui/login_screen.dart';
 import '../../features/authentication/onboarding/on_boarding_screen.dart';
 import '../../features/authentication/reset_password/ui/reset_password_screen.dart';
 import '../../features/authentication/successful_change_password/successful_change_password.dart';
+import '../../features/chats/all_chats/logic/chats_all_chats_cubit.dart';
+import '../../features/chats/all_chats/ui/chats_all_chats.dart';
 import '../../features/chats/person_chat/chats_person_chat_screen.dart';
 import '../../features/company/logic/company_jobs_delete_post_cubit.dart';
 import '../../features/company/ui/home/main_page/company_home_main_page_screen.dart';
@@ -158,11 +160,6 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const CompanyHomeSeeResumeScreen(),
         );
-      // Chats
-      case Routes.chatsPersonChatScreen:
-        return MaterialPageRoute(
-          builder: (_) => const ChatsPersonChatScreen(),
-        );
       // Jobs
       case Routes.companyJobsScreen:
         return MaterialPageRoute(
@@ -253,6 +250,19 @@ class AppRouter {
               searchType: searchType,
             ),
           ),
+        );
+      // All Chats
+      case Routes.chatsAllChatsScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<ChatsAllChatsCubit>()..getAllChats(),
+            child: const ChatsAllChats(),
+          ),
+        );
+      // Chats
+      case Routes.chatsPersonChatScreen:
+        return MaterialPageRoute(
+          builder: (_) => const ChatsPersonChatScreen(),
         );
       // Courses
       case Routes.developerCoursesMainPageScreen:

@@ -66,14 +66,13 @@ class ChatCard extends StatelessWidget {
                             child: Text(
                               name,
                               style: AppTextStyles
-                                  .font16RangoonGreenPoppinsSemiBold,
+                                  .font14RangoonGreenPoppinsSemiBold,
                               overflow: TextOverflow.ellipsis,
                             ),
                           ),
                           Text(
                             time,
-                            style: AppTextStyles
-                                .font14LemonGrassPoppinsRegular,
+                            style: AppTextStyles.font12LemonGrassPoppinsRegular,
                           ),
                         ],
                       ),

@@ -14,6 +14,8 @@ import '../../features/authentication/reset_password/data/repos/reset_password_r
 import '../../features/authentication/reset_password/logic/reset_password_cubit.dart';
 import '../../features/authentication/verify_code/data/repo/verify_code_repo.dart';
 import '../../features/authentication/verify_code/logic/verify_code_cubit.dart';
+import '../../features/chats/all_chats/data/repo/chats_all_chats_repo.dart';
+import '../../features/chats/all_chats/logic/chats_all_chats_cubit.dart';
 import '../../features/company/ui/jobs_post/data/repos/company_jobs_post_repo.dart';
 import '../../features/company/ui/jobs_post/logic/company_jobs_post_cubit.dart';
 import '../../features/developer/data/repo/developer_courses_and_jobs_main_page_profile_repo.dart';
@@ -118,5 +120,14 @@ Future<void> setupGetIt() async {
   );
   getIt.registerFactory<SearchCoursesCubit>(
     () => SearchCoursesCubit(getIt()),
+  );
+  // Chats
+  //-> All Chats
+  getIt.registerLazySingleton<ChatsAllChatsRepo>(
+    () => ChatsAllChatsRepo(getIt()),
+  );
+
+  getIt.registerFactory<ChatsAllChatsCubit>(
+    () => ChatsAllChatsCubit(getIt()),
   );
 }

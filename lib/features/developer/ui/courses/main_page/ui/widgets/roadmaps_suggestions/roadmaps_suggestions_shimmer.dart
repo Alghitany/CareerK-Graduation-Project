@@ -1,8 +1,8 @@
+import 'package:carrerk/core/helpers/spacing.dart';
+import 'package:carrerk/core/theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:carrerk/core/helpers/spacing.dart';
-import 'package:carrerk/core/theming/colors.dart';
 
 class RoadmapsSuggestionsShimmer extends StatelessWidget {
   const RoadmapsSuggestionsShimmer({super.key});

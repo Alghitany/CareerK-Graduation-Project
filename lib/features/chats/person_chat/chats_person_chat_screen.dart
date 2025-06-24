@@ -12,12 +12,10 @@ class ChatsPersonChatScreen extends StatefulWidget {
   const ChatsPersonChatScreen({super.key});
 
   @override
-  State<ChatsPersonChatScreen> createState() =>
-      _ChatsPersonChatScreenState();
+  State<ChatsPersonChatScreen> createState() => _ChatsPersonChatScreenState();
 }
 
-class _ChatsPersonChatScreenState
-    extends State<ChatsPersonChatScreen> {
+class _ChatsPersonChatScreenState extends State<ChatsPersonChatScreen> {
   //TODO: It should be refactored don't duplicate messages
   List<Widget> messages = [const ReceiveMessage()];
   final ScrollController _scrollController = ScrollController();

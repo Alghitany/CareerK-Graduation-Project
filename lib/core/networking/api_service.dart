@@ -9,6 +9,7 @@ import '../../features/authentication/reset_password/data/models/reset_password_
 import '../../features/authentication/reset_password/data/models/reset_password_response.dart';
 import '../../features/authentication/verify_code/data/model/verify_code_request_body.dart';
 import '../../features/authentication/verify_code/data/model/verify_code_response.dart';
+import '../../features/chats/all_chats/data/model/chats_all_chats_response_body.dart';
 import '../../features/company/data/model/company_jobs_delete_post_response.dart';
 import '../../features/company/ui/jobs_post/data/models/company_jobs_post_request_body.dart';
 import '../../features/company/ui/jobs_post/data/models/company_jobs_post_response.dart';
@@ -53,14 +54,17 @@ abstract class ApiService {
   @GET(ApiConstants.developerCoursesMainPageProfile)
   Future<DeveloperCoursesAndJobsMainPageProfileResponseModel>
       getDeveloperCoursesMainPageProfile();
+
   //->Courses Main Page Roadmaps
   @GET(ApiConstants.developerCoursesMainPageRoadmaps)
   Future<List<DeveloperCoursesMainPageRoadmapsResponseModel>>
       getDeveloperCoursesMainPageRoadmaps();
+
   //->Courses Roadmaps
   @GET(ApiConstants.developerTracksBasePath)
   Future<List<DeveloperCoursesRoadmapsResponseBody>>
       getDeveloperCoursesRoadmaps();
+
   //-> Specific Category
   @GET("${ApiConstants.developerTracksBasePath}/{trackId}/courses")
   Future<List<DeveloperCoursesSpecificCategoryResponseBody>>
@@ -80,9 +84,14 @@ abstract class ApiService {
   Future<CompanyJobsDeletePostResponse> deleteCompanyJobPost(
     @Path("jobId") String jobId,
   );
+
   //----------------- Search
   @GET(ApiConstants.searchCourses)
   Future<List<SearchCoursesResponseBody>> searchCourses(
     @Query("search") String searchQuery,
   );
+
+  //----------------- Chats
+  @GET(ApiConstants.allChats)
+  Future<ChatsAllChatsResponseBody> getAllChats();
 }
