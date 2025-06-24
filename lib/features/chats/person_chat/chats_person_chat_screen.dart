@@ -8,16 +8,16 @@ import 'widgets/exit_icon.dart';
 import 'widgets/input_field_with_send_button.dart';
 import 'widgets/receive_messages.dart';
 
-class CompanyChatsPersonChatScreen extends StatefulWidget {
-  const CompanyChatsPersonChatScreen({super.key});
+class ChatsPersonChatScreen extends StatefulWidget {
+  const ChatsPersonChatScreen({super.key});
 
   @override
-  State<CompanyChatsPersonChatScreen> createState() =>
-      _CompanyChatsPersonChatScreenState();
+  State<ChatsPersonChatScreen> createState() =>
+      _ChatsPersonChatScreenState();
 }
 
-class _CompanyChatsPersonChatScreenState
-    extends State<CompanyChatsPersonChatScreen> {
+class _ChatsPersonChatScreenState
+    extends State<ChatsPersonChatScreen> {
   //TODO: It should be refactored don't duplicate messages
   List<Widget> messages = [const ReceiveMessage()];
   final ScrollController _scrollController = ScrollController();

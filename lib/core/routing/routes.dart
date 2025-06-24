@@ -36,7 +36,7 @@ class Routes {
       "/companyHomeSeeResumeScreen";
 
   // Chats
-  static const String companyChatsPersonChatScreen =
+  static const String chatsPersonChatScreen =
       "/companyChatsPersonChatScreen";
 
   // Jobs
