@@ -40,9 +40,6 @@ class ChatsListBlocBuilder extends StatelessWidget {
 
     return ChatsListView(
       chats: response.chats,
-      onTap: (chat) {
-        // TODO: Navigate to detailed chat screen
-      },
     );
   }
 
