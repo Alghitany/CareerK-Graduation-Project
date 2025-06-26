@@ -5,11 +5,15 @@ class AppArgument {
   final String? query;
   final SearchType? searchType;
   final String? trackId;
+  final String? chatRoomId;
+  final bool? isExisting;
 
   AppArgument({
     this.jobId,
     this.query,
     this.searchType,
     this.trackId,
+    this.chatRoomId,
+    this.isExisting,
   });
 }

@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../developer/ui/community/chat/widgets/sent_message_container.dart';
+import '../../../../developer/ui/community/chat/widgets/sent_message_container.dart';
+
 
 class InputFieldWithSendButton extends StatefulWidget {
   final void Function(Widget) onSend;

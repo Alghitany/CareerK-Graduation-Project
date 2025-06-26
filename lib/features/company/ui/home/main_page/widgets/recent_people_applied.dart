@@ -3,11 +3,14 @@ import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../../../core/theming/colors.dart';
 import '../../../../../../core/theming/styles.dart';
+import '../../../../../chats/person_chat/data/models/start_chat/start_chat_room_request_body.dart';
+import '../../../../../chats/person_chat/logic/start_chat/start_chat_room_cubit.dart';
 
 class RecentPeopleApplied extends StatelessWidget {
   const RecentPeopleApplied({super.key});
@@ -121,8 +124,17 @@ class RecentPeopleApplied extends StatelessWidget {
                                   horizontalSpace(10),
                                   GestureDetector(
                                     onTap: () {
-                                      context.pushNamed(
-                                          Routes.chatsPersonChatScreen);
+                                      final userId = person['userId'];
+                                      final role = person['role'];
+
+                                      final requestBody = StartChatRoomRequestBody(
+                                        targetUser: TargetUser(
+                                          userId: "3d7f4722-20bc-4463-a088-8096f098276f",
+                                          role: role,
+                                        ),
+                                      );
+
+                                      context.read<StartChatRoomCubit>().emitStartChatRoomStates(requestBody);
                                     },
                                     child: CircleAvatar(
                                       radius: 16.r,

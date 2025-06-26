@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../../core/helpers/spacing.dart';
-import '../../../../../core/theming/colors.dart';
+import '../../../../../../core/helpers/spacing.dart';
+import '../../../../../../core/theming/colors.dart';
+import '../../../developer/ui/community/chat/widgets/exit_icon.dart';
 import 'widgets/applicant_name_title_and_phone_icon.dart';
-import 'widgets/exit_icon.dart';
 import 'widgets/input_field_with_send_button.dart';
 import 'widgets/receive_messages.dart';
 
 class ChatsPersonChatScreen extends StatefulWidget {
-  const ChatsPersonChatScreen({super.key});
+  final String chatRoomId;
+  final bool isExisting;
+
+  const ChatsPersonChatScreen({
+    super.key,
+    required this.chatRoomId,
+    required this.isExisting,
+  });
 
   @override
   State<ChatsPersonChatScreen> createState() => _ChatsPersonChatScreenState();
@@ -19,7 +25,11 @@ class _ChatsPersonChatScreenState extends State<ChatsPersonChatScreen> {
   //TODO: It should be refactored don't duplicate messages
   List<Widget> messages = [const ReceiveMessage()];
   final ScrollController _scrollController = ScrollController();
-
+  @override
+  void initState() {
+    super.initState();
+    debugPrint("ChatRoom ID: ${widget.chatRoomId}, Existing: ${widget.isExisting}");
+  }
   void addMessage(Widget message) {
     setState(() {
       messages.add(message);

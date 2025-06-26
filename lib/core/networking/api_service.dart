@@ -10,6 +10,8 @@ import '../../features/authentication/reset_password/data/models/reset_password_
 import '../../features/authentication/verify_code/data/model/verify_code_request_body.dart';
 import '../../features/authentication/verify_code/data/model/verify_code_response.dart';
 import '../../features/chats/all_chats/data/model/chats_all_chats_response_body.dart';
+import '../../features/chats/person_chat/data/models/start_chat/start_chat_room_request_body.dart';
+import '../../features/chats/person_chat/data/models/start_chat/start_chat_room_response.dart';
 import '../../features/company/data/model/company_jobs_delete_post_response.dart';
 import '../../features/company/ui/jobs_post/data/models/company_jobs_post_request_body.dart';
 import '../../features/company/ui/jobs_post/data/models/company_jobs_post_response.dart';
@@ -94,4 +96,9 @@ abstract class ApiService {
   //----------------- Chats
   @GET(ApiConstants.allChats)
   Future<ChatsAllChatsResponseBody> getAllChats();
+  @POST(ApiConstants.startChatRoom)
+  Future<StartChatRoomResponse> startPrivateChat(
+      @Body() StartChatRoomRequestBody body,
+      );
+
 }

@@ -51,6 +51,7 @@ class ApiConstants {
 
   //------ chats ------------
   static const String allChats = "/api/private-chats";
+  static const String startChatRoom = "/api/private-chats/start";
 }
 
 class ApiErrors {

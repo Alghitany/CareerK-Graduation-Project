@@ -16,7 +16,9 @@ import '../../features/authentication/reset_password/ui/reset_password_screen.da
 import '../../features/authentication/successful_change_password/successful_change_password.dart';
 import '../../features/chats/all_chats/logic/chats_all_chats_cubit.dart';
 import '../../features/chats/all_chats/ui/chats_all_chats.dart';
-import '../../features/chats/person_chat/chats_person_chat_screen.dart';
+import '../../features/chats/person_chat/data/repo/start_chat_room_repo.dart';
+import '../../features/chats/person_chat/logic/start_chat/start_chat_room_cubit.dart';
+import '../../features/chats/person_chat/ui/chats_person_chat_screen.dart';
 import '../../features/company/logic/company_jobs_delete_post_cubit.dart';
 import '../../features/company/ui/home/main_page/company_home_main_page_screen.dart';
 import '../../features/company/ui/home/see_details/company_home_see_details_screen.dart';
@@ -150,7 +152,10 @@ class AppRouter {
       // Home
       case Routes.companyHomeMainPageScreen:
         return MaterialPageRoute(
-          builder: (_) => const CompanyHomeMainPageScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => StartChatRoomCubit(getIt<StartChatRoomRepo>()),
+            child: const CompanyHomeMainPageScreen(),
+          ),
         );
       case Routes.companyHomeSeeDetailsScreen:
         return MaterialPageRoute(
@@ -261,8 +266,12 @@ class AppRouter {
         );
       // Chats
       case Routes.chatsPersonChatScreen:
+        final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-          builder: (_) => const ChatsPersonChatScreen(),
+          builder: (_) => ChatsPersonChatScreen(
+            chatRoomId: args.chatRoomId!,
+            isExisting: args.isExisting!,
+          ),
         );
       // Courses
       case Routes.developerCoursesMainPageScreen:
