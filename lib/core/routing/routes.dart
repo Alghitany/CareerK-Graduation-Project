@@ -152,4 +152,7 @@ class Routes {
       "/customerSignUpCompulsoryDataScreen";
   static const String customerSignUpFillProfileScreen =
       "/customerSignUpFillProfileScreen";
+
+  // ---------------- PDF Viewer ----------------
+  static const String pdfViewerScreen = "/pdfViewerScreen";
 }

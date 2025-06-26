@@ -7,6 +7,7 @@ class AppArgument {
   final String? trackId;
   final String? chatRoomId;
   final bool? isExisting;
+  final String? fileUrl;
 
   AppArgument({
     this.jobId,
@@ -15,5 +16,6 @@ class AppArgument {
     this.trackId,
     this.chatRoomId,
     this.isExisting,
+    this.fileUrl,
   });
 }

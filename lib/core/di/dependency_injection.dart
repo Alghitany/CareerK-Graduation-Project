@@ -1,3 +1,5 @@
+import 'package:carrerk/features/chats/person_chat/data/repo/get_chat_messages_repo.dart';
+import 'package:carrerk/features/chats/person_chat/logic/get_chat_messages/get_chat_messages_cubit.dart';
 import 'package:carrerk/features/company/data/repo/company_jobs_delete_post_repo.dart';
 import 'package:carrerk/features/company/logic/company_jobs_delete_post_cubit.dart';
 import 'package:carrerk/features/developer/ui/courses/main_page/data/repo/developer_courses_main_page_roadmaps_repo.dart';
@@ -133,9 +135,16 @@ Future<void> setupGetIt() async {
   );
   //-> Start Chat Room
   getIt.registerLazySingleton<StartChatRoomRepo>(
-        () => StartChatRoomRepo(getIt()),
+    () => StartChatRoomRepo(getIt()),
   );
   getIt.registerFactory<StartChatRoomCubit>(
-        () => StartChatRoomCubit(getIt()),
+    () => StartChatRoomCubit(getIt()),
+  );
+  //-> Get Chat Messages
+  getIt.registerLazySingleton<GetChatMessagesRepo>(
+    () => GetChatMessagesRepo(getIt()),
+  );
+  getIt.registerFactory<GetChatMessagesCubit>(
+    () => GetChatMessagesCubit(getIt()),
   );
 }

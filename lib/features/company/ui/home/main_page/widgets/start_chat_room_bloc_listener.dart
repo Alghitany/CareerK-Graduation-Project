@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/theming/styles.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../core/routing/app_argument.dart';
 import '../../../../../chats/person_chat/logic/start_chat/start_chat_room_cubit.dart';
@@ -16,7 +16,7 @@ class StartChatRoomBlocListener extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<StartChatRoomCubit, StartChatRoomState>(
       listenWhen: (previous, current) =>
-      current is Loading || current is Success || current is Error,
+          current is Loading || current is Success || current is Error,
       listener: (context, state) {
         state.whenOrNull(
           loading: () {

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../../../../core/helpers/spacing.dart';
-import '../../../../../../core/theming/colors.dart';
+import '../../../../core/helpers/constants.dart';
+import '../../../../core/helpers/shared_pref_helper.dart';
 import '../../../developer/ui/community/chat/widgets/exit_icon.dart';
 import 'widgets/applicant_name_title_and_phone_icon.dart';
+import 'widgets/chat_messages/get_chat_messages_bloc_builder.dart';
 import 'widgets/input_field_with_send_button.dart';
-import 'widgets/receive_messages.dart';
 
 class ChatsPersonChatScreen extends StatefulWidget {
   final String chatRoomId;
@@ -22,24 +24,22 @@ class ChatsPersonChatScreen extends StatefulWidget {
 }
 
 class _ChatsPersonChatScreenState extends State<ChatsPersonChatScreen> {
-  //TODO: It should be refactored don't duplicate messages
-  List<Widget> messages = [const ReceiveMessage()];
+  String? currentUserId;
   final ScrollController _scrollController = ScrollController();
+
   @override
   void initState() {
     super.initState();
-    debugPrint("ChatRoom ID: ${widget.chatRoomId}, Existing: ${widget.isExisting}");
+    loadCurrentUserId();
+    debugPrint(
+        "ChatRoom ID: ${widget.chatRoomId}, Existing: ${widget.isExisting}");
   }
-  void addMessage(Widget message) {
+
+  Future<void> loadCurrentUserId() async {
+    final userId =
+        await SharedPrefHelper.getSecuredString(SharedPrefKeys.userId);
     setState(() {
-      messages.add(message);
-    });
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _scrollController.animateTo(
-        _scrollController.position.maxScrollExtent,
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeOut,
-      );
+      currentUserId = userId;
     });
   }
 
@@ -68,18 +68,20 @@ class _ChatsPersonChatScreenState extends State<ChatsPersonChatScreen> {
             ),
             verticalSpace(8),
             Expanded(
-              child: Container(
+              child: Padding(
                 padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 0.h),
-                color: ColorsManager.aquaHaze,
-                child: ListView(
-                  controller: _scrollController,
-                  children: [
-                    ...messages,
-                  ],
+                child: GetChatMessagesBlocBuilder(
+                  currentUserId: currentUserId!,
+                  scrollController: _scrollController,
                 ),
               ),
             ),
-            InputFieldWithSendButton(onSend: addMessage),
+            InputFieldWithSendButton(
+              onSend: (text) {
+                // TODO: Implement sending logic here (e.g. via a cubit if you want).
+                debugPrint("Sending message: $text");
+              },
+            ),
           ],
         ),
       ),

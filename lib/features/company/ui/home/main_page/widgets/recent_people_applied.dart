@@ -127,14 +127,18 @@ class RecentPeopleApplied extends StatelessWidget {
                                       final userId = person['userId'];
                                       final role = person['role'];
 
-                                      final requestBody = StartChatRoomRequestBody(
+                                      final requestBody =
+                                          StartChatRoomRequestBody(
                                         targetUser: TargetUser(
-                                          userId: "3d7f4722-20bc-4463-a088-8096f098276f",
+                                          userId:
+                                              "3d7f4722-20bc-4463-a088-8096f098276f",
                                           role: role,
                                         ),
                                       );
 
-                                      context.read<StartChatRoomCubit>().emitStartChatRoomStates(requestBody);
+                                      context
+                                          .read<StartChatRoomCubit>()
+                                          .emitStartChatRoomStates(requestBody);
                                     },
                                     child: CircleAvatar(
                                       radius: 16.r,

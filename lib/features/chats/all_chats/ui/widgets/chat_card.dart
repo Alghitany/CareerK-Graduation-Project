@@ -54,31 +54,31 @@ class ChatCard extends StatelessWidget {
                   clipBehavior: Clip.hardEdge,
                   child: imagePath.isNotEmpty
                       ? Image.network(
-                    "${ApiConstants.baseImageUrl}/$imagePath",
-                    fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) {
-                      return Padding(
-                        padding: EdgeInsets.all(12.w),
-                        child: SvgPicture.asset(
-                          "assets/svgs/person_outlined.svg",
-                          colorFilter: const ColorFilter.mode(
-                            ColorsManager.lemonGrass,
-                            BlendMode.srcIn,
+                          "${ApiConstants.baseImageUrl}/$imagePath",
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) {
+                            return Padding(
+                              padding: EdgeInsets.all(12.w),
+                              child: SvgPicture.asset(
+                                "assets/svgs/person_outlined.svg",
+                                colorFilter: const ColorFilter.mode(
+                                  ColorsManager.lemonGrass,
+                                  BlendMode.srcIn,
+                                ),
+                              ),
+                            );
+                          },
+                        )
+                      : Padding(
+                          padding: EdgeInsets.all(12.w),
+                          child: SvgPicture.asset(
+                            "assets/svgs/person_outlined.svg",
+                            colorFilter: const ColorFilter.mode(
+                              ColorsManager.lemonGrass,
+                              BlendMode.srcIn,
+                            ),
                           ),
                         ),
-                      );
-                    },
-                  )
-                      : Padding(
-                    padding: EdgeInsets.all(12.w),
-                    child: SvgPicture.asset(
-                      "assets/svgs/person_outlined.svg",
-                      colorFilter: const ColorFilter.mode(
-                        ColorsManager.lemonGrass,
-                        BlendMode.srcIn,
-                      ),
-                    ),
-                  ),
                 ),
                 horizontalSpace(16),
                 Expanded(

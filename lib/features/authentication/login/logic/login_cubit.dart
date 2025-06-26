@@ -31,6 +31,8 @@ class LoginCubit extends Cubit<LoginState> {
         DioFactory.setTokenIntoHeaderAfterLogin(
             loginResponse.accessToken ?? '');
       }
+      await SharedPrefHelper.setSecuredString(
+          SharedPrefKeys.userId, loginResponse.user?.id ?? "");
       emit(LoginState.success(loginResponse));
     }, failure: (error) {
       emit(LoginState.error(error: error.apiErrorModel.message ?? ''));

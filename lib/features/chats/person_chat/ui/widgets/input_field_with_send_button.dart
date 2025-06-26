@@ -6,11 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../../developer/ui/community/chat/widgets/sent_message_container.dart';
-
-
 class InputFieldWithSendButton extends StatefulWidget {
-  final void Function(Widget) onSend;
+  final void Function(String) onSend;
 
   const InputFieldWithSendButton({
     super.key,
@@ -29,7 +26,7 @@ class _InputFieldWithSendButtonState extends State<InputFieldWithSendButton> {
   void _sendMessage() {
     String messageText = _messageController.text.trim();
     if (messageText.isNotEmpty) {
-      widget.onSend(SentMessageContainer(message: messageText));
+      widget.onSend(messageText);
       _messageController.clear();
     }
   }

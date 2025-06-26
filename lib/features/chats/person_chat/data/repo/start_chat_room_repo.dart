@@ -10,8 +10,8 @@ class StartChatRoomRepo {
   StartChatRoomRepo(this._apiService);
 
   Future<ApiResult<StartChatRoomResponse>> startChatRoom(
-      StartChatRoomRequestBody body,
-      ) async {
+    StartChatRoomRequestBody body,
+  ) async {
     try {
       final response = await _apiService.startPrivateChat(body);
       return ApiResult.success(response);
