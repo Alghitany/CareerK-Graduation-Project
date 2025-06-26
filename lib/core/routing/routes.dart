@@ -149,4 +149,18 @@ class Routes {
       "/customerSignUpCompulsoryDataScreen";
   static const String customerSignUpFillProfileScreen =
       "/customerSignUpFillProfileScreen";
+  // Profile
+  static const String customerProfileScreen = "/customerProfileScreen";
+  //jops_post
+  static const String customerJobsPostFlow = "/customerJobsPostFlow";
+  static const String customerJobPostScreen = "/customerJobPostScreen";
+  // chats
+  static const String customerChatsScreen = "/customerChatsScreen";
+  static const String customerChatsPersonChatScreen =
+      "/customerChatsPersonChatScreen";
+  // Applied
+  static const String customerAppliedFirstScreen =
+      "/customerAppliedFirstScreen";
+  static const String customerAppliedSecoundScreen =
+      "/customerAppliedSecoundScreen";
 }

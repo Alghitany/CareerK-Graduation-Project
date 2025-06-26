@@ -1,8 +1,16 @@
 import 'package:carrerk/core/routing/app_argument.dart';
 import 'package:carrerk/core/routing/company_router/jobs_post_router.dart';
+import 'package:carrerk/core/routing/customer_router/jobs_post_router.dart';
 import 'package:carrerk/features/authentication/reset_password/logic/reset_password_cubit.dart';
 import 'package:carrerk/features/authentication/verify_code/logic/verify_code_cubit.dart';
 import 'package:carrerk/features/authentication/verify_code/ui/verify_code_screen.dart';
+import 'package:carrerk/features/customer/applied/first/customer_applied_first_screen.dart';
+import 'package:carrerk/features/customer/applied/secound/customer_applied_secound_screen.dart';
+import 'package:carrerk/features/customer/chats/customer_chats_screen.dart';
+import 'package:carrerk/features/customer/chats/person_chat/customer_chats_person_chat_screen.dart';
+import 'package:carrerk/features/customer/home/customer_home_main_page.dart';
+import 'package:carrerk/features/customer/jobs_post/customer_jobs_post.dart';
+import 'package:carrerk/features/customer/profile/customer_profile_screen.dart';
 import 'package:carrerk/features/customer/sign_up/compulsory_data/customer_sign_up_compulsory_data_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,14 +28,14 @@ import '../../features/company/ui/home/main_page/company_home_main_page_screen.d
 import '../../features/company/ui/home/see_details/company_home_see_details_screen.dart';
 import '../../features/company/ui/home/see_resume/company_home_see_resume_screen.dart';
 import '../../features/company/ui/jobs/company_jobs_screen.dart';
-import '../../features/company/ui/jobs_post/logic/company_jobs_post_cubit.dart';
-import '../../features/company/ui/jobs_post/ui/success/company_job_post_success_screen.dart';
+import '../../features/company/jobs_post/logic/company_jobs_post_cubit.dart';
+import '../../features/company/jobs_post/ui/success/company_job_post_success_screen.dart';
 import '../../features/company/ui/profile/company_profile_screen.dart';
 import '../../features/company/ui/send_to_applicants/message-applicant/company_send_to_applicants_message_applicant_screen.dart';
-import '../../features/company/ui/sign_up/ui/compulsory_data/company_sign_up_compulsory_data_screen.dart';
-import '../../features/company/ui/sign_up/ui/contact_information/company_sign_up_contact_information.dart';
-import '../../features/company/ui/sign_up/ui/enter_location/company_sign_up_enter_location_screen.dart';
-import '../../features/company/ui/sign_up/ui/fill_profile/company_sign_up_fill_profile_screen.dart';
+import '../../features/company/sign_up/ui/compulsory_data/company_sign_up_compulsory_data_screen.dart';
+import '../../features/company/sign_up/ui/contact_information/company_sign_up_contact_information.dart';
+import '../../features/company/sign_up/ui/enter_location/company_sign_up_enter_location_screen.dart';
+import '../../features/company/sign_up/ui/fill_profile/company_sign_up_fill_profile_screen.dart';
 import '../../features/customer/sign_up/fill_profile/customer_sign_up_fill_profile_screen.dart';
 import '../../features/developer/community/all_communities/developer_community_all_communities_screen.dart';
 import '../../features/developer/community/chat/developer_community_chat_screen.dart';
@@ -73,7 +81,8 @@ class AppRouter {
       // ---------------- Authentication ----------------
       case Routes.onBoardingScreen:
         return MaterialPageRoute(
-          builder: (_) => const OnBoardingScreen(),
+          //hmbh
+          builder: (_) => const CustomerAppliedFirstScreen(),
         );
       case Routes.loginScreen:
         return MaterialPageRoute(
@@ -335,6 +344,39 @@ class AppRouter {
           builder: (_) => const DeveloperProfilePaymentAddNewCardScreen(),
         );
       // ---------------- Customer ----------------
+
+      // Profile
+      case Routes.customerProfileScreen:
+        return MaterialPageRoute(
+          builder: (_) => const CustomerProfileScreen(),
+        );
+      //jobs_post
+      case Routes.customerJobPostScreen:
+        return MaterialPageRoute(
+          builder: (_) => const CustomerJobPostScreen(),
+        );
+
+      case Routes.customerJobsPostFlow:
+        return MaterialPageRoute(builder: (_) => const CustomerJobsPostFlow());
+      // applied
+      case Routes.customerAppliedFirstScreen:
+        return MaterialPageRoute(
+            builder: (_) => const CustomerAppliedFirstScreen());
+      case Routes.customerAppliedSecoundScreen:
+        return MaterialPageRoute(
+            builder: (_) => const CustomerAppliedSecoundScreen());
+      // chats
+      case Routes.customerChatsScreen:
+        return MaterialPageRoute(
+          builder: (_) => const CustomerChatsScreen(),
+        );
+
+      case Routes.customerChatsPersonChatScreen:
+        return MaterialPageRoute(
+          builder: (_) => const CustomerChatsPersonChatScreen(),
+        );
+
+      // sign up
       case Routes.customerSignUpCompulsoryDataScreen:
         return MaterialPageRoute(
           builder: (_) => const CustomerSignUpCompulsoryDataScreen(),

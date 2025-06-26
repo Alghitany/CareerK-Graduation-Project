@@ -1,5 +1,7 @@
 import 'package:carrerk/features/company/data/repo/company_jobs_delete_post_repo.dart';
 import 'package:carrerk/features/company/logic/company_jobs_delete_post_cubit.dart';
+import 'package:carrerk/features/company/sign_up/data/repo/company_sign_up_repo.dart';
+import 'package:carrerk/features/company/sign_up/logic/company_sign_up_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -11,8 +13,8 @@ import '../../features/authentication/reset_password/data/repos/reset_password_r
 import '../../features/authentication/reset_password/logic/reset_password_cubit.dart';
 import '../../features/authentication/verify_code/data/repo/verify_code_repo.dart';
 import '../../features/authentication/verify_code/logic/verify_code_cubit.dart';
-import '../../features/company/ui/jobs_post/data/repos/company_jobs_post_repo.dart';
-import '../../features/company/ui/jobs_post/logic/company_jobs_post_cubit.dart';
+import '../../features/company/jobs_post/data/repos/company_jobs_post_repo.dart';
+import '../../features/company/jobs_post/logic/company_jobs_post_cubit.dart';
 import '../../features/developer/jobs/apply/data/repo/developer_jobs_apply_repo.dart';
 import '../../features/developer/jobs/apply/logic/developer_jobs_apply_cubit.dart';
 import '../../features/developer/sign_up/data/repos/developer_sign_up_repo.dart';
@@ -62,6 +64,13 @@ Future<void> setupGetIt() async {
     () => DeveloperJobsApplyCubit(getIt<DeveloperJobsApplyRepo>()),
   );
   // Company
+  // company -> Signup
+  getIt.registerLazySingleton<CompanySignupRepo>(
+    () => CompanySignupRepo(getIt<Dio>()),
+  );
+  getIt.registerFactory<CompanySignUpCubit>(
+    () => CompanySignUpCubit(getIt<CompanySignupRepo>()),
+  );
   // -> Jobs Post
   getIt.registerLazySingleton<CompanyJobsPostRepo>(
       () => CompanyJobsPostRepo(getIt()));
