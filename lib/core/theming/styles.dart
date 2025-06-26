@@ -340,6 +340,12 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.semiBold,
   );
+  static TextStyle font16DarkGreyPoppinsBold = TextStyle(
+    fontSize: 16.sp,
+    color: ColorsManager.darkGrey,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.bold,
+  );
   static TextStyle font16DarkGreyPoppinsRegular = TextStyle(
     fontSize: 16.sp,
     color: ColorsManager.darkGrey,
@@ -384,6 +390,12 @@ class AppTextStyles {
   );
   static TextStyle font18CharcoalGreyPoppinsRegular = TextStyle(
     fontSize: 18.sp,
+    color: ColorsManager.charcoalGrey,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeightHelper.regular,
+  );
+  static TextStyle font14CharcoalGreyPoppinsRegular = TextStyle(
+    fontSize: 14.sp,
     color: ColorsManager.charcoalGrey,
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.regular,
@@ -600,6 +612,12 @@ class AppTextStyles {
   );
   static TextStyle font14LemonGrassPoppinsRegular = TextStyle(
     fontSize: 14.sp,
+    fontWeight: FontWeightHelper.regular,
+    fontFamily: 'Poppins',
+    color: ColorsManager.lemonGrass,
+  );
+  static TextStyle font12LemonGrassPoppinsRegular = TextStyle(
+    fontSize: 12.sp,
     fontWeight: FontWeightHelper.regular,
     fontFamily: 'Poppins',
     color: ColorsManager.lemonGrass,

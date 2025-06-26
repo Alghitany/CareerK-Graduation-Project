@@ -122,7 +122,7 @@ class RecentPeopleApplied extends StatelessWidget {
                                   GestureDetector(
                                     onTap: () {
                                       context.pushNamed(
-                                          Routes.companyChatsPersonChatScreen);
+                                          Routes.chatsPersonChatScreen);
                                     },
                                     child: CircleAvatar(
                                       radius: 16.r,

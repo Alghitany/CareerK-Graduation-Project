@@ -163,10 +163,10 @@ class CustomerBottomNavigationBar extends StatefulWidget {
 
   @override
   State<CustomerBottomNavigationBar> createState() =>
-      _CompanyBottomNavigationBarState();
+      _CustomerBottomNavigationBarState();
 }
 
-class _CompanyBottomNavigationBarState
+class _CustomerBottomNavigationBarState
     extends State<CustomerBottomNavigationBar> {
   late int _selectedIndex;
 
@@ -212,7 +212,7 @@ class _CompanyBottomNavigationBarState
               ),
               onPressed: () {
                 _onItemTapped(0);
-                context.pushNamed(Routes.companyHomeMainPageScreen);
+                context.pushNamed(Routes.customerHomeMainPageScreen);
               },
             ),
           ),

@@ -18,7 +18,7 @@ class CustomerAppliedFirstScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: const CustomerBottomNavigationBar(
-        selectedIndex: 2,
+        selectedIndex: 1,
       ),
       floatingActionButton: const CompanyFloatingActionButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

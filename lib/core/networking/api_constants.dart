@@ -1,6 +1,8 @@
 class ApiConstants {
   static const String apiBaseUrl =
       "https://3e6a-197-166-238-191.ngrok-free.app/";
+  static const String baseImageUrl =
+      "https://3e6a-197-166-238-191.ngrok-free.app/uploads/profile_pictures/";
 
   //------ Authentication -------
   static const String authenticationLogin = "api/auth/login";
@@ -18,19 +20,37 @@ class ApiConstants {
   //-> Apply
   static const String developerJobsApply = "api/job-applications/apply";
 
+  //-----> Courses
+  //-> Developer Profile
+  static const String developerCoursesMainPageProfile =
+      "api/courses-page/developer/profile";
+
+  //-> Roadmaps List
+  static const String developerCoursesMainPageRoadmaps =
+      "api/courses-page/roadmaps/preview";
+
+  //-----> Roadmaps & Track Courses Base Path
+  static const String developerTracksBasePath = "api/tracks-page/tracks";
+
   //------ customer ------------
   //->Sign up
   static const String customerSignup = "api/customer/register";
 
   //------ company ------------
   //->Sign up
-  static const String companySignup = "api/customer/register";
+  static const String companySignup = "api/company/register";
 
   //->Post Job
   static const String companyJobsPost = "api/jobs/create-job-post";
 
   //->Delete Post
   static const String companyJobsDeletePost = "api/jobs/delete-job-post";
+
+  //------ Search ------------
+  static const String searchCourses = "api/courses-page/search-courses";
+
+  //------ chats ------------
+  static const String allChats = "/api/private-chats";
 }
 
 class ApiErrors {
