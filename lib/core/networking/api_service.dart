@@ -11,13 +11,17 @@ import '../../features/authentication/verify_code/data/model/verify_code_request
 import '../../features/authentication/verify_code/data/model/verify_code_response.dart';
 import '../../features/chats/all_chats/data/model/chats_all_chats_response_body.dart';
 import '../../features/company/data/model/company_jobs_delete_post_response.dart';
-import '../../features/company/ui/jobs_post/data/models/company_jobs_post_request_body.dart';
-import '../../features/company/ui/jobs_post/data/models/company_jobs_post_response.dart';
+
+import '../../features/company/jobs_post/data/models/company_jobs_post_request_body.dart';
+import '../../features/company/jobs_post/data/models/company_jobs_post_response.dart';
+
+
 import '../../features/developer/data/model/developer_courses_and_jobs_main_page_profile_response_model.dart';
 import '../../features/developer/ui/courses/main_page/data/models/developer_courses_main_page_roadmaps_response_model.dart';
 import '../../features/developer/ui/courses/roadmaps/data/models/developer_courses_roadmaps_response_body.dart';
 import '../../features/developer/ui/courses/specific_category/data/models/developer_courses_specific_category_response_body.dart';
 import '../../features/search/data/model/search_courses_response_body.dart';
+
 import 'api_constants.dart';
 
 part 'api_service.g.dart';

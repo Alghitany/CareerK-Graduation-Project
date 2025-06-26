@@ -24,7 +24,6 @@ mixin _$CompanyJobsDeletePostState<T> {
     required TResult Function(String error) deleteError,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
@@ -42,7 +41,6 @@ mixin _$CompanyJobsDeletePostState<T> {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
@@ -51,7 +49,6 @@ mixin _$CompanyJobsDeletePostState<T> {
     required TResult Function(DeleteError<T> value) deleteError,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
@@ -86,9 +83,9 @@ class _$CompanyJobsDeletePostStateCopyWithImpl<T, $Res,
     implements $CompanyJobsDeletePostStateCopyWith<T, $Res> {
   _$CompanyJobsDeletePostStateCopyWithImpl(this._value, this._then);
 
-// ignore: unused_field
+  // ignore: unused_field
   final $Val _value;
-// ignore: unused_field
+  // ignore: unused_field
   final $Res Function($Val) _then;
 
   /// Create a copy of CompanyJobsDeletePostState
