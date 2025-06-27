@@ -28,6 +28,8 @@ ChatMessage _$ChatMessageFromJson(Map<String, dynamic> json) => ChatMessage(
       fileUrl: json['file_url'] as String?,
       fileType: json['file_type'] as String?,
       createdAt: DateTime.parse(json['created_at'] as String),
+      senderName: json['senderName'] as String,
+      senderProfilePicture: json['senderProfilePicture'] as String?,
     );
 
 Map<String, dynamic> _$ChatMessageToJson(ChatMessage instance) =>
@@ -39,4 +41,6 @@ Map<String, dynamic> _$ChatMessageToJson(ChatMessage instance) =>
       'file_url': instance.fileUrl,
       'file_type': instance.fileType,
       'created_at': instance.createdAt.toIso8601String(),
+      'senderName': instance.senderName,
+      'senderProfilePicture': instance.senderProfilePicture,
     };

@@ -19,6 +19,7 @@ import '../../features/chats/all_chats/logic/chats_all_chats_cubit.dart';
 import '../../features/chats/all_chats/ui/chats_all_chats.dart';
 import '../../features/chats/person_chat/data/repo/start_chat_room_repo.dart';
 import '../../features/chats/person_chat/logic/get_chat_messages/get_chat_messages_cubit.dart';
+import '../../features/chats/person_chat/logic/send_messages/send_messages_cubit.dart';
 import '../../features/chats/person_chat/logic/start_chat/start_chat_room_cubit.dart';
 import '../../features/chats/person_chat/ui/chats_person_chat_screen.dart';
 import '../../features/company/logic/company_jobs_delete_post_cubit.dart';
@@ -276,6 +277,9 @@ class AppRouter {
                 create: (context) => getIt<GetChatMessagesCubit>()
                   ..getMessages(args.chatRoomId!),
               ),
+              BlocProvider(
+                create: (context) => getIt<SendMessagesCubit>(),
+              ),
             ],
             child: ChatsPersonChatScreen(
               chatRoomId: args.chatRoomId!,
@@ -284,7 +288,7 @@ class AppRouter {
           ),
         );
 
-      // Courses
+    // Courses
       case Routes.developerCoursesMainPageScreen:
         return MaterialPageRoute(
           builder: (_) => MultiBlocProvider(

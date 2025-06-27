@@ -43,6 +43,7 @@ class ChatMessagesListView extends StatelessWidget {
           isSender: message.senderId == currentUserId,
           fileUrl: fullFileUrl,
           fileType: message.fileType,
+          senderName: message.senderId == currentUserId ? 'You' : message.senderName,
         );
       },
     );

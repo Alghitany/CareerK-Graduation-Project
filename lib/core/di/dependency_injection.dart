@@ -18,7 +18,9 @@ import '../../features/authentication/verify_code/data/repo/verify_code_repo.dar
 import '../../features/authentication/verify_code/logic/verify_code_cubit.dart';
 import '../../features/chats/all_chats/data/repo/chats_all_chats_repo.dart';
 import '../../features/chats/all_chats/logic/chats_all_chats_cubit.dart';
+import '../../features/chats/person_chat/data/repo/send_messages_repo.dart';
 import '../../features/chats/person_chat/data/repo/start_chat_room_repo.dart';
+import '../../features/chats/person_chat/logic/send_messages/send_messages_cubit.dart';
 import '../../features/chats/person_chat/logic/start_chat/start_chat_room_cubit.dart';
 import '../../features/company/ui/jobs_post/data/repos/company_jobs_post_repo.dart';
 import '../../features/company/ui/jobs_post/logic/company_jobs_post_cubit.dart';
@@ -147,4 +149,7 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<GetChatMessagesCubit>(
     () => GetChatMessagesCubit(getIt()),
   );
+  //-> Send Message
+  getIt.registerLazySingleton<SendMessagesRepo>(() => SendMessagesRepo(getIt<Dio>()));
+  getIt.registerFactory<SendMessagesCubit>(() => SendMessagesCubit(getIt<SendMessagesRepo>()));
 }

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../core/helpers/spacing.dart';
 import '../../../../core/helpers/constants.dart';
 import '../../../../core/helpers/shared_pref_helper.dart';
 import '../../../developer/ui/community/chat/widgets/exit_icon.dart';
+import '../logic/send_messages/send_messages_cubit.dart';
 import 'widgets/applicant_name_title_and_phone_icon.dart';
 import 'widgets/chat_messages/get_chat_messages_bloc_builder.dart';
-import 'widgets/input_field_with_send_button.dart';
+import 'widgets/send_message/input_field_with_send_button.dart';
+import 'widgets/send_message/send_message_bloc_listener.dart';
 
 class ChatsPersonChatScreen extends StatefulWidget {
   final String chatRoomId;
@@ -26,13 +29,13 @@ class ChatsPersonChatScreen extends StatefulWidget {
 class _ChatsPersonChatScreenState extends State<ChatsPersonChatScreen> {
   String? currentUserId;
   final ScrollController _scrollController = ScrollController();
+  late final SendMessagesCubit sendMessagesCubit;
 
   @override
   void initState() {
     super.initState();
+    sendMessagesCubit = context.read<SendMessagesCubit>();
     loadCurrentUserId();
-    debugPrint(
-        "ChatRoom ID: ${widget.chatRoomId}, Existing: ${widget.isExisting}");
   }
 
   Future<void> loadCurrentUserId() async {
@@ -51,7 +54,11 @@ class _ChatsPersonChatScreenState extends State<ChatsPersonChatScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: I think this Screen Can be refactored way better should be reviewed
+    if (currentUserId == null) {
+      return const Scaffold(
+        body: Center(child: CircularProgressIndicator()),
+      );
+    }
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -78,9 +85,13 @@ class _ChatsPersonChatScreenState extends State<ChatsPersonChatScreen> {
             ),
             InputFieldWithSendButton(
               onSend: (text) {
-                // TODO: Implement sending logic here (e.g. via a cubit if you want).
-                debugPrint("Sending message: $text");
+                sendMessagesCubit.messageController.text = text;
+                sendMessagesCubit.sendMessage(widget.chatRoomId);
               },
+            ),
+            SendMessageBlocListener(
+              chatRoomId: widget.chatRoomId,
+              scrollController: _scrollController,
             ),
           ],
         ),

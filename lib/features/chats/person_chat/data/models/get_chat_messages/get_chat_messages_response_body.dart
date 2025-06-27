@@ -37,6 +37,12 @@ class ChatMessage {
   @JsonKey(name: 'created_at')
   final DateTime createdAt;
 
+  @JsonKey(name: 'senderName')
+  final String senderName;
+
+  @JsonKey(name: 'senderProfilePicture')
+  final String? senderProfilePicture;
+
   ChatMessage({
     required this.id,
     required this.senderId,
@@ -45,6 +51,8 @@ class ChatMessage {
     this.fileUrl,
     this.fileType,
     required this.createdAt,
+    required this.senderName,
+    this.senderProfilePicture,
   });
 
   factory ChatMessage.fromJson(Map<String, dynamic> json) =>
