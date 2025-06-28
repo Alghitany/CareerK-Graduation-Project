@@ -24,6 +24,7 @@ mixin _$DeveloperJobsApplyState<T> {
     required TResult Function(String error) jobsApplyError,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
@@ -41,6 +42,7 @@ mixin _$DeveloperJobsApplyState<T> {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
@@ -49,6 +51,7 @@ mixin _$DeveloperJobsApplyState<T> {
     required TResult Function(JobsApplyError<T> value) jobsApplyError,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
@@ -82,9 +85,9 @@ class _$DeveloperJobsApplyStateCopyWithImpl<T, $Res,
     implements $DeveloperJobsApplyStateCopyWith<T, $Res> {
   _$DeveloperJobsApplyStateCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
+// ignore: unused_field
   final $Val _value;
-  // ignore: unused_field
+// ignore: unused_field
   final $Res Function($Val) _then;
 
   /// Create a copy of DeveloperJobsApplyState

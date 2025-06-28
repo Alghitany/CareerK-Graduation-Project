@@ -288,7 +288,7 @@ class AppRouter {
           ),
         );
 
-    // Courses
+      // Courses
       case Routes.developerCoursesMainPageScreen:
         return MaterialPageRoute(
           builder: (_) => MultiBlocProvider(

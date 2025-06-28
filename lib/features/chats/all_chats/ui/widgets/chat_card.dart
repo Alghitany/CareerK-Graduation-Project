@@ -22,7 +22,8 @@ class ChatCard extends StatelessWidget {
   });
 
   bool get _isNetworkImage =>
-      imagePath.isNotEmpty && (imagePath.startsWith('http') || imagePath.startsWith('https'));
+      imagePath.isNotEmpty &&
+      (imagePath.startsWith('http') || imagePath.startsWith('https'));
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +67,8 @@ class ChatCard extends StatelessWidget {
                           Expanded(
                             child: Text(
                               name,
-                              style: AppTextStyles.font14RangoonGreenPoppinsSemiBold,
+                              style: AppTextStyles
+                                  .font14RangoonGreenPoppinsSemiBold,
                               overflow: TextOverflow.ellipsis,
                             ),
                           ),

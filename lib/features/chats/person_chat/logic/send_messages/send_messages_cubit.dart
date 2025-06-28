@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/di/dependency_injection.dart';
+import '../../../../../core/networking/socket_service.dart';
 import '../../data/models/send_messages/send_messages_request_body.dart';
 import '../../data/repo/send_messages_repo.dart';
 import 'send_messages_state.dart';
@@ -49,5 +51,25 @@ class SendMessagesCubit extends Cubit<SendMessagesState> {
         ),
       ),
     );
+  }
+
+  void sendSocketMessage({
+    required String chatRoomId,
+    required String senderId,
+    required String senderType,
+  }) {
+    final messageText = messageController.text.trim();
+    if (messageText.isEmpty) return;
+
+    final socketService = getIt<SocketService>();
+    socketService.sendMessage(
+      chatRoomId: chatRoomId,
+      message: messageText,
+      senderId: senderId,
+      senderType: senderType,
+      messageType: "text", // or file etc.
+    );
+
+    messageController.clear();
   }
 }

@@ -55,8 +55,23 @@ class ChatMessage {
     this.senderProfilePicture,
   });
 
-  factory ChatMessage.fromJson(Map<String, dynamic> json) =>
-      _$ChatMessageFromJson(json);
+  /// Use this for parsing dynamic data safely, especially from socket
+  factory ChatMessage.fromJson(Map<String, dynamic> json) {
+    return ChatMessage(
+      id: json['id'] as String,
+      senderId: json['senderId'] ?? json['sender_id'] as String,
+      senderRole: json['senderRole'] ?? json['sender_role'] as String,
+      message: json['message'] as String,
+      fileUrl: json['fileUrl'] ?? json['file_url'],
+      fileType: json['fileType'] ?? json['file_type'],
+      createdAt: json['created_at'] != null
+          ? DateTime.parse(json['created_at'])
+          : DateTime.now(),
+      // fallback
+      senderName: json['senderName'] as String,
+      senderProfilePicture: json['senderProfilePicture'] as String?,
+    );
+  }
 
   Map<String, dynamic> toJson() => _$ChatMessageToJson(this);
 }

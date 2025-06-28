@@ -37,6 +37,7 @@ import '../../features/search/data/repo/search_courses_repo.dart';
 import '../../features/search/logic/search_courses_cubit.dart';
 import '../networking/api_service.dart';
 import '../networking/dio_factory.dart';
+import '../networking/socket_service.dart';
 
 final getIt = GetIt.instance;
 
@@ -150,6 +151,10 @@ Future<void> setupGetIt() async {
     () => GetChatMessagesCubit(getIt()),
   );
   //-> Send Message
-  getIt.registerLazySingleton<SendMessagesRepo>(() => SendMessagesRepo(getIt<Dio>()));
-  getIt.registerFactory<SendMessagesCubit>(() => SendMessagesCubit(getIt<SendMessagesRepo>()));
+  getIt.registerLazySingleton<SendMessagesRepo>(
+      () => SendMessagesRepo(getIt<Dio>()));
+  getIt.registerFactory<SendMessagesCubit>(
+      () => SendMessagesCubit(getIt<SendMessagesRepo>()));
+  //-> Socket
+  getIt.registerLazySingleton<SocketService>(() => SocketService());
 }

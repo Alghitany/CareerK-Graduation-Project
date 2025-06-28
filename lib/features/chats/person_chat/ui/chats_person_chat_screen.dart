@@ -3,52 +3,83 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../core/helpers/spacing.dart';
+import '../../../../core/di/dependency_injection.dart';
 import '../../../../core/helpers/constants.dart';
 import '../../../../core/helpers/shared_pref_helper.dart';
+import '../../../../core/networking/socket_service.dart';
 import '../../../developer/ui/community/chat/widgets/exit_icon.dart';
+import '../data/models/get_chat_messages/get_chat_messages_response_body.dart';
+import '../logic/get_chat_messages/get_chat_messages_cubit.dart';
 import '../logic/send_messages/send_messages_cubit.dart';
 import 'widgets/applicant_name_title_and_phone_icon.dart';
 import 'widgets/chat_messages/get_chat_messages_bloc_builder.dart';
 import 'widgets/send_message/input_field_with_send_button.dart';
-import 'widgets/send_message/send_message_bloc_listener.dart';
 
 class ChatsPersonChatScreen extends StatefulWidget {
   final String chatRoomId;
   final bool isExisting;
 
-  const ChatsPersonChatScreen({
-    super.key,
-    required this.chatRoomId,
-    required this.isExisting,
-  });
+  const ChatsPersonChatScreen(
+      {super.key, required this.chatRoomId, required this.isExisting});
 
   @override
-  State<ChatsPersonChatScreen> createState() => _ChatsPersonChatScreenState();
+  State<ChatsPersonChatScreen> createState() => _ChatsPersonChatRoomState();
 }
 
-class _ChatsPersonChatScreenState extends State<ChatsPersonChatScreen> {
+class _ChatsPersonChatRoomState extends State<ChatsPersonChatScreen> {
   String? currentUserId;
   final ScrollController _scrollController = ScrollController();
   late final SendMessagesCubit sendMessagesCubit;
+  late final SocketService socketService;
 
   @override
   void initState() {
     super.initState();
+
     sendMessagesCubit = context.read<SendMessagesCubit>();
-    loadCurrentUserId();
+    socketService = getIt<SocketService>();
+    final getChatMessagesCubit = context.read<GetChatMessagesCubit>();
+
+    _initializeSocket(getChatMessagesCubit); // 👈 Pass cubit safely
   }
 
-  Future<void> loadCurrentUserId() async {
+  Future<void> _initializeSocket(
+      GetChatMessagesCubit getChatMessagesCubit) async {
     final userId =
         await SharedPrefHelper.getSecuredString(SharedPrefKeys.userId);
-    setState(() {
-      currentUserId = userId;
-    });
+
+    if (userId != null) {
+      socketService.connect(userId, widget.chatRoomId);
+
+      // 🟢 Listen for incoming messages
+      socketService.onReceiveMessage((data) {
+        debugPrint('📥 Raw socket data: $data');
+
+        try {
+          final message = ChatMessage.fromJson(Map<String, dynamic>.from(data));
+          if (mounted) {
+            context.read<GetChatMessagesCubit>().addMessage(message);
+          }
+        } catch (e, s) {
+          debugPrint('❌ Error parsing socket message: $e\n$s');
+        }
+      });
+
+      await getChatMessagesCubit.getMessages(widget.chatRoomId);
+
+      if (!mounted) return;
+
+      setState(() {
+        currentUserId = userId;
+      });
+    }
   }
 
   @override
   void dispose() {
     _scrollController.dispose();
+    // ❌ Avoid disposing socket here if you want to keep it alive for the app
+    // socketService.dispose();
     super.dispose();
   }
 
@@ -59,12 +90,13 @@ class _ChatsPersonChatScreenState extends State<ChatsPersonChatScreen> {
         body: Center(child: CircularProgressIndicator()),
       );
     }
+
     return Scaffold(
       body: SafeArea(
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 16),
+              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16),
               child: Column(
                 children: [
                   const ExitIcon(),
@@ -76,7 +108,7 @@ class _ChatsPersonChatScreenState extends State<ChatsPersonChatScreen> {
             verticalSpace(8),
             Expanded(
               child: Padding(
-                padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 0.h),
+                padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 0),
                 child: GetChatMessagesBlocBuilder(
                   currentUserId: currentUserId!,
                   scrollController: _scrollController,
@@ -86,12 +118,12 @@ class _ChatsPersonChatScreenState extends State<ChatsPersonChatScreen> {
             InputFieldWithSendButton(
               onSend: (text) {
                 sendMessagesCubit.messageController.text = text;
-                sendMessagesCubit.sendMessage(widget.chatRoomId);
+                sendMessagesCubit.sendSocketMessage(
+                  chatRoomId: widget.chatRoomId,
+                  senderId: currentUserId!,
+                  senderType: "company", // or "developer"
+                );
               },
-            ),
-            SendMessageBlocListener(
-              chatRoomId: widget.chatRoomId,
-              scrollController: _scrollController,
             ),
           ],
         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../data/models/get_chat_messages/get_chat_messages_response_body.dart';
 import '../../../logic/get_chat_messages/get_chat_messages_cubit.dart';
 import '../../../logic/get_chat_messages/get_chat_messages_state.dart';
 import 'chat_messages_list_view.dart';
@@ -19,14 +20,19 @@ class GetChatMessagesBlocBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<GetChatMessagesCubit, GetChatMessagesState>(
-      buildWhen: (previous, current) =>
-          current is Loading || current is Success || current is Error,
       builder: (context, state) {
         return state.maybeWhen(
           loading: () => _setupLoading(),
-          success: (data) => _setupSuccess(data.messages),
+          success: (data) {
+            debugPrint(
+                "🟢 Chat UI rebuilt with ${data.messages.length} messages");
+            return _setupSuccess(data.messages);
+          },
           error: (error) => _setupError(error),
-          orElse: () => const SizedBox.shrink(),
+          orElse: () {
+            debugPrint("⚪️ No state matched, showing empty view");
+            return const SizedBox.shrink();
+          },
         );
       },
     );
@@ -36,7 +42,7 @@ class GetChatMessagesBlocBuilder extends StatelessWidget {
     return const ChatShimmer();
   }
 
-  Widget _setupSuccess(List messages) {
+  Widget _setupSuccess(List<ChatMessage> messages) {
     return ChatMessagesListView(
       messages: messages,
       currentUserId: currentUserId,

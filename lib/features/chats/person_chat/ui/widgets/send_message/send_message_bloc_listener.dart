@@ -22,7 +22,7 @@ class SendMessageBlocListener extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<SendMessagesCubit, SendMessagesState>(
       listenWhen: (previous, current) =>
-      current is SendMessageLoading ||
+          current is SendMessageLoading ||
           current is SendMessageSuccess ||
           current is SendMessageError,
       listener: (context, state) {

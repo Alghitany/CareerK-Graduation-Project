@@ -22,9 +22,7 @@ class ChatMessagesListView extends StatelessWidget {
     }
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (scrollController.hasClients) {
-        scrollController.jumpTo(scrollController.position.maxScrollExtent);
-      }
+      scrollController.jumpTo(scrollController.position.maxScrollExtent);
     });
 
     return ListView.builder(
@@ -43,7 +41,8 @@ class ChatMessagesListView extends StatelessWidget {
           isSender: message.senderId == currentUserId,
           fileUrl: fullFileUrl,
           fileType: message.fileType,
-          senderName: message.senderId == currentUserId ? 'You' : message.senderName,
+          senderName:
+              message.senderId == currentUserId ? 'You' : message.senderName,
         );
       },
     );

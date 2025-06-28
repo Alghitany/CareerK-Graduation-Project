@@ -9,7 +9,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../logic/send_messages/send_messages_cubit.dart';
 
-
 class InputFieldWithSendButton extends StatefulWidget {
   final void Function(String) onSend;
 
@@ -19,7 +18,8 @@ class InputFieldWithSendButton extends StatefulWidget {
   });
 
   @override
-  State<InputFieldWithSendButton> createState() => _InputFieldWithSendButtonState();
+  State<InputFieldWithSendButton> createState() =>
+      _InputFieldWithSendButtonState();
 }
 
 class _InputFieldWithSendButtonState extends State<InputFieldWithSendButton> {
@@ -45,7 +45,8 @@ class _InputFieldWithSendButtonState extends State<InputFieldWithSendButton> {
   void _onEmojiSelected(Emoji emoji) {
     final controller = _cubit.messageController;
     controller.text += emoji.emoji;
-    controller.selection = TextSelection.fromPosition(TextPosition(offset: controller.text.length));
+    controller.selection = TextSelection.fromPosition(
+        TextPosition(offset: controller.text.length));
   }
 
   @override

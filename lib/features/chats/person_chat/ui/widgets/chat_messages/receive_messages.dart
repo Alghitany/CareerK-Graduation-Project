@@ -35,7 +35,7 @@ class ReceiveMessage extends StatelessWidget {
       margin: EdgeInsets.fromLTRB(0.w, 0.h, 0.w, 16.h),
       child: Row(
         mainAxisAlignment:
-        isSender ? MainAxisAlignment.end : MainAxisAlignment.start,
+            isSender ? MainAxisAlignment.end : MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (!isSender) const CircleAvatar(backgroundColor: Colors.redAccent),
@@ -62,71 +62,71 @@ class ReceiveMessage extends StatelessWidget {
                 ),
                 verticalSpace(4),
 
-                if (fileUrl != null && fileUrl!.isNotEmpty && fileType != null)
-                  ...[
-                    GestureDetector(
-                      onTap: () async {
-                        final cleanedPath = fileUrl!.replaceFirst('//', '/');
-                        final fullUrl = Uri.parse(
-                          cleanedPath.startsWith('http')
-                              ? cleanedPath
-                              : '${ApiConstants.apiBaseUrl}$cleanedPath',
+                if (fileUrl != null &&
+                    fileUrl!.isNotEmpty &&
+                    fileType != null) ...[
+                  GestureDetector(
+                    onTap: () async {
+                      final cleanedPath = fileUrl!.replaceFirst('//', '/');
+                      final fullUrl = Uri.parse(
+                        cleanedPath.startsWith('http')
+                            ? cleanedPath
+                            : '${ApiConstants.apiBaseUrl}$cleanedPath',
+                      );
+
+                      if (fileType == 'pdf') {
+                        if (context.mounted) {
+                          context.pushNamed(
+                            Routes.pdfViewerScreen,
+                            arguments: AppArgument(fileUrl: fullUrl.toString()),
+                          );
+                        }
+                      } else {
+                        final launched = await launchUrl(
+                          fullUrl,
+                          mode: LaunchMode.externalApplication,
                         );
 
-                        if (fileType == 'pdf') {
-                          if (context.mounted) {
-                            context.pushNamed(
-                              Routes.pdfViewerScreen,
-                              arguments:
-                              AppArgument(fileUrl: fullUrl.toString()),
-                            );
-                          }
-                        } else {
-                          final launched = await launchUrl(
-                            fullUrl,
-                            mode: LaunchMode.externalApplication,
-                          );
-
-                          if (!launched && context.mounted) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content:
-                                Text('No app available to open this file'),
-                              ),
-                            );
-                          }
-                        }
-                      },
-                      child: fileType == 'image'
-                          ? Image.network(
-                        fileUrl!,
-                        height: 100.h,
-                        width: 100.w,
-                        fit: BoxFit.cover,
-                        errorBuilder: (_, __, ___) =>
-                            Icon(Icons.broken_image, size: 40.sp),
-                        loadingBuilder: (context, child, loadingProgress) {
-                          if (loadingProgress == null) return child;
-                          return SizedBox(
-                            height: 100.h,
-                            width: 100.w,
-                            child: const Center(
-                              child: CircularProgressIndicator(),
+                        if (!launched && context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content:
+                                  Text('No app available to open this file'),
                             ),
                           );
-                        },
-                      )
-                          : fileType!.isNotEmpty
-                          ? Text(
-                        '📎 File: $fileType',
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      )
-                          : const SizedBox.shrink(),
-                    ),
-                    verticalSpace(8),
-                  ],
+                        }
+                      }
+                    },
+                    child: fileType == 'image'
+                        ? Image.network(
+                            fileUrl!,
+                            height: 100.h,
+                            width: 100.w,
+                            fit: BoxFit.cover,
+                            errorBuilder: (_, __, ___) =>
+                                Icon(Icons.broken_image, size: 40.sp),
+                            loadingBuilder: (context, child, loadingProgress) {
+                              if (loadingProgress == null) return child;
+                              return SizedBox(
+                                height: 100.h,
+                                width: 100.w,
+                                child: const Center(
+                                  child: CircularProgressIndicator(),
+                                ),
+                              );
+                            },
+                          )
+                        : fileType!.isNotEmpty
+                            ? Text(
+                                '📎 File: $fileType',
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              )
+                            : const SizedBox.shrink(),
+                  ),
+                  verticalSpace(8),
+                ],
 
                 if (messageText.isNotEmpty)
                   Text(

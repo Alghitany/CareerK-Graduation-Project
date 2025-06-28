@@ -8,7 +8,8 @@ class SendMessagesState<T> with _$SendMessagesState<T> {
 
   const factory SendMessagesState.sendMessageLoading() = SendMessageLoading;
 
-  const factory SendMessagesState.sendMessageSuccess(T data) = SendMessageSuccess<T>;
+  const factory SendMessagesState.sendMessageSuccess(T data) =
+      SendMessageSuccess<T>;
 
   const factory SendMessagesState.sendMessageError({
     required String error,
