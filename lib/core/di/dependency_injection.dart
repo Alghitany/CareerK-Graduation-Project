@@ -32,8 +32,6 @@ import '../../features/chats/person_chat/data/repo/send_messages_repo.dart';
 import '../../features/chats/person_chat/data/repo/start_chat_room_repo.dart';
 import '../../features/chats/person_chat/logic/send_messages/send_messages_cubit.dart';
 import '../../features/chats/person_chat/logic/start_chat/start_chat_room_cubit.dart';
-import '../../features/company/ui/jobs_post/data/repos/company_jobs_post_repo.dart';
-import '../../features/company/ui/jobs_post/logic/company_jobs_post_cubit.dart';
 
 import '../../features/developer/data/repo/developer_courses_and_jobs_main_page_profile_repo.dart';
 import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
