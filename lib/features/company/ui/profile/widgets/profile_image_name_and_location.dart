@@ -22,7 +22,7 @@ class ProfileImageNameAndLocation extends StatelessWidget {
         ),
         verticalSpace(34),
         Text(
-          'Company Name',
+          'Customer Name',
           style: AppTextStyles.font16BlackPoppinsSemiBold,
         ),
         verticalSpace(8),
