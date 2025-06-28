@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../../../../../core/widgets/company_bottom_navigation_bar.dart';
 import 'widgets/available_people_text_and_list.dart';
 import 'widgets/recent_people_applied.dart';
+import 'widgets/start_chat_room_bloc_listener.dart';
 
 class CompanyHomeMainPageScreen extends StatelessWidget {
   const CompanyHomeMainPageScreen({super.key});
@@ -27,6 +28,7 @@ class CompanyHomeMainPageScreen extends StatelessWidget {
             const AvailablePeopleTextAndList(),
             verticalSpace(24),
             const RecentPeopleApplied(),
+            const StartChatRoomBlocListener(),
           ],
         ),
       ),

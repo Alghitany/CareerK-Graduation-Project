@@ -3,13 +3,14 @@ import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../developer/ui/community/chat/widgets/sent_message_container.dart';
+import '../../../logic/send_messages/send_messages_cubit.dart';
 
 class InputFieldWithSendButton extends StatefulWidget {
-  final void Function(Widget) onSend;
+  final void Function(String) onSend;
 
   const InputFieldWithSendButton({
     super.key,
@@ -22,25 +23,30 @@ class InputFieldWithSendButton extends StatefulWidget {
 }
 
 class _InputFieldWithSendButtonState extends State<InputFieldWithSendButton> {
-  final TextEditingController _messageController = TextEditingController();
   bool _showEmojiPicker = false;
 
+  late final SendMessagesCubit _cubit;
+
+  @override
+  void initState() {
+    super.initState();
+    _cubit = context.read<SendMessagesCubit>();
+  }
+
   void _sendMessage() {
-    String messageText = _messageController.text.trim();
-    if (messageText.isNotEmpty) {
-      widget.onSend(SentMessageContainer(message: messageText));
-      _messageController.clear();
-    }
+    final messageText = _cubit.messageController.text.trim();
+
+    // Prevent empty message with no file
+    if (messageText.isEmpty && _cubit.chatFile == null) return;
+
+    widget.onSend(messageText);
   }
 
   void _onEmojiSelected(Emoji emoji) {
-    _messageController.text += emoji.emoji;
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _messageController.dispose();
+    final controller = _cubit.messageController;
+    controller.text += emoji.emoji;
+    controller.selection = TextSelection.fromPosition(
+        TextPosition(offset: controller.text.length));
   }
 
   @override
@@ -63,13 +69,13 @@ class _InputFieldWithSendButtonState extends State<InputFieldWithSendButton> {
                     _showEmojiPicker = !_showEmojiPicker;
                   });
                 },
-                child: SvgPicture.asset('assets/svgs/emoji.svg',
-                    colorFilter: const ColorFilter.mode(
-                        ColorsManager.lemonGrass, BlendMode.srcIn)),
+                child: SvgPicture.asset(
+                  'assets/svgs/emoji.svg',
+                  colorFilter: const ColorFilter.mode(
+                      ColorsManager.lemonGrass, BlendMode.srcIn),
+                ),
               ),
               horizontalSpace(15),
-
-              // TextField with shadow
               Expanded(
                 child: Container(
                   height: 40.h,
@@ -86,8 +92,8 @@ class _InputFieldWithSendButtonState extends State<InputFieldWithSendButton> {
                     ],
                   ),
                   child: TextField(
-                    controller: _messageController,
-                    onSubmitted: (value) => _sendMessage(),
+                    controller: _cubit.messageController,
+                    onSubmitted: (_) => _sendMessage(),
                     decoration: InputDecoration(
                       hintText: "Type your message",
                       hintStyle: AppTextStyles.font16PastelGreyPoppinsMedium,
@@ -106,7 +112,7 @@ class _InputFieldWithSendButtonState extends State<InputFieldWithSendButton> {
               horizontalSpace(8),
               GestureDetector(
                 onTap: () {
-                  // TODO: Record audio to send in chat
+                  // TODO: Hook up voice recording logic
                 },
                 child: SvgPicture.asset(
                   'assets/svgs/mic.svg',
@@ -115,14 +121,14 @@ class _InputFieldWithSendButtonState extends State<InputFieldWithSendButton> {
                 ),
               ),
               horizontalSpace(13.25),
-              // Send button
               GestureDetector(
-                  onTap: _sendMessage,
-                  child: SvgPicture.asset(
-                    'assets/svgs/send.svg',
-                    colorFilter: const ColorFilter.mode(
-                        ColorsManager.duskyBlue, BlendMode.srcIn),
-                  )),
+                onTap: _sendMessage,
+                child: SvgPicture.asset(
+                  'assets/svgs/send.svg',
+                  colorFilter: const ColorFilter.mode(
+                      ColorsManager.duskyBlue, BlendMode.srcIn),
+                ),
+              ),
             ],
           ),
         ),
@@ -131,9 +137,7 @@ class _InputFieldWithSendButtonState extends State<InputFieldWithSendButton> {
           child: SizedBox(
             height: 250.h,
             child: EmojiPicker(
-              onEmojiSelected: (category, emoji) {
-                _onEmojiSelected(emoji);
-              },
+              onEmojiSelected: (_, emoji) => _onEmojiSelected(emoji),
               config: const Config(),
             ),
           ),

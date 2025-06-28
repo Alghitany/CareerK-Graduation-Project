@@ -85,6 +85,13 @@ dependencies:
   shimmer: ^3.0.0
   # Converts a date into a humanized text.
   timeago: ^3.5.0
+  # Communicate with a Socket.IO server (Real Time Chat)
+  socket_io_client: ^2.0.3+1
+  # Launching a URL.
+  url_launcher: ^6.2.5
+  # Display a PDF document seamlessly and efficiently.
+  syncfusion_flutter_pdfviewer: ^24.1.41
+
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true

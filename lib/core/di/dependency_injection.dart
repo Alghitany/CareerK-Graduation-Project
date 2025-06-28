@@ -1,3 +1,5 @@
+import 'package:carrerk/features/chats/person_chat/data/repo/get_chat_messages_repo.dart';
+import 'package:carrerk/features/chats/person_chat/logic/get_chat_messages/get_chat_messages_cubit.dart';
 import 'package:carrerk/features/company/data/repo/company_jobs_delete_post_repo.dart';
 import 'package:carrerk/features/company/logic/company_jobs_delete_post_cubit.dart';
 
@@ -26,6 +28,10 @@ import '../../features/company/jobs_post/logic/company_jobs_post_cubit.dart';
 
 import '../../features/chats/all_chats/data/repo/chats_all_chats_repo.dart';
 import '../../features/chats/all_chats/logic/chats_all_chats_cubit.dart';
+import '../../features/chats/person_chat/data/repo/send_messages_repo.dart';
+import '../../features/chats/person_chat/data/repo/start_chat_room_repo.dart';
+import '../../features/chats/person_chat/logic/send_messages/send_messages_cubit.dart';
+import '../../features/chats/person_chat/logic/start_chat/start_chat_room_cubit.dart';
 
 import '../../features/developer/data/repo/developer_courses_and_jobs_main_page_profile_repo.dart';
 import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
@@ -41,6 +47,7 @@ import '../../features/search/logic/search_courses_cubit.dart';
 
 import '../networking/api_service.dart';
 import '../networking/dio_factory.dart';
+import '../networking/socket_service.dart';
 
 final getIt = GetIt.instance;
 
@@ -143,8 +150,28 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<ChatsAllChatsRepo>(
     () => ChatsAllChatsRepo(getIt()),
   );
-
   getIt.registerFactory<ChatsAllChatsCubit>(
     () => ChatsAllChatsCubit(getIt()),
   );
+  //-> Start Chat Room
+  getIt.registerLazySingleton<StartChatRoomRepo>(
+    () => StartChatRoomRepo(getIt()),
+  );
+  getIt.registerFactory<StartChatRoomCubit>(
+    () => StartChatRoomCubit(getIt()),
+  );
+  //-> Get Chat Messages
+  getIt.registerLazySingleton<GetChatMessagesRepo>(
+    () => GetChatMessagesRepo(getIt()),
+  );
+  getIt.registerFactory<GetChatMessagesCubit>(
+    () => GetChatMessagesCubit(getIt()),
+  );
+  //-> Send Message
+  getIt.registerLazySingleton<SendMessagesRepo>(
+      () => SendMessagesRepo(getIt<Dio>()));
+  getIt.registerFactory<SendMessagesCubit>(
+      () => SendMessagesCubit(getIt<SendMessagesRepo>()));
+  //-> Socket
+  getIt.registerLazySingleton<SocketService>(() => SocketService());
 }

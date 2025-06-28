@@ -168,4 +168,7 @@ class Routes {
       "/customerAppliedFirstScreen";
   static const String customerAppliedSecoundScreen =
       "/customerAppliedSecoundScreen";
+
+  // ---------------- PDF Viewer ----------------
+  static const String pdfViewerScreen = "/pdfViewerScreen";
 }

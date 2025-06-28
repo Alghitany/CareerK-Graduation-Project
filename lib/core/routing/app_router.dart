@@ -1,5 +1,6 @@
 import 'package:carrerk/core/routing/app_argument.dart';
 import 'package:carrerk/core/routing/company_router/jobs_post_router.dart';
+import 'package:carrerk/core/widgets/pdf_viewer_screen.dart';
 import 'package:carrerk/core/routing/customer_router/jobs_post_router.dart';
 import 'package:carrerk/features/authentication/reset_password/logic/reset_password_cubit.dart';
 import 'package:carrerk/features/authentication/verify_code/logic/verify_code_cubit.dart';
@@ -24,7 +25,11 @@ import '../../features/authentication/reset_password/ui/reset_password_screen.da
 import '../../features/authentication/successful_change_password/successful_change_password.dart';
 import '../../features/chats/all_chats/logic/chats_all_chats_cubit.dart';
 import '../../features/chats/all_chats/ui/chats_all_chats.dart';
-import '../../features/chats/person_chat/chats_person_chat_screen.dart';
+import '../../features/chats/person_chat/data/repo/start_chat_room_repo.dart';
+import '../../features/chats/person_chat/logic/get_chat_messages/get_chat_messages_cubit.dart';
+import '../../features/chats/person_chat/logic/send_messages/send_messages_cubit.dart';
+import '../../features/chats/person_chat/logic/start_chat/start_chat_room_cubit.dart';
+import '../../features/chats/person_chat/ui/chats_person_chat_screen.dart';
 import '../../features/company/logic/company_jobs_delete_post_cubit.dart';
 import '../../features/company/ui/home/main_page/company_home_main_page_screen.dart';
 import '../../features/company/ui/home/see_details/company_home_see_details_screen.dart';
@@ -89,8 +94,7 @@ class AppRouter {
       // ---------------- Authentication ----------------
       case Routes.onBoardingScreen:
         return MaterialPageRoute(
-          //hmbh
-          builder: (_) => const CustomerAppliedFirstScreen(),
+          builder: (_) => const OnBoardingScreen(),
         );
       case Routes.loginScreen:
         return MaterialPageRoute(
@@ -159,7 +163,10 @@ class AppRouter {
       // Home
       case Routes.companyHomeMainPageScreen:
         return MaterialPageRoute(
-          builder: (_) => const CompanyHomeMainPageScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => StartChatRoomCubit(getIt<StartChatRoomRepo>()),
+            child: const CompanyHomeMainPageScreen(),
+          ),
         );
       case Routes.companyHomeSeeDetailsScreen:
         return MaterialPageRoute(
@@ -270,8 +277,23 @@ class AppRouter {
         );
       // Chats
       case Routes.chatsPersonChatScreen:
+        final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-          builder: (_) => const ChatsPersonChatScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => getIt<GetChatMessagesCubit>()
+                  ..getMessages(args.chatRoomId!),
+              ),
+              BlocProvider(
+                create: (context) => getIt<SendMessagesCubit>(),
+              ),
+            ],
+            child: ChatsPersonChatScreen(
+              chatRoomId: args.chatRoomId!,
+              isExisting: args.isExisting!,
+            ),
+          ),
         );
       // Courses
       case Routes.developerCoursesMainPageScreen:
@@ -449,6 +471,12 @@ class AppRouter {
       case Routes.customerSignUpFillProfileScreen:
         return MaterialPageRoute(
           builder: (_) => const CustomerSignUpFillProfileScreen(),
+        );
+      // ---------------- Customer ----------------
+      case Routes.pdfViewerScreen:
+        final args = settings.arguments as AppArgument;
+        return MaterialPageRoute(
+          builder: (_) => PdfViewerScreen(url: args.fileUrl!),
         );
       default:
         return null;
