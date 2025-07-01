@@ -1,3 +1,4 @@
+import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/widgets/app_label.dart';
 import 'package:carrerk/core/widgets/app_text_form_field.dart';
@@ -5,6 +6,8 @@ import 'package:carrerk/features/customer/sign_up/logic/customer_sign_up_cubit.d
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../../../core/helpers/app_regex.dart';
 
 class CustomerFillProfileForm extends StatefulWidget {
   const CustomerFillProfileForm({super.key});
@@ -17,9 +20,9 @@ class CustomerFillProfileForm extends StatefulWidget {
 class _CustomerFillProfileFormState extends State<CustomerFillProfileForm> {
   @override
   Widget build(BuildContext context) {
-    final cubit = context.watch<CustomerSignUpCubit>();
+    final cubit = context.watch<CustomerSignupCubit>();
     return Form(
-      key: cubit.contactInformationFormKey,
+      key: cubit.fillProfileFormKey,
       child: Column(
         children: [
           const AppLabel(text: 'Brief Description'),
@@ -33,10 +36,10 @@ class _CustomerFillProfileFormState extends State<CustomerFillProfileForm> {
             minLines: 13,
             maxLines: 15,
             validator: (bio) {
-              // if (bio!.isNullOrEmpty() || !AppRegex.isValidDescription(bio)) {
-              //   return "Please enter a valid description";
-              // }
-              // return null;
+              if (bio!.isNullOrEmpty() || !AppRegex.isValidDescription(bio)) {
+                return "Please enter a valid description";
+              }
+              return null;
             },
             borderRadius: 0,
             contentPadding:
@@ -49,10 +52,10 @@ class _CustomerFillProfileFormState extends State<CustomerFillProfileForm> {
               controller: cubit.contactEmailController,
               hintText: 'example@email.com',
               validator: (email) {
-                // if (!AppRegex.isValidEmail(email!)) {
-                //   return 'Please enter a valid email';
-                // }
-                // return null;
+                if (!AppRegex.isValidEmail(email!)) {
+                  return 'Please enter a valid email';
+                }
+                return null;
               }),
           verticalSpace(16),
           const AppLabel(text: 'Enter Phone number'),
@@ -61,11 +64,11 @@ class _CustomerFillProfileFormState extends State<CustomerFillProfileForm> {
               controller: cubit.phoneNumberController,
               hintText: '+201278522505',
               validator: (phoneNumber) {
-                // if (phoneNumber.isNullOrEmpty() ||
-                //     !AppRegex.isValidPhoneNumber(phoneNumber!)) {
-                //   return "Please enter a valid number";
-                // }
-                // return null;
+                if (phoneNumber.isNullOrEmpty() ||
+                    !AppRegex.isValidPhoneNumber(phoneNumber!)) {
+                  return "Please enter a valid number";
+                }
+                return null;
               }),
         ],
       ),

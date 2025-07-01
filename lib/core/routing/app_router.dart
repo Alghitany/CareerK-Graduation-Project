@@ -12,7 +12,6 @@ import 'package:carrerk/features/customer/chats/person_chat/customer_chats_perso
 import 'package:carrerk/features/customer/home/customer_home_main_page.dart';
 import 'package:carrerk/features/customer/jobs_post/customer_jobs_post.dart';
 import 'package:carrerk/features/customer/profile/customer_profile_screen.dart';
-import 'package:carrerk/features/customer/sign_up/compulsory_data/customer_sign_up_compulsory_data_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -34,17 +33,13 @@ import '../../features/company/jobs_post/logic/company_jobs_post_cubit.dart';
 import '../../features/company/jobs_post/ui/success/company_job_post_success_screen.dart';
 import '../../features/company/logic/company_jobs_delete_post_cubit.dart';
 import '../../features/company/sign_up/logic/company_sign_up_cubit.dart';
-import '../../features/company/sign_up/ui/compulsory_data/company_sign_up_compulsory_data_screen.dart';
-import '../../features/company/sign_up/ui/contact_information/company_sign_up_contact_information.dart';
-import '../../features/company/sign_up/ui/enter_location/company_sign_up_enter_location_screen.dart';
-import '../../features/company/sign_up/ui/fill_profile/company_sign_up_fill_profile_screen.dart';
 import '../../features/company/ui/home/main_page/company_home_main_page_screen.dart';
 import '../../features/company/ui/home/see_details/company_home_see_details_screen.dart';
 import '../../features/company/ui/home/see_resume/company_home_see_resume_screen.dart';
 import '../../features/company/ui/jobs/company_jobs_screen.dart';
 import '../../features/company/ui/profile/company_profile_screen.dart';
 import '../../features/company/ui/send_to_applicants/message-applicant/company_send_to_applicants_message_applicant_screen.dart';
-import '../../features/customer/sign_up/fill_profile/customer_sign_up_fill_profile_screen.dart';
+import '../../features/customer/sign_up/logic/customer_sign_up_cubit.dart';
 import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
 import '../../features/developer/ui/community/all_communities/developer_community_all_communities_screen.dart';
 import '../../features/developer/ui/community/chat/developer_community_chat_screen.dart';
@@ -87,6 +82,7 @@ import '../../features/sign_up_user_type/sign_up_user_type_screen.dart';
 import '../di/dependency_injection.dart';
 import '../helpers/enums.dart';
 import 'company_router/signup_router.dart';
+import 'customer_router/signup_router.dart';
 import 'developer_router/signup_router.dart';
 import 'routes.dart';
 
@@ -147,7 +143,7 @@ class AppRouter {
         );
       // ---------------- Company ----------------
       // Sign Up
-        case Routes.companySignUpFlow:
+      case Routes.companySignUpFlow:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (_) => getIt<CompanySignupCubit>(),
@@ -424,7 +420,14 @@ class AppRouter {
           builder: (_) => const DeveloperProfilePaymentAddNewCardScreen(),
         );
       // ---------------- Customer ----------------
-
+      // sign up
+      case Routes.customerSignUpFlow:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<CustomerSignupCubit>(),
+            child: const CustomerSignupFlow(),
+          ),
+        );
       // Profile
       case Routes.customerProfileScreen:
         return MaterialPageRoute(
@@ -460,17 +463,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const CustomerHomeMainPageScreen(),
         );
-
-      // sign up
-      case Routes.customerSignUpCompulsoryDataScreen:
-        return MaterialPageRoute(
-          builder: (_) => const CustomerSignUpCompulsoryDataScreen(),
-        );
-      case Routes.customerSignUpFillProfileScreen:
-        return MaterialPageRoute(
-          builder: (_) => const CustomerSignUpFillProfileScreen(),
-        );
-      // ---------------- Customer ----------------
+      // ---------------- PDF View ----------------
       case Routes.pdfViewerScreen:
         final args = settings.arguments as AppArgument;
         return MaterialPageRoute(

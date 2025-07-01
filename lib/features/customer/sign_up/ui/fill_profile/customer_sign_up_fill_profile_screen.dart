@@ -3,11 +3,12 @@ import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:carrerk/core/widgets/app_edit_profile_picture.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
-import 'package:carrerk/features/customer/sign_up/logic/customer_sign_up_cubit.dart';
 import 'package:carrerk/features/customer/sign_up/ui/fill_profile/widgets/customer_fill_profile_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../logic/customer_sign_up_cubit.dart';
 
 class CustomerSignUpFillProfileScreen extends StatelessWidget {
   const CustomerSignUpFillProfileScreen({super.key});
@@ -31,7 +32,7 @@ class CustomerSignUpFillProfileScreen extends StatelessWidget {
                 AppEditProfilePicture(
                   onImageSelected: (imageFile) {
                     context
-                        .read<CustomerSignUpCubit>()
+                        .read<CustomerSignupCubit>()
                         .setProfileImage(imageFile);
                   },
                 ),
@@ -44,7 +45,6 @@ class CustomerSignUpFillProfileScreen extends StatelessWidget {
                     onPressed: () {
                       //TODO: Check input validations adn go to next page
                       validateThenDoSignup(context);
-                      // context.pushNamed(Routes.companyHomeMainPageScreen);
                     })
               ],
             ),
@@ -55,77 +55,6 @@ class CustomerSignUpFillProfileScreen extends StatelessWidget {
   }
 
   void validateThenDoSignup(BuildContext context) {
-    context.read<CustomerSignUpCubit>().signupCustomer();
+    context.read<CustomerSignupCubit>().signupCustomer();
   }
 }
-// import 'package:carrerk/core/helpers/extensions.dart';
-// import 'package:carrerk/features/customer/sign_up/logic/customer_sign_up_cubit.dart';
-// import 'package:carrerk/features/customer/sign_up/ui/fill_profile/widgets/customer_fill_profile_form.dart';
-// import 'package:flutter/material.dart';
-// import 'package:flutter_bloc/flutter_bloc.dart';
-// import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-// import '../../../../../core/helpers/spacing.dart';
-// import '../../../../../core/routing/routes.dart';
-// import '../../../../../core/theming/styles.dart';
-// import '../../../../../core/widgets/app_back_icon.dart';
-// import '../../../../../core/widgets/app_edit_profile_picture.dart';
-// import '../../../../../core/widgets/app_text_button.dart';
-
-// class CustomerSignUpFillProfileScreen extends StatelessWidget {
-//   const CustomerSignUpFillProfileScreen({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: SafeArea(
-//         child: SingleChildScrollView(
-//           child: Padding(
-//             padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 16.h),
-//             child: Column(
-//               children: [
-//                 const AppBackIcon(),
-//                 verticalSpace(8),
-//                 Text(
-//                   'Fill Your Profile',
-//                   style: AppTextStyles.font24DunePoppinsMedium,
-//                 ),
-//                 verticalSpace(16),
-//                 const AppEditProfilePicture(),
-//                 verticalSpace(16),
-//                 const CustomerFillProfileForm(),
-//                 verticalSpace(32),
-//                 AppEditProfilePicture(
-//                   onImageSelected: (imageFile) {
-//                     context
-//                         .read<CustomerSignUpCubit>()
-//                         .setProfileImage(imageFile);
-//                   },
-//                 ),
-//                 AppTextButton(
-//                     buttonText: 'Continue',
-//                     textStyle: AppTextStyles.font14WhitePoppinsMedium,
-//                     onPressed: () {
-//                       //TODO: Check input validations adn go to next page
-//                       validateThenGoNext(context);
-
-//                       // context.pushNamed(Routes.companyHomeMainPageScreen);
-//                     })
-//               ],
-//             ),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-
-//   void validateThenGoNext(BuildContext context) {
-//     if (context
-//         .read<CustomerSignUpCubit>()
-//         .fillProfileFormKey
-//         .currentState!
-//         .validate()) {
-//       context.pushNamed(Routes.customerSignUpContactInformationScreen);
-//     }
-//   }
-// }
