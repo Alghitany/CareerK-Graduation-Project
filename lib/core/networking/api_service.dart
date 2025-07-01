@@ -75,6 +75,7 @@ abstract class ApiService {
   );
 
   //----------------- Company
+  // Company Sign up Handled with dio
   //->Post Job
   @POST(ApiConstants.companyJobsPost)
   Future<CompanyJobsPostResponse> companyJobsPost(
@@ -106,4 +107,7 @@ abstract class ApiService {
   Future<GetChatMessagesResponseBody> getChatMessages(
     @Path('chatRoomId') String chatRoomId,
   );
+
+  //----------------- Customer
+  // Customer Sign up Handled with dio
 }
