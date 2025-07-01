@@ -1,11 +1,9 @@
 import 'package:carrerk/core/helpers/spacing.dart';
-
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
 import 'package:carrerk/features/customer/jobs_post/widgets/jobs_post_form.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomerJobPostScreen extends StatelessWidget {

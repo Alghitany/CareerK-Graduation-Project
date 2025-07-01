@@ -101,6 +101,8 @@ class Routes {
       "/developerCoursesCategoriesScreen";
   static const String developerCoursesSpecificCategoryScreen =
       "/developerCoursesSpecificCategoryScreen";
+  static const String developerCoursesCourseDetailsScreen =
+      "/developerCoursesCourseDetailsScreen";
   static const String developerCoursesRoadmapsScreen =
       "/developerCoursesRoadmapsScreen";
   static const String developerCoursesMyCoursesScreen =
@@ -152,17 +154,23 @@ class Routes {
       "/customerSignUpCompulsoryDataScreen";
   static const String customerSignUpFillProfileScreen =
       "/customerSignUpFillProfileScreen";
+
   // Profile
   static const String customerProfileScreen = "/customerProfileScreen";
+
   //jops_post
   static const String customerJobsPostFlow = "/customerJobsPostFlow";
   static const String customerJobPostScreen = "/customerJobPostScreen";
+
   //home
-  static const String customerHomeMainPageScreen = "/customerHomeMainPageScreen";
+  static const String customerHomeMainPageScreen =
+      "/customerHomeMainPageScreen";
+
   // chats
   static const String customerChatsScreen = "/customerChatsScreen";
   static const String customerChatsPersonChatScreen =
       "/customerChatsPersonChatScreen";
+
   // Applied
   static const String customerAppliedFirstScreen =
       "/customerAppliedFirstScreen";

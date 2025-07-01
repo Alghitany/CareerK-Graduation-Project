@@ -4,10 +4,8 @@ import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/cusomer_floating_action_button.dart';
 import 'package:carrerk/core/widgets/customer_bottom_navigation_bar.dart';
-
 import 'package:carrerk/features/customer/chats/models/contact_list_item_model.dart';
 import 'package:carrerk/features/customer/chats/widgets/contact_list_item_container.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

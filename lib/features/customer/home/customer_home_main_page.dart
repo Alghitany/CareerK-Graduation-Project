@@ -1,10 +1,7 @@
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/widgets/cusomer_floating_action_button.dart';
-
 import 'package:carrerk/core/widgets/customer_bottom_navigation_bar.dart';
-
 import 'package:carrerk/features/customer/home/widgets/home_page_top_bar.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

@@ -7,7 +7,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class ContactListItemContainer extends StatelessWidget {
   const ContactListItemContainer(
       {super.key, required this.contactListItemModel});
+
   final ContactListItemModel contactListItemModel;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

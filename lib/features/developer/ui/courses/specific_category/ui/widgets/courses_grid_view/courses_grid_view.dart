@@ -1,3 +1,5 @@
+import 'package:carrerk/core/helpers/extensions.dart';
+import 'package:carrerk/core/routing/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -27,6 +29,9 @@ class CoursesGridView extends StatelessWidget {
             title: course.name,
             totalLessons: course.totalLessons,
             duration: course.duration,
+            onTap: () {
+              context.pushNamed(Routes.developerCoursesCourseDetailsScreen);
+            },
           );
         },
       ),
