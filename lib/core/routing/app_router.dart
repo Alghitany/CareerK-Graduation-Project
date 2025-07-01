@@ -65,7 +65,7 @@ import '../../features/developer/ui/jobs/all_categories/developer_jobs_all_categ
 import '../../features/developer/ui/jobs/application_submitted/developer_jobs_application_submitted_screen.dart';
 import '../../features/developer/ui/jobs/apply/logic/developer_jobs_apply_cubit.dart';
 import '../../features/developer/ui/jobs/apply/ui/developer_jobs_apply_screen.dart';
-import '../../features/developer/ui/jobs/job_details/developer_jobs_job_details_screen.dart';
+import '../../features/developer/ui/jobs/job_details/ui/developer_jobs_job_details_screen.dart';
 import '../../features/developer/ui/jobs/main_page/developer_jobs_main_page_screen.dart';
 import '../../features/developer/ui/jobs/search/developer_jobs_search_screen.dart';
 import '../../features/developer/ui/jobs/service_details/developer_jobs_service_details_screen.dart';
