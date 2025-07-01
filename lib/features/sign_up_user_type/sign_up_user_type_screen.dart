@@ -42,7 +42,7 @@ class SignUpUserTypeScreen extends StatelessWidget {
                   text: 'Developer',
                 ),
                 UserTypeCard(
-                  routeName: Routes.companySignUpCompulsoryDataScreen,
+                  routeName: Routes.companySignUpFlow,
                   icon: 'assets/svgs/company.svg',
                   text: 'Company',
                 ),

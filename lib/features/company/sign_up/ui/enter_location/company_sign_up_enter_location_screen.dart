@@ -49,7 +49,7 @@ class CompanySignUpEnterLocationScreen extends StatelessWidget {
 
   void validateThenGoNext(BuildContext context) {
     if (context
-        .read<CompanySignUpCubit>()
+        .read<CompanySignupCubit>()
         .fillProfileFormKey
         .currentState!
         .validate()) {
