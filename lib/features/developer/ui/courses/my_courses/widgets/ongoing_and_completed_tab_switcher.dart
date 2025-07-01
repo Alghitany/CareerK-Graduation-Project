@@ -8,20 +8,28 @@ class OngoingAndCompletedTabSwitcher extends StatefulWidget {
   const OngoingAndCompletedTabSwitcher({super.key});
 
   @override
-  OngoingAndCompletedTabSwitcherState createState() =>
-      OngoingAndCompletedTabSwitcherState();
+  State<OngoingAndCompletedTabSwitcher> createState() =>
+      _OngoingAndCompletedTabSwitcherState();
 }
 
-class OngoingAndCompletedTabSwitcherState
+class _OngoingAndCompletedTabSwitcherState
     extends State<OngoingAndCompletedTabSwitcher> {
+  int selectedTabIndex = 0;
+
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
         AppTabSwitcher(
-          tabs: ['Ongoing', 'Completed'],
-          option0: OngoingCourses(),
-          option1: CompletedCourses(),
+          tabs: const ['Ongoing', 'Completed'],
+          selectedIndex: selectedTabIndex,
+          onTabChanged: (index) {
+            setState(() {
+              selectedTabIndex = index;
+            });
+          },
+          option0: const OngoingCourses(),
+          option1: const CompletedCourses(),
         ),
       ],
     );
