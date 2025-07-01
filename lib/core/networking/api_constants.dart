@@ -25,6 +25,11 @@ class ApiConstants {
   static const String developerCoursesMainPageProfile =
       "api/courses-page/developer/profile";
 
+  //-> specefic course header
+      static const String developerCoursesSpecificCourse =
+      "api/course-details/{courseId}/header";
+
+
   //-> Roadmaps List
   static const String developerCoursesMainPageRoadmaps =
       "api/courses-page/roadmaps/preview";

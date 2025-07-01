@@ -54,6 +54,7 @@ import '../../features/developer/ui/courses/roadmaps/logic/developer_courses_roa
 import '../../features/developer/ui/courses/roadmaps/ui/developer_courses_roadmaps_screen.dart';
 import '../../features/developer/ui/courses/specific_category/logic/developer_courses_specific_category_cubit.dart';
 import '../../features/developer/ui/courses/specific_category/ui/developer_courses_specific_category_screen.dart';
+import '../../features/developer/ui/courses/specific_course/logic/developer_courses_specific_course_cubit.dart';
 import '../../features/developer/ui/courses/specific_course/ui/developer_courses_course_details_screen.dart';
 import '../../features/developer/ui/home_main_page/developer_home_main_page_screen.dart';
 import '../../features/developer/ui/jobs/all_categories/developer_jobs_all_categories_screen.dart';
@@ -307,6 +308,8 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const DeveloperCoursesCategoriesScreen(),
         );
+
+
       case Routes.developerCoursesSpecificCategoryScreen:
         final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
@@ -316,10 +319,19 @@ class AppRouter {
             child: const DeveloperCoursesSpecificCategoryScreen(),
           ),
         );
+
+
       case Routes.developerCoursesCourseDetailsScreen:
+        final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-          builder: (_) => const DeveloperCoursesCourseDetailsScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<DeveloperCoursesSpecificCourseCubit>()
+              ..getDeveloperCourseHeader(args.courseId!),
+            child: const DeveloperCoursesCourseDetailsScreen(),
+          ),
         );
+
+
       case Routes.developerCoursesRoadmapsScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(

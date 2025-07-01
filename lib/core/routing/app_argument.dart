@@ -8,6 +8,8 @@ class AppArgument {
   final String? chatRoomId;
   final bool? isExisting;
   final String? fileUrl;
+  final String? courseId;
+
 
   AppArgument({
     this.jobId,
@@ -17,5 +19,6 @@ class AppArgument {
     this.chatRoomId,
     this.isExisting,
     this.fileUrl,
+    this.courseId,
   });
 }
