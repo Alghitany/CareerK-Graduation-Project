@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../core/routing/routes.dart';
 import '../../../../../../core/theming/colors.dart';
 import '../../../../../../core/theming/styles.dart';
+
 import '../../../logic/company_sign_up_cubit.dart';
 import '../../../logic/company_sign_up_state.dart';
 
@@ -13,7 +14,7 @@ class CompanySignupBlocListener extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<CompanySignUpCubit, CompanySignUpState>(
+    return BlocListener<CompanySignupCubit, CompanySignupState>(
       listenWhen: (previous, current) =>
           current is CompanySignupLoading ||
           current is CompanySignupSuccess ||

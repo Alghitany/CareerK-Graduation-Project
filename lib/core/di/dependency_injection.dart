@@ -116,8 +116,8 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<CompanySignupRepo>(
     () => CompanySignupRepo(getIt<Dio>()),
   );
-  getIt.registerFactory<CompanySignUpCubit>(
-    () => CompanySignUpCubit(getIt<CompanySignupRepo>()),
+  getIt.registerFactory<CompanySignupCubit>(
+    () => CompanySignupCubit(getIt<CompanySignupRepo>()),
   );
   // -> Jobs Post
   getIt.registerLazySingleton<CompanyJobsPostRepo>(

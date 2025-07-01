@@ -33,6 +33,7 @@ import '../../features/chats/person_chat/ui/chats_person_chat_screen.dart';
 import '../../features/company/jobs_post/logic/company_jobs_post_cubit.dart';
 import '../../features/company/jobs_post/ui/success/company_job_post_success_screen.dart';
 import '../../features/company/logic/company_jobs_delete_post_cubit.dart';
+import '../../features/company/sign_up/logic/company_sign_up_cubit.dart';
 import '../../features/company/sign_up/ui/compulsory_data/company_sign_up_compulsory_data_screen.dart';
 import '../../features/company/sign_up/ui/contact_information/company_sign_up_contact_information.dart';
 import '../../features/company/sign_up/ui/enter_location/company_sign_up_enter_location_screen.dart';
@@ -85,6 +86,7 @@ import '../../features/search/ui/search_screen.dart';
 import '../../features/sign_up_user_type/sign_up_user_type_screen.dart';
 import '../di/dependency_injection.dart';
 import '../helpers/enums.dart';
+import 'company_router/signup_router.dart';
 import 'developer_router/signup_router.dart';
 import 'routes.dart';
 
@@ -145,21 +147,12 @@ class AppRouter {
         );
       // ---------------- Company ----------------
       // Sign Up
-      case Routes.companySignUpCompulsoryDataScreen:
+        case Routes.companySignUpFlow:
         return MaterialPageRoute(
-          builder: (_) => const CompanySignUpCompulsoryDataScreen(),
-        );
-      case Routes.companySignUpFillProfileScreen:
-        return MaterialPageRoute(
-          builder: (_) => const CompanySignUpFillProfileScreen(),
-        );
-      case Routes.companySignUpEnterLocationScreen:
-        return MaterialPageRoute(
-          builder: (_) => const CompanySignUpEnterLocationScreen(),
-        );
-      case Routes.companySignUpContactInformation:
-        return MaterialPageRoute(
-          builder: (_) => const CompanySignUpContactInformationScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<CompanySignupCubit>(),
+            child: const CompanySignUpFlow(),
+          ),
         );
       // Home
       case Routes.companyHomeMainPageScreen:

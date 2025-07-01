@@ -9,6 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/routing/routes.dart';
+
 import '../../logic/company_sign_up_cubit.dart';
 import 'widgets/company_fill_profile_form.dart';
 
@@ -34,7 +35,7 @@ class CompanySignUpFillProfileScreen extends StatelessWidget {
                 AppEditProfilePicture(
                   onImageSelected: (imageFile) {
                     context
-                        .read<CompanySignUpCubit>()
+                        .read<CompanySignupCubit>()
                         .setProfileImage(imageFile);
                   },
                 ),
@@ -58,7 +59,7 @@ class CompanySignUpFillProfileScreen extends StatelessWidget {
 
   void validateThenGoNext(BuildContext context) {
     if (context
-        .read<CompanySignUpCubit>()
+        .read<CompanySignupCubit>()
         .fillProfileFormKey
         .currentState!
         .validate()) {
