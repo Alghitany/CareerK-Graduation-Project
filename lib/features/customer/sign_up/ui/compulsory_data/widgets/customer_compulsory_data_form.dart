@@ -1,4 +1,3 @@
-
 import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -39,10 +38,8 @@ class _CustomerCompulsoryDataFormState
                 validator: (name) {
                   if (name!.isNullOrEmpty() || !AppRegex.isValidName(name)) {
                     return 'Please enter a valid name';
-                    }
+                  }
                   return null;
-
-                    
                 }),
             verticalSpace(16),
             const AppLabel(text: 'Email'),
@@ -51,12 +48,10 @@ class _CustomerCompulsoryDataFormState
                 controller: context.read<CustomerSignupCubit>().emailController,
                 hintText: 'example@email.com',
                 validator: (email) {
-                  
                   if (email!.isNullOrEmpty() || !AppRegex.isValidEmail(email)) {
                     return 'Please enter a valid email';
                   }
                   return null;
-
                 }),
             verticalSpace(16),
             const AppLabel(text: 'Password'),
@@ -104,8 +99,6 @@ class _CustomerCompulsoryDataFormState
                     return 'Please enter a valid password';
                   }
                   return null;
-
-                  
                 }),
             verticalSpace(16),
             const AppLabel(text: 'Confirm Password'),

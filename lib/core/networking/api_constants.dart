@@ -27,10 +27,14 @@ class ApiConstants {
   static const String developerSingleJobBookmark =
       "/api/bookmarks/bookmark/{jobId}";
 
+  //-> Jobs Recently Posted
+  static const String developerJobsRecentlyPosted =
+      "api/job-post/filter/recently-posted";
+
   //-----> Courses
   //-> Developer Profile
   static const String developerCoursesMainPageProfile =
-      "api/courses-page/developer/profile";
+      "api/courses-page/developer-name";
 
   //-> Roadmaps List
   static const String developerCoursesMainPageRoadmaps =

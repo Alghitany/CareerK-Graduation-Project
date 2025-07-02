@@ -151,7 +151,7 @@ class Routes {
 
   // ---------------- Customer ----------------
   // Sign Up
-    static const customerSignUpFlow = '/customerSignUpFlow';
+  static const customerSignUpFlow = '/customerSignUpFlow';
   static const String customerSignUpCompulsoryDataScreen =
       "/customerSignUpCompulsoryDataScreen";
   static const String customerSignUpFillProfileScreen =

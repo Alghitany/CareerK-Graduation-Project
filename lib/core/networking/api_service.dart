@@ -22,6 +22,7 @@ import '../../features/developer/ui/courses/main_page/data/models/developer_cour
 import '../../features/developer/ui/courses/roadmaps/data/models/developer_courses_roadmaps_response_body.dart';
 import '../../features/developer/ui/courses/specific_category/data/models/developer_courses_specific_category_response_body.dart';
 import '../../features/developer/ui/jobs/job_details/data/models/developer_jobs_job_details_response_body.dart';
+import '../../features/developer/ui/jobs/search/data/models/developer_jobs_recently_posted_models/developer_jobs_recently_posted_response_body.dart';
 import '../../features/search/data/model/search_courses_response_body.dart';
 import 'api_constants.dart';
 
@@ -89,6 +90,11 @@ abstract class ApiService {
     @Path("jobId") String jobId,
   );
 
+// -> Recently Posted Jobs
+  @GET(ApiConstants.developerJobsRecentlyPosted)
+  Future<List<DeveloperJobsRecentlyPostedResponseBody>>
+      getDeveloperRecentlyPostedJobs();
+
   //----------------- Company
   // Company Sign up Handled with dio
   //->Post Job
@@ -123,6 +129,6 @@ abstract class ApiService {
     @Path('chatRoomId') String chatRoomId,
   );
 
-  //----------------- Customer
-  // Customer Sign up Handled with dio
+//----------------- Customer
+// Customer Sign up Handled with dio
 }

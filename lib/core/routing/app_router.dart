@@ -14,6 +14,7 @@ import 'package:carrerk/features/customer/jobs_post/customer_jobs_post.dart';
 import 'package:carrerk/features/customer/profile/customer_profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../features/authentication/change_password/logic/change_password_cubit.dart';
 import '../../features/authentication/change_password/ui/change_password_screen.dart';
 import '../../features/authentication/login/logic/login_cubit.dart';
@@ -38,11 +39,9 @@ import '../../features/company/ui/home/see_resume/company_home_see_resume_screen
 import '../../features/company/ui/jobs/company_jobs_screen.dart';
 import '../../features/company/ui/profile/company_profile_screen.dart';
 import '../../features/company/ui/send_to_applicants/message-applicant/company_send_to_applicants_message_applicant_screen.dart';
-import '../../features/customer/sign_up/fill_profile/customer_sign_up_fill_profile_screen.dart';
+import '../../features/customer/sign_up/logic/customer_sign_up_cubit.dart';
 import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
 import '../../features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
-import '../../features/customer/sign_up/logic/customer_sign_up_cubit.dart';
-import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
 import '../../features/developer/ui/community/all_communities/developer_community_all_communities_screen.dart';
 import '../../features/developer/ui/community/chat/developer_community_chat_screen.dart';
 import '../../features/developer/ui/courses/categories/developer_courses_categories_screen.dart';
@@ -65,7 +64,8 @@ import '../../features/developer/ui/jobs/apply/ui/developer_jobs_apply_screen.da
 import '../../features/developer/ui/jobs/job_details/logic/developer_jobs_job_details_cubit.dart';
 import '../../features/developer/ui/jobs/job_details/ui/developer_jobs_job_details_screen.dart';
 import '../../features/developer/ui/jobs/main_page/developer_jobs_main_page_screen.dart';
-import '../../features/developer/ui/jobs/search/developer_jobs_search_screen.dart';
+import '../../features/developer/ui/jobs/search/logic/developer_jobs_recently_posted_logic/developer_jobs_recently_posted_cubit.dart';
+import '../../features/developer/ui/jobs/search/ui/developer_jobs_search_screen.dart';
 import '../../features/developer/ui/jobs/service_details/developer_jobs_service_details_screen.dart';
 import '../../features/developer/ui/profile/edit_profile/developer_profile_edit_profile_screen.dart';
 import '../../features/developer/ui/profile/jobs_applied/developer_profile_jobs_applied_screen.dart';
@@ -364,22 +364,21 @@ class AppRouter {
           ),
         );
       case Routes.developerJobsSearchScreen:
-        final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (_) => getIt<DeveloperSingleJobBookmarkCubit>()
-              ..bookmarkJob(args.jobId!),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) => getIt<DeveloperJobsRecentlyPostedCubit>()
+                  ..fetchRecentlyPostedJobs(),
+              ),
+            ],
             child: const DeveloperJobsSearchScreen(),
           ),
         );
+
       case Routes.developerJobsServiceDetailsScreen:
-        final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (_) => getIt<DeveloperSingleJobBookmarkCubit>()
-              ..bookmarkJob(args.jobId!),
-            child: const DeveloperJobsServiceDetailsScreen(),
-          ),
+          builder: (_) => const DeveloperJobsServiceDetailsScreen(),
         );
       // Apply
       case Routes.developerJobsApplyScreen:
