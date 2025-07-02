@@ -11,6 +11,7 @@ import 'package:carrerk/features/developer/ui/courses/specific_category/data/rep
 import 'package:carrerk/features/developer/ui/courses/specific_category/logic/developer_courses_specific_category_cubit.dart';
 import 'package:carrerk/features/developer/ui/jobs/job_details/data/repo/developer_jobs_job_details_repo.dart';
 import 'package:carrerk/features/developer/ui/jobs/job_details/logic/developer_jobs_job_details_cubit.dart';
+import 'package:carrerk/features/developer/ui/jobs/search/data/repo/developer_jobs_recently_posted_repo.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -39,6 +40,7 @@ import '../../features/developer/ui/courses/roadmaps/data/repo/developer_courses
 import '../../features/developer/ui/courses/roadmaps/logic/developer_courses_roadmaps_cubit.dart';
 import '../../features/developer/ui/jobs/apply/data/repo/developer_jobs_apply_repo.dart';
 import '../../features/developer/ui/jobs/apply/logic/developer_jobs_apply_cubit.dart';
+import '../../features/developer/ui/jobs/search/logic/developer_jobs_recently_posted_logic/developer_jobs_recently_posted_cubit.dart';
 import '../../features/developer/ui/sign_up/data/repos/developer_sign_up_repo.dart';
 import '../../features/developer/ui/sign_up/logic/developer_sign_up_cubit.dart';
 import '../../features/search/data/repo/search_courses_repo.dart';
@@ -102,6 +104,13 @@ Future<void> setupGetIt() async {
   );
   getIt.registerFactory<DeveloperSingleJobBookmarkCubit>(
     () => DeveloperSingleJobBookmarkCubit(getIt()),
+  );
+  // Jobs Recently Posted
+  getIt.registerLazySingleton<DeveloperJobsRecentlyPostedRepo>(
+    () => DeveloperJobsRecentlyPostedRepo(getIt()),
+  );
+  getIt.registerFactory<DeveloperJobsRecentlyPostedCubit>(
+    () => DeveloperJobsRecentlyPostedCubit(getIt()),
   );
   // -> Courses Main Page
   // -> Profile

@@ -4,17 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class SortAndHighestPaidFilters extends StatefulWidget {
-  const SortAndHighestPaidFilters({super.key});
+class PriceAndRecentFilters extends StatelessWidget {
+  final List<String> items;
+  final String? selectedValue;
+  final ValueChanged<String?> onChanged;
 
-  @override
-  State<SortAndHighestPaidFilters> createState() =>
-      _SortAndHighestPaidFiltersState();
-}
-
-class _SortAndHighestPaidFiltersState extends State<SortAndHighestPaidFilters> {
-  final List<String> items = ['Highest Paid', 'Lowest Paid'];
-  String? selectedValue;
+  const PriceAndRecentFilters({
+    super.key,
+    required this.selectedValue,
+    required this.onChanged,
+    this.items = const ['Highest Paid', 'Lowest Paid', 'Recent'],
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class _SortAndHighestPaidFiltersState extends State<SortAndHighestPaidFilters> {
       alignment: Alignment.centerLeft,
       child: Container(
         height: 32.h,
-        width: 109.w,
+        width: 140.w,
         padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
         decoration: BoxDecoration(
           border: Border.all(color: ColorsManager.mercury),
@@ -31,11 +31,11 @@ class _SortAndHighestPaidFiltersState extends State<SortAndHighestPaidFilters> {
         ),
         child: DropdownButtonHideUnderline(
           child: DropdownButton<String>(
-            value: null,
+            value: selectedValue,
             isExpanded: true,
             hint: Center(
               child: Text(
-                selectedValue == null ? 'Sort' : 'Sort • ${selectedValue!} ',
+                selectedValue ?? 'Sort',
                 style: AppTextStyles.font14LiverPoppinsMedium,
                 overflow: TextOverflow.ellipsis,
               ),
@@ -44,8 +44,10 @@ class _SortAndHighestPaidFiltersState extends State<SortAndHighestPaidFilters> {
               'assets/svgs/keyboard_arrow_down.svg',
               height: 4.h,
               width: 7.w,
-              colorFilter:
-                  const ColorFilter.mode(ColorsManager.liver, BlendMode.srcIn),
+              colorFilter: const ColorFilter.mode(
+                ColorsManager.liver,
+                BlendMode.srcIn,
+              ),
             ),
             items: items.map((String item) {
               return DropdownMenuItem<String>(
@@ -56,12 +58,7 @@ class _SortAndHighestPaidFiltersState extends State<SortAndHighestPaidFilters> {
                 ),
               );
             }).toList(),
-            //TODO: Filter should work
-            onChanged: (value) {
-              setState(() {
-                selectedValue = value!;
-              });
-            },
+            onChanged: onChanged,
           ),
         ),
       ),

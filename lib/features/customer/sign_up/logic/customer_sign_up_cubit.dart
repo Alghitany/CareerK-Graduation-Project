@@ -17,17 +17,17 @@ class CustomerSignupCubit extends Cubit<CustomerSignupState> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController =TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
 
-  final TextEditingController briefDescriptionController = TextEditingController();
+  final TextEditingController briefDescriptionController =
+      TextEditingController();
   final TextEditingController contactEmailController = TextEditingController();
   final TextEditingController phoneNumberController = TextEditingController();
-
 
   // Form Key
 
   final compulsoryDataFormKey = GlobalKey<FormState>();
-
 
   final fillProfileFormKey = GlobalKey<FormState>();
 
@@ -39,7 +39,7 @@ class CustomerSignupCubit extends Cubit<CustomerSignupState> {
   }
 
   Future<void> signupCustomer() async {
-  emit(const CustomerSignupState.customerSignupLoading());
+    emit(const CustomerSignupState.customerSignupLoading());
 
     final response = await _customerSignupRepo.customerSignup(
       body: CustomerSignupRequestModel(
@@ -47,12 +47,14 @@ class CustomerSignupCubit extends Cubit<CustomerSignupState> {
         email: emailController.text.trim(),
         password: passwordController.text,
         confirmPassword: confirmPasswordController.text,
-        briefDescription: briefDescriptionController.text.trim(), // ✅ NEW
-        contactEmail: contactEmailController.text.trim(),         // ✅ NEW
-        phoneNumber: phoneNumberController.text.trim(),           // ✅ NEW
-        profilePicture: profilePicFilePath != null
-            ? File(profilePicFilePath!)
-            : null,
+        briefDescription: briefDescriptionController.text.trim(),
+        // ✅ NEW
+        contactEmail: contactEmailController.text.trim(),
+        // ✅ NEW
+        phoneNumber: phoneNumberController.text.trim(),
+        // ✅ NEW
+        profilePicture:
+            profilePicFilePath != null ? File(profilePicFilePath!) : null,
       ),
       profilePicFilePath: profilePicFilePath,
     );
@@ -69,4 +71,3 @@ class CustomerSignupCubit extends Cubit<CustomerSignupState> {
     );
   }
 }
-

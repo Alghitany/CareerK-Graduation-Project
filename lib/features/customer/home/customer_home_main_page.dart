@@ -5,7 +5,7 @@ import 'package:carrerk/features/customer/home/widgets/home_page_top_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../developer/ui/jobs/search/widgets/filtered_jobs.dart';
+import '../../developer/ui/jobs/search/ui/widgets/filtered_jobs.dart';
 
 class CustomerHomeMainPageScreen extends StatelessWidget {
   const CustomerHomeMainPageScreen({super.key});
@@ -25,7 +25,7 @@ class CustomerHomeMainPageScreen extends StatelessWidget {
             children: [
               const CustomerHomePageTopBar(),
               verticalSpace(40),
-              FilteredJobs()
+              const FilteredJobs()
             ],
           ),
         ),

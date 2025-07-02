@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../../../logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
-import '../../../../../logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_state.dart';
+import '../../../features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
+import '../../../features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_state.dart';
 
 class DeveloperJobBookmarkBlocBuilder extends StatelessWidget {
   final String jobId;

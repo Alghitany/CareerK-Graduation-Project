@@ -178,7 +178,7 @@ class _ApiService implements ApiService {
     )
                 .compose(
                   _dio.options,
-                  'api/courses-page/developer/profile',
+                  'api/courses-page/developer-name',
                   queryParameters: queryParameters,
                   data: _data,
                 )
@@ -380,6 +380,44 @@ class _ApiService implements ApiService {
     late DeveloperSingleJobBookmarkResponseModel _value;
     try {
       _value = DeveloperSingleJobBookmarkResponseModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<List<DeveloperJobsRecentlyPostedResponseBody>>
+      getDeveloperRecentlyPostedJobs() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options =
+        _setStreamType<List<DeveloperJobsRecentlyPostedResponseBody>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/job-post/filter/recently-posted',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            )));
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<DeveloperJobsRecentlyPostedResponseBody> _value;
+    try {
+      _value = _result.data!
+          .map((dynamic i) => DeveloperJobsRecentlyPostedResponseBody.fromJson(
+              i as Map<String, dynamic>))
+          .toList();
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
