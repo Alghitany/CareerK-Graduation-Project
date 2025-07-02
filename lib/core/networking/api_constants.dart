@@ -43,6 +43,11 @@ class ApiConstants {
   //-----> Roadmaps & Track Courses Base Path
   static const String developerTracksBasePath = "api/tracks-page/tracks";
 
+  //-----> Profile
+  //-> Applied Jobs
+  static const String developerProfileAppliedJobs =
+      "api/developer/my-applications";
+
   //------ customer ------------
   //->Sign up
   static const String customerSignup = "api/customer/register";

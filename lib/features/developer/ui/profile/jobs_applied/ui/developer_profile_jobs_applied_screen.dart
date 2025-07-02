@@ -4,7 +4,7 @@ import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'widgets/applied_jobs_list.dart';
+import 'widgets/applied_jobs_bloc_builder.dart';
 
 class DeveloperProfileJobsAppliedScreen extends StatelessWidget {
   const DeveloperProfileJobsAppliedScreen({super.key});
@@ -24,10 +24,10 @@ class DeveloperProfileJobsAppliedScreen extends StatelessWidget {
                   style: AppTextStyles
                       .font24SecondaryWildBlueYonderPoppinsSemiBold,
                 ),
-                verticalSpace(32),
+                verticalSpace(8),
                 //TODO: Refactoring this container should be done
                 //TODO: I FORGET TO SWITCH BRANCHES SORRY UWU :)
-                const AppliedJobsList(),
+                const AppliedJobsBlocBuilder(),
               ],
             ),
           ),
