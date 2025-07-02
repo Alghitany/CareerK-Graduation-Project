@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 import '../../logic/company_sign_up_cubit.dart';
 import 'widgets/company_compulsory_data_form.dart';
 

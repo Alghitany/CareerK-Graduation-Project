@@ -16,11 +16,14 @@ import '../../features/chats/person_chat/data/models/start_chat/start_chat_room_
 import '../../features/company/data/model/company_jobs_delete_post_response.dart';
 import '../../features/company/jobs_post/data/models/company_jobs_post_request_body.dart';
 import '../../features/company/jobs_post/data/models/company_jobs_post_response.dart';
-import '../../features/developer/data/model/developer_courses_and_jobs_main_page_profile_response_model.dart';
+import '../../features/developer/data/models/developer_courses_and_jobs_main_page_profile_models/developer_courses_and_jobs_main_page_profile_response_model.dart';
+import '../../features/developer/data/models/developer_single_job_bookmark_models/developer_single_job_bookmark_response_model.dart';
 import '../../features/developer/ui/courses/main_page/data/models/developer_courses_main_page_roadmaps_response_model.dart';
 import '../../features/developer/ui/courses/roadmaps/data/models/developer_courses_roadmaps_response_body.dart';
 import '../../features/developer/ui/courses/specific_category/data/models/developer_courses_specific_category_response_body.dart';
-import '../../features/search/data/model/search_courses_response_body.dart';import 'api_constants.dart';
+import '../../features/developer/ui/jobs/job_details/data/models/developer_jobs_job_details_response_body.dart';
+import '../../features/search/data/model/search_courses_response_body.dart';
+import 'api_constants.dart';
 
 part 'api_service.g.dart';
 
@@ -72,6 +75,18 @@ abstract class ApiService {
   Future<List<DeveloperCoursesSpecificCategoryResponseBody>>
       getDeveloperCoursesSpecificCategory(
     @Path("trackId") String trackId,
+  );
+
+  //-> Job Details
+  @GET(ApiConstants.developerJobsJobDetails)
+  Future<DeveloperJobsJobDetailsResponseBody> getDeveloperJobDetails(
+    @Path("jobId") String jobId,
+  );
+
+  //-> Single Bookmark
+  @GET(ApiConstants.developerSingleJobBookmark)
+  Future<DeveloperSingleJobBookmarkResponseModel> bookmarkJob(
+    @Path("jobId") String jobId,
   );
 
   //----------------- Company

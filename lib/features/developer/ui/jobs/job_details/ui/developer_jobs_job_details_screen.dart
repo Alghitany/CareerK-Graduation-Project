@@ -7,13 +7,13 @@ import 'package:carrerk/core/widgets/app_text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'widgets/back_icon_details_and_bookmark_icon.dart';
-import 'widgets/coin_icon_and_salary.dart';
-import 'widgets/job_description.dart';
-import 'widgets/job_name_location_type_post_date.dart';
+import 'widgets/developer_jobs_job_details_bloc_builder.dart';
+import 'widgets/top_bar/back_icon_details_and_bookmark_icon.dart';
 
 class DeveloperJobsJobDetailsScreen extends StatelessWidget {
-  const DeveloperJobsJobDetailsScreen({super.key});
+  final String jobId;
+
+  const DeveloperJobsJobDetailsScreen({super.key, required this.jobId});
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +23,9 @@ class DeveloperJobsJobDetailsScreen extends StatelessWidget {
           padding: EdgeInsets.fromLTRB(16.0.w, 40.0.h, 16.0.w, 0.0.h),
           child: Column(
             children: [
-              const BackIconDetailsAndBookmarkIcon(),
+              BackIconDetailsAndBookmarkIcon(jobId: jobId),
               verticalSpace(32),
-              const JobNameLocationTypePostDate(),
-              verticalSpace(40),
-              const CoinIconAndSalary(),
-              verticalSpace(40),
-              const JobDescription(),
+              const DeveloperJobsJobDetailsBlocBuilder(),
               verticalSpace(32),
               AppTextButton(
                 onPressed: () {

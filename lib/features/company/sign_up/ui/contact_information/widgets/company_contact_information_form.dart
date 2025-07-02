@@ -11,8 +11,6 @@ import 'package:flutter_svg/svg.dart';
 import '../../../../../../core/helpers/app_regex.dart';
 import '../../../logic/company_sign_up_cubit.dart';
 
-
-
 class CompanyContactInformationForm extends StatefulWidget {
   const CompanyContactInformationForm({super.key});
 
@@ -38,13 +36,11 @@ class _CompanyContactInformationFormState
             controller: cubit.contactNameController,
             hintText: 'CEO',
             validator: (contactName) {
-                if (contactName.isNullOrEmpty() ||
+              if (contactName.isNullOrEmpty() ||
                   !AppRegex.isValidName(contactName!)) {
                 return "Please enter a valid name";
               }
               return null;
-
-              
             },
           ),
           verticalSpace(16),
@@ -58,8 +54,6 @@ class _CompanyContactInformationFormState
                 return 'Please enter a valid email';
               }
               return null;
-
-              
             },
           ),
           verticalSpace(16),
@@ -74,8 +68,6 @@ class _CompanyContactInformationFormState
                 return "Please enter a valid number";
               }
               return null;
-
-              
             },
           ),
           verticalSpace(16),
@@ -101,9 +93,6 @@ class _CompanyContactInformationFormState
                             return "Invalid URL format";
                           }
                           return null;
-                          
-
-                          
                         },
                         suffixIcon: Row(
                           mainAxisSize: MainAxisSize.min,

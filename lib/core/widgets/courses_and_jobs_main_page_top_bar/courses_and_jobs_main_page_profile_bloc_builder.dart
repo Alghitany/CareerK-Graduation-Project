@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../features/developer/logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
-import '../../../features/developer/logic/developer_courses_and_jobs_main_page_profile_state.dart';
+import '../../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
+import '../../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_state.dart';
 import 'courses_and_jobs_main_page_top_bar.dart';
 import 'courses_and_jobs_top_bar_shimmer.dart';
 

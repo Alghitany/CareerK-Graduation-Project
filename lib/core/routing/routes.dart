@@ -26,7 +26,7 @@ class Routes {
 
   // ---------------- Company ----------------
   // Sign Up
-    static const companySignUpFlow = '/companySignUpFlow';
+  static const companySignUpFlow = '/companySignUpFlow';
   static const String companySignUpCompulsoryDataScreen =
       "/companySignUpCompulsoryDataScreen";
   static const String companySignUpFillProfileScreen =

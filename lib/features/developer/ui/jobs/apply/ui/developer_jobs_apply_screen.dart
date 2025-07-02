@@ -30,13 +30,12 @@ class DeveloperJobsApplyScreen extends StatelessWidget {
                   'Job Apply',
                   style: AppTextStyles.font24DunePoppinsMedium,
                 ),
-                verticalSpace(24),
+                verticalSpace(16),
                 const JobApplyForm(),
-                verticalSpace(32),
-                //TODO: Add validation to form
+                verticalSpace(20),
                 AppTextButton(
                   onPressed: () {
-                    validateThenDoSignup(context, jobId);
+                    validateThenApply(context, jobId);
                   },
                   buttonText: 'Apply',
                   textStyle: AppTextStyles.font14WhitePoppinsMedium,
@@ -50,7 +49,7 @@ class DeveloperJobsApplyScreen extends StatelessWidget {
     );
   }
 
-  void validateThenDoSignup(BuildContext context, String jobId) {
+  void validateThenApply(BuildContext context, String jobId) {
     if (context
         .read<DeveloperJobsApplyCubit>()
         .jobApplicationFormKey

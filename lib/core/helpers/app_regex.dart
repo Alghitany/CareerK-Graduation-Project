@@ -17,10 +17,10 @@ class AppRegex {
     return !password.isNullOrEmpty() && password == confirmPassword;
   }
 
-  static bool isValidName(String name) {
+  static bool isValidName(String? name) {
     if (name.isNullOrEmpty()) return false;
 
-    return RegExp(r"^[A-Za-z\s]{2,50}$").hasMatch(name);
+    return RegExp(r"^[A-Za-z\s]{2,50}$").hasMatch(name!);
   }
 
   static bool isValidLocation(String location) {
@@ -29,18 +29,19 @@ class AppRegex {
     return RegExp(r"^[A-Za-z\s]+,\s[A-Za-z\s]+$").hasMatch(location);
   }
 
-  static bool isValidPhoneNumber(String phoneNumber) {
-    return RegExp(r'^[0-9]{8,12}$').hasMatch(phoneNumber);
+  static bool isValidPhoneNumber(String? phoneNumber) {
+    if (phoneNumber.isNullOrEmpty()) return false;
+    return RegExp(r'^[0-9]{8,12}$').hasMatch(phoneNumber!);
   }
 
   static bool isValidDescription(String description) {
     return RegExp(r'^\s*(?:\S\s*){20,50}$').hasMatch(description);
   }
 
-  static bool isValidNumber(String number) {
+  static bool isValidNumber(String? number) {
     if (number.isNullOrEmpty()) return false;
 
-    return RegExp(r'^\d+$').hasMatch(number); // Only digits
+    return RegExp(r'^\d+$').hasMatch(number!); // Only digits
   }
 
   static bool isValidPriceRange(String number) {

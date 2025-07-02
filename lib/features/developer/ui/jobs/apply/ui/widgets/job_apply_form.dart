@@ -1,4 +1,3 @@
-import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/widgets/app_label.dart';
 import 'package:carrerk/core/widgets/app_phone_number_form_field.dart';
@@ -50,32 +49,19 @@ class _JobApplyFormState extends State<JobApplyForm> {
                     context.read<DeveloperJobsApplyCubit>().nameController,
                 hintText: "Ali Mohamed",
                 validator: (name) {
-                  if (!AppRegex.isValidName(name!)) {
+                  if (!AppRegex.isValidName(name)) {
                     return 'Please enter a valid name';
                   }
                   return null;
                 }),
-            verticalSpace(16),
-            //TODO: Remove this Field
-            // const AppLabel(text: 'Email Address'),
-            // verticalSpace(8),
-            // AppTextFormField(
-            //     controller: context.read<DeveloperJobsApplyCubit>().,
-            //     hintText: 'example@email.com',
-            //     validator: (email) {
-            //       if (!AppRegex.isValidEmail(email!)) {
-            //         return 'Please enter a valid email';
-            //       }
-            //       return null;
-            //     }),
-            // verticalSpace(16),
+            verticalSpace(12),
             const AppLabel(text: 'Phone Number'),
             verticalSpace(8),
             AppPhoneNumberFormField(
               controller:
                   context.read<DeveloperJobsApplyCubit>().phoneController,
             ),
-            verticalSpace(16),
+            verticalSpace(12),
             const AppLabel(text: 'Years of experience'),
             verticalSpace(8),
             AppTextFormField(
@@ -84,15 +70,14 @@ class _JobApplyFormState extends State<JobApplyForm> {
                   .yearsOfExperienceController,
               hintText: '2',
               validator: (experience) {
-                if (experience.isNullOrEmpty() ||
-                    !AppRegex.isValidNumber(experience!)) {
+                if (!AppRegex.isValidNumber(experience)) {
                   return "Please enter a valid number";
                 }
                 return null;
               },
               keyboardType: TextInputType.number,
             ),
-            verticalSpace(16),
+            verticalSpace(12),
             const AppLabel(text: 'Expected salary'),
             verticalSpace(8),
             AppTextFormField(
@@ -101,13 +86,12 @@ class _JobApplyFormState extends State<JobApplyForm> {
                     .expectedSalaryController,
                 hintText: '12000 EGP',
                 validator: (salary) {
-                  if (salary.isNullOrEmpty() ||
-                      !AppRegex.isValidNumber(salary!)) {
+                  if (!AppRegex.isValidNumber(salary)) {
                     return "Please enter a valid salary";
                   }
                   return null;
                 }),
-            verticalSpace(16),
+            verticalSpace(12),
             const AppLabel(text: 'Upload your CV'),
             verticalSpace(8),
             GestureDetector(

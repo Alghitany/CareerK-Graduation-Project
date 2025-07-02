@@ -10,7 +10,6 @@ import '../../../../../../core/helpers/app_regex.dart';
 import '../../../../../../core/theming/styles.dart';
 import '../../../logic/company_sign_up_cubit.dart';
 
-
 class CompanyEnterLocationForm extends StatefulWidget {
   const CompanyEnterLocationForm({super.key});
 
@@ -37,8 +36,6 @@ class _CompanyEnterLocationFormState extends State<CompanyEnterLocationForm> {
                   return 'Please enter a valid country';
                 }
                 return null;
-
-                
               }),
           verticalSpace(16),
           const AppLabel(text: 'Enter Your City'),
@@ -47,12 +44,10 @@ class _CompanyEnterLocationFormState extends State<CompanyEnterLocationForm> {
               controller: context.read<CompanySignupCubit>().cityController,
               hintText: 'Cairo',
               validator: (city) {
-                  if (city.isNullOrEmpty() || !AppRegex.isValidName(city!)) {
+                if (city.isNullOrEmpty() || !AppRegex.isValidName(city!)) {
                   return 'Please enter a valid city';
                 }
                 return null;
-
-                
               }),
           verticalSpace(16),
           const AppLabel(text: 'Enter Your Address'),
@@ -61,13 +56,11 @@ class _CompanyEnterLocationFormState extends State<CompanyEnterLocationForm> {
               controller: context.read<CompanySignupCubit>().addressController,
               hintText: 'Obour',
               validator: (address) {
-                  if (address.isNullOrEmpty() ||
+                if (address.isNullOrEmpty() ||
                     !AppRegex.isValidName(address!)) {
                   return 'Please enter a valid address';
                 }
                 return null;
-
-                
               }),
           verticalSpace(16),
           const AppLabel(text: 'Company Website'),
@@ -77,12 +70,10 @@ class _CompanyEnterLocationFormState extends State<CompanyEnterLocationForm> {
               hintText: 'https://',
               keyboardType: TextInputType.url,
               validator: (url) {
-                  if (!AppRegex.isValidUrl(url!)) {
+                if (!AppRegex.isValidUrl(url!)) {
                   return "Enter valid URL";
                 }
                 return null;
-
-                
               }),
           verticalSpace(16),
           const AppLabel(text: 'Industry'),

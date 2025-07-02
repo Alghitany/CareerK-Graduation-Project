@@ -20,6 +20,13 @@ class ApiConstants {
   //-> Apply
   static const String developerJobsApply = "api/job-applications/apply";
 
+  //-> Job Details
+  static const String developerJobsJobDetails = "api/job-post/{jobId}";
+
+  //-> Single Bookmark
+  static const String developerSingleJobBookmark =
+      "/api/bookmarks/bookmark/{jobId}";
+
   //-----> Courses
   //-> Developer Profile
   static const String developerCoursesMainPageProfile =
