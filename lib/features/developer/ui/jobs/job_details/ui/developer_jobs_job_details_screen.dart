@@ -30,8 +30,7 @@ class DeveloperJobsJobDetailsScreen extends StatelessWidget {
               AppTextButton(
                 onPressed: () {
                   context.pushNamed(Routes.developerJobsApplyScreen,
-                      arguments: AppArgument(
-                          jobId: '3ee6eb6f-163c-4841-9132-e2ad8e21df4a'));
+                      arguments: AppArgument(jobId: jobId));
                 },
                 buttonText: 'Apply',
                 textStyle: AppTextStyles.font14WhitePoppinsMedium,

@@ -12,6 +12,8 @@ import 'package:carrerk/features/developer/ui/courses/specific_category/logic/de
 import 'package:carrerk/features/developer/ui/jobs/job_details/data/repo/developer_jobs_job_details_repo.dart';
 import 'package:carrerk/features/developer/ui/jobs/job_details/logic/developer_jobs_job_details_cubit.dart';
 import 'package:carrerk/features/developer/ui/jobs/search/data/repo/developer_jobs_recently_posted_repo.dart';
+import 'package:carrerk/features/developer/ui/profile/jobs_applied/data/repo/developer_job_withdraw_repo.dart';
+import 'package:carrerk/features/developer/ui/profile/jobs_applied/data/repo/developer_profile_applied_jobs_repo.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -41,6 +43,8 @@ import '../../features/developer/ui/courses/roadmaps/logic/developer_courses_roa
 import '../../features/developer/ui/jobs/apply/data/repo/developer_jobs_apply_repo.dart';
 import '../../features/developer/ui/jobs/apply/logic/developer_jobs_apply_cubit.dart';
 import '../../features/developer/ui/jobs/search/logic/developer_jobs_recently_posted_logic/developer_jobs_recently_posted_cubit.dart';
+import '../../features/developer/ui/profile/jobs_applied/logic/developer_job_withdraw_logic/developer_job_withdraw_cubit.dart';
+import '../../features/developer/ui/profile/jobs_applied/logic/developer_profile_applied_jobs_logic/developer_profile_applied_jobs_cubit.dart';
 import '../../features/developer/ui/sign_up/data/repos/developer_sign_up_repo.dart';
 import '../../features/developer/ui/sign_up/logic/developer_sign_up_cubit.dart';
 import '../../features/search/data/repo/search_courses_repo.dart';
@@ -141,6 +145,19 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<DeveloperCoursesSpecificCategoryCubit>(
     () => DeveloperCoursesSpecificCategoryCubit(getIt()),
   );
+  // -> Profile
+  // -> Jobs Applied
+  getIt.registerLazySingleton<DeveloperProfileAppliedJobsRepo>(
+    () => DeveloperProfileAppliedJobsRepo(getIt()),
+  );
+  getIt.registerFactory<DeveloperProfileAppliedJobsCubit>(
+    () => DeveloperProfileAppliedJobsCubit(getIt()),
+  );
+  // -> Withdraw Application
+  getIt.registerLazySingleton<DeveloperJobWithdrawRepo>(
+      () => DeveloperJobWithdrawRepo(getIt()));
+  getIt.registerLazySingleton<DeveloperJobWithdrawCubit>(
+      () => DeveloperJobWithdrawCubit(getIt()));
   // Company
   // company -> Signup
   getIt.registerLazySingleton<CompanySignupRepo>(

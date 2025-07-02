@@ -23,6 +23,8 @@ import '../../features/developer/ui/courses/roadmaps/data/models/developer_cours
 import '../../features/developer/ui/courses/specific_category/data/models/developer_courses_specific_category_response_body.dart';
 import '../../features/developer/ui/jobs/job_details/data/models/developer_jobs_job_details_response_body.dart';
 import '../../features/developer/ui/jobs/search/data/models/developer_jobs_recently_posted_models/developer_jobs_recently_posted_response_body.dart';
+import '../../features/developer/ui/profile/jobs_applied/data/models/developer_profile_applied_jobs_models/developer_profile_applied_jobs_response_body.dart';
+import '../../features/developer/ui/profile/jobs_applied/data/models/job_withdraw/developer_job_withdraw_response_body.dart';
 import '../../features/search/data/model/search_courses_response_body.dart';
 import 'api_constants.dart';
 
@@ -90,10 +92,21 @@ abstract class ApiService {
     @Path("jobId") String jobId,
   );
 
-// -> Recently Posted Jobs
+  // -> Recently Posted Jobs
   @GET(ApiConstants.developerJobsRecentlyPosted)
   Future<List<DeveloperJobsRecentlyPostedResponseBody>>
       getDeveloperRecentlyPostedJobs();
+
+  //-> Profile Applied Jobs
+  @GET(ApiConstants.developerProfileAppliedJobs)
+  Future<DeveloperProfileAppliedJobsResponseBody>
+      getDeveloperProfileAppliedJobs();
+
+  // Delete Job Application by ID
+  @DELETE(ApiConstants.developerJobWithdraw)
+  Future<DeveloperJobWithdrawResponseBody> deleteJobApplication(
+    @Path("applicationId") String applicationId,
+  );
 
   //----------------- Company
   // Company Sign up Handled with dio

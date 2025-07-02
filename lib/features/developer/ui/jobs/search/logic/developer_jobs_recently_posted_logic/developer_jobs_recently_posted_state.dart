@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../data/models/developer_jobs_recently_posted_models/developer_jobs_recently_posted_response_body.dart';
+
 part 'developer_jobs_recently_posted_state.freezed.dart';
 
 @freezed
