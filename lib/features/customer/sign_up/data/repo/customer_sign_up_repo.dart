@@ -1,10 +1,11 @@
 import 'package:carrerk/core/networking/api_constants.dart';
-import 'package:carrerk/core/networking/api_error_handler.dart';
-import 'package:carrerk/core/networking/api_result.dart';
-import 'package:carrerk/features/customer/sign_up/data/model/customer_signup_request_body.dart';
-import 'package:carrerk/features/customer/sign_up/data/model/customer_signup_response.dart';
 import 'package:dio/dio.dart';
 import 'package:http_parser/http_parser.dart';
+
+import '../../../../../core/networking/api_error_handler.dart';
+import '../../../../../core/networking/api_result.dart';
+import '../model/customer_signup_request_body.dart';
+import '../model/customer_signup_response.dart';
 
 class CustomerSignupRepo {
   final Dio _dio;
@@ -21,15 +22,12 @@ class CustomerSignupRepo {
         'email': body.email,
         'password': body.password,
         'confirm_password': body.confirmPassword,
-        'brief_description': body.briefDescription,
-        'contact_email': body.contactEmail,
-        'phone_number': body.phoneNumber,
       };
 
       if (profilePicFilePath != null && profilePicFilePath.isNotEmpty) {
         final fileExtension = profilePicFilePath.split('.').last.toLowerCase();
-        String mimeType = 'image/jpeg'; // Default
 
+        String mimeType = 'image/jpeg'; // Default
         if (fileExtension == 'png') {
           mimeType = 'image/png';
         } else if (fileExtension == 'jpg' || fileExtension == 'jpeg') {
@@ -55,7 +53,6 @@ class CustomerSignupRepo {
 
       final customerSignupResponse =
           CustomerSignupResponse.fromJson(response.data);
-
       return ApiResult.success(customerSignupResponse);
     } catch (error) {
       return ApiResult.failure(ErrorHandler.handle(error));

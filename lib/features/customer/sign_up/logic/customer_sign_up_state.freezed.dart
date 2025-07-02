@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$CustomerSignUpState<T> {
+mixin _$CustomerSignupState<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -74,24 +74,24 @@ mixin _$CustomerSignUpState<T> {
 }
 
 /// @nodoc
-abstract class $CustomerSignUpStateCopyWith<T, $Res> {
-  factory $CustomerSignUpStateCopyWith(CustomerSignUpState<T> value,
-          $Res Function(CustomerSignUpState<T>) then) =
-      _$CustomerSignUpStateCopyWithImpl<T, $Res, CustomerSignUpState<T>>;
+abstract class $CustomerSignupStateCopyWith<T, $Res> {
+  factory $CustomerSignupStateCopyWith(CustomerSignupState<T> value,
+          $Res Function(CustomerSignupState<T>) then) =
+      _$CustomerSignupStateCopyWithImpl<T, $Res, CustomerSignupState<T>>;
 }
 
 /// @nodoc
-class _$CustomerSignUpStateCopyWithImpl<T, $Res,
-        $Val extends CustomerSignUpState<T>>
-    implements $CustomerSignUpStateCopyWith<T, $Res> {
-  _$CustomerSignUpStateCopyWithImpl(this._value, this._then);
+class _$CustomerSignupStateCopyWithImpl<T, $Res,
+        $Val extends CustomerSignupState<T>>
+    implements $CustomerSignupStateCopyWith<T, $Res> {
+  _$CustomerSignupStateCopyWithImpl(this._value, this._then);
 
 // ignore: unused_field
   final $Val _value;
 // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of CustomerSignUpState
+  /// Create a copy of CustomerSignupState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -104,13 +104,13 @@ abstract class _$$InitialImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<T, $Res>
-    extends _$CustomerSignUpStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
+    extends _$CustomerSignupStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
     implements _$$InitialImplCopyWith<T, $Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of CustomerSignUpState
+  /// Create a copy of CustomerSignupState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -121,7 +121,7 @@ class _$InitialImpl<T> implements _Initial<T> {
 
   @override
   String toString() {
-    return 'CustomerSignUpState<$T>.initial()';
+    return 'CustomerSignupState<$T>.initial()';
   }
 
   @override
@@ -210,7 +210,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   }
 }
 
-abstract class _Initial<T> implements CustomerSignUpState<T> {
+abstract class _Initial<T> implements CustomerSignupState<T> {
   const factory _Initial() = _$InitialImpl<T>;
 }
 
@@ -224,7 +224,7 @@ abstract class _$$CustomerSignupLoadingImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$CustomerSignupLoadingImplCopyWithImpl<T, $Res>
-    extends _$CustomerSignUpStateCopyWithImpl<T, $Res,
+    extends _$CustomerSignupStateCopyWithImpl<T, $Res,
         _$CustomerSignupLoadingImpl<T>>
     implements _$$CustomerSignupLoadingImplCopyWith<T, $Res> {
   __$$CustomerSignupLoadingImplCopyWithImpl(
@@ -232,7 +232,7 @@ class __$$CustomerSignupLoadingImplCopyWithImpl<T, $Res>
       $Res Function(_$CustomerSignupLoadingImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of CustomerSignUpState
+  /// Create a copy of CustomerSignupState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -243,7 +243,7 @@ class _$CustomerSignupLoadingImpl<T> implements CustomerSignupLoading<T> {
 
   @override
   String toString() {
-    return 'CustomerSignUpState<$T>.customerSignupLoading()';
+    return 'CustomerSignupState<$T>.customerSignupLoading()';
   }
 
   @override
@@ -333,7 +333,7 @@ class _$CustomerSignupLoadingImpl<T> implements CustomerSignupLoading<T> {
   }
 }
 
-abstract class CustomerSignupLoading<T> implements CustomerSignUpState<T> {
+abstract class CustomerSignupLoading<T> implements CustomerSignupState<T> {
   const factory CustomerSignupLoading() = _$CustomerSignupLoadingImpl<T>;
 }
 
@@ -349,7 +349,7 @@ abstract class _$$CustomerSignupSuccessImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$CustomerSignupSuccessImplCopyWithImpl<T, $Res>
-    extends _$CustomerSignUpStateCopyWithImpl<T, $Res,
+    extends _$CustomerSignupStateCopyWithImpl<T, $Res,
         _$CustomerSignupSuccessImpl<T>>
     implements _$$CustomerSignupSuccessImplCopyWith<T, $Res> {
   __$$CustomerSignupSuccessImplCopyWithImpl(
@@ -357,7 +357,7 @@ class __$$CustomerSignupSuccessImplCopyWithImpl<T, $Res>
       $Res Function(_$CustomerSignupSuccessImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of CustomerSignUpState
+  /// Create a copy of CustomerSignupState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -383,7 +383,7 @@ class _$CustomerSignupSuccessImpl<T> implements CustomerSignupSuccess<T> {
 
   @override
   String toString() {
-    return 'CustomerSignUpState<$T>.customerSignupSuccess(data: $data)';
+    return 'CustomerSignupState<$T>.customerSignupSuccess(data: $data)';
   }
 
   @override
@@ -398,7 +398,7 @@ class _$CustomerSignupSuccessImpl<T> implements CustomerSignupSuccess<T> {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
-  /// Create a copy of CustomerSignUpState
+  /// Create a copy of CustomerSignupState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -484,13 +484,13 @@ class _$CustomerSignupSuccessImpl<T> implements CustomerSignupSuccess<T> {
   }
 }
 
-abstract class CustomerSignupSuccess<T> implements CustomerSignUpState<T> {
+abstract class CustomerSignupSuccess<T> implements CustomerSignupState<T> {
   const factory CustomerSignupSuccess(final T data) =
       _$CustomerSignupSuccessImpl<T>;
 
   T get data;
 
-  /// Create a copy of CustomerSignUpState
+  /// Create a copy of CustomerSignupState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CustomerSignupSuccessImplCopyWith<T, _$CustomerSignupSuccessImpl<T>>
@@ -508,14 +508,14 @@ abstract class _$$CustomerSignupErrorImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$CustomerSignupErrorImplCopyWithImpl<T, $Res>
-    extends _$CustomerSignUpStateCopyWithImpl<T, $Res,
+    extends _$CustomerSignupStateCopyWithImpl<T, $Res,
         _$CustomerSignupErrorImpl<T>>
     implements _$$CustomerSignupErrorImplCopyWith<T, $Res> {
   __$$CustomerSignupErrorImplCopyWithImpl(_$CustomerSignupErrorImpl<T> _value,
       $Res Function(_$CustomerSignupErrorImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of CustomerSignUpState
+  /// Create a copy of CustomerSignupState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -541,7 +541,7 @@ class _$CustomerSignupErrorImpl<T> implements CustomerSignupError<T> {
 
   @override
   String toString() {
-    return 'CustomerSignUpState<$T>.customerSignupError(error: $error)';
+    return 'CustomerSignupState<$T>.customerSignupError(error: $error)';
   }
 
   @override
@@ -555,7 +555,7 @@ class _$CustomerSignupErrorImpl<T> implements CustomerSignupError<T> {
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  /// Create a copy of CustomerSignUpState
+  /// Create a copy of CustomerSignupState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -641,13 +641,13 @@ class _$CustomerSignupErrorImpl<T> implements CustomerSignupError<T> {
   }
 }
 
-abstract class CustomerSignupError<T> implements CustomerSignUpState<T> {
+abstract class CustomerSignupError<T> implements CustomerSignupState<T> {
   const factory CustomerSignupError({required final String error}) =
       _$CustomerSignupErrorImpl<T>;
 
   String get error;
 
-  /// Create a copy of CustomerSignUpState
+  /// Create a copy of CustomerSignupState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CustomerSignupErrorImplCopyWith<T, _$CustomerSignupErrorImpl<T>>

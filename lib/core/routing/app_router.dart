@@ -12,10 +12,8 @@ import 'package:carrerk/features/customer/chats/person_chat/customer_chats_perso
 import 'package:carrerk/features/customer/home/customer_home_main_page.dart';
 import 'package:carrerk/features/customer/jobs_post/customer_jobs_post.dart';
 import 'package:carrerk/features/customer/profile/customer_profile_screen.dart';
-import 'package:carrerk/features/customer/sign_up/compulsory_data/customer_sign_up_compulsory_data_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../features/authentication/change_password/logic/change_password_cubit.dart';
 import '../../features/authentication/change_password/ui/change_password_screen.dart';
 import '../../features/authentication/login/logic/login_cubit.dart';
@@ -43,6 +41,8 @@ import '../../features/company/ui/send_to_applicants/message-applicant/company_s
 import '../../features/customer/sign_up/fill_profile/customer_sign_up_fill_profile_screen.dart';
 import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
 import '../../features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
+import '../../features/customer/sign_up/logic/customer_sign_up_cubit.dart';
+import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
 import '../../features/developer/ui/community/all_communities/developer_community_all_communities_screen.dart';
 import '../../features/developer/ui/community/chat/developer_community_chat_screen.dart';
 import '../../features/developer/ui/courses/categories/developer_courses_categories_screen.dart';
@@ -85,6 +85,7 @@ import '../../features/sign_up_user_type/sign_up_user_type_screen.dart';
 import '../di/dependency_injection.dart';
 import '../helpers/enums.dart';
 import 'company_router/signup_router.dart';
+import 'customer_router/signup_router.dart';
 import 'developer_router/signup_router.dart';
 import 'routes.dart';
 
@@ -446,7 +447,14 @@ class AppRouter {
           builder: (_) => const DeveloperProfilePaymentAddNewCardScreen(),
         );
       // ---------------- Customer ----------------
-
+      // sign up
+      case Routes.customerSignUpFlow:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<CustomerSignupCubit>(),
+            child: const CustomerSignupFlow(),
+          ),
+        );
       // Profile
       case Routes.customerProfileScreen:
         return MaterialPageRoute(
@@ -482,17 +490,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const CustomerHomeMainPageScreen(),
         );
-
-      // sign up
-      case Routes.customerSignUpCompulsoryDataScreen:
-        return MaterialPageRoute(
-          builder: (_) => const CustomerSignUpCompulsoryDataScreen(),
-        );
-      case Routes.customerSignUpFillProfileScreen:
-        return MaterialPageRoute(
-          builder: (_) => const CustomerSignUpFillProfileScreen(),
-        );
-      // ---------------- Customer ----------------
+      // ---------------- PDF View ----------------
       case Routes.pdfViewerScreen:
         final args = settings.arguments as AppArgument;
         return MaterialPageRoute(

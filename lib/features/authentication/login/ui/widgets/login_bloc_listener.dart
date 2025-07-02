@@ -33,7 +33,7 @@ class LoginBlocListener extends StatelessWidget {
 
             switch (role) {
               case 'customer':
-                context.pushNamed(Routes.companyHomeMainPageScreen);
+                context.pushNamed(Routes.customerHomeMainPageScreen);
                 break;
               case 'company':
                 context.pushNamed(Routes.companyHomeMainPageScreen);

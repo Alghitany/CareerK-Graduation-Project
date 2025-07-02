@@ -30,6 +30,8 @@ import '../../features/chats/person_chat/logic/send_messages/send_messages_cubit
 import '../../features/chats/person_chat/logic/start_chat/start_chat_room_cubit.dart';
 import '../../features/company/jobs_post/data/repos/company_jobs_post_repo.dart';
 import '../../features/company/jobs_post/logic/company_jobs_post_cubit.dart';
+import '../../features/customer/sign_up/data/repo/customer_sign_up_repo.dart';
+import '../../features/customer/sign_up/logic/customer_sign_up_cubit.dart';
 import '../../features/developer/data/repo/developer_courses_and_jobs_main_page_profile_repo.dart';
 import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
 import '../../features/developer/ui/courses/main_page/logic/developer_courses_main_page_roadmaps_cubit.dart';
@@ -184,4 +186,13 @@ Future<void> setupGetIt() async {
       () => SendMessagesCubit(getIt<SendMessagesRepo>()));
   //-> Socket
   getIt.registerLazySingleton<SocketService>(() => SocketService());
+
+  // Customer
+  // Customer -> Signup
+  getIt.registerLazySingleton<CustomerSignupRepo>(
+    () => CustomerSignupRepo(getIt<Dio>()),
+  );
+  getIt.registerFactory<CustomerSignupCubit>(
+    () => CustomerSignupCubit(getIt<CustomerSignupRepo>()),
+  );
 }
