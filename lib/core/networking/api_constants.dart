@@ -48,6 +48,10 @@ class ApiConstants {
   static const String developerProfileAppliedJobs =
       "api/developer/my-applications";
 
+  //-> Job Withdraw
+  static const String developerJobWithdraw =
+      "api/job-application/{applicationId}";
+
   //------ customer ------------
   //->Sign up
   static const String customerSignup = "api/customer/register";

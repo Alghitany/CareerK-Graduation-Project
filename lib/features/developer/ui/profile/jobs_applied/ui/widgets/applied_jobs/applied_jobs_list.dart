@@ -1,5 +1,7 @@
 import 'package:carrerk/core/theming/colors.dart';
+import 'package:carrerk/features/developer/ui/profile/jobs_applied/logic/developer_job_withdraw_logic/developer_job_withdraw_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -8,7 +10,7 @@ import '../../../../../../../../core/helpers/spacing.dart';
 import '../../../../../../../../core/routing/app_argument.dart';
 import '../../../../../../../../core/routing/routes.dart';
 import '../../../../../../../../core/theming/styles.dart';
-import '../../../data/models/developer_profile_applied_jobs_response_body.dart';
+import '../../../data/models/developer_profile_applied_jobs_models/developer_profile_applied_jobs_response_body.dart';
 
 class AppliedJobsList extends StatelessWidget {
   final List<JobApplication> jobApplications;
@@ -142,7 +144,9 @@ class AppliedJobsList extends StatelessWidget {
                           if (status == 'pending' || status == 'accepted')
                             TextButton(
                               onPressed: () {
-                                // TODO: Implement withdraw logic
+                                context
+                                    .read<DeveloperJobWithdrawCubit>()
+                                    .withdrawJobApplication(job.id!);
                               },
                               style: TextButton.styleFrom(
                                 backgroundColor:

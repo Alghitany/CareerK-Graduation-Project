@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../data/models/developer_profile_applied_jobs_response_body.dart';
+import '../../data/models/developer_profile_applied_jobs_models/developer_profile_applied_jobs_response_body.dart';
 
 part 'developer_profile_applied_jobs_state.freezed.dart';
 

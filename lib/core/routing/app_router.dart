@@ -68,9 +68,11 @@ import '../../features/developer/ui/jobs/search/logic/developer_jobs_recently_po
 import '../../features/developer/ui/jobs/search/ui/developer_jobs_search_screen.dart';
 import '../../features/developer/ui/jobs/service_details/developer_jobs_service_details_screen.dart';
 import '../../features/developer/ui/profile/edit_profile/developer_profile_edit_profile_screen.dart';
+import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_job_withdraw_repo.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_profile_applied_jobs_repo.dart';
+import '../../features/developer/ui/profile/jobs_applied/logic/developer_job_withdraw_logic/developer_job_withdraw_cubit.dart';
 import '../../features/developer/ui/profile/jobs_applied/logic/developer_profile_applied_jobs_logic/developer_profile_applied_jobs_cubit.dart';
-import '../../features/developer/ui/profile/jobs_applied/ui/developer_profile_jobs_applied_screen.dart';
+import '../../features/developer/ui/profile/jobs_applied/ui/developer_profile_jobs_and_services_applied_screen.dart';
 import '../../features/developer/ui/profile/main_page/developer_profile_main_page_screen.dart';
 import '../../features/developer/ui/profile/payment/add_new_cart/developer_profile_payment_add_new_card_screen.dart';
 import '../../features/developer/ui/profile/payment/option/developer_profile_payment_option_screen.dart';
@@ -436,11 +438,20 @@ class AppRouter {
         );
       case Routes.developerProfileJobsAppliedScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => DeveloperProfileAppliedJobsCubit(
-                getIt<DeveloperProfileAppliedJobsRepo>())
-              ..fetchAppliedJobs(),
-            child: const DeveloperProfileJobsAppliedScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => DeveloperProfileAppliedJobsCubit(
+                  getIt<DeveloperProfileAppliedJobsRepo>(),
+                )..fetchAppliedJobs(),
+              ),
+              BlocProvider(
+                create: (context) => DeveloperJobWithdrawCubit(
+                  getIt<DeveloperJobWithdrawRepo>(),
+                ),
+              ),
+            ],
+            child: const DeveloperProfileJobsAndServicesAppliedScreen(),
           ),
         );
 

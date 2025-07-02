@@ -2,17 +2,17 @@ import 'package:carrerk/core/networking/api_error_handler.dart';
 import 'package:carrerk/core/networking/api_result.dart';
 
 import '../../../../../../../core/networking/api_service.dart';
-import '../models/developer_profile_applied_jobs_models/developer_profile_applied_jobs_response_body.dart';
+import '../models/job_withdraw/developer_job_withdraw_response_body.dart';
 
-class DeveloperProfileAppliedJobsRepo {
+class DeveloperJobWithdrawRepo {
   final ApiService _service;
 
-  DeveloperProfileAppliedJobsRepo(this._service);
+  DeveloperJobWithdrawRepo(this._service);
 
-  Future<ApiResult<DeveloperProfileAppliedJobsResponseBody>>
-      getAppliedJobs() async {
+  Future<ApiResult<DeveloperJobWithdrawResponseBody>> withdrawJobApplication(
+      String applicationId) async {
     try {
-      final response = await _service.getDeveloperProfileAppliedJobs();
+      final response = await _service.deleteJobApplication(applicationId);
       return ApiResult.success(response);
     } catch (error) {
       return ApiResult.failure(ErrorHandler.handle(error));
