@@ -3,7 +3,9 @@ import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 
 class JobDescription extends StatelessWidget {
-  const JobDescription({super.key});
+  final String? description;
+
+  const JobDescription({super.key, required this.description});
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +19,11 @@ class JobDescription extends StatelessWidget {
         ),
         verticalSpace(8),
         Text(
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          description?.trim().isNotEmpty == true
+              ? description!
+              : 'No description provided.',
           style: AppTextStyles.font14DunePoppinsRegular,
-        )
+        ),
       ],
     );
   }

@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../../../../../core/routing/app_argument.dart';
+
 class AppliedJobsList extends StatefulWidget {
   const AppliedJobsList({super.key});
 
@@ -85,7 +87,12 @@ class _AppliedJobsListState extends State<AppliedJobsList> {
           return GestureDetector(
             onTap: () {
               //TODO: Pass the job details to screen
-              context.pushNamed(Routes.developerJobsJobDetailsScreen);
+              context.pushNamed(
+                  Routes.developerJobsJobDetailsScreen,
+                  arguments: AppArgument(
+                    jobId: "45779a40-d665-4e45-a122-616a2f6dda4a",
+                  )
+              );
             },
             child: Container(
               margin: EdgeInsets.symmetric(vertical: 8.h),

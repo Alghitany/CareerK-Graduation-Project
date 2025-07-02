@@ -1,5 +1,6 @@
 import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
+import 'package:carrerk/core/routing/app_argument.dart';
 import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +45,12 @@ class _MainPageRecommendedJobsState extends State<MainPageRecommendedJobs> {
           return GestureDetector(
             onTap: () {
               //TODO: Pass the job details to screen
-              context.pushNamed(Routes.developerJobsJobDetailsScreen);
+              context.pushNamed(
+                  Routes.developerJobsJobDetailsScreen,
+                  arguments: AppArgument(
+                    jobId: "45779a40-d665-4e45-a122-616a2f6dda4a",
+                  )
+              );
             },
             child: Container(
               margin: EdgeInsets.symmetric(vertical: 8.h, horizontal: 16.w),

@@ -7,6 +7,8 @@ import 'package:carrerk/features/company/sign_up/logic/company_sign_up_cubit.dar
 import 'package:carrerk/features/developer/ui/courses/main_page/data/repo/developer_courses_main_page_roadmaps_repo.dart';
 import 'package:carrerk/features/developer/ui/courses/specific_category/data/repo/developer_courses_specific_category_repo.dart';
 import 'package:carrerk/features/developer/ui/courses/specific_category/logic/developer_courses_specific_category_cubit.dart';
+import 'package:carrerk/features/developer/ui/jobs/job_details/data/repo/developer_jobs_job_details_repo.dart';
+import 'package:carrerk/features/developer/ui/jobs/job_details/logic/developer_jobs_job_details_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -81,6 +83,13 @@ Future<void> setupGetIt() async {
   );
   getIt.registerFactory<DeveloperJobsApplyCubit>(
     () => DeveloperJobsApplyCubit(getIt<DeveloperJobsApplyRepo>()),
+  );
+  // Job Details
+  getIt.registerLazySingleton<DeveloperJobsJobDetailsRepo>(
+        () => DeveloperJobsJobDetailsRepo(getIt()),
+  );
+  getIt.registerFactory<DeveloperJobsJobDetailsCubit>(
+        () => DeveloperJobsJobDetailsCubit(getIt()),
   );
   // -> Courses Main Page
   // -> Profile
