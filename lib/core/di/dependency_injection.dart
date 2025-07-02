@@ -4,6 +4,8 @@ import 'package:carrerk/features/company/data/repo/company_jobs_delete_post_repo
 import 'package:carrerk/features/company/logic/company_jobs_delete_post_cubit.dart';
 import 'package:carrerk/features/company/sign_up/data/repo/company_sign_up_repo.dart';
 import 'package:carrerk/features/company/sign_up/logic/company_sign_up_cubit.dart';
+import 'package:carrerk/features/developer/data/repo/developer_single_job_bookmark_repo.dart';
+import 'package:carrerk/features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
 import 'package:carrerk/features/developer/ui/courses/main_page/data/repo/developer_courses_main_page_roadmaps_repo.dart';
 import 'package:carrerk/features/developer/ui/courses/specific_category/data/repo/developer_courses_specific_category_repo.dart';
 import 'package:carrerk/features/developer/ui/courses/specific_category/logic/developer_courses_specific_category_cubit.dart';
@@ -29,7 +31,7 @@ import '../../features/chats/person_chat/logic/start_chat/start_chat_room_cubit.
 import '../../features/company/jobs_post/data/repos/company_jobs_post_repo.dart';
 import '../../features/company/jobs_post/logic/company_jobs_post_cubit.dart';
 import '../../features/developer/data/repo/developer_courses_and_jobs_main_page_profile_repo.dart';
-import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
+import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
 import '../../features/developer/ui/courses/main_page/logic/developer_courses_main_page_roadmaps_cubit.dart';
 import '../../features/developer/ui/courses/roadmaps/data/repo/developer_courses_roadmaps_repo.dart';
 import '../../features/developer/ui/courses/roadmaps/logic/developer_courses_roadmaps_cubit.dart';
@@ -38,7 +40,8 @@ import '../../features/developer/ui/jobs/apply/logic/developer_jobs_apply_cubit.
 import '../../features/developer/ui/sign_up/data/repos/developer_sign_up_repo.dart';
 import '../../features/developer/ui/sign_up/logic/developer_sign_up_cubit.dart';
 import '../../features/search/data/repo/search_courses_repo.dart';
-import '../../features/search/logic/search_courses_cubit.dart';import '../networking/api_service.dart';
+import '../../features/search/logic/search_courses_cubit.dart';
+import '../networking/api_service.dart';
 import '../networking/dio_factory.dart';
 import '../networking/socket_service.dart';
 
@@ -86,10 +89,17 @@ Future<void> setupGetIt() async {
   );
   // Job Details
   getIt.registerLazySingleton<DeveloperJobsJobDetailsRepo>(
-        () => DeveloperJobsJobDetailsRepo(getIt()),
+    () => DeveloperJobsJobDetailsRepo(getIt()),
   );
   getIt.registerFactory<DeveloperJobsJobDetailsCubit>(
-        () => DeveloperJobsJobDetailsCubit(getIt()),
+    () => DeveloperJobsJobDetailsCubit(getIt()),
+  );
+  // Single Job
+  getIt.registerLazySingleton<DeveloperSingleJobBookmarkRepo>(
+    () => DeveloperSingleJobBookmarkRepo(getIt()),
+  );
+  getIt.registerFactory<DeveloperSingleJobBookmarkCubit>(
+    () => DeveloperSingleJobBookmarkCubit(getIt()),
   );
   // -> Courses Main Page
   // -> Profile

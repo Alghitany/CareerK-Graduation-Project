@@ -25,6 +25,7 @@ mixin _$DeveloperJobsJobDetailsState {
     required TResult Function(String error) jobDetailsError,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
@@ -44,6 +45,7 @@ mixin _$DeveloperJobsJobDetailsState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
@@ -52,6 +54,7 @@ mixin _$DeveloperJobsJobDetailsState {
     required TResult Function(JobDetailsError value) jobDetailsError,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
@@ -86,9 +89,9 @@ class _$DeveloperJobsJobDetailsStateCopyWithImpl<$Res,
     implements $DeveloperJobsJobDetailsStateCopyWith<$Res> {
   _$DeveloperJobsJobDetailsStateCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
+// ignore: unused_field
   final $Val _value;
-  // ignore: unused_field
+// ignore: unused_field
   final $Res Function($Val) _then;
 
   /// Create a copy of DeveloperJobsJobDetailsState
@@ -359,10 +362,10 @@ class __$$JobDetailsSuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$JobDetailsSuccessImpl(
-      freezed == data
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as DeveloperJobsJobDetailsResponseBody,
@@ -388,12 +391,11 @@ class _$JobDetailsSuccessImpl implements JobDetailsSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$JobDetailsSuccessImpl &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   /// Create a copy of DeveloperJobsJobDetailsState
   /// with the given fields replaced by the non-null parameter values.

@@ -9,11 +9,11 @@ class DeveloperJobsJobDetailsState with _$DeveloperJobsJobDetailsState {
   const factory DeveloperJobsJobDetailsState.initial() = _Initial;
 
   const factory DeveloperJobsJobDetailsState.jobDetailsLoading() =
-  JobDetailsLoading;
+      JobDetailsLoading;
 
   const factory DeveloperJobsJobDetailsState.jobDetailsSuccess(
-      DeveloperJobsJobDetailsResponseBody data,
-      ) = JobDetailsSuccess;
+    DeveloperJobsJobDetailsResponseBody data,
+  ) = JobDetailsSuccess;
 
   const factory DeveloperJobsJobDetailsState.jobDetailsError({
     required String error,

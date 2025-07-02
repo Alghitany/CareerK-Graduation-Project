@@ -41,7 +41,8 @@ import '../../features/company/ui/jobs/company_jobs_screen.dart';
 import '../../features/company/ui/profile/company_profile_screen.dart';
 import '../../features/company/ui/send_to_applicants/message-applicant/company_send_to_applicants_message_applicant_screen.dart';
 import '../../features/customer/sign_up/fill_profile/customer_sign_up_fill_profile_screen.dart';
-import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
+import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
+import '../../features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
 import '../../features/developer/ui/community/all_communities/developer_community_all_communities_screen.dart';
 import '../../features/developer/ui/community/chat/developer_community_chat_screen.dart';
 import '../../features/developer/ui/courses/categories/developer_courses_categories_screen.dart';
@@ -144,7 +145,7 @@ class AppRouter {
         );
       // ---------------- Company ----------------
       // Sign Up
-        case Routes.companySignUpFlow:
+      case Routes.companySignUpFlow:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (_) => getIt<CompanySignupCubit>(),
@@ -362,12 +363,22 @@ class AppRouter {
           ),
         );
       case Routes.developerJobsSearchScreen:
+        final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-          builder: (_) => const DeveloperJobsSearchScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<DeveloperSingleJobBookmarkCubit>()
+              ..bookmarkJob(args.jobId!),
+            child: const DeveloperJobsSearchScreen(),
+          ),
         );
       case Routes.developerJobsServiceDetailsScreen:
+        final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-          builder: (_) => const DeveloperJobsServiceDetailsScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<DeveloperSingleJobBookmarkCubit>()
+              ..bookmarkJob(args.jobId!),
+            child: const DeveloperJobsServiceDetailsScreen(),
+          ),
         );
       // Apply
       case Routes.developerJobsApplyScreen:
@@ -389,13 +400,22 @@ class AppRouter {
       case Routes.developerJobsJobDetailsScreen:
         final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (_) => getIt<DeveloperJobsJobDetailsCubit>()..fetchJobDetails(args.jobId!),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) => getIt<DeveloperJobsJobDetailsCubit>()
+                  ..fetchJobDetails(args.jobId!),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperSingleJobBookmarkCubit>()
+                  ..bookmarkJob(args.jobId!),
+              ),
+            ],
             child: DeveloperJobsJobDetailsScreen(jobId: args.jobId!),
           ),
         );
 
-    // Profile
+      // Profile
       case Routes.developerProfileMainPageScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperProfileMainPageScreen(),

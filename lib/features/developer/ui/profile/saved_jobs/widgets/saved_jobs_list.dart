@@ -87,12 +87,10 @@ class _SavedJobsListState extends State<SavedJobsList> {
           return GestureDetector(
             onTap: () {
               //TODO: Pass the job details to screen
-              context.pushNamed(
-                  Routes.developerJobsJobDetailsScreen,
+              context.pushNamed(Routes.developerJobsJobDetailsScreen,
                   arguments: AppArgument(
                     jobId: "45779a40-d665-4e45-a122-616a2f6dda4a",
-                  )
-              );
+                  ));
             },
             child: Container(
               margin: EdgeInsets.symmetric(vertical: 8.h),

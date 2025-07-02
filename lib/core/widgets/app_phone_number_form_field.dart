@@ -99,7 +99,8 @@ class AppPhoneNumberFormFieldState extends State<AppPhoneNumberFormField> {
                   Expanded(
                     child: AppTextFormField(
                       controller: widget.controller,
-                      contentPadding: EdgeInsets.symmetric(vertical: 16.h), // Match single field
+                      contentPadding: EdgeInsets.symmetric(vertical: 16.h),
+                      // Match single field
                       hintText: '01278522505',
                       hintStyle: AppTextStyles.font14MercuryMulishBold,
                       validator: (_) => null,

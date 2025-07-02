@@ -11,7 +11,6 @@ import '../../../../../../core/widgets/app_label.dart';
 import '../../../../../../core/widgets/app_text_form_field.dart';
 import '../../../logic/company_sign_up_cubit.dart';
 
-
 class CompanyCompulsoryDataForm extends StatefulWidget {
   const CompanyCompulsoryDataForm({super.key});
 
@@ -42,8 +41,6 @@ class _CompanyCompulsoryDataFormState extends State<CompanyCompulsoryDataForm> {
                     return 'Please enter a valid name';
                   }
                   return null;
-
-                  
                 }),
             verticalSpace(16),
             const AppLabel(text: 'Email'),
@@ -52,13 +49,10 @@ class _CompanyCompulsoryDataFormState extends State<CompanyCompulsoryDataForm> {
                 controller: context.read<CompanySignupCubit>().emailController,
                 hintText: 'example@email.com',
                 validator: (email) {
-
                   if (email!.isNullOrEmpty() || !AppRegex.isValidEmail(email)) {
                     return 'Please enter a valid email';
                   }
                   return null;
-
-                  
                 }),
             verticalSpace(16),
             const AppLabel(text: 'Password'),
@@ -106,8 +100,6 @@ class _CompanyCompulsoryDataFormState extends State<CompanyCompulsoryDataForm> {
                     return 'Please enter a valid password';
                   }
                   return null;
-
-                  
                 }),
             verticalSpace(16),
             const AppLabel(text: 'Confirm Password'),
@@ -151,7 +143,7 @@ class _CompanyCompulsoryDataFormState extends State<CompanyCompulsoryDataForm> {
                         ),
                 ),
                 validator: (confirmPassword) {
-                    if (!AppRegex.doPasswordsMatch(
+                  if (!AppRegex.doPasswordsMatch(
                       context
                           .read<CompanySignupCubit>()
                           .passwordController

@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../core/routing/routes.dart';
 import '../../../../../../core/theming/colors.dart';
 import '../../../../../../core/theming/styles.dart';
-
 import '../../../logic/company_sign_up_cubit.dart';
 import '../../../logic/company_sign_up_state.dart';
 

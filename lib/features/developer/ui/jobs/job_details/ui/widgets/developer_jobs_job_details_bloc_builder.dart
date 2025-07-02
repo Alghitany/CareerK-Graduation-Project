@@ -12,15 +12,15 @@ import 'job_details_shimmer/coin_icon_and_salary_shimmer.dart';
 import 'job_details_shimmer/job_description_shimmer.dart';
 import 'job_details_shimmer/job_name_location_type_post_date_shimmer.dart';
 
-
 class DeveloperJobsJobDetailsBlocBuilder extends StatelessWidget {
   const DeveloperJobsJobDetailsBlocBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<DeveloperJobsJobDetailsCubit, DeveloperJobsJobDetailsState>(
+    return BlocBuilder<DeveloperJobsJobDetailsCubit,
+        DeveloperJobsJobDetailsState>(
       buildWhen: (previous, current) =>
-      current is JobDetailsLoading ||
+          current is JobDetailsLoading ||
           current is JobDetailsSuccess ||
           current is JobDetailsError,
       builder: (context, state) {
@@ -45,7 +45,6 @@ class DeveloperJobsJobDetailsBlocBuilder extends StatelessWidget {
       ],
     );
   }
-
 
   Widget _buildSuccess(DeveloperJobsJobDetailsResponseBody data) {
     return Column(

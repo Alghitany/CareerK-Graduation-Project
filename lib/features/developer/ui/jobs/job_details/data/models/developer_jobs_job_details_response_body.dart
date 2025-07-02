@@ -72,8 +72,10 @@ class DeveloperJobsJobDetailsResponseBody {
     this.country,
   });
 
-  factory DeveloperJobsJobDetailsResponseBody.fromJson(Map<String, dynamic> json) =>
+  factory DeveloperJobsJobDetailsResponseBody.fromJson(
+          Map<String, dynamic> json) =>
       _$DeveloperJobsJobDetailsResponseBodyFromJson(json);
 
-  Map<String, dynamic> toJson() => _$DeveloperJobsJobDetailsResponseBodyToJson(this);
+  Map<String, dynamic> toJson() =>
+      _$DeveloperJobsJobDetailsResponseBodyToJson(this);
 }
