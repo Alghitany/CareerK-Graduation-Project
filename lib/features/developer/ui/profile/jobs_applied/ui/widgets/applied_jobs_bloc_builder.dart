@@ -1,13 +1,13 @@
 import 'package:carrerk/core/theming/styles.dart';
-import 'package:carrerk/features/developer/ui/profile/jobs_applied/ui/widgets/applied_jobs/service_applications_list.dart';
+import 'package:carrerk/features/developer/ui/profile/jobs_applied/ui/widgets/applied_jobs/service_application/service_applications_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../data/models/developer_profile_applied_jobs_models/developer_profile_applied_jobs_response_body.dart';
 import '../../logic/developer_profile_applied_jobs_logic/developer_profile_applied_jobs_cubit.dart';
 import '../../logic/developer_profile_applied_jobs_logic/developer_profile_applied_jobs_state.dart';
-import 'applied_jobs/applied_jobs_list.dart';
 import 'applied_jobs/applied_jobs_shimmer.dart';
+import 'applied_jobs/job_application/jobs_applications_list.dart';
 
 class AppliedJobsBlocBuilder extends StatelessWidget {
   const AppliedJobsBlocBuilder({super.key});
@@ -30,7 +30,7 @@ class AppliedJobsBlocBuilder extends StatelessWidget {
   }
 
   Widget setupLoading() {
-    return const Center(child: AppliedJobsShimmer());
+    return const AppliedJobsLoadingShimmer();
   }
 
   Widget setupSuccess(DeveloperProfileAppliedJobsResponseBody data) {
@@ -45,7 +45,7 @@ class AppliedJobsBlocBuilder extends StatelessWidget {
             "Jobs: ",
             style: AppTextStyles.font20DunePoppinsMedium,
           ),
-          AppliedJobsList(jobApplications: jobApplications),
+          JobApplicationsList(jobApplications: jobApplications),
           Text(
             "Services: ",
             style: AppTextStyles.font20DunePoppinsMedium,

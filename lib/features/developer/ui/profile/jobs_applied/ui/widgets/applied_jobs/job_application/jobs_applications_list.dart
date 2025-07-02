@@ -5,17 +5,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../../../../../core/helpers/extensions.dart';
-import '../../../../../../../../core/helpers/spacing.dart';
-import '../../../../../../../../core/routing/app_argument.dart';
-import '../../../../../../../../core/routing/routes.dart';
-import '../../../../../../../../core/theming/styles.dart';
-import '../../../data/models/developer_profile_applied_jobs_models/developer_profile_applied_jobs_response_body.dart';
+import '../../../../../../../../../core/helpers/extensions.dart';
+import '../../../../../../../../../core/helpers/spacing.dart';
+import '../../../../../../../../../core/routing/app_argument.dart';
+import '../../../../../../../../../core/routing/routes.dart';
+import '../../../../../../../../../core/theming/styles.dart';
+import '../../../../data/models/developer_profile_applied_jobs_models/developer_profile_applied_jobs_response_body.dart';
 
-class AppliedJobsList extends StatelessWidget {
+class JobApplicationsList extends StatelessWidget {
   final List<JobApplication> jobApplications;
 
-  const AppliedJobsList({super.key, required this.jobApplications});
+  const JobApplicationsList({super.key, required this.jobApplications});
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,7 @@ class AppliedJobsList extends StatelessWidget {
               borderRadius: BorderRadius.circular(16.r),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
+                  color: Colors.black.withAlpha((0.1 * 255).toInt()),
                   blurRadius: 6,
                   offset: const Offset(0, 3),
                 ),
