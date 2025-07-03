@@ -73,7 +73,7 @@ class _DeveloperRecentlyPostedJobsListState
                       BlocProvider(
                         create: (_) => getIt<DeveloperSingleJobBookmarkCubit>()
                           ..bookmarkJob(job.id!),
-                        child: DeveloperJobBookmarkBlocBuilder(jobId: job.id!),
+                        child: DeveloperJobBookmarkBlocBuilder(postId: job.id!),
                       ),
                     ],
                   ),

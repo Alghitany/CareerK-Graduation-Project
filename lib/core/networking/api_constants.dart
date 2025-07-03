@@ -23,6 +23,10 @@ class ApiConstants {
   //-> Job Details
   static const String developerJobsJobDetails = "api/job-post/{jobId}";
 
+  //-> Job Details
+  static const String developerJobsServiceDetails =
+      "api/service-post/{serviceId}";
+
   //-> Single Bookmark
   static const String developerSingleJobBookmark =
       "/api/bookmarks/bookmark/{jobId}";
@@ -30,6 +34,10 @@ class ApiConstants {
   //-> Jobs Recently Posted
   static const String developerJobsRecentlyPosted =
       "api/job-post/filter/recently-posted";
+
+  //-> Jobs Recently Posted
+  static const String developerServicesRecentlyPosted =
+      "api/service-post/filter/recently-posted";
 
   //-----> Courses
   //-> Developer Profile

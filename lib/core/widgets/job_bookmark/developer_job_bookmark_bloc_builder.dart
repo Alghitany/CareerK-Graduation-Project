@@ -7,9 +7,9 @@ import '../../../features/developer/logic/developer_single_job_bookmark_logic/de
 import '../../../features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_state.dart';
 
 class DeveloperJobBookmarkBlocBuilder extends StatelessWidget {
-  final String jobId;
+  final String postId;
 
-  const DeveloperJobBookmarkBlocBuilder({super.key, required this.jobId});
+  const DeveloperJobBookmarkBlocBuilder({super.key, required this.postId});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class DeveloperJobBookmarkBlocBuilder extends StatelessWidget {
     return IconButton(
       padding: EdgeInsets.zero,
       onPressed: () {
-        context.read<DeveloperSingleJobBookmarkCubit>().bookmarkJob(jobId);
+        context.read<DeveloperSingleJobBookmarkCubit>().bookmarkJob(postId);
       },
       icon: SvgPicture.asset(
         isBookmarked
@@ -59,7 +59,7 @@ class DeveloperJobBookmarkBlocBuilder extends StatelessWidget {
       padding: EdgeInsets.zero,
       onPressed: () {
         // Retry bookmarking on error
-        context.read<DeveloperSingleJobBookmarkCubit>().bookmarkJob(jobId);
+        context.read<DeveloperSingleJobBookmarkCubit>().bookmarkJob(postId);
       },
       icon: const Icon(Icons.error_outline, color: Colors.red),
     );

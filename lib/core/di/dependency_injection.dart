@@ -56,7 +56,11 @@ import '../../features/developer/ui/courses/roadmaps/data/repo/developer_courses
 import '../../features/developer/ui/courses/roadmaps/logic/developer_courses_roadmaps_cubit.dart';
 import '../../features/developer/ui/jobs/apply/data/repo/developer_jobs_apply_repo.dart';
 import '../../features/developer/ui/jobs/apply/logic/developer_jobs_apply_cubit.dart';
+import '../../features/developer/ui/jobs/search/data/repo/developer_services_recently_posted_repo.dart';
 import '../../features/developer/ui/jobs/search/logic/developer_jobs_recently_posted_logic/developer_jobs_recently_posted_cubit.dart';
+import '../../features/developer/ui/jobs/search/logic/developer_services_recently_posted_logic/developer_services_recently_posted_cubit.dart';
+import '../../features/developer/ui/jobs/service_details/data/repo/developer_jobs_service_details_repo.dart';
+import '../../features/developer/ui/jobs/service_details/logic/developer_jobs_service_details_cubit.dart';
 import '../../features/developer/ui/profile/jobs_applied/logic/developer_job_withdraw_logic/developer_job_withdraw_cubit.dart';
 import '../../features/developer/ui/profile/jobs_applied/logic/developer_profile_applied_jobs_logic/developer_profile_applied_jobs_cubit.dart';
 import '../../features/developer/ui/sign_up/data/repos/developer_sign_up_repo.dart';
@@ -116,6 +120,13 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<DeveloperJobsJobDetailsCubit>(
     () => DeveloperJobsJobDetailsCubit(getIt()),
   );
+  // Service Details
+  getIt.registerLazySingleton<DeveloperJobsServiceDetailsRepo>(
+    () => DeveloperJobsServiceDetailsRepo(getIt()),
+  );
+  getIt.registerFactory<DeveloperJobsServiceDetailsCubit>(
+    () => DeveloperJobsServiceDetailsCubit(getIt()),
+  );
   // Single Job
   getIt.registerLazySingleton<DeveloperSingleJobBookmarkRepo>(
     () => DeveloperSingleJobBookmarkRepo(getIt()),
@@ -129,6 +140,13 @@ Future<void> setupGetIt() async {
   );
   getIt.registerFactory<DeveloperJobsRecentlyPostedCubit>(
     () => DeveloperJobsRecentlyPostedCubit(getIt()),
+  );
+  // Services Recently Posted
+  getIt.registerLazySingleton<DeveloperServicesRecentlyPostedRepo>(
+    () => DeveloperServicesRecentlyPostedRepo(getIt()),
+  );
+  getIt.registerFactory<DeveloperServicesRecentlyPostedCubit>(
+    () => DeveloperServicesRecentlyPostedCubit(getIt()),
   );
   // -> Courses Main Page
   // -> Profile

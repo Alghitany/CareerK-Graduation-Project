@@ -353,6 +353,41 @@ class _ApiService implements ApiService {
   }
 
   @override
+  Future<DeveloperJobsServiceDetailsResponseBody> getDeveloperServiceDetails(
+      String serviceId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options =
+        _setStreamType<DeveloperJobsServiceDetailsResponseBody>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/service-post/${serviceId}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DeveloperJobsServiceDetailsResponseBody _value;
+    try {
+      _value = DeveloperJobsServiceDetailsResponseBody.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
   Future<DeveloperSingleJobBookmarkResponseModel> bookmarkJob(
       String jobId) async {
     final _extra = <String, dynamic>{};
@@ -417,6 +452,46 @@ class _ApiService implements ApiService {
       _value = _result.data!
           .map((dynamic i) => DeveloperJobsRecentlyPostedResponseBody.fromJson(
               i as Map<String, dynamic>))
+          .toList();
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<List<DeveloperServicesRecentlyPostedResponseBody>>
+      getDeveloperRecentlyPostedServices() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options =
+        _setStreamType<List<DeveloperServicesRecentlyPostedResponseBody>>(
+            Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+                .compose(
+                  _dio.options,
+                  'api/service-post/filter/recently-posted',
+                  queryParameters: queryParameters,
+                  data: _data,
+                )
+                .copyWith(
+                    baseUrl: _combineBaseUrls(
+                  _dio.options.baseUrl,
+                  baseUrl,
+                )));
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<DeveloperServicesRecentlyPostedResponseBody> _value;
+    try {
+      _value = _result.data!
+          .map((dynamic i) =>
+              DeveloperServicesRecentlyPostedResponseBody.fromJson(
+                  i as Map<String, dynamic>))
           .toList();
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);

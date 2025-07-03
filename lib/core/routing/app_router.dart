@@ -90,8 +90,10 @@ import '../../features/developer/ui/jobs/job_details/logic/developer_jobs_job_de
 import '../../features/developer/ui/jobs/job_details/ui/developer_jobs_job_details_screen.dart';
 import '../../features/developer/ui/jobs/main_page/developer_jobs_main_page_screen.dart';
 import '../../features/developer/ui/jobs/search/logic/developer_jobs_recently_posted_logic/developer_jobs_recently_posted_cubit.dart';
+import '../../features/developer/ui/jobs/search/logic/developer_services_recently_posted_logic/developer_services_recently_posted_cubit.dart';
 import '../../features/developer/ui/jobs/search/ui/developer_jobs_search_screen.dart';
-import '../../features/developer/ui/jobs/service_details/developer_jobs_service_details_screen.dart';
+import '../../features/developer/ui/jobs/service_details/logic/developer_jobs_service_details_cubit.dart';
+import '../../features/developer/ui/jobs/service_details/ui/developer_jobs_service_details_screen.dart';
 import '../../features/developer/ui/profile/edit_profile/developer_profile_edit_profile_screen.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_job_withdraw_repo.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_profile_applied_jobs_repo.dart';
@@ -371,31 +373,13 @@ class AppRouter {
                 create: (_) => getIt<DeveloperJobsRecentlyPostedCubit>()
                   ..fetchRecentlyPostedJobs(),
               ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperServicesRecentlyPostedCubit>()
+                  ..fetchRecentlyPostedServices(),
+              ),
             ],
             child: const DeveloperJobsSearchScreen(),
           ),
-        );
-
-      case Routes.developerJobsServiceDetailsScreen:
-        return MaterialPageRoute(
-          builder: (_) => const DeveloperJobsServiceDetailsScreen(),
-        );
-      // Apply
-      case Routes.developerJobsApplyScreen:
-        final args = settings.arguments as AppArgument;
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (_) => getIt<DeveloperJobsApplyCubit>(),
-            child: DeveloperJobsApplyScreen(jobId: args.jobId!),
-          ),
-        );
-      case Routes.developerJobsApplicationSubmittedScreen:
-        return MaterialPageRoute(
-          builder: (_) => const DeveloperJobsApplicationSubmittedScreen(),
-        );
-      case Routes.developerJobsAllCategoriesScreen:
-        return MaterialPageRoute(
-          builder: (_) => const DeveloperJobsAllCategoriesScreen(),
         );
       case Routes.developerJobsJobDetailsScreen:
         final args = settings.arguments as AppArgument;
@@ -413,6 +397,40 @@ class AppRouter {
             ],
             child: DeveloperJobsJobDetailsScreen(jobId: args.jobId!),
           ),
+        );
+      case Routes.developerJobsServiceDetailsScreen:
+        final args = settings.arguments as AppArgument;
+        return MaterialPageRoute(
+            builder: (_) => MultiBlocProvider(
+                  providers: [
+                    BlocProvider(
+                      create: (_) => getIt<DeveloperJobsServiceDetailsCubit>()
+                        ..fetchServiceDetails(args.serviceId!),
+                    ),
+                    BlocProvider(
+                      create: (_) => getIt<DeveloperSingleJobBookmarkCubit>()
+                        ..bookmarkJob(args.serviceId!),
+                    ),
+                  ],
+                  child: DeveloperJobsServiceDetailsScreen(
+                      serviceId: args.serviceId!),
+                ));
+      // Apply
+      case Routes.developerJobsApplyScreen:
+        final args = settings.arguments as AppArgument;
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<DeveloperJobsApplyCubit>(),
+            child: DeveloperJobsApplyScreen(jobId: args.jobId!),
+          ),
+        );
+      case Routes.developerJobsApplicationSubmittedScreen:
+        return MaterialPageRoute(
+          builder: (_) => const DeveloperJobsApplicationSubmittedScreen(),
+        );
+      case Routes.developerJobsAllCategoriesScreen:
+        return MaterialPageRoute(
+          builder: (_) => const DeveloperJobsAllCategoriesScreen(),
         );
 
       // Profile

@@ -29,6 +29,8 @@ import '../../features/developer/ui/courses/roadmaps/data/models/developer_cours
 import '../../features/developer/ui/courses/specific_category/data/models/developer_courses_specific_category_response_body.dart';
 import '../../features/developer/ui/jobs/job_details/data/models/developer_jobs_job_details_response_body.dart';
 import '../../features/developer/ui/jobs/search/data/models/developer_jobs_recently_posted_models/developer_jobs_recently_posted_response_body.dart';
+import '../../features/developer/ui/jobs/search/data/models/developer_services_recently_posted_models/developer_services_recently_posted_response_body.dart';
+import '../../features/developer/ui/jobs/service_details/data/model/developer_jobs_service_details_response_body.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/models/developer_profile_applied_jobs_models/developer_profile_applied_jobs_response_body.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/models/job_withdraw/developer_job_withdraw_response_body.dart';
 import '../../features/search/data/model/search_courses_response_body.dart';
@@ -92,6 +94,12 @@ abstract class ApiService {
     @Path("jobId") String jobId,
   );
 
+  //-> Service Details
+  @GET(ApiConstants.developerJobsServiceDetails)
+  Future<DeveloperJobsServiceDetailsResponseBody> getDeveloperServiceDetails(
+    @Path("serviceId") String serviceId,
+  );
+
   //-> Single Bookmark
   @GET(ApiConstants.developerSingleJobBookmark)
   Future<DeveloperSingleJobBookmarkResponseModel> bookmarkJob(
@@ -102,6 +110,11 @@ abstract class ApiService {
   @GET(ApiConstants.developerJobsRecentlyPosted)
   Future<List<DeveloperJobsRecentlyPostedResponseBody>>
       getDeveloperRecentlyPostedJobs();
+
+  // -> Recently Posted Services
+  @GET(ApiConstants.developerServicesRecentlyPosted)
+  Future<List<DeveloperServicesRecentlyPostedResponseBody>>
+      getDeveloperRecentlyPostedServices();
 
   //-> Profile Applied Jobs
   @GET(ApiConstants.developerProfileAppliedJobs)
