@@ -29,6 +29,7 @@ import '../../features/developer/ui/jobs/search/data/models/developer_services_r
 import '../../features/developer/ui/jobs/service_details/data/model/developer_jobs_service_details_response_body.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/models/developer_profile_applied_jobs_models/developer_profile_applied_jobs_response_body.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/models/job_withdraw/developer_job_withdraw_response_body.dart';
+import '../../features/developer/ui/profile/jobs_applied/data/models/service_delete/developer_service_delete_response_body.dart';
 import '../../features/search/data/model/search_courses_response_body.dart';
 import 'api_constants.dart';
 
@@ -120,6 +121,12 @@ abstract class ApiService {
   // Delete Job Application by ID
   @DELETE(ApiConstants.developerJobWithdraw)
   Future<DeveloperJobWithdrawResponseBody> deleteJobApplication(
+    @Path("applicationId") String applicationId,
+  );
+
+  // Delete Service Application by ID
+  @DELETE(ApiConstants.developerServiceDelete)
+  Future<DeveloperProfileAppliedServicesResponseBody> deleteServiceApplication(
     @Path("applicationId") String applicationId,
   );
 

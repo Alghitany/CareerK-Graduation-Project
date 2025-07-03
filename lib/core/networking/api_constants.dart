@@ -60,6 +60,10 @@ class ApiConstants {
   static const String developerJobWithdraw =
       "api/job-application/{applicationId}";
 
+  //-> Service Delete
+  static const String developerServiceDelete =
+      "api/service-application/{applicationId}";
+
   //------ customer ------------
   //->Sign up
   static const String customerSignup = "api/customer/register";

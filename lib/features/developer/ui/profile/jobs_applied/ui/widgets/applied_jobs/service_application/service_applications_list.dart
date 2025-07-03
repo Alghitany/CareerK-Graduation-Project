@@ -10,7 +10,7 @@ import '../../../../../../../../../core/routing/app_argument.dart';
 import '../../../../../../../../../core/routing/routes.dart';
 import '../../../../../../../../../core/theming/styles.dart';
 import '../../../../data/models/developer_profile_applied_jobs_models/developer_profile_applied_jobs_response_body.dart';
-import '../../../../logic/developer_job_withdraw_logic/developer_job_withdraw_cubit.dart';
+import '../../../../logic/developer_service_delete_logic/developer_service_delete_cubit.dart';
 
 class ServiceApplicationsList extends StatelessWidget {
   final List<ServiceApplication> serviceApplications;
@@ -35,8 +35,8 @@ class ServiceApplicationsList extends StatelessWidget {
         return GestureDetector(
           onTap: () {
             context.pushNamed(
-              Routes.developerJobsJobDetailsScreen,
-              arguments: AppArgument(jobId: service.id),
+              Routes.developerJobsServiceDetailsScreen,
+              arguments: AppArgument(serviceId: service.servicePost?.id),
             );
           },
           child: Container(
@@ -58,13 +58,13 @@ class ServiceApplicationsList extends StatelessWidget {
               children: [
                 // Title
                 Text(
-                  service.serviceTitle ?? 'No title',
+                  service.servicePost?.title ?? 'No title',
                   style: AppTextStyles.font14BlackPoppinsSemiBold,
                 ),
                 verticalSpace(4),
                 // Name
                 Text(
-                  service.name ?? 'No name',
+                  service.servicePost?.customer?.name ?? 'No name',
                   style: AppTextStyles.font12BlackPoppinsLight,
                 ),
                 verticalSpace(8),
@@ -79,7 +79,7 @@ class ServiceApplicationsList extends StatelessWidget {
                     horizontalSpace(6),
                     Expanded(
                       child: Text(
-                        service.expectedSalary ?? '',
+                        service.servicePost?.budgetRange ?? '',
                         style: AppTextStyles.font14DuskyBluePoppinsSemiBold,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
@@ -92,8 +92,8 @@ class ServiceApplicationsList extends StatelessWidget {
                       TextButton(
                         onPressed: () {
                           context
-                              .read<DeveloperJobWithdrawCubit>()
-                              .withdrawJobApplication(service.id!);
+                              .read<DeveloperServiceDeleteCubit>()
+                              .deleteServiceApplication(service.applicationId!);
                         },
                         style: TextButton.styleFrom(
                           backgroundColor: ColorsManager.primaryWildBlueYonder,

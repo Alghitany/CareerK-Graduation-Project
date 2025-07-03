@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../logic/developer_profile_applied_jobs_logic/developer_profile_applied_jobs_cubit.dart';
 import 'widgets/applied_jobs_bloc_builder.dart';
 import 'widgets/developer_job_withdraw_bloc_listener.dart';
+import 'widgets/developer_service_delete_bloc_listener.dart';
 
 class DeveloperProfileJobsAndServicesAppliedScreen extends StatelessWidget {
   const DeveloperProfileJobsAndServicesAppliedScreen({super.key});
@@ -40,6 +41,13 @@ class DeveloperProfileJobsAndServicesAppliedScreen extends StatelessWidget {
                     .fetchAppliedJobs();
               },
             ),
+            DeveloperServiceDeleteBlocListener(
+              onDeleteSuccess: () {
+                context
+                    .read<DeveloperProfileAppliedJobsCubit>()
+                    .fetchAppliedJobs();
+              },
+            )
           ],
         ),
       ),

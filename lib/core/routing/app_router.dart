@@ -74,8 +74,10 @@ import '../../features/developer/ui/jobs/service_details/ui/developer_jobs_servi
 import '../../features/developer/ui/profile/edit_profile/developer_profile_edit_profile_screen.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_job_withdraw_repo.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_profile_applied_jobs_repo.dart';
+import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_service_delete_repo.dart';
 import '../../features/developer/ui/profile/jobs_applied/logic/developer_job_withdraw_logic/developer_job_withdraw_cubit.dart';
 import '../../features/developer/ui/profile/jobs_applied/logic/developer_profile_applied_jobs_logic/developer_profile_applied_jobs_cubit.dart';
+import '../../features/developer/ui/profile/jobs_applied/logic/developer_service_delete_logic/developer_service_delete_cubit.dart';
 import '../../features/developer/ui/profile/jobs_applied/ui/developer_profile_jobs_and_services_applied_screen.dart';
 import '../../features/developer/ui/profile/main_page/developer_profile_main_page_screen.dart';
 import '../../features/developer/ui/profile/payment/add_new_cart/developer_profile_payment_add_new_card_screen.dart';
@@ -478,6 +480,11 @@ class AppRouter {
               BlocProvider(
                 create: (context) => DeveloperJobWithdrawCubit(
                   getIt<DeveloperJobWithdrawRepo>(),
+                ),
+              ),
+              BlocProvider(
+                create: (context) => DeveloperServiceDeleteCubit(
+                  getIt<DeveloperServiceDeleteRepo>(),
                 ),
               ),
             ],

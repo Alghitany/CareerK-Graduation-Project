@@ -49,8 +49,10 @@ import '../../features/developer/ui/jobs/search/logic/developer_jobs_recently_po
 import '../../features/developer/ui/jobs/search/logic/developer_services_recently_posted_logic/developer_services_recently_posted_cubit.dart';
 import '../../features/developer/ui/jobs/service_details/data/repo/developer_jobs_service_details_repo.dart';
 import '../../features/developer/ui/jobs/service_details/logic/developer_jobs_service_details_cubit.dart';
+import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_service_delete_repo.dart';
 import '../../features/developer/ui/profile/jobs_applied/logic/developer_job_withdraw_logic/developer_job_withdraw_cubit.dart';
 import '../../features/developer/ui/profile/jobs_applied/logic/developer_profile_applied_jobs_logic/developer_profile_applied_jobs_cubit.dart';
+import '../../features/developer/ui/profile/jobs_applied/logic/developer_service_delete_logic/developer_service_delete_cubit.dart';
 import '../../features/developer/ui/sign_up/data/repos/developer_sign_up_repo.dart';
 import '../../features/developer/ui/sign_up/logic/developer_sign_up_cubit.dart';
 import '../../features/search/data/repo/search_courses_repo.dart';
@@ -173,11 +175,16 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<DeveloperProfileAppliedJobsCubit>(
     () => DeveloperProfileAppliedJobsCubit(getIt()),
   );
-  // -> Withdraw Application
+  // -> Withdraw Job Application
   getIt.registerLazySingleton<DeveloperJobWithdrawRepo>(
       () => DeveloperJobWithdrawRepo(getIt()));
   getIt.registerLazySingleton<DeveloperJobWithdrawCubit>(
       () => DeveloperJobWithdrawCubit(getIt()));
+  // -> Withdraw Service Application
+  getIt.registerLazySingleton<DeveloperServiceDeleteRepo>(
+      () => DeveloperServiceDeleteRepo(getIt()));
+  getIt.registerLazySingleton<DeveloperServiceDeleteCubit>(
+      () => DeveloperServiceDeleteCubit(getIt()));
   // Company
   // company -> Signup
   getIt.registerLazySingleton<CompanySignupRepo>(

@@ -36,7 +36,7 @@ class JobApplicationsList extends StatelessWidget {
           onTap: () {
             context.pushNamed(
               Routes.developerJobsJobDetailsScreen,
-              arguments: AppArgument(jobId: job.jobId),
+              arguments: AppArgument(jobId: job.jobPost?.id),
             );
           },
           child: Container(
@@ -72,10 +72,10 @@ class JobApplicationsList extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(job.jobTitle ?? 'No title',
+                      Text(job.jobPost?.title ?? 'No title',
                           style: AppTextStyles.font14BlackPoppinsSemiBold),
                       verticalSpace(4),
-                      Text(job.name ?? 'No name',
+                      Text(job.jobPost?.company?.companyName ?? 'No name',
                           style: AppTextStyles.font12BlackPoppinsLight),
                       verticalSpace(6),
                       Row(
@@ -87,7 +87,7 @@ class JobApplicationsList extends StatelessWidget {
                           ),
                           horizontalSpace(6),
                           Flexible(
-                            child: Text(job.expectedSalary ?? '',
+                            child: Text(job.jobPost?.salaryRange ?? '',
                                 style: AppTextStyles
                                     .font14DuskyBluePoppinsSemiBold,
                                 maxLines: 1,
@@ -146,7 +146,7 @@ class JobApplicationsList extends StatelessWidget {
                               onPressed: () {
                                 context
                                     .read<DeveloperJobWithdrawCubit>()
-                                    .withdrawJobApplication(job.id!);
+                                    .withdrawJobApplication(job.applicationId!);
                               },
                               style: TextButton.styleFrom(
                                 backgroundColor:
