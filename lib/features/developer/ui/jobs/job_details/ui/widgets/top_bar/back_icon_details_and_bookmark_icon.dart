@@ -24,7 +24,7 @@ class BackIconDetailsAndBookmarkIcon extends StatelessWidget {
             style: AppTextStyles.font24RangoonGreenPoppinsSemiBold,
           ),
           const Spacer(),
-          DeveloperJobBookmarkBlocBuilder(jobId: jobId),
+          DeveloperJobBookmarkBlocBuilder(postId: jobId),
         ],
       ),
     );
