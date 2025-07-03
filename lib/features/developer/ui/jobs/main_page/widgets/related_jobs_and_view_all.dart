@@ -22,7 +22,9 @@ class RelatedJobsAndViewAll extends StatelessWidget {
         const Spacer(),
         GestureDetector(
           onTap: () {
-            context.pushNamed(Routes.developerJobsSearchScreen);
+            context.pushNamed(
+              Routes.developerJobsSearchScreen,
+            );
           },
           child: Row(
             children: [

@@ -1,3 +1,4 @@
+import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/widgets/app_label.dart';
@@ -7,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../../../../../core/helpers/app_regex.dart';
 import '../../../logic/company_sign_up_cubit.dart';
 
 class CompanyContactInformationForm extends StatefulWidget {
@@ -21,7 +23,7 @@ class _CompanyContactInformationFormState
     extends State<CompanyContactInformationForm> {
   @override
   Widget build(BuildContext context) {
-    final cubit = context.watch<CompanySignUpCubit>();
+    final cubit = context.watch<CompanySignupCubit>();
     final socialMediaControllers = cubit.socialMediaLinksControllers;
 
     return Form(
@@ -34,12 +36,11 @@ class _CompanyContactInformationFormState
             controller: cubit.contactNameController,
             hintText: 'CEO',
             validator: (contactName) {
+              if (contactName.isNullOrEmpty() ||
+                  !AppRegex.isValidName(contactName!)) {
+                return "Please enter a valid name";
+              }
               return null;
-
-              // if (contactName.isNullOrEmpty() ||
-              //     !AppRegex.isValidName(contactName!)) {
-              //   return "Please enter a valid name";
-              // }
             },
           ),
           verticalSpace(16),
@@ -49,11 +50,10 @@ class _CompanyContactInformationFormState
             controller: cubit.contactEmailController,
             hintText: 'example@email.com',
             validator: (email) {
+              if (email!.isNullOrEmpty() || !AppRegex.isValidEmail(email)) {
+                return 'Please enter a valid email';
+              }
               return null;
-
-              // if (email!.isNullOrEmpty() || !AppRegex.isValidEmail(email)) {
-              //   return 'Please enter a valid email';
-              // }
             },
           ),
           verticalSpace(16),
@@ -63,12 +63,11 @@ class _CompanyContactInformationFormState
             controller: cubit.phoneNumberController,
             hintText: '+201278522505',
             validator: (phoneNumber) {
+              if (phoneNumber.isNullOrEmpty() ||
+                  !AppRegex.isValidPhoneNumber(phoneNumber!)) {
+                return "Please enter a valid number";
+              }
               return null;
-
-              // if (phoneNumber.isNullOrEmpty() ||
-              //     !AppRegex.isValidPhoneNumber(phoneNumber!)) {
-              //   return "Please enter a valid number";
-              // }
             },
           ),
           verticalSpace(16),
@@ -88,14 +87,12 @@ class _CompanyContactInformationFormState
                         controller: socialMediaControllers[index],
                         hintText: "https://",
                         validator: (url) {
+                          if (url == null || url.isEmpty) {
+                            return "Enter a valid URL";
+                          } else if (!AppRegex.isValidUrl(url)) {
+                            return "Invalid URL format";
+                          }
                           return null;
-
-                          // if (url == null || url.isEmpty) {
-                          //   return "Enter a valid URL";
-                          // } else if (!AppRegex.isValidUrl(url)) {
-                          //   return "Invalid URL format";
-                          // }
-                          // return null;
                         },
                         suffixIcon: Row(
                           mainAxisSize: MainAxisSize.min,

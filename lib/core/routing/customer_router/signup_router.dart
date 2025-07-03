@@ -8,13 +8,13 @@ import '../../../features/customer/ui/sign_up/ui/fill_profile/customer_sign_up_f
 import '../../di/dependency_injection.dart';
 import '../routes.dart';
 
-class CustomerSignUpFlow extends StatelessWidget {
-  const CustomerSignUpFlow({super.key});
+class CustomerSignupFlow extends StatelessWidget {
+  const CustomerSignupFlow({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<CustomerSignUpCubit>(
-      create: (_) => getIt<CustomerSignUpCubit>(),
+    return BlocProvider<CustomerSignupCubit>(
+      create: (_) => getIt<CustomerSignupCubit>(),
       child: Stack(
         children: [
           Navigator(

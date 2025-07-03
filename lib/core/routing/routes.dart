@@ -26,6 +26,7 @@ class Routes {
 
   // ---------------- Company ----------------
   // Sign Up
+  static const companySignUpFlow = '/companySignUpFlow';
   static const String companySignUpCompulsoryDataScreen =
       "/companySignUpCompulsoryDataScreen";
   static const String companySignUpFillProfileScreen =
@@ -37,6 +38,8 @@ class Routes {
 
   // Home
   static const String companyHomeMainPageScreen = "/companyHomeMainPageScreen";
+  static const String companyHomeSendOfferScreen =
+      "/companyHomeSendOfferScreen";
   static const String companyHomeSeeDetailsScreen =
       "/companyHomeSeeDetailsScreen";
   static const String companyHomeSeeResumeScreen =
@@ -101,6 +104,8 @@ class Routes {
       "/developerCoursesCategoriesScreen";
   static const String developerCoursesSpecificCategoryScreen =
       "/developerCoursesSpecificCategoryScreen";
+  static const String developerCoursesCourseDetailsScreen =
+      "/developerCoursesCourseDetailsScreen";
   static const String developerCoursesRoadmapsScreen =
       "/developerCoursesRoadmapsScreen";
   static const String developerCoursesMyCoursesScreen =
@@ -148,25 +153,35 @@ class Routes {
 
   // ---------------- Customer ----------------
   // Sign Up
+  static const customerSignUpFlow = '/customerSignUpFlow';
   static const String customerSignUpCompulsoryDataScreen =
       "/customerSignUpCompulsoryDataScreen";
   static const String customerSignUpFillProfileScreen =
       "/customerSignUpFillProfileScreen";
+
   // Profile
   static const String customerProfileScreen = "/customerProfileScreen";
+
   //jops_post
 
   static const String customerJobPostScreen = "/customerJobPostScreen";
+
   //home
   static const String customerHomeMainPageScreen =
       "/customerHomeMainPageScreen";
+
+
   // chats
   static const String customerChatsScreen = "/customerChatsScreen";
   static const String customerChatsPersonChatScreen =
       "/customerChatsPersonChatScreen";
+
   // Applied
   static const String customerAppliedFirstScreen =
       "/customerAppliedFirstScreen";
   static const String customerAppliedSecoundScreen =
       "/customerAppliedSecoundScreen";
+
+  // ---------------- PDF Viewer ----------------
+  static const String pdfViewerScreen = "/pdfViewerScreen";
 }

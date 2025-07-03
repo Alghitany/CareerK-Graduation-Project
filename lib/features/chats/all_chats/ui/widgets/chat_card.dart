@@ -3,9 +3,7 @@ import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-
-import '../../../../../core/networking/api_constants.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ChatCard extends StatelessWidget {
   final String name;
@@ -22,6 +20,10 @@ class ChatCard extends StatelessWidget {
     required this.imagePath,
     this.onTap,
   });
+
+  bool get _isNetworkImage =>
+      imagePath.isNotEmpty &&
+      (imagePath.startsWith('http') || imagePath.startsWith('https'));
 
   @override
   Widget build(BuildContext context) {
@@ -52,33 +54,7 @@ class ChatCard extends StatelessWidget {
                     ),
                   ),
                   clipBehavior: Clip.hardEdge,
-                  child: imagePath.isNotEmpty
-                      ? Image.network(
-                    "${ApiConstants.baseImageUrl}/$imagePath",
-                    fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) {
-                      return Padding(
-                        padding: EdgeInsets.all(12.w),
-                        child: SvgPicture.asset(
-                          "assets/svgs/person_outlined.svg",
-                          colorFilter: const ColorFilter.mode(
-                            ColorsManager.lemonGrass,
-                            BlendMode.srcIn,
-                          ),
-                        ),
-                      );
-                    },
-                  )
-                      : Padding(
-                    padding: EdgeInsets.all(12.w),
-                    child: SvgPicture.asset(
-                      "assets/svgs/person_outlined.svg",
-                      colorFilter: const ColorFilter.mode(
-                        ColorsManager.lemonGrass,
-                        BlendMode.srcIn,
-                      ),
-                    ),
-                  ),
+                  child: _buildProfileImage(),
                 ),
                 horizontalSpace(16),
                 Expanded(
@@ -119,5 +95,37 @@ class ChatCard extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget _buildProfileImage() {
+    if (_isNetworkImage) {
+      return Image.network(
+        imagePath,
+        fit: BoxFit.cover,
+        errorBuilder: (context, error, stackTrace) {
+          return Padding(
+            padding: EdgeInsets.all(12.w),
+            child: SvgPicture.asset(
+              "assets/svgs/person_outlined.svg",
+              colorFilter: const ColorFilter.mode(
+                ColorsManager.lemonGrass,
+                BlendMode.srcIn,
+              ),
+            ),
+          );
+        },
+      );
+    } else {
+      return Padding(
+        padding: EdgeInsets.all(12.w),
+        child: SvgPicture.asset(
+          "assets/svgs/person_outlined.svg",
+          colorFilter: const ColorFilter.mode(
+            ColorsManager.lemonGrass,
+            BlendMode.srcIn,
+          ),
+        ),
+      );
+    }
   }
 }

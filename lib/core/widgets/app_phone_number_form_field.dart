@@ -1,4 +1,3 @@
-import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/widgets/app_text_form_field.dart';
@@ -46,8 +45,7 @@ class AppPhoneNumberFormFieldState extends State<AppPhoneNumberFormField> {
   Widget build(BuildContext context) {
     return FormField<String>(
       validator: (phoneNumber) {
-        if (phoneNumber.isNullOrEmpty() ||
-            !AppRegex.isValidPhoneNumber(phoneNumber!)) {
+        if (!AppRegex.isValidPhoneNumber(phoneNumber)) {
           return "Phone Number is required";
         }
         return null;
@@ -57,15 +55,15 @@ class AppPhoneNumberFormFieldState extends State<AppPhoneNumberFormField> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              padding: EdgeInsets.symmetric(horizontal: 12.w),
               decoration: BoxDecoration(
                 border: Border.all(
-                    color: field.hasError
-                        ? ColorsManager.muleFawn
-                        : ColorsManager.blueBell),
+                  color: field.hasError
+                      ? ColorsManager.muleFawn
+                      : ColorsManager.blueBell,
+                ),
                 borderRadius: BorderRadius.circular(8),
               ),
-              height: 42.h,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -85,35 +83,33 @@ class AppPhoneNumberFormFieldState extends State<AppPhoneNumberFormField> {
                       children: [
                         Text(initialSelectedCountry.flagEmoji,
                             style: TextStyle(fontSize: 20.sp)),
-                        horizontalSpace(8),
+                        horizontalSpace(4.w),
                         SvgPicture.asset(
                           'assets/svgs/keyboard_arrow_down.svg',
-                          height: 8.h,
+                          height: 10.h,
                           width: 12.w,
                         ),
                       ],
                     ),
                   ),
-                  horizontalSpace(6),
+                  horizontalSpace(4.w),
                   Text("(+${initialSelectedCountry.phoneCode}) ",
                       style: AppTextStyles.font14MercuryMulishBold),
+                  horizontalSpace(4.w),
                   Expanded(
                     child: AppTextFormField(
                       controller: widget.controller,
-                      contentPadding: EdgeInsets.symmetric(vertical: 10.h),
+                      contentPadding: EdgeInsets.symmetric(vertical: 16.h),
+                      // Match single field
                       hintText: '01278522505',
                       hintStyle: AppTextStyles.font14MercuryMulishBold,
-                      validator: (phoneNumber) {
-                        return null;
-                      },
+                      validator: (_) => null,
                       keyboardType: TextInputType.phone,
                       focusedBorder: InputBorder.none,
                       enabledBorder: InputBorder.none,
                       errorBorder: InputBorder.none,
                       focusedErrorBorder: InputBorder.none,
-                      onChanged: (value) {
-                        field.didChange(value);
-                      },
+                      onChanged: field.didChange,
                     ),
                   ),
                 ],

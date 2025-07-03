@@ -34,7 +34,7 @@ class CompanySignUpFillProfileScreen extends StatelessWidget {
                 AppEditProfilePicture(
                   onImageSelected: (imageFile) {
                     context
-                        .read<CompanySignUpCubit>()
+                        .read<CompanySignupCubit>()
                         .setProfileImage(imageFile);
                   },
                 ),
@@ -58,7 +58,7 @@ class CompanySignUpFillProfileScreen extends StatelessWidget {
 
   void validateThenGoNext(BuildContext context) {
     if (context
-        .read<CompanySignUpCubit>()
+        .read<CompanySignupCubit>()
         .fillProfileFormKey
         .currentState!
         .validate()) {

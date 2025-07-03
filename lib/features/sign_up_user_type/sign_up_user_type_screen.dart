@@ -42,7 +42,7 @@ class SignUpUserTypeScreen extends StatelessWidget {
                   text: 'Developer',
                 ),
                 UserTypeCard(
-                  routeName: Routes.companySignUpCompulsoryDataScreen,
+                  routeName: Routes.companySignUpFlow,
                   icon: 'assets/svgs/company.svg',
                   text: 'Company',
                 ),
@@ -51,7 +51,7 @@ class SignUpUserTypeScreen extends StatelessWidget {
             verticalSpace(24),
             // TODO: Replace Customer Icon With a good one to be appeared in UI
             const UserTypeCard(
-              routeName: Routes.customerSignUpCompulsoryDataScreen,
+              routeName: Routes.customerSignUpFlow,
               icon: 'assets/svgs/customer.svg',
               text: 'Customer',
             ),

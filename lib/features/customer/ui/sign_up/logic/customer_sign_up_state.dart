@@ -3,16 +3,16 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'customer_sign_up_state.freezed.dart';
 
 @freezed
-class CustomerSignUpState<T> with _$CustomerSignUpState<T> {
-  const factory CustomerSignUpState.initial() = _Initial;
+class CustomerSignupState<T> with _$CustomerSignupState<T> {
+  const factory CustomerSignupState.initial() = _Initial;
 
-  const factory CustomerSignUpState.customerSignupLoading() =
+  const factory CustomerSignupState.customerSignupLoading() =
       CustomerSignupLoading;
 
-  const factory CustomerSignUpState.customerSignupSuccess(T data) =
+  const factory CustomerSignupState.customerSignupSuccess(T data) =
       CustomerSignupSuccess<T>;
 
-  const factory CustomerSignUpState.customerSignupError({
+  const factory CustomerSignupState.customerSignupError({
     required String error,
   }) = CustomerSignupError;
 }

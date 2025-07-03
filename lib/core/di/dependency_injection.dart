@@ -1,15 +1,28 @@
+import 'package:carrerk/features/chats/contact_list/all_chats/data/repo/contact_list_all_chats_repo.dart';
+import 'package:carrerk/features/chats/contact_list/all_chats/logic/contact_list_all_chats_cubit.dart';
+import 'package:carrerk/features/chats/person_chat/data/repo/get_chat_messages_repo.dart';
+import 'package:carrerk/features/chats/person_chat/logic/get_chat_messages/get_chat_messages_cubit.dart';
 import 'package:carrerk/features/company/data/repo/company_jobs_delete_post_repo.dart';
 import 'package:carrerk/features/company/logic/company_jobs_delete_post_cubit.dart';
 import 'package:carrerk/features/company/sign_up/data/repo/company_sign_up_repo.dart';
 import 'package:carrerk/features/company/sign_up/logic/company_sign_up_cubit.dart';
-import 'package:carrerk/features/contact_list/all_chats/data/repo/contact_list_all_chats_repo.dart';
-import 'package:carrerk/features/contact_list/all_chats/logic/contact_list_all_chats_cubit.dart';
+
 import 'package:carrerk/features/customer/data/repos/customer_jobs_post_repo.dart';
 import 'package:carrerk/features/customer/logic/customer_jobs_post_cubit.dart';
+import 'package:carrerk/features/customer/ui/home/data/repo/customer_home_repo.dart';
+import 'package:carrerk/features/customer/ui/home/logic/customer_home_cubit.dart';
+import 'package:carrerk/features/customer/ui/sign_up/data/repo/customer_sign_up_repo.dart';
+import 'package:carrerk/features/customer/ui/sign_up/logic/customer_sign_up_cubit.dart';
+import 'package:carrerk/features/developer/data/repo/developer_single_job_bookmark_repo.dart';
+import 'package:carrerk/features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
 import 'package:carrerk/features/developer/ui/courses/main_page/data/repo/developer_courses_main_page_roadmaps_repo.dart';
 import 'package:carrerk/features/developer/ui/courses/specific_category/data/repo/developer_courses_specific_category_repo.dart';
 import 'package:carrerk/features/developer/ui/courses/specific_category/logic/developer_courses_specific_category_cubit.dart';
-
+import 'package:carrerk/features/developer/ui/jobs/job_details/data/repo/developer_jobs_job_details_repo.dart';
+import 'package:carrerk/features/developer/ui/jobs/job_details/logic/developer_jobs_job_details_cubit.dart';
+import 'package:carrerk/features/developer/ui/jobs/search/data/repo/developer_jobs_recently_posted_repo.dart';
+import 'package:carrerk/features/developer/ui/profile/jobs_applied/data/repo/developer_job_withdraw_repo.dart';
+import 'package:carrerk/features/developer/ui/profile/jobs_applied/data/repo/developer_profile_applied_jobs_repo.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -27,21 +40,32 @@ import '../../features/company/jobs_post/logic/company_jobs_post_cubit.dart';
 
 import '../../features/chats/all_chats/data/repo/chats_all_chats_repo.dart';
 import '../../features/chats/all_chats/logic/chats_all_chats_cubit.dart';
+import '../../features/chats/person_chat/data/repo/send_messages_repo.dart';
+import '../../features/chats/person_chat/data/repo/start_chat_room_repo.dart';
+import '../../features/chats/person_chat/logic/send_messages/send_messages_cubit.dart';
+import '../../features/chats/person_chat/logic/start_chat/start_chat_room_cubit.dart';
+import '../../features/company/jobs_post/data/repos/company_jobs_post_repo.dart';
+import '../../features/company/jobs_post/logic/company_jobs_post_cubit.dart';
+import '../../features/company/ui/home/data/repos/company_update_application_status_repo.dart';
+import '../../features/company/ui/home/logic/update_application_status_logic/company_update_application_status_cubit.dart';
 
 import '../../features/developer/data/repo/developer_courses_and_jobs_main_page_profile_repo.dart';
-import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
+import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
 import '../../features/developer/ui/courses/main_page/logic/developer_courses_main_page_roadmaps_cubit.dart';
 import '../../features/developer/ui/courses/roadmaps/data/repo/developer_courses_roadmaps_repo.dart';
 import '../../features/developer/ui/courses/roadmaps/logic/developer_courses_roadmaps_cubit.dart';
 import '../../features/developer/ui/jobs/apply/data/repo/developer_jobs_apply_repo.dart';
 import '../../features/developer/ui/jobs/apply/logic/developer_jobs_apply_cubit.dart';
+import '../../features/developer/ui/jobs/search/logic/developer_jobs_recently_posted_logic/developer_jobs_recently_posted_cubit.dart';
+import '../../features/developer/ui/profile/jobs_applied/logic/developer_job_withdraw_logic/developer_job_withdraw_cubit.dart';
+import '../../features/developer/ui/profile/jobs_applied/logic/developer_profile_applied_jobs_logic/developer_profile_applied_jobs_cubit.dart';
 import '../../features/developer/ui/sign_up/data/repos/developer_sign_up_repo.dart';
 import '../../features/developer/ui/sign_up/logic/developer_sign_up_cubit.dart';
 import '../../features/search/data/repo/search_courses_repo.dart';
 import '../../features/search/logic/search_courses_cubit.dart';
-
 import '../networking/api_service.dart';
 import '../networking/dio_factory.dart';
+import '../networking/socket_service.dart';
 
 final getIt = GetIt.instance;
 
@@ -85,6 +109,27 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<DeveloperJobsApplyCubit>(
     () => DeveloperJobsApplyCubit(getIt<DeveloperJobsApplyRepo>()),
   );
+  // Job Details
+  getIt.registerLazySingleton<DeveloperJobsJobDetailsRepo>(
+    () => DeveloperJobsJobDetailsRepo(getIt()),
+  );
+  getIt.registerFactory<DeveloperJobsJobDetailsCubit>(
+    () => DeveloperJobsJobDetailsCubit(getIt()),
+  );
+  // Single Job
+  getIt.registerLazySingleton<DeveloperSingleJobBookmarkRepo>(
+    () => DeveloperSingleJobBookmarkRepo(getIt()),
+  );
+  getIt.registerFactory<DeveloperSingleJobBookmarkCubit>(
+    () => DeveloperSingleJobBookmarkCubit(getIt()),
+  );
+  // Jobs Recently Posted
+  getIt.registerLazySingleton<DeveloperJobsRecentlyPostedRepo>(
+    () => DeveloperJobsRecentlyPostedRepo(getIt()),
+  );
+  getIt.registerFactory<DeveloperJobsRecentlyPostedCubit>(
+    () => DeveloperJobsRecentlyPostedCubit(getIt()),
+  );
   // -> Courses Main Page
   // -> Profile
   getIt.registerLazySingleton<DeveloperCoursesAndJobsMainPageProfileRepo>(
@@ -114,19 +159,37 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<DeveloperCoursesSpecificCategoryCubit>(
     () => DeveloperCoursesSpecificCategoryCubit(getIt()),
   );
+  // -> Profile
+  // -> Jobs Applied
+  getIt.registerLazySingleton<DeveloperProfileAppliedJobsRepo>(
+    () => DeveloperProfileAppliedJobsRepo(getIt()),
+  );
+  getIt.registerFactory<DeveloperProfileAppliedJobsCubit>(
+    () => DeveloperProfileAppliedJobsCubit(getIt()),
+  );
+  // -> Withdraw Application
+  getIt.registerLazySingleton<DeveloperJobWithdrawRepo>(
+      () => DeveloperJobWithdrawRepo(getIt()));
+  getIt.registerLazySingleton<DeveloperJobWithdrawCubit>(
+      () => DeveloperJobWithdrawCubit(getIt()));
   // Company
   // company -> Signup
   getIt.registerLazySingleton<CompanySignupRepo>(
     () => CompanySignupRepo(getIt<Dio>()),
   );
-  getIt.registerFactory<CompanySignUpCubit>(
-    () => CompanySignUpCubit(getIt<CompanySignupRepo>()),
+  getIt.registerFactory<CompanySignupCubit>(
+    () => CompanySignupCubit(getIt<CompanySignupRepo>()),
   );
   // -> Jobs Post
   getIt.registerLazySingleton<CompanyJobsPostRepo>(
       () => CompanyJobsPostRepo(getIt()));
   getIt.registerLazySingleton<CompanyJobsPostCubit>(
       () => CompanyJobsPostCubit(getIt()));
+  // -> Update Application Status
+  getIt.registerLazySingleton<CompanyUpdateApplicationStatusRepo>(
+      () => CompanyUpdateApplicationStatusRepo(getIt()));
+  getIt.registerLazySingleton<CompanyUpdateApplicationStatusCubit>(
+      () => CompanyUpdateApplicationStatusCubit(getIt()));
   // -> Delete Job
   getIt.registerLazySingleton<CompanyJobsDeletePostRepo>(
       () => CompanyJobsDeletePostRepo(getIt()));
@@ -144,7 +207,6 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<ChatsAllChatsRepo>(
     () => ChatsAllChatsRepo(getIt()),
   );
-
   getIt.registerFactory<ChatsAllChatsCubit>(
     () => ChatsAllChatsCubit(getIt()),
   );
@@ -162,6 +224,40 @@ Future<void> setupGetIt() async {
   );
 
   getIt.registerFactory<ContactListAllChatsCubit>(
-    () => ContactListAllChatsCubit(getIt()),
+      () => ContactListAllChatsCubit(getIt()));
+  //-> Start Chat Room
+  getIt.registerLazySingleton<StartChatRoomRepo>(
+    () => StartChatRoomRepo(getIt()),
+  );
+  getIt.registerFactory<StartChatRoomCubit>(
+    () => StartChatRoomCubit(getIt()),
+  );
+  //-> Get Chat Messages
+  getIt.registerLazySingleton<GetChatMessagesRepo>(
+    () => GetChatMessagesRepo(getIt()),
+  );
+  getIt.registerFactory<GetChatMessagesCubit>(
+    () => GetChatMessagesCubit(getIt()),
+  );
+  //-> Send Message
+  getIt.registerLazySingleton<SendMessagesRepo>(
+      () => SendMessagesRepo(getIt<Dio>()));
+  getIt.registerFactory<SendMessagesCubit>(
+      () => SendMessagesCubit(getIt<SendMessagesRepo>()));
+  //-> Socket
+  getIt.registerLazySingleton<SocketService>(() => SocketService());
+
+  // Customer home
+  getIt.registerLazySingleton<CustomerHomeRepo>(
+    () => CustomerHomeRepo(getIt()),
+  );
+
+  getIt.registerFactory<CustomerHomeCubit>(() => CustomerHomeCubit(getIt()));
+  // Customer -> Signup
+  getIt.registerLazySingleton<CustomerSignupRepo>(
+    () => CustomerSignupRepo(getIt<Dio>()),
+  );
+  getIt.registerFactory<CustomerSignupCubit>(
+    () => CustomerSignupCubit(getIt<CustomerSignupRepo>()),
   );
 }

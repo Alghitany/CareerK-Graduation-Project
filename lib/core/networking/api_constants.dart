@@ -20,10 +20,21 @@ class ApiConstants {
   //-> Apply
   static const String developerJobsApply = "api/job-applications/apply";
 
+  //-> Job Details
+  static const String developerJobsJobDetails = "api/job-post/{jobId}";
+
+  //-> Single Bookmark
+  static const String developerSingleJobBookmark =
+      "/api/bookmarks/bookmark/{jobId}";
+
+  //-> Jobs Recently Posted
+  static const String developerJobsRecentlyPosted =
+      "api/job-post/filter/recently-posted";
+
   //-----> Courses
   //-> Developer Profile
   static const String developerCoursesMainPageProfile =
-      "api/courses-page/developer/profile";
+      "api/courses-page/developer-name";
 
   //-> Roadmaps List
   static const String developerCoursesMainPageRoadmaps =
@@ -32,6 +43,15 @@ class ApiConstants {
   //-----> Roadmaps & Track Courses Base Path
   static const String developerTracksBasePath = "api/tracks-page/tracks";
 
+  //-----> Profile
+  //-> Applied Jobs
+  static const String developerProfileAppliedJobs =
+      "api/developer/my-applications";
+
+  //-> Job Withdraw
+  static const String developerJobWithdraw =
+      "api/job-application/{applicationId}";
+
   //------ customer ------------
   //->Sign up
   static const String customerSignup = "api/customer/register";
@@ -39,6 +59,8 @@ class ApiConstants {
   static const String customerJobsPost = "api/service-post/create";
   //------ chats ------------
   static const String contactList = "api/private-chats";
+  // ---- home----
+  static const String customerHome = "api/customer/homepage";
 
   //------ company ------------
   //->Sign up
@@ -47,6 +69,10 @@ class ApiConstants {
   //->Post Job
   static const String companyJobsPost = "api/jobs/create-job-post";
 
+  //->Post Job
+  static const String companyUpdateApplicationStatus =
+      "/api/job-application/{applicationId}/status";
+
   //->Delete Post
   static const String companyJobsDeletePost = "api/jobs/delete-job-post";
 
@@ -54,7 +80,9 @@ class ApiConstants {
   static const String searchCourses = "api/courses-page/search-courses";
 
   //------ chats ------------
-  static const String allChats = "/api/private-chats";
+  static const String allChats = "api/private-chats";
+  static const String startChatRoom = "api/private-chats/start";
+  static const String sendAndReceiveMessages = "api/private-chats/{chatRoomId}";
 }
 
 class ApiErrors {

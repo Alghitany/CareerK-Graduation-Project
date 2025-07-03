@@ -13,7 +13,7 @@ class CompanySignupBlocListener extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<CompanySignUpCubit, CompanySignUpState>(
+    return BlocListener<CompanySignupCubit, CompanySignupState>(
       listenWhen: (previous, current) =>
           current is CompanySignupLoading ||
           current is CompanySignupSuccess ||

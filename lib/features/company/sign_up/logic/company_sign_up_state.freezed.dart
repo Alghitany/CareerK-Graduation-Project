@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$CompanySignUpState<T> {
+mixin _$CompanySignupState<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -71,24 +71,24 @@ mixin _$CompanySignUpState<T> {
 }
 
 /// @nodoc
-abstract class $CompanySignUpStateCopyWith<T, $Res> {
-  factory $CompanySignUpStateCopyWith(CompanySignUpState<T> value,
-          $Res Function(CompanySignUpState<T>) then) =
-      _$CompanySignUpStateCopyWithImpl<T, $Res, CompanySignUpState<T>>;
+abstract class $CompanySignupStateCopyWith<T, $Res> {
+  factory $CompanySignupStateCopyWith(CompanySignupState<T> value,
+          $Res Function(CompanySignupState<T>) then) =
+      _$CompanySignupStateCopyWithImpl<T, $Res, CompanySignupState<T>>;
 }
 
 /// @nodoc
-class _$CompanySignUpStateCopyWithImpl<T, $Res,
-        $Val extends CompanySignUpState<T>>
-    implements $CompanySignUpStateCopyWith<T, $Res> {
-  _$CompanySignUpStateCopyWithImpl(this._value, this._then);
+class _$CompanySignupStateCopyWithImpl<T, $Res,
+        $Val extends CompanySignupState<T>>
+    implements $CompanySignupStateCopyWith<T, $Res> {
+  _$CompanySignupStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of CompanySignUpState
+  /// Create a copy of CompanySignupState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -101,13 +101,13 @@ abstract class _$$InitialImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<T, $Res>
-    extends _$CompanySignUpStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
+    extends _$CompanySignupStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
     implements _$$InitialImplCopyWith<T, $Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of CompanySignUpState
+  /// Create a copy of CompanySignupState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -118,7 +118,7 @@ class _$InitialImpl<T> implements _Initial<T> {
 
   @override
   String toString() {
-    return 'CompanySignUpState<$T>.initial()';
+    return 'CompanySignupState<$T>.initial()';
   }
 
   @override
@@ -207,7 +207,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   }
 }
 
-abstract class _Initial<T> implements CompanySignUpState<T> {
+abstract class _Initial<T> implements CompanySignupState<T> {
   const factory _Initial() = _$InitialImpl<T>;
 }
 
@@ -221,14 +221,14 @@ abstract class _$$CompanySignupLoadingImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$CompanySignupLoadingImplCopyWithImpl<T, $Res>
-    extends _$CompanySignUpStateCopyWithImpl<T, $Res,
+    extends _$CompanySignupStateCopyWithImpl<T, $Res,
         _$CompanySignupLoadingImpl<T>>
     implements _$$CompanySignupLoadingImplCopyWith<T, $Res> {
   __$$CompanySignupLoadingImplCopyWithImpl(_$CompanySignupLoadingImpl<T> _value,
       $Res Function(_$CompanySignupLoadingImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of CompanySignUpState
+  /// Create a copy of CompanySignupState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -239,7 +239,7 @@ class _$CompanySignupLoadingImpl<T> implements CompanySignupLoading<T> {
 
   @override
   String toString() {
-    return 'CompanySignUpState<$T>.companySignupLoading()';
+    return 'CompanySignupState<$T>.companySignupLoading()';
   }
 
   @override
@@ -329,7 +329,7 @@ class _$CompanySignupLoadingImpl<T> implements CompanySignupLoading<T> {
   }
 }
 
-abstract class CompanySignupLoading<T> implements CompanySignUpState<T> {
+abstract class CompanySignupLoading<T> implements CompanySignupState<T> {
   const factory CompanySignupLoading() = _$CompanySignupLoadingImpl<T>;
 }
 
@@ -345,14 +345,14 @@ abstract class _$$CompanySignupSuccessImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$CompanySignupSuccessImplCopyWithImpl<T, $Res>
-    extends _$CompanySignUpStateCopyWithImpl<T, $Res,
+    extends _$CompanySignupStateCopyWithImpl<T, $Res,
         _$CompanySignupSuccessImpl<T>>
     implements _$$CompanySignupSuccessImplCopyWith<T, $Res> {
   __$$CompanySignupSuccessImplCopyWithImpl(_$CompanySignupSuccessImpl<T> _value,
       $Res Function(_$CompanySignupSuccessImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of CompanySignUpState
+  /// Create a copy of CompanySignupState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -378,7 +378,7 @@ class _$CompanySignupSuccessImpl<T> implements CompanySignupSuccess<T> {
 
   @override
   String toString() {
-    return 'CompanySignUpState<$T>.companySignupSuccess(data: $data)';
+    return 'CompanySignupState<$T>.companySignupSuccess(data: $data)';
   }
 
   @override
@@ -393,7 +393,7 @@ class _$CompanySignupSuccessImpl<T> implements CompanySignupSuccess<T> {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
-  /// Create a copy of CompanySignUpState
+  /// Create a copy of CompanySignupState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -479,13 +479,13 @@ class _$CompanySignupSuccessImpl<T> implements CompanySignupSuccess<T> {
   }
 }
 
-abstract class CompanySignupSuccess<T> implements CompanySignUpState<T> {
+abstract class CompanySignupSuccess<T> implements CompanySignupState<T> {
   const factory CompanySignupSuccess(final T data) =
       _$CompanySignupSuccessImpl<T>;
 
   T get data;
 
-  /// Create a copy of CompanySignUpState
+  /// Create a copy of CompanySignupState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CompanySignupSuccessImplCopyWith<T, _$CompanySignupSuccessImpl<T>>
@@ -503,14 +503,14 @@ abstract class _$$CompanySignupErrorImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$CompanySignupErrorImplCopyWithImpl<T, $Res>
-    extends _$CompanySignUpStateCopyWithImpl<T, $Res,
+    extends _$CompanySignupStateCopyWithImpl<T, $Res,
         _$CompanySignupErrorImpl<T>>
     implements _$$CompanySignupErrorImplCopyWith<T, $Res> {
   __$$CompanySignupErrorImplCopyWithImpl(_$CompanySignupErrorImpl<T> _value,
       $Res Function(_$CompanySignupErrorImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of CompanySignUpState
+  /// Create a copy of CompanySignupState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -536,7 +536,7 @@ class _$CompanySignupErrorImpl<T> implements CompanySignupError<T> {
 
   @override
   String toString() {
-    return 'CompanySignUpState<$T>.companySignupError(error: $error)';
+    return 'CompanySignupState<$T>.companySignupError(error: $error)';
   }
 
   @override
@@ -550,7 +550,7 @@ class _$CompanySignupErrorImpl<T> implements CompanySignupError<T> {
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  /// Create a copy of CompanySignUpState
+  /// Create a copy of CompanySignupState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -636,13 +636,13 @@ class _$CompanySignupErrorImpl<T> implements CompanySignupError<T> {
   }
 }
 
-abstract class CompanySignupError<T> implements CompanySignUpState<T> {
+abstract class CompanySignupError<T> implements CompanySignupState<T> {
   const factory CompanySignupError({required final String error}) =
       _$CompanySignupErrorImpl<T>;
 
   String get error;
 
-  /// Create a copy of CompanySignUpState
+  /// Create a copy of CompanySignupState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CompanySignupErrorImplCopyWith<T, _$CompanySignupErrorImpl<T>>

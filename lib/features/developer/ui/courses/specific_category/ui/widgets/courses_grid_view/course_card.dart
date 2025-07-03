@@ -9,6 +9,7 @@ class CourseCard extends StatelessWidget {
   final String title;
   final int totalLessons;
   final String duration;
+  final void Function()? onTap;
 
   const CourseCard({
     super.key,
@@ -16,14 +17,13 @@ class CourseCard extends StatelessWidget {
     required this.title,
     required this.totalLessons,
     required this.duration,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        // TODO: Navigate to course information screen
-      },
+      onTap: onTap,
       child: Card(
         margin: EdgeInsets.zero,
         shape: RoundedRectangleBorder(

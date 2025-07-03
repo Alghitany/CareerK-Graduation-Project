@@ -1,8 +1,10 @@
+import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../../../../../core/helpers/app_regex.dart';
 import '../../../../../../core/helpers/spacing.dart';
 import '../../../../../../core/theming/colors.dart';
 import '../../../../../../core/widgets/app_label.dart';
@@ -24,42 +26,40 @@ class _CompanyCompulsoryDataFormState extends State<CompanyCompulsoryDataForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
-        key: context.read<CompanySignUpCubit>().compulsoryDataFormKey,
+        key: context.read<CompanySignupCubit>().compulsoryDataFormKey,
         child: Column(
           children: [
             const AppLabel(text: 'Company Name'),
             verticalSpace(8),
             AppTextFormField(
                 controller:
-                    context.read<CompanySignUpCubit>().companyNameController,
+                    context.read<CompanySignupCubit>().companyNameController,
                 hintText: 'Toyota',
                 validator: (companyName) {
+                  if (companyName!.isNullOrEmpty() ||
+                      !AppRegex.isValidName(companyName)) {
+                    return 'Please enter a valid name';
+                  }
                   return null;
-
-                  // if (companyName!.isNullOrEmpty() ||
-                  //     !AppRegex.isValidName(companyName)) {
-                  //   return 'Please enter a valid name';
-                  // }
                 }),
             verticalSpace(16),
             const AppLabel(text: 'Email'),
             verticalSpace(8),
             AppTextFormField(
-                controller: context.read<CompanySignUpCubit>().emailController,
+                controller: context.read<CompanySignupCubit>().emailController,
                 hintText: 'example@email.com',
                 validator: (email) {
+                  if (email!.isNullOrEmpty() || !AppRegex.isValidEmail(email)) {
+                    return 'Please enter a valid email';
+                  }
                   return null;
-
-                  // if (email!.isNullOrEmpty() || !AppRegex.isValidEmail(email)) {
-                  //   return 'Please enter a valid email';
-                  // }
                 }),
             verticalSpace(16),
             const AppLabel(text: 'Password'),
             verticalSpace(8),
             AppTextFormField(
                 controller:
-                    context.read<CompanySignUpCubit>().passwordController,
+                    context.read<CompanySignupCubit>().passwordController,
                 hintText: '•••••••••',
                 isObscureText: isObscurePassword,
                 suffixIcon: GestureDetector(
@@ -95,19 +95,18 @@ class _CompanyCompulsoryDataFormState extends State<CompanyCompulsoryDataForm> {
                         ),
                 ),
                 validator: (password) {
+                  if (password!.isNullOrEmpty() ||
+                      !AppRegex.isValidPassword(password)) {
+                    return 'Please enter a valid password';
+                  }
                   return null;
-
-                  // if (password!.isNullOrEmpty() ||
-                  //     !AppRegex.isValidPassword(password)) {
-                  //   return 'Please enter a valid password';
-                  // }
                 }),
             verticalSpace(16),
             const AppLabel(text: 'Confirm Password'),
             verticalSpace(8),
             AppTextFormField(
                 controller: context
-                    .read<CompanySignUpCubit>()
+                    .read<CompanySignupCubit>()
                     .confirmPasswordController,
                 hintText: '•••••••••',
                 isObscureText: isObscureConfirmPassword,
@@ -144,9 +143,15 @@ class _CompanyCompulsoryDataFormState extends State<CompanyCompulsoryDataForm> {
                         ),
                 ),
                 validator: (confirmPassword) {
+                  if (!AppRegex.doPasswordsMatch(
+                      context
+                          .read<CompanySignupCubit>()
+                          .passwordController
+                          .text,
+                      confirmPassword!)) {
+                    return "Password doesn't match";
+                  }
                   return null;
-
-                  //TODO: Check if the confirm password = new password
                 })
           ],
         ));

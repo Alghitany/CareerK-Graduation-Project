@@ -5,6 +5,8 @@ import 'package:carrerk/features/company/sign_up/ui/fill_profile/company_sign_up
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../features/company/sign_up/ui/contact_information/company_sign_up_contact_information.dart';
+import '../../../features/company/sign_up/ui/enter_location/company_sign_up_enter_location_screen.dart';
 import '../../di/dependency_injection.dart';
 import '../routes.dart';
 
@@ -13,8 +15,8 @@ class CompanySignUpFlow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<CompanySignUpCubit>(
-      create: (_) => getIt<CompanySignUpCubit>(),
+    return BlocProvider<CompanySignupCubit>(
+      create: (_) => getIt<CompanySignupCubit>(),
       child: Stack(
         children: [
           Navigator(
@@ -25,9 +27,18 @@ class CompanySignUpFlow extends StatelessWidget {
                   return MaterialPageRoute(
                     builder: (_) => const CompanySignUpCompulsoryDataScreen(),
                   );
-                case Routes.customerSignUpFillProfileScreen:
+                case Routes.companySignUpFillProfileScreen:
                   return MaterialPageRoute(
                     builder: (_) => const CompanySignUpFillProfileScreen(),
+                  );
+                case Routes.companySignUpEnterLocationScreen:
+                  return MaterialPageRoute(
+                    builder: (_) => const CompanySignUpEnterLocationScreen(),
+                  );
+                case Routes.companySignUpContactInformation:
+                  return MaterialPageRoute(
+                    builder: (_) =>
+                        const CompanySignUpContactInformationScreen(),
                   );
 
                 default:

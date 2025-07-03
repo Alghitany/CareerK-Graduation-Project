@@ -1,5 +1,4 @@
 import 'package:carrerk/core/helpers/spacing.dart';
-
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:carrerk/core/widgets/company_floating_action_button.dart';
@@ -7,8 +6,8 @@ import 'package:carrerk/core/widgets/customer_bottom_navigation_bar.dart';
 
 import 'package:carrerk/features/customer/ui/applied/first/widgets/applied_people_container.dart';
 
-import 'package:flutter/material.dart';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomerAppliedFirstScreen extends StatelessWidget {

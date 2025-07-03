@@ -46,6 +46,6 @@ class CompanySignUpContactInformationScreen extends StatelessWidget {
   }
 
   void validateThenDoSignup(BuildContext context) {
-    context.read<CompanySignUpCubit>().signupCompany();
+    context.read<CompanySignupCubit>().signupCompany();
   }
 }

@@ -57,7 +57,7 @@ class CompanySignUpCompulsoryDataScreen extends StatelessWidget {
 
   void validateThenGoNext(BuildContext context) {
     if (context
-        .read<CompanySignUpCubit>()
+        .read<CompanySignupCubit>()
         .compulsoryDataFormKey
         .currentState!
         .validate()) {
