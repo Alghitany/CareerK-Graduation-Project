@@ -25,56 +25,22 @@ class DeveloperProfileAppliedJobsResponseBody {
 
 @JsonSerializable()
 class JobApplication {
-  final String? id;
-
-  @JsonKey(name: 'job_id')
-  final String? jobId;
-
-  @JsonKey(name: 'developer_id')
-  final String? developerId;
-
-  final String? name;
-  final String? email;
-  final String? phone;
-
-  @JsonKey(name: 'years_of_experience')
-  final int? yearsOfExperience;
-
-  @JsonKey(name: 'expected_salary')
-  final String? expectedSalary;
-
-  @JsonKey(name: 'uploaded_cv')
-  final String? uploadedCv;
+  @JsonKey(name: 'application_id')
+  final String? applicationId;
 
   final String? status;
 
-  @JsonKey(name: 'created_at')
-  final String? createdAt;
+  @JsonKey(name: 'applied_at')
+  final String? appliedAt;
 
-  @JsonKey(name: 'updated_at')
-  final String? updatedAt;
-
-  @JsonKey(name: 'job_title')
-  final String? jobTitle;
-
-  @JsonKey(name: 'company_name')
-  final String? companyName;
+  @JsonKey(name: 'job_post')
+  final JobPost? jobPost;
 
   JobApplication({
-    this.id,
-    this.jobId,
-    this.developerId,
-    this.name,
-    this.email,
-    this.phone,
-    this.yearsOfExperience,
-    this.expectedSalary,
-    this.uploadedCv,
+    this.applicationId,
     this.status,
-    this.createdAt,
-    this.updatedAt,
-    this.jobTitle,
-    this.companyName,
+    this.appliedAt,
+    this.jobPost,
   });
 
   factory JobApplication.fromJson(Map<String, dynamic> json) =>
@@ -84,56 +50,165 @@ class JobApplication {
 }
 
 @JsonSerializable()
-class ServiceApplication {
+class JobPost {
   final String? id;
+  final String? title;
+  @JsonKey(name: 'job_type')
+  final String? jobType;
+  final String? location;
+  @JsonKey(name: 'salary_range')
+  final String? salaryRange;
+  @JsonKey(name: 'experience_required')
+  final String? experienceRequired;
+  @JsonKey(name: 'job_description')
+  final String? jobDescription;
+  final String? responsibilities;
+  final String? qualifications;
+  final String? benefits;
+  @JsonKey(name: 'application_deadline')
+  final String? applicationDeadline;
+  @JsonKey(name: 'company_website')
+  final String? companyWebsite;
+  final List<String>? skills;
+  final String? category;
+  @JsonKey(name: 'deadline_task')
+  final String? deadlineTask;
+  @JsonKey(name: 'company_department')
+  final String? companyDepartment;
+  @JsonKey(name: 'job_availability')
+  final String? jobAvailability;
+  final Company? company;
 
-  @JsonKey(name: 'developer_id')
-  final String? developerId;
+  JobPost({
+    this.id,
+    this.title,
+    this.jobType,
+    this.location,
+    this.salaryRange,
+    this.experienceRequired,
+    this.jobDescription,
+    this.responsibilities,
+    this.qualifications,
+    this.benefits,
+    this.applicationDeadline,
+    this.companyWebsite,
+    this.skills,
+    this.category,
+    this.deadlineTask,
+    this.companyDepartment,
+    this.jobAvailability,
+    this.company,
+  });
 
-  @JsonKey(name: 'service_post_id')
-  final String? servicePostId;
+  factory JobPost.fromJson(Map<String, dynamic> json) =>
+      _$JobPostFromJson(json);
+
+  Map<String, dynamic> toJson() => _$JobPostToJson(this);
+}
+
+@JsonSerializable()
+class Company {
+  final String? id;
+  @JsonKey(name: 'company_name')
+  final String? companyName;
+  @JsonKey(name: 'profile_picture')
+  final String? profilePicture;
+  final String? industry;
+
+  Company({
+    this.id,
+    this.companyName,
+    this.profilePicture,
+    this.industry,
+  });
+
+  factory Company.fromJson(Map<String, dynamic> json) =>
+      _$CompanyFromJson(json);
+
+  Map<String, dynamic> toJson() => _$CompanyToJson(this);
+}
+
+@JsonSerializable()
+class ServiceApplication {
+  @JsonKey(name: 'application_id')
+  final String? applicationId;
+
+  final String? status;
 
   @JsonKey(name: 'submitted_at')
   final String? submittedAt;
 
-  @JsonKey(name: 'created_at')
-  final String? createdAt;
-
-  final String? status;
-  final String? name;
-  final String? email;
-  final String? phone;
-
-  @JsonKey(name: 'years_of_experience')
-  final int? yearsOfExperience;
-
-  @JsonKey(name: 'expected_salary')
-  final String? expectedSalary;
-
-  @JsonKey(name: 'uploaded_cv')
-  final String? uploadedCv;
-
-  @JsonKey(name: 'service_title')
-  final String? serviceTitle;
+  @JsonKey(name: 'service_post')
+  final ServicePost? servicePost;
 
   ServiceApplication({
-    this.id,
-    this.developerId,
-    this.servicePostId,
-    this.submittedAt,
-    this.createdAt,
+    this.applicationId,
     this.status,
-    this.name,
-    this.email,
-    this.phone,
-    this.yearsOfExperience,
-    this.expectedSalary,
-    this.uploadedCv,
-    this.serviceTitle,
+    this.submittedAt,
+    this.servicePost,
   });
 
   factory ServiceApplication.fromJson(Map<String, dynamic> json) =>
       _$ServiceApplicationFromJson(json);
 
   Map<String, dynamic> toJson() => _$ServiceApplicationToJson(this);
+}
+
+@JsonSerializable()
+class ServicePost {
+  final String? id;
+  final String? title;
+  final String? description;
+  @JsonKey(name: 'budget_range')
+  final String? budgetRange;
+  @JsonKey(name: 'service_type')
+  final String? serviceType;
+  @JsonKey(name: 'required_skills')
+  final List<String>? requiredSkills;
+  final String? deadline;
+  @JsonKey(name: 'contact_info')
+  final String? contactInfo;
+  @JsonKey(name: 'created_at')
+  final String? createdAt;
+  @JsonKey(name: 'updated_at')
+  final String? updatedAt;
+  final Customer? customer;
+
+  ServicePost({
+    this.id,
+    this.title,
+    this.description,
+    this.budgetRange,
+    this.serviceType,
+    this.requiredSkills,
+    this.deadline,
+    this.contactInfo,
+    this.createdAt,
+    this.updatedAt,
+    this.customer,
+  });
+
+  factory ServicePost.fromJson(Map<String, dynamic> json) =>
+      _$ServicePostFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ServicePostToJson(this);
+}
+
+@JsonSerializable()
+class Customer {
+  final String? id;
+  final String? name;
+  @JsonKey(name: 'profile_picture')
+  final String? profilePicture;
+
+  Customer({
+    this.id,
+    this.name,
+    this.profilePicture,
+  });
+
+  factory Customer.fromJson(Map<String, dynamic> json) =>
+      _$CustomerFromJson(json);
+
+  Map<String, dynamic> toJson() => _$CustomerToJson(this);
 }
