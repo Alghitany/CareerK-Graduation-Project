@@ -27,7 +27,7 @@ class ChatsListView extends StatelessWidget {
         final chat = chats[index];
         return ChatCard(
           name: chat.userName,
-          jop: chat.lastMessage ?? '',
+          jop: chat.otherUserRole,
           imagePath: chat.userProfilePicture.isNotEmpty
               ? chat.userProfilePicture
               : 'assets/images/company_home_developer_logo.png',

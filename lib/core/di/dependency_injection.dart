@@ -2,6 +2,8 @@ import 'package:carrerk/features/company/data/repo/company_jobs_delete_post_repo
 import 'package:carrerk/features/company/logic/company_jobs_delete_post_cubit.dart';
 import 'package:carrerk/features/company/sign_up/data/repo/company_sign_up_repo.dart';
 import 'package:carrerk/features/company/sign_up/logic/company_sign_up_cubit.dart';
+import 'package:carrerk/features/contact_list/all_chats/data/repo/contact_list_all_chats_repo.dart';
+import 'package:carrerk/features/contact_list/all_chats/logic/contact_list_all_chats_cubit.dart';
 import 'package:carrerk/features/customer/data/repos/customer_jobs_post_repo.dart';
 import 'package:carrerk/features/customer/logic/customer_jobs_post_cubit.dart';
 import 'package:carrerk/features/developer/ui/courses/main_page/data/repo/developer_courses_main_page_roadmaps_repo.dart';
@@ -153,4 +155,13 @@ Future<void> setupGetIt() async {
       () => CustomerJobsPostRepo(getIt()));
   getIt.registerLazySingleton<CustomerJobsPostCubit>(
       () => CustomerJobsPostCubit(getIt()));
+  // Contact List
+  //-> All Chats
+  getIt.registerLazySingleton<ContactListAllChatsRepo>(
+    () => ContactListAllChatsRepo(getIt()),
+  );
+
+  getIt.registerFactory<ContactListAllChatsCubit>(
+    () => ContactListAllChatsCubit(getIt()),
+  );
 }

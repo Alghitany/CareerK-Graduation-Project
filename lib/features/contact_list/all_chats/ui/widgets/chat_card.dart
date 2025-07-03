@@ -52,7 +52,7 @@ class ChatCard extends StatelessWidget {
                   clipBehavior: Clip.hardEdge,
                   child: imagePath.isNotEmpty
                       ? Image.network(
-                          "${ApiConstants.baseImageUrl}/$imagePath",
+                          imagePath,
                           fit: BoxFit.cover,
                           errorBuilder: (context, error, stackTrace) {
                             return Padding(

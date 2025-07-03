@@ -104,26 +104,9 @@ class CustomerChatsScreen extends StatelessWidget {
               // App Bar Row
               Row(
                 children: [
-                  const AppBackIcon(),
-                  horizontalSpace(16),
                   Text('Contact List',
                       style: AppTextStyles
                           .font24SecondaryWildBlueYonderPoppinsSemiBold),
-                  const Spacer(),
-                  GestureDetector(
-                    onTap: () {
-                      // TODO: Add search action
-                    },
-                    child: SvgPicture.asset(
-                      'assets/svgs/search.svg',
-                      height: 22.h,
-                      width: 22.w,
-                      colorFilter: const ColorFilter.mode(
-                        Colors.black,
-                        BlendMode.srcIn,
-                      ),
-                    ),
-                  ),
                 ],
               ),
               verticalSpace(24),
