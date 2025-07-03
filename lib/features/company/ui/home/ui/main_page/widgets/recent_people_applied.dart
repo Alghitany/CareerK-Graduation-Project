@@ -1,5 +1,6 @@
 import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
+import 'package:carrerk/core/routing/app_argument.dart';
 import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
 import 'package:flutter/material.dart';
@@ -7,10 +8,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../../../core/theming/colors.dart';
-import '../../../../../../core/theming/styles.dart';
-import '../../../../../chats/person_chat/data/models/start_chat/start_chat_room_request_body.dart';
-import '../../../../../chats/person_chat/logic/start_chat/start_chat_room_cubit.dart';
+import '../../../../../../../core/theming/colors.dart';
+import '../../../../../../../core/theming/styles.dart';
+import '../../../../../../chats/person_chat/data/models/start_chat/start_chat_room_request_body.dart';
+import '../../../../../../chats/person_chat/logic/start_chat/start_chat_room_cubit.dart';
 
 class RecentPeopleApplied extends StatelessWidget {
   const RecentPeopleApplied({super.key});
@@ -195,8 +196,12 @@ class RecentPeopleApplied extends StatelessWidget {
                                         textStyle: AppTextStyles
                                             .font11WhitePoppinsMedium,
                                         onPressed: () {
-                                          context.pushNamed(Routes
-                                              .companyHomeSeeDetailsScreen);
+                                          context.pushNamed(
+                                              Routes
+                                                  .companyHomeSeeDetailsScreen,
+                                              arguments: AppArgument(
+                                                  applicationId:
+                                                      '11323c61-9add-4dcd-9a8d-f352037cb869'));
                                         }),
                                   ],
                                 ),

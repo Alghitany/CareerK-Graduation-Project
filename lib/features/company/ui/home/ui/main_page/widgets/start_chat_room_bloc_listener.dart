@@ -5,9 +5,9 @@ import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../../core/routing/app_argument.dart';
-import '../../../../../chats/person_chat/logic/start_chat/start_chat_room_cubit.dart';
-import '../../../../../chats/person_chat/logic/start_chat/start_chat_room_state.dart';
+import '../../../../../../../core/routing/app_argument.dart';
+import '../../../../../../chats/person_chat/logic/start_chat/start_chat_room_cubit.dart';
+import '../../../../../../chats/person_chat/logic/start_chat/start_chat_room_state.dart';
 
 class StartChatRoomBlocListener extends StatelessWidget {
   const StartChatRoomBlocListener({super.key});

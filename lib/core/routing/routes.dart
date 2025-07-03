@@ -38,6 +38,8 @@ class Routes {
 
   // Home
   static const String companyHomeMainPageScreen = "/companyHomeMainPageScreen";
+  static const String companyHomeSendOfferScreen =
+      "/companyHomeSendOfferScreen";
   static const String companyHomeSeeDetailsScreen =
       "/companyHomeSeeDetailsScreen";
   static const String companyHomeSeeResumeScreen =

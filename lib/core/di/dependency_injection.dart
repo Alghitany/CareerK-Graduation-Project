@@ -33,6 +33,8 @@ import '../../features/chats/person_chat/logic/send_messages/send_messages_cubit
 import '../../features/chats/person_chat/logic/start_chat/start_chat_room_cubit.dart';
 import '../../features/company/jobs_post/data/repos/company_jobs_post_repo.dart';
 import '../../features/company/jobs_post/logic/company_jobs_post_cubit.dart';
+import '../../features/company/ui/home/data/repos/company_update_application_status_repo.dart';
+import '../../features/company/ui/home/logic/update_application_status_logic/company_update_application_status_cubit.dart';
 import '../../features/customer/sign_up/data/repo/customer_sign_up_repo.dart';
 import '../../features/customer/sign_up/logic/customer_sign_up_cubit.dart';
 import '../../features/developer/data/repo/developer_courses_and_jobs_main_page_profile_repo.dart';
@@ -171,6 +173,11 @@ Future<void> setupGetIt() async {
       () => CompanyJobsPostRepo(getIt()));
   getIt.registerLazySingleton<CompanyJobsPostCubit>(
       () => CompanyJobsPostCubit(getIt()));
+  // -> Update Application Status
+  getIt.registerLazySingleton<CompanyUpdateApplicationStatusRepo>(
+      () => CompanyUpdateApplicationStatusRepo(getIt()));
+  getIt.registerLazySingleton<CompanyUpdateApplicationStatusCubit>(
+      () => CompanyUpdateApplicationStatusCubit(getIt()));
   // -> Delete Job
   getIt.registerLazySingleton<CompanyJobsDeletePostRepo>(
       () => CompanyJobsDeletePostRepo(getIt()));

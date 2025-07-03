@@ -33,16 +33,22 @@ class ServiceApplicationsShimmer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Title bar
-              Container(width: 150.w, height: 16.h, decoration: BoxDecoration(
-                color: _baseColor,
-                borderRadius: BorderRadius.circular(8.r),
-              )),
+              Container(
+                  width: 150.w,
+                  height: 16.h,
+                  decoration: BoxDecoration(
+                    color: _baseColor,
+                    borderRadius: BorderRadius.circular(8.r),
+                  )),
               verticalSpace(4),
               // Name bar
-              Container(width: 100.w, height: 14.h, decoration: BoxDecoration(
-                color: _baseColor,
-                borderRadius: BorderRadius.circular(8.r),
-              )),
+              Container(
+                  width: 100.w,
+                  height: 14.h,
+                  decoration: BoxDecoration(
+                    color: _baseColor,
+                    borderRadius: BorderRadius.circular(8.r),
+                  )),
               verticalSpace(12),
               // Bottom row: salary + status + withdraw button placeholders
               Row(

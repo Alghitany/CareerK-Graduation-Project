@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'job_application/jobs_applications_shimmer.dart';
 import 'service_application/service_application_shimmer.dart';
 
-
 class AppliedJobsLoadingShimmer extends StatelessWidget {
   const AppliedJobsLoadingShimmer({super.key});
 
