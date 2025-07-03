@@ -1,5 +1,4 @@
 import 'package:carrerk/core/helpers/extensions.dart';
-import 'package:carrerk/core/networking/api_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -52,7 +51,7 @@ class CoursesAndJobsMainPageTopBar extends StatelessWidget {
               clipBehavior: Clip.hardEdge,
               child: profilePicture != null && profilePicture!.isNotEmpty
                   ? Image.network(
-                      "${ApiConstants.baseImageUrl}/$profilePicture",
+                      profilePicture!,
                       fit: BoxFit.cover,
                     )
                   : Padding(

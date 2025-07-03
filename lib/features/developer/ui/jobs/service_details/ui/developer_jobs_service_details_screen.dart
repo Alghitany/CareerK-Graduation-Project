@@ -6,12 +6,14 @@ import 'package:carrerk/core/widgets/app_text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'widgets/back_and_details.dart';
-import 'widgets/service_description_and_keywords.dart';
-import 'widgets/service_name_bookmark_budget_and_time.dart';
+import '../../../../../../core/routing/app_argument.dart';
+import 'widgets/developer_jobs_service_details_bloc_builder.dart';
+import 'widgets/service_details/back_and_details.dart';
 
 class DeveloperJobsServiceDetailsScreen extends StatelessWidget {
-  const DeveloperJobsServiceDetailsScreen({super.key});
+  final String serviceId;
+
+  const DeveloperJobsServiceDetailsScreen({super.key, required this.serviceId});
 
   @override
   Widget build(BuildContext context) {
@@ -23,14 +25,12 @@ class DeveloperJobsServiceDetailsScreen extends StatelessWidget {
             children: [
               const BackAndDetails(),
               verticalSpace(52),
-              //TODO: Pass the real data
-              const ServiceNameBookmarkBudgetAndTime(),
-              verticalSpace(72),
-              const ServiceDescriptionAndKeywords(),
+              const DeveloperJobsServiceDetailsBlocBuilder(),
               verticalSpace(48),
               AppTextButton(
                 onPressed: () {
-                  context.pushNamed(Routes.developerJobsApplyScreen);
+                  context.pushNamed(Routes.developerJobsApplyScreen,
+                      arguments: AppArgument(jobId: serviceId));
                 },
                 buttonText: 'Apply',
                 textStyle: AppTextStyles.font14WhitePoppinsMedium,

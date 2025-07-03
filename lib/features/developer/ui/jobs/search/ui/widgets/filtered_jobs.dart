@@ -1,4 +1,5 @@
 import 'package:carrerk/core/helpers/extensions.dart';
+import 'package:carrerk/core/routing/app_argument.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/widgets/app_choice_chip.dart';
 import 'package:flutter/gestures.dart';
@@ -52,7 +53,9 @@ class _FilteredJobsState extends State<FilteredJobs> {
           final job = jobs[index];
           return GestureDetector(
             onTap: () {
-              context.pushNamed(Routes.developerJobsServiceDetailsScreen);
+              context.pushNamed(Routes.developerJobsServiceDetailsScreen,
+                  arguments: AppArgument(
+                      serviceId: 'edba0012-c0fe-4db3-ae26-96ccde918dee'));
             },
             child: Card(
                 shape: RoundedRectangleBorder(
