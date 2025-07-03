@@ -67,6 +67,7 @@ import '../../features/developer/ui/jobs/job_details/logic/developer_jobs_job_de
 import '../../features/developer/ui/jobs/job_details/ui/developer_jobs_job_details_screen.dart';
 import '../../features/developer/ui/jobs/main_page/developer_jobs_main_page_screen.dart';
 import '../../features/developer/ui/jobs/search/logic/developer_jobs_recently_posted_logic/developer_jobs_recently_posted_cubit.dart';
+import '../../features/developer/ui/jobs/search/logic/developer_services_recently_posted_logic/developer_services_recently_posted_cubit.dart';
 import '../../features/developer/ui/jobs/search/ui/developer_jobs_search_screen.dart';
 import '../../features/developer/ui/jobs/service_details/logic/developer_jobs_service_details_cubit.dart';
 import '../../features/developer/ui/jobs/service_details/ui/developer_jobs_service_details_screen.dart';
@@ -387,6 +388,10 @@ class AppRouter {
               BlocProvider(
                 create: (_) => getIt<DeveloperJobsRecentlyPostedCubit>()
                   ..fetchRecentlyPostedJobs(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperServicesRecentlyPostedCubit>()
+                  ..fetchRecentlyPostedServices(),
               ),
             ],
             child: const DeveloperJobsSearchScreen(),

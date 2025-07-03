@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../../../core/helpers/spacing.dart';
 import '../../../logic/developer_jobs_recently_posted_logic/developer_jobs_recently_posted_cubit.dart';
 import '../filtered_jobs.dart';
-import 'price_and_recent_filters.dart';
+import '../price_and_recent_filters.dart';
 import 'recently_posted/developer_recently_posted_jobs_bloc_builder.dart';
 
 class JobsTab extends StatefulWidget {
@@ -17,19 +17,18 @@ class JobsTab extends StatefulWidget {
 
 class _JobsTabState extends State<JobsTab> {
   String? selectedSort;
+  bool _hasFetchedRecentlyPosted = false; // Flag to avoid repeated fetch
 
   void _onSortChanged(String? value) {
     setState(() {
       selectedSort = value;
     });
 
-    if (value == 'Recent') {
-      // Fetch recently posted jobs via Cubit
-      // Trigger only once if needed
-      // This is optional if you already call fetch in Bloc init
+    if (value == 'Recent' && !_hasFetchedRecentlyPosted) {
       context
           .read<DeveloperJobsRecentlyPostedCubit>()
           .fetchRecentlyPostedJobs();
+      _hasFetchedRecentlyPosted = true;
     }
   }
 

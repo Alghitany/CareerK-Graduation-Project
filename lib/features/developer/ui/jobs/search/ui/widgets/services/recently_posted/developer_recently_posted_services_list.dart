@@ -13,26 +13,27 @@ import '../../../../../../../../../core/theming/styles.dart';
 import '../../../../../../../../../core/widgets/app_choice_chip.dart';
 import '../../../../../../../../../core/widgets/job_bookmark/developer_job_bookmark_bloc_builder.dart';
 import '../../../../../../../logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
-import '../../../../data/models/developer_jobs_recently_posted_models/developer_jobs_recently_posted_response_body.dart';
+import '../../../../data/models/developer_services_recently_posted_models/developer_services_recently_posted_response_body.dart';
 
-class DeveloperRecentlyPostedJobsList extends StatefulWidget {
-  final List<DeveloperJobsRecentlyPostedResponseBody> jobs;
+class DeveloperRecentlyPostedServicesList extends StatefulWidget {
+  final List<DeveloperServicesRecentlyPostedResponseBody> services;
 
-  const DeveloperRecentlyPostedJobsList({super.key, required this.jobs});
+  const DeveloperRecentlyPostedServicesList(
+      {super.key, required this.services});
 
   @override
-  State<DeveloperRecentlyPostedJobsList> createState() =>
-      _DeveloperRecentlyPostedJobsListState();
+  State<DeveloperRecentlyPostedServicesList> createState() =>
+      _DeveloperRecentlyPostedServicesListState();
 }
 
-class _DeveloperRecentlyPostedJobsListState
-    extends State<DeveloperRecentlyPostedJobsList> {
-  late List<DeveloperJobsRecentlyPostedResponseBody> jobs;
+class _DeveloperRecentlyPostedServicesListState
+    extends State<DeveloperRecentlyPostedServicesList> {
+  late List<DeveloperServicesRecentlyPostedResponseBody> services;
 
   @override
   void initState() {
     super.initState();
-    jobs = widget.jobs;
+    services = widget.services;
   }
 
   @override
@@ -40,14 +41,14 @@ class _DeveloperRecentlyPostedJobsListState
     return ListView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      itemCount: jobs.length,
+      itemCount: services.length,
       itemBuilder: (context, index) {
-        final job = jobs[index];
+        final service = services[index];
 
         return GestureDetector(
           onTap: () => context.pushNamed(
-            Routes.developerJobsJobDetailsScreen,
-            arguments: AppArgument(jobId: job.id),
+            Routes.developerJobsServiceDetailsScreen,
+            arguments: AppArgument(serviceId: service.id),
           ),
           child: Card(
             shape: RoundedRectangleBorder(
@@ -65,21 +66,22 @@ class _DeveloperRecentlyPostedJobsListState
                     children: [
                       Expanded(
                         child: Text(
-                          job.title ?? '',
+                          service.title ?? '',
                           style:
                               AppTextStyles.font14RangoonGreenPoppinsSemiBold,
                         ),
                       ),
                       BlocProvider(
                         create: (_) => getIt<DeveloperSingleJobBookmarkCubit>()
-                          ..bookmarkJob(job.id!),
-                        child: DeveloperJobBookmarkBlocBuilder(postId: job.id!),
+                          ..bookmarkJob(service.id!),
+                        child: DeveloperJobBookmarkBlocBuilder(
+                            postId: service.id!),
                       ),
                     ],
                   ),
                   verticalSpace(4),
                   Text(
-                    formatTime(job.createdAt),
+                    formatTime(service.createdAt),
                     style: AppTextStyles.font10GranitePoppinsRegular,
                   ),
                   verticalSpace(12),
@@ -91,7 +93,7 @@ class _DeveloperRecentlyPostedJobsListState
                           style: AppTextStyles.font14LiverRalewayRegular,
                         ),
                         TextSpan(
-                          text: job.salaryRange ?? 'N/A',
+                          text: service.budgetRange ?? 'N/A',
                           style: AppTextStyles.font14RangoonGreenRalewayMedium,
                         ),
                       ],
@@ -99,48 +101,20 @@ class _DeveloperRecentlyPostedJobsListState
                   ),
                   verticalSpace(12),
                   Text(
-                    job.experienceRequired ?? '',
+                    service.description ?? '',
                     style: AppTextStyles.font13LiverRalewayMedium,
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
                   ),
                   verticalSpace(8),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        child: Text(
-                          job.location ?? 'N/A',
-                          style: AppTextStyles.font13LiverRalewayMedium,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                      SizedBox(width: 8.w),
-                      Expanded(
-                        child: Text(
-                          job.jobType ?? 'N/A',
-                          style: AppTextStyles.font13LiverRalewayMedium,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                      SizedBox(width: 8.w),
-                      Expanded(
-                        child: Text(
-                          job.jobAvailability ?? 'N/A',
-                          style: AppTextStyles.font13LiverRalewayMedium,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                    ],
-                  ),
-                  verticalSpace(12),
-                  if (job.skills != null && job.skills!.isNotEmpty)
+                  if (service.requiredSkills != null &&
+                      service.requiredSkills!.isNotEmpty)
                     SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
                           AppChoiceChip(
-                            options: job.skills!,
+                            options: service.requiredSkills!,
                             selectedTextStyle:
                                 AppTextStyles.font12GraniteRalewayRegular,
                             unSelectedTextStyle:

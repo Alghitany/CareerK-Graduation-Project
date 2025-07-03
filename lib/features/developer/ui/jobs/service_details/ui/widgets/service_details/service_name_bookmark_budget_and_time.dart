@@ -39,7 +39,7 @@ class ServiceNameBookmarkBudgetAndTime extends StatelessWidget {
               ),
             ),
             // <-- Use your BlocBuilder bookmark here instead of GestureDetector
-            DeveloperJobBookmarkBlocBuilder(jobId: serviceId),
+            DeveloperJobBookmarkBlocBuilder(postId: serviceId),
           ],
         ),
         verticalSpace(16),

@@ -35,6 +35,10 @@ class ApiConstants {
   static const String developerJobsRecentlyPosted =
       "api/job-post/filter/recently-posted";
 
+  //-> Jobs Recently Posted
+  static const String developerServicesRecentlyPosted =
+      "api/service-post/filter/recently-posted";
+
   //-----> Courses
   //-> Developer Profile
   static const String developerCoursesMainPageProfile =
