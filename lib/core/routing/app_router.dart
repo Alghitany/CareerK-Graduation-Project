@@ -7,11 +7,12 @@ import 'package:carrerk/features/authentication/verify_code/logic/verify_code_cu
 import 'package:carrerk/features/authentication/verify_code/ui/verify_code_screen.dart';
 import 'package:carrerk/features/chats/person_chat/chats_person_chat_screen.dart';
 import 'package:carrerk/features/contact_list/all_chats/logic/contact_list_all_chats_cubit.dart';
+import 'package:carrerk/features/contact_list/personal_chat/ui/customer_chats_person_chat_screen.dart';
 import 'package:carrerk/features/customer/logic/customer_jobs_post_cubit.dart';
 import 'package:carrerk/features/customer/ui/applied/first/customer_applied_first_screen.dart';
 import 'package:carrerk/features/customer/ui/applied/secound/customer_applied_secound_screen.dart';
 import 'package:carrerk/features/contact_list/all_chats/ui/customer_chats_screen.dart';
-import 'package:carrerk/features/customer/ui/chats/person_chat/customer_chats_person_chat_screen.dart';
+
 import 'package:carrerk/features/customer/ui/home/customer_home_main_page.dart';
 import 'package:carrerk/features/customer/ui/jobs_post/customer_jobs_post.dart';
 import 'package:carrerk/features/customer/ui/profile/customer_profile_screen.dart';
