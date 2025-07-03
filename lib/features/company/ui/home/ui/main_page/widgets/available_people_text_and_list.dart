@@ -115,7 +115,7 @@ class AvailablePeopleTextAndList extends StatelessWidget {
                                         AppTextStyles.font11WhitePoppinsMedium,
                                     onPressed: () {
                                       context.pushNamed(
-                                          Routes.companyHomeSeeDetailsScreen);
+                                          Routes.companyHomeSendOfferScreen);
                                     })
                               ],
                             ),

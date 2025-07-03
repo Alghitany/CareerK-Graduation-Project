@@ -2,6 +2,7 @@ import '../helpers/enums.dart';
 
 class AppArgument {
   final String? jobId;
+  final String? applicationId;
   final String? query;
   final SearchType? searchType;
   final String? trackId;
@@ -10,6 +11,7 @@ class AppArgument {
   final String? fileUrl;
 
   AppArgument({
+    this.applicationId,
     this.jobId,
     this.query,
     this.searchType,

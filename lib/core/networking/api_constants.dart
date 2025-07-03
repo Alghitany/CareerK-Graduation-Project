@@ -63,6 +63,10 @@ class ApiConstants {
   //->Post Job
   static const String companyJobsPost = "api/jobs/create-job-post";
 
+  //->Post Job
+  static const String companyUpdateApplicationStatus =
+      "/api/job-application/{applicationId}/status";
+
   //->Delete Post
   static const String companyJobsDeletePost = "api/jobs/delete-job-post";
 

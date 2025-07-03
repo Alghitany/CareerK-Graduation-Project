@@ -1,10 +1,10 @@
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/widgets/company_floating_action_button.dart';
-import 'package:carrerk/features/company/ui/home/main_page/widgets/home_page_top_bar.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/widgets/company_bottom_navigation_bar.dart';
+import '../../../../../../core/widgets/company_bottom_navigation_bar.dart';
 import 'widgets/available_people_text_and_list.dart';
+import 'widgets/home_page_top_bar.dart';
 import 'widgets/recent_people_applied.dart';
 import 'widgets/start_chat_room_bloc_listener.dart';
 

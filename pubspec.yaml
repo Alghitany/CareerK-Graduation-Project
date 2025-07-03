@@ -93,6 +93,8 @@ dependencies:
   syncfusion_flutter_pdfviewer: ^30.1.37
   # Simple yet fully customizable ratingbar.
   flutter_rating_bar: ^4.0.0
+  # Resizes text to fit perfectly within its bounds.
+  auto_size_text: ^3.0.0
 
 flutter_launcher_icons:
   android: "launcher_icon"
