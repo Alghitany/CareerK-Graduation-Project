@@ -35,6 +35,10 @@ class ApiConstants {
   //------ customer ------------
   //->Sign up
   static const String customerSignup = "api/customer/register";
+  //->Post Job
+  static const String customerJobsPost = "api/service-post/create";
+  //------ chats ------------
+  static const String contactList = "api/private-chats";
 
   //------ company ------------
   //->Sign up

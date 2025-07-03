@@ -1,6 +1,8 @@
+import 'package:carrerk/features/contact_list/all_chats/data/model/conact_list_all_chats_response_body.dart';
+import 'package:carrerk/features/customer/data/models/customer_jobs_post_request_body.dart';
+import 'package:carrerk/features/customer/data/models/customer_jobs_post_response.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-
 import '../../features/authentication/change_password/data/models/change_password_request_body.dart';
 import '../../features/authentication/change_password/data/models/change_password_response.dart';
 import '../../features/authentication/login/data/model/login_request_body.dart';
@@ -11,11 +13,8 @@ import '../../features/authentication/verify_code/data/model/verify_code_request
 import '../../features/authentication/verify_code/data/model/verify_code_response.dart';
 import '../../features/chats/all_chats/data/model/chats_all_chats_response_body.dart';
 import '../../features/company/data/model/company_jobs_delete_post_response.dart';
-
 import '../../features/company/jobs_post/data/models/company_jobs_post_request_body.dart';
 import '../../features/company/jobs_post/data/models/company_jobs_post_response.dart';
-
-
 import '../../features/developer/data/model/developer_courses_and_jobs_main_page_profile_response_model.dart';
 import '../../features/developer/ui/courses/main_page/data/models/developer_courses_main_page_roadmaps_response_model.dart';
 import '../../features/developer/ui/courses/roadmaps/data/models/developer_courses_roadmaps_response_body.dart';
@@ -98,4 +97,15 @@ abstract class ApiService {
   //----------------- Chats
   @GET(ApiConstants.allChats)
   Future<ChatsAllChatsResponseBody> getAllChats();
+
+//----------------- Customer
+  //->Post Job
+  @POST(ApiConstants.customerJobsPost)
+  Future<CustomerJobsPostResponse> customerJobsPost(
+    @Body() CustomerJobsPostRequestBody customerJobsPostRequestBody,
+  );
+
+  //----------------- contact list
+  @GET(ApiConstants.contactList)
+  Future<ContactListAllChatsResponseBody> getContactListAllChats();
 }

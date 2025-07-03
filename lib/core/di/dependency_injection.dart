@@ -1,9 +1,9 @@
 import 'package:carrerk/features/company/data/repo/company_jobs_delete_post_repo.dart';
 import 'package:carrerk/features/company/logic/company_jobs_delete_post_cubit.dart';
-
 import 'package:carrerk/features/company/sign_up/data/repo/company_sign_up_repo.dart';
 import 'package:carrerk/features/company/sign_up/logic/company_sign_up_cubit.dart';
-
+import 'package:carrerk/features/customer/data/repos/customer_jobs_post_repo.dart';
+import 'package:carrerk/features/customer/logic/customer_jobs_post_cubit.dart';
 import 'package:carrerk/features/developer/ui/courses/main_page/data/repo/developer_courses_main_page_roadmaps_repo.dart';
 import 'package:carrerk/features/developer/ui/courses/specific_category/data/repo/developer_courses_specific_category_repo.dart';
 import 'package:carrerk/features/developer/ui/courses/specific_category/logic/developer_courses_specific_category_cubit.dart';
@@ -22,7 +22,6 @@ import '../../features/authentication/verify_code/logic/verify_code_cubit.dart';
 
 import '../../features/company/jobs_post/data/repos/company_jobs_post_repo.dart';
 import '../../features/company/jobs_post/logic/company_jobs_post_cubit.dart';
-
 
 import '../../features/chats/all_chats/data/repo/chats_all_chats_repo.dart';
 import '../../features/chats/all_chats/logic/chats_all_chats_cubit.dart';
@@ -147,4 +146,11 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<ChatsAllChatsCubit>(
     () => ChatsAllChatsCubit(getIt()),
   );
+  // customer
+  //jobs post
+
+  getIt.registerLazySingleton<CustomerJobsPostRepo>(
+      () => CustomerJobsPostRepo(getIt()));
+  getIt.registerLazySingleton<CustomerJobsPostCubit>(
+      () => CustomerJobsPostCubit(getIt()));
 }
