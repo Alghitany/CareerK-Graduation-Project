@@ -2,21 +2,17 @@ import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../routing/routes.dart';
-import '../theming/styles.dart';
+import '../../../../../../../core/routing/routes.dart';
+import '../../../../../../../core/theming/styles.dart';
 
-class AppDeveloperHomeTopBar extends StatelessWidget {
+class HomeTopBar extends StatelessWidget {
   final String hiText;
-  final TextStyle? hiTextStyle;
   final String subText;
-  final TextStyle? subTextStyle;
 
-  const AppDeveloperHomeTopBar(
+  const HomeTopBar(
       {super.key,
       required this.hiText,
-      this.hiTextStyle,
-      required this.subText,
-      this.subTextStyle});
+      required this.subText,});
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +24,11 @@ class AppDeveloperHomeTopBar extends StatelessWidget {
           children: [
             Text(
               hiText,
-              style: hiTextStyle ?? AppTextStyles.font20BlackPoppinsBold,
+              style: AppTextStyles.font20BlackPoppinsBold,
             ),
             Text(
               subText,
-              style: subTextStyle ?? AppTextStyles.font14GranitePoppinsSemiBold,
+              style: AppTextStyles.font14GranitePoppinsSemiBold,
             )
           ],
         ),

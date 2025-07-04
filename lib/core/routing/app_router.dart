@@ -59,7 +59,8 @@ import '../../features/developer/ui/courses/roadmaps/ui/developer_courses_roadma
 import '../../features/developer/ui/courses/specific_category/logic/developer_courses_specific_category_cubit.dart';
 import '../../features/developer/ui/courses/specific_category/ui/developer_courses_specific_category_screen.dart';
 import '../../features/developer/ui/courses/specific_course/ui/developer_courses_course_details_screen.dart';
-import '../../features/developer/ui/home_main_page/developer_home_main_page_screen.dart';
+import '../../features/developer/ui/home_main_page/logic/developer_name_home_main_page_logic/developer_name_home_main_page_cubit.dart';
+import '../../features/developer/ui/home_main_page/ui/developer_home_main_page_screen.dart';
 import '../../features/developer/ui/jobs/all_categories/developer_jobs_all_categories_screen.dart';
 import '../../features/developer/ui/jobs/application_submitted/developer_jobs_application_submitted_screen.dart';
 import '../../features/developer/ui/jobs/apply/logic/developer_jobs_apply_cubit.dart';
@@ -247,9 +248,13 @@ class AppRouter {
       // Home
       case Routes.developerHomeMainPageScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperHomeMainPageScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<DeveloperNameHomeMainPageCubit>()
+              ..fetchDeveloperName(),
+            child: const DeveloperHomeMainPageScreen(),
+          ),
         );
-      // Community
+    // Community
       case Routes.developerCommunityAllCommunitiesScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperCommunityAllCommunitiesScreen(),

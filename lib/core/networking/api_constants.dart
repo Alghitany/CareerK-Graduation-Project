@@ -16,6 +16,10 @@ class ApiConstants {
   //-> Sign up
   static const String developerSignup = "api/developer/register";
 
+  //-----> Home
+  //-> Developer Name
+  static const String developerHomeName = "api/developer/name";
+
   //-----> Jobs
   //-> Apply
   static const String developerJobsApply = "api/job-applications/apply";
