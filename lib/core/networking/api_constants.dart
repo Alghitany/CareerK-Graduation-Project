@@ -23,6 +23,10 @@ class ApiConstants {
   //-> Developer Tracks (Tags)
   static const String developerHomeTags = "api/developer/tracks";
 
+  // -> Developer Courses (Courses List)
+  static const String developerHomeCourses =
+      "api/developer/{developerId}/courses";
+
   //-----> Jobs
   //-> Apply
   static const String developerJobsApply = "api/job-applications/apply";

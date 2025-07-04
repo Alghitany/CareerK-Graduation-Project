@@ -23,6 +23,7 @@ import '../../features/developer/data/models/developer_single_job_bookmark_model
 import '../../features/developer/ui/courses/main_page/data/models/developer_courses_main_page_roadmaps_response_model.dart';
 import '../../features/developer/ui/courses/roadmaps/data/models/developer_courses_roadmaps_response_body.dart';
 import '../../features/developer/ui/courses/specific_category/data/models/developer_courses_specific_category_response_body.dart';
+import '../../features/developer/ui/home_main_page/data/models/developer_courses_home_main_page_models/developer_courses_home_main_page_response_body.dart';
 import '../../features/developer/ui/home_main_page/data/models/developer_name_home_main_page_models/developer_name_home_main_page_response_body.dart';
 import '../../features/developer/ui/home_main_page/data/models/developer_tags_home_main_page_models/developer_tags_home_main_page_response_body.dart';
 import '../../features/developer/ui/jobs/job_details/data/models/developer_jobs_job_details_response_body.dart';
@@ -75,6 +76,12 @@ abstract class ApiService {
   // -> Developer Tracks (Tags)
   @GET(ApiConstants.developerHomeTags)
   Future<List<DeveloperTagsHomeMainPageResponseBody>> getDeveloperTracks();
+
+  // -> Developer Courses (Courses List)
+  @GET(ApiConstants.developerHomeCourses)
+  Future<List<DeveloperCoursesHomeMainPageResponseBody>> getDeveloperCourses(
+    @Path('developerId') String developerId,
+  );
 
   //->Courses Main Page Profile
   @GET(ApiConstants.developerCoursesMainPageProfile)

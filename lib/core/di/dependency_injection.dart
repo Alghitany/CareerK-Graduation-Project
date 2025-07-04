@@ -9,8 +9,10 @@ import 'package:carrerk/features/developer/logic/developer_single_job_bookmark_l
 import 'package:carrerk/features/developer/ui/courses/main_page/data/repo/developer_courses_main_page_roadmaps_repo.dart';
 import 'package:carrerk/features/developer/ui/courses/specific_category/data/repo/developer_courses_specific_category_repo.dart';
 import 'package:carrerk/features/developer/ui/courses/specific_category/logic/developer_courses_specific_category_cubit.dart';
+import 'package:carrerk/features/developer/ui/home_main_page/data/repos/developer_courses_home_main_page_repo.dart';
 import 'package:carrerk/features/developer/ui/home_main_page/data/repos/developer_name_home_main_page_repo.dart';
 import 'package:carrerk/features/developer/ui/home_main_page/data/repos/developer_tags_home_main_page_repo.dart';
+import 'package:carrerk/features/developer/ui/home_main_page/logic/developer_courses_home_main_page_logic/developer_courses_home_main_page_cubit.dart';
 import 'package:carrerk/features/developer/ui/jobs/job_details/data/repo/developer_jobs_job_details_repo.dart';
 import 'package:carrerk/features/developer/ui/jobs/job_details/logic/developer_jobs_job_details_cubit.dart';
 import 'package:carrerk/features/developer/ui/jobs/search/data/repo/developer_jobs_recently_posted_repo.dart';
@@ -115,6 +117,13 @@ Future<void> setupGetIt() async {
   );
   getIt.registerFactory<DeveloperTagsHomeMainPageCubit>(
     () => DeveloperTagsHomeMainPageCubit(getIt()),
+  );
+  // Courses
+  getIt.registerLazySingleton<DeveloperCoursesHomeMainPageRepo>(
+    () => DeveloperCoursesHomeMainPageRepo(getIt()),
+  );
+  getIt.registerFactory<DeveloperCoursesHomeMainPageCubit>(
+    () => DeveloperCoursesHomeMainPageCubit(getIt()),
   );
   // -> Jobs
   // Apply

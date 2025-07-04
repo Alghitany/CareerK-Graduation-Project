@@ -59,6 +59,7 @@ import '../../features/developer/ui/courses/roadmaps/ui/developer_courses_roadma
 import '../../features/developer/ui/courses/specific_category/logic/developer_courses_specific_category_cubit.dart';
 import '../../features/developer/ui/courses/specific_category/ui/developer_courses_specific_category_screen.dart';
 import '../../features/developer/ui/courses/specific_course/ui/developer_courses_course_details_screen.dart';
+import '../../features/developer/ui/home_main_page/logic/developer_courses_home_main_page_logic/developer_courses_home_main_page_cubit.dart';
 import '../../features/developer/ui/home_main_page/logic/developer_name_home_main_page_logic/developer_name_home_main_page_cubit.dart';
 import '../../features/developer/ui/home_main_page/logic/developer_tags_home_main_page_logic/developer_tags_home_main_page_cubit.dart';
 import '../../features/developer/ui/home_main_page/ui/developer_home_main_page_screen.dart';
@@ -258,6 +259,9 @@ class AppRouter {
               BlocProvider(
                 create: (context) => getIt<DeveloperTagsHomeMainPageCubit>()
                   ..fetchDeveloperTags(),
+              ),
+              BlocProvider(
+                create: (context) => getIt<DeveloperCoursesHomeMainPageCubit>(),
               ),
             ],
             child: const DeveloperHomeMainPageScreen(),
