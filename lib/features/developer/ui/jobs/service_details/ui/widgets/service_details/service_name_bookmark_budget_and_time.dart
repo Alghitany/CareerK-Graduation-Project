@@ -38,7 +38,6 @@ class ServiceNameBookmarkBudgetAndTime extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-            // <-- Use your BlocBuilder bookmark here instead of GestureDetector
             DeveloperJobBookmarkBlocBuilder(postId: serviceId),
           ],
         ),
@@ -51,7 +50,9 @@ class ServiceNameBookmarkBudgetAndTime extends StatelessWidget {
               height: 36.h,
               width: 33.w,
               colorFilter: const ColorFilter.mode(
-                  ColorsManager.duskyBlue, BlendMode.srcIn),
+                ColorsManager.duskyBlue,
+                BlendMode.srcIn,
+              ),
             ),
             horizontalSpace(14),
             Text(
@@ -74,21 +75,28 @@ class ServiceNameBookmarkBudgetAndTime extends StatelessWidget {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0.0.w, 0.0.h, 16.w, 0.0.h),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        timeLabel,
-                        style: AppTextStyles.font14DunePoppinsMedium,
-                      ),
-                      Text(
-                        timeValue,
-                        style: AppTextStyles.font14DunePoppinsMedium,
-                      ),
-                    ],
+                SizedBox(
+                  width: 80.w, // Adjust width as needed
+                  child: Padding(
+                    padding: EdgeInsets.only(right: 16.w),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          timeLabel,
+                          style: AppTextStyles.font14DunePoppinsMedium,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        Text(
+                          timeValue,
+                          style: AppTextStyles.font14DunePoppinsMedium,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
