@@ -3,26 +3,26 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
-import '../../../features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_state.dart';
+import '../../../features/developer/logic/developer_single_course_bookmark_logic/developer_single_course_bookmark_cubit.dart';
+import '../../../features/developer/logic/developer_single_course_bookmark_logic/developer_single_course_bookmark_state.dart';
 
-class DeveloperJobBookmarkBlocBuilder extends StatelessWidget {
-  final String postId;
+class DeveloperCourseBookmarkBlocBuilder extends StatelessWidget {
+  final String courseId;
 
-  const DeveloperJobBookmarkBlocBuilder({super.key, required this.postId});
+  const DeveloperCourseBookmarkBlocBuilder({super.key, required this.courseId});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<DeveloperSingleJobBookmarkCubit,
-        DeveloperSingleJobBookmarkState>(
+    return BlocBuilder<DeveloperSingleCourseBookmarkCubit,
+        DeveloperSingleCourseBookmarkState>(
       buildWhen: (previous, current) =>
-          current is DeveloperSingleJobBookmarkLoading ||
-          current is DeveloperSingleJobBookmarkSuccess ||
-          current is DeveloperSingleJobBookmarkError,
+          current is DeveloperSingleCourseBookmarkLoading ||
+          current is DeveloperSingleCourseBookmarkSuccess ||
+          current is DeveloperSingleCourseBookmarkError,
       builder: (context, state) {
         return state.maybeWhen(
           loading: () => setupLoading(),
-          success: (data) => setupSuccess(context, data.bookmarked),
+          success: (data) => setupSuccess(context, data.isBookmarked),
           error: (_) => setupError(context),
           orElse: () => const SizedBox.shrink(),
         );
@@ -49,14 +49,16 @@ class DeveloperJobBookmarkBlocBuilder extends StatelessWidget {
     return IconButton(
       padding: EdgeInsets.zero,
       onPressed: () {
-        context.read<DeveloperSingleJobBookmarkCubit>().bookmarkJob(postId);
+        context
+            .read<DeveloperSingleCourseBookmarkCubit>()
+            .bookmarkCourse(courseId);
       },
       icon: SvgPicture.asset(
         isBookmarked
             ? 'assets/svgs/bookmark_filled.svg'
             : 'assets/svgs/bookmark_outlined.svg',
-        height: 20.h,
-        width: 18.w,
+        height: 22.h,
+        width: 22.w,
       ),
     );
   }
@@ -66,7 +68,9 @@ class DeveloperJobBookmarkBlocBuilder extends StatelessWidget {
       padding: EdgeInsets.zero,
       onPressed: () {
         // Retry bookmarking on error
-        context.read<DeveloperSingleJobBookmarkCubit>().bookmarkJob(postId);
+        context
+            .read<DeveloperSingleCourseBookmarkCubit>()
+            .bookmarkCourse(courseId);
       },
       icon: const Icon(Icons.error_outline, color: Colors.red),
     );

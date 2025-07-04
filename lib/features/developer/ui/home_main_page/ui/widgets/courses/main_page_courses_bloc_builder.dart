@@ -34,7 +34,9 @@ class DeveloperCoursesBlocBuilder extends StatelessWidget {
   }
 
   Widget _buildSuccess(List<DeveloperCoursesHomeMainPageResponseBody> data) {
-    return MainPageCoursesList(courses: data);
+    return MainPageCoursesList(
+      courses: data,
+    );
   }
 
   Widget _buildError(String error) {

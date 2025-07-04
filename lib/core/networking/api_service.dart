@@ -19,6 +19,7 @@ import '../../features/company/jobs_post/data/models/company_jobs_post_response.
 import '../../features/company/ui/home/data/models/update_application_status_model/company_update_application_status_request_body.dart';
 import '../../features/company/ui/home/data/models/update_application_status_model/company_update_application_status_response.dart';
 import '../../features/developer/data/models/developer_courses_and_jobs_main_page_profile_models/developer_courses_and_jobs_main_page_profile_response_model.dart';
+import '../../features/developer/data/models/developer_single_course_bookmark_models/developer_single_course_bookmark_response_model.dart';
 import '../../features/developer/data/models/developer_single_job_bookmark_models/developer_single_job_bookmark_response_model.dart';
 import '../../features/developer/ui/courses/main_page/data/models/developer_courses_main_page_roadmaps_response_model.dart';
 import '../../features/developer/ui/courses/roadmaps/data/models/developer_courses_roadmaps_response_body.dart';
@@ -117,10 +118,16 @@ abstract class ApiService {
     @Path("serviceId") String serviceId,
   );
 
-  //-> Single Bookmark
+  //-> Single Job Bookmark
   @GET(ApiConstants.developerSingleJobBookmark)
   Future<DeveloperSingleJobBookmarkResponseModel> bookmarkJob(
     @Path("jobId") String jobId,
+  );
+
+  //-> Single Course Bookmark
+  @GET(ApiConstants.developerSingleCourseBookmark)
+  Future<DeveloperSingleCourseBookmarkResponseModel> bookmarkCourse(
+    @Path("courseId") String courseId,
   );
 
   // -> Recently Posted Jobs

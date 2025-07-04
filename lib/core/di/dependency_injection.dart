@@ -42,7 +42,9 @@ import '../../features/company/ui/home/logic/update_application_status_logic/com
 import '../../features/customer/sign_up/data/repo/customer_sign_up_repo.dart';
 import '../../features/customer/sign_up/logic/customer_sign_up_cubit.dart';
 import '../../features/developer/data/repo/developer_courses_and_jobs_main_page_profile_repo.dart';
+import '../../features/developer/data/repo/developer_single_course_bookmark_repo.dart';
 import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
+import '../../features/developer/logic/developer_single_course_bookmark_logic/developer_single_course_bookmark_cubit.dart';
 import '../../features/developer/ui/courses/main_page/logic/developer_courses_main_page_roadmaps_cubit.dart';
 import '../../features/developer/ui/courses/roadmaps/data/repo/developer_courses_roadmaps_repo.dart';
 import '../../features/developer/ui/courses/roadmaps/logic/developer_courses_roadmaps_cubit.dart';
@@ -147,12 +149,19 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<DeveloperJobsServiceDetailsCubit>(
     () => DeveloperJobsServiceDetailsCubit(getIt()),
   );
-  // Single Job
+  // Single Job Bookmark
   getIt.registerLazySingleton<DeveloperSingleJobBookmarkRepo>(
     () => DeveloperSingleJobBookmarkRepo(getIt()),
   );
   getIt.registerFactory<DeveloperSingleJobBookmarkCubit>(
     () => DeveloperSingleJobBookmarkCubit(getIt()),
+  );
+  // Single Course Bookmark
+  getIt.registerLazySingleton<DeveloperSingleCourseBookmarkRepo>(
+    () => DeveloperSingleCourseBookmarkRepo(getIt()),
+  );
+  getIt.registerFactory<DeveloperSingleCourseBookmarkCubit>(
+    () => DeveloperSingleCourseBookmarkCubit(getIt()),
   );
   // Jobs Recently Posted
   getIt.registerLazySingleton<DeveloperJobsRecentlyPostedRepo>(
