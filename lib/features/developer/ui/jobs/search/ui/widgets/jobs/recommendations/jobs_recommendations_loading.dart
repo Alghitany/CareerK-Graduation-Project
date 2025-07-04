@@ -24,7 +24,7 @@ class JobsRecommendationsLoading extends StatelessWidget {
             ),
             verticalSpace(16),
             Text(
-              'Finding the best recommendations for you...',
+              'Finding the best jobs recommendations for you...',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 14.sp,
