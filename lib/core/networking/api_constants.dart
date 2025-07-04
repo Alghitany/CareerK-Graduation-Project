@@ -20,6 +20,9 @@ class ApiConstants {
   //-> Developer Name
   static const String developerHomeName = "api/developer/name";
 
+  //-> Developer Tracks (Tags)
+  static const String developerHomeTags = "api/developer/tracks";
+
   //-----> Jobs
   //-> Apply
   static const String developerJobsApply = "api/job-applications/apply";

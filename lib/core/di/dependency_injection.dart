@@ -10,6 +10,7 @@ import 'package:carrerk/features/developer/ui/courses/main_page/data/repo/develo
 import 'package:carrerk/features/developer/ui/courses/specific_category/data/repo/developer_courses_specific_category_repo.dart';
 import 'package:carrerk/features/developer/ui/courses/specific_category/logic/developer_courses_specific_category_cubit.dart';
 import 'package:carrerk/features/developer/ui/home_main_page/data/repos/developer_name_home_main_page_repo.dart';
+import 'package:carrerk/features/developer/ui/home_main_page/data/repos/developer_tags_home_main_page_repo.dart';
 import 'package:carrerk/features/developer/ui/jobs/job_details/data/repo/developer_jobs_job_details_repo.dart';
 import 'package:carrerk/features/developer/ui/jobs/job_details/logic/developer_jobs_job_details_cubit.dart';
 import 'package:carrerk/features/developer/ui/jobs/search/data/repo/developer_jobs_recently_posted_repo.dart';
@@ -44,6 +45,7 @@ import '../../features/developer/ui/courses/main_page/logic/developer_courses_ma
 import '../../features/developer/ui/courses/roadmaps/data/repo/developer_courses_roadmaps_repo.dart';
 import '../../features/developer/ui/courses/roadmaps/logic/developer_courses_roadmaps_cubit.dart';
 import '../../features/developer/ui/home_main_page/logic/developer_name_home_main_page_logic/developer_name_home_main_page_cubit.dart';
+import '../../features/developer/ui/home_main_page/logic/developer_tags_home_main_page_logic/developer_tags_home_main_page_cubit.dart';
 import '../../features/developer/ui/jobs/apply/data/repo/developer_jobs_apply_repo.dart';
 import '../../features/developer/ui/jobs/apply/logic/developer_jobs_apply_cubit.dart';
 import '../../features/developer/ui/jobs/search/data/repo/developer_recommendations_repo.dart';
@@ -106,6 +108,13 @@ Future<void> setupGetIt() async {
   );
   getIt.registerFactory<DeveloperNameHomeMainPageCubit>(
     () => DeveloperNameHomeMainPageCubit(getIt()),
+  );
+  // Tracks (Tags)
+  getIt.registerLazySingleton<DeveloperTagsHomeMainPageRepo>(
+    () => DeveloperTagsHomeMainPageRepo(getIt()),
+  );
+  getIt.registerFactory<DeveloperTagsHomeMainPageCubit>(
+    () => DeveloperTagsHomeMainPageCubit(getIt()),
   );
   // -> Jobs
   // Apply

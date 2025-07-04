@@ -1,4 +1,5 @@
 import 'package:carrerk/core/helpers/spacing.dart';
+import 'package:carrerk/core/networking/api_constants.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
@@ -41,19 +42,11 @@ class RoadmapsSuggestions extends StatelessWidget {
                       color: ColorsManager.chambray,
                     ),
                     child: Center(
-                      child: SvgPicture.network(
-                        item.imageUrl,
+                      child: Image.network(
+                        '${ApiConstants.apiBaseUrl}${item.imageUrl}',
                         width: 32.w,
                         height: 32.h,
-                        colorFilter: const ColorFilter.mode(
-                            Colors.white, BlendMode.srcIn),
-                        placeholderBuilder: (context) => SvgPicture.asset(
-                          'assets/svgs/community_card_icon.svg',
-                          width: 32.w,
-                          height: 32.h,
-                          colorFilter: const ColorFilter.mode(
-                              Colors.white, BlendMode.srcIn),
-                        ),
+                        fit: BoxFit.cover,
                         errorBuilder: (context, error, stackTrace) =>
                             SvgPicture.asset(
                           'assets/svgs/community_card_icon.svg',

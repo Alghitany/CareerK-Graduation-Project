@@ -24,6 +24,7 @@ import '../../features/developer/ui/courses/main_page/data/models/developer_cour
 import '../../features/developer/ui/courses/roadmaps/data/models/developer_courses_roadmaps_response_body.dart';
 import '../../features/developer/ui/courses/specific_category/data/models/developer_courses_specific_category_response_body.dart';
 import '../../features/developer/ui/home_main_page/data/models/developer_name_home_main_page_models/developer_name_home_main_page_response_body.dart';
+import '../../features/developer/ui/home_main_page/data/models/developer_tags_home_main_page_models/developer_tags_home_main_page_response_body.dart';
 import '../../features/developer/ui/jobs/job_details/data/models/developer_jobs_job_details_response_body.dart';
 import '../../features/developer/ui/jobs/search/data/models/developer_jobs_recently_posted_models/developer_jobs_recently_posted_response_body.dart';
 import '../../features/developer/ui/jobs/search/data/models/developer_recommendtions_models/developer_recommendations_response_body.dart';
@@ -70,6 +71,10 @@ abstract class ApiService {
   //-> Developer Name
   @GET(ApiConstants.developerHomeName)
   Future<DeveloperNameHomeMainPageResponseBody> getDeveloperNameHomeMainPage();
+
+  // -> Developer Tracks (Tags)
+  @GET(ApiConstants.developerHomeTags)
+  Future<List<DeveloperTagsHomeMainPageResponseBody>> getDeveloperTracks();
 
   //->Courses Main Page Profile
   @GET(ApiConstants.developerCoursesMainPageProfile)

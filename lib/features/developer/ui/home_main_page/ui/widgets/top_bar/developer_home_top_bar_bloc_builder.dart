@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../data/models/developer_name_home_main_page_models/developer_name_home_main_page_response_body.dart';
-import '../../logic/developer_name_home_main_page_logic/developer_name_home_main_page_cubit.dart';
-import '../../logic/developer_name_home_main_page_logic/developer_name_home_main_page_state.dart';
-import 'top_bar/home_top_bar.dart';
-import 'top_bar/home_top_bar_shimmer.dart';
+import '../../../data/models/developer_name_home_main_page_models/developer_name_home_main_page_response_body.dart';
+import '../../../logic/developer_name_home_main_page_logic/developer_name_home_main_page_cubit.dart';
+import '../../../logic/developer_name_home_main_page_logic/developer_name_home_main_page_state.dart';
+import 'home_top_bar.dart';
+import 'home_top_bar_shimmer.dart';
 
 class DeveloperHomeTopBarBlocBuilder extends StatelessWidget {
   const DeveloperHomeTopBarBlocBuilder({super.key});
