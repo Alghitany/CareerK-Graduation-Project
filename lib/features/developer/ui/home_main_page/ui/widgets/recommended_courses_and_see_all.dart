@@ -7,21 +7,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class PopularCoursesAndSeeAll extends StatelessWidget {
-  const PopularCoursesAndSeeAll({super.key});
+class RecommendedCoursesAndSeeAll extends StatelessWidget {
+  const RecommendedCoursesAndSeeAll({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Text(
-          'Popular Courses',
+          'Related Courses',
           style: AppTextStyles.font20DunePoppinsMedium,
         ),
         const Spacer(),
         GestureDetector(
           onTap: () {
-            context.pushNamed(Routes.developerCoursesCategoriesScreen);
+            context.pushNamed(Routes.developerCoursesRelatedCoursesScreen);
           },
           child: Row(
             children: [

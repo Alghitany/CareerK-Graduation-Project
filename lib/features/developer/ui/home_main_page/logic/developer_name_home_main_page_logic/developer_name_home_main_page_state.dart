@@ -9,11 +9,11 @@ class DeveloperNameHomeMainPageState with _$DeveloperNameHomeMainPageState {
   const factory DeveloperNameHomeMainPageState.initial() = _Initial;
 
   const factory DeveloperNameHomeMainPageState.developerNameLoading() =
-  DeveloperNameLoading;
+      DeveloperNameLoading;
 
   const factory DeveloperNameHomeMainPageState.developerNameSuccess(
-      DeveloperNameHomeMainPageResponseBody data,
-      ) = DeveloperNameSuccess;
+    DeveloperNameHomeMainPageResponseBody data,
+  ) = DeveloperNameSuccess;
 
   const factory DeveloperNameHomeMainPageState.developerNameError({
     required String error,

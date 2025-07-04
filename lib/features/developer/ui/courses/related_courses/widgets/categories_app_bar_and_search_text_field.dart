@@ -19,7 +19,7 @@ class CategoriesAppBarAndSearchTextField extends StatelessWidget {
               const AppBackIcon(),
               const Spacer(),
               Text(
-                'Categories',
+                'Related Courses',
                 style: AppTextStyles.font24BlackPoppinsRegular,
               ),
               const Spacer(),

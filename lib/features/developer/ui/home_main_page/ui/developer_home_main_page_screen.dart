@@ -2,15 +2,16 @@ import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../../../core/routing/routes.dart';
 import '../../../../../core/widgets/app_search_text_form_field.dart';
 import '../../../../../core/widgets/developer_bottom_navigation_bar.dart';
-import 'widgets/developer_home_top_bar_bloc_builder.dart';
-import 'widgets/main_page_choice_chips.dart';
-import 'widgets/main_page_popular_courses.dart';
-import 'widgets/main_page_recommended_jobs.dart';
-import 'widgets/popular_courses_and_see_all.dart';
+import 'widgets/courses/main_page_courses_bloc_builder.dart';
+import 'widgets/recommended_jobs/main_page_recommended_jobs_bloc_builder.dart';
+import 'widgets/recommended_courses_and_see_all.dart';
 import 'widgets/recommended_jobs_and_see_all.dart';
+import 'widgets/tags_choice_chips/main_page_tags_bloc_builder.dart';
+import 'widgets/top_bar/developer_home_top_bar_bloc_builder.dart';
 
 class DeveloperHomeMainPageScreen extends StatelessWidget {
   const DeveloperHomeMainPageScreen({super.key});
@@ -35,16 +36,15 @@ class DeveloperHomeMainPageScreen extends StatelessWidget {
                   },
                 ),
                 verticalSpace(16),
-                const PopularCoursesAndSeeAll(),
+                const RecommendedCoursesAndSeeAll(),
                 verticalSpace(8),
-                const MainPageChoiceChips(),
+                const DeveloperTagsBlocBuilder(),
                 verticalSpace(8),
-                const MainPagePopularCourses(),
+                const DeveloperCoursesBlocBuilder(),
                 verticalSpace(16),
                 const RecommendedJobsAndSeeAll(),
                 verticalSpace(8),
-                const MainPageRecommendedJobs(),
-              ],
+                const MainPageRecommendedJobsBlocBuilder()           ],
             ),
           ),
         ),

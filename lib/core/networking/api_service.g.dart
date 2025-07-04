@@ -198,6 +198,82 @@ class _ApiService implements ApiService {
   }
 
   @override
+  Future<List<DeveloperTagsHomeMainPageResponseBody>>
+      getDeveloperTracks() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options =
+        _setStreamType<List<DeveloperTagsHomeMainPageResponseBody>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/developer/tracks',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            )));
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<DeveloperTagsHomeMainPageResponseBody> _value;
+    try {
+      _value = _result.data!
+          .map((dynamic i) => DeveloperTagsHomeMainPageResponseBody.fromJson(
+              i as Map<String, dynamic>))
+          .toList();
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<List<DeveloperCoursesHomeMainPageResponseBody>> getDeveloperCourses(
+      String developerId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options =
+        _setStreamType<List<DeveloperCoursesHomeMainPageResponseBody>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/developer/${developerId}/courses',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            )));
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<DeveloperCoursesHomeMainPageResponseBody> _value;
+    try {
+      _value = _result.data!
+          .map((dynamic i) => DeveloperCoursesHomeMainPageResponseBody.fromJson(
+              i as Map<String, dynamic>))
+          .toList();
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
   Future<DeveloperCoursesAndJobsMainPageProfileResponseModel>
       getDeveloperCoursesMainPageProfile() async {
     final _extra = <String, dynamic>{};
@@ -313,38 +389,34 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<List<DeveloperCoursesSpecificCategoryResponseBody>>
+  Future<DeveloperCoursesSpecificCategoryResponseBody>
       getDeveloperCoursesSpecificCategory(String trackId) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options =
-        _setStreamType<List<DeveloperCoursesSpecificCategoryResponseBody>>(
-            Options(
+        _setStreamType<DeveloperCoursesSpecificCategoryResponseBody>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
-                .compose(
-                  _dio.options,
-                  'api/tracks-page/tracks/${trackId}/courses',
-                  queryParameters: queryParameters,
-                  data: _data,
-                )
-                .copyWith(
-                    baseUrl: _combineBaseUrls(
-                  _dio.options.baseUrl,
-                  baseUrl,
-                )));
-    final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<DeveloperCoursesSpecificCategoryResponseBody> _value;
+            .compose(
+              _dio.options,
+              'api/tracks-page/tracks/${trackId}/courses',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DeveloperCoursesSpecificCategoryResponseBody _value;
     try {
-      _value = _result.data!
-          .map((dynamic i) =>
-              DeveloperCoursesSpecificCategoryResponseBody.fromJson(
-                  i as Map<String, dynamic>))
-          .toList();
+      _value =
+          DeveloperCoursesSpecificCategoryResponseBody.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -450,6 +522,42 @@ class _ApiService implements ApiService {
     late DeveloperSingleJobBookmarkResponseModel _value;
     try {
       _value = DeveloperSingleJobBookmarkResponseModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<DeveloperSingleCourseBookmarkResponseModel> bookmarkCourse(
+      String courseId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options =
+        _setStreamType<DeveloperSingleCourseBookmarkResponseModel>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/course-bookmarks/${courseId}/is-bookmarked',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DeveloperSingleCourseBookmarkResponseModel _value;
+    try {
+      _value =
+          DeveloperSingleCourseBookmarkResponseModel.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

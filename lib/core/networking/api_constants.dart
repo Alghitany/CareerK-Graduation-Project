@@ -20,6 +20,13 @@ class ApiConstants {
   //-> Developer Name
   static const String developerHomeName = "api/developer/name";
 
+  //-> Developer Tracks (Tags)
+  static const String developerHomeTags = "api/developer/tracks";
+
+  // -> Developer Courses (Courses List)
+  static const String developerHomeCourses =
+      "api/developer/{developerId}/courses";
+
   //-----> Jobs
   //-> Apply
   static const String developerJobsApply = "api/job-applications/apply";
@@ -31,9 +38,13 @@ class ApiConstants {
   static const String developerJobsServiceDetails =
       "api/service-post/{serviceId}";
 
-  //-> Single Bookmark
+  //-> Single Job Bookmark
   static const String developerSingleJobBookmark =
       "/api/bookmarks/bookmark/{jobId}";
+
+  //-> Single Course Bookmark
+  static const String developerSingleCourseBookmark =
+      "/api/course-bookmarks/{courseId}/is-bookmarked";
 
   //-> Jobs Recently Posted
   static const String developerJobsRecentlyPosted =

@@ -6,14 +6,13 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../../../../../../core/di/dependency_injection.dart';
 import '../../../../../../../../../core/helpers/spacing.dart';
 import '../../../../../../../../../core/routing/routes.dart';
 import '../../../../../../../../../core/theming/styles.dart';
 import '../../../../../../../../../core/widgets/job_bookmark/developer_job_bookmark_bloc_builder.dart';
+import '../../../../../../../data/models/developer_recommendtions_models/developer_recommendations_response_body.dart';
 import '../../../../../../../logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
-import '../../../../data/models/developer_recommendtions_models/developer_recommendations_response_body.dart';
 
 class JobsRecommendationsList extends StatefulWidget {
   final List<JobRecommendation> jobs;

@@ -103,10 +103,14 @@ class RoadmapsListView extends StatelessWidget {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    roadmap.trackTitle,
-                                    style: AppTextStyles
-                                        .font20DarkGreyPoppinsSemiBold,
+                                  SizedBox(
+                                    width: 200.w,
+                                    child: Text(
+                                      roadmap.trackTitle,
+                                      style: AppTextStyles
+                                          .font20DarkGreyPoppinsSemiBold,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
                                   ),
                                   Text(
                                     roadmap.totalDuration,
@@ -115,15 +119,6 @@ class RoadmapsListView extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              const Spacer(),
-                              // IconButton(
-                              //   onPressed: () {},
-                              //   icon: SvgPicture.asset(
-                              //     'assets/svgs/folder_download_outlined.svg',
-                              //     colorFilter: const ColorFilter.mode(
-                              //         ColorsManager.mirage, BlendMode.srcIn),
-                              //   ),
-                              // ),
                             ],
                           ),
 

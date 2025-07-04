@@ -20,18 +20,17 @@ mixin _$DeveloperCoursesSpecificCategoryState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<DeveloperCoursesSpecificCategoryResponseBody> courses)
+    required TResult Function(DeveloperCoursesSpecificCategoryResponseBody data)
         success,
     required TResult Function(ErrorHandler errorHandler) error,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(
-            List<DeveloperCoursesSpecificCategoryResponseBody> courses)?
+    TResult? Function(DeveloperCoursesSpecificCategoryResponseBody data)?
         success,
     TResult? Function(ErrorHandler errorHandler)? error,
   }) =>
@@ -40,13 +39,13 @@ mixin _$DeveloperCoursesSpecificCategoryState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(
-            List<DeveloperCoursesSpecificCategoryResponseBody> courses)?
+    TResult Function(DeveloperCoursesSpecificCategoryResponseBody data)?
         success,
     TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
@@ -58,6 +57,7 @@ mixin _$DeveloperCoursesSpecificCategoryState {
         error,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
@@ -92,9 +92,9 @@ class _$DeveloperCoursesSpecificCategoryStateCopyWithImpl<$Res,
     implements $DeveloperCoursesSpecificCategoryStateCopyWith<$Res> {
   _$DeveloperCoursesSpecificCategoryStateCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
+// ignore: unused_field
   final $Val _value;
-  // ignore: unused_field
+// ignore: unused_field
   final $Res Function($Val) _then;
 
   /// Create a copy of DeveloperCoursesSpecificCategoryState
@@ -144,8 +144,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<DeveloperCoursesSpecificCategoryResponseBody> courses)
+    required TResult Function(DeveloperCoursesSpecificCategoryResponseBody data)
         success,
     required TResult Function(ErrorHandler errorHandler) error,
   }) {
@@ -157,8 +156,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(
-            List<DeveloperCoursesSpecificCategoryResponseBody> courses)?
+    TResult? Function(DeveloperCoursesSpecificCategoryResponseBody data)?
         success,
     TResult? Function(ErrorHandler errorHandler)? error,
   }) {
@@ -170,8 +168,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(
-            List<DeveloperCoursesSpecificCategoryResponseBody> courses)?
+    TResult Function(DeveloperCoursesSpecificCategoryResponseBody data)?
         success,
     TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
@@ -275,8 +272,7 @@ class _$DeveloperCoursesSpecificCategoryLoadingImpl
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<DeveloperCoursesSpecificCategoryResponseBody> courses)
+    required TResult Function(DeveloperCoursesSpecificCategoryResponseBody data)
         success,
     required TResult Function(ErrorHandler errorHandler) error,
   }) {
@@ -288,8 +284,7 @@ class _$DeveloperCoursesSpecificCategoryLoadingImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(
-            List<DeveloperCoursesSpecificCategoryResponseBody> courses)?
+    TResult? Function(DeveloperCoursesSpecificCategoryResponseBody data)?
         success,
     TResult? Function(ErrorHandler errorHandler)? error,
   }) {
@@ -301,8 +296,7 @@ class _$DeveloperCoursesSpecificCategoryLoadingImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(
-            List<DeveloperCoursesSpecificCategoryResponseBody> courses)?
+    TResult Function(DeveloperCoursesSpecificCategoryResponseBody data)?
         success,
     TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
@@ -367,7 +361,7 @@ abstract class _$$DeveloperCoursesSpecificCategorySuccessImplCopyWith<$Res> {
           $Res Function(_$DeveloperCoursesSpecificCategorySuccessImpl) then) =
       __$$DeveloperCoursesSpecificCategorySuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<DeveloperCoursesSpecificCategoryResponseBody> courses});
+  $Res call({DeveloperCoursesSpecificCategoryResponseBody data});
 }
 
 /// @nodoc
@@ -385,13 +379,13 @@ class __$$DeveloperCoursesSpecificCategorySuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? courses = null,
+    Object? data = null,
   }) {
     return _then(_$DeveloperCoursesSpecificCategorySuccessImpl(
-      null == courses
-          ? _value._courses
-          : courses // ignore: cast_nullable_to_non_nullable
-              as List<DeveloperCoursesSpecificCategoryResponseBody>,
+      null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as DeveloperCoursesSpecificCategoryResponseBody,
     ));
   }
 }
@@ -400,21 +394,14 @@ class __$$DeveloperCoursesSpecificCategorySuccessImplCopyWithImpl<$Res>
 
 class _$DeveloperCoursesSpecificCategorySuccessImpl
     implements DeveloperCoursesSpecificCategorySuccess {
-  const _$DeveloperCoursesSpecificCategorySuccessImpl(
-      final List<DeveloperCoursesSpecificCategoryResponseBody> courses)
-      : _courses = courses;
+  const _$DeveloperCoursesSpecificCategorySuccessImpl(this.data);
 
-  final List<DeveloperCoursesSpecificCategoryResponseBody> _courses;
   @override
-  List<DeveloperCoursesSpecificCategoryResponseBody> get courses {
-    if (_courses is EqualUnmodifiableListView) return _courses;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_courses);
-  }
+  final DeveloperCoursesSpecificCategoryResponseBody data;
 
   @override
   String toString() {
-    return 'DeveloperCoursesSpecificCategoryState.success(courses: $courses)';
+    return 'DeveloperCoursesSpecificCategoryState.success(data: $data)';
   }
 
   @override
@@ -422,12 +409,11 @@ class _$DeveloperCoursesSpecificCategorySuccessImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeveloperCoursesSpecificCategorySuccessImpl &&
-            const DeepCollectionEquality().equals(other._courses, _courses));
+            (identical(other.data, data) || other.data == data));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_courses));
+  int get hashCode => Object.hash(runtimeType, data);
 
   /// Create a copy of DeveloperCoursesSpecificCategoryState
   /// with the given fields replaced by the non-null parameter values.
@@ -445,12 +431,11 @@ class _$DeveloperCoursesSpecificCategorySuccessImpl
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<DeveloperCoursesSpecificCategoryResponseBody> courses)
+    required TResult Function(DeveloperCoursesSpecificCategoryResponseBody data)
         success,
     required TResult Function(ErrorHandler errorHandler) error,
   }) {
-    return success(courses);
+    return success(data);
   }
 
   @override
@@ -458,12 +443,11 @@ class _$DeveloperCoursesSpecificCategorySuccessImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(
-            List<DeveloperCoursesSpecificCategoryResponseBody> courses)?
+    TResult? Function(DeveloperCoursesSpecificCategoryResponseBody data)?
         success,
     TResult? Function(ErrorHandler errorHandler)? error,
   }) {
-    return success?.call(courses);
+    return success?.call(data);
   }
 
   @override
@@ -471,14 +455,13 @@ class _$DeveloperCoursesSpecificCategorySuccessImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(
-            List<DeveloperCoursesSpecificCategoryResponseBody> courses)?
+    TResult Function(DeveloperCoursesSpecificCategoryResponseBody data)?
         success,
     TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(courses);
+      return success(data);
     }
     return orElse();
   }
@@ -527,10 +510,10 @@ class _$DeveloperCoursesSpecificCategorySuccessImpl
 abstract class DeveloperCoursesSpecificCategorySuccess
     implements DeveloperCoursesSpecificCategoryState {
   const factory DeveloperCoursesSpecificCategorySuccess(
-          final List<DeveloperCoursesSpecificCategoryResponseBody> courses) =
+          final DeveloperCoursesSpecificCategoryResponseBody data) =
       _$DeveloperCoursesSpecificCategorySuccessImpl;
 
-  List<DeveloperCoursesSpecificCategoryResponseBody> get courses;
+  DeveloperCoursesSpecificCategoryResponseBody get data;
 
   /// Create a copy of DeveloperCoursesSpecificCategoryState
   /// with the given fields replaced by the non-null parameter values.
@@ -617,8 +600,7 @@ class _$DeveloperCoursesSpecificCategoryErrorImpl
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<DeveloperCoursesSpecificCategoryResponseBody> courses)
+    required TResult Function(DeveloperCoursesSpecificCategoryResponseBody data)
         success,
     required TResult Function(ErrorHandler errorHandler) error,
   }) {
@@ -630,8 +612,7 @@ class _$DeveloperCoursesSpecificCategoryErrorImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(
-            List<DeveloperCoursesSpecificCategoryResponseBody> courses)?
+    TResult? Function(DeveloperCoursesSpecificCategoryResponseBody data)?
         success,
     TResult? Function(ErrorHandler errorHandler)? error,
   }) {
@@ -643,8 +624,7 @@ class _$DeveloperCoursesSpecificCategoryErrorImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(
-            List<DeveloperCoursesSpecificCategoryResponseBody> courses)?
+    TResult Function(DeveloperCoursesSpecificCategoryResponseBody data)?
         success,
     TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),

@@ -31,10 +31,17 @@ class DeveloperJobBookmarkBlocBuilder extends StatelessWidget {
   }
 
   Widget setupLoading() {
-    return Icon(
-      Icons.bookmark_border,
-      size: 24.sp,
-      color: Colors.grey,
+    return IconButton(
+      padding: EdgeInsets.zero,
+      onPressed: null, // Disable interaction during loading
+      icon: SizedBox(
+        width: 22.w,
+        height: 22.h,
+        child: const CircularProgressIndicator(
+          strokeWidth: 2,
+          color: Colors.grey,
+        ),
+      ),
     );
   }
 

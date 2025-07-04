@@ -9,7 +9,8 @@ class DeveloperNameHomeMainPageRepo {
 
   DeveloperNameHomeMainPageRepo(this._service);
 
-  Future<ApiResult<DeveloperNameHomeMainPageResponseBody>> getDeveloperNameHomeMainPage() async {
+  Future<ApiResult<DeveloperNameHomeMainPageResponseBody>>
+      getDeveloperNameHomeMainPage() async {
     try {
       final response = await _service.getDeveloperNameHomeMainPage();
       return ApiResult.success(response);

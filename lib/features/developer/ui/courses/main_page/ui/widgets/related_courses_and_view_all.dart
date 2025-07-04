@@ -22,7 +22,7 @@ class RelatedCoursesAndViewAll extends StatelessWidget {
           const Spacer(),
           GestureDetector(
             onTap: () {
-              context.pushNamed(Routes.developerCoursesCategoriesScreen);
+              context.pushNamed(Routes.developerCoursesRelatedCoursesScreen);
             },
             child: Row(
               children: [
