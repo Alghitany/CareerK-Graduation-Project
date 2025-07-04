@@ -12,8 +12,8 @@ import '../../../../../../../../../core/helpers/spacing.dart';
 import '../../../../../../../../../core/routing/routes.dart';
 import '../../../../../../../../../core/theming/styles.dart';
 import '../../../../../../../../../core/widgets/job_bookmark/developer_job_bookmark_bloc_builder.dart';
+import '../../../../../../../data/models/developer_recommendtions_models/developer_recommendations_response_body.dart';
 import '../../../../../../../logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
-import '../../../../data/models/developer_recommendtions_models/developer_recommendations_response_body.dart';
 
 class ServicesRecommendationsList extends StatefulWidget {
   final List<ServiceRecommendation> services;

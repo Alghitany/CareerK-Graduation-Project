@@ -12,7 +12,6 @@ import 'package:carrerk/features/customer/chats/person_chat/customer_chats_perso
 import 'package:carrerk/features/customer/home/customer_home_main_page.dart';
 import 'package:carrerk/features/customer/jobs_post/customer_jobs_post.dart';
 import 'package:carrerk/features/customer/profile/customer_profile_screen.dart';
-import 'package:carrerk/features/developer/ui/jobs/search/logic/developer_recommendations_logic/developer_recommendations_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -44,6 +43,7 @@ import '../../features/company/ui/profile/company_profile_screen.dart';
 import '../../features/company/ui/send_to_applicants/message-applicant/company_send_to_applicants_message_applicant_screen.dart';
 import '../../features/customer/sign_up/logic/customer_sign_up_cubit.dart';
 import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
+import '../../features/developer/logic/developer_recommendations_logic/developer_recommendations_cubit.dart';
 import '../../features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
 import '../../features/developer/ui/community/all_communities/developer_community_all_communities_screen.dart';
 import '../../features/developer/ui/community/chat/developer_community_chat_screen.dart';
@@ -262,6 +262,10 @@ class AppRouter {
               ),
               BlocProvider(
                 create: (context) => getIt<DeveloperCoursesHomeMainPageCubit>(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperRecommendationsCubit>()
+                  ..fetchRecommendations(),
               ),
             ],
             child: const DeveloperHomeMainPageScreen(),

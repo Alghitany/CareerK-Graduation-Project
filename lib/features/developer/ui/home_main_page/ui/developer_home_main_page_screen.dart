@@ -7,7 +7,7 @@ import '../../../../../core/routing/routes.dart';
 import '../../../../../core/widgets/app_search_text_form_field.dart';
 import '../../../../../core/widgets/developer_bottom_navigation_bar.dart';
 import 'widgets/courses/main_page_courses_bloc_builder.dart';
-import 'widgets/main_page_recommended_jobs.dart';
+import 'widgets/recommended_jobs/main_page_recommended_jobs_bloc_builder.dart';
 import 'widgets/recommended_courses_and_see_all.dart';
 import 'widgets/recommended_jobs_and_see_all.dart';
 import 'widgets/tags_choice_chips/main_page_tags_bloc_builder.dart';
@@ -44,8 +44,7 @@ class DeveloperHomeMainPageScreen extends StatelessWidget {
                 verticalSpace(16),
                 const RecommendedJobsAndSeeAll(),
                 verticalSpace(8),
-                const MainPageRecommendedJobs(),
-              ],
+                const MainPageRecommendedJobsBlocBuilder()           ],
             ),
           ),
         ),

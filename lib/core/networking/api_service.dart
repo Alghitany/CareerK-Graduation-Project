@@ -19,6 +19,7 @@ import '../../features/company/jobs_post/data/models/company_jobs_post_response.
 import '../../features/company/ui/home/data/models/update_application_status_model/company_update_application_status_request_body.dart';
 import '../../features/company/ui/home/data/models/update_application_status_model/company_update_application_status_response.dart';
 import '../../features/developer/data/models/developer_courses_and_jobs_main_page_profile_models/developer_courses_and_jobs_main_page_profile_response_model.dart';
+import '../../features/developer/data/models/developer_recommendtions_models/developer_recommendations_response_body.dart';
 import '../../features/developer/data/models/developer_single_course_bookmark_models/developer_single_course_bookmark_response_model.dart';
 import '../../features/developer/data/models/developer_single_job_bookmark_models/developer_single_job_bookmark_response_model.dart';
 import '../../features/developer/ui/courses/main_page/data/models/developer_courses_main_page_roadmaps_response_model.dart';
@@ -29,7 +30,6 @@ import '../../features/developer/ui/home_main_page/data/models/developer_name_ho
 import '../../features/developer/ui/home_main_page/data/models/developer_tags_home_main_page_models/developer_tags_home_main_page_response_body.dart';
 import '../../features/developer/ui/jobs/job_details/data/models/developer_jobs_job_details_response_body.dart';
 import '../../features/developer/ui/jobs/search/data/models/developer_jobs_recently_posted_models/developer_jobs_recently_posted_response_body.dart';
-import '../../features/developer/ui/jobs/search/data/models/developer_recommendtions_models/developer_recommendations_response_body.dart';
 import '../../features/developer/ui/jobs/search/data/models/developer_services_recently_posted_models/developer_services_recently_posted_response_body.dart';
 import '../../features/developer/ui/jobs/service_details/data/model/developer_jobs_service_details_response_body.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/models/developer_profile_applied_jobs_models/developer_profile_applied_jobs_response_body.dart';
