@@ -102,10 +102,10 @@ Future<void> setupGetIt() async {
   //-> Home Main Page
   // Developer Name
   getIt.registerLazySingleton<DeveloperNameHomeMainPageRepo>(
-        () => DeveloperNameHomeMainPageRepo(getIt()),
+    () => DeveloperNameHomeMainPageRepo(getIt()),
   );
   getIt.registerFactory<DeveloperNameHomeMainPageCubit>(
-        () => DeveloperNameHomeMainPageCubit(getIt()),
+    () => DeveloperNameHomeMainPageCubit(getIt()),
   );
   // -> Jobs
   // Apply

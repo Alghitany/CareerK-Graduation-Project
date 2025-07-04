@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../data/models/developer_name_home_main_page_models/developer_name_home_main_page_response_body.dart';
 import '../../logic/developer_name_home_main_page_logic/developer_name_home_main_page_cubit.dart';
 import '../../logic/developer_name_home_main_page_logic/developer_name_home_main_page_state.dart';
@@ -14,7 +15,7 @@ class DeveloperHomeTopBarBlocBuilder extends StatelessWidget {
     return BlocBuilder<DeveloperNameHomeMainPageCubit,
         DeveloperNameHomeMainPageState>(
       buildWhen: (previous, current) =>
-      current is DeveloperNameLoading ||
+          current is DeveloperNameLoading ||
           current is DeveloperNameSuccess ||
           current is DeveloperNameError,
       builder: (context, state) {
@@ -32,7 +33,6 @@ class DeveloperHomeTopBarBlocBuilder extends StatelessWidget {
     return const HomeTopBarShimmer();
   }
 
-
   Widget _buildSuccess(DeveloperNameHomeMainPageResponseBody data) {
     final developerName = data.developerName ?? 'Developer';
     return HomeTopBar(
@@ -40,7 +40,6 @@ class DeveloperHomeTopBarBlocBuilder extends StatelessWidget {
       subText: 'What Would you like to do \nToday? Search Below.',
     );
   }
-
 
   Widget _buildError(String error) {
     return Center(child: Text(error));

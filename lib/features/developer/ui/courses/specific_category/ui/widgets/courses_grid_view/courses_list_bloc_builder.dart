@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../../../core/helpers/spacing.dart';
 import '../../../data/models/developer_courses_specific_category_response_body.dart';
 import '../../../logic/developer_courses_specific_category_cubit.dart';
 import '../../../logic/developer_courses_specific_category_state.dart';
-import 'courses_grid_view.dart';
-import 'courses_list_shimmer.dart';
+import 'courses/specific_category_app_bar_and_search_text_field.dart';
+import 'courses/courses_grid_view.dart';
+import 'shimmer/courses_list_shimmer.dart';
+import 'shimmer/specific_category_app_bar_and_search_text_field_shimmer.dart';
 
 class CoursesListBlocBuilder extends StatelessWidget {
   const CoursesListBlocBuilder({super.key});
@@ -21,7 +24,7 @@ class CoursesListBlocBuilder extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen(
           loading: () => setupLoading(),
-          success: (courses) => setupSuccess(courses),
+          success: (data) => setupSuccess(data),
           error: (error) => setupError(),
           orElse: () => const SizedBox.shrink(),
         );
@@ -30,12 +33,25 @@ class CoursesListBlocBuilder extends StatelessWidget {
   }
 
   Widget setupLoading() {
-    return const CoursesListShimmer();
+    return Column(
+      children: [
+        const SpecificCategoryAppBarAndSearchShimmer(),
+        verticalSpace(24),
+        const CoursesListShimmer(),
+      ],
+    );
   }
 
-  Widget setupSuccess(
-      List<DeveloperCoursesSpecificCategoryResponseBody> courses) {
-    return CoursesGridView(courses: courses);
+  Widget setupSuccess(DeveloperCoursesSpecificCategoryResponseBody data) {
+    return Column(
+      children: [
+        SpecificCategoryAppBarAndSearchTextField(
+          categoryTitle: data.trackName,
+        ),
+        verticalSpace(24),
+        CoursesGridView(courses: data.courses),
+      ],
+    );
   }
 
   Widget setupError() {

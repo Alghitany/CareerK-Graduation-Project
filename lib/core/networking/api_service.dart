@@ -88,7 +88,7 @@ abstract class ApiService {
 
   //-> Specific Category
   @GET("${ApiConstants.developerTracksBasePath}/{trackId}/courses")
-  Future<List<DeveloperCoursesSpecificCategoryResponseBody>>
+  Future<DeveloperCoursesSpecificCategoryResponseBody>
       getDeveloperCoursesSpecificCategory(
     @Path("trackId") String trackId,
   );

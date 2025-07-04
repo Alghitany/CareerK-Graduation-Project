@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../data/models/developer_courses_main_page_roadmaps_response_model.dart';
 import '../../../logic/developer_courses_main_page_roadmaps_cubit.dart';
 import '../../../logic/developer_courses_main_page_roadmaps_state.dart';
-import '../roadmaps_suggestions.dart';
+import 'roadmaps_suggestions.dart';
 import 'roadmaps_suggestions_shimmer.dart';
 
 class RoadmapsSuggestionsBlocBuilder extends StatelessWidget {

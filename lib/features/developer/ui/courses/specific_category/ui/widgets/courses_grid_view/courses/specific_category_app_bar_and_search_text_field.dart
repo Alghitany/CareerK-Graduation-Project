@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../../../core/helpers/spacing.dart';
-import '../../../../../../../core/theming/styles.dart';
-import '../../../../../../../core/widgets/app_back_icon.dart';
-import '../../../../../../../core/widgets/app_search_text_form_field.dart';
+import '../../../../../../../../../core/helpers/spacing.dart';
+import '../../../../../../../../../core/theming/styles.dart';
+import '../../../../../../../../../core/widgets/app_back_icon.dart';
+import '../../../../../../../../../core/widgets/app_search_text_form_field.dart';
 
 class SpecificCategoryAppBarAndSearchTextField extends StatelessWidget {
-  const SpecificCategoryAppBarAndSearchTextField({super.key});
+  final String categoryTitle;
+
+  const SpecificCategoryAppBarAndSearchTextField(
+      {super.key, required this.categoryTitle});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +23,7 @@ class SpecificCategoryAppBarAndSearchTextField extends StatelessWidget {
               const AppBackIcon(),
               const Spacer(),
               Text(
-                'Front end',
+                categoryTitle,
                 style: AppTextStyles.font24BlackPoppinsRegular,
               ),
               const Spacer(),

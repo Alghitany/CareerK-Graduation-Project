@@ -3,11 +3,11 @@ import 'package:carrerk/core/routing/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../data/models/developer_courses_specific_category_response_body.dart';
+import '../../../../data/models/developer_courses_specific_category_response_body.dart';
 import 'course_card.dart';
 
 class CoursesGridView extends StatelessWidget {
-  final List<DeveloperCoursesSpecificCategoryResponseBody> courses;
+  final List<Course> courses;
 
   const CoursesGridView({super.key, required this.courses});
 

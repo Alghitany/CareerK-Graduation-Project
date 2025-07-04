@@ -9,8 +9,10 @@ class DeveloperNameHomeMainPageResponseBody {
 
   DeveloperNameHomeMainPageResponseBody({this.developerName});
 
-  factory DeveloperNameHomeMainPageResponseBody.fromJson(Map<String, dynamic> json) =>
+  factory DeveloperNameHomeMainPageResponseBody.fromJson(
+          Map<String, dynamic> json) =>
       _$DeveloperNameHomeMainPageResponseBodyFromJson(json);
 
-  Map<String, dynamic> toJson() => _$DeveloperNameHomeMainPageResponseBodyToJson(this);
+  Map<String, dynamic> toJson() =>
+      _$DeveloperNameHomeMainPageResponseBodyToJson(this);
 }

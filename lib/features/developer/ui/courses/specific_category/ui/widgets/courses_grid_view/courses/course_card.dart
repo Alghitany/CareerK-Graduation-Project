@@ -3,6 +3,7 @@ import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 class CourseCard extends StatelessWidget {
   final String imagePath;
@@ -38,16 +39,24 @@ class CourseCard extends StatelessWidget {
                 topLeft: Radius.circular(10),
                 topRight: Radius.circular(10),
               ),
-              child: Image.network(
-                imagePath,
-                height: 120.h,
-                width: double.infinity,
-                fit: BoxFit.cover,
-                errorBuilder: (_, __, ___) => Image.asset(
-                  'assets/images/html_course.png',
+              child: Center(
+                child: SvgPicture.network(
+                  imagePath,
                   height: 120.h,
                   width: double.infinity,
-                  fit: BoxFit.cover,
+                  fit: BoxFit.fill,
+                  placeholderBuilder: (context) => Image.asset(
+                    'assets/images/html_course.png',
+                    height: 120.h,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
+                  errorBuilder: (context, error, stackTrace) => Image.asset(
+                    'assets/images/html_course.png',
+                    height: 120.h,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),

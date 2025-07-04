@@ -249,12 +249,12 @@ class AppRouter {
       case Routes.developerHomeMainPageScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) => getIt<DeveloperNameHomeMainPageCubit>()
-              ..fetchDeveloperName(),
+            create: (context) =>
+                getIt<DeveloperNameHomeMainPageCubit>()..fetchDeveloperName(),
             child: const DeveloperHomeMainPageScreen(),
           ),
         );
-    // Community
+      // Community
       case Routes.developerCommunityAllCommunitiesScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperCommunityAllCommunitiesScreen(),

@@ -9,10 +9,11 @@ class HomeTopBar extends StatelessWidget {
   final String hiText;
   final String subText;
 
-  const HomeTopBar(
-      {super.key,
-      required this.hiText,
-      required this.subText,});
+  const HomeTopBar({
+    super.key,
+    required this.hiText,
+    required this.subText,
+  });
 
   @override
   Widget build(BuildContext context) {
