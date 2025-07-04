@@ -23,6 +23,7 @@ import '../../features/developer/data/models/developer_single_job_bookmark_model
 import '../../features/developer/ui/courses/main_page/data/models/developer_courses_main_page_roadmaps_response_model.dart';
 import '../../features/developer/ui/courses/roadmaps/data/models/developer_courses_roadmaps_response_body.dart';
 import '../../features/developer/ui/courses/specific_category/data/models/developer_courses_specific_category_response_body.dart';
+import '../../features/developer/ui/home_main_page/data/models/developer_name_home_main_page_models/developer_name_home_main_page_response_body.dart';
 import '../../features/developer/ui/jobs/job_details/data/models/developer_jobs_job_details_response_body.dart';
 import '../../features/developer/ui/jobs/search/data/models/developer_jobs_recently_posted_models/developer_jobs_recently_posted_response_body.dart';
 import '../../features/developer/ui/jobs/search/data/models/developer_recommendtions_models/developer_recommendations_response_body.dart';
@@ -64,6 +65,12 @@ abstract class ApiService {
   //----------------- Developer
   // Developer Sign up Handled with dio
   // Developer Jobs Apply Handled with dio
+
+  //---------> Home Main Page
+  //-> Developer Name
+  @GET(ApiConstants.developerHomeName)
+  Future<DeveloperNameHomeMainPageResponseBody> getDeveloperNameHomeMainPage();
+
   //->Courses Main Page Profile
   @GET(ApiConstants.developerCoursesMainPageProfile)
   Future<DeveloperCoursesAndJobsMainPageProfileResponseModel>
