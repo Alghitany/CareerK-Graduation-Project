@@ -7,18 +7,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../../../../core/helpers/spacing.dart';
-import '../../../../../../../core/routing/routes.dart';
-import '../../../../../../../core/theming/styles.dart';
+import '../../../../core/helpers/spacing.dart';
+import '../../../../core/routing/routes.dart';
+import '../../../../core/theming/styles.dart';
 
-class FilteredJobs extends StatefulWidget {
-  const FilteredJobs({super.key});
+class RecommendationsList extends StatefulWidget {
+  const RecommendationsList({super.key});
 
   @override
-  State<FilteredJobs> createState() => _FilteredJobsState();
+  State<RecommendationsList> createState() => _RecommendationsListState();
 }
 
-class _FilteredJobsState extends State<FilteredJobs> {
+class _RecommendationsListState extends State<RecommendationsList> {
   bool isExpanded = false;
   final List<Map<String, dynamic>> jobs = [
     {

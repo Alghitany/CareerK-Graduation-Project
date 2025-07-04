@@ -12,6 +12,7 @@ import 'package:carrerk/features/customer/chats/person_chat/customer_chats_perso
 import 'package:carrerk/features/customer/home/customer_home_main_page.dart';
 import 'package:carrerk/features/customer/jobs_post/customer_jobs_post.dart';
 import 'package:carrerk/features/customer/profile/customer_profile_screen.dart';
+import 'package:carrerk/features/developer/ui/jobs/search/logic/developer_recommendations_logic/developer_recommendations_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -394,6 +395,10 @@ class AppRouter {
               BlocProvider(
                 create: (_) => getIt<DeveloperServicesRecentlyPostedCubit>()
                   ..fetchRecentlyPostedServices(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperRecommendationsCubit>()
+                  ..fetchRecommendations(),
               ),
             ],
             child: const DeveloperJobsSearchScreen(),

@@ -39,6 +39,9 @@ class ApiConstants {
   static const String developerServicesRecentlyPosted =
       "api/service-post/filter/recently-posted";
 
+  //-> Recommendations
+  static const String developerRecommendations = 'api/recommendations';
+
   //-----> Courses
   //-> Developer Profile
   static const String developerCoursesMainPageProfile =

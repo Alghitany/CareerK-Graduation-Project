@@ -44,8 +44,10 @@ import '../../features/developer/ui/courses/roadmaps/data/repo/developer_courses
 import '../../features/developer/ui/courses/roadmaps/logic/developer_courses_roadmaps_cubit.dart';
 import '../../features/developer/ui/jobs/apply/data/repo/developer_jobs_apply_repo.dart';
 import '../../features/developer/ui/jobs/apply/logic/developer_jobs_apply_cubit.dart';
+import '../../features/developer/ui/jobs/search/data/repo/developer_recommendations_repo.dart';
 import '../../features/developer/ui/jobs/search/data/repo/developer_services_recently_posted_repo.dart';
 import '../../features/developer/ui/jobs/search/logic/developer_jobs_recently_posted_logic/developer_jobs_recently_posted_cubit.dart';
+import '../../features/developer/ui/jobs/search/logic/developer_recommendations_logic/developer_recommendations_cubit.dart';
 import '../../features/developer/ui/jobs/search/logic/developer_services_recently_posted_logic/developer_services_recently_posted_cubit.dart';
 import '../../features/developer/ui/jobs/service_details/data/repo/developer_jobs_service_details_repo.dart';
 import '../../features/developer/ui/jobs/service_details/logic/developer_jobs_service_details_cubit.dart';
@@ -137,6 +139,13 @@ Future<void> setupGetIt() async {
   );
   getIt.registerFactory<DeveloperServicesRecentlyPostedCubit>(
     () => DeveloperServicesRecentlyPostedCubit(getIt()),
+  );
+  // Recommendations
+  getIt.registerLazySingleton<DeveloperRecommendationsRepo>(
+    () => DeveloperRecommendationsRepo(getIt()),
+  );
+  getIt.registerFactory<DeveloperRecommendationsCubit>(
+    () => DeveloperRecommendationsCubit(getIt()),
   );
   // -> Courses Main Page
   // -> Profile
