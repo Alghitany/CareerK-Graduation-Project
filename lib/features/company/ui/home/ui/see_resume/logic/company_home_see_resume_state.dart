@@ -10,5 +10,6 @@ class CompanyHomeSeeResumeState<T> with _$CompanyHomeSeeResumeState<T> {
 
   const factory CompanyHomeSeeResumeState.success(T data) = Success<T>;
 
-  const factory CompanyHomeSeeResumeState.error({required String error}) = Error;
+  const factory CompanyHomeSeeResumeState.error({required String error}) =
+      Error;
 }

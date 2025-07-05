@@ -3,9 +3,9 @@ import 'package:carrerk/core/theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../../../core/theming/styles.dart';
-import '../../../logic/update_application_status_logic/company_update_application_status_cubit.dart';
-import '../../../logic/update_application_status_logic/company_update_application_status_state.dart';
+import '../../../../../../../../../core/theming/styles.dart';
+import '../../../../../logic/update_application_status_logic/company_update_application_status_cubit.dart';
+import '../../../../../logic/update_application_status_logic/company_update_application_status_state.dart';
 
 class CompanyUpdateApplicationStatusBlocListener extends StatelessWidget {
   const CompanyUpdateApplicationStatusBlocListener({super.key});

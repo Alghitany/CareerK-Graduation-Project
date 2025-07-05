@@ -34,10 +34,11 @@ import '../../features/company/ui/home/logic/update_application_status_logic/com
 import '../../features/company/ui/home/ui/main_page/data/repo/company_home_main_page_repo.dart';
 import '../../features/company/ui/home/ui/main_page/logic/company_home_main_page_cubit.dart';
 import '../../features/company/ui/home/ui/main_page/ui/company_home_main_page_screen.dart';
-import '../../features/company/ui/home/ui/see_details/company_home_see_details_screen.dart';
-import '../../features/company/ui/home/ui/see_resume/ui/company_home_see_resume_screen.dart';
+import '../../features/company/ui/home/ui/see_details/logic/company_home_see_details_cubit.dart';
+import '../../features/company/ui/home/ui/see_details/ui/company_home_see_details_screen.dart';
 import '../../features/company/ui/home/ui/see_resume/data/repo/company_home_see_resume_repo.dart';
 import '../../features/company/ui/home/ui/see_resume/logic/company_home_see_resume_cubit.dart';
+import '../../features/company/ui/home/ui/see_resume/ui/company_home_see_resume_screen.dart';
 import '../../features/company/ui/home/ui/send_offer/company_home_send_offer_screen.dart';
 import '../../features/company/ui/jobs/company_jobs_screen.dart';
 import '../../features/company/ui/jobs_post/logic/company_jobs_post_cubit.dart';
@@ -196,8 +197,18 @@ class AppRouter {
       case Routes.companyHomeSeeDetailsScreen:
         final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<CompanyUpdateApplicationStatusCubit>(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) =>
+                    getIt<CompanyUpdateApplicationStatusCubit>(),
+              ),
+              BlocProvider(
+                create: (context) => getIt<CompanyHomeSeeDetailsCubit>()
+                  ..getCompanyHomeSeeDetailsData(
+                      applicationId: args.applicationId!),
+              ),
+            ],
             child: CompanyHomeSeeDetailsScreen(
               applicationId: args.applicationId!,
             ),
@@ -207,12 +218,13 @@ class AppRouter {
         final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (_) => CompanyHomeSeeResumeCubit(getIt<CompanyHomeSeeResumeRepo>())
-                            ..getCompanyHomeSeeResumeData(developerId: args.developerId!),
+            create: (_) =>
+                CompanyHomeSeeResumeCubit(getIt<CompanyHomeSeeResumeRepo>())
+                  ..getCompanyHomeSeeResumeData(developerId: args.developerId!),
             child: const CompanyHomeSeeResumeScreen(),
           ),
         );
-    // Jobs
+      // Jobs
       case Routes.companyJobsScreen:
         return MaterialPageRoute(
           builder: (_) => const CompanyJobsScreen(),

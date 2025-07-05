@@ -95,6 +95,10 @@ class ApiConstants {
   //->Company Home See Resume
   static const String companyHomeSeeResume = "api/company/{developerId}/cv";
 
+  //->Company Home See Resume
+  static const String companyHomeSeeDetails =
+      "api/company/application/{applicationId}";
+
   //->Post Job
   static const String companyJobsPost = "api/jobs/create-job-post";
 

@@ -4,7 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DeveloperDetails extends StatelessWidget {
-  const DeveloperDetails({super.key});
+  final String details;
+
+  const DeveloperDetails({
+    super.key,
+    required this.details,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,12 +20,12 @@ class DeveloperDetails extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Clients Details:',
+            "Details",
             style: AppTextStyles.font20BlackPoppinsMedium,
           ),
           verticalSpace(8),
           Text(
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaLorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            details,
             style: AppTextStyles.font14DunePoppinsRegular,
           ),
         ],

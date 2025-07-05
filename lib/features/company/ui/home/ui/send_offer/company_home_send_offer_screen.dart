@@ -3,9 +3,9 @@ import 'package:carrerk/features/company/ui/home/ui/send_offer/widgets/hire_butt
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../widgets/developer_details.dart';
-import '../widgets/name_title_and_image.dart';
-import '../widgets/salary_and_location.dart';
+import '../widgets/developer_details/developer_details.dart';
+import '../widgets/name_title_and_image/name_title_and_image.dart';
+import '../widgets/salary_and_location/salary_and_location.dart';
 import '../widgets/see_details_top_bar.dart';
 
 class CompanyHomeSendOfferScreen extends StatelessWidget {
@@ -21,11 +21,20 @@ class CompanyHomeSendOfferScreen extends StatelessWidget {
             children: [
               const SeeDetailsTopBar(),
               verticalSpace(56),
-              const NameTitleAndImage(),
+              const NameTitleAndImage(
+                applicantName: '',
+                trackTitle: '',
+                profileImageUrl: '',
+              ),
               verticalSpace(64),
-              const SalaryAndLocation(),
+              const SalaryAndLocation(
+                salaryRange: '',
+                location: '',
+              ),
               verticalSpace(40),
-              const DeveloperDetails(),
+              const DeveloperDetails(
+                details: '',
+              ),
               const HireButton()
             ],
           ),
