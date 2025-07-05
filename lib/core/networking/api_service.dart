@@ -17,6 +17,7 @@ import '../../features/company/data/model/company_jobs_delete_post_response.dart
 import '../../features/company/ui/home/data/models/update_application_status_model/company_update_application_status_request_body.dart';
 import '../../features/company/ui/home/data/models/update_application_status_model/company_update_application_status_response.dart';
 import '../../features/company/ui/home/ui/main_page/data/model/company_home_main_page_response_body.dart';
+import '../../features/company/ui/home/ui/see_resume/data/model/company_home_see_resume_response_body.dart';
 import '../../features/company/ui/jobs_post/data/models/company_jobs_post_request_body.dart';
 import '../../features/company/ui/jobs_post/data/models/company_jobs_post_response.dart';
 import '../../features/developer/data/models/developer_courses_and_jobs_main_page_profile_models/developer_courses_and_jobs_main_page_profile_response_model.dart';
@@ -167,6 +168,12 @@ abstract class ApiService {
   //-> Home Main Page
   @GET(ApiConstants.companyHomeMainPage)
   Future<CompanyHomeMainPageResponseBody> getCompanyHomeMainPage();
+
+  //-> Home See Resume
+  @GET(ApiConstants.companyHomeSeeResume)
+  Future<CompanyHomeSeeResumeResponseBody> getCompanyHomeSeeResume(
+      @Path('developerId') String developerId,
+      );
 
   //->Post Job
   @POST(ApiConstants.companyJobsPost)

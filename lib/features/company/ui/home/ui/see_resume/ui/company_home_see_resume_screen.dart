@@ -2,6 +2,7 @@ import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
+import 'package:carrerk/features/company/ui/home/ui/see_resume/ui/widgets/company_see_resume_bloc_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -21,11 +22,7 @@ class CompanyHomeSeeResumeScreen extends StatelessWidget {
                 style: AppTextStyles.font24RangoonGreenPoppinsMedium,
               ),
               verticalSpace(56),
-              Image.asset(
-                'assets/images/my_cv.png',
-                width: double.infinity,
-                height: 406.h,
-              ),
+              const CompanyHomeSeeResumeBlocBuilder(),
               verticalSpace(72),
               AppTextButton(
                   buttonText: 'Back',
