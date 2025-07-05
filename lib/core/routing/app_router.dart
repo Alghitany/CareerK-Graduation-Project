@@ -29,18 +29,20 @@ import '../../features/chats/person_chat/logic/get_chat_messages/get_chat_messag
 import '../../features/chats/person_chat/logic/send_messages/send_messages_cubit.dart';
 import '../../features/chats/person_chat/logic/start_chat/start_chat_room_cubit.dart';
 import '../../features/chats/person_chat/ui/chats_person_chat_screen.dart';
-import '../../features/company/jobs_post/logic/company_jobs_post_cubit.dart';
-import '../../features/company/jobs_post/ui/success/company_job_post_success_screen.dart';
 import '../../features/company/logic/company_jobs_delete_post_cubit.dart';
-import '../../features/company/sign_up/logic/company_sign_up_cubit.dart';
 import '../../features/company/ui/home/logic/update_application_status_logic/company_update_application_status_cubit.dart';
-import '../../features/company/ui/home/ui/main_page/company_home_main_page_screen.dart';
+import '../../features/company/ui/home/ui/main_page/data/repo/company_home_main_page_repo.dart';
+import '../../features/company/ui/home/ui/main_page/logic/company_home_main_page_cubit.dart';
+import '../../features/company/ui/home/ui/main_page/ui/company_home_main_page_screen.dart';
 import '../../features/company/ui/home/ui/see_details/company_home_see_details_screen.dart';
 import '../../features/company/ui/home/ui/see_resume/company_home_see_resume_screen.dart';
 import '../../features/company/ui/home/ui/send_offer/company_home_send_offer_screen.dart';
 import '../../features/company/ui/jobs/company_jobs_screen.dart';
+import '../../features/company/ui/jobs_post/logic/company_jobs_post_cubit.dart';
+import '../../features/company/ui/jobs_post/ui/success/company_job_post_success_screen.dart';
 import '../../features/company/ui/profile/company_profile_screen.dart';
 import '../../features/company/ui/send_to_applicants/message-applicant/company_send_to_applicants_message_applicant_screen.dart';
+import '../../features/company/ui/sign_up/logic/company_sign_up_cubit.dart';
 import '../../features/customer/sign_up/logic/customer_sign_up_cubit.dart';
 import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
 import '../../features/developer/logic/developer_recommendations_logic/developer_recommendations_cubit.dart';
@@ -170,11 +172,21 @@ class AppRouter {
       // Home
       case Routes.companyHomeMainPageScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (_) => StartChatRoomCubit(getIt<StartChatRoomRepo>()),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) =>
+                    CompanyHomeMainPageCubit(getIt<CompanyHomeMainPageRepo>())
+                      ..getCompanyHomeMainPageData(),
+              ),
+              BlocProvider(
+                create: (_) => StartChatRoomCubit(getIt<StartChatRoomRepo>()),
+              ),
+            ],
             child: const CompanyHomeMainPageScreen(),
           ),
         );
+
       case Routes.companyHomeSendOfferScreen:
         return MaterialPageRoute(
           builder: (_) => const CompanyHomeSendOfferScreen(),

@@ -60,37 +60,37 @@ class _MainPageRecommendedJobsListState
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-            ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: Image.network(
-              job.companyProfilePicture ?? '',
-              width: 88.w,
-              height: 88.h,
-              fit: BoxFit.cover,
-              errorBuilder: (context, error, stackTrace) {
-                return Image.asset(
-                  "assets/images/recommended_job.png",
-                  width: 88.w,
-                  height: 88.h,
-                  fit: BoxFit.cover,
-                );
-              },
-              loadingBuilder: (context, child, loadingProgress) {
-                if (loadingProgress == null) return child;
-                return Shimmer.fromColors(
-                  baseColor: Colors.grey.shade300,
-                  highlightColor: Colors.grey.shade100,
-                  child: Container(
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Image.network(
+                    job.companyProfilePicture ?? '',
                     width: 88.w,
                     height: 88.h,
-                    color: Colors.white,
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Image.asset(
+                        "assets/images/recommended_job.png",
+                        width: 88.w,
+                        height: 88.h,
+                        fit: BoxFit.cover,
+                      );
+                    },
+                    loadingBuilder: (context, child, loadingProgress) {
+                      if (loadingProgress == null) return child;
+                      return Shimmer.fromColors(
+                        baseColor: Colors.grey.shade300,
+                        highlightColor: Colors.grey.shade100,
+                        child: Container(
+                          width: 88.w,
+                          height: 88.h,
+                          color: Colors.white,
+                        ),
+                      );
+                    },
                   ),
-                );
-              },
-            ),
-          ),
+                ),
 
-          horizontalSpace(12),
+                horizontalSpace(12),
                 // Job Details
                 Expanded(
                   child: Column(
@@ -112,10 +112,12 @@ class _MainPageRecommendedJobsListState
                           horizontalSpace(6),
                           SizedBox(
                             width: 120.w,
-                            child: Text(job.salaryRange ?? "N/A",
-                                style:
-                                AppTextStyles.font14DuskyBluePoppinsSemiBold,
-                                overflow: TextOverflow.ellipsis,),
+                            child: Text(
+                              job.salaryRange ?? "N/A",
+                              style:
+                                  AppTextStyles.font14DuskyBluePoppinsSemiBold,
+                              overflow: TextOverflow.ellipsis,
+                            ),
                           ),
                         ],
                       ),
@@ -125,8 +127,8 @@ class _MainPageRecommendedJobsListState
 
                 // BlocProvider wraps only the bookmark widget
                 BlocProvider(
-                  create: (_) =>
-                  getIt<DeveloperSingleJobBookmarkCubit>()..bookmarkJob(job.id!),
+                  create: (_) => getIt<DeveloperSingleJobBookmarkCubit>()
+                    ..bookmarkJob(job.id!),
                   child: DeveloperJobBookmarkBlocBuilder(postId: job.id!),
                 ),
               ],

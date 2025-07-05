@@ -1,6 +1,5 @@
 class ApiConstants {
-  static const String apiBaseUrl =
-      "https://e419-197-164-8-153.ngrok-free.app/";
+  static const String apiBaseUrl = "https://e419-197-164-8-153.ngrok-free.app/";
   static const String baseImageUrl =
       "https://3e6a-197-166-238-191.ngrok-free.app/uploads/profile_pictures/";
 
@@ -89,6 +88,9 @@ class ApiConstants {
   //------ company ------------
   //->Sign up
   static const String companySignup = "api/company/register";
+
+  //->Post Job
+  static const String companyHomeMainPage = "api/company/homepage";
 
   //->Post Job
   static const String companyJobsPost = "api/jobs/create-job-post";
