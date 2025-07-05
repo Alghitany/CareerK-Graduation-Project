@@ -40,8 +40,8 @@ class _MainPageCoursesListState extends State<MainPageCoursesList> {
                 width: 277.h,
                 child: GestureDetector(
                   onTap: () {
-                    context.pushNamed(
-                        Routes.developerCoursesCourseDetailsScreen);
+                    context
+                        .pushNamed(Routes.developerCoursesCourseDetailsScreen);
                   },
                   child: Card(
                     elevation: 2,
@@ -81,8 +81,8 @@ class _MainPageCoursesListState extends State<MainPageCoursesList> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.only(
-                                      top: 8.0.h, left: 8.0.w),
+                                  padding:
+                                      EdgeInsets.only(top: 8.0.h, left: 8.0.w),
                                   child: Row(
                                     children: [
                                       SizedBox(
@@ -107,8 +107,7 @@ class _MainPageCoursesListState extends State<MainPageCoursesList> {
                                 Padding(
                                   padding: EdgeInsets.only(left: 8.0.w),
                                   child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: [
@@ -122,8 +121,7 @@ class _MainPageCoursesListState extends State<MainPageCoursesList> {
                                               .font14BlackMulishBold),
                                       horizontalSpace(8),
                                       const Icon(Icons.star,
-                                          color:
-                                              ColorsManager.schoolBusYellow,
+                                          color: ColorsManager.schoolBusYellow,
                                           size: 20),
                                       horizontalSpace(4),
                                       Text(
@@ -140,8 +138,9 @@ class _MainPageCoursesListState extends State<MainPageCoursesList> {
                             Padding(
                               padding: EdgeInsets.only(bottom: 24.0.h),
                               child: BlocProvider(
-                                create: (_) => getIt<DeveloperSingleCourseBookmarkCubit>()
-                                  ..bookmarkCourse(course.courseId!),
+                                create: (_) =>
+                                    getIt<DeveloperSingleCourseBookmarkCubit>()
+                                      ..bookmarkCourse(course.courseId!),
                                 child: DeveloperCourseBookmarkBlocBuilder(
                                   courseId: course.courseId ?? '',
                                 ),

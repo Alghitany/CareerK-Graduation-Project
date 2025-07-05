@@ -16,7 +16,7 @@ class DeveloperRecommendationsResponseBody {
   });
 
   factory DeveloperRecommendationsResponseBody.fromJson(
-      Map<String, dynamic> json) =>
+          Map<String, dynamic> json) =>
       _$DeveloperRecommendationsResponseBodyFromJson(json);
 
   Map<String, dynamic> toJson() =>

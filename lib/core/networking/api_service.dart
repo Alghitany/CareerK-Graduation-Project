@@ -14,10 +14,11 @@ import '../../features/chats/person_chat/data/models/get_chat_messages/get_chat_
 import '../../features/chats/person_chat/data/models/start_chat/start_chat_room_request_body.dart';
 import '../../features/chats/person_chat/data/models/start_chat/start_chat_room_response.dart';
 import '../../features/company/data/model/company_jobs_delete_post_response.dart';
-import '../../features/company/jobs_post/data/models/company_jobs_post_request_body.dart';
-import '../../features/company/jobs_post/data/models/company_jobs_post_response.dart';
 import '../../features/company/ui/home/data/models/update_application_status_model/company_update_application_status_request_body.dart';
 import '../../features/company/ui/home/data/models/update_application_status_model/company_update_application_status_response.dart';
+import '../../features/company/ui/home/ui/main_page/data/model/company_home_main_page_response_body.dart';
+import '../../features/company/ui/jobs_post/data/models/company_jobs_post_request_body.dart';
+import '../../features/company/ui/jobs_post/data/models/company_jobs_post_response.dart';
 import '../../features/developer/data/models/developer_courses_and_jobs_main_page_profile_models/developer_courses_and_jobs_main_page_profile_response_model.dart';
 import '../../features/developer/data/models/developer_recommendtions_models/developer_recommendations_response_body.dart';
 import '../../features/developer/data/models/developer_single_course_bookmark_models/developer_single_course_bookmark_response_model.dart';
@@ -163,6 +164,10 @@ abstract class ApiService {
 
   //----------------- Company
   // Company Sign up Handled with dio
+  //-> Home Main Page
+  @GET(ApiConstants.companyHomeMainPage)
+  Future<CompanyHomeMainPageResponseBody> getCompanyHomeMainPage();
+
   //->Post Job
   @POST(ApiConstants.companyJobsPost)
   Future<CompanyJobsPostResponse> companyJobsPost(

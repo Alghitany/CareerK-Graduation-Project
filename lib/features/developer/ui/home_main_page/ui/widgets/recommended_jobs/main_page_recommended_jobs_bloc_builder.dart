@@ -1,20 +1,21 @@
 import 'package:carrerk/features/developer/ui/home_main_page/ui/widgets/recommended_jobs/main_page_recommended_jobs_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../../../data/models/developer_recommendtions_models/developer_recommendations_response_body.dart';
 import '../../../../../logic/developer_recommendations_logic/developer_recommendations_cubit.dart';
 import '../../../../../logic/developer_recommendations_logic/developer_recommendations_state.dart';
 import 'main_page_recommended_jobs_list.dart';
-
 
 class MainPageRecommendedJobsBlocBuilder extends StatelessWidget {
   const MainPageRecommendedJobsBlocBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<DeveloperRecommendationsCubit, DeveloperRecommendationsState>(
+    return BlocBuilder<DeveloperRecommendationsCubit,
+        DeveloperRecommendationsState>(
       buildWhen: (previous, current) =>
-      current is RecommendationsLoading ||
+          current is RecommendationsLoading ||
           current is RecommendationsSuccess ||
           current is RecommendationsError,
       builder: (context, state) {
