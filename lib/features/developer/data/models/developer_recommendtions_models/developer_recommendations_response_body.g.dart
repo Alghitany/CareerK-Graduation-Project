@@ -56,6 +56,7 @@ JobRecommendation _$JobRecommendationFromJson(Map<String, dynamic> json) =>
       deadlineTask: json['deadline_task'] as String?,
       companyDepartment: json['company_department'] as String?,
       jobAvailability: json['job_availability'] as String?,
+      companyProfilePicture: json['company_profile_picture'] as String?,
       score: (json['score'] as num?)?.toDouble(),
     );
 
@@ -81,6 +82,7 @@ Map<String, dynamic> _$JobRecommendationToJson(JobRecommendation instance) =>
       'deadline_task': instance.deadlineTask,
       'company_department': instance.companyDepartment,
       'job_availability': instance.jobAvailability,
+      'company_profile_picture': instance.companyProfilePicture,
       'score': instance.score,
     };
 
@@ -100,6 +102,7 @@ ServiceRecommendation _$ServiceRecommendationFromJson(
       contactInfo: json['contact_info'] as String?,
       createdAt: json['created_at'] as String?,
       updatedAt: json['updated_at'] as String?,
+      customerProfilePicture: json['customer_profile_picture'] as String?,
       score: (json['score'] as num?)?.toDouble(),
     );
 
@@ -117,5 +120,6 @@ Map<String, dynamic> _$ServiceRecommendationToJson(
       'contact_info': instance.contactInfo,
       'created_at': instance.createdAt,
       'updated_at': instance.updatedAt,
+      'customer_profile_picture': instance.customerProfilePicture,
       'score': instance.score,
     };
