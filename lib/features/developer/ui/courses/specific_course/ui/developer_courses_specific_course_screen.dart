@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../../../core/widgets/app_tab_switcher.dart';
 import 'widgets/course_lectures_tab/course_lectures_tab.dart';
-import 'widgets/course_overview_tap/course_overview_tab.dart';
 import 'widgets/course_reviews_tab/course_reviews_tab.dart';
+import 'widgets/specific_course_overview/specific_course_overview_bloc_builder.dart';
 
 class DeveloperCoursesSpecificCourseScreen extends StatefulWidget {
   final String? courseId;
@@ -45,7 +45,7 @@ class _DeveloperCoursesSpecificCourseScreenState
                     currentTabIndex = newIndex;
                   });
                 },
-                option0: CourseOverviewTab(
+                option0: SpecificCourseOverviewBlocBuilder(
                   onStartLearning: switchToLecturesTab,
                 ),
                 option1: const CourseLecturesTab(),

@@ -64,6 +64,7 @@ import '../../features/developer/ui/courses/roadmaps/ui/developer_courses_roadma
 import '../../features/developer/ui/courses/specific_category/logic/developer_courses_specific_category_cubit.dart';
 import '../../features/developer/ui/courses/specific_category/ui/developer_courses_specific_category_screen.dart';
 import '../../features/developer/ui/courses/specific_course/logic/specific_course_header_logic/specific_course_header_cubit.dart';
+import '../../features/developer/ui/courses/specific_course/logic/specific_course_overview_logic/specific_course_overview_cubit.dart';
 import '../../features/developer/ui/courses/specific_course/ui/developer_courses_specific_course_screen.dart';
 import '../../features/developer/ui/home_main_page/logic/developer_courses_home_main_page_logic/developer_courses_home_main_page_cubit.dart';
 import '../../features/developer/ui/home_main_page/logic/developer_name_home_main_page_logic/developer_name_home_main_page_cubit.dart';
@@ -399,9 +400,17 @@ class AppRouter {
       case Routes.developerCoursesSpecificCourseScreen:
         final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<SpecificCourseHeaderCubit>()
-              ..getSpecificCourseHeader(args.courseId!),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => getIt<SpecificCourseHeaderCubit>()
+                  ..getSpecificCourseHeader(args.courseId!),
+              ),
+              BlocProvider(
+                create: (context) => getIt<SpecificCourseOverviewCubit>()
+                  ..getSpecificCourseOverview(args.courseId!),
+              ),
+            ],
             child:
                 DeveloperCoursesSpecificCourseScreen(courseId: args.courseId!),
           ),
