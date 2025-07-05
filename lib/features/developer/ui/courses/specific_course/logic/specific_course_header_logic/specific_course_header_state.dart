@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../../../core/networking/api_error_handler.dart';
 import '../../data/model/specific_course_header_models/specific_course_header_response_body.dart';
+
 part 'specific_course_header_state.freezed.dart';
 
 @freezed

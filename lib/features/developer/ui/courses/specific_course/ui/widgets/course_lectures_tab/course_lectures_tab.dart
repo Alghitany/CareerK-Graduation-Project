@@ -85,7 +85,7 @@ class CourseLecturesTab extends StatelessWidget {
                                   // Optional base color
                                   boxShadow: [
                                     BoxShadow(
-                                      color: Colors.black.withOpacity(0.15),
+                                      color: Colors.black.withAlpha((0.15 * 255).round()),
                                       blurRadius: 12,
                                       offset: const Offset(0, 3),
                                     ),
@@ -146,8 +146,8 @@ class CourseLecturesTab extends StatelessWidget {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    Colors.white.withOpacity(0.05),
-                    Colors.white.withOpacity(0.8),
+                    Colors.white.withAlpha((0.05 * 255).round()),
+                    Colors.white.withAlpha((0.8 * 255).round()),
                   ],
                 ),
               ),
@@ -156,7 +156,7 @@ class CourseLecturesTab extends StatelessWidget {
 
           // Sticky button
           Positioned(
-            bottom: 24.h,
+            bottom: 45.h,
             left: 24.w,
             right: 24.w,
             child: AppTextButton(

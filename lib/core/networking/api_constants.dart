@@ -68,9 +68,13 @@ class ApiConstants {
   //-----> Roadmaps & Track Courses Base Path
   static const String developerTracksBasePath = "api/tracks-page/tracks";
 
-  //-----> Roadmaps & Track Courses Base Path
+  //-----> Specific Course Header
   static const String developerSpecificCourseHeader =
       "api/course-details/{courseId}/header";
+
+  //-----> Specific Course Overview
+  static const String developerSpecificCourseOverview =
+      "api/course-details/{courseId}/overview";
 
   //-----> Profile
   //-> Applied Jobs

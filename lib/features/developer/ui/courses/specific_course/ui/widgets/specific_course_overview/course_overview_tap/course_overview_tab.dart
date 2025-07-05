@@ -5,12 +5,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../../../../../../core/theming/colors.dart';
+import '../../../../../../../../../core/theming/colors.dart';
 
 class CourseOverviewTab extends StatelessWidget {
+  final String totalVideoTime;
+  final bool hasCertificate;
+  final String difficulty;
+  final String description;
   final VoidCallback onStartLearning;
 
-  const CourseOverviewTab({super.key, required this.onStartLearning});
+  const CourseOverviewTab({
+    super.key,
+    required this.totalVideoTime,
+    required this.hasCertificate,
+    required this.difficulty,
+    required this.description,
+    required this.onStartLearning,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +42,7 @@ class CourseOverviewTab extends StatelessWidget {
               ),
               horizontalSpace(8),
               Text(
-                '6 Hours',
+                totalVideoTime,
                 style: AppTextStyles.font16LiverPoppinsRegular,
               )
             ],
@@ -50,7 +61,7 @@ class CourseOverviewTab extends StatelessWidget {
               ),
               horizontalSpace(8),
               Text(
-                'Completion Certificate',
+                hasCertificate ? 'Completion Certificate' : 'No Certificate',
                 style: AppTextStyles.font16LiverPoppinsRegular,
               )
             ],
@@ -69,7 +80,7 @@ class CourseOverviewTab extends StatelessWidget {
               ),
               horizontalSpace(8),
               Text(
-                'Beginner',
+                difficulty.isNotEmpty ? difficulty : 'Unknown Level',
                 style: AppTextStyles.font16LiverPoppinsRegular,
               )
             ],
@@ -86,7 +97,7 @@ class CourseOverviewTab extends StatelessWidget {
           Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              'Lorem ipsum dolor sit amet consectetur. Senectus condimentum semper aliquet id quam suspendisse. Iaculis tincidunt hac aliquet tincidunt facilisis sed.',
+              description,
               style: AppTextStyles.font14BlackPoppinsRegular,
             ),
           ),
@@ -94,9 +105,10 @@ class CourseOverviewTab extends StatelessWidget {
           Align(
             alignment: Alignment.bottomCenter,
             child: AppTextButton(
-                buttonText: "Start Learning",
-                textStyle: AppTextStyles.font14WhitePoppinsMedium,
-                onPressed: onStartLearning),
+              buttonText: "Start Learning",
+              textStyle: AppTextStyles.font14WhitePoppinsMedium,
+              onPressed: onStartLearning,
+            ),
           )
         ],
       ),

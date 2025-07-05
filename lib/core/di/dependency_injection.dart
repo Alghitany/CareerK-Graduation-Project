@@ -58,6 +58,8 @@ import '../../features/developer/logic/developer_single_course_bookmark_logic/de
 import '../../features/developer/ui/courses/main_page/logic/developer_courses_main_page_roadmaps_cubit.dart';
 import '../../features/developer/ui/courses/roadmaps/data/repo/developer_courses_roadmaps_repo.dart';
 import '../../features/developer/ui/courses/roadmaps/logic/developer_courses_roadmaps_cubit.dart';
+import '../../features/developer/ui/courses/specific_course/data/repo/specific_course_overview_repo.dart';
+import '../../features/developer/ui/courses/specific_course/logic/specific_course_overview_logic/specific_course_overview_cubit.dart';
 import '../../features/developer/ui/home_main_page/logic/developer_name_home_main_page_logic/developer_name_home_main_page_cubit.dart';
 import '../../features/developer/ui/home_main_page/logic/developer_tags_home_main_page_logic/developer_tags_home_main_page_cubit.dart';
 import '../../features/developer/ui/jobs/apply/data/repo/developer_jobs_apply_repo.dart';
@@ -228,6 +230,13 @@ Future<void> setupGetIt() async {
   );
   getIt.registerFactory<SpecificCourseHeaderCubit>(
     () => SpecificCourseHeaderCubit(getIt()),
+  );
+  //-> Overview
+  getIt.registerLazySingleton<SpecificCourseOverviewRepo>(
+    () => SpecificCourseOverviewRepo(getIt()),
+  );
+  getIt.registerFactory<SpecificCourseOverviewCubit>(
+    () => SpecificCourseOverviewCubit(getIt()),
   );
   // -> Profile
   // -> Jobs Applied
