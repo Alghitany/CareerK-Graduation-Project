@@ -6,7 +6,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SalaryAndLocation extends StatelessWidget {
-  const SalaryAndLocation({super.key});
+  final String salaryRange;
+  final String location;
+
+  const SalaryAndLocation({
+    super.key,
+    required this.salaryRange,
+    required this.location,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +32,7 @@ class SalaryAndLocation extends StatelessWidget {
               ),
               horizontalSpace(20),
               Text(
-                '\$500 - \$1,000',
+                salaryRange,
                 style: AppTextStyles.font20DunePoppinsMedium,
               )
             ],
@@ -42,7 +49,7 @@ class SalaryAndLocation extends StatelessWidget {
               ),
               horizontalSpace(40),
               Text(
-                'Mansoura,Egypt.',
+                location,
                 style: AppTextStyles.font20DunePoppinsMedium,
               )
             ],

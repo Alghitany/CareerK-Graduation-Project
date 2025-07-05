@@ -1,7 +1,7 @@
+import 'package:carrerk/core/theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
-import 'package:carrerk/core/theming/colors.dart';
 
 class CvPreviewAndDownload extends StatefulWidget {
   final String cvUrl;
@@ -22,23 +22,23 @@ class _CvPreviewAndDownloadState extends State<CvPreviewAndDownload> {
       child: _isLoadFailed
           ? _buildShimmerPlaceholder()
           : SfPdfViewer.network(
-        widget.cvUrl,
-        onDocumentLoadFailed: (details) {
-          setState(() {
-            _isLoadFailed = true;
-          });
+              widget.cvUrl,
+              onDocumentLoadFailed: (details) {
+                setState(() {
+                  _isLoadFailed = true;
+                });
 
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              backgroundColor: ColorsManager.rangoonGreen,
-              content: Text(
-                'Failed to load PDF: ${details.description}',
-                style: const TextStyle(color: Colors.white),
-              ),
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    backgroundColor: ColorsManager.rangoonGreen,
+                    content: Text(
+                      'Failed to load PDF: ${details.description}',
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                  ),
+                );
+              },
             ),
-          );
-        },
-      ),
     );
   }
 

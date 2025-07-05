@@ -1,13 +1,11 @@
 import 'package:carrerk/core/helpers/spacing.dart';
+import 'package:carrerk/features/company/ui/home/ui/see_details/ui/widgets/see_details_bloc_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../widgets/developer_details.dart';
-import '../widgets/name_title_and_image.dart';
-import '../widgets/salary_and_location.dart';
-import '../widgets/see_details_top_bar.dart';
-import 'widgets/company_update_application_status_bloc_builder.dart';
-import 'widgets/company_update_application_status_bloc_listener.dart';
+import '../../widgets/see_details_top_bar.dart';
+import 'widgets/hire_buttons/company_update_application_status_bloc_builder.dart';
+import 'widgets/hire_buttons/company_update_application_status_bloc_listener.dart';
 
 class CompanyHomeSeeDetailsScreen extends StatelessWidget {
   final String applicationId;
@@ -26,11 +24,7 @@ class CompanyHomeSeeDetailsScreen extends StatelessWidget {
                 children: [
                   const SeeDetailsTopBar(),
                   verticalSpace(56),
-                  const NameTitleAndImage(),
-                  verticalSpace(64),
-                  const SalaryAndLocation(),
-                  verticalSpace(40),
-                  const DeveloperDetails(),
+                  const SeeDetailsBlocBuilder(),
                   CompanyUpdateApplicationStatusBlocBuilder(
                     applicationId: applicationId,
                   ),

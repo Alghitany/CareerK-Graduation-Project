@@ -141,7 +141,8 @@ class RecentPeopleApplied extends StatelessWidget {
                                 onPressed: () {
                                   context.pushNamed(
                                       Routes.companyHomeSeeResumeScreen,
-                                      arguments: AppArgument(developerId: person.developerId));
+                                      arguments: AppArgument(
+                                          developerId: person.developerId));
                                 },
                               ),
                               horizontalSpace(38),

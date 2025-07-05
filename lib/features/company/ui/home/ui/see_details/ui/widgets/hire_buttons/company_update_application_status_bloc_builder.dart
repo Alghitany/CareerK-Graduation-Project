@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../logic/update_application_status_logic/company_update_application_status_cubit.dart';
-import '../../../logic/update_application_status_logic/company_update_application_status_state.dart';
+import '../../../../../logic/update_application_status_logic/company_update_application_status_cubit.dart';
+import '../../../../../logic/update_application_status_logic/company_update_application_status_state.dart';
 import 'hire_buttons.dart';
 
 class CompanyUpdateApplicationStatusBlocBuilder extends StatelessWidget {

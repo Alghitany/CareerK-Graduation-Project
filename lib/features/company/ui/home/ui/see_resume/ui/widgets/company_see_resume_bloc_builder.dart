@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../data/model/company_home_see_resume_response_body.dart';
 import '../../logic/company_home_see_resume_cubit.dart';
 import '../../logic/company_home_see_resume_state.dart';
@@ -14,7 +15,7 @@ class CompanyHomeSeeResumeBlocBuilder extends StatelessWidget {
     return BlocBuilder<CompanyHomeSeeResumeCubit,
         CompanyHomeSeeResumeState<CompanyHomeSeeResumeResponseBody>>(
       buildWhen: (previous, current) =>
-      current is Loading ||
+          current is Loading ||
           current is Success<CompanyHomeSeeResumeResponseBody> ||
           current is Error,
       builder: (context, state) {
@@ -33,7 +34,9 @@ class CompanyHomeSeeResumeBlocBuilder extends StatelessWidget {
   }
 
   Widget _buildSuccess(CompanyHomeSeeResumeResponseBody data) {
-    return CvPreviewAndDownload(cvUrl: data.uploadedCvLink ?? '',);
+    return CvPreviewAndDownload(
+      cvUrl: data.uploadedCvLink ?? '',
+    );
   }
 
   Widget _buildError(String error) {

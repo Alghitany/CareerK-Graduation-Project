@@ -15,8 +15,10 @@ class CompanyHomeSeeResumeResponseBody {
     this.uploadedCvLink,
   });
 
-  factory CompanyHomeSeeResumeResponseBody.fromJson(Map<String, dynamic> json) =>
+  factory CompanyHomeSeeResumeResponseBody.fromJson(
+          Map<String, dynamic> json) =>
       _$CompanyHomeSeeResumeResponseBodyFromJson(json);
 
-  Map<String, dynamic> toJson() => _$CompanyHomeSeeResumeResponseBodyToJson(this);
+  Map<String, dynamic> toJson() =>
+      _$CompanyHomeSeeResumeResponseBodyToJson(this);
 }

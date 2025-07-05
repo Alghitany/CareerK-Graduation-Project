@@ -11,7 +11,8 @@ class CompanyHomeSeeResumeCubit
   CompanyHomeSeeResumeCubit(this._repo)
       : super(const CompanyHomeSeeResumeState.initial());
 
-  Future<void> getCompanyHomeSeeResumeData({required String developerId}) async {
+  Future<void> getCompanyHomeSeeResumeData(
+      {required String developerId}) async {
     emit(const CompanyHomeSeeResumeState.loading());
     final result = await _repo.getCompanyHomeSeeResume(developerId);
     result.when(

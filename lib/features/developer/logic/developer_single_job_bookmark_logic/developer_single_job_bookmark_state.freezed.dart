@@ -26,6 +26,7 @@ mixin _$DeveloperSingleJobBookmarkState {
     required TResult Function(ErrorHandler errorHandler) error,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
@@ -45,6 +46,7 @@ mixin _$DeveloperSingleJobBookmarkState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_DeveloperSingleJobBookmarkInitial value) initial,
@@ -53,6 +55,7 @@ mixin _$DeveloperSingleJobBookmarkState {
     required TResult Function(DeveloperSingleJobBookmarkError value) error,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_DeveloperSingleJobBookmarkInitial value)? initial,
@@ -87,9 +90,9 @@ class _$DeveloperSingleJobBookmarkStateCopyWithImpl<$Res,
     implements $DeveloperSingleJobBookmarkStateCopyWith<$Res> {
   _$DeveloperSingleJobBookmarkStateCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
+// ignore: unused_field
   final $Val _value;
-  // ignore: unused_field
+// ignore: unused_field
   final $Res Function($Val) _then;
 
   /// Create a copy of DeveloperSingleJobBookmarkState
