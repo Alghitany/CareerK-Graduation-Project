@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../../../../../../../core/di/dependency_injection.dart';
 import '../../../../../../../core/widgets/job_bookmark/developer_job_bookmark_bloc_builder.dart';
@@ -59,16 +60,37 @@ class _MainPageRecommendedJobsListState
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: Image.asset(
-                    "assets/images/recommended_job.png",
+            ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Image.network(
+              job.companyProfilePicture ?? '',
+              width: 88.w,
+              height: 88.h,
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) {
+                return Image.asset(
+                  "assets/images/recommended_job.png",
+                  width: 88.w,
+                  height: 88.h,
+                  fit: BoxFit.cover,
+                );
+              },
+              loadingBuilder: (context, child, loadingProgress) {
+                if (loadingProgress == null) return child;
+                return Shimmer.fromColors(
+                  baseColor: Colors.grey.shade300,
+                  highlightColor: Colors.grey.shade100,
+                  child: Container(
                     width: 88.w,
                     height: 88.h,
-                    fit: BoxFit.cover,
+                    color: Colors.white,
                   ),
-                ),
-                horizontalSpace(12),
+                );
+              },
+            ),
+          ),
+
+          horizontalSpace(12),
                 // Job Details
                 Expanded(
                   child: Column(

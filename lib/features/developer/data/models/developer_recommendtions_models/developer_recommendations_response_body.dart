@@ -16,7 +16,7 @@ class DeveloperRecommendationsResponseBody {
   });
 
   factory DeveloperRecommendationsResponseBody.fromJson(
-          Map<String, dynamic> json) =>
+      Map<String, dynamic> json) =>
       _$DeveloperRecommendationsResponseBodyFromJson(json);
 
   Map<String, dynamic> toJson() =>
@@ -73,6 +73,9 @@ class JobRecommendation {
   @JsonKey(name: 'job_availability')
   final String? jobAvailability;
 
+  @JsonKey(name: 'company_profile_picture')
+  final String? companyProfilePicture;
+
   final double? score;
 
   JobRecommendation({
@@ -96,6 +99,7 @@ class JobRecommendation {
     this.deadlineTask,
     this.companyDepartment,
     this.jobAvailability,
+    this.companyProfilePicture,
     this.score,
   });
 
@@ -135,6 +139,9 @@ class ServiceRecommendation {
   @JsonKey(name: 'updated_at')
   final String? updatedAt;
 
+  @JsonKey(name: 'customer_profile_picture')
+  final String? customerProfilePicture;
+
   final double? score;
 
   ServiceRecommendation({
@@ -149,6 +156,7 @@ class ServiceRecommendation {
     this.contactInfo,
     this.createdAt,
     this.updatedAt,
+    this.customerProfilePicture,
     this.score,
   });
 
