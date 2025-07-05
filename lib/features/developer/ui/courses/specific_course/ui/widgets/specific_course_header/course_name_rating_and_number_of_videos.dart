@@ -2,11 +2,20 @@ import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../../../core/theming/colors.dart';
-import '../../../../../../../core/theming/styles.dart';
+import '../../../../../../../../core/theming/colors.dart';
+import '../../../../../../../../core/theming/styles.dart';
 
 class CourseNameRatingAndNumberOfVideos extends StatelessWidget {
-  const CourseNameRatingAndNumberOfVideos({super.key});
+  final String courseName;
+  final double averageRating;
+  final int numberOfVideos;
+
+  const CourseNameRatingAndNumberOfVideos({
+    super.key,
+    required this.courseName,
+    required this.averageRating,
+    required this.numberOfVideos,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +25,16 @@ class CourseNameRatingAndNumberOfVideos extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Introduction to React',
+            courseName,
             style: AppTextStyles.font16RangoonGreenPoppinsMedium,
           ),
           verticalSpace(4),
           Row(
             children: [
-              Text('4.6', style: AppTextStyles.font14DunePoppinsRegular),
+              Text(
+                averageRating.toStringAsFixed(1),
+                style: AppTextStyles.font14DunePoppinsRegular,
+              ),
               horizontalSpace(4),
               const Icon(
                 Icons.star,
@@ -30,7 +42,10 @@ class CourseNameRatingAndNumberOfVideos extends StatelessWidget {
                 size: 16,
               ),
               horizontalSpace(23),
-              Text('35 Videos', style: AppTextStyles.font14DunePoppinsRegular),
+              Text(
+                '$numberOfVideos Videos',
+                style: AppTextStyles.font14DunePoppinsRegular,
+              ),
             ],
           ),
         ],

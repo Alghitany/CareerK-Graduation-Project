@@ -104,8 +104,8 @@ class Routes {
       "/developerCoursesRelatedCoursesScreen";
   static const String developerCoursesSpecificCategoryScreen =
       "/developerCoursesSpecificCategoryScreen";
-  static const String developerCoursesCourseDetailsScreen =
-      "/developerCoursesCourseDetailsScreen";
+  static const String developerCoursesSpecificCourseScreen =
+      "/developerCoursesSpecificCourseScreen";
   static const String developerCoursesRoadmapsScreen =
       "/developerCoursesRoadmapsScreen";
   static const String developerCoursesMyCoursesScreen =

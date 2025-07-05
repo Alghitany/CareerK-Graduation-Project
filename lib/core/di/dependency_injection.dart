@@ -9,6 +9,8 @@ import 'package:carrerk/features/developer/logic/developer_single_job_bookmark_l
 import 'package:carrerk/features/developer/ui/courses/main_page/data/repo/developer_courses_main_page_roadmaps_repo.dart';
 import 'package:carrerk/features/developer/ui/courses/specific_category/data/repo/developer_courses_specific_category_repo.dart';
 import 'package:carrerk/features/developer/ui/courses/specific_category/logic/developer_courses_specific_category_cubit.dart';
+import 'package:carrerk/features/developer/ui/courses/specific_course/data/repo/specific_course_header_repo.dart';
+import 'package:carrerk/features/developer/ui/courses/specific_course/logic/specific_course_header_logic/specific_course_header_cubit.dart';
 import 'package:carrerk/features/developer/ui/home_main_page/data/repos/developer_courses_home_main_page_repo.dart';
 import 'package:carrerk/features/developer/ui/home_main_page/data/repos/developer_name_home_main_page_repo.dart';
 import 'package:carrerk/features/developer/ui/home_main_page/data/repos/developer_tags_home_main_page_repo.dart';
@@ -218,6 +220,14 @@ Future<void> setupGetIt() async {
   );
   getIt.registerFactory<DeveloperCoursesSpecificCategoryCubit>(
     () => DeveloperCoursesSpecificCategoryCubit(getIt()),
+  );
+  //-> Specific Course
+  //-> Header
+  getIt.registerLazySingleton<SpecificCourseHeaderRepo>(
+    () => SpecificCourseHeaderRepo(getIt()),
+  );
+  getIt.registerFactory<SpecificCourseHeaderCubit>(
+    () => SpecificCourseHeaderCubit(getIt()),
   );
   // -> Profile
   // -> Jobs Applied

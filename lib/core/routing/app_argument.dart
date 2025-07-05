@@ -7,6 +7,7 @@ class AppArgument {
   final String? developerId;
   final String? query;
   final SearchType? searchType;
+  final String? courseId;
   final String? trackId;
   final String? chatRoomId;
   final bool? isExisting;
@@ -19,6 +20,7 @@ class AppArgument {
     this.serviceId,
     this.query,
     this.searchType,
+    this.courseId,
     this.trackId,
     this.chatRoomId,
     this.isExisting,
