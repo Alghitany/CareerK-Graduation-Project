@@ -89,8 +89,11 @@ class ApiConstants {
   //->Sign up
   static const String companySignup = "api/company/register";
 
-  //->Post Job
+  //->Company Home Main Page
   static const String companyHomeMainPage = "api/company/homepage";
+
+  //->Company Home See Resume
+  static const String companyHomeSeeResume = "api/company/{developerId}/cv";
 
   //->Post Job
   static const String companyJobsPost = "api/jobs/create-job-post";

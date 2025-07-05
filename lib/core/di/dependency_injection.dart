@@ -37,6 +37,8 @@ import '../../features/chats/person_chat/logic/start_chat/start_chat_room_cubit.
 import '../../features/company/ui/home/data/repos/company_update_application_status_repo.dart';
 import '../../features/company/ui/home/logic/update_application_status_logic/company_update_application_status_cubit.dart';
 import '../../features/company/ui/home/ui/main_page/logic/company_home_main_page_cubit.dart';
+import '../../features/company/ui/home/ui/see_resume/data/repo/company_home_see_resume_repo.dart';
+import '../../features/company/ui/home/ui/see_resume/logic/company_home_see_resume_cubit.dart';
 import '../../features/company/ui/jobs_post/data/repos/company_jobs_post_repo.dart';
 import '../../features/company/ui/jobs_post/logic/company_jobs_post_cubit.dart';
 import '../../features/company/ui/sign_up/data/repo/company_sign_up_repo.dart';
@@ -247,6 +249,13 @@ Future<void> setupGetIt() async {
   );
   getIt.registerFactory<CompanyHomeMainPageCubit>(
     () => CompanyHomeMainPageCubit(getIt()),
+  );
+  //-> Home See Resume
+  getIt.registerLazySingleton<CompanyHomeSeeResumeRepo>(
+        () => CompanyHomeSeeResumeRepo(getIt()),
+  );
+  getIt.registerFactory<CompanyHomeSeeResumeCubit>(
+        () => CompanyHomeSeeResumeCubit(getIt()),
   );
   // -> Jobs Post
   getIt.registerLazySingleton<CompanyJobsPostRepo>(

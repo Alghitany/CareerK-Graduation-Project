@@ -140,7 +140,8 @@ class RecentPeopleApplied extends StatelessWidget {
                                     AppTextStyles.font11DuskyBluePoppinsMedium,
                                 onPressed: () {
                                   context.pushNamed(
-                                      Routes.companyHomeSeeResumeScreen);
+                                      Routes.companyHomeSeeResumeScreen,
+                                      arguments: AppArgument(developerId: person.developerId));
                                 },
                               ),
                               horizontalSpace(38),

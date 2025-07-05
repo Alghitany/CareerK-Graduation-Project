@@ -817,6 +817,40 @@ class _ApiService implements ApiService {
   }
 
   @override
+  Future<CompanyHomeSeeResumeResponseBody> getCompanyHomeSeeResume(
+      String developerId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<CompanyHomeSeeResumeResponseBody>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'api/company/${developerId}/cv',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late CompanyHomeSeeResumeResponseBody _value;
+    try {
+      _value = CompanyHomeSeeResumeResponseBody.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
   Future<CompanyJobsPostResponse> companyJobsPost(
       CompanyJobsPostRequestBody companyJobsPostRequestBody) async {
     final _extra = <String, dynamic>{};

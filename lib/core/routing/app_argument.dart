@@ -4,6 +4,7 @@ class AppArgument {
   final String? jobId;
   final String? serviceId;
   final String? applicationId;
+  final String? developerId;
   final String? query;
   final SearchType? searchType;
   final String? trackId;
@@ -13,6 +14,7 @@ class AppArgument {
 
   AppArgument({
     this.applicationId,
+    this.developerId,
     this.jobId,
     this.serviceId,
     this.query,
