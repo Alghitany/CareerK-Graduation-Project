@@ -1,5 +1,6 @@
 import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
+import 'package:carrerk/core/routing/app_argument.dart';
 import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/widgets/course_bookmark/developer_course_bookmark_bloc_builder.dart';
@@ -40,8 +41,9 @@ class _MainPageCoursesListState extends State<MainPageCoursesList> {
                 width: 277.h,
                 child: GestureDetector(
                   onTap: () {
-                    context
-                        .pushNamed(Routes.developerCoursesCourseDetailsScreen);
+                    context.pushNamed(
+                        Routes.developerCoursesSpecificCourseScreen,
+                        arguments: AppArgument(courseId: course.courseId));
                   },
                   child: Card(
                     elevation: 2,
