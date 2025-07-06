@@ -12,7 +12,7 @@ class CompanyFloatingActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushNamed(Routes.companyJobPostFirstScreen);
+        context.pushNamed(Routes.companyJobsPostFlow);
       },
       child: Container(
         width: 60.w,

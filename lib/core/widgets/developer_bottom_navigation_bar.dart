@@ -71,8 +71,8 @@ class _DeveloperBottomNavigationBarState
               icon: Column(
                 children: [
                   SvgPicture.asset(
-                    height: 21.h,
-                    width: 21.w,
+                    height: 20.h,
+                    width: 20.w,
                     "assets/svgs/course.svg",
                     colorFilter: ColorFilter.mode(
                       _selectedIndex == 1 ? _selectedColor : _unselectedColor,
@@ -97,8 +97,8 @@ class _DeveloperBottomNavigationBarState
               icon: Column(
                 children: [
                   SvgPicture.asset(
-                    height: 21.h,
-                    width: 21.w,
+                    height: 20.h,
+                    width: 20.w,
                     "assets/svgs/job.svg",
                     colorFilter: ColorFilter.mode(
                       _selectedIndex == 2 ? _selectedColor : _unselectedColor,

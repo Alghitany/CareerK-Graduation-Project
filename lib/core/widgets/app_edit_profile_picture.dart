@@ -17,19 +17,22 @@ class AppEditProfilePicture extends StatefulWidget {
   final Color? editIconBackgroundColor;
   final double? editIconHeight;
   final double? editIconWidth;
+  final void Function(File? imageFile)? onImageSelected;
 
-  const AppEditProfilePicture(
-      {super.key,
-      this.imageRadius,
-      this.backgroundColor,
-      this.defaultContentHeight,
-      this.defaultContentColor,
-      this.editIconBottomPosition,
-      this.editIconRightPosition,
-      this.editIconBackgroundRadius,
-      this.editIconBackgroundColor,
-      this.editIconHeight,
-      this.editIconWidth});
+  const AppEditProfilePicture({
+    super.key,
+    this.imageRadius,
+    this.backgroundColor,
+    this.defaultContentHeight,
+    this.defaultContentColor,
+    this.editIconBottomPosition,
+    this.editIconRightPosition,
+    this.editIconBackgroundRadius,
+    this.editIconBackgroundColor,
+    this.editIconHeight,
+    this.editIconWidth,
+    this.onImageSelected,
+  });
 
   @override
   State<AppEditProfilePicture> createState() => _AppEditProfilePictureState();
@@ -55,9 +58,13 @@ class _AppEditProfilePictureState extends State<AppEditProfilePicture> {
                   Navigator.pop(context);
                   final pickedFile =
                       await _picker.pickImage(source: ImageSource.camera);
+                  final file =
+                      pickedFile != null ? File(pickedFile.path) : null;
+
                   setState(() {
-                    _imagePath = pickedFile?.path;
+                    _imagePath = file?.path;
                   });
+                  widget.onImageSelected?.call(file);
                 },
               ),
               ListTile(
@@ -67,9 +74,13 @@ class _AppEditProfilePictureState extends State<AppEditProfilePicture> {
                   Navigator.pop(context);
                   final pickedFile =
                       await _picker.pickImage(source: ImageSource.gallery);
+                  final file =
+                      pickedFile != null ? File(pickedFile.path) : null;
+
                   setState(() {
-                    _imagePath = pickedFile?.path;
+                    _imagePath = file?.path;
                   });
+                  widget.onImageSelected?.call(file);
                 },
               ),
             ],

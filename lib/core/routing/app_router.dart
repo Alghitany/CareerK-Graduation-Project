@@ -1,69 +1,119 @@
-import 'package:carrerk/features/authentication/verify_code/verify_code_screen.dart';
-import 'package:carrerk/features/company/home/main_page/company_home_main_page_screen.dart';
-import 'package:carrerk/features/customer/sign_up/compulsory_data/customer_sign_up_compulsory_data_screen.dart';
-import 'package:carrerk/features/developer/sign_up/compoulsory_data/developer_sign_up_compulsory_data_screen.dart';
+import 'package:carrerk/core/routing/app_argument.dart';
+import 'package:carrerk/core/routing/company_router/jobs_post_router.dart';
+import 'package:carrerk/core/routing/customer_router/jobs_post_router.dart';
+import 'package:carrerk/core/widgets/pdf_viewer_screen.dart';
+import 'package:carrerk/features/authentication/reset_password/logic/reset_password_cubit.dart';
+import 'package:carrerk/features/authentication/verify_code/logic/verify_code_cubit.dart';
+import 'package:carrerk/features/authentication/verify_code/ui/verify_code_screen.dart';
+import 'package:carrerk/features/customer/applied/first/customer_applied_first_screen.dart';
+import 'package:carrerk/features/customer/applied/secound/customer_applied_secound_screen.dart';
+import 'package:carrerk/features/customer/chats/customer_chats_screen.dart';
+import 'package:carrerk/features/customer/chats/person_chat/customer_chats_person_chat_screen.dart';
+import 'package:carrerk/features/customer/home/customer_home_main_page.dart';
+import 'package:carrerk/features/customer/jobs_post/customer_jobs_post.dart';
+import 'package:carrerk/features/customer/profile/customer_profile_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../features/authentication/change_password/change_password_screen.dart';
-import '../../features/authentication/login/login_screen.dart';
+import '../../features/authentication/change_password/logic/change_password_cubit.dart';
+import '../../features/authentication/change_password/ui/change_password_screen.dart';
+import '../../features/authentication/login/logic/login_cubit.dart';
+import '../../features/authentication/login/ui/login_screen.dart';
 import '../../features/authentication/onboarding/on_boarding_screen.dart';
-import '../../features/authentication/reset_password/reset_password_screen.dart';
+import '../../features/authentication/reset_password/ui/reset_password_screen.dart';
 import '../../features/authentication/successful_change_password/successful_change_password.dart';
-import '../../features/company/chats/person_chat/company_chats_person_chat_screen.dart';
-import '../../features/company/home/see_details/company_home_see_details_screen.dart';
-import '../../features/company/home/see_resume/company_home_see_resume_screen.dart';
-import '../../features/company/jobs/company_jobs_screen.dart';
-import '../../features/company/jobs_post/first/company_job_post_first_screen.dart';
-import '../../features/company/jobs_post/second/company_job_post_second_screen.dart';
-import '../../features/company/jobs_post/success/company_job_post_success_screen.dart';
-import '../../features/company/profile/company_profile_screen.dart';
-import '../../features/company/send_to_applicants/message-applicant/company_send_to_applicants_message_applicant_screen.dart';
-import '../../features/company/sign_up/compulsory_data/company_sign_up_compulsory_data_screen.dart';
-import '../../features/company/sign_up/contact_information/company_sign_up_contact_information.dart';
-import '../../features/company/sign_up/enter_location/company_sign_up_enter_location_screen.dart';
-import '../../features/company/sign_up/fill_profile/company_sign_up_fill_profile_screen.dart';
-import '../../features/customer/sign_up/fill_profile/customer_sign_up_fill_profile_screen.dart';
-import '../../features/developer/community/all_communities/developer_community_all_communities_screen.dart';
-import '../../features/developer/community/chat/developer_community_chat_screen.dart';
-import '../../features/developer/courses/categories/developer_courses_categories_screen.dart';
-import '../../features/developer/courses/certification/developer_courses_certification_screen.dart';
-import '../../features/developer/courses/cv_updated/download_cv/developer_courses_cv_updated_download_cv_screen.dart';
-import '../../features/developer/courses/cv_updated/successful_update/developer_courses_cv_updated_successful_update_screen.dart';
-import '../../features/developer/courses/main_page/developer_courses_main_page_screen.dart';
-import '../../features/developer/courses/my_courses/developer_courses_my_courses_screen.dart';
-import '../../features/developer/courses/roadmaps/developer_courses_roadmaps_screen.dart';
-import '../../features/developer/courses/specific_category/developer_courses_course_screen.dart';
-import '../../features/developer/home_main_page/developer_home_main_page_screen.dart';
-import '../../features/developer/jobs/all_categories/developer_jobs_all_categories_screen.dart';
-import '../../features/developer/jobs/application_submitted/developer_jobs_application_submitted_screen.dart';
-import '../../features/developer/jobs/apply/developer_jobs_apply_screen.dart';
-import '../../features/developer/jobs/job_details/developer_jobs_job_details_screen.dart';
-import '../../features/developer/jobs/main_page/developer_jobs_main_page_screen.dart';
-import '../../features/developer/jobs/search/developer_jobs_search_screen.dart';
-import '../../features/developer/jobs/service_details/developer_jobs_service_details_screen.dart';
-import '../../features/developer/profile/edit_profile/developer_profile_edit_profile_screen.dart';
-import '../../features/developer/profile/jobs_applied/developer_profile_jobs_applied_screen.dart';
-import '../../features/developer/profile/main_page/developer_profile_main_page_screen.dart';
-import '../../features/developer/profile/payment/add_new_cart/developer_profile_payment_add_new_card_screen.dart';
-import '../../features/developer/profile/payment/option/developer_profile_payment_option_screen.dart';
-import '../../features/developer/profile/saved_jobs/developer_profile_saved_jobs_screen.dart';
-import '../../features/developer/profile/settings/developer_profile_settings_screen.dart';
-import '../../features/developer/sign_up/bio_and_skills/developer_sign_up_bio_and_skills_screen.dart';
-import '../../features/developer/sign_up/enter_location/developer_sign_up_enter_location_screen.dart';
-import '../../features/developer/sign_up/fill_profile/developer_sign_up_fill_profile_screen.dart';
-import '../../features/developer/sign_up/optional_data/developer_sign_up_optional_data_screen.dart';
-import '../../features/developer/sign_up/selected_courses/developer_sign_up_selected_courses.dart';
-import '../../features/developer/sign_up_completed/cv_downloaded/developer_sign_up_completed_cv_downloaded.dart';
-import '../../features/developer/sign_up_completed/cv_is_done/developer_sign_up_completed_cv_is_done.dart';
-import '../../features/developer/sign_up_completed/ready_to_go/developer_sign_up_completed_ready_to_go.dart';
+import '../../features/chats/all_chats/logic/chats_all_chats_cubit.dart';
+import '../../features/chats/all_chats/ui/chats_all_chats.dart';
+import '../../features/chats/person_chat/data/repo/start_chat_room_repo.dart';
+import '../../features/chats/person_chat/logic/get_chat_messages/get_chat_messages_cubit.dart';
+import '../../features/chats/person_chat/logic/send_messages/send_messages_cubit.dart';
+import '../../features/chats/person_chat/logic/start_chat/start_chat_room_cubit.dart';
+import '../../features/chats/person_chat/ui/chats_person_chat_screen.dart';
+import '../../features/company/logic/company_jobs_delete_post_cubit.dart';
+import '../../features/company/ui/home/logic/update_application_status_logic/company_update_application_status_cubit.dart';
+import '../../features/company/ui/home/ui/main_page/data/repo/company_home_main_page_repo.dart';
+import '../../features/company/ui/home/ui/main_page/logic/company_home_main_page_cubit.dart';
+import '../../features/company/ui/home/ui/main_page/ui/company_home_main_page_screen.dart';
+import '../../features/company/ui/home/ui/see_details/logic/company_home_see_details_cubit.dart';
+import '../../features/company/ui/home/ui/see_details/ui/company_home_see_details_screen.dart';
+import '../../features/company/ui/home/ui/see_resume/data/repo/company_home_see_resume_repo.dart';
+import '../../features/company/ui/home/ui/see_resume/logic/company_home_see_resume_cubit.dart';
+import '../../features/company/ui/home/ui/see_resume/ui/company_home_see_resume_screen.dart';
+import '../../features/company/ui/home/ui/send_offer/company_home_send_offer_screen.dart';
+import '../../features/company/ui/jobs/company_jobs_screen.dart';
+import '../../features/company/ui/jobs_post/logic/company_jobs_post_cubit.dart';
+import '../../features/company/ui/jobs_post/ui/success/company_job_post_success_screen.dart';
+import '../../features/company/ui/profile/company_profile_screen.dart';
+import '../../features/company/ui/send_to_applicants/message-applicant/company_send_to_applicants_message_applicant_screen.dart';
+import '../../features/company/ui/sign_up/logic/company_sign_up_cubit.dart';
+import '../../features/customer/sign_up/logic/customer_sign_up_cubit.dart';
+import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
+import '../../features/developer/logic/developer_recommendations_logic/developer_recommendations_cubit.dart';
+import '../../features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
+import '../../features/developer/ui/community/all_communities/developer_community_all_communities_screen.dart';
+import '../../features/developer/ui/community/chat/developer_community_chat_screen.dart';
+import '../../features/developer/ui/courses/certification/developer_courses_certification_screen.dart';
+import '../../features/developer/ui/courses/cv_updated/download_cv/developer_courses_cv_updated_download_cv_screen.dart';
+import '../../features/developer/ui/courses/cv_updated/successful_update/developer_courses_cv_updated_successful_update_screen.dart';
+import '../../features/developer/ui/courses/main_page/logic/developer_courses_main_page_roadmaps_cubit.dart';
+import '../../features/developer/ui/courses/main_page/ui/developer_courses_main_page_screen.dart';
+import '../../features/developer/ui/courses/my_courses/developer_courses_my_courses_screen.dart';
+import '../../features/developer/ui/courses/related_courses/developer_courses_related_courses_screen.dart';
+import '../../features/developer/ui/courses/roadmaps/logic/developer_courses_roadmaps_cubit.dart';
+import '../../features/developer/ui/courses/roadmaps/ui/developer_courses_roadmaps_screen.dart';
+import '../../features/developer/ui/courses/specific_category/logic/developer_courses_specific_category_cubit.dart';
+import '../../features/developer/ui/courses/specific_category/ui/developer_courses_specific_category_screen.dart';
+import '../../features/developer/ui/courses/specific_course/logic/specific_course_header_logic/specific_course_header_cubit.dart';
+import '../../features/developer/ui/courses/specific_course/logic/specific_course_lectures_logic/specific_course_lectures_cubit.dart';
+import '../../features/developer/ui/courses/specific_course/logic/specific_course_overview_logic/specific_course_overview_cubit.dart';
+import '../../features/developer/ui/courses/specific_course/logic/specific_course_reviews_logic/specific_course_reviews_cubit.dart';
+import '../../features/developer/ui/courses/specific_course/ui/developer_courses_specific_course_screen.dart';
+import '../../features/developer/ui/home_main_page/logic/developer_courses_home_main_page_logic/developer_courses_home_main_page_cubit.dart';
+import '../../features/developer/ui/home_main_page/logic/developer_name_home_main_page_logic/developer_name_home_main_page_cubit.dart';
+import '../../features/developer/ui/home_main_page/logic/developer_tags_home_main_page_logic/developer_tags_home_main_page_cubit.dart';
+import '../../features/developer/ui/home_main_page/ui/developer_home_main_page_screen.dart';
+import '../../features/developer/ui/jobs/all_categories/developer_jobs_all_categories_screen.dart';
+import '../../features/developer/ui/jobs/application_submitted/developer_jobs_application_submitted_screen.dart';
+import '../../features/developer/ui/jobs/apply/logic/developer_jobs_apply_cubit.dart';
+import '../../features/developer/ui/jobs/apply/ui/developer_jobs_apply_screen.dart';
+import '../../features/developer/ui/jobs/job_details/logic/developer_jobs_job_details_cubit.dart';
+import '../../features/developer/ui/jobs/job_details/ui/developer_jobs_job_details_screen.dart';
+import '../../features/developer/ui/jobs/main_page/developer_jobs_main_page_screen.dart';
+import '../../features/developer/ui/jobs/search/logic/developer_jobs_recently_posted_logic/developer_jobs_recently_posted_cubit.dart';
+import '../../features/developer/ui/jobs/search/logic/developer_services_recently_posted_logic/developer_services_recently_posted_cubit.dart';
+import '../../features/developer/ui/jobs/search/ui/developer_jobs_search_screen.dart';
+import '../../features/developer/ui/jobs/service_details/logic/developer_jobs_service_details_cubit.dart';
+import '../../features/developer/ui/jobs/service_details/ui/developer_jobs_service_details_screen.dart';
+import '../../features/developer/ui/profile/edit_profile/developer_profile_edit_profile_screen.dart';
+import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_job_withdraw_repo.dart';
+import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_profile_applied_jobs_repo.dart';
+import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_service_delete_repo.dart';
+import '../../features/developer/ui/profile/jobs_applied/logic/developer_job_withdraw_logic/developer_job_withdraw_cubit.dart';
+import '../../features/developer/ui/profile/jobs_applied/logic/developer_profile_applied_jobs_logic/developer_profile_applied_jobs_cubit.dart';
+import '../../features/developer/ui/profile/jobs_applied/logic/developer_service_delete_logic/developer_service_delete_cubit.dart';
+import '../../features/developer/ui/profile/jobs_applied/ui/developer_profile_jobs_and_services_applied_screen.dart';
+import '../../features/developer/ui/profile/main_page/developer_profile_main_page_screen.dart';
+import '../../features/developer/ui/profile/payment/add_new_cart/developer_profile_payment_add_new_card_screen.dart';
+import '../../features/developer/ui/profile/payment/option/developer_profile_payment_option_screen.dart';
+import '../../features/developer/ui/profile/saved_jobs/developer_profile_saved_jobs_screen.dart';
+import '../../features/developer/ui/profile/settings/developer_profile_settings_screen.dart';
+import '../../features/developer/ui/sign_up/logic/developer_sign_up_cubit.dart';
+import '../../features/developer/ui/sign_up_completed/cv_downloaded/developer_sign_up_completed_cv_downloaded.dart';
+import '../../features/developer/ui/sign_up_completed/cv_is_done/developer_sign_up_completed_cv_is_done.dart';
+import '../../features/developer/ui/sign_up_completed/ready_to_go/developer_sign_up_completed_ready_to_go.dart';
 import '../../features/notifications/notifications_screen.dart';
-import '../../features/search/search_screen.dart';
+import '../../features/search/logic/search_courses_cubit.dart';
+import '../../features/search/ui/search_screen.dart';
 import '../../features/sign_up_user_type/sign_up_user_type_screen.dart';
+import '../di/dependency_injection.dart';
+import '../helpers/enums.dart';
+import 'company_router/signup_router.dart';
+import 'customer_router/signup_router.dart';
+import 'developer_router/signup_router.dart';
 import 'routes.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
-    // Maybe used later But it is unnecessary now.
     // final arguments = settings.arguments;
     switch (settings.name) {
       // ---------------- Authentication ----------------
@@ -73,23 +123,45 @@ class AppRouter {
         );
       case Routes.loginScreen:
         return MaterialPageRoute(
-          builder: (_) => const LoginScreen(),
-        );
+            builder: (_) => BlocProvider(
+                  create: (context) => getIt<LoginCubit>(),
+                  child: const LoginScreen(),
+                ));
       case Routes.signUpUserTypeScreen:
         return MaterialPageRoute(
           builder: (_) => const SignUpUserTypeScreen(),
         );
       case Routes.resetPasswordScreen:
         return MaterialPageRoute(
-          builder: (_) => const ResetPasswordScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<ResetPasswordCubit>(),
+            child: const ResetPasswordScreen(),
+          ),
         );
       case Routes.verifyCodeScreen:
         return MaterialPageRoute(
-          builder: (_) => const VerifyCodeScreen(),
+          builder: (context) {
+            return MultiBlocProvider(
+              providers: [
+                BlocProvider.value(value: getIt<ResetPasswordCubit>()),
+                BlocProvider(create: (_) => getIt<VerifyCodeCubit>()),
+              ],
+              child: const VerifyCodeScreen(),
+            );
+          },
         );
       case Routes.changePasswordScreen:
         return MaterialPageRoute(
-          builder: (_) => const ChangePasswordScreen(),
+          builder: (context) {
+            return MultiBlocProvider(
+              providers: [
+                BlocProvider.value(value: getIt<ResetPasswordCubit>()),
+                BlocProvider.value(value: getIt<VerifyCodeCubit>()),
+                BlocProvider(create: (_) => getIt<ChangePasswordCubit>()),
+              ],
+              child: const ChangePasswordScreen(),
+            );
+          },
         );
       case Routes.successfulChangePasswordScreen:
         return MaterialPageRoute(
@@ -97,39 +169,64 @@ class AppRouter {
         );
       // ---------------- Company ----------------
       // Sign Up
-      case Routes.companySignUpCompulsoryDataScreen:
+      case Routes.companySignUpFlow:
         return MaterialPageRoute(
-          builder: (_) => const CompanySignUpCompulsoryDataScreen(),
-        );
-      case Routes.companySignUpFillProfileScreen:
-        return MaterialPageRoute(
-          builder: (_) => const CompanySignUpFillProfileScreen(),
-        );
-      case Routes.companySignUpEnterLocationScreen:
-        return MaterialPageRoute(
-          builder: (_) => const CompanySignUpEnterLocationScreen(),
-        );
-      case Routes.companySignUpContactInformation:
-        return MaterialPageRoute(
-          builder: (_) => const CompanySignUpContactInformation(),
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<CompanySignupCubit>(),
+            child: const CompanySignUpFlow(),
+          ),
         );
       // Home
       case Routes.companyHomeMainPageScreen:
         return MaterialPageRoute(
-          builder: (_) => const CompanyHomeMainPageScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) =>
+                    CompanyHomeMainPageCubit(getIt<CompanyHomeMainPageRepo>())
+                      ..getCompanyHomeMainPageData(),
+              ),
+              BlocProvider(
+                create: (_) => StartChatRoomCubit(getIt<StartChatRoomRepo>()),
+              ),
+            ],
+            child: const CompanyHomeMainPageScreen(),
+          ),
+        );
+
+      case Routes.companyHomeSendOfferScreen:
+        return MaterialPageRoute(
+          builder: (_) => const CompanyHomeSendOfferScreen(),
         );
       case Routes.companyHomeSeeDetailsScreen:
+        final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-          builder: (_) => const CompanyHomeSeeDetailsScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) =>
+                    getIt<CompanyUpdateApplicationStatusCubit>(),
+              ),
+              BlocProvider(
+                create: (context) => getIt<CompanyHomeSeeDetailsCubit>()
+                  ..getCompanyHomeSeeDetailsData(
+                      applicationId: args.applicationId!),
+              ),
+            ],
+            child: CompanyHomeSeeDetailsScreen(
+              applicationId: args.applicationId!,
+            ),
+          ),
         );
       case Routes.companyHomeSeeResumeScreen:
+        final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-          builder: (_) => const CompanyHomeSeeResumeScreen(),
-        );
-      // Chats
-      case Routes.companyChatsPersonChatScreen:
-        return MaterialPageRoute(
-          builder: (_) => const CompanyChatsPersonChatScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) =>
+                CompanyHomeSeeResumeCubit(getIt<CompanyHomeSeeResumeRepo>())
+                  ..getCompanyHomeSeeResumeData(developerId: args.developerId!),
+            child: const CompanyHomeSeeResumeScreen(),
+          ),
         );
       // Jobs
       case Routes.companyJobsScreen:
@@ -142,17 +239,20 @@ class AppRouter {
           builder: (_) => const CompanyProfileScreen(),
         );
       // Jobs Post
-      case Routes.companyJobPostFirstScreen:
+      case Routes.companyJobsPostFlow:
         return MaterialPageRoute(
-          builder: (_) => const CompanyJobPostFirstScreen(),
-        );
-      case Routes.companyJobPostSecondScreen:
-        return MaterialPageRoute(
-          builder: (_) => const CompanyJobPostSecondScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<CompanyJobsPostCubit>(),
+            child: const CompanyJobsPostFlow(),
+          ),
         );
       case Routes.companyJobPostSuccessScreen:
+        final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-          builder: (_) => const CompanyJobPostSuccessScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<CompanyJobsDeletePostCubit>(),
+            child: CompanyJobPostSuccessScreen(jobId: args.jobId!),
+          ),
         );
       // Send To Clients
       case Routes.companySendToClientsScreen:
@@ -162,29 +262,12 @@ class AppRouter {
 
       // ---------------- Developer ----------------
       // Sign Up
-      case Routes.developerSignUpCompulsoryDataScreen:
+      case Routes.developerSignUpFlow:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperSignUpCompulsoryDataScreen(),
-        );
-      case Routes.developerSignUpFillProfileScreen:
-        return MaterialPageRoute(
-          builder: (_) => const DeveloperSignUpFillProfileScreen(),
-        );
-      case Routes.developerSignUpEnterLocationScreen:
-        return MaterialPageRoute(
-          builder: (_) => const DeveloperSignUpEnterLocationScreen(),
-        );
-      case Routes.developerSignUpBioAndSkillsScreen:
-        return MaterialPageRoute(
-          builder: (_) => const DeveloperSignUpBioAndSkillsScreen(),
-        );
-      case Routes.developerSignUpOptionalDataScreen:
-        return MaterialPageRoute(
-          builder: (_) => const DeveloperSignUpOptionalDataScreen(),
-        );
-      case Routes.developerSignUpSelectedCourses:
-        return MaterialPageRoute(
-          builder: (_) => const DeveloperSignUpSelectedCourses(),
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<DeveloperSignupCubit>(),
+            child: const DeveloperSignUpFlow(),
+          ),
         );
       // Sign Up Completed
       case Routes.developerSignUpCompletedCvIsDone:
@@ -202,8 +285,28 @@ class AppRouter {
       // Home
       case Routes.developerHomeMainPageScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperHomeMainPageScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => getIt<DeveloperNameHomeMainPageCubit>()
+                  ..fetchDeveloperName(),
+              ),
+              BlocProvider(
+                create: (context) => getIt<DeveloperTagsHomeMainPageCubit>()
+                  ..fetchDeveloperTags(),
+              ),
+              BlocProvider(
+                create: (context) => getIt<DeveloperCoursesHomeMainPageCubit>(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperRecommendationsCubit>()
+                  ..fetchRecommendations(),
+              ),
+            ],
+            child: const DeveloperHomeMainPageScreen(),
+          ),
         );
+
       // Community
       case Routes.developerCommunityAllCommunitiesScreen:
         return MaterialPageRoute(
@@ -220,25 +323,116 @@ class AppRouter {
         );
       // Search
       case Routes.searchScreen:
+        final args = settings.arguments as AppArgument?;
+        final query = args?.query ?? '';
+        final searchType = args?.searchType ?? SearchType.courses;
         return MaterialPageRoute(
-          builder: (_) => const SearchScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                  create: (_) =>
+                      getIt<SearchCoursesCubit>()..searchCourses(query)),
+            ],
+            child: SearchScreen(
+              query: query,
+              searchType: searchType,
+            ),
+          ),
+        );
+      // All Chats
+      case Routes.chatsAllChatsScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<ChatsAllChatsCubit>()..getAllChats(),
+            child: const ChatsAllChats(),
+          ),
+        );
+      // Chats
+      case Routes.chatsPersonChatScreen:
+        final args = settings.arguments as AppArgument;
+        return MaterialPageRoute(
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => getIt<GetChatMessagesCubit>()
+                  ..getMessages(args.chatRoomId!),
+              ),
+              BlocProvider(
+                create: (context) => getIt<SendMessagesCubit>(),
+              ),
+            ],
+            child: ChatsPersonChatScreen(
+              chatRoomId: args.chatRoomId!,
+              isExisting: args.isExisting!,
+            ),
+          ),
         );
       // Courses
       case Routes.developerCoursesMainPageScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperCoursesMainPageScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) =>
+                    getIt<DeveloperCoursesAndJobsMainPageProfileCubit>()
+                      ..getDeveloperCoursesMainPageProfile(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperCoursesMainPageRoadmapsCubit>()
+                  ..getDeveloperCoursesMainPageRoadmaps(),
+              ),
+            ],
+            child: const DeveloperCoursesMainPageScreen(),
+          ),
         );
-      case Routes.developerCoursesCategoriesScreen:
+      case Routes.developerCoursesRelatedCoursesScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperCoursesCategoriesScreen(),
+          builder: (_) => const DeveloperCoursesRelatedCoursesScreen(),
         );
       case Routes.developerCoursesSpecificCategoryScreen:
+        final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-          builder: (_) => const DeveloperCoursesSpecificCategoryScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<DeveloperCoursesSpecificCategoryCubit>()
+              ..getDeveloperCoursesSpecificCategory(args.trackId!),
+            child: const DeveloperCoursesSpecificCategoryScreen(),
+          ),
         );
+
+      case Routes.developerCoursesSpecificCourseScreen:
+        final args = settings.arguments as AppArgument;
+        return MaterialPageRoute(
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => getIt<SpecificCourseHeaderCubit>()
+                  ..getSpecificCourseHeader(args.courseId!),
+              ),
+              BlocProvider(
+                create: (context) => getIt<SpecificCourseOverviewCubit>()
+                  ..getSpecificCourseOverview(args.courseId!),
+              ),
+              BlocProvider(
+                create: (context) => getIt<SpecificCourseLecturesCubit>()
+                  ..getSpecificCourseLectures(args.courseId!),
+              ),
+              BlocProvider(
+                create: (context) => getIt<SpecificCourseReviewsCubit>()
+                  ..getSpecificCourseReviews(args.courseId!),
+              ),
+            ],
+            child:
+            DeveloperCoursesSpecificCourseScreen(courseId: args.courseId!),
+          ),
+        );
+
       case Routes.developerCoursesRoadmapsScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperCoursesRoadmapsScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<DeveloperCoursesRoadmapsCubit>()
+              ..getDeveloperCoursesRoadmaps(),
+            child: const DeveloperCoursesRoadmapsScreen(),
+          ),
         );
       case Routes.developerCoursesMyCoursesScreen:
         return MaterialPageRoute(
@@ -258,22 +452,82 @@ class AppRouter {
           builder: (_) =>
               const DeveloperCoursesCvUpdatedSuccessfulUpdateScreen(),
         );
-      // Jobs
+      //---> Jobs
       case Routes.developerJobsMainPageScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperJobsMainPageScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) =>
+                    getIt<DeveloperCoursesAndJobsMainPageProfileCubit>()
+                      ..getDeveloperCoursesMainPageProfile(),
+              ),
+            ],
+            child: const DeveloperJobsMainPageScreen(),
+          ),
         );
       case Routes.developerJobsSearchScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperJobsSearchScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) => getIt<DeveloperJobsRecentlyPostedCubit>()
+                  ..fetchRecentlyPostedJobs(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperServicesRecentlyPostedCubit>()
+                  ..fetchRecentlyPostedServices(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperRecommendationsCubit>()
+                  ..fetchRecommendations(),
+              ),
+            ],
+            child: const DeveloperJobsSearchScreen(),
+          ),
+        );
+      case Routes.developerJobsJobDetailsScreen:
+        final args = settings.arguments as AppArgument;
+        return MaterialPageRoute(
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) => getIt<DeveloperJobsJobDetailsCubit>()
+                  ..fetchJobDetails(args.jobId!),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperSingleJobBookmarkCubit>()
+                  ..bookmarkJob(args.jobId!),
+              ),
+            ],
+            child: DeveloperJobsJobDetailsScreen(jobId: args.jobId!),
+          ),
         );
       case Routes.developerJobsServiceDetailsScreen:
+        final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-          builder: (_) => const DeveloperJobsServiceDetailsScreen(),
-        );
+            builder: (_) => MultiBlocProvider(
+                  providers: [
+                    BlocProvider(
+                      create: (_) => getIt<DeveloperJobsServiceDetailsCubit>()
+                        ..fetchServiceDetails(args.serviceId!),
+                    ),
+                    BlocProvider(
+                      create: (_) => getIt<DeveloperSingleJobBookmarkCubit>()
+                        ..bookmarkJob(args.serviceId!),
+                    ),
+                  ],
+                  child: DeveloperJobsServiceDetailsScreen(
+                      serviceId: args.serviceId!),
+                ));
+      // Apply
       case Routes.developerJobsApplyScreen:
+        final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-          builder: (_) => const DeveloperJobsApplyScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<DeveloperJobsApplyCubit>(),
+            child: DeveloperJobsApplyScreen(jobId: args.jobId!),
+          ),
         );
       case Routes.developerJobsApplicationSubmittedScreen:
         return MaterialPageRoute(
@@ -283,10 +537,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const DeveloperJobsAllCategoriesScreen(),
         );
-      case Routes.developerJobsJobDetailsScreen:
-        return MaterialPageRoute(
-          builder: (_) => const DeveloperJobsJobDetailsScreen(),
-        );
+
       // Profile
       case Routes.developerProfileMainPageScreen:
         return MaterialPageRoute(
@@ -306,8 +557,28 @@ class AppRouter {
         );
       case Routes.developerProfileJobsAppliedScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperProfileJobsAppliedScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => DeveloperProfileAppliedJobsCubit(
+                  getIt<DeveloperProfileAppliedJobsRepo>(),
+                )..fetchAppliedJobs(),
+              ),
+              BlocProvider(
+                create: (context) => DeveloperJobWithdrawCubit(
+                  getIt<DeveloperJobWithdrawRepo>(),
+                ),
+              ),
+              BlocProvider(
+                create: (context) => DeveloperServiceDeleteCubit(
+                  getIt<DeveloperServiceDeleteRepo>(),
+                ),
+              ),
+            ],
+            child: const DeveloperProfileJobsAndServicesAppliedScreen(),
+          ),
         );
+
       // Profile --> Payment
       case Routes.developerProfilePaymentOptionScreen:
         return MaterialPageRoute(
@@ -318,13 +589,54 @@ class AppRouter {
           builder: (_) => const DeveloperProfilePaymentAddNewCardScreen(),
         );
       // ---------------- Customer ----------------
-      case Routes.customerSignUpCompulsoryDataScreen:
+      // sign up
+      case Routes.customerSignUpFlow:
         return MaterialPageRoute(
-          builder: (_) => const CustomerSignUpCompulsoryDataScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<CustomerSignupCubit>(),
+            child: const CustomerSignupFlow(),
+          ),
         );
-      case Routes.customerSignUpFillProfileScreen:
+      // Profile
+      case Routes.customerProfileScreen:
         return MaterialPageRoute(
-          builder: (_) => const CustomerSignUpFillProfileScreen(),
+          builder: (_) => const CustomerProfileScreen(),
+        );
+      //jobs_post
+      case Routes.customerJobPostScreen:
+        return MaterialPageRoute(
+          builder: (_) => const CustomerJobPostScreen(),
+        );
+
+      case Routes.customerJobsPostFlow:
+        return MaterialPageRoute(builder: (_) => const CustomerJobsPostFlow());
+      // applied
+      case Routes.customerAppliedFirstScreen:
+        return MaterialPageRoute(
+            builder: (_) => const CustomerAppliedFirstScreen());
+      case Routes.customerAppliedSecoundScreen:
+        return MaterialPageRoute(
+            builder: (_) => const CustomerAppliedSecoundScreen());
+      // chats
+      case Routes.customerChatsScreen:
+        return MaterialPageRoute(
+          builder: (_) => const CustomerChatsScreen(),
+        );
+
+      case Routes.customerChatsPersonChatScreen:
+        return MaterialPageRoute(
+          builder: (_) => const CustomerChatsPersonChatScreen(),
+        );
+      // home
+      case Routes.customerHomeMainPageScreen:
+        return MaterialPageRoute(
+          builder: (_) => const CustomerHomeMainPageScreen(),
+        );
+      // ---------------- PDF View ----------------
+      case Routes.pdfViewerScreen:
+        final args = settings.arguments as AppArgument;
+        return MaterialPageRoute(
+          builder: (_) => PdfViewerScreen(url: args.fileUrl!),
         );
       default:
         return null;

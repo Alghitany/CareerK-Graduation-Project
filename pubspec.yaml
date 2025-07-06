@@ -51,7 +51,7 @@ dependencies:
   pretty_dio_logger: ^1.4.0
   # Localization
   easy_localization: ^3.0.3
-  intl: ^0.19.0
+  intl: 0.20.2
   # For splash screen
   flutter_native_splash: ^2.4.4
   # An SVG rendering and widget library for Flutter, which allows painting
@@ -79,6 +79,25 @@ dependencies:
   percent_indicator: ^4.2.4
   # Simplifies the task of updating your Flutter app's launcher icon.
   flutter_launcher_icons: ^0.14.3
+  # Parsing and serializing HTTP formats.
+  http_parser: ^4.0.0
+  # Provides an easy way to add shimmer effect
+  shimmer: ^3.0.0
+  # Converts a date into a humanized text.
+  timeago: ^3.5.0
+  # Communicate with a Socket.IO server (Real Time Chat)
+  socket_io_client: ^2.0.3+1
+  # Launching a URL.
+  url_launcher: ^6.2.5
+  # Display a PDF document seamlessly and efficiently.
+  syncfusion_flutter_pdfviewer: ^30.1.37
+  # Simple yet fully customizable ratingbar.
+  flutter_rating_bar: ^4.0.0
+  # Resizes text to fit perfectly within its bounds.
+  auto_size_text: ^3.0.0
+  # Render After Effects animations natively on Flutter.
+  lottie: ^3.1.0
+
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
@@ -95,6 +114,10 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^4.0.0
+  # Automatically generate code for converting to and from JSON by annotating Dart classes.
+  json_serializable: ^6.9.0
+  # A build system for Dart code generation and modular compilation.
+  build_runner: ^2.4.13
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -111,6 +134,7 @@ flutter:
   assets:
     - assets/images/
     - assets/svgs/
+    - assets/animations/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

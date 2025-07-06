@@ -18,7 +18,7 @@ class AppTextFormField extends StatelessWidget {
   final Widget? prefixIcon;
   final Color? backgroundColor;
   final TextEditingController? controller;
-  final Function(String?) validator;
+  final FormFieldValidator<String>? validator;
   final bool? readOnly;
   final void Function()? onTap;
   final TextInputType? keyboardType;
@@ -59,63 +59,100 @@ class AppTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: height?.h ?? 40.h,
-      width: width?.w ?? double.infinity.h,
-      child: TextFormField(
-        controller: controller,
-        readOnly: readOnly ?? false,
-        onChanged: onChanged,
-        onTap: onTap,
-        keyboardType: keyboardType,
-        minLines: minLines,
-        maxLines: maxLines ?? 1,
-        maxLength: maxLength,
-        decoration: InputDecoration(
-          isDense: true,
-          contentPadding: contentPadding ??
-              EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
-          focusedBorder: focusedBorder ??
-              OutlineInputBorder(
-                  borderSide: const BorderSide(
-                    color: ColorsManager.blueBell,
-                    width: 1.3,
-                  ),
-                  borderRadius: BorderRadius.circular(borderRadius ?? 8.0)),
-          enabledBorder: enabledBorder ??
-              OutlineInputBorder(
-                  borderSide: const BorderSide(
-                    color: ColorsManager.blueBell,
-                    width: 1.3,
-                  ),
-                  borderRadius: BorderRadius.circular(borderRadius ?? 8.0)),
-          errorBorder: errorBorder ??
-              OutlineInputBorder(
-                  borderSide: const BorderSide(
-                    color: Colors.red,
-                    width: 1.3,
-                  ),
-                  borderRadius: BorderRadius.circular(borderRadius ?? 8.0)),
-          focusedErrorBorder: focusedErrorBorder ??
-              OutlineInputBorder(
-                  borderSide: const BorderSide(
-                    color: Colors.red,
-                    width: 1.3,
-                  ),
-                  borderRadius: BorderRadius.circular(borderRadius ?? 8.0)),
-          hintStyle: hintStyle ?? AppTextStyles.font14MercuryPoppinsMedium,
-          hintText: hintText,
-          suffixIcon: suffixIcon,
-          prefixIcon: prefixIcon,
-          fillColor: Colors.white,
-          filled: true,
-        ),
-        obscureText: isObscureText ?? false,
-        style: AppTextStyles.font14BlackPoppinsMedium,
-        validator: (value) {
-          return validator(value);
-        },
-      ),
+    return FormField<String>(
+      validator: validator,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      builder: (state) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: height?.h ?? 48.h,
+              width: width?.w ?? double.infinity,
+              child: TextFormField(
+                controller: controller,
+                readOnly: readOnly ?? false,
+                onTap: onTap,
+                keyboardType: keyboardType,
+                minLines: minLines,
+                maxLines: maxLines ?? 1,
+                maxLength: maxLength,
+                obscureText: isObscureText ?? false,
+                onChanged: (value) {
+                  onChanged?.call(value);
+                  state.didChange(value);
+                },
+                style: inputTextStyle ?? AppTextStyles.font14BlackPoppinsMedium,
+                decoration: InputDecoration(
+                  isDense: true,
+                  contentPadding: contentPadding ??
+                      EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
+                  filled: true,
+                  fillColor: backgroundColor ?? Colors.white,
+                  hintText: hintText,
+                  hintStyle:
+                      hintStyle ?? AppTextStyles.font14MercuryPoppinsMedium,
+                  prefixIcon: prefixIcon,
+                  suffixIcon: suffixIcon,
+                  enabledBorder: enabledBorder ??
+                      OutlineInputBorder(
+                        borderRadius:
+                            BorderRadius.circular(borderRadius ?? 8.0),
+                        borderSide: const BorderSide(
+                          color: ColorsManager.blueBell,
+                          width: 1.3,
+                        ),
+                      ),
+                  focusedBorder: focusedBorder ??
+                      OutlineInputBorder(
+                        borderRadius:
+                            BorderRadius.circular(borderRadius ?? 8.0),
+                        borderSide: const BorderSide(
+                          color: ColorsManager.blueBell,
+                          width: 1.3,
+                        ),
+                      ),
+                  errorBorder: errorBorder ??
+                      OutlineInputBorder(
+                        borderRadius:
+                            BorderRadius.circular(borderRadius ?? 8.0),
+                        borderSide: const BorderSide(
+                          color: Colors.red,
+                          width: 1.3,
+                        ),
+                      ),
+                  focusedErrorBorder: focusedErrorBorder ??
+                      OutlineInputBorder(
+                        borderRadius:
+                            BorderRadius.circular(borderRadius ?? 8.0),
+                        borderSide: const BorderSide(
+                          color: Colors.red,
+                          width: 1.3,
+                        ),
+                      ),
+                ),
+              ),
+            ),
+            AnimatedSize(
+              duration: const Duration(milliseconds: 200),
+              curve: Curves.easeInOut,
+              child: state.errorText == null
+                  ? const SizedBox(height: 0)
+                  : Padding(
+                      padding: EdgeInsets.only(top: 6.h, left: 8.w),
+                      child: Text(
+                        state.errorText!,
+                        style: TextStyle(
+                          color: Colors.red,
+                          fontSize: 12.sp,
+                          height: 1.2,
+                        ),
+                      ),
+                    ),
+            ),
+          ],
+        );
+      },
     );
   }
 }
