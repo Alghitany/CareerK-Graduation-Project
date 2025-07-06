@@ -1,6 +1,11 @@
+import 'package:carrerk/features/customer/data/models/customer_jobs_post_request_body.dart';
+import 'package:carrerk/features/customer/data/models/customer_jobs_post_response.dart';
+import 'package:carrerk/features/customer/ui/applied/data/model/first_screen_model/applications_response_body.dart';
+import 'package:carrerk/features/customer/ui/applied/data/model/reject_applications_model/reject_application_response.dart';
+import 'package:carrerk/features/customer/ui/applied/data/model/secound_screen_model/application_details_response_body.dart';
+
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-
 import '../../features/authentication/change_password/data/models/change_password_request_body.dart';
 import '../../features/authentication/change_password/data/models/change_password_response.dart';
 import '../../features/authentication/login/data/model/login_request_body.dart';
@@ -10,10 +15,14 @@ import '../../features/authentication/reset_password/data/models/reset_password_
 import '../../features/authentication/verify_code/data/model/verify_code_request_body.dart';
 import '../../features/authentication/verify_code/data/model/verify_code_response.dart';
 import '../../features/chats/all_chats/data/model/chats_all_chats_response_body.dart';
+import '../../features/chats/contact_list/all_chats/data/model/conact_list_all_chats_response_body.dart';
 import '../../features/chats/person_chat/data/models/get_chat_messages/get_chat_messages_response_body.dart';
 import '../../features/chats/person_chat/data/models/start_chat/start_chat_room_request_body.dart';
 import '../../features/chats/person_chat/data/models/start_chat/start_chat_room_response.dart';
 import '../../features/company/data/model/company_jobs_delete_post_response.dart';
+import '../../features/company/jobs_post/data/models/company_jobs_post_request_body.dart';
+import '../../features/company/jobs_post/data/models/company_jobs_post_response.dart';
+
 import '../../features/company/ui/home/data/models/update_application_status_model/company_update_application_status_request_body.dart';
 import '../../features/company/ui/home/data/models/update_application_status_model/company_update_application_status_response.dart';
 import '../../features/company/ui/home/ui/main_page/data/model/company_home_main_page_response_body.dart';
@@ -21,6 +30,7 @@ import '../../features/company/ui/home/ui/see_details/data/model/company_home_se
 import '../../features/company/ui/home/ui/see_resume/data/model/company_home_see_resume_response_body.dart';
 import '../../features/company/ui/jobs_post/data/models/company_jobs_post_request_body.dart';
 import '../../features/company/ui/jobs_post/data/models/company_jobs_post_response.dart';
+import '../../features/customer/ui/home/model/model/customer_home_response_body.dart';
 import '../../features/developer/data/models/developer_courses_and_jobs_main_page_profile_models/developer_courses_and_jobs_main_page_profile_response_model.dart';
 import '../../features/developer/data/models/developer_recommendtions_models/developer_recommendations_response_body.dart';
 import '../../features/developer/data/models/developer_single_course_bookmark_models/developer_single_course_bookmark_response_model.dart';
@@ -239,6 +249,37 @@ abstract class ApiService {
   //----------------- Chats
   @GET(ApiConstants.allChats)
   Future<ChatsAllChatsResponseBody> getAllChats();
+
+//----------------- Customer
+  //->Post Job
+  @POST(ApiConstants.customerJobsPost)
+  Future<CustomerJobsPostResponse> customerJobsPost(
+    @Body() CustomerJobsPostRequestBody customerJobsPostRequestBody,
+  );
+
+  //----------------- contact list
+  @GET(ApiConstants.contactList)
+  Future<ContactListAllChatsResponseBody> getContactListAllChats();
+  // -----------------Home
+
+  @GET(ApiConstants.customerHome)
+  Future<CustomerHomeResponseBody> getCustomerHomeMainPage();
+  //--------------- apiilied
+  @GET(ApiConstants.customerApplied)
+  Future<ApplicationsResponseBody> getCustomerAppliedScreen(
+    @Path("applicantId") String applicantId,
+  );
+  //--------------- apiilied details
+  @GET(ApiConstants.customerAppliedDetails)
+  Future<ApplicationDetailsResponseBody> getApplicationDetails(
+    @Path("applicantId") String applicantId,
+  );
+  // -------------reject
+  @PATCH(ApiConstants.rejectApplications)
+  Future<RejectApplicationResponse> rejectApplication(
+    @Path('applicantId') String applicantId,
+    @Body() Map<String, dynamic> body,
+  );
 
   @POST(ApiConstants.startChatRoom)
   Future<StartChatRoomResponse> startPrivateChat(

@@ -1,17 +1,53 @@
+import 'package:carrerk/core/helpers/enums.dart';
 import 'package:carrerk/core/routing/app_argument.dart';
 import 'package:carrerk/core/routing/company_router/jobs_post_router.dart';
-import 'package:carrerk/core/routing/customer_router/jobs_post_router.dart';
+
 import 'package:carrerk/core/widgets/pdf_viewer_screen.dart';
 import 'package:carrerk/features/authentication/reset_password/logic/reset_password_cubit.dart';
 import 'package:carrerk/features/authentication/verify_code/logic/verify_code_cubit.dart';
 import 'package:carrerk/features/authentication/verify_code/ui/verify_code_screen.dart';
-import 'package:carrerk/features/customer/applied/first/customer_applied_first_screen.dart';
-import 'package:carrerk/features/customer/applied/secound/customer_applied_secound_screen.dart';
-import 'package:carrerk/features/customer/chats/customer_chats_screen.dart';
-import 'package:carrerk/features/customer/chats/person_chat/customer_chats_person_chat_screen.dart';
-import 'package:carrerk/features/customer/home/customer_home_main_page.dart';
-import 'package:carrerk/features/customer/jobs_post/customer_jobs_post.dart';
-import 'package:carrerk/features/customer/profile/customer_profile_screen.dart';
+
+import 'package:carrerk/features/customer/logic/customer_jobs_post_cubit.dart';
+import 'package:carrerk/features/customer/ui/applied/logic/first_screen_logic/applications_cubit.dart';
+import 'package:carrerk/features/customer/ui/applied/logic/secound_screen_logic/application_details_cubit.dart';
+import 'package:carrerk/features/customer/ui/applied/ui/first/customer_applied_first_screen.dart';
+import 'package:carrerk/features/customer/ui/applied/ui/secound/customer_applied_secound_screen.dart';
+import 'package:carrerk/features/customer/ui/home/logic/customer_home_cubit.dart';
+
+import 'package:carrerk/features/customer/ui/home/ui/customer_home_main_page.dart';
+import 'package:carrerk/features/customer/ui/jobs_post/customer_jobs_post.dart';
+import 'package:carrerk/features/customer/ui/profile/customer_profile_screen.dart';
+import 'package:carrerk/features/customer/ui/sign_up/compulsory_data/customer_sign_up_compulsory_data_screen.dart';
+import 'package:carrerk/features/developer/ui/community/all_communities/developer_community_all_communities_screen.dart';
+import 'package:carrerk/features/developer/ui/community/chat/developer_community_chat_screen.dart';
+import 'package:carrerk/features/developer/ui/courses/categories/developer_courses_categories_screen.dart';
+import 'package:carrerk/features/developer/ui/courses/certification/developer_courses_certification_screen.dart';
+import 'package:carrerk/features/developer/ui/courses/cv_updated/download_cv/developer_courses_cv_updated_download_cv_screen.dart';
+import 'package:carrerk/features/developer/ui/courses/cv_updated/successful_update/developer_courses_cv_updated_successful_update_screen.dart';
+import 'package:carrerk/features/developer/ui/courses/main_page/ui/developer_courses_main_page_screen.dart';
+import 'package:carrerk/features/developer/ui/courses/my_courses/developer_courses_my_courses_screen.dart';
+import 'package:carrerk/features/developer/ui/courses/roadmaps/ui/developer_courses_roadmaps_screen.dart';
+import 'package:carrerk/features/developer/ui/home_main_page/developer_home_main_page_screen.dart';
+import 'package:carrerk/features/developer/ui/jobs/all_categories/developer_jobs_all_categories_screen.dart';
+import 'package:carrerk/features/developer/ui/jobs/application_submitted/developer_jobs_application_submitted_screen.dart';
+import 'package:carrerk/features/developer/ui/jobs/apply/logic/developer_jobs_apply_cubit.dart';
+import 'package:carrerk/features/developer/ui/jobs/apply/ui/developer_jobs_apply_screen.dart';
+
+import 'package:carrerk/features/developer/ui/jobs/main_page/developer_jobs_main_page_screen.dart';
+
+import 'package:carrerk/features/developer/ui/profile/edit_profile/developer_profile_edit_profile_screen.dart';
+
+import 'package:carrerk/features/developer/ui/profile/main_page/developer_profile_main_page_screen.dart';
+import 'package:carrerk/features/developer/ui/profile/payment/add_new_cart/developer_profile_payment_add_new_card_screen.dart';
+import 'package:carrerk/features/developer/ui/profile/payment/option/developer_profile_payment_option_screen.dart';
+import 'package:carrerk/features/developer/ui/profile/saved_jobs/developer_profile_saved_jobs_screen.dart';
+import 'package:carrerk/features/developer/ui/profile/settings/developer_profile_settings_screen.dart';
+import 'package:carrerk/features/developer/ui/sign_up/logic/developer_sign_up_cubit.dart';
+import 'package:carrerk/features/developer/ui/sign_up_completed/cv_downloaded/developer_sign_up_completed_cv_downloaded.dart';
+import 'package:carrerk/features/developer/ui/sign_up_completed/cv_is_done/developer_sign_up_completed_cv_is_done.dart';
+import 'package:carrerk/features/developer/ui/sign_up_completed/ready_to_go/developer_sign_up_completed_ready_to_go.dart';
+import 'package:carrerk/features/search/logic/search_courses_cubit.dart';
+import 'package:carrerk/features/search/ui/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,6 +60,8 @@ import '../../features/authentication/reset_password/ui/reset_password_screen.da
 import '../../features/authentication/successful_change_password/successful_change_password.dart';
 import '../../features/chats/all_chats/logic/chats_all_chats_cubit.dart';
 import '../../features/chats/all_chats/ui/chats_all_chats.dart';
+import '../../features/chats/contact_list/all_chats/logic/contact_list_all_chats_cubit.dart';
+import '../../features/chats/contact_list/all_chats/ui/customer_chats_screen.dart';
 import '../../features/chats/person_chat/data/repo/start_chat_room_repo.dart';
 import '../../features/chats/person_chat/logic/get_chat_messages/get_chat_messages_cubit.dart';
 import '../../features/chats/person_chat/logic/send_messages/send_messages_cubit.dart';
@@ -45,11 +83,14 @@ import '../../features/company/ui/jobs_post/logic/company_jobs_post_cubit.dart';
 import '../../features/company/ui/jobs_post/ui/success/company_job_post_success_screen.dart';
 import '../../features/company/ui/profile/company_profile_screen.dart';
 import '../../features/company/ui/send_to_applicants/message-applicant/company_send_to_applicants_message_applicant_screen.dart';
+
+import '../../features/customer/ui/sign_up/logic/customer_sign_up_cubit.dart';
 import '../../features/company/ui/sign_up/logic/company_sign_up_cubit.dart';
 import '../../features/customer/sign_up/logic/customer_sign_up_cubit.dart';
 import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
 import '../../features/developer/logic/developer_recommendations_logic/developer_recommendations_cubit.dart';
 import '../../features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
+
 import '../../features/developer/ui/community/all_communities/developer_community_all_communities_screen.dart';
 import '../../features/developer/ui/community/chat/developer_community_chat_screen.dart';
 import '../../features/developer/ui/courses/certification/developer_courses_certification_screen.dart';
@@ -63,6 +104,8 @@ import '../../features/developer/ui/courses/roadmaps/logic/developer_courses_roa
 import '../../features/developer/ui/courses/roadmaps/ui/developer_courses_roadmaps_screen.dart';
 import '../../features/developer/ui/courses/specific_category/logic/developer_courses_specific_category_cubit.dart';
 import '../../features/developer/ui/courses/specific_category/ui/developer_courses_specific_category_screen.dart';
+import '../../features/developer/ui/courses/specific_course/ui/developer_courses_course_details_screen.dart';
+
 import '../../features/developer/ui/courses/specific_course/logic/specific_course_header_logic/specific_course_header_cubit.dart';
 import '../../features/developer/ui/courses/specific_course/logic/specific_course_lectures_logic/specific_course_lectures_cubit.dart';
 import '../../features/developer/ui/courses/specific_course/logic/specific_course_overview_logic/specific_course_overview_cubit.dart';
@@ -94,16 +137,8 @@ import '../../features/developer/ui/profile/jobs_applied/logic/developer_service
 import '../../features/developer/ui/profile/jobs_applied/ui/developer_profile_jobs_and_services_applied_screen.dart';
 import '../../features/developer/ui/profile/main_page/developer_profile_main_page_screen.dart';
 import '../../features/developer/ui/profile/payment/add_new_cart/developer_profile_payment_add_new_card_screen.dart';
-import '../../features/developer/ui/profile/payment/option/developer_profile_payment_option_screen.dart';
-import '../../features/developer/ui/profile/saved_jobs/developer_profile_saved_jobs_screen.dart';
-import '../../features/developer/ui/profile/settings/developer_profile_settings_screen.dart';
-import '../../features/developer/ui/sign_up/logic/developer_sign_up_cubit.dart';
-import '../../features/developer/ui/sign_up_completed/cv_downloaded/developer_sign_up_completed_cv_downloaded.dart';
-import '../../features/developer/ui/sign_up_completed/cv_is_done/developer_sign_up_completed_cv_is_done.dart';
-import '../../features/developer/ui/sign_up_completed/ready_to_go/developer_sign_up_completed_ready_to_go.dart';
-import '../../features/notifications/notifications_screen.dart';
-import '../../features/search/logic/search_courses_cubit.dart';
-import '../../features/search/ui/search_screen.dart';
+
+import '../../features/notifications/ui/notifications_screen.dart';
 import '../../features/sign_up_user_type/sign_up_user_type_screen.dart';
 import '../di/dependency_injection.dart';
 import '../helpers/enums.dart';
@@ -370,33 +405,15 @@ class AppRouter {
       // Courses
       case Routes.developerCoursesMainPageScreen:
         return MaterialPageRoute(
-          builder: (_) => MultiBlocProvider(
-            providers: [
-              BlocProvider(
-                create: (_) =>
-                    getIt<DeveloperCoursesAndJobsMainPageProfileCubit>()
-                      ..getDeveloperCoursesMainPageProfile(),
-              ),
-              BlocProvider(
-                create: (_) => getIt<DeveloperCoursesMainPageRoadmapsCubit>()
-                  ..getDeveloperCoursesMainPageRoadmaps(),
-              ),
-            ],
-            child: const DeveloperCoursesMainPageScreen(),
-          ),
+          builder: (_) => const DeveloperCoursesMainPageScreen(),
         );
       case Routes.developerCoursesRelatedCoursesScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperCoursesRelatedCoursesScreen(),
         );
       case Routes.developerCoursesSpecificCategoryScreen:
-        final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<DeveloperCoursesSpecificCategoryCubit>()
-              ..getDeveloperCoursesSpecificCategory(args.trackId!),
-            child: const DeveloperCoursesSpecificCategoryScreen(),
-          ),
+          builder: (_) => const DeveloperCoursesSpecificCategoryScreen(),
         );
 
       case Routes.developerCoursesSpecificCourseScreen:
@@ -428,11 +445,7 @@ class AppRouter {
 
       case Routes.developerCoursesRoadmapsScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<DeveloperCoursesRoadmapsCubit>()
-              ..getDeveloperCoursesRoadmaps(),
-            child: const DeveloperCoursesRoadmapsScreen(),
-          ),
+          builder: (_) => const DeveloperCoursesRoadmapsScreen(),
         );
       case Routes.developerCoursesMyCoursesScreen:
         return MaterialPageRoute(
@@ -455,16 +468,7 @@ class AppRouter {
       //---> Jobs
       case Routes.developerJobsMainPageScreen:
         return MaterialPageRoute(
-          builder: (_) => MultiBlocProvider(
-            providers: [
-              BlocProvider(
-                create: (_) =>
-                    getIt<DeveloperCoursesAndJobsMainPageProfileCubit>()
-                      ..getDeveloperCoursesMainPageProfile(),
-              ),
-            ],
-            child: const DeveloperJobsMainPageScreen(),
-          ),
+          builder: (_) => const DeveloperJobsMainPageScreen(),
         );
       case Routes.developerJobsSearchScreen:
         return MaterialPageRoute(
@@ -597,7 +601,9 @@ class AppRouter {
             child: const CustomerSignupFlow(),
           ),
         );
+
       // Profile
+
       case Routes.customerProfileScreen:
         return MaterialPageRoute(
           builder: (_) => const CustomerProfileScreen(),
@@ -605,32 +611,57 @@ class AppRouter {
       //jobs_post
       case Routes.customerJobPostScreen:
         return MaterialPageRoute(
-          builder: (_) => const CustomerJobPostScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<CustomerJobsPostCubit>(),
+            child: const CustomerJobPostScreen(),
+          ),
         );
 
-      case Routes.customerJobsPostFlow:
-        return MaterialPageRoute(builder: (_) => const CustomerJobsPostFlow());
       // applied
       case Routes.customerAppliedFirstScreen:
+        final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-            builder: (_) => const CustomerAppliedFirstScreen());
-      case Routes.customerAppliedSecoundScreen:
-        return MaterialPageRoute(
-            builder: (_) => const CustomerAppliedSecoundScreen());
-      // chats
-      case Routes.customerChatsScreen:
-        return MaterialPageRoute(
-          builder: (_) => const CustomerChatsScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<ApplicationsCubit>()
+              ..getApplications(args.applicationId!),
+            child: CustomerAppliedFirstScreen(),
+          ),
         );
 
-      case Routes.customerChatsPersonChatScreen:
+      // applied details
+      case Routes.customerAppliedSecoundScreen:
+        final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-          builder: (_) => const CustomerChatsPersonChatScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<ApplicationDetailsCubit>()
+              ..getApplicationDetails(args.applicationId!),
+            child: CustomerAppliedSecoundScreen(),
+          ),
         );
+
+      // chats
+
+      case Routes.customerChatsScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<ContactListAllChatsCubit>()..getAllChats(),
+            child: const CustomerChatsScreen(),
+          ),
+        );
+
+      // sign up
+      case Routes.customerSignUpCompulsoryDataScreen:
+        return MaterialPageRoute(
+          builder: (_) => const CustomerSignUpCompulsoryDataScreen(),
+        );
+      case Routes.customerSignUpFillProfileScreen:
       // home
       case Routes.customerHomeMainPageScreen:
         return MaterialPageRoute(
-          builder: (_) => const CustomerHomeMainPageScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<CustomerHomeCubit>()..getCustomerHomeData(),
+            child: const CustomerHomeMainPageScreen(),
+          ),
         );
       // ---------------- PDF View ----------------
       case Routes.pdfViewerScreen:

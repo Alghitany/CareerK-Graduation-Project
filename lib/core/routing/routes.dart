@@ -163,12 +163,13 @@ class Routes {
   static const String customerProfileScreen = "/customerProfileScreen";
 
   //jops_post
-  static const String customerJobsPostFlow = "/customerJobsPostFlow";
+
   static const String customerJobPostScreen = "/customerJobPostScreen";
 
   //home
   static const String customerHomeMainPageScreen =
       "/customerHomeMainPageScreen";
+
 
   // chats
   static const String customerChatsScreen = "/customerChatsScreen";
