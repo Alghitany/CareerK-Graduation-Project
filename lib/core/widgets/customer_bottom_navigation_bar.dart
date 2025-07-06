@@ -149,6 +149,7 @@
 //   }
 // }
 import 'package:carrerk/core/helpers/extensions.dart';
+import 'package:carrerk/core/routing/app_argument.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -238,7 +239,9 @@ class _CustomerBottomNavigationBarState
               ),
               onPressed: () {
                 _onItemTapped(1);
-                context.pushNamed(Routes.customerAppliedFirstScreen);
+                context.pushNamed(Routes.customerAppliedFirstScreen,
+                    arguments: AppArgument(
+                        serviceId: 'edba0012-c0fe-4db3-ae26-96ccde918dee'));
               },
             ),
           ),
@@ -265,7 +268,7 @@ class _CustomerBottomNavigationBarState
               ),
               onPressed: () {
                 _onItemTapped(2);
-                context.pushNamed(Routes.customerChatsScreen);
+                ;
               },
             ),
           ),
@@ -275,6 +278,8 @@ class _CustomerBottomNavigationBarState
                 children: [
                   SvgPicture.asset(
                     "assets/svgs/person_outlined.svg",
+                    height: 21.h,
+                    width: 21.w,
                     colorFilter: ColorFilter.mode(
                       _selectedIndex == 3 ? _selectedColor : _unselectedColor,
                       BlendMode.srcIn,

@@ -36,18 +36,17 @@ class AppBackIcon extends StatelessWidget {
           width: width?.w ?? 32.w,
           height: height?.h ?? 32.h,
           decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(
-              color: borderColor ?? Theme.of(context).dividerColor,
-            ),
-            color: ColorsManager.ghostWhite
-          ),
+              shape: BoxShape.circle,
+              border: Border.all(
+                color: borderColor ?? Theme.of(context).dividerColor,
+              ),
+              color: ColorsManager.ghostWhite),
           child: SvgPicture.asset(
             iconPath ?? 'assets/svgs/left_arrow.svg',
             fit: fit ?? BoxFit.scaleDown,
             colorFilter: color != null
                 ? ColorFilter.mode(color!, BlendMode.srcIn)
-                : null,  // Don't apply color filter if color is null
+                : null, // Don't apply color filter if color is null
           ),
         ),
       ),

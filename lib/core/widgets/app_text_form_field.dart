@@ -29,33 +29,36 @@ class AppTextFormField extends StatelessWidget {
   final double? height;
   final double? width;
   final int? maxLength;
+  final void Function(FormFieldState<String> state)? onFormFieldReady;
 
-  const AppTextFormField(
-      {super.key,
-      this.contentPadding,
-      this.focusedBorder,
-      this.enabledBorder,
-      this.errorBorder,
-      this.focusedErrorBorder,
-      this.inputTextStyle,
-      this.hintStyle,
-      required this.hintText,
-      this.isObscureText,
-      this.suffixIcon,
-      this.backgroundColor,
-      this.controller,
-      required this.validator,
-      this.readOnly,
-      this.onTap,
-      this.keyboardType,
-      this.onChanged,
-      this.minLines,
-      this.maxLines,
-      this.borderRadius,
-      this.height,
-      this.width,
-      this.prefixIcon,
-      this.maxLength});
+  const AppTextFormField({
+    super.key,
+    this.contentPadding,
+    this.focusedBorder,
+    this.enabledBorder,
+    this.errorBorder,
+    this.focusedErrorBorder,
+    this.inputTextStyle,
+    this.hintStyle,
+    required this.hintText,
+    this.isObscureText,
+    this.suffixIcon,
+    this.backgroundColor,
+    this.controller,
+    required this.validator,
+    this.readOnly,
+    this.onTap,
+    this.keyboardType,
+    this.onChanged,
+    this.minLines,
+    this.maxLines,
+    this.borderRadius,
+    this.height,
+    this.width,
+    this.prefixIcon,
+    this.maxLength,
+    this.onFormFieldReady,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -63,6 +66,7 @@ class AppTextFormField extends StatelessWidget {
       validator: validator,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       builder: (state) {
+        onFormFieldReady?.call(state); // ✅ Pass state to parent
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

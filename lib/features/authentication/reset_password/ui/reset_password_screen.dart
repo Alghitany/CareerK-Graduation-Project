@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/helpers/app_regex.dart';
 import '../data/models/reset_password_request_body.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
@@ -53,10 +54,10 @@ class ResetPasswordScreen extends StatelessWidget {
                               .emailController,
                           hintText: 'email@email.com',
                           validator: (email) {
-                            // if (email.isNullOrEmpty() ||
-                            //     !AppRegex.isValidEmail(email!)) {
-                            //   return 'Please enter a valid email';
-                            // }
+                            if (!AppRegex.isValidEmail(email!)) {
+                              return 'Please enter a valid email';
+                            }
+                            return null;
                           }),
                     ),
                     verticalSpace(44),

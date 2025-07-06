@@ -15,7 +15,7 @@ class SpecificCourseReviewsResponseBody {
   });
 
   factory SpecificCourseReviewsResponseBody.fromJson(
-      Map<String, dynamic> json) =>
+          Map<String, dynamic> json) =>
       _$SpecificCourseReviewsResponseBodyFromJson(json);
 
   Map<String, dynamic> toJson() =>
@@ -42,8 +42,7 @@ class Review {
     required this.date,
   });
 
-  factory Review.fromJson(Map<String, dynamic> json) =>
-      _$ReviewFromJson(json);
+  factory Review.fromJson(Map<String, dynamic> json) => _$ReviewFromJson(json);
 
   Map<String, dynamic> toJson() => _$ReviewToJson(this);
 }
