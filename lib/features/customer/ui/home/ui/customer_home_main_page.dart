@@ -1,12 +1,11 @@
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/widgets/cusomer_floating_action_button.dart';
-import 'package:carrerk/core/widgets/customer_bottom_navigation_bar.dart';
 import 'package:carrerk/features/customer/ui/home/ui/widgets/customer_bloc_builder.dart';
 import 'package:carrerk/features/customer/ui/home/ui/widgets/home_page_top_bar_bloc_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'widgets/recommendations_list.dart';
+import '../../../home/widgets/recommendations_list.dart';
 
 class CustomerHomeMainPageScreen extends StatelessWidget {
   const CustomerHomeMainPageScreen({super.key});
@@ -22,10 +21,10 @@ class CustomerHomeMainPageScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomerTopBarBlocBuilder(),
+              const CustomerTopBarBlocBuilder(),
               verticalSpace(40),
               // Use Expanded to fill remaining height
-              Expanded(
+              const Expanded(
                 child: CustomerBlocBuilder(),
               ),
               const RecommendationsList()

@@ -3,6 +3,7 @@ import 'package:carrerk/features/customer/ui/applied/data/model/reject_applicati
 import '../../../../../../../core/networking/api_error_handler.dart';
 import '../../../../../../../core/networking/api_result.dart';
 import '../../../../../../../core/networking/api_service.dart';
+import '../../model/reject_applications_model/reject_application_response.dart';
 
 class RejectApplicationsRepo {
   final ApiService _apiService;

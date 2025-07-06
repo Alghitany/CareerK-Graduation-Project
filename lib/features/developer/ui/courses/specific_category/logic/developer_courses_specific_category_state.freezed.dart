@@ -395,11 +395,6 @@ class _$DeveloperCoursesSpecificCategorySuccessImpl
 
   @override
   final DeveloperCoursesSpecificCategoryResponseBody data;
-  List<DeveloperCoursesSpecificCategoryResponseBody> get courses {
-    if (_courses is EqualUnmodifiableListView) return _courses;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_courses);
-  }
 
   @override
   String toString() {
