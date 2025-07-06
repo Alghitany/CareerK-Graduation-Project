@@ -251,10 +251,10 @@ Future<void> setupGetIt() async {
   );
   //-> Reviews
   getIt.registerLazySingleton<SpecificCourseReviewsRepo>(
-        () => SpecificCourseReviewsRepo(getIt()),
+    () => SpecificCourseReviewsRepo(getIt()),
   );
   getIt.registerFactory<SpecificCourseReviewsCubit>(
-        () => SpecificCourseReviewsCubit(getIt()),
+    () => SpecificCourseReviewsCubit(getIt()),
   );
   // -> Profile
   // -> Jobs Applied

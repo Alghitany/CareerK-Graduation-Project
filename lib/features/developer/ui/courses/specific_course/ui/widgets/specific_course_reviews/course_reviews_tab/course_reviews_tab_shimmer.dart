@@ -70,13 +70,17 @@ class CourseReviewsTabShimmer extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                shimmerBox(height: 14.h, width: 120.w), // Name
+                shimmerBox(height: 14.h, width: 120.w),
+                // Name
                 verticalSpace(4),
-                shimmerBox(height: 14.h, width: 60.w), // Date
+                shimmerBox(height: 14.h, width: 60.w),
+                // Date
                 verticalSpace(4),
-                shimmerBox(height: 18.h, width: double.infinity), // Stars (will stretch)
+                shimmerBox(height: 18.h, width: double.infinity),
+                // Stars (will stretch)
                 verticalSpace(8),
-                shimmerBox(height: 40.h, width: double.infinity), // Comment
+                shimmerBox(height: 40.h, width: double.infinity),
+                // Comment
               ],
             ),
           ),

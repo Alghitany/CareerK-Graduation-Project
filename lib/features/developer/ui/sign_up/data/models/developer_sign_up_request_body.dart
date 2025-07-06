@@ -98,8 +98,8 @@ class DeveloperSignupRequestBody {
           mimeType = MediaType('application', 'msword');
           break;
         case 'docx':
-          mimeType = MediaType(
-              'application', 'vnd.openxmlformats-officedocument.wordprocessingml.document');
+          mimeType = MediaType('application',
+              'vnd.openxmlformats-officedocument.wordprocessingml.document');
           break;
         default:
           mimeType = MediaType('application', 'octet-stream');

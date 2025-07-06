@@ -10,13 +10,13 @@ class SpecificCourseReviewsState with _$SpecificCourseReviewsState {
   const factory SpecificCourseReviewsState.initial() = _Initial;
 
   const factory SpecificCourseReviewsState.loading() =
-  SpecificCourseReviewsLoading;
+      SpecificCourseReviewsLoading;
 
   const factory SpecificCourseReviewsState.success(
-      SpecificCourseReviewsResponseBody data,
-      ) = SpecificCourseReviewsSuccess;
+    SpecificCourseReviewsResponseBody data,
+  ) = SpecificCourseReviewsSuccess;
 
   const factory SpecificCourseReviewsState.error(
-      ErrorHandler errorHandler,
-      ) = SpecificCourseReviewsError;
+    ErrorHandler errorHandler,
+  ) = SpecificCourseReviewsError;
 }

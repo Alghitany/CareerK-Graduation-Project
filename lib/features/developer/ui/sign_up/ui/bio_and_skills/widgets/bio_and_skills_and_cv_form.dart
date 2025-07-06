@@ -55,13 +55,16 @@ class _BioAndSkillsFormState extends State<BioSkillsAndCVForm> {
             minLines: 13,
             maxLines: 15,
             validator: (bio) {
-              if (bio == null || bio.isEmpty || !AppRegex.isValidDescription(bio)) {
+              if (bio == null ||
+                  bio.isEmpty ||
+                  !AppRegex.isValidDescription(bio)) {
                 return "Please enter a valid bio";
               }
               return null;
             },
             borderRadius: 0,
-            contentPadding: EdgeInsets.symmetric(vertical: 24.h, horizontal: 24.w),
+            contentPadding:
+                EdgeInsets.symmetric(vertical: 24.h, horizontal: 24.w),
           ),
           verticalSpace(24),
           const AppLabel(text: 'Your Skills'),
@@ -77,13 +80,16 @@ class _BioAndSkillsFormState extends State<BioSkillsAndCVForm> {
             minLines: 13,
             maxLines: 15,
             validator: (skills) {
-              if (skills == null || skills.isEmpty || !AppRegex.isValidDescription(skills)) {
+              if (skills == null ||
+                  skills.isEmpty ||
+                  !AppRegex.isValidDescription(skills)) {
                 return "Please enter valid skills";
               }
               return null;
             },
             borderRadius: 0,
-            contentPadding: EdgeInsets.symmetric(vertical: 24.h, horizontal: 24.w),
+            contentPadding:
+                EdgeInsets.symmetric(vertical: 24.h, horizontal: 24.w),
           ),
           verticalSpace(24),
           const AppLabel(text: 'Upload Your CV (Optional)'),

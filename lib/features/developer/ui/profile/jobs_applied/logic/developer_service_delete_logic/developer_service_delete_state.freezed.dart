@@ -25,6 +25,7 @@ mixin _$DeveloperServiceDeleteState {
     required TResult Function(String error) error,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
@@ -43,6 +44,7 @@ mixin _$DeveloperServiceDeleteState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
@@ -51,6 +53,7 @@ mixin _$DeveloperServiceDeleteState {
     required TResult Function(Error value) error,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
@@ -85,9 +88,9 @@ class _$DeveloperServiceDeleteStateCopyWithImpl<$Res,
     implements $DeveloperServiceDeleteStateCopyWith<$Res> {
   _$DeveloperServiceDeleteStateCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
+// ignore: unused_field
   final $Val _value;
-  // ignore: unused_field
+// ignore: unused_field
   final $Res Function($Val) _then;
 
   /// Create a copy of DeveloperServiceDeleteState

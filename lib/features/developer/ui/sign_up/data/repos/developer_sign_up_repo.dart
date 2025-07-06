@@ -53,8 +53,8 @@ class DeveloperSignupRepo {
             mimeType = MediaType('application', 'msword');
             break;
           case 'docx':
-            mimeType = MediaType(
-                'application', 'vnd.openxmlformats-officedocument.wordprocessingml.document');
+            mimeType = MediaType('application',
+                'vnd.openxmlformats-officedocument.wordprocessingml.document');
             break;
           default:
             mimeType = MediaType('application', 'octet-stream');
@@ -96,7 +96,7 @@ class DeveloperSignupRepo {
       );
 
       final developerSignupResponse =
-      DeveloperSignupResponse.fromJson(response.data);
+          DeveloperSignupResponse.fromJson(response.data);
       return ApiResult.success(developerSignupResponse);
     } catch (error) {
       return ApiResult.failure(ErrorHandler.handle(error));

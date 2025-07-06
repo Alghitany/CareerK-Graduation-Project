@@ -14,7 +14,7 @@ class SpecificCourseReviewsBlocBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SpecificCourseReviewsCubit, SpecificCourseReviewsState>(
       buildWhen: (previous, current) =>
-      current is SpecificCourseReviewsLoading ||
+          current is SpecificCourseReviewsLoading ||
           current is SpecificCourseReviewsSuccess ||
           current is SpecificCourseReviewsError,
       builder: (context, state) {

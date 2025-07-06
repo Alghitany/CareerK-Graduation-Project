@@ -135,8 +135,8 @@ abstract class ApiService {
   // -> Reviews
   @GET(ApiConstants.developerSpecificCourseReviews)
   Future<SpecificCourseReviewsResponseBody> getSpecificCourseReviews(
-      @Path('courseId') String courseId,
-      );
+    @Path('courseId') String courseId,
+  );
 
   //-> Job Details
   @GET(ApiConstants.developerJobsJobDetails)

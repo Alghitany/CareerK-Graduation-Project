@@ -422,7 +422,7 @@ class AppRouter {
               ),
             ],
             child:
-            DeveloperCoursesSpecificCourseScreen(courseId: args.courseId!),
+                DeveloperCoursesSpecificCourseScreen(courseId: args.courseId!),
           ),
         );
 
