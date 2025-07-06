@@ -13,30 +13,24 @@ import 'package:carrerk/features/customer/ui/applied/logic/secound_screen_logic/
 import 'package:carrerk/features/customer/ui/applied/ui/first/customer_applied_first_screen.dart';
 import 'package:carrerk/features/customer/ui/applied/ui/secound/customer_applied_secound_screen.dart';
 import 'package:carrerk/features/customer/ui/home/logic/customer_home_cubit.dart';
-
 import 'package:carrerk/features/customer/ui/home/ui/customer_home_main_page.dart';
 import 'package:carrerk/features/customer/ui/jobs_post/customer_jobs_post.dart';
 import 'package:carrerk/features/customer/ui/profile/customer_profile_screen.dart';
 import 'package:carrerk/features/customer/ui/sign_up/compulsory_data/customer_sign_up_compulsory_data_screen.dart';
 import 'package:carrerk/features/developer/ui/community/all_communities/developer_community_all_communities_screen.dart';
 import 'package:carrerk/features/developer/ui/community/chat/developer_community_chat_screen.dart';
-import 'package:carrerk/features/developer/ui/courses/categories/developer_courses_categories_screen.dart';
 import 'package:carrerk/features/developer/ui/courses/certification/developer_courses_certification_screen.dart';
 import 'package:carrerk/features/developer/ui/courses/cv_updated/download_cv/developer_courses_cv_updated_download_cv_screen.dart';
 import 'package:carrerk/features/developer/ui/courses/cv_updated/successful_update/developer_courses_cv_updated_successful_update_screen.dart';
 import 'package:carrerk/features/developer/ui/courses/main_page/ui/developer_courses_main_page_screen.dart';
 import 'package:carrerk/features/developer/ui/courses/my_courses/developer_courses_my_courses_screen.dart';
 import 'package:carrerk/features/developer/ui/courses/roadmaps/ui/developer_courses_roadmaps_screen.dart';
-import 'package:carrerk/features/developer/ui/home_main_page/developer_home_main_page_screen.dart';
 import 'package:carrerk/features/developer/ui/jobs/all_categories/developer_jobs_all_categories_screen.dart';
 import 'package:carrerk/features/developer/ui/jobs/application_submitted/developer_jobs_application_submitted_screen.dart';
 import 'package:carrerk/features/developer/ui/jobs/apply/logic/developer_jobs_apply_cubit.dart';
 import 'package:carrerk/features/developer/ui/jobs/apply/ui/developer_jobs_apply_screen.dart';
-
 import 'package:carrerk/features/developer/ui/jobs/main_page/developer_jobs_main_page_screen.dart';
-
 import 'package:carrerk/features/developer/ui/profile/edit_profile/developer_profile_edit_profile_screen.dart';
-
 import 'package:carrerk/features/developer/ui/profile/main_page/developer_profile_main_page_screen.dart';
 import 'package:carrerk/features/developer/ui/profile/payment/add_new_cart/developer_profile_payment_add_new_card_screen.dart';
 import 'package:carrerk/features/developer/ui/profile/payment/option/developer_profile_payment_option_screen.dart';
@@ -86,26 +80,10 @@ import '../../features/company/ui/send_to_applicants/message-applicant/company_s
 
 import '../../features/customer/ui/sign_up/logic/customer_sign_up_cubit.dart';
 import '../../features/company/ui/sign_up/logic/company_sign_up_cubit.dart';
-import '../../features/customer/sign_up/logic/customer_sign_up_cubit.dart';
-import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
 import '../../features/developer/logic/developer_recommendations_logic/developer_recommendations_cubit.dart';
 import '../../features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
-
-import '../../features/developer/ui/community/all_communities/developer_community_all_communities_screen.dart';
-import '../../features/developer/ui/community/chat/developer_community_chat_screen.dart';
-import '../../features/developer/ui/courses/certification/developer_courses_certification_screen.dart';
-import '../../features/developer/ui/courses/cv_updated/download_cv/developer_courses_cv_updated_download_cv_screen.dart';
-import '../../features/developer/ui/courses/cv_updated/successful_update/developer_courses_cv_updated_successful_update_screen.dart';
-import '../../features/developer/ui/courses/main_page/logic/developer_courses_main_page_roadmaps_cubit.dart';
-import '../../features/developer/ui/courses/main_page/ui/developer_courses_main_page_screen.dart';
-import '../../features/developer/ui/courses/my_courses/developer_courses_my_courses_screen.dart';
 import '../../features/developer/ui/courses/related_courses/developer_courses_related_courses_screen.dart';
-import '../../features/developer/ui/courses/roadmaps/logic/developer_courses_roadmaps_cubit.dart';
-import '../../features/developer/ui/courses/roadmaps/ui/developer_courses_roadmaps_screen.dart';
-import '../../features/developer/ui/courses/specific_category/logic/developer_courses_specific_category_cubit.dart';
 import '../../features/developer/ui/courses/specific_category/ui/developer_courses_specific_category_screen.dart';
-import '../../features/developer/ui/courses/specific_course/ui/developer_courses_course_details_screen.dart';
-
 import '../../features/developer/ui/courses/specific_course/logic/specific_course_header_logic/specific_course_header_cubit.dart';
 import '../../features/developer/ui/courses/specific_course/logic/specific_course_lectures_logic/specific_course_lectures_cubit.dart';
 import '../../features/developer/ui/courses/specific_course/logic/specific_course_overview_logic/specific_course_overview_cubit.dart';
@@ -115,19 +93,13 @@ import '../../features/developer/ui/home_main_page/logic/developer_courses_home_
 import '../../features/developer/ui/home_main_page/logic/developer_name_home_main_page_logic/developer_name_home_main_page_cubit.dart';
 import '../../features/developer/ui/home_main_page/logic/developer_tags_home_main_page_logic/developer_tags_home_main_page_cubit.dart';
 import '../../features/developer/ui/home_main_page/ui/developer_home_main_page_screen.dart';
-import '../../features/developer/ui/jobs/all_categories/developer_jobs_all_categories_screen.dart';
-import '../../features/developer/ui/jobs/application_submitted/developer_jobs_application_submitted_screen.dart';
-import '../../features/developer/ui/jobs/apply/logic/developer_jobs_apply_cubit.dart';
-import '../../features/developer/ui/jobs/apply/ui/developer_jobs_apply_screen.dart';
 import '../../features/developer/ui/jobs/job_details/logic/developer_jobs_job_details_cubit.dart';
 import '../../features/developer/ui/jobs/job_details/ui/developer_jobs_job_details_screen.dart';
-import '../../features/developer/ui/jobs/main_page/developer_jobs_main_page_screen.dart';
 import '../../features/developer/ui/jobs/search/logic/developer_jobs_recently_posted_logic/developer_jobs_recently_posted_cubit.dart';
 import '../../features/developer/ui/jobs/search/logic/developer_services_recently_posted_logic/developer_services_recently_posted_cubit.dart';
 import '../../features/developer/ui/jobs/search/ui/developer_jobs_search_screen.dart';
 import '../../features/developer/ui/jobs/service_details/logic/developer_jobs_service_details_cubit.dart';
 import '../../features/developer/ui/jobs/service_details/ui/developer_jobs_service_details_screen.dart';
-import '../../features/developer/ui/profile/edit_profile/developer_profile_edit_profile_screen.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_job_withdraw_repo.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_profile_applied_jobs_repo.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_service_delete_repo.dart';
@@ -135,13 +107,10 @@ import '../../features/developer/ui/profile/jobs_applied/logic/developer_job_wit
 import '../../features/developer/ui/profile/jobs_applied/logic/developer_profile_applied_jobs_logic/developer_profile_applied_jobs_cubit.dart';
 import '../../features/developer/ui/profile/jobs_applied/logic/developer_service_delete_logic/developer_service_delete_cubit.dart';
 import '../../features/developer/ui/profile/jobs_applied/ui/developer_profile_jobs_and_services_applied_screen.dart';
-import '../../features/developer/ui/profile/main_page/developer_profile_main_page_screen.dart';
-import '../../features/developer/ui/profile/payment/add_new_cart/developer_profile_payment_add_new_card_screen.dart';
 
 import '../../features/notifications/ui/notifications_screen.dart';
 import '../../features/sign_up_user_type/sign_up_user_type_screen.dart';
 import '../di/dependency_injection.dart';
-import '../helpers/enums.dart';
 import 'company_router/signup_router.dart';
 import 'customer_router/signup_router.dart';
 import 'developer_router/signup_router.dart';

@@ -20,9 +20,6 @@ import '../../features/chats/person_chat/data/models/get_chat_messages/get_chat_
 import '../../features/chats/person_chat/data/models/start_chat/start_chat_room_request_body.dart';
 import '../../features/chats/person_chat/data/models/start_chat/start_chat_room_response.dart';
 import '../../features/company/data/model/company_jobs_delete_post_response.dart';
-import '../../features/company/jobs_post/data/models/company_jobs_post_request_body.dart';
-import '../../features/company/jobs_post/data/models/company_jobs_post_response.dart';
-
 import '../../features/company/ui/home/data/models/update_application_status_model/company_update_application_status_request_body.dart';
 import '../../features/company/ui/home/data/models/update_application_status_model/company_update_application_status_response.dart';
 import '../../features/company/ui/home/ui/main_page/data/model/company_home_main_page_response_body.dart';
