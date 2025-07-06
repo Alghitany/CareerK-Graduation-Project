@@ -531,6 +531,40 @@ class _ApiService implements ApiService {
   }
 
   @override
+  Future<SpecificCourseReviewsResponseBody> getSpecificCourseReviews(
+      String courseId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<SpecificCourseReviewsResponseBody>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/api/course-details/${courseId}/reviews',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late SpecificCourseReviewsResponseBody _value;
+    try {
+      _value = SpecificCourseReviewsResponseBody.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
   Future<DeveloperJobsJobDetailsResponseBody> getDeveloperJobDetails(
       String jobId) async {
     final _extra = <String, dynamic>{};

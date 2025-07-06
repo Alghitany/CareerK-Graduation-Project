@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'chats_all_chats_state.dart';
+part of 'specific_course_reviews_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$ChatsAllChatsState {
+mixin _$SpecificCourseReviewsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ChatsAllChatsResponseBody chats) success,
+    required TResult Function(SpecificCourseReviewsResponseBody data) success,
     required TResult Function(ErrorHandler errorHandler) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$ChatsAllChatsState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ChatsAllChatsResponseBody chats)? success,
+    TResult? Function(SpecificCourseReviewsResponseBody data)? success,
     TResult? Function(ErrorHandler errorHandler)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$ChatsAllChatsState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ChatsAllChatsResponseBody chats)? success,
+    TResult Function(SpecificCourseReviewsResponseBody data)? success,
     TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) =>
@@ -44,48 +44,50 @@ mixin _$ChatsAllChatsState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(ChatsAllChatsLoading value) loading,
-    required TResult Function(ChatsAllChatsSuccess value) success,
-    required TResult Function(ChatsAllChatsError value) error,
+    required TResult Function(SpecificCourseReviewsLoading value) loading,
+    required TResult Function(SpecificCourseReviewsSuccess value) success,
+    required TResult Function(SpecificCourseReviewsError value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(ChatsAllChatsLoading value)? loading,
-    TResult? Function(ChatsAllChatsSuccess value)? success,
-    TResult? Function(ChatsAllChatsError value)? error,
+    TResult? Function(SpecificCourseReviewsLoading value)? loading,
+    TResult? Function(SpecificCourseReviewsSuccess value)? success,
+    TResult? Function(SpecificCourseReviewsError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(ChatsAllChatsLoading value)? loading,
-    TResult Function(ChatsAllChatsSuccess value)? success,
-    TResult Function(ChatsAllChatsError value)? error,
+    TResult Function(SpecificCourseReviewsLoading value)? loading,
+    TResult Function(SpecificCourseReviewsSuccess value)? success,
+    TResult Function(SpecificCourseReviewsError value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ChatsAllChatsStateCopyWith<$Res> {
-  factory $ChatsAllChatsStateCopyWith(
-          ChatsAllChatsState value, $Res Function(ChatsAllChatsState) then) =
-      _$ChatsAllChatsStateCopyWithImpl<$Res, ChatsAllChatsState>;
+abstract class $SpecificCourseReviewsStateCopyWith<$Res> {
+  factory $SpecificCourseReviewsStateCopyWith(SpecificCourseReviewsState value,
+          $Res Function(SpecificCourseReviewsState) then) =
+      _$SpecificCourseReviewsStateCopyWithImpl<$Res,
+          SpecificCourseReviewsState>;
 }
 
 /// @nodoc
-class _$ChatsAllChatsStateCopyWithImpl<$Res, $Val extends ChatsAllChatsState>
-    implements $ChatsAllChatsStateCopyWith<$Res> {
-  _$ChatsAllChatsStateCopyWithImpl(this._value, this._then);
+class _$SpecificCourseReviewsStateCopyWithImpl<$Res,
+        $Val extends SpecificCourseReviewsState>
+    implements $SpecificCourseReviewsStateCopyWith<$Res> {
+  _$SpecificCourseReviewsStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ChatsAllChatsState
+  /// Create a copy of SpecificCourseReviewsState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -98,13 +100,13 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$ChatsAllChatsStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$SpecificCourseReviewsStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ChatsAllChatsState
+  /// Create a copy of SpecificCourseReviewsState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -115,7 +117,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'ChatsAllChatsState.initial()';
+    return 'SpecificCourseReviewsState.initial()';
   }
 
   @override
@@ -132,7 +134,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ChatsAllChatsResponseBody chats) success,
+    required TResult Function(SpecificCourseReviewsResponseBody data) success,
     required TResult Function(ErrorHandler errorHandler) error,
   }) {
     return initial();
@@ -143,7 +145,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ChatsAllChatsResponseBody chats)? success,
+    TResult? Function(SpecificCourseReviewsResponseBody data)? success,
     TResult? Function(ErrorHandler errorHandler)? error,
   }) {
     return initial?.call();
@@ -154,7 +156,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ChatsAllChatsResponseBody chats)? success,
+    TResult Function(SpecificCourseReviewsResponseBody data)? success,
     TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) {
@@ -168,9 +170,9 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(ChatsAllChatsLoading value) loading,
-    required TResult Function(ChatsAllChatsSuccess value) success,
-    required TResult Function(ChatsAllChatsError value) error,
+    required TResult Function(SpecificCourseReviewsLoading value) loading,
+    required TResult Function(SpecificCourseReviewsSuccess value) success,
+    required TResult Function(SpecificCourseReviewsError value) error,
   }) {
     return initial(this);
   }
@@ -179,9 +181,9 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(ChatsAllChatsLoading value)? loading,
-    TResult? Function(ChatsAllChatsSuccess value)? success,
-    TResult? Function(ChatsAllChatsError value)? error,
+    TResult? Function(SpecificCourseReviewsLoading value)? loading,
+    TResult? Function(SpecificCourseReviewsSuccess value)? success,
+    TResult? Function(SpecificCourseReviewsError value)? error,
   }) {
     return initial?.call(this);
   }
@@ -190,9 +192,9 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(ChatsAllChatsLoading value)? loading,
-    TResult Function(ChatsAllChatsSuccess value)? success,
-    TResult Function(ChatsAllChatsError value)? error,
+    TResult Function(SpecificCourseReviewsLoading value)? loading,
+    TResult Function(SpecificCourseReviewsSuccess value)? success,
+    TResult Function(SpecificCourseReviewsError value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -202,44 +204,48 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements ChatsAllChatsState {
+abstract class _Initial implements SpecificCourseReviewsState {
   const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$ChatsAllChatsLoadingImplCopyWith<$Res> {
-  factory _$$ChatsAllChatsLoadingImplCopyWith(_$ChatsAllChatsLoadingImpl value,
-          $Res Function(_$ChatsAllChatsLoadingImpl) then) =
-      __$$ChatsAllChatsLoadingImplCopyWithImpl<$Res>;
+abstract class _$$SpecificCourseReviewsLoadingImplCopyWith<$Res> {
+  factory _$$SpecificCourseReviewsLoadingImplCopyWith(
+          _$SpecificCourseReviewsLoadingImpl value,
+          $Res Function(_$SpecificCourseReviewsLoadingImpl) then) =
+      __$$SpecificCourseReviewsLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ChatsAllChatsLoadingImplCopyWithImpl<$Res>
-    extends _$ChatsAllChatsStateCopyWithImpl<$Res, _$ChatsAllChatsLoadingImpl>
-    implements _$$ChatsAllChatsLoadingImplCopyWith<$Res> {
-  __$$ChatsAllChatsLoadingImplCopyWithImpl(_$ChatsAllChatsLoadingImpl _value,
-      $Res Function(_$ChatsAllChatsLoadingImpl) _then)
+class __$$SpecificCourseReviewsLoadingImplCopyWithImpl<$Res>
+    extends _$SpecificCourseReviewsStateCopyWithImpl<$Res,
+        _$SpecificCourseReviewsLoadingImpl>
+    implements _$$SpecificCourseReviewsLoadingImplCopyWith<$Res> {
+  __$$SpecificCourseReviewsLoadingImplCopyWithImpl(
+      _$SpecificCourseReviewsLoadingImpl _value,
+      $Res Function(_$SpecificCourseReviewsLoadingImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ChatsAllChatsState
+  /// Create a copy of SpecificCourseReviewsState
   /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$ChatsAllChatsLoadingImpl implements ChatsAllChatsLoading {
-  const _$ChatsAllChatsLoadingImpl();
+class _$SpecificCourseReviewsLoadingImpl
+    implements SpecificCourseReviewsLoading {
+  const _$SpecificCourseReviewsLoadingImpl();
 
   @override
   String toString() {
-    return 'ChatsAllChatsState.loading()';
+    return 'SpecificCourseReviewsState.loading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChatsAllChatsLoadingImpl);
+            other is _$SpecificCourseReviewsLoadingImpl);
   }
 
   @override
@@ -250,7 +256,7 @@ class _$ChatsAllChatsLoadingImpl implements ChatsAllChatsLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ChatsAllChatsResponseBody chats) success,
+    required TResult Function(SpecificCourseReviewsResponseBody data) success,
     required TResult Function(ErrorHandler errorHandler) error,
   }) {
     return loading();
@@ -261,7 +267,7 @@ class _$ChatsAllChatsLoadingImpl implements ChatsAllChatsLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ChatsAllChatsResponseBody chats)? success,
+    TResult? Function(SpecificCourseReviewsResponseBody data)? success,
     TResult? Function(ErrorHandler errorHandler)? error,
   }) {
     return loading?.call();
@@ -272,7 +278,7 @@ class _$ChatsAllChatsLoadingImpl implements ChatsAllChatsLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ChatsAllChatsResponseBody chats)? success,
+    TResult Function(SpecificCourseReviewsResponseBody data)? success,
     TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) {
@@ -286,9 +292,9 @@ class _$ChatsAllChatsLoadingImpl implements ChatsAllChatsLoading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(ChatsAllChatsLoading value) loading,
-    required TResult Function(ChatsAllChatsSuccess value) success,
-    required TResult Function(ChatsAllChatsError value) error,
+    required TResult Function(SpecificCourseReviewsLoading value) loading,
+    required TResult Function(SpecificCourseReviewsSuccess value) success,
+    required TResult Function(SpecificCourseReviewsError value) error,
   }) {
     return loading(this);
   }
@@ -297,9 +303,9 @@ class _$ChatsAllChatsLoadingImpl implements ChatsAllChatsLoading {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(ChatsAllChatsLoading value)? loading,
-    TResult? Function(ChatsAllChatsSuccess value)? success,
-    TResult? Function(ChatsAllChatsError value)? error,
+    TResult? Function(SpecificCourseReviewsLoading value)? loading,
+    TResult? Function(SpecificCourseReviewsSuccess value)? success,
+    TResult? Function(SpecificCourseReviewsError value)? error,
   }) {
     return loading?.call(this);
   }
@@ -308,9 +314,9 @@ class _$ChatsAllChatsLoadingImpl implements ChatsAllChatsLoading {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(ChatsAllChatsLoading value)? loading,
-    TResult Function(ChatsAllChatsSuccess value)? success,
-    TResult Function(ChatsAllChatsError value)? error,
+    TResult Function(SpecificCourseReviewsLoading value)? loading,
+    TResult Function(SpecificCourseReviewsSuccess value)? success,
+    TResult Function(SpecificCourseReviewsError value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -320,86 +326,92 @@ class _$ChatsAllChatsLoadingImpl implements ChatsAllChatsLoading {
   }
 }
 
-abstract class ChatsAllChatsLoading implements ChatsAllChatsState {
-  const factory ChatsAllChatsLoading() = _$ChatsAllChatsLoadingImpl;
+abstract class SpecificCourseReviewsLoading
+    implements SpecificCourseReviewsState {
+  const factory SpecificCourseReviewsLoading() =
+      _$SpecificCourseReviewsLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$ChatsAllChatsSuccessImplCopyWith<$Res> {
-  factory _$$ChatsAllChatsSuccessImplCopyWith(_$ChatsAllChatsSuccessImpl value,
-          $Res Function(_$ChatsAllChatsSuccessImpl) then) =
-      __$$ChatsAllChatsSuccessImplCopyWithImpl<$Res>;
+abstract class _$$SpecificCourseReviewsSuccessImplCopyWith<$Res> {
+  factory _$$SpecificCourseReviewsSuccessImplCopyWith(
+          _$SpecificCourseReviewsSuccessImpl value,
+          $Res Function(_$SpecificCourseReviewsSuccessImpl) then) =
+      __$$SpecificCourseReviewsSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ChatsAllChatsResponseBody chats});
+  $Res call({SpecificCourseReviewsResponseBody data});
 }
 
 /// @nodoc
-class __$$ChatsAllChatsSuccessImplCopyWithImpl<$Res>
-    extends _$ChatsAllChatsStateCopyWithImpl<$Res, _$ChatsAllChatsSuccessImpl>
-    implements _$$ChatsAllChatsSuccessImplCopyWith<$Res> {
-  __$$ChatsAllChatsSuccessImplCopyWithImpl(_$ChatsAllChatsSuccessImpl _value,
-      $Res Function(_$ChatsAllChatsSuccessImpl) _then)
+class __$$SpecificCourseReviewsSuccessImplCopyWithImpl<$Res>
+    extends _$SpecificCourseReviewsStateCopyWithImpl<$Res,
+        _$SpecificCourseReviewsSuccessImpl>
+    implements _$$SpecificCourseReviewsSuccessImplCopyWith<$Res> {
+  __$$SpecificCourseReviewsSuccessImplCopyWithImpl(
+      _$SpecificCourseReviewsSuccessImpl _value,
+      $Res Function(_$SpecificCourseReviewsSuccessImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ChatsAllChatsState
+  /// Create a copy of SpecificCourseReviewsState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? chats = null,
+    Object? data = null,
   }) {
-    return _then(_$ChatsAllChatsSuccessImpl(
-      null == chats
-          ? _value.chats
-          : chats // ignore: cast_nullable_to_non_nullable
-              as ChatsAllChatsResponseBody,
+    return _then(_$SpecificCourseReviewsSuccessImpl(
+      null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as SpecificCourseReviewsResponseBody,
     ));
   }
 }
 
 /// @nodoc
 
-class _$ChatsAllChatsSuccessImpl implements ChatsAllChatsSuccess {
-  const _$ChatsAllChatsSuccessImpl(this.chats);
+class _$SpecificCourseReviewsSuccessImpl
+    implements SpecificCourseReviewsSuccess {
+  const _$SpecificCourseReviewsSuccessImpl(this.data);
 
   @override
-  final ChatsAllChatsResponseBody chats;
+  final SpecificCourseReviewsResponseBody data;
 
   @override
   String toString() {
-    return 'ChatsAllChatsState.success(chats: $chats)';
+    return 'SpecificCourseReviewsState.success(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChatsAllChatsSuccessImpl &&
-            (identical(other.chats, chats) || other.chats == chats));
+            other is _$SpecificCourseReviewsSuccessImpl &&
+            (identical(other.data, data) || other.data == data));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, chats);
+  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of ChatsAllChatsState
+  /// Create a copy of SpecificCourseReviewsState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChatsAllChatsSuccessImplCopyWith<_$ChatsAllChatsSuccessImpl>
-      get copyWith =>
-          __$$ChatsAllChatsSuccessImplCopyWithImpl<_$ChatsAllChatsSuccessImpl>(
-              this, _$identity);
+  _$$SpecificCourseReviewsSuccessImplCopyWith<
+          _$SpecificCourseReviewsSuccessImpl>
+      get copyWith => __$$SpecificCourseReviewsSuccessImplCopyWithImpl<
+          _$SpecificCourseReviewsSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ChatsAllChatsResponseBody chats) success,
+    required TResult Function(SpecificCourseReviewsResponseBody data) success,
     required TResult Function(ErrorHandler errorHandler) error,
   }) {
-    return success(chats);
+    return success(data);
   }
 
   @override
@@ -407,10 +419,10 @@ class _$ChatsAllChatsSuccessImpl implements ChatsAllChatsSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ChatsAllChatsResponseBody chats)? success,
+    TResult? Function(SpecificCourseReviewsResponseBody data)? success,
     TResult? Function(ErrorHandler errorHandler)? error,
   }) {
-    return success?.call(chats);
+    return success?.call(data);
   }
 
   @override
@@ -418,12 +430,12 @@ class _$ChatsAllChatsSuccessImpl implements ChatsAllChatsSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ChatsAllChatsResponseBody chats)? success,
+    TResult Function(SpecificCourseReviewsResponseBody data)? success,
     TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(chats);
+      return success(data);
     }
     return orElse();
   }
@@ -432,9 +444,9 @@ class _$ChatsAllChatsSuccessImpl implements ChatsAllChatsSuccess {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(ChatsAllChatsLoading value) loading,
-    required TResult Function(ChatsAllChatsSuccess value) success,
-    required TResult Function(ChatsAllChatsError value) error,
+    required TResult Function(SpecificCourseReviewsLoading value) loading,
+    required TResult Function(SpecificCourseReviewsSuccess value) success,
+    required TResult Function(SpecificCourseReviewsError value) error,
   }) {
     return success(this);
   }
@@ -443,9 +455,9 @@ class _$ChatsAllChatsSuccessImpl implements ChatsAllChatsSuccess {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(ChatsAllChatsLoading value)? loading,
-    TResult? Function(ChatsAllChatsSuccess value)? success,
-    TResult? Function(ChatsAllChatsError value)? error,
+    TResult? Function(SpecificCourseReviewsLoading value)? loading,
+    TResult? Function(SpecificCourseReviewsSuccess value)? success,
+    TResult? Function(SpecificCourseReviewsError value)? error,
   }) {
     return success?.call(this);
   }
@@ -454,9 +466,9 @@ class _$ChatsAllChatsSuccessImpl implements ChatsAllChatsSuccess {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(ChatsAllChatsLoading value)? loading,
-    TResult Function(ChatsAllChatsSuccess value)? success,
-    TResult Function(ChatsAllChatsError value)? error,
+    TResult Function(SpecificCourseReviewsLoading value)? loading,
+    TResult Function(SpecificCourseReviewsSuccess value)? success,
+    TResult Function(SpecificCourseReviewsError value)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -466,44 +478,50 @@ class _$ChatsAllChatsSuccessImpl implements ChatsAllChatsSuccess {
   }
 }
 
-abstract class ChatsAllChatsSuccess implements ChatsAllChatsState {
-  const factory ChatsAllChatsSuccess(final ChatsAllChatsResponseBody chats) =
-      _$ChatsAllChatsSuccessImpl;
+abstract class SpecificCourseReviewsSuccess
+    implements SpecificCourseReviewsState {
+  const factory SpecificCourseReviewsSuccess(
+          final SpecificCourseReviewsResponseBody data) =
+      _$SpecificCourseReviewsSuccessImpl;
 
-  ChatsAllChatsResponseBody get chats;
+  SpecificCourseReviewsResponseBody get data;
 
-  /// Create a copy of ChatsAllChatsState
+  /// Create a copy of SpecificCourseReviewsState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ChatsAllChatsSuccessImplCopyWith<_$ChatsAllChatsSuccessImpl>
+  _$$SpecificCourseReviewsSuccessImplCopyWith<
+          _$SpecificCourseReviewsSuccessImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ChatsAllChatsErrorImplCopyWith<$Res> {
-  factory _$$ChatsAllChatsErrorImplCopyWith(_$ChatsAllChatsErrorImpl value,
-          $Res Function(_$ChatsAllChatsErrorImpl) then) =
-      __$$ChatsAllChatsErrorImplCopyWithImpl<$Res>;
+abstract class _$$SpecificCourseReviewsErrorImplCopyWith<$Res> {
+  factory _$$SpecificCourseReviewsErrorImplCopyWith(
+          _$SpecificCourseReviewsErrorImpl value,
+          $Res Function(_$SpecificCourseReviewsErrorImpl) then) =
+      __$$SpecificCourseReviewsErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ErrorHandler errorHandler});
 }
 
 /// @nodoc
-class __$$ChatsAllChatsErrorImplCopyWithImpl<$Res>
-    extends _$ChatsAllChatsStateCopyWithImpl<$Res, _$ChatsAllChatsErrorImpl>
-    implements _$$ChatsAllChatsErrorImplCopyWith<$Res> {
-  __$$ChatsAllChatsErrorImplCopyWithImpl(_$ChatsAllChatsErrorImpl _value,
-      $Res Function(_$ChatsAllChatsErrorImpl) _then)
+class __$$SpecificCourseReviewsErrorImplCopyWithImpl<$Res>
+    extends _$SpecificCourseReviewsStateCopyWithImpl<$Res,
+        _$SpecificCourseReviewsErrorImpl>
+    implements _$$SpecificCourseReviewsErrorImplCopyWith<$Res> {
+  __$$SpecificCourseReviewsErrorImplCopyWithImpl(
+      _$SpecificCourseReviewsErrorImpl _value,
+      $Res Function(_$SpecificCourseReviewsErrorImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ChatsAllChatsState
+  /// Create a copy of SpecificCourseReviewsState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? errorHandler = null,
   }) {
-    return _then(_$ChatsAllChatsErrorImpl(
+    return _then(_$SpecificCourseReviewsErrorImpl(
       null == errorHandler
           ? _value.errorHandler
           : errorHandler // ignore: cast_nullable_to_non_nullable
@@ -514,22 +532,22 @@ class __$$ChatsAllChatsErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChatsAllChatsErrorImpl implements ChatsAllChatsError {
-  const _$ChatsAllChatsErrorImpl(this.errorHandler);
+class _$SpecificCourseReviewsErrorImpl implements SpecificCourseReviewsError {
+  const _$SpecificCourseReviewsErrorImpl(this.errorHandler);
 
   @override
   final ErrorHandler errorHandler;
 
   @override
   String toString() {
-    return 'ChatsAllChatsState.error(errorHandler: $errorHandler)';
+    return 'SpecificCourseReviewsState.error(errorHandler: $errorHandler)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChatsAllChatsErrorImpl &&
+            other is _$SpecificCourseReviewsErrorImpl &&
             (identical(other.errorHandler, errorHandler) ||
                 other.errorHandler == errorHandler));
   }
@@ -537,21 +555,21 @@ class _$ChatsAllChatsErrorImpl implements ChatsAllChatsError {
   @override
   int get hashCode => Object.hash(runtimeType, errorHandler);
 
-  /// Create a copy of ChatsAllChatsState
+  /// Create a copy of SpecificCourseReviewsState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChatsAllChatsErrorImplCopyWith<_$ChatsAllChatsErrorImpl> get copyWith =>
-      __$$ChatsAllChatsErrorImplCopyWithImpl<_$ChatsAllChatsErrorImpl>(
-          this, _$identity);
+  _$$SpecificCourseReviewsErrorImplCopyWith<_$SpecificCourseReviewsErrorImpl>
+      get copyWith => __$$SpecificCourseReviewsErrorImplCopyWithImpl<
+          _$SpecificCourseReviewsErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ChatsAllChatsResponseBody chats) success,
+    required TResult Function(SpecificCourseReviewsResponseBody data) success,
     required TResult Function(ErrorHandler errorHandler) error,
   }) {
     return error(errorHandler);
@@ -562,7 +580,7 @@ class _$ChatsAllChatsErrorImpl implements ChatsAllChatsError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ChatsAllChatsResponseBody chats)? success,
+    TResult? Function(SpecificCourseReviewsResponseBody data)? success,
     TResult? Function(ErrorHandler errorHandler)? error,
   }) {
     return error?.call(errorHandler);
@@ -573,7 +591,7 @@ class _$ChatsAllChatsErrorImpl implements ChatsAllChatsError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ChatsAllChatsResponseBody chats)? success,
+    TResult Function(SpecificCourseReviewsResponseBody data)? success,
     TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) {
@@ -587,9 +605,9 @@ class _$ChatsAllChatsErrorImpl implements ChatsAllChatsError {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(ChatsAllChatsLoading value) loading,
-    required TResult Function(ChatsAllChatsSuccess value) success,
-    required TResult Function(ChatsAllChatsError value) error,
+    required TResult Function(SpecificCourseReviewsLoading value) loading,
+    required TResult Function(SpecificCourseReviewsSuccess value) success,
+    required TResult Function(SpecificCourseReviewsError value) error,
   }) {
     return error(this);
   }
@@ -598,9 +616,9 @@ class _$ChatsAllChatsErrorImpl implements ChatsAllChatsError {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(ChatsAllChatsLoading value)? loading,
-    TResult? Function(ChatsAllChatsSuccess value)? success,
-    TResult? Function(ChatsAllChatsError value)? error,
+    TResult? Function(SpecificCourseReviewsLoading value)? loading,
+    TResult? Function(SpecificCourseReviewsSuccess value)? success,
+    TResult? Function(SpecificCourseReviewsError value)? error,
   }) {
     return error?.call(this);
   }
@@ -609,9 +627,9 @@ class _$ChatsAllChatsErrorImpl implements ChatsAllChatsError {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(ChatsAllChatsLoading value)? loading,
-    TResult Function(ChatsAllChatsSuccess value)? success,
-    TResult Function(ChatsAllChatsError value)? error,
+    TResult Function(SpecificCourseReviewsLoading value)? loading,
+    TResult Function(SpecificCourseReviewsSuccess value)? success,
+    TResult Function(SpecificCourseReviewsError value)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -621,15 +639,16 @@ class _$ChatsAllChatsErrorImpl implements ChatsAllChatsError {
   }
 }
 
-abstract class ChatsAllChatsError implements ChatsAllChatsState {
-  const factory ChatsAllChatsError(final ErrorHandler errorHandler) =
-      _$ChatsAllChatsErrorImpl;
+abstract class SpecificCourseReviewsError
+    implements SpecificCourseReviewsState {
+  const factory SpecificCourseReviewsError(final ErrorHandler errorHandler) =
+      _$SpecificCourseReviewsErrorImpl;
 
   ErrorHandler get errorHandler;
 
-  /// Create a copy of ChatsAllChatsState
+  /// Create a copy of SpecificCourseReviewsState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ChatsAllChatsErrorImplCopyWith<_$ChatsAllChatsErrorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SpecificCourseReviewsErrorImplCopyWith<_$SpecificCourseReviewsErrorImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

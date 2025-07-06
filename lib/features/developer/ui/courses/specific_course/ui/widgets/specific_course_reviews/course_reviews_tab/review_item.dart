@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../../../../core/helpers/spacing.dart';
-import '../../../../../../../../core/theming/colors.dart';
-import '../../../../../../../../core/theming/styles.dart';
+import '../../../../../../../../../core/helpers/spacing.dart';
+import '../../../../../../../../../core/theming/colors.dart';
+import '../../../../../../../../../core/theming/styles.dart';
+import '../../../../data/model/specific_course_reviews_models/specific_course_reviews_response_body.dart';
 
 class ReviewItem extends StatelessWidget {
-  const ReviewItem({super.key});
+  final Review review;
+
+  const ReviewItem({super.key, required this.review});
 
   @override
   Widget build(BuildContext context) {
@@ -16,11 +19,25 @@ class ReviewItem extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Avatar
+          // Avatar (Optional: Fallback to initials or placeholder if null)
           CircleAvatar(
             radius: 20.r,
-            backgroundImage: const NetworkImage(
-              'https://i.pravatar.cc/150?img=3', // Placeholder avatar
+            backgroundColor: Colors.grey.shade200,
+            child: ClipOval(
+              child: Image.network(
+                review.profilePicture ?? 'https://i.pravatar.cc/150?img=3',
+                width: 40.w,
+                height: 40.h,
+                fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) {
+                  return Image.network(
+                    'https://i.pravatar.cc/150?img=3',
+                    width: 40.w,
+                    height: 40.h,
+                    fit: BoxFit.cover,
+                  );
+                },
+              ),
             ),
           ),
           horizontalSpace(12),
@@ -34,11 +51,13 @@ class ReviewItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Joseph Stanly",
+                      review.developer.trim().isEmpty
+                          ? "Anonymous"
+                          : review.developer,
                       style: AppTextStyles.font14DunePoppinsRegular,
                     ),
                     Text(
-                      "Jan 2024",
+                      review.date.split('T').first, // YYYY-MM-DD
                       style: AppTextStyles.font10LiverPoppinsRegular,
                     ),
                   ],
@@ -46,7 +65,7 @@ class ReviewItem extends StatelessWidget {
                 verticalSpace(4),
                 // Rating stars
                 RatingBarIndicator(
-                  rating: 3,
+                  rating: review.rating.toDouble(),
                   itemBuilder: (context, _) => const Icon(
                     Icons.star,
                     color: ColorsManager.schoolBusYellow,
@@ -58,7 +77,7 @@ class ReviewItem extends StatelessWidget {
                 verticalSpace(8),
                 // Review text
                 Text(
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non id neque sit aliquam nam molestie dignissim ac eget. Fames congue faucibus in fermentum proin.",
+                  review.comment,
                   style: AppTextStyles.font10IronSideGreyPoppinsRegular,
                 ),
               ],

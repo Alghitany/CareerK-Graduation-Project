@@ -3,9 +3,9 @@ import 'package:carrerk/features/developer/ui/courses/specific_course/ui/widgets
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/widgets/app_tab_switcher.dart';
-import 'widgets/course_reviews_tab/course_reviews_tab.dart';
 import 'widgets/specific_course_lectures/specific_course_lectures_bloc_builder.dart';
 import 'widgets/specific_course_overview/specific_course_overview_bloc_builder.dart';
+import 'widgets/specific_course_reviews/specific_course_reviews_bloc_builder.dart';
 
 class DeveloperCoursesSpecificCourseScreen extends StatefulWidget {
   final String? courseId;
@@ -49,7 +49,7 @@ class _DeveloperCoursesSpecificCourseScreenState
                   onStartLearning: switchToLecturesTab,
                 ),
                 option1: const SpecificCourseLecturesBlocBuilder(),
-                option2: const CourseReviewsTab(),
+                option2: const SpecificCourseReviewsBlocBuilder(),
               ),
             ],
           ),
