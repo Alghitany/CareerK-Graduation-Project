@@ -76,6 +76,10 @@ class ApiConstants {
   static const String developerSpecificCourseOverview =
       "api/course-details/{courseId}/overview";
 
+  //-----> Specific Course Lectures
+  static const String developerSpecificCourseLectures =
+      "/api/course-details/{courseId}/contents";
+
   //-----> Profile
   //-> Applied Jobs
   static const String developerProfileAppliedJobs =

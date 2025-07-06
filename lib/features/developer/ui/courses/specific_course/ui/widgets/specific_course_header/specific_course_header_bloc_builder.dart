@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../../../../core/helpers/spacing.dart';
-import '../../data/model/specific_course_header_models/specific_course_header_response_body.dart';
-import '../../logic/specific_course_header_logic/specific_course_header_cubit.dart';
-import '../../logic/specific_course_header_logic/specific_course_header_state.dart';
-import 'specific_course_header/course_name_rating_and_number_of_videos.dart';
-import 'specific_course_header/course_name_rating_and_number_of_videos_shimmer.dart';
-import 'specific_course_header/image_preview_and_back_icon.dart';
-import 'specific_course_header/image_preview_and_back_icon_shimmer.dart';
+import '../../../../../../../../../core/helpers/spacing.dart';
+import '../../../data/model/specific_course_header_models/specific_course_header_response_body.dart';
+import '../../../logic/specific_course_header_logic/specific_course_header_cubit.dart';
+import '../../../logic/specific_course_header_logic/specific_course_header_state.dart';
+import 'course_header/course_name_rating_and_number_of_videos.dart';
+import 'course_header/course_name_rating_and_number_of_videos_shimmer.dart';
+import 'course_header/image_preview_and_back_icon.dart';
+import 'course_header/image_preview_and_back_icon_shimmer.dart';
 
 class SpecificCourseHeaderBlocBuilder extends StatelessWidget {
   final String? courseId;

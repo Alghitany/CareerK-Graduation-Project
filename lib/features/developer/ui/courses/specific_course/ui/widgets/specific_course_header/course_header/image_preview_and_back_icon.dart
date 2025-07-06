@@ -5,9 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../../../../../../core/di/dependency_injection.dart';
-import '../../../../../../../../core/widgets/course_bookmark/developer_course_bookmark_bloc_builder.dart';
-import '../../../../../../logic/developer_single_course_bookmark_logic/developer_single_course_bookmark_cubit.dart';
+import '../../../../../../../../../core/di/dependency_injection.dart';
+import '../../../../../../../../../core/widgets/course_bookmark/developer_course_bookmark_bloc_builder.dart';
+import '../../../../../../../logic/developer_single_course_bookmark_logic/developer_single_course_bookmark_cubit.dart';
 
 class ImagePreviewAndBackIcon extends StatelessWidget {
   final String? imageUrl;

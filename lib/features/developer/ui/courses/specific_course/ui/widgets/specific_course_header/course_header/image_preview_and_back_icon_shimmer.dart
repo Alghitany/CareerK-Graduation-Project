@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shimmer/shimmer.dart';
 
-import '../../../../../../../../core/theming/colors.dart';
+import '../../../../../../../../../core/theming/colors.dart';
 
 class ImagePreviewAndBackIconShimmer extends StatelessWidget {
   const ImagePreviewAndBackIconShimmer({super.key});
