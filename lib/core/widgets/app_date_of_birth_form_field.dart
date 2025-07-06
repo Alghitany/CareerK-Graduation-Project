@@ -16,6 +16,8 @@ class AppDateOfBirthFormField extends StatefulWidget {
 }
 
 class _AppDateOfBirthFormFieldState extends State<AppDateOfBirthFormField> {
+  FormFieldState<String>? _formFieldState;
+
   @override
   Widget build(BuildContext context) {
     return AppTextFormField(
@@ -25,8 +27,12 @@ class _AppDateOfBirthFormFieldState extends State<AppDateOfBirthFormField> {
         if (dob.isNullOrEmpty()) {
           return "Please select a date";
         }
+        return null;
       },
       readOnly: true,
+      onFormFieldReady: (state) {
+        _formFieldState = state; // ✅ Capture FormFieldState
+      },
       onTap: () async {
         DateTime? pickedDate = await showDatePicker(
           context: context,
@@ -34,12 +40,13 @@ class _AppDateOfBirthFormFieldState extends State<AppDateOfBirthFormField> {
           firstDate: DateTime(1900),
           lastDate: DateTime.now(),
         );
-
         if (pickedDate != null) {
+          String dateText =
+              "${pickedDate.year}-${pickedDate.month}-${pickedDate.day}";
           setState(() {
-            widget.dobController?.text =
-                "${pickedDate.year}-${pickedDate.month}-${pickedDate.day}";
+            widget.dobController?.text = dateText;
           });
+          _formFieldState?.didChange(dateText); // ✅ Trigger validator
         }
       },
       suffixIcon: IconButton(
@@ -62,10 +69,12 @@ class _AppDateOfBirthFormFieldState extends State<AppDateOfBirthFormField> {
           );
 
           if (pickedDate != null) {
+            String dateText =
+                "${pickedDate.year}-${pickedDate.month}-${pickedDate.day}";
             setState(() {
-              widget.dobController?.text =
-                  "${pickedDate.year}-${pickedDate.month}-${pickedDate.day}";
+              widget.dobController?.text = dateText;
             });
+            _formFieldState?.didChange(dateText); // ✅ Trigger validator
           }
         },
       ),

@@ -42,14 +42,32 @@ class DeveloperSignupRepo {
       };
 
       if (cvFilePath != null && cvFilePath.isNotEmpty) {
+        final extension = cvFilePath.split('.').last.toLowerCase();
+
+        MediaType? mimeType;
+        switch (extension) {
+          case 'pdf':
+            mimeType = MediaType('application', 'pdf');
+            break;
+          case 'doc':
+            mimeType = MediaType('application', 'msword');
+            break;
+          case 'docx':
+            mimeType = MediaType(
+                'application', 'vnd.openxmlformats-officedocument.wordprocessingml.document');
+            break;
+          default:
+            mimeType = MediaType('application', 'octet-stream');
+        }
+
         formMap['uploaded_cv'] = await MultipartFile.fromFile(
           cvFilePath,
-          filename: 'cv.pdf',
+          filename: 'cv.$extension',
+          contentType: mimeType,
         );
       }
 
       if (profilePicFilePath != null && profilePicFilePath.isNotEmpty) {
-        // ✅ Detect file extension and assign proper MIME type
         final fileExtension = profilePicFilePath.split('.').last.toLowerCase();
 
         String mimeType = 'image/jpeg'; // Default
@@ -78,7 +96,7 @@ class DeveloperSignupRepo {
       );
 
       final developerSignupResponse =
-          DeveloperSignupResponse.fromJson(response.data);
+      DeveloperSignupResponse.fromJson(response.data);
       return ApiResult.success(developerSignupResponse);
     } catch (error) {
       return ApiResult.failure(ErrorHandler.handle(error));
