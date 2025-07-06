@@ -25,7 +25,7 @@ class _OptionalDataFormState extends State<OptionalDataForm> {
         child: Column(
           children: [
             const AppLabel(text: 'Enter Your Current Track'),
-            verticalSpace(8),
+            verticalSpace(6),
             AppTextFormField(
                 controller:
                     context.read<DeveloperSignupCubit>().currentTrackController,
@@ -36,9 +36,9 @@ class _OptionalDataFormState extends State<OptionalDataForm> {
                   }
                   return null;
                 }),
-            verticalSpace(16),
+            verticalSpace(14),
             const AppLabel(text: 'Enter Track Level'),
-            verticalSpace(8),
+            verticalSpace(6),
             AppTextFormField(
                 controller:
                     context.read<DeveloperSignupCubit>().trackLevelController,
@@ -49,9 +49,9 @@ class _OptionalDataFormState extends State<OptionalDataForm> {
                   }
                   return null;
                 }),
-            verticalSpace(16),
+            verticalSpace(14),
             const AppLabel(text: 'Enter Your Previous Job'),
-            verticalSpace(8),
+            verticalSpace(6),
             AppTextFormField(
                 controller:
                     context.read<DeveloperSignupCubit>().previousJobController,
@@ -63,9 +63,9 @@ class _OptionalDataFormState extends State<OptionalDataForm> {
                   }
                   return null;
                 }),
-            verticalSpace(16),
+            verticalSpace(14),
             const AppLabel(text: 'Enter Type Of Job'),
-            verticalSpace(8),
+            verticalSpace(6),
             AppDropDownMenu(
               controller:
                   context.read<DeveloperSignupCubit>().typeOfJobController,
@@ -79,9 +79,9 @@ class _OptionalDataFormState extends State<OptionalDataForm> {
                 );
               }).toList(),
             ),
-            verticalSpace(16),
+            verticalSpace(14),
             const AppLabel(text: 'Enter Years Of Experience'),
-            verticalSpace(8),
+            verticalSpace(6),
             AppTextFormField(
               controller: context
                   .read<DeveloperSignupCubit>()
@@ -96,9 +96,9 @@ class _OptionalDataFormState extends State<OptionalDataForm> {
               },
               keyboardType: TextInputType.number,
             ),
-            verticalSpace(16),
+            verticalSpace(14),
             const AppLabel(text: 'Enter Expected Salary'),
-            verticalSpace(8),
+            verticalSpace(6),
             AppTextFormField(
                 controller: context
                     .read<DeveloperSignupCubit>()

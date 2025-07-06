@@ -10,13 +10,14 @@ class DeveloperCoursesSpecificCategoryCubit
   DeveloperCoursesSpecificCategoryCubit(this._repo)
       : super(const DeveloperCoursesSpecificCategoryState.initial());
 
-  void getDeveloperCoursesSpecificCategory(String trackId) async {
+  Future<void> getDeveloperCoursesSpecificCategory(String trackId) async {
     emit(const DeveloperCoursesSpecificCategoryState.loading());
+
     final response = await _repo.getDeveloperCoursesSpecificCategory(trackId);
 
     response.when(
-      success: (courses) {
-        emit(DeveloperCoursesSpecificCategoryState.success(courses));
+      success: (data) {
+        emit(DeveloperCoursesSpecificCategoryState.success(data));
       },
       failure: (errorHandler) {
         emit(DeveloperCoursesSpecificCategoryState.error(errorHandler));

@@ -4,9 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../../../core/helpers/spacing.dart';
-import '../filtered_jobs.dart';
 import '../price_and_recent_filters.dart';
 import 'recently_posted/developer_recently_posted_jobs_bloc_builder.dart';
+import 'recommendations/services_recommendations_bloc_builder.dart';
 
 class ServicesTab extends StatefulWidget {
   const ServicesTab({super.key});
@@ -49,7 +49,7 @@ class _ServicesTabState extends State<ServicesTab> {
               if (selectedSort == 'Recent')
                 const DeveloperRecentlyPostedServicesBlocBuilder()
               else
-                const FilteredJobs(),
+                const ServicesRecommendationsBlocBuilder(),
             ],
           ),
         ),

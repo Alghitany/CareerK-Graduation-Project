@@ -1,9 +1,10 @@
+import 'package:carrerk/core/networking/api_result.dart';
+import 'package:carrerk/features/customer/ui/applied/data/model/reject_applications_model/reject_application_response.dart';
+import 'package:carrerk/features/customer/ui/applied/data/model/reject_applications_model/reject_applications_request_model.dart';
+import 'package:carrerk/features/customer/ui/applied/data/repo/reject_applications_repo/reject_applications_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../data/model/reject_application/reject_applications_request_model.dart';
-import '../../data/model/reject_application/reject_application_response.dart';
-import '../../data/repo/reject_applications_repo.dart';
 import 'reject_applications_state.dart';
 
 class RejectApplicationsCubit extends Cubit<RejectApplicationsState> {
@@ -12,13 +13,9 @@ class RejectApplicationsCubit extends Cubit<RejectApplicationsState> {
   RejectApplicationsCubit(this._rejectApplicationsRepo)
       : super(const RejectApplicationsState.initial());
 
-  // Controller for the status field (if you want it editable)
   final TextEditingController statusController = TextEditingController();
-
-  // Form key
   final GlobalKey<FormState> rejectFormKey = GlobalKey<FormState>();
 
-  // The latest response
   RejectApplicationResponse? applicationResponse;
 
   Future<void> rejectApplication({
@@ -28,7 +25,8 @@ class RejectApplicationsCubit extends Cubit<RejectApplicationsState> {
 
     emit(const RejectApplicationsState.loading());
 
-    final response = await _rejectApplicationsRepo.rejectApplication(
+    final ApiResult<RejectApplicationResponse> response =
+        await _rejectApplicationsRepo.rejectApplication(
       applicationId: applicationId,
       request: RejectApplicationsRequestModel(
         status: statusController.text.trim(),

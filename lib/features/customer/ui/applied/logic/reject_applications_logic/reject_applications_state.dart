@@ -1,6 +1,5 @@
+import 'package:carrerk/features/customer/ui/applied/data/model/reject_applications_model/reject_application_response.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-import '../../data/model/reject_application/reject_application_response.dart';
 
 part 'reject_applications_state.freezed.dart';
 

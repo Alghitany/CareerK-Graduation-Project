@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../../../core/helpers/spacing.dart';
-import '../../../logic/developer_jobs_recently_posted_logic/developer_jobs_recently_posted_cubit.dart';
-import '../filtered_jobs.dart';
 import '../price_and_recent_filters.dart';
 import 'recently_posted/developer_recently_posted_jobs_bloc_builder.dart';
+import 'recommendations/jobs_recommendations_bloc_builder.dart';
 
 class JobsTab extends StatefulWidget {
   const JobsTab({super.key});
@@ -17,19 +15,11 @@ class JobsTab extends StatefulWidget {
 
 class _JobsTabState extends State<JobsTab> {
   String? selectedSort;
-  bool _hasFetchedRecentlyPosted = false; // Flag to avoid repeated fetch
 
   void _onSortChanged(String? value) {
     setState(() {
       selectedSort = value;
     });
-
-    if (value == 'Recent' && !_hasFetchedRecentlyPosted) {
-      context
-          .read<DeveloperJobsRecentlyPostedCubit>()
-          .fetchRecentlyPostedJobs();
-      _hasFetchedRecentlyPosted = true;
-    }
   }
 
   @override
@@ -49,7 +39,7 @@ class _JobsTabState extends State<JobsTab> {
               if (selectedSort == 'Recent')
                 const DeveloperRecentlyPostedJobsBlocBuilder()
               else
-                const FilteredJobs(),
+                const JobsRecommendationsBlocBuilder(),
             ],
           ),
         ),

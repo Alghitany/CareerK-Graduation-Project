@@ -14,7 +14,7 @@ class DeveloperCoursesSpecificCategoryState
       DeveloperCoursesSpecificCategoryLoading;
 
   const factory DeveloperCoursesSpecificCategoryState.success(
-    List<DeveloperCoursesSpecificCategoryResponseBody> courses,
+    DeveloperCoursesSpecificCategoryResponseBody data,
   ) = DeveloperCoursesSpecificCategorySuccess;
 
   const factory DeveloperCoursesSpecificCategoryState.error(

@@ -15,6 +15,17 @@ class ApiConstants {
   //-> Sign up
   static const String developerSignup = "api/developer/register";
 
+  //-----> Home
+  //-> Developer Name
+  static const String developerHomeName = "api/developer/name";
+
+  //-> Developer Tracks (Tags)
+  static const String developerHomeTags = "api/developer/tracks";
+
+  // -> Developer Courses (Courses List)
+  static const String developerHomeCourses =
+      "api/developer/{developerId}/courses";
+
   //-----> Jobs
   //-> Apply
   static const String developerJobsApply = "api/job-applications/apply";
@@ -26,9 +37,13 @@ class ApiConstants {
   static const String developerJobsServiceDetails =
       "api/service-post/{serviceId}";
 
-  //-> Single Bookmark
+  //-> Single Job Bookmark
   static const String developerSingleJobBookmark =
       "/api/bookmarks/bookmark/{jobId}";
+
+  //-> Single Course Bookmark
+  static const String developerSingleCourseBookmark =
+      "/api/course-bookmarks/{courseId}/is-bookmarked";
 
   //-> Jobs Recently Posted
   static const String developerJobsRecentlyPosted =
@@ -37,6 +52,9 @@ class ApiConstants {
   //-> Jobs Recently Posted
   static const String developerServicesRecentlyPosted =
       "api/service-post/filter/recently-posted";
+
+  //-> Recommendations
+  static const String developerRecommendations = 'api/recommendations';
 
   //-----> Courses
   //-> Developer Profile
@@ -50,6 +68,22 @@ class ApiConstants {
   //-----> Roadmaps & Track Courses Base Path
   static const String developerTracksBasePath = "api/tracks-page/tracks";
 
+  //-----> Specific Course Header
+  static const String developerSpecificCourseHeader =
+      "api/course-details/{courseId}/header";
+
+  //-----> Specific Course Overview
+  static const String developerSpecificCourseOverview =
+      "api/course-details/{courseId}/overview";
+
+  //-----> Specific Course Lectures
+  static const String developerSpecificCourseLectures =
+      "/api/course-details/{courseId}/contents";
+
+  //-----> Specific Course Lectures
+  static const String developerSpecificCourseReviews =
+      "/api/course-details/{courseId}/reviews";
+
   //-----> Profile
   //-> Applied Jobs
   static const String developerProfileAppliedJobs =
@@ -58,6 +92,10 @@ class ApiConstants {
   //-> Job Withdraw
   static const String developerJobWithdraw =
       "api/job-application/{applicationId}";
+
+  //-> Service Delete
+  static const String developerServiceDelete =
+      "api/service-application/{applicationId}";
 
   //------ customer ------------
   //->Sign up
@@ -83,6 +121,16 @@ class ApiConstants {
   //------ company ------------
   //->Sign up
   static const String companySignup = "api/company/register";
+
+  //->Company Home Main Page
+  static const String companyHomeMainPage = "api/company/homepage";
+
+  //->Company Home See Resume
+  static const String companyHomeSeeResume = "api/company/{developerId}/cv";
+
+  //->Company Home See Resume
+  static const String companyHomeSeeDetails =
+      "api/company/application/{applicationId}";
 
   //->Post Job
   static const String companyJobsPost = "api/jobs/create-job-post";

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:http_parser/http_parser.dart';
 
 class DeveloperSignupRequestBody {
   final String firstName;
@@ -53,7 +54,7 @@ class DeveloperSignupRequestBody {
   });
 
   Future<FormData> toFormData() async {
-    return FormData.fromMap({
+    final formMap = {
       'first_name': firstName,
       'last_name': lastName,
       'email': email,
@@ -74,16 +75,43 @@ class DeveloperSignupRequestBody {
       'years_of_experience': yearsOfExperience,
       'expected_salary': expectedSalary,
       'interested_courses': interestedCourses,
-      if (profilePicture != null)
-        'profile_picture': await MultipartFile.fromFile(
-          profilePicture!.path,
-          filename: profilePicture!.path.split('/').last,
-        ),
-      if (uploadedCV != null)
-        'uploaded_cv': await MultipartFile.fromFile(
-          uploadedCV!.path,
-          filename: uploadedCV!.path.split('/').last,
-        ),
-    });
+    };
+
+    if (profilePicture != null) {
+      formMap['profile_picture'] = await MultipartFile.fromFile(
+        profilePicture!.path,
+        filename: profilePicture!.path.split('/').last,
+      );
+    }
+
+    if (uploadedCV != null) {
+      final path = uploadedCV!.path;
+      final extension = path.split('.').last.toLowerCase();
+
+      MediaType? mimeType;
+
+      switch (extension) {
+        case 'pdf':
+          mimeType = MediaType('application', 'pdf');
+          break;
+        case 'doc':
+          mimeType = MediaType('application', 'msword');
+          break;
+        case 'docx':
+          mimeType = MediaType('application',
+              'vnd.openxmlformats-officedocument.wordprocessingml.document');
+          break;
+        default:
+          mimeType = MediaType('application', 'octet-stream');
+      }
+
+      formMap['uploaded_cv'] = await MultipartFile.fromFile(
+        path,
+        filename: path.split('/').last,
+        contentType: mimeType,
+      );
+    }
+
+    return FormData.fromMap(formMap);
   }
 }

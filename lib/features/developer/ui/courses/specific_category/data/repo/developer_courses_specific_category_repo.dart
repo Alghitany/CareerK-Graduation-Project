@@ -8,7 +8,7 @@ class DeveloperCoursesSpecificCategoryRepo {
 
   DeveloperCoursesSpecificCategoryRepo(this._apiService);
 
-  Future<ApiResult<List<DeveloperCoursesSpecificCategoryResponseBody>>>
+  Future<ApiResult<DeveloperCoursesSpecificCategoryResponseBody>>
       getDeveloperCoursesSpecificCategory(String trackId) async {
     try {
       final response =

@@ -28,14 +28,13 @@ class DeveloperSignUpOptionalDataScreen extends StatelessWidget {
                 'Optional Info.',
                 style: AppTextStyles.font24DunePoppinsMedium,
               ),
-              verticalSpace(16),
               Text(
                 'Press continue to skip',
                 style: AppTextStyles.font15LiverPoppinsMedium,
               ),
-              verticalSpace(16),
+              verticalSpace(12),
               const OptionalDataForm(),
-              verticalSpace(32),
+              verticalSpace(28),
               AppTextButton(
                   buttonText: 'Continue',
                   textStyle: AppTextStyles.font14WhitePoppinsMedium,

@@ -118,6 +118,12 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.light,
   );
+  static TextStyle font16BlackMulishBold = TextStyle(
+    fontSize: 16.sp,
+    color: Colors.black,
+    fontFamily: 'Mulish',
+    fontWeight: FontWeightHelper.bold,
+  );
   static TextStyle font14BlackMulishBold = TextStyle(
     fontSize: 14.sp,
     color: Colors.black,
@@ -189,6 +195,12 @@ class AppTextStyles {
     color: ColorsManager.dune,
     fontFamily: 'Poppins',
     fontWeight: FontWeightHelper.regular,
+  );
+  static TextStyle font14DuneMulishExtraBold = TextStyle(
+    fontSize: 14.sp,
+    color: ColorsManager.dune,
+    fontFamily: 'Mulish',
+    fontWeight: FontWeightHelper.extraBold,
   );
   static TextStyle font12DuneMulishExtraBold = TextStyle(
     fontSize: 12.sp,

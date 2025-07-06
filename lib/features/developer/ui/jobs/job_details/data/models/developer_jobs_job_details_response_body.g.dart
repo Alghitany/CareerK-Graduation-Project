@@ -18,7 +18,9 @@ DeveloperJobsJobDetailsResponseBody
           experienceRequired: json['experience_required'] as String?,
           jobDescription: json['job_description'] as String?,
           responsibilities: json['responsibilities'] as String?,
-          qualifications: json['qualifications'] as String?,
+          qualifications: (json['qualifications'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList(),
           benefits: json['benefits'] as String?,
           applicationDeadline: json['application_deadline'] as String?,
           companyWebsite: json['company_website'] as String?,

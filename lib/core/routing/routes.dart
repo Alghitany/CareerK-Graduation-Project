@@ -100,12 +100,12 @@ class Routes {
   // Courses
   static const String developerCoursesMainPageScreen =
       "/developerCoursesMainPageScreen";
-  static const String developerCoursesCategoriesScreen =
-      "/developerCoursesCategoriesScreen";
+  static const String developerCoursesRelatedCoursesScreen =
+      "/developerCoursesRelatedCoursesScreen";
   static const String developerCoursesSpecificCategoryScreen =
       "/developerCoursesSpecificCategoryScreen";
-  static const String developerCoursesCourseDetailsScreen =
-      "/developerCoursesCourseDetailsScreen";
+  static const String developerCoursesSpecificCourseScreen =
+      "/developerCoursesSpecificCourseScreen";
   static const String developerCoursesRoadmapsScreen =
       "/developerCoursesRoadmapsScreen";
   static const String developerCoursesMyCoursesScreen =

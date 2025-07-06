@@ -51,7 +51,7 @@ dependencies:
   pretty_dio_logger: ^1.4.0
   # Localization
   easy_localization: ^3.0.3
-  intl: ^0.20.2
+  intl: 0.20.2
   # For splash screen
   flutter_native_splash: ^2.4.4
   # An SVG rendering and widget library for Flutter, which allows painting
@@ -95,6 +95,8 @@ dependencies:
   flutter_rating_bar: ^4.0.0
   # Resizes text to fit perfectly within its bounds.
   auto_size_text: ^3.0.0
+  # Render After Effects animations natively on Flutter.
+  lottie: ^3.1.0
 
 flutter_launcher_icons:
   android: "launcher_icon"
@@ -132,6 +134,7 @@ flutter:
   assets:
     - assets/images/
     - assets/svgs/
+    - assets/animations/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

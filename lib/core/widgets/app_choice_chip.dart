@@ -1,6 +1,7 @@
-import 'package:carrerk/core/theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../theming/colors.dart';
 
 class AppChoiceChip extends StatefulWidget {
   final List<String> options;
@@ -10,23 +11,34 @@ class AppChoiceChip extends StatefulWidget {
   final Color? selectedColor;
   final Color? unSelectedColor;
   final double? borderRadius;
+  final ValueChanged<int>? onSelected;
+  final int? initialSelectedIndex;
 
-  const AppChoiceChip(
-      {super.key,
-      required this.options,
-      required this.selectedTextStyle,
-      required this.unSelectedTextStyle,
-      this.contentPadding,
-      this.selectedColor,
-      this.unSelectedColor,
-      this.borderRadius});
+  const AppChoiceChip({
+    super.key,
+    required this.options,
+    required this.selectedTextStyle,
+    required this.unSelectedTextStyle,
+    this.onSelected,
+    this.contentPadding,
+    this.selectedColor,
+    this.unSelectedColor,
+    this.borderRadius,
+    this.initialSelectedIndex = 0,
+  });
 
   @override
   State<AppChoiceChip> createState() => _AppChoiceChipState();
 }
 
 class _AppChoiceChipState extends State<AppChoiceChip> {
-  int selectedIndex = 1; // Default selected index
+  late int selectedIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    selectedIndex = widget.initialSelectedIndex!;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,10 +56,11 @@ class _AppChoiceChipState extends State<AppChoiceChip> {
                   : widget.unSelectedTextStyle,
             ),
             selected: index == selectedIndex,
-            onSelected: (bool selected) {
+            onSelected: (_) {
               setState(() {
                 selectedIndex = index;
               });
+              widget.onSelected!(index);
             },
             showCheckmark: false,
             padding: widget.contentPadding ??
@@ -56,7 +69,7 @@ class _AppChoiceChipState extends State<AppChoiceChip> {
             backgroundColor:
                 widget.unSelectedColor ?? ColorsManager.catskillWhite,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(widget.borderRadius ?? 30),
+              borderRadius: BorderRadius.circular(widget.borderRadius ?? 30.r),
             ),
             side: BorderSide.none,
           ),

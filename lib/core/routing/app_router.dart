@@ -67,26 +67,58 @@ import '../../features/chats/person_chat/logic/get_chat_messages/get_chat_messag
 import '../../features/chats/person_chat/logic/send_messages/send_messages_cubit.dart';
 import '../../features/chats/person_chat/logic/start_chat/start_chat_room_cubit.dart';
 import '../../features/chats/person_chat/ui/chats_person_chat_screen.dart';
-import '../../features/company/jobs_post/logic/company_jobs_post_cubit.dart';
-import '../../features/company/jobs_post/ui/success/company_job_post_success_screen.dart';
 import '../../features/company/logic/company_jobs_delete_post_cubit.dart';
-import '../../features/company/sign_up/logic/company_sign_up_cubit.dart';
 import '../../features/company/ui/home/logic/update_application_status_logic/company_update_application_status_cubit.dart';
-import '../../features/company/ui/home/ui/main_page/company_home_main_page_screen.dart';
-import '../../features/company/ui/home/ui/see_details/company_home_see_details_screen.dart';
-import '../../features/company/ui/home/ui/see_resume/company_home_see_resume_screen.dart';
+import '../../features/company/ui/home/ui/main_page/data/repo/company_home_main_page_repo.dart';
+import '../../features/company/ui/home/ui/main_page/logic/company_home_main_page_cubit.dart';
+import '../../features/company/ui/home/ui/main_page/ui/company_home_main_page_screen.dart';
+import '../../features/company/ui/home/ui/see_details/logic/company_home_see_details_cubit.dart';
+import '../../features/company/ui/home/ui/see_details/ui/company_home_see_details_screen.dart';
+import '../../features/company/ui/home/ui/see_resume/data/repo/company_home_see_resume_repo.dart';
+import '../../features/company/ui/home/ui/see_resume/logic/company_home_see_resume_cubit.dart';
+import '../../features/company/ui/home/ui/see_resume/ui/company_home_see_resume_screen.dart';
 import '../../features/company/ui/home/ui/send_offer/company_home_send_offer_screen.dart';
 import '../../features/company/ui/jobs/company_jobs_screen.dart';
+import '../../features/company/ui/jobs_post/logic/company_jobs_post_cubit.dart';
+import '../../features/company/ui/jobs_post/ui/success/company_job_post_success_screen.dart';
 import '../../features/company/ui/profile/company_profile_screen.dart';
 import '../../features/company/ui/send_to_applicants/message-applicant/company_send_to_applicants_message_applicant_screen.dart';
 
 import '../../features/customer/ui/sign_up/logic/customer_sign_up_cubit.dart';
+import '../../features/company/ui/sign_up/logic/company_sign_up_cubit.dart';
+import '../../features/customer/sign_up/logic/customer_sign_up_cubit.dart';
 import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
+import '../../features/developer/logic/developer_recommendations_logic/developer_recommendations_cubit.dart';
 import '../../features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
 
+import '../../features/developer/ui/community/all_communities/developer_community_all_communities_screen.dart';
+import '../../features/developer/ui/community/chat/developer_community_chat_screen.dart';
+import '../../features/developer/ui/courses/certification/developer_courses_certification_screen.dart';
+import '../../features/developer/ui/courses/cv_updated/download_cv/developer_courses_cv_updated_download_cv_screen.dart';
+import '../../features/developer/ui/courses/cv_updated/successful_update/developer_courses_cv_updated_successful_update_screen.dart';
+import '../../features/developer/ui/courses/main_page/logic/developer_courses_main_page_roadmaps_cubit.dart';
+import '../../features/developer/ui/courses/main_page/ui/developer_courses_main_page_screen.dart';
+import '../../features/developer/ui/courses/my_courses/developer_courses_my_courses_screen.dart';
+import '../../features/developer/ui/courses/related_courses/developer_courses_related_courses_screen.dart';
+import '../../features/developer/ui/courses/roadmaps/logic/developer_courses_roadmaps_cubit.dart';
+import '../../features/developer/ui/courses/roadmaps/ui/developer_courses_roadmaps_screen.dart';
+import '../../features/developer/ui/courses/specific_category/logic/developer_courses_specific_category_cubit.dart';
 import '../../features/developer/ui/courses/specific_category/ui/developer_courses_specific_category_screen.dart';
 import '../../features/developer/ui/courses/specific_course/ui/developer_courses_course_details_screen.dart';
 
+import '../../features/developer/ui/courses/specific_course/logic/specific_course_header_logic/specific_course_header_cubit.dart';
+import '../../features/developer/ui/courses/specific_course/logic/specific_course_lectures_logic/specific_course_lectures_cubit.dart';
+import '../../features/developer/ui/courses/specific_course/logic/specific_course_overview_logic/specific_course_overview_cubit.dart';
+import '../../features/developer/ui/courses/specific_course/logic/specific_course_reviews_logic/specific_course_reviews_cubit.dart';
+import '../../features/developer/ui/courses/specific_course/ui/developer_courses_specific_course_screen.dart';
+import '../../features/developer/ui/home_main_page/logic/developer_courses_home_main_page_logic/developer_courses_home_main_page_cubit.dart';
+import '../../features/developer/ui/home_main_page/logic/developer_name_home_main_page_logic/developer_name_home_main_page_cubit.dart';
+import '../../features/developer/ui/home_main_page/logic/developer_tags_home_main_page_logic/developer_tags_home_main_page_cubit.dart';
+import '../../features/developer/ui/home_main_page/ui/developer_home_main_page_screen.dart';
+import '../../features/developer/ui/jobs/all_categories/developer_jobs_all_categories_screen.dart';
+import '../../features/developer/ui/jobs/application_submitted/developer_jobs_application_submitted_screen.dart';
+import '../../features/developer/ui/jobs/apply/logic/developer_jobs_apply_cubit.dart';
+import '../../features/developer/ui/jobs/apply/ui/developer_jobs_apply_screen.dart';
 import '../../features/developer/ui/jobs/job_details/logic/developer_jobs_job_details_cubit.dart';
 import '../../features/developer/ui/jobs/job_details/ui/developer_jobs_job_details_screen.dart';
 import '../../features/developer/ui/jobs/main_page/developer_jobs_main_page_screen.dart';
@@ -98,8 +130,10 @@ import '../../features/developer/ui/jobs/service_details/ui/developer_jobs_servi
 import '../../features/developer/ui/profile/edit_profile/developer_profile_edit_profile_screen.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_job_withdraw_repo.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_profile_applied_jobs_repo.dart';
+import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_service_delete_repo.dart';
 import '../../features/developer/ui/profile/jobs_applied/logic/developer_job_withdraw_logic/developer_job_withdraw_cubit.dart';
 import '../../features/developer/ui/profile/jobs_applied/logic/developer_profile_applied_jobs_logic/developer_profile_applied_jobs_cubit.dart';
+import '../../features/developer/ui/profile/jobs_applied/logic/developer_service_delete_logic/developer_service_delete_cubit.dart';
 import '../../features/developer/ui/profile/jobs_applied/ui/developer_profile_jobs_and_services_applied_screen.dart';
 import '../../features/developer/ui/profile/main_page/developer_profile_main_page_screen.dart';
 import '../../features/developer/ui/profile/payment/add_new_cart/developer_profile_payment_add_new_card_screen.dart';
@@ -180,11 +214,21 @@ class AppRouter {
       // Home
       case Routes.companyHomeMainPageScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (_) => StartChatRoomCubit(getIt<StartChatRoomRepo>()),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) =>
+                    CompanyHomeMainPageCubit(getIt<CompanyHomeMainPageRepo>())
+                      ..getCompanyHomeMainPageData(),
+              ),
+              BlocProvider(
+                create: (_) => StartChatRoomCubit(getIt<StartChatRoomRepo>()),
+              ),
+            ],
             child: const CompanyHomeMainPageScreen(),
           ),
         );
+
       case Routes.companyHomeSendOfferScreen:
         return MaterialPageRoute(
           builder: (_) => const CompanyHomeSendOfferScreen(),
@@ -192,16 +236,32 @@ class AppRouter {
       case Routes.companyHomeSeeDetailsScreen:
         final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<CompanyUpdateApplicationStatusCubit>(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) =>
+                    getIt<CompanyUpdateApplicationStatusCubit>(),
+              ),
+              BlocProvider(
+                create: (context) => getIt<CompanyHomeSeeDetailsCubit>()
+                  ..getCompanyHomeSeeDetailsData(
+                      applicationId: args.applicationId!),
+              ),
+            ],
             child: CompanyHomeSeeDetailsScreen(
               applicationId: args.applicationId!,
             ),
           ),
         );
       case Routes.companyHomeSeeResumeScreen:
+        final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-          builder: (_) => const CompanyHomeSeeResumeScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) =>
+                CompanyHomeSeeResumeCubit(getIt<CompanyHomeSeeResumeRepo>())
+                  ..getCompanyHomeSeeResumeData(developerId: args.developerId!),
+            child: const CompanyHomeSeeResumeScreen(),
+          ),
         );
       // Jobs
       case Routes.companyJobsScreen:
@@ -260,8 +320,28 @@ class AppRouter {
       // Home
       case Routes.developerHomeMainPageScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperHomeMainPageScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => getIt<DeveloperNameHomeMainPageCubit>()
+                  ..fetchDeveloperName(),
+              ),
+              BlocProvider(
+                create: (context) => getIt<DeveloperTagsHomeMainPageCubit>()
+                  ..fetchDeveloperTags(),
+              ),
+              BlocProvider(
+                create: (context) => getIt<DeveloperCoursesHomeMainPageCubit>(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperRecommendationsCubit>()
+                  ..fetchRecommendations(),
+              ),
+            ],
+            child: const DeveloperHomeMainPageScreen(),
+          ),
         );
+
       // Community
       case Routes.developerCommunityAllCommunitiesScreen:
         return MaterialPageRoute(
@@ -327,18 +407,42 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const DeveloperCoursesMainPageScreen(),
         );
-      case Routes.developerCoursesCategoriesScreen:
+      case Routes.developerCoursesRelatedCoursesScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperCoursesCategoriesScreen(),
+          builder: (_) => const DeveloperCoursesRelatedCoursesScreen(),
         );
       case Routes.developerCoursesSpecificCategoryScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperCoursesSpecificCategoryScreen(),
         );
-      case Routes.developerCoursesCourseDetailsScreen:
+
+      case Routes.developerCoursesSpecificCourseScreen:
+        final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-          builder: (_) => const DeveloperCoursesCourseDetailsScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => getIt<SpecificCourseHeaderCubit>()
+                  ..getSpecificCourseHeader(args.courseId!),
+              ),
+              BlocProvider(
+                create: (context) => getIt<SpecificCourseOverviewCubit>()
+                  ..getSpecificCourseOverview(args.courseId!),
+              ),
+              BlocProvider(
+                create: (context) => getIt<SpecificCourseLecturesCubit>()
+                  ..getSpecificCourseLectures(args.courseId!),
+              ),
+              BlocProvider(
+                create: (context) => getIt<SpecificCourseReviewsCubit>()
+                  ..getSpecificCourseReviews(args.courseId!),
+              ),
+            ],
+            child:
+                DeveloperCoursesSpecificCourseScreen(courseId: args.courseId!),
+          ),
         );
+
       case Routes.developerCoursesRoadmapsScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperCoursesRoadmapsScreen(),
@@ -377,6 +481,10 @@ class AppRouter {
               BlocProvider(
                 create: (_) => getIt<DeveloperServicesRecentlyPostedCubit>()
                   ..fetchRecentlyPostedServices(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperRecommendationsCubit>()
+                  ..fetchRecommendations(),
               ),
             ],
             child: const DeveloperJobsSearchScreen(),
@@ -463,6 +571,11 @@ class AppRouter {
               BlocProvider(
                 create: (context) => DeveloperJobWithdrawCubit(
                   getIt<DeveloperJobWithdrawRepo>(),
+                ),
+              ),
+              BlocProvider(
+                create: (context) => DeveloperServiceDeleteCubit(
+                  getIt<DeveloperServiceDeleteRepo>(),
                 ),
               ),
             ],

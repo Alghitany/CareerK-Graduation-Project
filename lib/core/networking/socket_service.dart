@@ -1,9 +1,13 @@
+import 'package:carrerk/core/networking/api_constants.dart';
 import 'package:flutter/foundation.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 
 class SocketService {
   IO.Socket? _socket;
   bool _isConnected = false;
+  String socketBaseUrl = ApiConstants.apiBaseUrl.endsWith('/')
+      ? ApiConstants.apiBaseUrl.substring(0, ApiConstants.apiBaseUrl.length - 1)
+      : ApiConstants.apiBaseUrl;
 
   IO.Socket get socket {
     if (_socket == null) {
@@ -19,7 +23,7 @@ class SocketService {
     }
 
     _socket = IO.io(
-      'https://3e6a-197-166-238-191.ngrok-free.app',
+      socketBaseUrl,
       IO.OptionBuilder()
           .setTransports(['websocket'])
           .disableAutoConnect()
