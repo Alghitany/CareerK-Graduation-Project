@@ -8,8 +8,10 @@ import 'package:carrerk/features/authentication/verify_code/logic/verify_code_cu
 import 'package:carrerk/features/authentication/verify_code/ui/verify_code_screen.dart';
 
 import 'package:carrerk/features/customer/logic/customer_jobs_post_cubit.dart';
-import 'package:carrerk/features/customer/ui/applied/first/customer_applied_first_screen.dart';
-import 'package:carrerk/features/customer/ui/applied/secound/customer_applied_secound_screen.dart';
+import 'package:carrerk/features/customer/ui/applied/logic/first_screen_logic/applications_cubit.dart';
+import 'package:carrerk/features/customer/ui/applied/logic/secound_screen_logic/application_details_cubit.dart';
+import 'package:carrerk/features/customer/ui/applied/ui/first/customer_applied_first_screen.dart';
+import 'package:carrerk/features/customer/ui/applied/ui/secound/customer_applied_secound_screen.dart';
 import 'package:carrerk/features/customer/ui/home/logic/customer_home_cubit.dart';
 
 import 'package:carrerk/features/customer/ui/home/ui/customer_home_main_page.dart';
@@ -33,7 +35,6 @@ import 'package:carrerk/features/developer/ui/jobs/apply/ui/developer_jobs_apply
 
 import 'package:carrerk/features/developer/ui/jobs/main_page/developer_jobs_main_page_screen.dart';
 
-import 'package:carrerk/features/developer/ui/jobs/service_details/developer_jobs_service_details_screen.dart';
 import 'package:carrerk/features/developer/ui/profile/edit_profile/developer_profile_edit_profile_screen.dart';
 
 import 'package:carrerk/features/developer/ui/profile/main_page/developer_profile_main_page_screen.dart';
@@ -103,7 +104,7 @@ import '../../features/developer/ui/profile/jobs_applied/ui/developer_profile_jo
 import '../../features/developer/ui/profile/main_page/developer_profile_main_page_screen.dart';
 import '../../features/developer/ui/profile/payment/add_new_cart/developer_profile_payment_add_new_card_screen.dart';
 
-import '../../features/notifications/notifications_screen.dart';
+import '../../features/notifications/ui/notifications_screen.dart';
 import '../../features/sign_up_user_type/sign_up_user_type_screen.dart';
 import '../di/dependency_injection.dart';
 import '../helpers/enums.dart';
@@ -505,11 +506,26 @@ class AppRouter {
 
       // applied
       case Routes.customerAppliedFirstScreen:
+        final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-            builder: (_) => const CustomerAppliedFirstScreen());
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<ApplicationsCubit>()
+              ..getApplications(args.applicationId!),
+            child: CustomerAppliedFirstScreen(),
+          ),
+        );
+
+      // applied details
       case Routes.customerAppliedSecoundScreen:
+        final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-            builder: (_) => const CustomerAppliedSecoundScreen());
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<ApplicationDetailsCubit>()
+              ..getApplicationDetails(args.applicationId!),
+            child: CustomerAppliedSecoundScreen(),
+          ),
+        );
+
       // chats
 
       case Routes.customerChatsScreen:

@@ -50,8 +50,9 @@ class CustomerFloatingActionButton extends StatelessWidget {
       child: Container(
         width: 60.w,
         height: 60.h,
-        decoration: const BoxDecoration(
-          shape: BoxShape.circle,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(19),
+          shape: BoxShape.rectangle,
           color: ColorsManager.primaryWildBlueYonder,
         ),
         alignment: Alignment.center,

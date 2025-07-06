@@ -1,8 +1,7 @@
 class ApiConstants {
-  static const String apiBaseUrl =
-      "https://3e6a-197-166-238-191.ngrok-free.app/";
+  static const String apiBaseUrl = "https://e419-197-164-8-153.ngrok-free.app/";
   static const String baseImageUrl =
-      "https://3e6a-197-166-238-191.ngrok-free.app/uploads/profile_pictures/";
+      "https://e419-197-164-8-153.ngrok-free.app/uploads/profile_pictures/";
 
   //------ Authentication -------
   static const String authenticationLogin = "api/auth/login";
@@ -69,6 +68,17 @@ class ApiConstants {
   static const String contactList = "api/private-chats";
   // ---- home----
   static const String customerHome = "api/customer/homepage";
+  // ---- applied----
+  static const String customerApplied =
+      "api/service-application/post/{applicantId}";
+  // ---- applied----
+  static const String customerAppliedDetails =
+      "api/service-application/{applicantId}";
+  //------ Notifications ----
+  static const String allNotification = "/api/notifications";
+  //------ reject ----
+  static const String rejectApplications =
+      "api/service-application/{applicantId}/status";
 
   //------ company ------------
   //->Sign up

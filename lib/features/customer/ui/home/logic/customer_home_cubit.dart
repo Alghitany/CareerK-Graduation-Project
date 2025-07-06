@@ -1,6 +1,6 @@
+import 'package:carrerk/features/customer/ui/home/model/repo/customer_home_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../data/repo/customer_home_repo.dart';
 import 'customer_home_state.dart';
 
 class CustomerHomeCubit extends Cubit<CustomerHomeState> {

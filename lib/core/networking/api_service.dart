@@ -1,6 +1,9 @@
 import 'package:carrerk/features/customer/data/models/customer_jobs_post_request_body.dart';
 import 'package:carrerk/features/customer/data/models/customer_jobs_post_response.dart';
-import 'package:carrerk/features/customer/ui/home/data/model/customer_home_response_body.dart';
+import 'package:carrerk/features/customer/ui/applied/data/model/first_screen_model/applications_response_body.dart';
+import 'package:carrerk/features/customer/ui/applied/data/model/reject_applications_model/reject_application_response.dart';
+import 'package:carrerk/features/customer/ui/applied/data/model/secound_screen_model/application_details_response_body.dart';
+
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import '../../features/authentication/change_password/data/models/change_password_request_body.dart';
@@ -22,6 +25,7 @@ import '../../features/company/jobs_post/data/models/company_jobs_post_response.
 
 import '../../features/company/ui/home/data/models/update_application_status_model/company_update_application_status_request_body.dart';
 import '../../features/company/ui/home/data/models/update_application_status_model/company_update_application_status_response.dart';
+import '../../features/customer/ui/home/model/model/customer_home_response_body.dart';
 import '../../features/developer/data/models/developer_courses_and_jobs_main_page_profile_models/developer_courses_and_jobs_main_page_profile_response_model.dart';
 import '../../features/developer/data/models/developer_single_job_bookmark_models/developer_single_job_bookmark_response_model.dart';
 import '../../features/developer/ui/courses/main_page/data/models/developer_courses_main_page_roadmaps_response_model.dart';
@@ -172,6 +176,22 @@ abstract class ApiService {
 
   @GET(ApiConstants.customerHome)
   Future<CustomerHomeResponseBody> getCustomerHomeMainPage();
+  //--------------- apiilied
+  @GET(ApiConstants.customerApplied)
+  Future<ApplicationsResponseBody> getCustomerAppliedScreen(
+    @Path("applicantId") String applicantId,
+  );
+  //--------------- apiilied details
+  @GET(ApiConstants.customerAppliedDetails)
+  Future<ApplicationDetailsResponseBody> getApplicationDetails(
+    @Path("applicantId") String applicantId,
+  );
+  // -------------reject
+  @PATCH(ApiConstants.rejectApplications)
+  Future<RejectApplicationResponse> rejectApplication(
+    @Path('applicantId') String applicantId,
+    @Body() Map<String, dynamic> body,
+  );
 
   @POST(ApiConstants.startChatRoom)
   Future<StartChatRoomResponse> startPrivateChat(

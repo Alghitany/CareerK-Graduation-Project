@@ -14,11 +14,6 @@ class CustomerProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const CustomerBottomNavigationBar(
-        selectedIndex: 3,
-      ),
-      floatingActionButton: const CustomerFloatingActionButton(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.fromLTRB(16.w, 48.h, 16.w, 0.h),

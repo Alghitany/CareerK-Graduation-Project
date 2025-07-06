@@ -9,7 +9,11 @@ import 'package:carrerk/features/company/sign_up/logic/company_sign_up_cubit.dar
 
 import 'package:carrerk/features/customer/data/repos/customer_jobs_post_repo.dart';
 import 'package:carrerk/features/customer/logic/customer_jobs_post_cubit.dart';
-import 'package:carrerk/features/customer/ui/home/data/repo/customer_home_repo.dart';
+import 'package:carrerk/features/customer/ui/applied/data/repo/first_screen_repo/applications_repo.dart';
+import 'package:carrerk/features/customer/ui/applied/data/repo/secound_screen_repo/application_details_repo.dart';
+import 'package:carrerk/features/customer/ui/applied/logic/first_screen_logic/applications_cubit.dart';
+import 'package:carrerk/features/customer/ui/applied/logic/secound_screen_logic/application_details_cubit.dart';
+
 import 'package:carrerk/features/customer/ui/home/logic/customer_home_cubit.dart';
 import 'package:carrerk/features/customer/ui/sign_up/data/repo/customer_sign_up_repo.dart';
 import 'package:carrerk/features/customer/ui/sign_up/logic/customer_sign_up_cubit.dart';
@@ -49,6 +53,7 @@ import '../../features/company/jobs_post/logic/company_jobs_post_cubit.dart';
 import '../../features/company/ui/home/data/repos/company_update_application_status_repo.dart';
 import '../../features/company/ui/home/logic/update_application_status_logic/company_update_application_status_cubit.dart';
 
+import '../../features/customer/ui/home/model/repo/customer_home_repo.dart';
 import '../../features/developer/data/repo/developer_courses_and_jobs_main_page_profile_repo.dart';
 import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
 import '../../features/developer/ui/courses/main_page/logic/developer_courses_main_page_roadmaps_cubit.dart';
@@ -271,6 +276,18 @@ Future<void> setupGetIt() async {
   );
 
   getIt.registerFactory<CustomerHomeCubit>(() => CustomerHomeCubit(getIt()));
+  //  customer -- applied
+  getIt.registerLazySingleton<ApplicationsRepo>(
+    () => ApplicationsRepo(getIt()),
+  );
+  getIt.registerFactory<ApplicationsCubit>(() => ApplicationsCubit(getIt()));
+  //  customer -- applied details
+  getIt.registerLazySingleton<ApplicationDetailsRepo>(
+    () => ApplicationDetailsRepo(getIt()),
+  );
+
+  getIt.registerFactory<ApplicationDetailsCubit>(
+      () => ApplicationDetailsCubit(getIt()));
   // Customer -> Signup
   getIt.registerLazySingleton<CustomerSignupRepo>(
     () => CustomerSignupRepo(getIt<Dio>()),

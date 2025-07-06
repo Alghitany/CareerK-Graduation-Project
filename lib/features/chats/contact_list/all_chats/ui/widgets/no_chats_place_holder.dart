@@ -6,9 +6,14 @@ class NoChatsPlaceholder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text("No chats yet",
-          style: AppTextStyles.font16IronSideGreyPoppinsMedium),
+    return Column(
+      children: [
+        Icon(Icons.preview),
+        Center(
+          child: Text("No chats yet",
+              style: AppTextStyles.font16IronSideGreyPoppinsMedium),
+        ),
+      ],
     );
   }
 }
