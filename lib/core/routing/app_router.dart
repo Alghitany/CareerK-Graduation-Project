@@ -66,6 +66,7 @@ import '../../features/developer/ui/courses/specific_category/ui/developer_cours
 import '../../features/developer/ui/courses/specific_course/logic/specific_course_header_logic/specific_course_header_cubit.dart';
 import '../../features/developer/ui/courses/specific_course/logic/specific_course_lectures_logic/specific_course_lectures_cubit.dart';
 import '../../features/developer/ui/courses/specific_course/logic/specific_course_overview_logic/specific_course_overview_cubit.dart';
+import '../../features/developer/ui/courses/specific_course/logic/specific_course_reviews_logic/specific_course_reviews_cubit.dart';
 import '../../features/developer/ui/courses/specific_course/ui/developer_courses_specific_course_screen.dart';
 import '../../features/developer/ui/home_main_page/logic/developer_courses_home_main_page_logic/developer_courses_home_main_page_cubit.dart';
 import '../../features/developer/ui/home_main_page/logic/developer_name_home_main_page_logic/developer_name_home_main_page_cubit.dart';
@@ -415,9 +416,13 @@ class AppRouter {
                 create: (context) => getIt<SpecificCourseLecturesCubit>()
                   ..getSpecificCourseLectures(args.courseId!),
               ),
+              BlocProvider(
+                create: (context) => getIt<SpecificCourseReviewsCubit>()
+                  ..getSpecificCourseReviews(args.courseId!),
+              ),
             ],
             child:
-                DeveloperCoursesSpecificCourseScreen(courseId: args.courseId!),
+            DeveloperCoursesSpecificCourseScreen(courseId: args.courseId!),
           ),
         );
 

@@ -80,6 +80,10 @@ class ApiConstants {
   static const String developerSpecificCourseLectures =
       "/api/course-details/{courseId}/contents";
 
+  //-----> Specific Course Lectures
+  static const String developerSpecificCourseReviews =
+      "/api/course-details/{courseId}/reviews";
+
   //-----> Profile
   //-> Applied Jobs
   static const String developerProfileAppliedJobs =

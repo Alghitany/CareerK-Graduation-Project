@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../../../../../../core/di/dependency_injection.dart';
+import '../../../../../../../../../core/theming/colors.dart';
 import '../../../../../../../../../core/widgets/course_bookmark/developer_course_bookmark_bloc_builder.dart';
 import '../../../../../../../logic/developer_single_course_bookmark_logic/developer_single_course_bookmark_cubit.dart';
 
@@ -46,7 +47,11 @@ class ImagePreviewAndBackIcon extends StatelessWidget {
         Positioned(
           top: 12.h,
           left: 12.w,
-          child: const AppBackIcon(),
+          child: AppBackIcon(
+            color: Theme.of(context).brightness == Brightness.dark
+                ? Colors.white
+                : ColorsManager.dune,
+          ),
         ),
 
         // Bookmark Toggle (Controlled Externally)

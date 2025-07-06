@@ -96,11 +96,15 @@ class _MainPageCoursesListState extends State<MainPageCoursesList> {
                                           overflow: TextOverflow.ellipsis,
                                         ),
                                       ),
-                                      horizontalSpace(16),
-                                      Text(
-                                        "(${course.duration ?? "N/A"})",
-                                        style: AppTextStyles
-                                            .font14RangoonGreenPoppinsMedium,
+                                      horizontalSpace(8),
+                                      SizedBox(
+                                        width: 90,
+                                        child: Text(
+                                          "(${course.duration ?? "N/A"})",
+                                          style: AppTextStyles
+                                              .font14RangoonGreenPoppinsMedium,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
                                       )
                                     ],
                                   ),

@@ -31,6 +31,7 @@ import '../../features/developer/ui/courses/specific_category/data/models/develo
 import '../../features/developer/ui/courses/specific_course/data/model/specific_course_header_models/specific_course_header_response_body.dart';
 import '../../features/developer/ui/courses/specific_course/data/model/specific_course_lectures_models/specific_course_lectures_response_body.dart';
 import '../../features/developer/ui/courses/specific_course/data/model/specific_course_overview_models/specific_course_overview_response_body.dart';
+import '../../features/developer/ui/courses/specific_course/data/model/specific_course_reviews_models/specific_course_reviews_response_body.dart';
 import '../../features/developer/ui/home_main_page/data/models/developer_courses_home_main_page_models/developer_courses_home_main_page_response_body.dart';
 import '../../features/developer/ui/home_main_page/data/models/developer_name_home_main_page_models/developer_name_home_main_page_response_body.dart';
 import '../../features/developer/ui/home_main_page/data/models/developer_tags_home_main_page_models/developer_tags_home_main_page_response_body.dart';
@@ -130,6 +131,12 @@ abstract class ApiService {
   Future<List<SpecificCourseLecturesResponseBody>> getSpecificCourseLectures(
     @Path('courseId') String courseId,
   );
+
+  // -> Reviews
+  @GET(ApiConstants.developerSpecificCourseReviews)
+  Future<SpecificCourseReviewsResponseBody> getSpecificCourseReviews(
+      @Path('courseId') String courseId,
+      );
 
   //-> Job Details
   @GET(ApiConstants.developerJobsJobDetails)

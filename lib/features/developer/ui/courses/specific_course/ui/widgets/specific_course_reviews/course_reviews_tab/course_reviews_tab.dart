@@ -3,12 +3,19 @@ import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../../../../../core/theming/colors.dart';
+import '../../../../../../../../../core/theming/colors.dart';
+import '../../../../data/model/specific_course_reviews_models/specific_course_reviews_response_body.dart';
 import 'review_item.dart';
 
 class CourseReviewsTab extends StatelessWidget {
-  const CourseReviewsTab({super.key});
+  final double averageRating;
+  final List<Review> reviews;
+
+  const CourseReviewsTab({
+    super.key,
+    required this.averageRating,
+    required this.reviews,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +32,12 @@ class CourseReviewsTab extends StatelessWidget {
           Row(
             children: [
               Text(
-                "3.4",
+                averageRating.toStringAsFixed(1),
                 style: AppTextStyles.font24DunePoppinsRegular,
               ),
               horizontalSpace(8),
               RatingBarIndicator(
-                rating: 3.4,
+                rating: averageRating,
                 itemBuilder: (context, _) => const Icon(
                   Icons.star,
                   color: ColorsManager.schoolBusYellow,
@@ -42,7 +49,7 @@ class CourseReviewsTab extends StatelessWidget {
             ],
           ),
           verticalSpace(20),
-          ...List.generate(3, (index) => const ReviewItem()),
+          ...reviews.map((review) => ReviewItem(review: review)),
         ],
       ),
     );
