@@ -48,13 +48,13 @@ class SettingsOptionsList extends StatelessWidget {
               },
             ),
             settingServiceRow(
-              icon: 'assets/svgs/open_book_outlined.svg',
-              text: 'Test & Quiz',
-              leadingIconHeight: 16.5,
-              leadingIconWidth: 18,
+              icon: 'assets/svgs/gemini_ai.svg',
+              text: 'Generate CV with AI',
+              leadingIconHeight: 20,
+              leadingIconWidth: 20,
+              horizontalSpaceValue: 4,
               onTap: () {
-                //TODO: This feature may be removed since we don't present courses
-                //context.pushNamed(Routes.developerSignUpCompletedCvIsDone);
+                context.pushNamed(Routes.developerProfileCVGenerateScreen);
               },
             ),
             settingServiceRow(
@@ -69,6 +69,8 @@ class SettingsOptionsList extends StatelessWidget {
             settingServiceRow(
               icon: 'assets/svgs/job.svg',
               text: 'Job Applied',
+              leadingIconHeight: 20,
+              leadingIconWidth: 17,
               onTap: () {
                 context.pushNamed(Routes.developerProfileJobsAppliedScreen);
               },
@@ -111,13 +113,13 @@ class SettingsOptionsList extends StatelessWidget {
     );
   }
 
-  Widget settingServiceRow({
-    required icon,
-    required text,
-    required onTap,
-    double? leadingIconHeight,
-    double? leadingIconWidth,
-  }) {
+  Widget settingServiceRow(
+      {required icon,
+      required text,
+      required onTap,
+      double? leadingIconHeight,
+      double? leadingIconWidth,
+      double horizontalSpaceValue = 8}) {
     return GestureDetector(
       onTap: onTap,
       child: SizedBox(
@@ -132,7 +134,7 @@ class SettingsOptionsList extends StatelessWidget {
               colorFilter:
                   const ColorFilter.mode(ColorsManager.dune, BlendMode.srcIn),
             ),
-            horizontalSpace(8),
+            horizontalSpace(horizontalSpaceValue),
             Text(
               text,
               style: AppTextStyles.font14BlackPoppinsMedium,

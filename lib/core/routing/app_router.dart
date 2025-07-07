@@ -1,12 +1,10 @@
 import 'package:carrerk/core/helpers/enums.dart';
 import 'package:carrerk/core/routing/app_argument.dart';
 import 'package:carrerk/core/routing/company_router/jobs_post_router.dart';
-
 import 'package:carrerk/core/widgets/pdf_viewer_screen.dart';
 import 'package:carrerk/features/authentication/reset_password/logic/reset_password_cubit.dart';
 import 'package:carrerk/features/authentication/verify_code/logic/verify_code_cubit.dart';
 import 'package:carrerk/features/authentication/verify_code/ui/verify_code_screen.dart';
-
 import 'package:carrerk/features/customer/logic/customer_jobs_post_cubit.dart';
 import 'package:carrerk/features/customer/ui/applied/logic/first_screen_logic/applications_cubit.dart';
 import 'package:carrerk/features/customer/ui/applied/logic/secound_screen_logic/application_details_cubit.dart';
@@ -77,9 +75,8 @@ import '../../features/company/ui/jobs_post/logic/company_jobs_post_cubit.dart';
 import '../../features/company/ui/jobs_post/ui/success/company_job_post_success_screen.dart';
 import '../../features/company/ui/profile/company_profile_screen.dart';
 import '../../features/company/ui/send_to_applicants/message-applicant/company_send_to_applicants_message_applicant_screen.dart';
-
-import '../../features/customer/ui/sign_up/logic/customer_sign_up_cubit.dart';
 import '../../features/company/ui/sign_up/logic/company_sign_up_cubit.dart';
+import '../../features/customer/ui/sign_up/logic/customer_sign_up_cubit.dart';
 import '../../features/developer/logic/developer_recommendations_logic/developer_recommendations_cubit.dart';
 import '../../features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
 import '../../features/developer/ui/courses/related_courses/developer_courses_related_courses_screen.dart';
@@ -100,6 +97,7 @@ import '../../features/developer/ui/jobs/search/logic/developer_services_recentl
 import '../../features/developer/ui/jobs/search/ui/developer_jobs_search_screen.dart';
 import '../../features/developer/ui/jobs/service_details/logic/developer_jobs_service_details_cubit.dart';
 import '../../features/developer/ui/jobs/service_details/ui/developer_jobs_service_details_screen.dart';
+import '../../features/developer/ui/profile/cv_generate/developer_profile_cv_generate_screen.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_job_withdraw_repo.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_profile_applied_jobs_repo.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_service_delete_repo.dart';
@@ -107,7 +105,6 @@ import '../../features/developer/ui/profile/jobs_applied/logic/developer_job_wit
 import '../../features/developer/ui/profile/jobs_applied/logic/developer_profile_applied_jobs_logic/developer_profile_applied_jobs_cubit.dart';
 import '../../features/developer/ui/profile/jobs_applied/logic/developer_service_delete_logic/developer_service_delete_cubit.dart';
 import '../../features/developer/ui/profile/jobs_applied/ui/developer_profile_jobs_and_services_applied_screen.dart';
-
 import '../../features/notifications/ui/notifications_screen.dart';
 import '../../features/sign_up_user_type/sign_up_user_type_screen.dart';
 import '../di/dependency_injection.dart';
@@ -523,6 +520,10 @@ class AppRouter {
       case Routes.developerProfileEditProfileScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperProfileEditProfileScreen(),
+        );
+      case Routes.developerProfileCVGenerateScreen:
+        return MaterialPageRoute(
+          builder: (_) => const DeveloperProfileCVGenerateScreen(),
         );
       case Routes.developerProfileSavedJobsScreen:
         return MaterialPageRoute(

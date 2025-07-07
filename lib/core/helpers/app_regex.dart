@@ -1,12 +1,12 @@
 import 'package:carrerk/core/helpers/extensions.dart';
 
 class AppRegex {
-  static bool isValidEmail(String email) {
+  static bool isValidEmail(String? email) {
     if (email.isNullOrEmpty()) return false;
 
     return RegExp(
       r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
-    ).hasMatch(email);
+    ).hasMatch(email!);
   }
 
   static bool isValidPassword(String password) {
@@ -23,10 +23,10 @@ class AppRegex {
     return RegExp(r"^[A-Za-z\s]{2,50}$").hasMatch(name!);
   }
 
-  static bool isValidLocation(String location) {
+  static bool isValidLocation(String? location) {
     if (location.isNullOrEmpty()) return false;
 
-    return RegExp(r"^[A-Za-z\s]+,\s[A-Za-z\s]+$").hasMatch(location);
+    return RegExp(r"^[A-Za-z\s]+,\s[A-Za-z\s]+$").hasMatch(location!);
   }
 
   static bool isValidPhoneNumber(String? phoneNumber) {

@@ -4,6 +4,8 @@ import 'package:carrerk/features/chats/person_chat/data/repo/get_chat_messages_r
 import 'package:carrerk/features/chats/person_chat/logic/get_chat_messages/get_chat_messages_cubit.dart';
 import 'package:carrerk/features/company/data/repo/company_jobs_delete_post_repo.dart';
 import 'package:carrerk/features/company/logic/company_jobs_delete_post_cubit.dart';
+import 'package:carrerk/features/company/ui/home/ui/main_page/data/repo/company_home_main_page_repo.dart';
+import 'package:carrerk/features/company/ui/home/ui/see_details/data/repo/company_home_see_details_repo.dart';
 import 'package:carrerk/features/customer/data/repos/customer_jobs_post_repo.dart';
 import 'package:carrerk/features/customer/logic/customer_jobs_post_cubit.dart';
 import 'package:carrerk/features/customer/ui/applied/data/repo/first_screen_repo/applications_repo.dart';
@@ -13,8 +15,6 @@ import 'package:carrerk/features/customer/ui/applied/logic/secound_screen_logic/
 import 'package:carrerk/features/customer/ui/home/logic/customer_home_cubit.dart';
 import 'package:carrerk/features/customer/ui/sign_up/data/repo/customer_sign_up_repo.dart';
 import 'package:carrerk/features/customer/ui/sign_up/logic/customer_sign_up_cubit.dart';
-import 'package:carrerk/features/company/ui/home/ui/main_page/data/repo/company_home_main_page_repo.dart';
-import 'package:carrerk/features/company/ui/home/ui/see_details/data/repo/company_home_see_details_repo.dart';
 import 'package:carrerk/features/developer/data/repo/developer_single_job_bookmark_repo.dart';
 import 'package:carrerk/features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
 import 'package:carrerk/features/developer/ui/courses/main_page/data/repo/developer_courses_main_page_roadmaps_repo.dart';
@@ -50,8 +50,6 @@ import '../../features/chats/person_chat/logic/send_messages/send_messages_cubit
 import '../../features/chats/person_chat/logic/start_chat/start_chat_room_cubit.dart';
 import '../../features/company/ui/home/data/repos/company_update_application_status_repo.dart';
 import '../../features/company/ui/home/logic/update_application_status_logic/company_update_application_status_cubit.dart';
-
-import '../../features/customer/ui/home/model/repo/customer_home_repo.dart';
 import '../../features/company/ui/home/ui/main_page/logic/company_home_main_page_cubit.dart';
 import '../../features/company/ui/home/ui/see_details/logic/company_home_see_details_cubit.dart';
 import '../../features/company/ui/home/ui/see_resume/data/repo/company_home_see_resume_repo.dart';
@@ -60,6 +58,7 @@ import '../../features/company/ui/jobs_post/data/repos/company_jobs_post_repo.da
 import '../../features/company/ui/jobs_post/logic/company_jobs_post_cubit.dart';
 import '../../features/company/ui/sign_up/data/repo/company_sign_up_repo.dart';
 import '../../features/company/ui/sign_up/logic/company_sign_up_cubit.dart';
+import '../../features/customer/ui/home/model/repo/customer_home_repo.dart';
 import '../../features/developer/data/repo/developer_courses_and_jobs_main_page_profile_repo.dart';
 import '../../features/developer/data/repo/developer_recommendations_repo.dart';
 import '../../features/developer/data/repo/developer_single_course_bookmark_repo.dart';
