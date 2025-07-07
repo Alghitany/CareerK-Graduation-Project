@@ -89,6 +89,10 @@ class ApiConstants {
   static const String developerProfileAppliedJobs =
       "api/developer/my-applications";
 
+  //-> // Generate CV With Ai Start Session
+  static const String developerProfileGenerateCVStartSession =
+      "api/cv-generation/session";
+
   //-> Job Withdraw
   static const String developerJobWithdraw =
       "api/job-application/{applicationId}";

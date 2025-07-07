@@ -2,7 +2,7 @@ import 'package:carrerk/core/widgets/app_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../../../core/helpers/spacing.dart';
+import '../../../../../../../../core/helpers/spacing.dart';
 
 class SkillsetsForm extends StatelessWidget {
   const SkillsetsForm({super.key});

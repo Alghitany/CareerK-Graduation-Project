@@ -2,7 +2,6 @@ import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
-import 'package:carrerk/features/developer/ui/profile/cv_generate/widgets/personal_info/personal_info_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -11,13 +10,16 @@ import 'widgets/additional/additional_information_form.dart';
 import 'widgets/certification/certifications_form.dart';
 import 'widgets/education/education_form.dart';
 import 'widgets/experience/experience_form.dart';
+import 'widgets/personal_info/personal_info_form.dart';
 import 'widgets/project/project_form.dart';
 import 'widgets/section_card.dart';
 import 'widgets/skillsets/skillsets_form.dart';
 import 'widgets/top_bar/generate_cv_top_bar.dart';
 
 class DeveloperProfileCVGenerateScreen extends StatefulWidget {
-  const DeveloperProfileCVGenerateScreen({super.key});
+  final String sessionId;
+
+  const DeveloperProfileCVGenerateScreen({super.key, required this.sessionId});
 
   @override
   State<DeveloperProfileCVGenerateScreen> createState() =>
@@ -34,6 +36,12 @@ class _DeveloperProfileCVGenerateScreenState
   final List<int> additionalTiles = [0];
 
   final ScrollController _scrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    print("Sesssssssssssssssssssion ID : ${widget.sessionId}");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -184,6 +192,7 @@ class _DeveloperProfileCVGenerateScreenState
                     onRemove: tiles.length > 1
                         ? () {
                             final removedIndex = index;
+                            // DON'T REMOVE THIS DELETE WILL BE BROKEN IF U DID
                             final removedTile = tiles.removeAt(removedIndex);
                             listKey.currentState?.removeItem(
                               removedIndex,

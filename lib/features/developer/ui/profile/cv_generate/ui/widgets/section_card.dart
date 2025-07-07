@@ -7,7 +7,7 @@ import 'package:flutter_svg/svg.dart';
 class SectionCard extends StatelessWidget {
   final Widget content;
   final String title;
-  final String? hint; // ✅ New
+  final String? hint;
   final SvgPicture icon;
   final VoidCallback? onAdd;
   final VoidCallback? onRemove;

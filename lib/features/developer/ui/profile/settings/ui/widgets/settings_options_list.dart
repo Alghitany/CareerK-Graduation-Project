@@ -3,11 +3,13 @@ import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../../../core/routing/routes.dart';
-import '../../logout/developer_profile_logout_screen.dart';
+import '../../../../../../../core/routing/routes.dart';
+import '../../../logout/developer_profile_logout_screen.dart';
+import '../../logic/developer_generate_cv_start_session_logic/developer_generate_cv_start_session_cubit.dart';
 
 class SettingsOptionsList extends StatelessWidget {
   const SettingsOptionsList({super.key});
@@ -54,7 +56,9 @@ class SettingsOptionsList extends StatelessWidget {
               leadingIconWidth: 20,
               horizontalSpaceValue: 4,
               onTap: () {
-                context.pushNamed(Routes.developerProfileCVGenerateScreen);
+                context
+                    .read<DeveloperGenerateCVStartSessionCubit>()
+                    .startCVSession();
               },
             ),
             settingServiceRow(

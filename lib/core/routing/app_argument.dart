@@ -10,6 +10,7 @@ class AppArgument {
   final String? courseId;
   final String? trackId;
   final String? chatRoomId;
+  final String? sessionId;
   final bool? isExisting;
   final String? fileUrl;
 
@@ -23,6 +24,7 @@ class AppArgument {
     this.courseId,
     this.trackId,
     this.chatRoomId,
+    this.sessionId,
     this.isExisting,
     this.fileUrl,
   });

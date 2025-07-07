@@ -33,7 +33,8 @@ import 'package:carrerk/features/developer/ui/profile/main_page/developer_profil
 import 'package:carrerk/features/developer/ui/profile/payment/add_new_cart/developer_profile_payment_add_new_card_screen.dart';
 import 'package:carrerk/features/developer/ui/profile/payment/option/developer_profile_payment_option_screen.dart';
 import 'package:carrerk/features/developer/ui/profile/saved_jobs/developer_profile_saved_jobs_screen.dart';
-import 'package:carrerk/features/developer/ui/profile/settings/developer_profile_settings_screen.dart';
+import 'package:carrerk/features/developer/ui/profile/settings/logic/developer_generate_cv_start_session_logic/developer_generate_cv_start_session_cubit.dart';
+import 'package:carrerk/features/developer/ui/profile/settings/ui/developer_profile_settings_screen.dart';
 import 'package:carrerk/features/developer/ui/sign_up/logic/developer_sign_up_cubit.dart';
 import 'package:carrerk/features/developer/ui/sign_up_completed/cv_downloaded/developer_sign_up_completed_cv_downloaded.dart';
 import 'package:carrerk/features/developer/ui/sign_up_completed/cv_is_done/developer_sign_up_completed_cv_is_done.dart';
@@ -97,7 +98,7 @@ import '../../features/developer/ui/jobs/search/logic/developer_services_recentl
 import '../../features/developer/ui/jobs/search/ui/developer_jobs_search_screen.dart';
 import '../../features/developer/ui/jobs/service_details/logic/developer_jobs_service_details_cubit.dart';
 import '../../features/developer/ui/jobs/service_details/ui/developer_jobs_service_details_screen.dart';
-import '../../features/developer/ui/profile/cv_generate/developer_profile_cv_generate_screen.dart';
+import '../../features/developer/ui/profile/cv_generate/ui/developer_profile_cv_generate_screen.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_job_withdraw_repo.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_profile_applied_jobs_repo.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_service_delete_repo.dart';
@@ -515,15 +516,20 @@ class AppRouter {
         );
       case Routes.developerProfileSettingsScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperProfileSettingsScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<DeveloperGenerateCVStartSessionCubit>(),
+            child: const DeveloperProfileSettingsScreen(),
+          ),
         );
       case Routes.developerProfileEditProfileScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperProfileEditProfileScreen(),
         );
       case Routes.developerProfileCVGenerateScreen:
+        final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-          builder: (_) => const DeveloperProfileCVGenerateScreen(),
+          builder: (_) =>
+              DeveloperProfileCVGenerateScreen(sessionId: args.sessionId!),
         );
       case Routes.developerProfileSavedJobsScreen:
         return MaterialPageRoute(
@@ -594,7 +600,7 @@ class AppRouter {
           builder: (_) => BlocProvider(
             create: (_) => getIt<ApplicationsCubit>()
               ..getApplications(args.applicationId!),
-            child: CustomerAppliedFirstScreen(),
+            child: const CustomerAppliedFirstScreen(),
           ),
         );
 
@@ -605,7 +611,7 @@ class AppRouter {
           builder: (_) => BlocProvider(
             create: (_) => getIt<ApplicationDetailsCubit>()
               ..getApplicationDetails(args.applicationId!),
-            child: CustomerAppliedSecoundScreen(),
+            child: const CustomerAppliedSecoundScreen(),
           ),
         );
 

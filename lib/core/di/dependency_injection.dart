@@ -31,6 +31,8 @@ import 'package:carrerk/features/developer/ui/jobs/job_details/logic/developer_j
 import 'package:carrerk/features/developer/ui/jobs/search/data/repo/developer_jobs_recently_posted_repo.dart';
 import 'package:carrerk/features/developer/ui/profile/jobs_applied/data/repo/developer_job_withdraw_repo.dart';
 import 'package:carrerk/features/developer/ui/profile/jobs_applied/data/repo/developer_profile_applied_jobs_repo.dart';
+import 'package:carrerk/features/developer/ui/profile/settings/data/repos/developer_generate_cv_start_session_repo.dart';
+import 'package:carrerk/features/developer/ui/profile/settings/logic/developer_generate_cv_start_session_logic/developer_generate_cv_start_session_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -274,6 +276,11 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<DeveloperProfileAppliedJobsCubit>(
     () => DeveloperProfileAppliedJobsCubit(getIt()),
   );
+  // -> Generate CV
+  getIt.registerLazySingleton<DeveloperGenerateCVStartSessionRepo>(
+      () => DeveloperGenerateCVStartSessionRepo(getIt()));
+  getIt.registerLazySingleton<DeveloperGenerateCVStartSessionCubit>(
+      () => DeveloperGenerateCVStartSessionCubit(getIt()));
   // -> Withdraw Job Application
   getIt.registerLazySingleton<DeveloperJobWithdrawRepo>(
       () => DeveloperJobWithdrawRepo(getIt()));
