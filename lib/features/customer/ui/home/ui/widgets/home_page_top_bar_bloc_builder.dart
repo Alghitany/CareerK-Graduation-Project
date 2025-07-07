@@ -2,14 +2,13 @@ import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/features/customer/ui/home/logic/customer_home_cubit.dart';
 import 'package:carrerk/features/customer/ui/home/logic/customer_home_state.dart';
 import 'package:carrerk/features/customer/ui/home/model/model/customer_home_response_body.dart';
-import 'package:carrerk/features/customer/ui/profile/customer_profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../../../core/helpers/spacing.dart';
-import '../../../../../../../../core/theming/styles.dart';
 import '../../../../../../../../core/routing/routes.dart';
+import '../../../../../../../../core/theming/styles.dart';
 
 class CustomerTopBarBlocBuilder extends StatelessWidget {
   const CustomerTopBarBlocBuilder({super.key});

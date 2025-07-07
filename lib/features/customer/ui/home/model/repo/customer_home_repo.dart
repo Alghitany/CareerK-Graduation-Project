@@ -1,7 +1,6 @@
 import '../../../../../../core/networking/api_error_handler.dart';
 import '../../../../../../core/networking/api_result.dart';
 import '../../../../../../core/networking/api_service.dart';
-
 import '../model/customer_home_response_body.dart';
 
 class CustomerHomeRepo {

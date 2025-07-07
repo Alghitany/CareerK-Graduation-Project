@@ -6,10 +6,6 @@ import 'package:carrerk/features/customer/ui/sign_up/data/model/customer_signup_
 import 'package:dio/dio.dart';
 import 'package:http_parser/http_parser.dart';
 
-
-import '../model/customer_signup_request_body.dart';
-import '../model/customer_signup_response.dart';
-
 class CustomerSignupRepo {
   final Dio _dio;
 

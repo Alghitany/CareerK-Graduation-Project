@@ -50,7 +50,6 @@
 //   }
 // }
 
-
 import 'package:carrerk/features/chats/contact_list/all_chats/logic/contact_list_all_chats_cubit.dart';
 import 'package:carrerk/features/chats/contact_list/all_chats/logic/contact_list_all_chats_state.dart';
 import 'package:flutter/material.dart';

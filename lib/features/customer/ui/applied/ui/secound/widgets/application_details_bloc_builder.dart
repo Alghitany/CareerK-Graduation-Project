@@ -1,7 +1,6 @@
 import 'package:carrerk/features/customer/ui/applied/data/model/secound_screen_model/application_details_response_body.dart';
 import 'package:carrerk/features/customer/ui/applied/logic/secound_screen_logic/application_details_cubit.dart';
 import 'package:carrerk/features/customer/ui/applied/logic/secound_screen_logic/application_details_state.dart';
-
 import 'package:carrerk/features/customer/ui/applied/ui/secound/widgets/application_details_content.dart';
 import 'package:carrerk/features/customer/ui/home/ui/widgets/customer_jobs_shummer.dart';
 import 'package:flutter/material.dart';

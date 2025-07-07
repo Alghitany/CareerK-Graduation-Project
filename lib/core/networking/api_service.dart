@@ -3,9 +3,9 @@ import 'package:carrerk/features/customer/data/models/customer_jobs_post_respons
 import 'package:carrerk/features/customer/ui/applied/data/model/first_screen_model/applications_response_body.dart';
 import 'package:carrerk/features/customer/ui/applied/data/model/reject_applications_model/reject_application_response.dart';
 import 'package:carrerk/features/customer/ui/applied/data/model/secound_screen_model/application_details_response_body.dart';
-
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
+
 import '../../features/authentication/change_password/data/models/change_password_request_body.dart';
 import '../../features/authentication/change_password/data/models/change_password_response.dart';
 import '../../features/authentication/login/data/model/login_request_body.dart';
@@ -257,20 +257,24 @@ abstract class ApiService {
   //----------------- contact list
   @GET(ApiConstants.contactList)
   Future<ContactListAllChatsResponseBody> getContactListAllChats();
+
   // -----------------Home
 
   @GET(ApiConstants.customerHome)
   Future<CustomerHomeResponseBody> getCustomerHomeMainPage();
+
   //--------------- apiilied
   @GET(ApiConstants.customerApplied)
   Future<ApplicationsResponseBody> getCustomerAppliedScreen(
     @Path("applicantId") String applicantId,
   );
+
   //--------------- apiilied details
   @GET(ApiConstants.customerAppliedDetails)
   Future<ApplicationDetailsResponseBody> getApplicationDetails(
     @Path("applicantId") String applicantId,
   );
+
   // -------------reject
   @PATCH(ApiConstants.rejectApplications)
   Future<RejectApplicationResponse> rejectApplication(

@@ -1,6 +1,4 @@
 import 'package:carrerk/core/helpers/spacing.dart';
-import 'package:carrerk/core/widgets/cusomer_floating_action_button.dart';
-import 'package:carrerk/core/widgets/customer_bottom_navigation_bar.dart';
 import 'package:carrerk/features/company/ui/profile/widgets/profile_image_name_and_location.dart';
 import 'package:carrerk/features/customer/ui/profile/widgets/all_jobs_list.dart';
 import 'package:carrerk/features/customer/ui/profile/widgets/follow_contactus_buttons.dart';
