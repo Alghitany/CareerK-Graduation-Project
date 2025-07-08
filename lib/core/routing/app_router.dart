@@ -81,6 +81,7 @@ import '../../features/customer/ui/sign_up/logic/customer_sign_up_cubit.dart';
 import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
 import '../../features/developer/logic/developer_recommendations_logic/developer_recommendations_cubit.dart';
 import '../../features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
+import '../../features/developer/ui/courses/main_page/logic/developer_courses_main_page_roadmaps_cubit.dart';
 import '../../features/developer/ui/courses/related_courses/developer_courses_related_courses_screen.dart';
 import '../../features/developer/ui/courses/specific_category/ui/developer_courses_specific_category_screen.dart';
 import '../../features/developer/ui/courses/specific_course/logic/specific_course_header_logic/specific_course_header_cubit.dart';
@@ -377,9 +378,18 @@ class AppRouter {
       // Courses
       case Routes.developerCoursesMainPageScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (_) => getIt<DeveloperCoursesAndJobsMainPageProfileCubit>()
-              ..getDeveloperCoursesMainPageProfile(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) =>
+                getIt<DeveloperCoursesAndJobsMainPageProfileCubit>()
+                  ..getDeveloperCoursesMainPageProfile(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperCoursesMainPageRoadmapsCubit>()
+                  ..getDeveloperCoursesMainPageRoadmaps(),
+              ),
+            ],
             child: const DeveloperCoursesMainPageScreen(),
           ),
         );
@@ -445,9 +455,14 @@ class AppRouter {
       //---> Jobs
       case Routes.developerJobsMainPageScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (_) => getIt<DeveloperCoursesAndJobsMainPageProfileCubit>()
-              ..getDeveloperCoursesMainPageProfile(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) =>
+                getIt<DeveloperCoursesAndJobsMainPageProfileCubit>()
+                  ..getDeveloperCoursesMainPageProfile(),
+              ),
+            ],
             child: const DeveloperJobsMainPageScreen(),
           ),
         );
