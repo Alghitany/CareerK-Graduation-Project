@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../../../../../core/widgets/cv_shimmer.dart';
 import '../../../../../../../company/ui/home/ui/see_resume/ui/widgets/preview_cv/cv_preview_and_download.dart';
 import '../../../data/models/generate_models/developer_profile_cv_generate_generated_response.dart';
 import '../../../logic/generate_logic/developer_profile_cv_generate_generated_cubit.dart';
 import '../../../logic/generate_logic/developer_profile_cv_generate_generated_state.dart';
+import 'cv_preview/cv_generate_shimmer.dart';
 
 class DeveloperGeneratedCVBlocBuilder extends StatelessWidget {
   const DeveloperGeneratedCVBlocBuilder({super.key});
@@ -28,7 +27,7 @@ class DeveloperGeneratedCVBlocBuilder extends StatelessWidget {
   }
 
   Widget _buildLoading() {
-    return const CvShimmer();
+    return const CVGenerateShimmer();
   }
 
   Widget _buildSuccess(DeveloperProfileCVGenerateGeneratedResponse data) {

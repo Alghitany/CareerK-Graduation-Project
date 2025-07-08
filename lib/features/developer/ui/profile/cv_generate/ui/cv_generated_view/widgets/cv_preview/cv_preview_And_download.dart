@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
+import 'cv_generate_shimmer.dart';
+
 class CvPreviewAndDownload extends StatefulWidget {
   final String cvUrl;
 
@@ -43,23 +45,6 @@ class _CvPreviewAndDownloadState extends State<CvPreviewAndDownload> {
   }
 
   Widget _buildShimmerPlaceholder() {
-    return Container(
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: ColorsManager.pastelGrey.withValues(alpha: 0.3 * 255),
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          color: ColorsManager.lemonGrass,
-          width: 1,
-        ),
-      ),
-      child: const Center(
-        child: Icon(
-          Icons.picture_as_pdf,
-          color: ColorsManager.lemonGrass,
-          size: 48,
-        ),
-      ),
-    );
+    return const CVGenerateShimmer();
   }
 }
