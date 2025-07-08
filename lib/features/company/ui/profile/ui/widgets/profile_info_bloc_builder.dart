@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../core/helpers/spacing.dart';
 import '../../data/models/company_profile_models/company_profile_response_body.dart';
-import '../../logic/company_profile_logic/company_profile_cubit.dart';
-import '../../logic/company_profile_logic/company_profile_state.dart';
+import '../../logic/company_profile_info_logic/company_profile_info_cubit.dart';
+import '../../logic/company_profile_info_logic/company_profile_info_state.dart';
 import 'profile_info/profile_icons.dart';
 import 'profile_info/profile_icons_shimmer.dart';
 import 'profile_info/profile_image_name_and_location.dart';
@@ -15,11 +15,11 @@ class ProfileInfoBlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CompanyProfileCubit, CompanyProfileState>(
+    return BlocBuilder<CompanyProfileInfoCubit, CompanyProfileInfoState>(
       buildWhen: (previous, current) =>
-          current is CompanyProfileLoading ||
-          current is CompanyProfileSuccess ||
-          current is CompanyProfileError,
+          current is CompanyProfileInfoLoading ||
+          current is CompanyProfileInfoSuccess ||
+          current is CompanyProfileInfoError,
       builder: (context, state) {
         return state.maybeWhen(
           loading: () => setupLoading(),

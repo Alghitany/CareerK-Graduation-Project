@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'company_profile_state.dart';
+part of 'company_profile_info_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$CompanyProfileState {
+mixin _$CompanyProfileInfoState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -45,88 +45,91 @@ mixin _$CompanyProfileState {
 
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CompanyProfileInitial value) initial,
-    required TResult Function(CompanyProfileLoading value) loading,
-    required TResult Function(CompanyProfileSuccess value) success,
-    required TResult Function(CompanyProfileError value) error,
+    required TResult Function(_CompanyProfileInfoInitial value) initial,
+    required TResult Function(CompanyProfileInfoLoading value) loading,
+    required TResult Function(CompanyProfileInfoSuccess value) success,
+    required TResult Function(CompanyProfileInfoError value) error,
   }) =>
       throw _privateConstructorUsedError;
 
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_CompanyProfileInitial value)? initial,
-    TResult? Function(CompanyProfileLoading value)? loading,
-    TResult? Function(CompanyProfileSuccess value)? success,
-    TResult? Function(CompanyProfileError value)? error,
+    TResult? Function(_CompanyProfileInfoInitial value)? initial,
+    TResult? Function(CompanyProfileInfoLoading value)? loading,
+    TResult? Function(CompanyProfileInfoSuccess value)? success,
+    TResult? Function(CompanyProfileInfoError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CompanyProfileInitial value)? initial,
-    TResult Function(CompanyProfileLoading value)? loading,
-    TResult Function(CompanyProfileSuccess value)? success,
-    TResult Function(CompanyProfileError value)? error,
+    TResult Function(_CompanyProfileInfoInitial value)? initial,
+    TResult Function(CompanyProfileInfoLoading value)? loading,
+    TResult Function(CompanyProfileInfoSuccess value)? success,
+    TResult Function(CompanyProfileInfoError value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CompanyProfileStateCopyWith<$Res> {
-  factory $CompanyProfileStateCopyWith(
-          CompanyProfileState value, $Res Function(CompanyProfileState) then) =
-      _$CompanyProfileStateCopyWithImpl<$Res, CompanyProfileState>;
+abstract class $CompanyProfileInfoStateCopyWith<$Res> {
+  factory $CompanyProfileInfoStateCopyWith(CompanyProfileInfoState value,
+          $Res Function(CompanyProfileInfoState) then) =
+      _$CompanyProfileInfoStateCopyWithImpl<$Res, CompanyProfileInfoState>;
 }
 
 /// @nodoc
-class _$CompanyProfileStateCopyWithImpl<$Res, $Val extends CompanyProfileState>
-    implements $CompanyProfileStateCopyWith<$Res> {
-  _$CompanyProfileStateCopyWithImpl(this._value, this._then);
+class _$CompanyProfileInfoStateCopyWithImpl<$Res,
+        $Val extends CompanyProfileInfoState>
+    implements $CompanyProfileInfoStateCopyWith<$Res> {
+  _$CompanyProfileInfoStateCopyWithImpl(this._value, this._then);
 
 // ignore: unused_field
   final $Val _value;
 // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of CompanyProfileState
+  /// Create a copy of CompanyProfileInfoState
   /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class _$$CompanyProfileInitialImplCopyWith<$Res> {
-  factory _$$CompanyProfileInitialImplCopyWith(
-          _$CompanyProfileInitialImpl value,
-          $Res Function(_$CompanyProfileInitialImpl) then) =
-      __$$CompanyProfileInitialImplCopyWithImpl<$Res>;
+abstract class _$$CompanyProfileInfoInitialImplCopyWith<$Res> {
+  factory _$$CompanyProfileInfoInitialImplCopyWith(
+          _$CompanyProfileInfoInitialImpl value,
+          $Res Function(_$CompanyProfileInfoInitialImpl) then) =
+      __$$CompanyProfileInfoInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CompanyProfileInitialImplCopyWithImpl<$Res>
-    extends _$CompanyProfileStateCopyWithImpl<$Res, _$CompanyProfileInitialImpl>
-    implements _$$CompanyProfileInitialImplCopyWith<$Res> {
-  __$$CompanyProfileInitialImplCopyWithImpl(_$CompanyProfileInitialImpl _value,
-      $Res Function(_$CompanyProfileInitialImpl) _then)
+class __$$CompanyProfileInfoInitialImplCopyWithImpl<$Res>
+    extends _$CompanyProfileInfoStateCopyWithImpl<$Res,
+        _$CompanyProfileInfoInitialImpl>
+    implements _$$CompanyProfileInfoInitialImplCopyWith<$Res> {
+  __$$CompanyProfileInfoInitialImplCopyWithImpl(
+      _$CompanyProfileInfoInitialImpl _value,
+      $Res Function(_$CompanyProfileInfoInitialImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of CompanyProfileState
+  /// Create a copy of CompanyProfileInfoState
   /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$CompanyProfileInitialImpl implements _CompanyProfileInitial {
-  const _$CompanyProfileInitialImpl();
+class _$CompanyProfileInfoInitialImpl implements _CompanyProfileInfoInitial {
+  const _$CompanyProfileInfoInitialImpl();
 
   @override
   String toString() {
-    return 'CompanyProfileState.initial()';
+    return 'CompanyProfileInfoState.initial()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CompanyProfileInitialImpl);
+            other is _$CompanyProfileInfoInitialImpl);
   }
 
   @override
@@ -172,10 +175,10 @@ class _$CompanyProfileInitialImpl implements _CompanyProfileInitial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CompanyProfileInitial value) initial,
-    required TResult Function(CompanyProfileLoading value) loading,
-    required TResult Function(CompanyProfileSuccess value) success,
-    required TResult Function(CompanyProfileError value) error,
+    required TResult Function(_CompanyProfileInfoInitial value) initial,
+    required TResult Function(CompanyProfileInfoLoading value) loading,
+    required TResult Function(CompanyProfileInfoSuccess value) success,
+    required TResult Function(CompanyProfileInfoError value) error,
   }) {
     return initial(this);
   }
@@ -183,10 +186,10 @@ class _$CompanyProfileInitialImpl implements _CompanyProfileInitial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_CompanyProfileInitial value)? initial,
-    TResult? Function(CompanyProfileLoading value)? loading,
-    TResult? Function(CompanyProfileSuccess value)? success,
-    TResult? Function(CompanyProfileError value)? error,
+    TResult? Function(_CompanyProfileInfoInitial value)? initial,
+    TResult? Function(CompanyProfileInfoLoading value)? loading,
+    TResult? Function(CompanyProfileInfoSuccess value)? success,
+    TResult? Function(CompanyProfileInfoError value)? error,
   }) {
     return initial?.call(this);
   }
@@ -194,10 +197,10 @@ class _$CompanyProfileInitialImpl implements _CompanyProfileInitial {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CompanyProfileInitial value)? initial,
-    TResult Function(CompanyProfileLoading value)? loading,
-    TResult Function(CompanyProfileSuccess value)? success,
-    TResult Function(CompanyProfileError value)? error,
+    TResult Function(_CompanyProfileInfoInitial value)? initial,
+    TResult Function(CompanyProfileInfoLoading value)? loading,
+    TResult Function(CompanyProfileInfoSuccess value)? success,
+    TResult Function(CompanyProfileInfoError value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -207,45 +210,47 @@ class _$CompanyProfileInitialImpl implements _CompanyProfileInitial {
   }
 }
 
-abstract class _CompanyProfileInitial implements CompanyProfileState {
-  const factory _CompanyProfileInitial() = _$CompanyProfileInitialImpl;
+abstract class _CompanyProfileInfoInitial implements CompanyProfileInfoState {
+  const factory _CompanyProfileInfoInitial() = _$CompanyProfileInfoInitialImpl;
 }
 
 /// @nodoc
-abstract class _$$CompanyProfileLoadingImplCopyWith<$Res> {
-  factory _$$CompanyProfileLoadingImplCopyWith(
-          _$CompanyProfileLoadingImpl value,
-          $Res Function(_$CompanyProfileLoadingImpl) then) =
-      __$$CompanyProfileLoadingImplCopyWithImpl<$Res>;
+abstract class _$$CompanyProfileInfoLoadingImplCopyWith<$Res> {
+  factory _$$CompanyProfileInfoLoadingImplCopyWith(
+          _$CompanyProfileInfoLoadingImpl value,
+          $Res Function(_$CompanyProfileInfoLoadingImpl) then) =
+      __$$CompanyProfileInfoLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CompanyProfileLoadingImplCopyWithImpl<$Res>
-    extends _$CompanyProfileStateCopyWithImpl<$Res, _$CompanyProfileLoadingImpl>
-    implements _$$CompanyProfileLoadingImplCopyWith<$Res> {
-  __$$CompanyProfileLoadingImplCopyWithImpl(_$CompanyProfileLoadingImpl _value,
-      $Res Function(_$CompanyProfileLoadingImpl) _then)
+class __$$CompanyProfileInfoLoadingImplCopyWithImpl<$Res>
+    extends _$CompanyProfileInfoStateCopyWithImpl<$Res,
+        _$CompanyProfileInfoLoadingImpl>
+    implements _$$CompanyProfileInfoLoadingImplCopyWith<$Res> {
+  __$$CompanyProfileInfoLoadingImplCopyWithImpl(
+      _$CompanyProfileInfoLoadingImpl _value,
+      $Res Function(_$CompanyProfileInfoLoadingImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of CompanyProfileState
+  /// Create a copy of CompanyProfileInfoState
   /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$CompanyProfileLoadingImpl implements CompanyProfileLoading {
-  const _$CompanyProfileLoadingImpl();
+class _$CompanyProfileInfoLoadingImpl implements CompanyProfileInfoLoading {
+  const _$CompanyProfileInfoLoadingImpl();
 
   @override
   String toString() {
-    return 'CompanyProfileState.loading()';
+    return 'CompanyProfileInfoState.loading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CompanyProfileLoadingImpl);
+            other is _$CompanyProfileInfoLoadingImpl);
   }
 
   @override
@@ -291,10 +296,10 @@ class _$CompanyProfileLoadingImpl implements CompanyProfileLoading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CompanyProfileInitial value) initial,
-    required TResult Function(CompanyProfileLoading value) loading,
-    required TResult Function(CompanyProfileSuccess value) success,
-    required TResult Function(CompanyProfileError value) error,
+    required TResult Function(_CompanyProfileInfoInitial value) initial,
+    required TResult Function(CompanyProfileInfoLoading value) loading,
+    required TResult Function(CompanyProfileInfoSuccess value) success,
+    required TResult Function(CompanyProfileInfoError value) error,
   }) {
     return loading(this);
   }
@@ -302,10 +307,10 @@ class _$CompanyProfileLoadingImpl implements CompanyProfileLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_CompanyProfileInitial value)? initial,
-    TResult? Function(CompanyProfileLoading value)? loading,
-    TResult? Function(CompanyProfileSuccess value)? success,
-    TResult? Function(CompanyProfileError value)? error,
+    TResult? Function(_CompanyProfileInfoInitial value)? initial,
+    TResult? Function(CompanyProfileInfoLoading value)? loading,
+    TResult? Function(CompanyProfileInfoSuccess value)? success,
+    TResult? Function(CompanyProfileInfoError value)? error,
   }) {
     return loading?.call(this);
   }
@@ -313,10 +318,10 @@ class _$CompanyProfileLoadingImpl implements CompanyProfileLoading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CompanyProfileInitial value)? initial,
-    TResult Function(CompanyProfileLoading value)? loading,
-    TResult Function(CompanyProfileSuccess value)? success,
-    TResult Function(CompanyProfileError value)? error,
+    TResult Function(_CompanyProfileInfoInitial value)? initial,
+    TResult Function(CompanyProfileInfoLoading value)? loading,
+    TResult Function(CompanyProfileInfoSuccess value)? success,
+    TResult Function(CompanyProfileInfoError value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -326,36 +331,38 @@ class _$CompanyProfileLoadingImpl implements CompanyProfileLoading {
   }
 }
 
-abstract class CompanyProfileLoading implements CompanyProfileState {
-  const factory CompanyProfileLoading() = _$CompanyProfileLoadingImpl;
+abstract class CompanyProfileInfoLoading implements CompanyProfileInfoState {
+  const factory CompanyProfileInfoLoading() = _$CompanyProfileInfoLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$CompanyProfileSuccessImplCopyWith<$Res> {
-  factory _$$CompanyProfileSuccessImplCopyWith(
-          _$CompanyProfileSuccessImpl value,
-          $Res Function(_$CompanyProfileSuccessImpl) then) =
-      __$$CompanyProfileSuccessImplCopyWithImpl<$Res>;
+abstract class _$$CompanyProfileInfoSuccessImplCopyWith<$Res> {
+  factory _$$CompanyProfileInfoSuccessImplCopyWith(
+          _$CompanyProfileInfoSuccessImpl value,
+          $Res Function(_$CompanyProfileInfoSuccessImpl) then) =
+      __$$CompanyProfileInfoSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({CompanyProfileResponseBody profile});
 }
 
 /// @nodoc
-class __$$CompanyProfileSuccessImplCopyWithImpl<$Res>
-    extends _$CompanyProfileStateCopyWithImpl<$Res, _$CompanyProfileSuccessImpl>
-    implements _$$CompanyProfileSuccessImplCopyWith<$Res> {
-  __$$CompanyProfileSuccessImplCopyWithImpl(_$CompanyProfileSuccessImpl _value,
-      $Res Function(_$CompanyProfileSuccessImpl) _then)
+class __$$CompanyProfileInfoSuccessImplCopyWithImpl<$Res>
+    extends _$CompanyProfileInfoStateCopyWithImpl<$Res,
+        _$CompanyProfileInfoSuccessImpl>
+    implements _$$CompanyProfileInfoSuccessImplCopyWith<$Res> {
+  __$$CompanyProfileInfoSuccessImplCopyWithImpl(
+      _$CompanyProfileInfoSuccessImpl _value,
+      $Res Function(_$CompanyProfileInfoSuccessImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of CompanyProfileState
+  /// Create a copy of CompanyProfileInfoState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? profile = null,
   }) {
-    return _then(_$CompanyProfileSuccessImpl(
+    return _then(_$CompanyProfileInfoSuccessImpl(
       null == profile
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
@@ -366,36 +373,36 @@ class __$$CompanyProfileSuccessImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CompanyProfileSuccessImpl implements CompanyProfileSuccess {
-  const _$CompanyProfileSuccessImpl(this.profile);
+class _$CompanyProfileInfoSuccessImpl implements CompanyProfileInfoSuccess {
+  const _$CompanyProfileInfoSuccessImpl(this.profile);
 
   @override
   final CompanyProfileResponseBody profile;
 
   @override
   String toString() {
-    return 'CompanyProfileState.success(profile: $profile)';
+    return 'CompanyProfileInfoState.success(profile: $profile)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CompanyProfileSuccessImpl &&
+            other is _$CompanyProfileInfoSuccessImpl &&
             (identical(other.profile, profile) || other.profile == profile));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, profile);
 
-  /// Create a copy of CompanyProfileState
+  /// Create a copy of CompanyProfileInfoState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$CompanyProfileSuccessImplCopyWith<_$CompanyProfileSuccessImpl>
-      get copyWith => __$$CompanyProfileSuccessImplCopyWithImpl<
-          _$CompanyProfileSuccessImpl>(this, _$identity);
+  _$$CompanyProfileInfoSuccessImplCopyWith<_$CompanyProfileInfoSuccessImpl>
+      get copyWith => __$$CompanyProfileInfoSuccessImplCopyWithImpl<
+          _$CompanyProfileInfoSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -437,10 +444,10 @@ class _$CompanyProfileSuccessImpl implements CompanyProfileSuccess {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CompanyProfileInitial value) initial,
-    required TResult Function(CompanyProfileLoading value) loading,
-    required TResult Function(CompanyProfileSuccess value) success,
-    required TResult Function(CompanyProfileError value) error,
+    required TResult Function(_CompanyProfileInfoInitial value) initial,
+    required TResult Function(CompanyProfileInfoLoading value) loading,
+    required TResult Function(CompanyProfileInfoSuccess value) success,
+    required TResult Function(CompanyProfileInfoError value) error,
   }) {
     return success(this);
   }
@@ -448,10 +455,10 @@ class _$CompanyProfileSuccessImpl implements CompanyProfileSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_CompanyProfileInitial value)? initial,
-    TResult? Function(CompanyProfileLoading value)? loading,
-    TResult? Function(CompanyProfileSuccess value)? success,
-    TResult? Function(CompanyProfileError value)? error,
+    TResult? Function(_CompanyProfileInfoInitial value)? initial,
+    TResult? Function(CompanyProfileInfoLoading value)? loading,
+    TResult? Function(CompanyProfileInfoSuccess value)? success,
+    TResult? Function(CompanyProfileInfoError value)? error,
   }) {
     return success?.call(this);
   }
@@ -459,10 +466,10 @@ class _$CompanyProfileSuccessImpl implements CompanyProfileSuccess {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CompanyProfileInitial value)? initial,
-    TResult Function(CompanyProfileLoading value)? loading,
-    TResult Function(CompanyProfileSuccess value)? success,
-    TResult Function(CompanyProfileError value)? error,
+    TResult Function(_CompanyProfileInfoInitial value)? initial,
+    TResult Function(CompanyProfileInfoLoading value)? loading,
+    TResult Function(CompanyProfileInfoSuccess value)? success,
+    TResult Function(CompanyProfileInfoError value)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -472,44 +479,48 @@ class _$CompanyProfileSuccessImpl implements CompanyProfileSuccess {
   }
 }
 
-abstract class CompanyProfileSuccess implements CompanyProfileState {
-  const factory CompanyProfileSuccess(
-      final CompanyProfileResponseBody profile) = _$CompanyProfileSuccessImpl;
+abstract class CompanyProfileInfoSuccess implements CompanyProfileInfoState {
+  const factory CompanyProfileInfoSuccess(
+          final CompanyProfileResponseBody profile) =
+      _$CompanyProfileInfoSuccessImpl;
 
   CompanyProfileResponseBody get profile;
 
-  /// Create a copy of CompanyProfileState
+  /// Create a copy of CompanyProfileInfoState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CompanyProfileSuccessImplCopyWith<_$CompanyProfileSuccessImpl>
+  _$$CompanyProfileInfoSuccessImplCopyWith<_$CompanyProfileInfoSuccessImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$CompanyProfileErrorImplCopyWith<$Res> {
-  factory _$$CompanyProfileErrorImplCopyWith(_$CompanyProfileErrorImpl value,
-          $Res Function(_$CompanyProfileErrorImpl) then) =
-      __$$CompanyProfileErrorImplCopyWithImpl<$Res>;
+abstract class _$$CompanyProfileInfoErrorImplCopyWith<$Res> {
+  factory _$$CompanyProfileInfoErrorImplCopyWith(
+          _$CompanyProfileInfoErrorImpl value,
+          $Res Function(_$CompanyProfileInfoErrorImpl) then) =
+      __$$CompanyProfileInfoErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String error});
 }
 
 /// @nodoc
-class __$$CompanyProfileErrorImplCopyWithImpl<$Res>
-    extends _$CompanyProfileStateCopyWithImpl<$Res, _$CompanyProfileErrorImpl>
-    implements _$$CompanyProfileErrorImplCopyWith<$Res> {
-  __$$CompanyProfileErrorImplCopyWithImpl(_$CompanyProfileErrorImpl _value,
-      $Res Function(_$CompanyProfileErrorImpl) _then)
+class __$$CompanyProfileInfoErrorImplCopyWithImpl<$Res>
+    extends _$CompanyProfileInfoStateCopyWithImpl<$Res,
+        _$CompanyProfileInfoErrorImpl>
+    implements _$$CompanyProfileInfoErrorImplCopyWith<$Res> {
+  __$$CompanyProfileInfoErrorImplCopyWithImpl(
+      _$CompanyProfileInfoErrorImpl _value,
+      $Res Function(_$CompanyProfileInfoErrorImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of CompanyProfileState
+  /// Create a copy of CompanyProfileInfoState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? error = null,
   }) {
-    return _then(_$CompanyProfileErrorImpl(
+    return _then(_$CompanyProfileInfoErrorImpl(
       error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -520,36 +531,36 @@ class __$$CompanyProfileErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CompanyProfileErrorImpl implements CompanyProfileError {
-  const _$CompanyProfileErrorImpl({required this.error});
+class _$CompanyProfileInfoErrorImpl implements CompanyProfileInfoError {
+  const _$CompanyProfileInfoErrorImpl({required this.error});
 
   @override
   final String error;
 
   @override
   String toString() {
-    return 'CompanyProfileState.error(error: $error)';
+    return 'CompanyProfileInfoState.error(error: $error)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CompanyProfileErrorImpl &&
+            other is _$CompanyProfileInfoErrorImpl &&
             (identical(other.error, error) || other.error == error));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  /// Create a copy of CompanyProfileState
+  /// Create a copy of CompanyProfileInfoState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$CompanyProfileErrorImplCopyWith<_$CompanyProfileErrorImpl> get copyWith =>
-      __$$CompanyProfileErrorImplCopyWithImpl<_$CompanyProfileErrorImpl>(
-          this, _$identity);
+  _$$CompanyProfileInfoErrorImplCopyWith<_$CompanyProfileInfoErrorImpl>
+      get copyWith => __$$CompanyProfileInfoErrorImplCopyWithImpl<
+          _$CompanyProfileInfoErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -591,10 +602,10 @@ class _$CompanyProfileErrorImpl implements CompanyProfileError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CompanyProfileInitial value) initial,
-    required TResult Function(CompanyProfileLoading value) loading,
-    required TResult Function(CompanyProfileSuccess value) success,
-    required TResult Function(CompanyProfileError value) error,
+    required TResult Function(_CompanyProfileInfoInitial value) initial,
+    required TResult Function(CompanyProfileInfoLoading value) loading,
+    required TResult Function(CompanyProfileInfoSuccess value) success,
+    required TResult Function(CompanyProfileInfoError value) error,
   }) {
     return error(this);
   }
@@ -602,10 +613,10 @@ class _$CompanyProfileErrorImpl implements CompanyProfileError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_CompanyProfileInitial value)? initial,
-    TResult? Function(CompanyProfileLoading value)? loading,
-    TResult? Function(CompanyProfileSuccess value)? success,
-    TResult? Function(CompanyProfileError value)? error,
+    TResult? Function(_CompanyProfileInfoInitial value)? initial,
+    TResult? Function(CompanyProfileInfoLoading value)? loading,
+    TResult? Function(CompanyProfileInfoSuccess value)? success,
+    TResult? Function(CompanyProfileInfoError value)? error,
   }) {
     return error?.call(this);
   }
@@ -613,10 +624,10 @@ class _$CompanyProfileErrorImpl implements CompanyProfileError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CompanyProfileInitial value)? initial,
-    TResult Function(CompanyProfileLoading value)? loading,
-    TResult Function(CompanyProfileSuccess value)? success,
-    TResult Function(CompanyProfileError value)? error,
+    TResult Function(_CompanyProfileInfoInitial value)? initial,
+    TResult Function(CompanyProfileInfoLoading value)? loading,
+    TResult Function(CompanyProfileInfoSuccess value)? success,
+    TResult Function(CompanyProfileInfoError value)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -626,15 +637,15 @@ class _$CompanyProfileErrorImpl implements CompanyProfileError {
   }
 }
 
-abstract class CompanyProfileError implements CompanyProfileState {
-  const factory CompanyProfileError({required final String error}) =
-      _$CompanyProfileErrorImpl;
+abstract class CompanyProfileInfoError implements CompanyProfileInfoState {
+  const factory CompanyProfileInfoError({required final String error}) =
+      _$CompanyProfileInfoErrorImpl;
 
   String get error;
 
-  /// Create a copy of CompanyProfileState
+  /// Create a copy of CompanyProfileInfoState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CompanyProfileErrorImplCopyWith<_$CompanyProfileErrorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$CompanyProfileInfoErrorImplCopyWith<_$CompanyProfileInfoErrorImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

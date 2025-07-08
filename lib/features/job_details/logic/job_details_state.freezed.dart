@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'developer_jobs_job_details_state.dart';
+part of 'job_details_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,13 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$DeveloperJobsJobDetailsState {
+mixin _$JobDetailsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() jobDetailsLoading,
-    required TResult Function(DeveloperJobsJobDetailsResponseBody data)
-        jobDetailsSuccess,
+    required TResult Function(JobDetailsResponseBody data) jobDetailsSuccess,
     required TResult Function(String error) jobDetailsError,
   }) =>
       throw _privateConstructorUsedError;
@@ -30,8 +29,7 @@ mixin _$DeveloperJobsJobDetailsState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? jobDetailsLoading,
-    TResult? Function(DeveloperJobsJobDetailsResponseBody data)?
-        jobDetailsSuccess,
+    TResult? Function(JobDetailsResponseBody data)? jobDetailsSuccess,
     TResult? Function(String error)? jobDetailsError,
   }) =>
       throw _privateConstructorUsedError;
@@ -39,8 +37,7 @@ mixin _$DeveloperJobsJobDetailsState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? jobDetailsLoading,
-    TResult Function(DeveloperJobsJobDetailsResponseBody data)?
-        jobDetailsSuccess,
+    TResult Function(JobDetailsResponseBody data)? jobDetailsSuccess,
     TResult Function(String error)? jobDetailsError,
     required TResult orElse(),
   }) =>
@@ -75,26 +72,23 @@ mixin _$DeveloperJobsJobDetailsState {
 }
 
 /// @nodoc
-abstract class $DeveloperJobsJobDetailsStateCopyWith<$Res> {
-  factory $DeveloperJobsJobDetailsStateCopyWith(
-          DeveloperJobsJobDetailsState value,
-          $Res Function(DeveloperJobsJobDetailsState) then) =
-      _$DeveloperJobsJobDetailsStateCopyWithImpl<$Res,
-          DeveloperJobsJobDetailsState>;
+abstract class $JobDetailsStateCopyWith<$Res> {
+  factory $JobDetailsStateCopyWith(
+          JobDetailsState value, $Res Function(JobDetailsState) then) =
+      _$JobDetailsStateCopyWithImpl<$Res, JobDetailsState>;
 }
 
 /// @nodoc
-class _$DeveloperJobsJobDetailsStateCopyWithImpl<$Res,
-        $Val extends DeveloperJobsJobDetailsState>
-    implements $DeveloperJobsJobDetailsStateCopyWith<$Res> {
-  _$DeveloperJobsJobDetailsStateCopyWithImpl(this._value, this._then);
+class _$JobDetailsStateCopyWithImpl<$Res, $Val extends JobDetailsState>
+    implements $JobDetailsStateCopyWith<$Res> {
+  _$JobDetailsStateCopyWithImpl(this._value, this._then);
 
 // ignore: unused_field
   final $Val _value;
 // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of DeveloperJobsJobDetailsState
+  /// Create a copy of JobDetailsState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -107,13 +101,13 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$DeveloperJobsJobDetailsStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$JobDetailsStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of DeveloperJobsJobDetailsState
+  /// Create a copy of JobDetailsState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -124,7 +118,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'DeveloperJobsJobDetailsState.initial()';
+    return 'JobDetailsState.initial()';
   }
 
   @override
@@ -141,8 +135,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() jobDetailsLoading,
-    required TResult Function(DeveloperJobsJobDetailsResponseBody data)
-        jobDetailsSuccess,
+    required TResult Function(JobDetailsResponseBody data) jobDetailsSuccess,
     required TResult Function(String error) jobDetailsError,
   }) {
     return initial();
@@ -153,8 +146,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? jobDetailsLoading,
-    TResult? Function(DeveloperJobsJobDetailsResponseBody data)?
-        jobDetailsSuccess,
+    TResult? Function(JobDetailsResponseBody data)? jobDetailsSuccess,
     TResult? Function(String error)? jobDetailsError,
   }) {
     return initial?.call();
@@ -165,8 +157,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? jobDetailsLoading,
-    TResult Function(DeveloperJobsJobDetailsResponseBody data)?
-        jobDetailsSuccess,
+    TResult Function(JobDetailsResponseBody data)? jobDetailsSuccess,
     TResult Function(String error)? jobDetailsError,
     required TResult orElse(),
   }) {
@@ -214,7 +205,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements DeveloperJobsJobDetailsState {
+abstract class _Initial implements JobDetailsState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -227,14 +218,13 @@ abstract class _$$JobDetailsLoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$JobDetailsLoadingImplCopyWithImpl<$Res>
-    extends _$DeveloperJobsJobDetailsStateCopyWithImpl<$Res,
-        _$JobDetailsLoadingImpl>
+    extends _$JobDetailsStateCopyWithImpl<$Res, _$JobDetailsLoadingImpl>
     implements _$$JobDetailsLoadingImplCopyWith<$Res> {
   __$$JobDetailsLoadingImplCopyWithImpl(_$JobDetailsLoadingImpl _value,
       $Res Function(_$JobDetailsLoadingImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of DeveloperJobsJobDetailsState
+  /// Create a copy of JobDetailsState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -245,7 +235,7 @@ class _$JobDetailsLoadingImpl implements JobDetailsLoading {
 
   @override
   String toString() {
-    return 'DeveloperJobsJobDetailsState.jobDetailsLoading()';
+    return 'JobDetailsState.jobDetailsLoading()';
   }
 
   @override
@@ -262,8 +252,7 @@ class _$JobDetailsLoadingImpl implements JobDetailsLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() jobDetailsLoading,
-    required TResult Function(DeveloperJobsJobDetailsResponseBody data)
-        jobDetailsSuccess,
+    required TResult Function(JobDetailsResponseBody data) jobDetailsSuccess,
     required TResult Function(String error) jobDetailsError,
   }) {
     return jobDetailsLoading();
@@ -274,8 +263,7 @@ class _$JobDetailsLoadingImpl implements JobDetailsLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? jobDetailsLoading,
-    TResult? Function(DeveloperJobsJobDetailsResponseBody data)?
-        jobDetailsSuccess,
+    TResult? Function(JobDetailsResponseBody data)? jobDetailsSuccess,
     TResult? Function(String error)? jobDetailsError,
   }) {
     return jobDetailsLoading?.call();
@@ -286,8 +274,7 @@ class _$JobDetailsLoadingImpl implements JobDetailsLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? jobDetailsLoading,
-    TResult Function(DeveloperJobsJobDetailsResponseBody data)?
-        jobDetailsSuccess,
+    TResult Function(JobDetailsResponseBody data)? jobDetailsSuccess,
     TResult Function(String error)? jobDetailsError,
     required TResult orElse(),
   }) {
@@ -335,7 +322,7 @@ class _$JobDetailsLoadingImpl implements JobDetailsLoading {
   }
 }
 
-abstract class JobDetailsLoading implements DeveloperJobsJobDetailsState {
+abstract class JobDetailsLoading implements JobDetailsState {
   const factory JobDetailsLoading() = _$JobDetailsLoadingImpl;
 }
 
@@ -345,19 +332,18 @@ abstract class _$$JobDetailsSuccessImplCopyWith<$Res> {
           $Res Function(_$JobDetailsSuccessImpl) then) =
       __$$JobDetailsSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({DeveloperJobsJobDetailsResponseBody data});
+  $Res call({JobDetailsResponseBody data});
 }
 
 /// @nodoc
 class __$$JobDetailsSuccessImplCopyWithImpl<$Res>
-    extends _$DeveloperJobsJobDetailsStateCopyWithImpl<$Res,
-        _$JobDetailsSuccessImpl>
+    extends _$JobDetailsStateCopyWithImpl<$Res, _$JobDetailsSuccessImpl>
     implements _$$JobDetailsSuccessImplCopyWith<$Res> {
   __$$JobDetailsSuccessImplCopyWithImpl(_$JobDetailsSuccessImpl _value,
       $Res Function(_$JobDetailsSuccessImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of DeveloperJobsJobDetailsState
+  /// Create a copy of JobDetailsState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -368,7 +354,7 @@ class __$$JobDetailsSuccessImplCopyWithImpl<$Res>
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as DeveloperJobsJobDetailsResponseBody,
+              as JobDetailsResponseBody,
     ));
   }
 }
@@ -379,11 +365,11 @@ class _$JobDetailsSuccessImpl implements JobDetailsSuccess {
   const _$JobDetailsSuccessImpl(this.data);
 
   @override
-  final DeveloperJobsJobDetailsResponseBody data;
+  final JobDetailsResponseBody data;
 
   @override
   String toString() {
-    return 'DeveloperJobsJobDetailsState.jobDetailsSuccess(data: $data)';
+    return 'JobDetailsState.jobDetailsSuccess(data: $data)';
   }
 
   @override
@@ -397,7 +383,7 @@ class _$JobDetailsSuccessImpl implements JobDetailsSuccess {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of DeveloperJobsJobDetailsState
+  /// Create a copy of JobDetailsState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -411,8 +397,7 @@ class _$JobDetailsSuccessImpl implements JobDetailsSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() jobDetailsLoading,
-    required TResult Function(DeveloperJobsJobDetailsResponseBody data)
-        jobDetailsSuccess,
+    required TResult Function(JobDetailsResponseBody data) jobDetailsSuccess,
     required TResult Function(String error) jobDetailsError,
   }) {
     return jobDetailsSuccess(data);
@@ -423,8 +408,7 @@ class _$JobDetailsSuccessImpl implements JobDetailsSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? jobDetailsLoading,
-    TResult? Function(DeveloperJobsJobDetailsResponseBody data)?
-        jobDetailsSuccess,
+    TResult? Function(JobDetailsResponseBody data)? jobDetailsSuccess,
     TResult? Function(String error)? jobDetailsError,
   }) {
     return jobDetailsSuccess?.call(data);
@@ -435,8 +419,7 @@ class _$JobDetailsSuccessImpl implements JobDetailsSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? jobDetailsLoading,
-    TResult Function(DeveloperJobsJobDetailsResponseBody data)?
-        jobDetailsSuccess,
+    TResult Function(JobDetailsResponseBody data)? jobDetailsSuccess,
     TResult Function(String error)? jobDetailsError,
     required TResult orElse(),
   }) {
@@ -484,13 +467,13 @@ class _$JobDetailsSuccessImpl implements JobDetailsSuccess {
   }
 }
 
-abstract class JobDetailsSuccess implements DeveloperJobsJobDetailsState {
-  const factory JobDetailsSuccess(
-      final DeveloperJobsJobDetailsResponseBody data) = _$JobDetailsSuccessImpl;
+abstract class JobDetailsSuccess implements JobDetailsState {
+  const factory JobDetailsSuccess(final JobDetailsResponseBody data) =
+      _$JobDetailsSuccessImpl;
 
-  DeveloperJobsJobDetailsResponseBody get data;
+  JobDetailsResponseBody get data;
 
-  /// Create a copy of DeveloperJobsJobDetailsState
+  /// Create a copy of JobDetailsState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$JobDetailsSuccessImplCopyWith<_$JobDetailsSuccessImpl> get copyWith =>
@@ -508,13 +491,13 @@ abstract class _$$JobDetailsErrorImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$JobDetailsErrorImplCopyWithImpl<$Res>
-    extends _$DeveloperJobsJobDetailsStateCopyWithImpl<$Res,
-        _$JobDetailsErrorImpl> implements _$$JobDetailsErrorImplCopyWith<$Res> {
+    extends _$JobDetailsStateCopyWithImpl<$Res, _$JobDetailsErrorImpl>
+    implements _$$JobDetailsErrorImplCopyWith<$Res> {
   __$$JobDetailsErrorImplCopyWithImpl(
       _$JobDetailsErrorImpl _value, $Res Function(_$JobDetailsErrorImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of DeveloperJobsJobDetailsState
+  /// Create a copy of JobDetailsState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -540,7 +523,7 @@ class _$JobDetailsErrorImpl implements JobDetailsError {
 
   @override
   String toString() {
-    return 'DeveloperJobsJobDetailsState.jobDetailsError(error: $error)';
+    return 'JobDetailsState.jobDetailsError(error: $error)';
   }
 
   @override
@@ -554,7 +537,7 @@ class _$JobDetailsErrorImpl implements JobDetailsError {
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  /// Create a copy of DeveloperJobsJobDetailsState
+  /// Create a copy of JobDetailsState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -568,8 +551,7 @@ class _$JobDetailsErrorImpl implements JobDetailsError {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() jobDetailsLoading,
-    required TResult Function(DeveloperJobsJobDetailsResponseBody data)
-        jobDetailsSuccess,
+    required TResult Function(JobDetailsResponseBody data) jobDetailsSuccess,
     required TResult Function(String error) jobDetailsError,
   }) {
     return jobDetailsError(error);
@@ -580,8 +562,7 @@ class _$JobDetailsErrorImpl implements JobDetailsError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? jobDetailsLoading,
-    TResult? Function(DeveloperJobsJobDetailsResponseBody data)?
-        jobDetailsSuccess,
+    TResult? Function(JobDetailsResponseBody data)? jobDetailsSuccess,
     TResult? Function(String error)? jobDetailsError,
   }) {
     return jobDetailsError?.call(error);
@@ -592,8 +573,7 @@ class _$JobDetailsErrorImpl implements JobDetailsError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? jobDetailsLoading,
-    TResult Function(DeveloperJobsJobDetailsResponseBody data)?
-        jobDetailsSuccess,
+    TResult Function(JobDetailsResponseBody data)? jobDetailsSuccess,
     TResult Function(String error)? jobDetailsError,
     required TResult orElse(),
   }) {
@@ -641,13 +621,13 @@ class _$JobDetailsErrorImpl implements JobDetailsError {
   }
 }
 
-abstract class JobDetailsError implements DeveloperJobsJobDetailsState {
+abstract class JobDetailsError implements JobDetailsState {
   const factory JobDetailsError({required final String error}) =
       _$JobDetailsErrorImpl;
 
   String get error;
 
-  /// Create a copy of DeveloperJobsJobDetailsState
+  /// Create a copy of JobDetailsState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$JobDetailsErrorImplCopyWith<_$JobDetailsErrorImpl> get copyWith =>

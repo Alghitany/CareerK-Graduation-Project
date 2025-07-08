@@ -4,8 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/widgets/company_bottom_navigation_bar.dart';
 import '../../../../../core/widgets/company_floating_action_button.dart';
-import '../../../../customer/ui/profile/widgets/all_jobs_list.dart';
-import '../../../../customer/ui/profile/widgets/number_of_applicant.dart';
+import 'widgets/profile_all_job_posts_bloc_builder.dart';
 import 'widgets/profile_info_bloc_builder.dart';
 
 class CompanyProfileScreen extends StatelessWidget {
@@ -27,9 +26,9 @@ class CompanyProfileScreen extends StatelessWidget {
               children: [
                 const ProfileInfoBlocBuilder(),
                 verticalSpace(11),
-                const NumberOfJobsAndApplicants(),
+                //const NumberOfJobsAndApplicants(),
                 verticalSpace(32),
-                const AllJobsList(),
+                const ProfileAllJobPostsBlocBuilder(),
               ],
             ),
           ),

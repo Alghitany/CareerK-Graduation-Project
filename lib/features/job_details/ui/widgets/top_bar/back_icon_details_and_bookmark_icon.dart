@@ -8,8 +8,10 @@ import '../../../../../../../../core/widgets/job_bookmark/developer_job_bookmark
 
 class BackIconDetailsAndBookmarkIcon extends StatelessWidget {
   final String jobId;
+  final bool isCompany;
 
-  const BackIconDetailsAndBookmarkIcon({super.key, required this.jobId});
+  const BackIconDetailsAndBookmarkIcon(
+      {super.key, required this.jobId, required this.isCompany});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,9 @@ class BackIconDetailsAndBookmarkIcon extends StatelessWidget {
             style: AppTextStyles.font24RangoonGreenPoppinsSemiBold,
           ),
           const Spacer(),
-          DeveloperJobBookmarkBlocBuilder(postId: jobId),
+          isCompany == true
+              ? const SizedBox.shrink()
+              : DeveloperJobBookmarkBlocBuilder(postId: jobId),
         ],
       ),
     );

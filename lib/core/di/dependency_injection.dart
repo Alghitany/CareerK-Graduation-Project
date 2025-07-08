@@ -26,8 +26,6 @@ import 'package:carrerk/features/developer/ui/home_main_page/data/repos/develope
 import 'package:carrerk/features/developer/ui/home_main_page/data/repos/developer_name_home_main_page_repo.dart';
 import 'package:carrerk/features/developer/ui/home_main_page/data/repos/developer_tags_home_main_page_repo.dart';
 import 'package:carrerk/features/developer/ui/home_main_page/logic/developer_courses_home_main_page_logic/developer_courses_home_main_page_cubit.dart';
-import 'package:carrerk/features/developer/ui/jobs/job_details/data/repo/developer_jobs_job_details_repo.dart';
-import 'package:carrerk/features/developer/ui/jobs/job_details/logic/developer_jobs_job_details_cubit.dart';
 import 'package:carrerk/features/developer/ui/jobs/search/data/repo/developer_jobs_recently_posted_repo.dart';
 import 'package:carrerk/features/developer/ui/profile/cv_generate/data/repos/developer_profile_cv_generate_generated_repo.dart';
 import 'package:carrerk/features/developer/ui/profile/cv_generate/data/repos/developer_profile_cv_generate_send_data_repo.dart';
@@ -61,8 +59,10 @@ import '../../features/company/ui/home/ui/see_resume/data/repo/company_home_see_
 import '../../features/company/ui/home/ui/see_resume/logic/company_home_see_resume_cubit.dart';
 import '../../features/company/ui/jobs_post/data/repos/company_jobs_post_repo.dart';
 import '../../features/company/ui/jobs_post/logic/company_jobs_post_cubit.dart';
-import '../../features/company/ui/profile/data/repos/company_profile_repo.dart';
-import '../../features/company/ui/profile/logic/company_profile_logic/company_profile_cubit.dart';
+import '../../features/company/ui/profile/data/repos/company_profile_all_job_posts_repo.dart';
+import '../../features/company/ui/profile/data/repos/company_profile_info_repo.dart';
+import '../../features/company/ui/profile/logic/company_profile_all_job_posts_logic/company_profile_all_job_posts_cubit.dart';
+import '../../features/company/ui/profile/logic/company_profile_info_logic/company_profile_info_cubit.dart';
 import '../../features/company/ui/sign_up/data/repo/company_sign_up_repo.dart';
 import '../../features/company/ui/sign_up/logic/company_sign_up_cubit.dart';
 import '../../features/customer/ui/home/model/repo/customer_home_repo.dart';
@@ -97,6 +97,8 @@ import '../../features/developer/ui/profile/jobs_applied/logic/developer_profile
 import '../../features/developer/ui/profile/jobs_applied/logic/developer_service_delete_logic/developer_service_delete_cubit.dart';
 import '../../features/developer/ui/sign_up/data/repos/developer_sign_up_repo.dart';
 import '../../features/developer/ui/sign_up/logic/developer_sign_up_cubit.dart';
+import '../../features/job_details/data/repo/job_details_repo.dart';
+import '../../features/job_details/logic/job_details_cubit.dart';
 import '../../features/search/data/repo/search_courses_repo.dart';
 import '../../features/search/logic/search_courses_cubit.dart';
 import '../networking/api_service.dart';
@@ -129,6 +131,14 @@ Future<void> setupGetIt() async {
       () => ChangePasswordRepo(getIt()));
   getIt.registerLazySingleton<ChangePasswordCubit>(
       () => ChangePasswordCubit(getIt()));
+
+  //--------------> Job Details
+  getIt.registerLazySingleton<JobDetailsRepo>(
+    () => JobDetailsRepo(getIt()),
+  );
+  getIt.registerFactory<JobDetailsCubit>(
+    () => JobDetailsCubit(getIt()),
+  );
 
   // Developer -> Signup
   getIt.registerLazySingleton<DeveloperSignupRepo>(
@@ -166,13 +176,6 @@ Future<void> setupGetIt() async {
   );
   getIt.registerFactory<DeveloperJobsApplyCubit>(
     () => DeveloperJobsApplyCubit(getIt<DeveloperJobsApplyRepo>()),
-  );
-  // Job Details
-  getIt.registerLazySingleton<DeveloperJobsJobDetailsRepo>(
-    () => DeveloperJobsJobDetailsRepo(getIt()),
-  );
-  getIt.registerFactory<DeveloperJobsJobDetailsCubit>(
-    () => DeveloperJobsJobDetailsCubit(getIt()),
   );
   // Service Details
   getIt.registerLazySingleton<DeveloperJobsServiceDetailsRepo>(
@@ -275,12 +278,21 @@ Future<void> setupGetIt() async {
     () => SpecificCourseReviewsCubit(getIt()),
   );
   // -> Profile
-  // Company Profile
-  getIt.registerLazySingleton<CompanyProfileRepo>(
-    () => CompanyProfileRepo(getIt()),
+  // Profile Info
+  getIt.registerLazySingleton<CompanyProfileInfoRepo>(
+    () => CompanyProfileInfoRepo(getIt()),
   );
-  getIt.registerFactory<CompanyProfileCubit>(
-    () => CompanyProfileCubit(getIt()),
+  getIt.registerFactory<CompanyProfileInfoCubit>(
+    () => CompanyProfileInfoCubit(getIt()),
+  );
+
+  // All Job Posts
+  getIt.registerLazySingleton<CompanyProfileAllJobPostsRepo>(
+    () => CompanyProfileAllJobPostsRepo(getIt()),
+  );
+
+  getIt.registerFactory<CompanyProfileAllJobPostsCubit>(
+    () => CompanyProfileAllJobPostsCubit(getIt()),
   );
 
   // -> Jobs Applied

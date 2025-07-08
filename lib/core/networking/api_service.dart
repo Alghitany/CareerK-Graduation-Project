@@ -27,6 +27,7 @@ import '../../features/company/ui/home/ui/see_details/data/model/company_home_se
 import '../../features/company/ui/home/ui/see_resume/data/model/company_home_see_resume_response_body.dart';
 import '../../features/company/ui/jobs_post/data/models/company_jobs_post_request_body.dart';
 import '../../features/company/ui/jobs_post/data/models/company_jobs_post_response.dart';
+import '../../features/company/ui/profile/data/models/company_profile_all_jobs_posts_models/company_profile_all_job_posts_response_body.dart';
 import '../../features/company/ui/profile/data/models/company_profile_models/company_profile_response_body.dart';
 import '../../features/customer/ui/home/model/model/customer_home_response_body.dart';
 import '../../features/developer/data/models/developer_courses_and_jobs_main_page_profile_models/developer_courses_and_jobs_main_page_profile_response_model.dart';
@@ -43,7 +44,6 @@ import '../../features/developer/ui/courses/specific_course/data/model/specific_
 import '../../features/developer/ui/home_main_page/data/models/developer_courses_home_main_page_models/developer_courses_home_main_page_response_body.dart';
 import '../../features/developer/ui/home_main_page/data/models/developer_name_home_main_page_models/developer_name_home_main_page_response_body.dart';
 import '../../features/developer/ui/home_main_page/data/models/developer_tags_home_main_page_models/developer_tags_home_main_page_response_body.dart';
-import '../../features/developer/ui/jobs/job_details/data/models/developer_jobs_job_details_response_body.dart';
 import '../../features/developer/ui/jobs/search/data/models/developer_jobs_recently_posted_models/developer_jobs_recently_posted_response_body.dart';
 import '../../features/developer/ui/jobs/search/data/models/developer_services_recently_posted_models/developer_services_recently_posted_response_body.dart';
 import '../../features/developer/ui/jobs/service_details/data/model/developer_jobs_service_details_response_body.dart';
@@ -55,6 +55,7 @@ import '../../features/developer/ui/profile/jobs_applied/data/models/developer_p
 import '../../features/developer/ui/profile/jobs_applied/data/models/job_withdraw/developer_job_withdraw_response_body.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/models/service_delete/developer_service_delete_response_body.dart';
 import '../../features/developer/ui/profile/settings/data/models/developer_generate_cv_start_session_models/developer_generate_cv_start_session_response.dart';
+import '../../features/job_details/data/models/job_details_response_body.dart';
 import '../../features/search/data/model/search_courses_response_body.dart';
 import 'api_constants.dart';
 
@@ -152,8 +153,8 @@ abstract class ApiService {
   );
 
   //-> Job Details
-  @GET(ApiConstants.developerJobsJobDetails)
-  Future<DeveloperJobsJobDetailsResponseBody> getDeveloperJobDetails(
+  @GET(ApiConstants.jobDetails)
+  Future<JobDetailsResponseBody> jobDetails(
     @Path("jobId") String jobId,
   );
 
@@ -191,9 +192,13 @@ abstract class ApiService {
 
   //-> Profile
 
-  // Company profile
-  @GET(ApiConstants.companyProfile)
-  Future<CompanyProfileResponseBody> getCompanyProfile();
+  // Profile Info
+  @GET(ApiConstants.companyProfileInfo)
+  Future<CompanyProfileResponseBody> getCompanyProfileInfo();
+
+  // Company All Job Posts
+  @GET(ApiConstants.companyProfileAllJobPosts)
+  Future<CompanyProfileAllJobPostsResponseBody> getCompanyProfileAllJobPosts();
 
   // Applied Jobs
   @GET(ApiConstants.developerProfileAppliedJobs)

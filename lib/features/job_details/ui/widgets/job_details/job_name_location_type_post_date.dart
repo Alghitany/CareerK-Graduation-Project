@@ -6,10 +6,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../../../../../core/helpers/date_formatter.dart';
-import '../../../data/models/developer_jobs_job_details_response_body.dart';
+import '../../../data/models/job_details_response_body.dart';
 
 class JobNameLocationTypePostDate extends StatelessWidget {
-  final DeveloperJobsJobDetailsResponseBody data;
+  final JobDetailsResponseBody data;
 
   const JobNameLocationTypePostDate({super.key, required this.data});
 

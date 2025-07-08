@@ -1,9 +1,9 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'developer_jobs_job_details_response_body.g.dart';
+part 'job_details_response_body.g.dart';
 
 @JsonSerializable()
-class DeveloperJobsJobDetailsResponseBody {
+class JobDetailsResponseBody {
   final String? id;
   final String? title;
 
@@ -65,7 +65,7 @@ class DeveloperJobsJobDetailsResponseBody {
   final String? city;
   final String? country;
 
-  DeveloperJobsJobDetailsResponseBody({
+  JobDetailsResponseBody({
     this.id,
     this.title,
     this.companyId,
@@ -93,10 +93,8 @@ class DeveloperJobsJobDetailsResponseBody {
     this.country,
   });
 
-  factory DeveloperJobsJobDetailsResponseBody.fromJson(
-          Map<String, dynamic> json) =>
-      _$DeveloperJobsJobDetailsResponseBodyFromJson(json);
+  factory JobDetailsResponseBody.fromJson(Map<String, dynamic> json) =>
+      _$JobDetailsResponseBodyFromJson(json);
 
-  Map<String, dynamic> toJson() =>
-      _$DeveloperJobsJobDetailsResponseBodyToJson(this);
+  Map<String, dynamic> toJson() => _$JobDetailsResponseBodyToJson(this);
 }

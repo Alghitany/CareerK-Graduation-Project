@@ -31,7 +31,7 @@ class ApiConstants {
   static const String developerJobsApply = "api/job-applications/apply";
 
   //-> Job Details
-  static const String developerJobsJobDetails = "api/job-post/{jobId}";
+  static const String jobDetails = "api/job-post/{jobId}";
 
   //-> Job Details
   static const String developerJobsServiceDetails =
@@ -86,7 +86,10 @@ class ApiConstants {
 
   //-----> Profile
   //->Profile
-  static const String companyProfile = "api/company/profile";
+  static const String companyProfileInfo = "api/company/profile";
+
+  // All Job Posts
+  static const String companyProfileAllJobPosts = "api/company/job-posts";
 
   //-> Applied Jobs
   static const String developerProfileAppliedJobs =
