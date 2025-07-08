@@ -35,9 +35,7 @@ class ProfileAllJobPostsBlocBuilder extends StatelessWidget {
   }
 
   Widget setupSuccess(CompanyProfileAllJobPostsResponseBody data) {
-    final jobPosts = data.jobs ?? [];
-
-    if (jobPosts.isEmpty) {
+    if (data.jobs.isEmpty) {
       return Center(
         child: Text(
           'No job posts available.',
@@ -46,7 +44,7 @@ class ProfileAllJobPostsBlocBuilder extends StatelessWidget {
       );
     }
 
-    return AllJobPostsList(jobPosts: jobPosts);
+    return AllJobPostsList(jobPosts: data.jobs);
   }
 
   Widget setupError(String error) {
