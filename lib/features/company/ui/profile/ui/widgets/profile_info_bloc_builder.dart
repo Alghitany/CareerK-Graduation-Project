@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../core/helpers/spacing.dart';
-import '../../data/models/company_profile_models/company_profile_response_body.dart';
+import '../../data/models/company_profile_info_models/company_profile_info_response_body.dart';
 import '../../logic/company_profile_info_logic/company_profile_info_cubit.dart';
 import '../../logic/company_profile_info_logic/company_profile_info_state.dart';
 import 'profile_info/profile_icons.dart';
@@ -41,7 +41,7 @@ class ProfileInfoBlocBuilder extends StatelessWidget {
     );
   }
 
-  Widget setupSuccess(CompanyProfileResponseBody data) {
+  Widget setupSuccess(CompanyProfileInfoResponseBody data) {
     return Column(
       children: [
         ProfileImageNameAndLocation(

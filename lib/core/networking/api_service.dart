@@ -29,7 +29,7 @@ import '../../features/company/ui/jobs_post/data/models/company_jobs_post_reques
 import '../../features/company/ui/jobs_post/data/models/company_jobs_post_response.dart';
 import '../../features/company/ui/profile/data/models/company_profile_all_jobs_posts_models/company_profile_all_job_posts_response_body.dart';
 import '../../features/company/ui/profile/data/models/company_profile_applicants_number_models/company_profile_applicants_number_response_body.dart';
-import '../../features/company/ui/profile/data/models/company_profile_models/company_profile_response_body.dart';
+import '../../features/company/ui/profile/data/models/company_profile_info_models/company_profile_info_response_body.dart';
 import '../../features/customer/ui/home/model/model/customer_home_response_body.dart';
 import '../../features/developer/data/models/developer_courses_and_jobs_main_page_profile_models/developer_courses_and_jobs_main_page_profile_response_model.dart';
 import '../../features/developer/data/models/developer_recommendtions_models/developer_recommendations_response_body.dart';
@@ -195,7 +195,7 @@ abstract class ApiService {
 
   // Profile Info
   @GET(ApiConstants.companyProfileInfo)
-  Future<CompanyProfileResponseBody> getCompanyProfileInfo();
+  Future<CompanyProfileInfoResponseBody> getCompanyProfileInfo();
 
   // Company All Job Posts
   @GET(ApiConstants.companyProfileAllJobPosts)

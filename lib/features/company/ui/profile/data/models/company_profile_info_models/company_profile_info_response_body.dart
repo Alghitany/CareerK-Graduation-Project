@@ -1,9 +1,9 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'company_profile_response_body.g.dart';
+part 'company_profile_info_response_body.g.dart';
 
 @JsonSerializable()
-class CompanyProfileResponseBody {
+class CompanyProfileInfoResponseBody {
   final String id;
 
   @JsonKey(name: 'company_name')
@@ -24,7 +24,7 @@ class CompanyProfileResponseBody {
   @JsonKey(name: 'brief_description')
   final String briefDescription;
 
-  CompanyProfileResponseBody({
+  CompanyProfileInfoResponseBody({
     required this.id,
     required this.companyName,
     required this.country,
@@ -36,8 +36,8 @@ class CompanyProfileResponseBody {
     required this.briefDescription,
   });
 
-  factory CompanyProfileResponseBody.fromJson(Map<String, dynamic> json) =>
-      _$CompanyProfileResponseBodyFromJson(json);
+  factory CompanyProfileInfoResponseBody.fromJson(Map<String, dynamic> json) =>
+      _$CompanyProfileInfoResponseBodyFromJson(json);
 
-  Map<String, dynamic> toJson() => _$CompanyProfileResponseBodyToJson(this);
+  Map<String, dynamic> toJson() => _$CompanyProfileInfoResponseBodyToJson(this);
 }
