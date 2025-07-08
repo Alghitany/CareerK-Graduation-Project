@@ -213,7 +213,7 @@ class _CustomerJobsState extends State<CustomerJobs> {
                     IconButton(
                         onPressed: () {
                           print("application ID : ${job.id}");
-                          context.pushNamed(Routes.customerAppliedFirstScreen,
+                          context.pushNamed(Routes.customerProfileScreen,
                               arguments: AppArgument(applicationId: job.id));
                         },
                         icon: Image.asset(

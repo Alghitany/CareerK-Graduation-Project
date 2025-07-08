@@ -4,17 +4,20 @@ import 'package:carrerk/features/chats/person_chat/data/repo/get_chat_messages_r
 import 'package:carrerk/features/chats/person_chat/logic/get_chat_messages/get_chat_messages_cubit.dart';
 import 'package:carrerk/features/company/data/repo/company_jobs_delete_post_repo.dart';
 import 'package:carrerk/features/company/logic/company_jobs_delete_post_cubit.dart';
-import 'package:carrerk/features/company/sign_up/data/repo/company_sign_up_repo.dart';
-import 'package:carrerk/features/company/sign_up/logic/company_sign_up_cubit.dart';
 
 import 'package:carrerk/features/customer/data/repos/customer_jobs_post_repo.dart';
 import 'package:carrerk/features/customer/logic/customer_jobs_post_cubit.dart';
 import 'package:carrerk/features/customer/ui/applied/data/repo/first_screen_repo/applications_repo.dart';
+import 'package:carrerk/features/customer/ui/applied/data/repo/reject_applications_repo/reject_applications_repo.dart';
 import 'package:carrerk/features/customer/ui/applied/data/repo/secound_screen_repo/application_details_repo.dart';
 import 'package:carrerk/features/customer/ui/applied/logic/first_screen_logic/applications_cubit.dart';
 import 'package:carrerk/features/customer/ui/applied/logic/secound_screen_logic/application_details_cubit.dart';
 
 import 'package:carrerk/features/customer/ui/home/logic/customer_home_cubit.dart';
+import 'package:carrerk/features/customer/ui/profile/data/repo/get_service_posts_repo/customer_profile_get_all_service_post_repo.dart';
+import 'package:carrerk/features/customer/ui/profile/data/repo/view_profile_repo/customer_profile_repo.dart';
+import 'package:carrerk/features/customer/ui/profile/logic/get_service_posts/customer_profile_get_all_service_post_cubit.dart';
+import 'package:carrerk/features/customer/ui/profile/logic/view_profile/customer_profile_cubit.dart';
 import 'package:carrerk/features/customer/ui/sign_up/data/repo/customer_sign_up_repo.dart';
 import 'package:carrerk/features/customer/ui/sign_up/logic/customer_sign_up_cubit.dart';
 import 'package:carrerk/features/company/ui/home/ui/main_page/data/repo/company_home_main_page_repo.dart';
@@ -47,9 +50,6 @@ import '../../features/authentication/reset_password/logic/reset_password_cubit.
 import '../../features/authentication/verify_code/data/repo/verify_code_repo.dart';
 import '../../features/authentication/verify_code/logic/verify_code_cubit.dart';
 
-import '../../features/company/jobs_post/data/repos/company_jobs_post_repo.dart';
-import '../../features/company/jobs_post/logic/company_jobs_post_cubit.dart';
-
 import '../../features/chats/all_chats/data/repo/chats_all_chats_repo.dart';
 import '../../features/chats/all_chats/logic/chats_all_chats_cubit.dart';
 import '../../features/chats/person_chat/data/repo/send_messages_repo.dart';
@@ -68,8 +68,7 @@ import '../../features/company/ui/jobs_post/data/repos/company_jobs_post_repo.da
 import '../../features/company/ui/jobs_post/logic/company_jobs_post_cubit.dart';
 import '../../features/company/ui/sign_up/data/repo/company_sign_up_repo.dart';
 import '../../features/company/ui/sign_up/logic/company_sign_up_cubit.dart';
-import '../../features/customer/sign_up/data/repo/customer_sign_up_repo.dart';
-import '../../features/customer/sign_up/logic/customer_sign_up_cubit.dart';
+
 import '../../features/developer/data/repo/developer_courses_and_jobs_main_page_profile_repo.dart';
 import '../../features/developer/data/repo/developer_recommendations_repo.dart';
 import '../../features/developer/data/repo/developer_single_course_bookmark_repo.dart';
@@ -409,6 +408,31 @@ Future<void> setupGetIt() async {
 
   getIt.registerFactory<ApplicationDetailsCubit>(
       () => ApplicationDetailsCubit(getIt()));
+
+// view profile
+  getIt.registerLazySingleton<CustomerProfileRepo>(
+    () => CustomerProfileRepo(getIt()),
+  );
+
+  getIt.registerFactory<CustomerProfileCubit>(
+      () => CustomerProfileCubit(getIt()));
+// get posts
+  getIt.registerLazySingleton<CustomerProfileGetAllServicePostRepo>(
+    () => CustomerProfileGetAllServicePostRepo(getIt()),
+  );
+
+  getIt.registerFactory<CustomerProfileGetAllServicePostCubit>(
+      () => CustomerProfileGetAllServicePostCubit(getIt()));
+
+//  customer -- reject
+  //  getIt.registerLazySingleton<RejectApplicationsRepo>(
+  //   () => RejectApplicationsRepo(getIt<Dio>()),
+
+  // );
+
+  // getIt.registerFactory<CustomerSignupCubit>(
+  //   () => CustomerSignupCubit(getIt<CustomerSignupRepo>()),
+  // );
   // Customer -> Signup
   getIt.registerLazySingleton<CustomerSignupRepo>(
     () => CustomerSignupRepo(getIt<Dio>()),

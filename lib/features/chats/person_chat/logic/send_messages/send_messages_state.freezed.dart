@@ -24,7 +24,6 @@ mixin _$SendMessagesState<T> {
     required TResult Function(String error) sendMessageError,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
@@ -42,7 +41,6 @@ mixin _$SendMessagesState<T> {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
@@ -51,7 +49,6 @@ mixin _$SendMessagesState<T> {
     required TResult Function(SendMessageError<T> value) sendMessageError,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
@@ -84,9 +81,9 @@ class _$SendMessagesStateCopyWithImpl<T, $Res,
     implements $SendMessagesStateCopyWith<T, $Res> {
   _$SendMessagesStateCopyWithImpl(this._value, this._then);
 
-// ignore: unused_field
+  // ignore: unused_field
   final $Val _value;
-// ignore: unused_field
+  // ignore: unused_field
   final $Res Function($Val) _then;
 
   /// Create a copy of SendMessagesState

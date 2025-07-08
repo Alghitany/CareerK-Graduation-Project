@@ -1,5 +1,8 @@
-import 'package:dio/dio.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+part 'reject_applications_request_model.g.dart';
+
+@JsonSerializable()
 class RejectApplicationsRequestModel {
   final String status;
 
@@ -7,15 +10,8 @@ class RejectApplicationsRequestModel {
     required this.status,
   });
 
-  Map<String, dynamic> toJson() {
-    return {
-      'status': status,
-    };
-  }
+  factory RejectApplicationsRequestModel.fromJson(Map<String, dynamic> json) =>
+      _$RejectApplicationsRequestModelFromJson(json);
 
-  Future<FormData> toFormData() async {
-    return FormData.fromMap({
-      'status': status,
-    });
-  }
+  Map<String, dynamic> toJson() => _$RejectApplicationsRequestModelToJson(this);
 }

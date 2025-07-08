@@ -5,7 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NumberOfJobsAndApplicants extends StatelessWidget {
-  const NumberOfJobsAndApplicants({super.key});
+  final int? jobsCount;
+  final int applicantsCount;
+
+  const NumberOfJobsAndApplicants({
+    super.key,
+    this.jobsCount,
+    required this.applicantsCount,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +32,7 @@ class NumberOfJobsAndApplicants extends StatelessWidget {
                 ),
                 verticalSpace(8),
                 Text(
-                  '4 ',
+                  '$jobsCount',
                   style: AppTextStyles.font20BlackPoppinsMedium,
                 )
               ],
@@ -39,12 +46,12 @@ class NumberOfJobsAndApplicants extends StatelessWidget {
             Column(
               children: [
                 Text(
-                  'Followers',
+                  'Applicants',
                   style: AppTextStyles.font16GranitePoppinsMedium,
                 ),
                 verticalSpace(8),
                 Text(
-                  '100 ',
+                  '$applicantsCount',
                   style: AppTextStyles.font20BlackPoppinsMedium,
                 )
               ],

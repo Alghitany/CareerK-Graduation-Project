@@ -117,6 +117,12 @@ class ApiConstants {
   //------ reject ----
   static const String rejectApplications =
       "api/service-application/{applicantId}/status";
+  // ------ View profile -----
+  static const String customerviewprofile = "/api/customer/profile";
+  // ------ get service posts -----
+  static const String customergetserviceposts = "/api/customer/service-posts";
+  // ------ get applications -----
+  static const String customergetapplications = "/api/customer/applicants";
 
   //------ company ------------
   //->Sign up

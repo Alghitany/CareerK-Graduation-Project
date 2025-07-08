@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-
-
 class ChatCard extends StatelessWidget {
   final String name;
   final String jop;
@@ -41,42 +39,16 @@ class ChatCard extends StatelessWidget {
               children: [
                 Container(
                   width: 48.w,
-                  height: 48.w,
+                  height: 48.h,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    border: Border.all(
-                      color: ColorsManager.lemonGrass,
-                      width: 1.w,
+                    image: DecorationImage(
+                      image: (imagePath != null && imagePath.isNotEmpty)
+                          ? NetworkImage(imagePath)
+                          : const AssetImage('assets/images/company_logo.png'),
+                      fit: BoxFit.cover,
                     ),
                   ),
-                  clipBehavior: Clip.hardEdge,
-                  child: imagePath.isNotEmpty
-                      ? Image.network(
-                          imagePath,
-                          fit: BoxFit.cover,
-                          errorBuilder: (context, error, stackTrace) {
-                            return Padding(
-                              padding: EdgeInsets.all(12.w),
-                              child: SvgPicture.asset(
-                                "assets/svgs/person_outlined.svg",
-                                colorFilter: const ColorFilter.mode(
-                                  ColorsManager.lemonGrass,
-                                  BlendMode.srcIn,
-                                ),
-                              ),
-                            );
-                          },
-                        )
-                      : Padding(
-                          padding: EdgeInsets.all(12.w),
-                          child: SvgPicture.asset(
-                            "assets/svgs/person_outlined.svg",
-                            colorFilter: const ColorFilter.mode(
-                              ColorsManager.lemonGrass,
-                              BlendMode.srcIn,
-                            ),
-                          ),
-                        ),
                 ),
                 horizontalSpace(16),
                 Expanded(

@@ -2,7 +2,11 @@ import 'package:carrerk/features/customer/data/models/customer_jobs_post_request
 import 'package:carrerk/features/customer/data/models/customer_jobs_post_response.dart';
 import 'package:carrerk/features/customer/ui/applied/data/model/first_screen_model/applications_response_body.dart';
 import 'package:carrerk/features/customer/ui/applied/data/model/reject_applications_model/reject_application_response.dart';
+import 'package:carrerk/features/customer/ui/applied/data/model/reject_applications_model/reject_applications_request_model.dart';
 import 'package:carrerk/features/customer/ui/applied/data/model/secound_screen_model/application_details_response_body.dart';
+import 'package:carrerk/features/customer/ui/profile/data/model/get_applicants_model/total_applicants_response.dart';
+import 'package:carrerk/features/customer/ui/profile/data/model/get_service_posts_model/customer_profile_get_all_service_post_response_body.dart';
+import 'package:carrerk/features/customer/ui/profile/data/model/view_profile_model/customer_profile_response_body.dart';
 
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
@@ -20,8 +24,6 @@ import '../../features/chats/person_chat/data/models/get_chat_messages/get_chat_
 import '../../features/chats/person_chat/data/models/start_chat/start_chat_room_request_body.dart';
 import '../../features/chats/person_chat/data/models/start_chat/start_chat_room_response.dart';
 import '../../features/company/data/model/company_jobs_delete_post_response.dart';
-import '../../features/company/jobs_post/data/models/company_jobs_post_request_body.dart';
-import '../../features/company/jobs_post/data/models/company_jobs_post_response.dart';
 
 import '../../features/company/ui/home/data/models/update_application_status_model/company_update_application_status_request_body.dart';
 import '../../features/company/ui/home/data/models/update_application_status_model/company_update_application_status_response.dart';
@@ -275,11 +277,12 @@ abstract class ApiService {
     @Path("applicantId") String applicantId,
   );
   // -------------reject
-  @PATCH(ApiConstants.rejectApplications)
-  Future<RejectApplicationResponse> rejectApplication(
-    @Path('applicantId') String applicantId,
-    @Body() Map<String, dynamic> body,
-  );
+
+  // @PATCH(ApiConstants.rejectApplications)
+  // Future<RejectApplicationResponse> rejectApplication(
+  //   @Path('applicantId') String applicantId,
+  //   @Body() RejectApplicationsRequestModel request,
+  // );
 
   @POST(ApiConstants.startChatRoom)
   Future<StartChatRoomResponse> startPrivateChat(
@@ -290,6 +293,16 @@ abstract class ApiService {
   Future<GetChatMessagesResponseBody> getChatMessages(
     @Path('chatRoomId') String chatRoomId,
   );
+// View customer profile
+  @GET(ApiConstants.customerviewprofile)
+  Future<CustomerProfileResponseBody> getCustomerViewProfie();
+// View customer profile
+  @GET(ApiConstants.customergetserviceposts)
+  Future<CustomerProfileGetAllServicePostResponseBody>
+      getCustomerpostservices();
+  // get applications
+  @GET(ApiConstants.customergetapplications)
+  Future<TotalApplicantsResponse> getCustomerApplications();
 
 //----------------- Customer
 // Customer Sign up Handled with dio
