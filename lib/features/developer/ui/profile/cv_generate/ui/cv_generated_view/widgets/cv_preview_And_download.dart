@@ -17,14 +17,8 @@ class _CvPreviewAndDownloadState extends State<CvPreviewAndDownload> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 0.57.sh,
-      // Half of the screen height (more responsive than fixed height)
-      padding: EdgeInsets.all(8.w),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16.r),
-        border: Border.all(color: ColorsManager.lemonGrass, width: 1),
-      ),
+    return SizedBox(
+      height: 406.h,
       child: _isLoadFailed
           ? _buildShimmerPlaceholder()
           : SfPdfViewer.network(
@@ -49,11 +43,22 @@ class _CvPreviewAndDownloadState extends State<CvPreviewAndDownload> {
   }
 
   Widget _buildShimmerPlaceholder() {
-    return Center(
-      child: Icon(
-        Icons.picture_as_pdf,
-        color: ColorsManager.lemonGrass,
-        size: 72.sp, // Scaled icon size
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: ColorsManager.pastelGrey.withValues(alpha: 0.3 * 255),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: ColorsManager.lemonGrass,
+          width: 1,
+        ),
+      ),
+      child: const Center(
+        child: Icon(
+          Icons.picture_as_pdf,
+          color: ColorsManager.lemonGrass,
+          size: 48,
+        ),
       ),
     );
   }

@@ -146,6 +146,8 @@ class Routes {
       "/developerProfileJobsAppliedScreen";
   static const String developerProfileCVGenerateScreen =
       "/developerProfileCvGenerateScreen";
+  static const String developerProfileCvGeneratedViewScreen =
+      "/developerProfileCvGeneratedViewScreen";
 
   // Profile --> Payment
   static const String developerProfilePaymentOptionScreen =
