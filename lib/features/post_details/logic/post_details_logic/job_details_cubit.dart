@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../data/repo/job_details_repo.dart';
+import '../../data/repo/job_details_repo.dart';
 import 'job_details_state.dart';
 
 class JobDetailsCubit extends Cubit<JobDetailsState> {

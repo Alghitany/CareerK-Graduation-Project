@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../../../../core/helpers/spacing.dart';
-import '../../data/models/job_details_response_body.dart';
-import '../../logic/job_details_cubit.dart';
-import '../../logic/job_details_state.dart';
+import '../../../data/models/post_details_models/job_details_response_body.dart';
+import '../../../logic/post_details_logic/job_details_cubit.dart';
+import '../../../logic/post_details_logic/job_details_state.dart';
 import 'job_details/coin_icon_and_salary.dart';
 import 'job_details/job_description.dart';
 import 'job_details/job_name_location_type_post_date.dart';

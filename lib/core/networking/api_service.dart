@@ -55,7 +55,7 @@ import '../../features/developer/ui/profile/jobs_applied/data/models/developer_p
 import '../../features/developer/ui/profile/jobs_applied/data/models/job_withdraw/developer_job_withdraw_response_body.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/models/service_delete/developer_service_delete_response_body.dart';
 import '../../features/developer/ui/profile/settings/data/models/developer_generate_cv_start_session_models/developer_generate_cv_start_session_response.dart';
-import '../../features/job_details/data/models/job_details_response_body.dart';
+import '../../features/post_details/data/models/post_details_models/job_details_response_body.dart';
 import '../../features/search/data/model/search_courses_response_body.dart';
 import 'api_constants.dart';
 

@@ -2,7 +2,7 @@ import 'package:carrerk/core/networking/api_error_handler.dart';
 import 'package:carrerk/core/networking/api_result.dart';
 
 import '../../../../../../../core/networking/api_service.dart';
-import '../models/job_details_response_body.dart';
+import '../models/post_details_models/job_details_response_body.dart';
 
 class JobDetailsRepo {
   final ApiService _service;

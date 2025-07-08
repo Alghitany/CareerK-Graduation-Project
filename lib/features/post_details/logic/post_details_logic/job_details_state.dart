@@ -1,7 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-import '../data/models/job_details_response_body.dart';
-
+import '../../data/models/post_details_models/job_details_response_body.dart';
 part 'job_details_state.freezed.dart';
 
 @freezed

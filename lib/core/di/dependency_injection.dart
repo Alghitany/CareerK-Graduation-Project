@@ -97,8 +97,8 @@ import '../../features/developer/ui/profile/jobs_applied/logic/developer_profile
 import '../../features/developer/ui/profile/jobs_applied/logic/developer_service_delete_logic/developer_service_delete_cubit.dart';
 import '../../features/developer/ui/sign_up/data/repos/developer_sign_up_repo.dart';
 import '../../features/developer/ui/sign_up/logic/developer_sign_up_cubit.dart';
-import '../../features/job_details/data/repo/job_details_repo.dart';
-import '../../features/job_details/logic/job_details_cubit.dart';
+import '../../features/post_details/data/repo/job_details_repo.dart';
+import '../../features/post_details/logic/post_details_logic/job_details_cubit.dart';
 import '../../features/search/data/repo/search_courses_repo.dart';
 import '../../features/search/logic/search_courses_cubit.dart';
 import '../networking/api_service.dart';

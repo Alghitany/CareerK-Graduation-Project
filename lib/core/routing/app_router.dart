@@ -114,9 +114,9 @@ import '../../features/developer/ui/profile/jobs_applied/logic/developer_job_wit
 import '../../features/developer/ui/profile/jobs_applied/logic/developer_profile_applied_jobs_logic/developer_profile_applied_jobs_cubit.dart';
 import '../../features/developer/ui/profile/jobs_applied/logic/developer_service_delete_logic/developer_service_delete_cubit.dart';
 import '../../features/developer/ui/profile/jobs_applied/ui/developer_profile_jobs_and_services_applied_screen.dart';
-import '../../features/job_details/logic/job_details_cubit.dart';
-import '../../features/job_details/ui/job_details_screen.dart';
 import '../../features/notifications/ui/notifications_screen.dart';
+import '../../features/post_details/logic/post_details_logic/job_details_cubit.dart';
+import '../../features/post_details/ui/job_details/job_details_screen.dart';
 import '../../features/sign_up_user_type/sign_up_user_type_screen.dart';
 import '../di/dependency_injection.dart';
 import 'company_router/signup_router.dart';
