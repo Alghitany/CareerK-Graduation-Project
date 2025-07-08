@@ -6,10 +6,6 @@ import 'package:carrerk/features/customer/ui/sign_up/logic/customer_sign_up_stat
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../data/model/customer_signup_request_body.dart';
-import '../data/repo/customer_sign_up_repo.dart';
-import 'customer_sign_up_state.dart';
-
 class CustomerSignupCubit extends Cubit<CustomerSignupState> {
   final CustomerSignupRepo _customerSignupRepo;
 

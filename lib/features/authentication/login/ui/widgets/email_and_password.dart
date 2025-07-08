@@ -44,7 +44,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
             AppTextFormField(
                 hintText: 'email@email.com',
                 validator: (email) {
-                  if (!AppRegex.isValidEmail(email!)) {
+                  if (!AppRegex.isValidEmail(email)) {
                     return 'Please enter a valid email';
                   }
                   return null;

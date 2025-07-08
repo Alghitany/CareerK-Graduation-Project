@@ -49,7 +49,7 @@ class _CompanyCompulsoryDataFormState extends State<CompanyCompulsoryDataForm> {
                 controller: context.read<CompanySignupCubit>().emailController,
                 hintText: 'example@email.com',
                 validator: (email) {
-                  if (email!.isNullOrEmpty() || !AppRegex.isValidEmail(email)) {
+                  if (!AppRegex.isValidEmail(email)) {
                     return 'Please enter a valid email';
                   }
                   return null;

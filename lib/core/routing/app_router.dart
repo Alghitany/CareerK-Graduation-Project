@@ -1,12 +1,10 @@
 import 'package:carrerk/core/helpers/enums.dart';
 import 'package:carrerk/core/routing/app_argument.dart';
 import 'package:carrerk/core/routing/company_router/jobs_post_router.dart';
-
 import 'package:carrerk/core/widgets/pdf_viewer_screen.dart';
 import 'package:carrerk/features/authentication/reset_password/logic/reset_password_cubit.dart';
 import 'package:carrerk/features/authentication/verify_code/logic/verify_code_cubit.dart';
 import 'package:carrerk/features/authentication/verify_code/ui/verify_code_screen.dart';
-
 import 'package:carrerk/features/customer/logic/customer_jobs_post_cubit.dart';
 import 'package:carrerk/features/customer/ui/applied/logic/first_screen_logic/applications_cubit.dart';
 import 'package:carrerk/features/customer/ui/applied/logic/secound_screen_logic/application_details_cubit.dart';
@@ -35,7 +33,8 @@ import 'package:carrerk/features/developer/ui/profile/main_page/developer_profil
 import 'package:carrerk/features/developer/ui/profile/payment/add_new_cart/developer_profile_payment_add_new_card_screen.dart';
 import 'package:carrerk/features/developer/ui/profile/payment/option/developer_profile_payment_option_screen.dart';
 import 'package:carrerk/features/developer/ui/profile/saved_jobs/developer_profile_saved_jobs_screen.dart';
-import 'package:carrerk/features/developer/ui/profile/settings/developer_profile_settings_screen.dart';
+import 'package:carrerk/features/developer/ui/profile/settings/logic/developer_generate_cv_start_session_logic/developer_generate_cv_start_session_cubit.dart';
+import 'package:carrerk/features/developer/ui/profile/settings/ui/developer_profile_settings_screen.dart';
 import 'package:carrerk/features/developer/ui/sign_up/logic/developer_sign_up_cubit.dart';
 import 'package:carrerk/features/developer/ui/sign_up_completed/cv_downloaded/developer_sign_up_completed_cv_downloaded.dart';
 import 'package:carrerk/features/developer/ui/sign_up_completed/cv_is_done/developer_sign_up_completed_cv_is_done.dart';
@@ -77,11 +76,12 @@ import '../../features/company/ui/jobs_post/logic/company_jobs_post_cubit.dart';
 import '../../features/company/ui/jobs_post/ui/success/company_job_post_success_screen.dart';
 import '../../features/company/ui/profile/company_profile_screen.dart';
 import '../../features/company/ui/send_to_applicants/message-applicant/company_send_to_applicants_message_applicant_screen.dart';
-
-import '../../features/customer/ui/sign_up/logic/customer_sign_up_cubit.dart';
 import '../../features/company/ui/sign_up/logic/company_sign_up_cubit.dart';
+import '../../features/customer/ui/sign_up/logic/customer_sign_up_cubit.dart';
+import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
 import '../../features/developer/logic/developer_recommendations_logic/developer_recommendations_cubit.dart';
 import '../../features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
+import '../../features/developer/ui/courses/main_page/logic/developer_courses_main_page_roadmaps_cubit.dart';
 import '../../features/developer/ui/courses/related_courses/developer_courses_related_courses_screen.dart';
 import '../../features/developer/ui/courses/specific_category/ui/developer_courses_specific_category_screen.dart';
 import '../../features/developer/ui/courses/specific_course/logic/specific_course_header_logic/specific_course_header_cubit.dart';
@@ -100,6 +100,11 @@ import '../../features/developer/ui/jobs/search/logic/developer_services_recentl
 import '../../features/developer/ui/jobs/search/ui/developer_jobs_search_screen.dart';
 import '../../features/developer/ui/jobs/service_details/logic/developer_jobs_service_details_cubit.dart';
 import '../../features/developer/ui/jobs/service_details/ui/developer_jobs_service_details_screen.dart';
+import '../../features/developer/ui/profile/cv_generate/data/models/generate_models/developer_profile_cv_generate_generated_request_body.dart';
+import '../../features/developer/ui/profile/cv_generate/logic/generate_logic/developer_profile_cv_generate_generated_cubit.dart';
+import '../../features/developer/ui/profile/cv_generate/logic/send_data_logic/developer_profile_cv_generate_send_data_cubit.dart';
+import '../../features/developer/ui/profile/cv_generate/ui/cv_generated_view/developer_profile_cv_generated_view_screen.dart';
+import '../../features/developer/ui/profile/cv_generate/ui/send_data/developer_profile_cv_generate_screen.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_job_withdraw_repo.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_profile_applied_jobs_repo.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_service_delete_repo.dart';
@@ -107,7 +112,6 @@ import '../../features/developer/ui/profile/jobs_applied/logic/developer_job_wit
 import '../../features/developer/ui/profile/jobs_applied/logic/developer_profile_applied_jobs_logic/developer_profile_applied_jobs_cubit.dart';
 import '../../features/developer/ui/profile/jobs_applied/logic/developer_service_delete_logic/developer_service_delete_cubit.dart';
 import '../../features/developer/ui/profile/jobs_applied/ui/developer_profile_jobs_and_services_applied_screen.dart';
-
 import '../../features/notifications/ui/notifications_screen.dart';
 import '../../features/sign_up_user_type/sign_up_user_type_screen.dart';
 import '../di/dependency_injection.dart';
@@ -374,8 +378,22 @@ class AppRouter {
       // Courses
       case Routes.developerCoursesMainPageScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperCoursesMainPageScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) =>
+                getIt<DeveloperCoursesAndJobsMainPageProfileCubit>()
+                  ..getDeveloperCoursesMainPageProfile(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperCoursesMainPageRoadmapsCubit>()
+                  ..getDeveloperCoursesMainPageRoadmaps(),
+              ),
+            ],
+            child: const DeveloperCoursesMainPageScreen(),
+          ),
         );
+
       case Routes.developerCoursesRelatedCoursesScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperCoursesRelatedCoursesScreen(),
@@ -437,7 +455,16 @@ class AppRouter {
       //---> Jobs
       case Routes.developerJobsMainPageScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperJobsMainPageScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) =>
+                getIt<DeveloperCoursesAndJobsMainPageProfileCubit>()
+                  ..getDeveloperCoursesMainPageProfile(),
+              ),
+            ],
+            child: const DeveloperJobsMainPageScreen(),
+          ),
         );
       case Routes.developerJobsSearchScreen:
         return MaterialPageRoute(
@@ -518,11 +545,36 @@ class AppRouter {
         );
       case Routes.developerProfileSettingsScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperProfileSettingsScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<DeveloperGenerateCVStartSessionCubit>(),
+            child: const DeveloperProfileSettingsScreen(),
+          ),
         );
       case Routes.developerProfileEditProfileScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperProfileEditProfileScreen(),
+        );
+      case Routes.developerProfileCVGenerateScreen:
+        final args = settings.arguments as AppArgument;
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) =>
+                getIt<DeveloperProfileCVGenerateSendDataCubit>(),
+            child: DeveloperProfileCVGenerateScreen(sessionId: args.sessionId!),
+          ),
+        );
+      case Routes.developerProfileCvGeneratedViewScreen:
+        final args = settings.arguments as AppArgument;
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<DeveloperProfileCVGenerateGeneratedCubit>()
+              ..generateCV(
+                  sessionId: args.sessionId!,
+                  requestBody:
+                      DeveloperProfileCVGenerateGeneratedRequestBody()),
+            child: DeveloperProfileCvGeneratedViewScreen(
+                sessionId: args.sessionId!),
+          ),
         );
       case Routes.developerProfileSavedJobsScreen:
         return MaterialPageRoute(
@@ -593,7 +645,7 @@ class AppRouter {
           builder: (_) => BlocProvider(
             create: (_) => getIt<ApplicationsCubit>()
               ..getApplications(args.applicationId!),
-            child: CustomerAppliedFirstScreen(),
+            child: const CustomerAppliedFirstScreen(),
           ),
         );
 
@@ -604,7 +656,7 @@ class AppRouter {
           builder: (_) => BlocProvider(
             create: (_) => getIt<ApplicationDetailsCubit>()
               ..getApplicationDetails(args.applicationId!),
-            child: CustomerAppliedSecoundScreen(),
+            child: const CustomerAppliedSecoundScreen(),
           ),
         );
 

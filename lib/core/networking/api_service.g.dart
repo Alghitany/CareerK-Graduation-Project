@@ -854,6 +854,120 @@ class _ApiService implements ApiService {
   }
 
   @override
+  Future<DeveloperGenerateCVStartSessionResponseBody>
+      startDeveloperGenerateCVSession() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options =
+        _setStreamType<DeveloperGenerateCVStartSessionResponseBody>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/cv-generation/session',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DeveloperGenerateCVStartSessionResponseBody _value;
+    try {
+      _value =
+          DeveloperGenerateCVStartSessionResponseBody.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<DeveloperProfileCVGenerateSendDataResponse> sendDeveloperCVData(
+    String sessionId,
+    DeveloperProfileCVGenerateSendDataRequestBody requestBody,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(requestBody.toJson());
+    final _options =
+        _setStreamType<DeveloperProfileCVGenerateSendDataResponse>(Options(
+      method: 'PUT',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/cv-generation/${sessionId}/data',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DeveloperProfileCVGenerateSendDataResponse _value;
+    try {
+      _value =
+          DeveloperProfileCVGenerateSendDataResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<DeveloperProfileCVGenerateGeneratedResponse> generateCV(
+    String sessionId,
+    DeveloperProfileCVGenerateGeneratedRequestBody requestBody,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(requestBody.toJson());
+    final _options =
+        _setStreamType<DeveloperProfileCVGenerateGeneratedResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/cv-generation/${sessionId}/generate',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DeveloperProfileCVGenerateGeneratedResponse _value;
+    try {
+      _value =
+          DeveloperProfileCVGenerateGeneratedResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
   Future<DeveloperJobWithdrawResponseBody> deleteJobApplication(
       String applicationId) async {
     final _extra = <String, dynamic>{};

@@ -3,11 +3,13 @@ import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../../../core/routing/routes.dart';
-import '../../logout/developer_profile_logout_screen.dart';
+import '../../../../../../../core/routing/routes.dart';
+import '../../../logout/developer_profile_logout_screen.dart';
+import '../../logic/developer_generate_cv_start_session_logic/developer_generate_cv_start_session_cubit.dart';
 
 class SettingsOptionsList extends StatelessWidget {
   const SettingsOptionsList({super.key});
@@ -48,13 +50,15 @@ class SettingsOptionsList extends StatelessWidget {
               },
             ),
             settingServiceRow(
-              icon: 'assets/svgs/open_book_outlined.svg',
-              text: 'Test & Quiz',
-              leadingIconHeight: 16.5,
-              leadingIconWidth: 18,
+              icon: 'assets/svgs/gemini_ai.svg',
+              text: 'Generate CV with AI',
+              leadingIconHeight: 20,
+              leadingIconWidth: 20,
+              horizontalSpaceValue: 4,
               onTap: () {
-                //TODO: This feature may be removed since we don't present courses
-                //context.pushNamed(Routes.developerSignUpCompletedCvIsDone);
+                context
+                    .read<DeveloperGenerateCVStartSessionCubit>()
+                    .startCVSession();
               },
             ),
             settingServiceRow(
@@ -69,6 +73,8 @@ class SettingsOptionsList extends StatelessWidget {
             settingServiceRow(
               icon: 'assets/svgs/job.svg',
               text: 'Job Applied',
+              leadingIconHeight: 20,
+              leadingIconWidth: 17,
               onTap: () {
                 context.pushNamed(Routes.developerProfileJobsAppliedScreen);
               },
@@ -111,13 +117,13 @@ class SettingsOptionsList extends StatelessWidget {
     );
   }
 
-  Widget settingServiceRow({
-    required icon,
-    required text,
-    required onTap,
-    double? leadingIconHeight,
-    double? leadingIconWidth,
-  }) {
+  Widget settingServiceRow(
+      {required icon,
+      required text,
+      required onTap,
+      double? leadingIconHeight,
+      double? leadingIconWidth,
+      double horizontalSpaceValue = 8}) {
     return GestureDetector(
       onTap: onTap,
       child: SizedBox(
@@ -132,7 +138,7 @@ class SettingsOptionsList extends StatelessWidget {
               colorFilter:
                   const ColorFilter.mode(ColorsManager.dune, BlendMode.srcIn),
             ),
-            horizontalSpace(8),
+            horizontalSpace(horizontalSpaceValue),
             Text(
               text,
               style: AppTextStyles.font14BlackPoppinsMedium,

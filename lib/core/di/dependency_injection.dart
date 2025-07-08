@@ -4,6 +4,8 @@ import 'package:carrerk/features/chats/person_chat/data/repo/get_chat_messages_r
 import 'package:carrerk/features/chats/person_chat/logic/get_chat_messages/get_chat_messages_cubit.dart';
 import 'package:carrerk/features/company/data/repo/company_jobs_delete_post_repo.dart';
 import 'package:carrerk/features/company/logic/company_jobs_delete_post_cubit.dart';
+import 'package:carrerk/features/company/ui/home/ui/main_page/data/repo/company_home_main_page_repo.dart';
+import 'package:carrerk/features/company/ui/home/ui/see_details/data/repo/company_home_see_details_repo.dart';
 import 'package:carrerk/features/customer/data/repos/customer_jobs_post_repo.dart';
 import 'package:carrerk/features/customer/logic/customer_jobs_post_cubit.dart';
 import 'package:carrerk/features/customer/ui/applied/data/repo/first_screen_repo/applications_repo.dart';
@@ -13,8 +15,6 @@ import 'package:carrerk/features/customer/ui/applied/logic/secound_screen_logic/
 import 'package:carrerk/features/customer/ui/home/logic/customer_home_cubit.dart';
 import 'package:carrerk/features/customer/ui/sign_up/data/repo/customer_sign_up_repo.dart';
 import 'package:carrerk/features/customer/ui/sign_up/logic/customer_sign_up_cubit.dart';
-import 'package:carrerk/features/company/ui/home/ui/main_page/data/repo/company_home_main_page_repo.dart';
-import 'package:carrerk/features/company/ui/home/ui/see_details/data/repo/company_home_see_details_repo.dart';
 import 'package:carrerk/features/developer/data/repo/developer_single_job_bookmark_repo.dart';
 import 'package:carrerk/features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
 import 'package:carrerk/features/developer/ui/courses/main_page/data/repo/developer_courses_main_page_roadmaps_repo.dart';
@@ -29,8 +29,13 @@ import 'package:carrerk/features/developer/ui/home_main_page/logic/developer_cou
 import 'package:carrerk/features/developer/ui/jobs/job_details/data/repo/developer_jobs_job_details_repo.dart';
 import 'package:carrerk/features/developer/ui/jobs/job_details/logic/developer_jobs_job_details_cubit.dart';
 import 'package:carrerk/features/developer/ui/jobs/search/data/repo/developer_jobs_recently_posted_repo.dart';
+import 'package:carrerk/features/developer/ui/profile/cv_generate/data/repos/developer_profile_cv_generate_generated_repo.dart';
+import 'package:carrerk/features/developer/ui/profile/cv_generate/data/repos/developer_profile_cv_generate_send_data_repo.dart';
+import 'package:carrerk/features/developer/ui/profile/cv_generate/logic/generate_logic/developer_profile_cv_generate_generated_cubit.dart';
 import 'package:carrerk/features/developer/ui/profile/jobs_applied/data/repo/developer_job_withdraw_repo.dart';
 import 'package:carrerk/features/developer/ui/profile/jobs_applied/data/repo/developer_profile_applied_jobs_repo.dart';
+import 'package:carrerk/features/developer/ui/profile/settings/data/repos/developer_generate_cv_start_session_repo.dart';
+import 'package:carrerk/features/developer/ui/profile/settings/logic/developer_generate_cv_start_session_logic/developer_generate_cv_start_session_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -50,8 +55,6 @@ import '../../features/chats/person_chat/logic/send_messages/send_messages_cubit
 import '../../features/chats/person_chat/logic/start_chat/start_chat_room_cubit.dart';
 import '../../features/company/ui/home/data/repos/company_update_application_status_repo.dart';
 import '../../features/company/ui/home/logic/update_application_status_logic/company_update_application_status_cubit.dart';
-
-import '../../features/customer/ui/home/model/repo/customer_home_repo.dart';
 import '../../features/company/ui/home/ui/main_page/logic/company_home_main_page_cubit.dart';
 import '../../features/company/ui/home/ui/see_details/logic/company_home_see_details_cubit.dart';
 import '../../features/company/ui/home/ui/see_resume/data/repo/company_home_see_resume_repo.dart';
@@ -60,6 +63,7 @@ import '../../features/company/ui/jobs_post/data/repos/company_jobs_post_repo.da
 import '../../features/company/ui/jobs_post/logic/company_jobs_post_cubit.dart';
 import '../../features/company/ui/sign_up/data/repo/company_sign_up_repo.dart';
 import '../../features/company/ui/sign_up/logic/company_sign_up_cubit.dart';
+import '../../features/customer/ui/home/model/repo/customer_home_repo.dart';
 import '../../features/developer/data/repo/developer_courses_and_jobs_main_page_profile_repo.dart';
 import '../../features/developer/data/repo/developer_recommendations_repo.dart';
 import '../../features/developer/data/repo/developer_single_course_bookmark_repo.dart';
@@ -84,6 +88,7 @@ import '../../features/developer/ui/jobs/search/logic/developer_jobs_recently_po
 import '../../features/developer/ui/jobs/search/logic/developer_services_recently_posted_logic/developer_services_recently_posted_cubit.dart';
 import '../../features/developer/ui/jobs/service_details/data/repo/developer_jobs_service_details_repo.dart';
 import '../../features/developer/ui/jobs/service_details/logic/developer_jobs_service_details_cubit.dart';
+import '../../features/developer/ui/profile/cv_generate/logic/send_data_logic/developer_profile_cv_generate_send_data_cubit.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_service_delete_repo.dart';
 import '../../features/developer/ui/profile/jobs_applied/logic/developer_job_withdraw_logic/developer_job_withdraw_cubit.dart';
 import '../../features/developer/ui/profile/jobs_applied/logic/developer_profile_applied_jobs_logic/developer_profile_applied_jobs_cubit.dart';
@@ -275,6 +280,22 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<DeveloperProfileAppliedJobsCubit>(
     () => DeveloperProfileAppliedJobsCubit(getIt()),
   );
+  // -> Generate CV
+  // Start Session
+  getIt.registerLazySingleton<DeveloperGenerateCVStartSessionRepo>(
+      () => DeveloperGenerateCVStartSessionRepo(getIt()));
+  getIt.registerLazySingleton<DeveloperGenerateCVStartSessionCubit>(
+      () => DeveloperGenerateCVStartSessionCubit(getIt()));
+  // Send Data
+  getIt.registerLazySingleton<DeveloperProfileCVGenerateSendDataRepo>(
+      () => DeveloperProfileCVGenerateSendDataRepo(getIt()));
+  getIt.registerLazySingleton<DeveloperProfileCVGenerateSendDataCubit>(
+      () => DeveloperProfileCVGenerateSendDataCubit(getIt()));
+  // Generated
+  getIt.registerLazySingleton<DeveloperProfileCVGenerateGeneratedRepo>(
+      () => DeveloperProfileCVGenerateGeneratedRepo(getIt()));
+  getIt.registerLazySingleton<DeveloperProfileCVGenerateGeneratedCubit>(
+      () => DeveloperProfileCVGenerateGeneratedCubit(getIt()));
   // -> Withdraw Job Application
   getIt.registerLazySingleton<DeveloperJobWithdrawRepo>(
       () => DeveloperJobWithdrawRepo(getIt()));

@@ -144,6 +144,10 @@ class Routes {
       "/developerProfileEditProfileScreen";
   static const String developerProfileJobsAppliedScreen =
       "/developerProfileJobsAppliedScreen";
+  static const String developerProfileCVGenerateScreen =
+      "/developerProfileCvGenerateScreen";
+  static const String developerProfileCvGeneratedViewScreen =
+      "/developerProfileCvGeneratedViewScreen";
 
   // Profile --> Payment
   static const String developerProfilePaymentOptionScreen =
@@ -169,7 +173,6 @@ class Routes {
   //home
   static const String customerHomeMainPageScreen =
       "/customerHomeMainPageScreen";
-
 
   // chats
   static const String customerChatsScreen = "/customerChatsScreen";

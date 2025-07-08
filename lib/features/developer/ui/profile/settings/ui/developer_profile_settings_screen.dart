@@ -4,6 +4,7 @@ import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'widgets/developer_generate_cv_start_session_bloc_listener.dart';
 import 'widgets/profile_picture_name_and_mail.dart';
 import 'widgets/settings_options_list.dart';
 
@@ -27,6 +28,7 @@ class DeveloperProfileSettingsScreen extends StatelessWidget {
               const ProfilePictureNameAndMail(),
               verticalSpace(16),
               const SettingsOptionsList(),
+              const DeveloperGenerateCVStartSessionBlocListener()
             ],
           ),
         ),
