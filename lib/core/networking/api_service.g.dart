@@ -1328,7 +1328,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'api/jobs/delete-job-post/${jobId}',
+          'api/company/job-posts/${jobId}',
           queryParameters: queryParameters,
           data: _data,
         )

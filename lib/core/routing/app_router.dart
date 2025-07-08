@@ -263,6 +263,7 @@ class AppRouter {
                 create: (_) => getIt<CompanyProfileApplicantsNumberCubit>()
                   ..getApplicantsNumber(),
               ),
+              BlocProvider(create: (_) => getIt<CompanyJobsDeletePostCubit>())
             ],
             child: const CompanyProfileScreen(),
           ),

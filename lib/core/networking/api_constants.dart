@@ -169,7 +169,7 @@ class ApiConstants {
       "/api/job-application/{applicationId}/status";
 
   //->Delete Post
-  static const String companyJobsDeletePost = "api/jobs/delete-job-post";
+  static const String companyJobsDeletePost = "api/company/job-posts/{jobId}";
 
   //------ Search ------------
   static const String searchCourses = "api/courses-page/search-courses";

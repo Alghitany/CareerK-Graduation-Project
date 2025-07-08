@@ -1,25 +1,19 @@
-import 'package:dio/dio.dart';
-
-import '../../../../../../core/networking/api_constants.dart';
-import '../../../../../../core/networking/api_error_handler.dart';
-import '../../../../../../core/networking/api_result.dart';
+import '../../../../../../../core/networking/api_error_handler.dart';
+import '../../../../../../../core/networking/api_result.dart';
+import '../../../../../../../core/networking/api_service.dart';
 import '../model/company_jobs_delete_post_response.dart';
 
 class CompanyJobsDeletePostRepo {
-  final Dio _dio;
+  final ApiService _apiService;
 
-  CompanyJobsDeletePostRepo(this._dio);
+  CompanyJobsDeletePostRepo(this._apiService);
 
   Future<ApiResult<CompanyJobsDeletePostResponse>> deleteJobPost({
     required String jobId,
   }) async {
     try {
-      final response = await _dio.delete(
-        '${ApiConstants.apiBaseUrl}${ApiConstants.companyJobsDeletePost}/$jobId',
-      );
-
-      final result = CompanyJobsDeletePostResponse.fromJson(response.data);
-      return ApiResult.success(result);
+      final response = await _apiService.deleteCompanyJobPost(jobId);
+      return ApiResult.success(response);
     } catch (error) {
       return ApiResult.failure(ErrorHandler.handle(error));
     }
