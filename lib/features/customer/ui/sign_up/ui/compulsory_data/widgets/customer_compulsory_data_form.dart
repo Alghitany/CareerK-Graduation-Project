@@ -11,8 +11,6 @@ import '../../../../../../../core/theming/colors.dart';
 import '../../../../../../../core/widgets/app_label.dart';
 import '../../../../../../../core/widgets/app_text_form_field.dart';
 
-import '../../../logic/customer_sign_up_cubit.dart';
-
 class CustomerCompulsoryDataForm extends StatefulWidget {
   const CustomerCompulsoryDataForm({super.key});
 
@@ -50,7 +48,7 @@ class _CustomerCompulsoryDataFormState
                 controller: context.read<CustomerSignupCubit>().emailController,
                 hintText: 'example@email.com',
                 validator: (email) {
-                  if (email!.isNullOrEmpty() || !AppRegex.isValidEmail(email)) {
+                  if (!AppRegex.isValidEmail(email)) {
                     return 'Please enter a valid email';
                   }
                   return null;

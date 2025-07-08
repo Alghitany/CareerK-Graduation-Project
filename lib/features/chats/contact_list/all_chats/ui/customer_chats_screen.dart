@@ -82,12 +82,9 @@
 
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/theming/styles.dart';
-import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:carrerk/features/chats/contact_list/all_chats/ui/widgets/chat_list_bloc_builder.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomerChatsScreen extends StatelessWidget {
   const CustomerChatsScreen({super.key});

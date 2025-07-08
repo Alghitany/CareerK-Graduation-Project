@@ -9,8 +9,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../../core/helpers/app_regex.dart';
 
-
-
 class CustomerFillProfileForm extends StatefulWidget {
   const CustomerFillProfileForm({super.key});
 
@@ -54,7 +52,7 @@ class _CustomerFillProfileFormState extends State<CustomerFillProfileForm> {
               controller: cubit.contactEmailController,
               hintText: 'example@email.com',
               validator: (email) {
-                if (!AppRegex.isValidEmail(email!)) {
+                if (!AppRegex.isValidEmail(email)) {
                   return 'Please enter a valid email';
                 }
                 return null;

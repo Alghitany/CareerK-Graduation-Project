@@ -148,11 +148,9 @@ import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/routing/app_argument.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/widgets/app_choice_chip.dart';
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 import '../../../../../../../../core/helpers/spacing.dart';

@@ -2,7 +2,6 @@ import 'package:carrerk/features/customer/ui/applied/data/model/first_screen_mod
 import 'package:carrerk/features/customer/ui/applied/logic/first_screen_logic/applications_cubit.dart';
 import 'package:carrerk/features/customer/ui/applied/logic/first_screen_logic/applications_state.dart';
 import 'package:carrerk/features/customer/ui/applied/ui/first/widgets/applied_people_container.dart';
-
 import 'package:carrerk/features/customer/ui/home/ui/widgets/customer_jobs_shummer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

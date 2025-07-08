@@ -49,7 +49,7 @@ class _CustomerFillProfileFormState extends State<CustomerFillProfileForm> {
           AppTextFormField(
               hintText: 'example@email.com',
               validator: (email) {
-                if (!AppRegex.isValidEmail(email!)) {
+                if (!AppRegex.isValidEmail(email)) {
                   return 'Please enter a valid email';
                 }
                 return null;

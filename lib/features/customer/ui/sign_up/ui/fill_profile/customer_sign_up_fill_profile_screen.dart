@@ -5,12 +5,9 @@ import 'package:carrerk/core/widgets/app_edit_profile_picture.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
 import 'package:carrerk/features/customer/ui/sign_up/logic/customer_sign_up_cubit.dart';
 import 'package:carrerk/features/customer/ui/sign_up/ui/fill_profile/widgets/customer_fill_profile_form.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../logic/customer_sign_up_cubit.dart';
 
 class CustomerSignUpFillProfileScreen extends StatelessWidget {
   const CustomerSignUpFillProfileScreen({super.key});

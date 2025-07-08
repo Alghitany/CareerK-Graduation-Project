@@ -10,6 +10,7 @@ import 'package:carrerk/features/customer/ui/profile/data/model/view_profile_mod
 
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
+
 import '../../features/authentication/change_password/data/models/change_password_request_body.dart';
 import '../../features/authentication/change_password/data/models/change_password_response.dart';
 import '../../features/authentication/login/data/model/login_request_body.dart';
@@ -51,9 +52,14 @@ import '../../features/developer/ui/jobs/job_details/data/models/developer_jobs_
 import '../../features/developer/ui/jobs/search/data/models/developer_jobs_recently_posted_models/developer_jobs_recently_posted_response_body.dart';
 import '../../features/developer/ui/jobs/search/data/models/developer_services_recently_posted_models/developer_services_recently_posted_response_body.dart';
 import '../../features/developer/ui/jobs/service_details/data/model/developer_jobs_service_details_response_body.dart';
+import '../../features/developer/ui/profile/cv_generate/data/models/generate_models/developer_profile_cv_generate_generated_request_body.dart';
+import '../../features/developer/ui/profile/cv_generate/data/models/generate_models/developer_profile_cv_generate_generated_response.dart';
+import '../../features/developer/ui/profile/cv_generate/data/models/send_data_models/developer_profile_cv_generate_send_data_request_body.dart';
+import '../../features/developer/ui/profile/cv_generate/data/models/send_data_models/developer_profile_cv_generate_send_data_response.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/models/developer_profile_applied_jobs_models/developer_profile_applied_jobs_response_body.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/models/job_withdraw/developer_job_withdraw_response_body.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/models/service_delete/developer_service_delete_response_body.dart';
+import '../../features/developer/ui/profile/settings/data/models/developer_generate_cv_start_session_models/developer_generate_cv_start_session_response.dart';
 import '../../features/search/data/model/search_courses_response_body.dart';
 import 'api_constants.dart';
 
@@ -188,10 +194,30 @@ abstract class ApiService {
   @GET(ApiConstants.developerRecommendations)
   Future<DeveloperRecommendationsResponseBody> getDeveloperRecommendations();
 
-  //-> Profile Applied Jobs
+  //-> Profile
+  // Applied Jobs
   @GET(ApiConstants.developerProfileAppliedJobs)
   Future<DeveloperProfileAppliedJobsResponseBody>
       getDeveloperProfileAppliedJobs();
+
+  // Generate CV With Ai Start Session
+  @POST(ApiConstants.developerProfileGenerateCVStartSession)
+  Future<DeveloperGenerateCVStartSessionResponseBody>
+      startDeveloperGenerateCVSession();
+
+  // Generate CV With Ai Send Data
+  @PUT(ApiConstants.developerProfileGenerateCVSendData)
+  Future<DeveloperProfileCVGenerateSendDataResponse> sendDeveloperCVData(
+    @Path('sessionId') String sessionId,
+    @Body() DeveloperProfileCVGenerateSendDataRequestBody requestBody,
+  );
+
+  // Generate CV With Ai Generated
+  @POST(ApiConstants.developerProfileGenerateCVGenerated)
+  Future<DeveloperProfileCVGenerateGeneratedResponse> generateCV(
+    @Path('sessionId') String sessionId,
+    @Body() DeveloperProfileCVGenerateGeneratedRequestBody requestBody,
+  );
 
   // Delete Job Application by ID
   @DELETE(ApiConstants.developerJobWithdraw)
@@ -262,20 +288,24 @@ abstract class ApiService {
   //----------------- contact list
   @GET(ApiConstants.contactList)
   Future<ContactListAllChatsResponseBody> getContactListAllChats();
+
   // -----------------Home
 
   @GET(ApiConstants.customerHome)
   Future<CustomerHomeResponseBody> getCustomerHomeMainPage();
+
   //--------------- apiilied
   @GET(ApiConstants.customerApplied)
   Future<ApplicationsResponseBody> getCustomerAppliedScreen(
     @Path("applicantId") String applicantId,
   );
+
   //--------------- apiilied details
   @GET(ApiConstants.customerAppliedDetails)
   Future<ApplicationDetailsResponseBody> getApplicationDetails(
     @Path("applicantId") String applicantId,
   );
+
   // -------------reject
 
   // @PATCH(ApiConstants.rejectApplications)

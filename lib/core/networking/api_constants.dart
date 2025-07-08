@@ -89,6 +89,19 @@ class ApiConstants {
   static const String developerProfileAppliedJobs =
       "api/developer/my-applications";
 
+  //-> Generate CV With Ai
+  // Start Session
+  static const String developerProfileGenerateCVStartSession =
+      "api/cv-generation/session";
+
+  // Send Data
+  static const String developerProfileGenerateCVSendData =
+      "api/cv-generation/{sessionId}/data";
+
+  // Generate
+  static const String developerProfileGenerateCVGenerated =
+      "api/cv-generation/{sessionId}/generate";
+
   //-> Job Withdraw
   static const String developerJobWithdraw =
       "api/job-application/{applicationId}";
@@ -100,20 +113,27 @@ class ApiConstants {
   //------ customer ------------
   //->Sign up
   static const String customerSignup = "api/customer/register";
+
   //->Post Job
   static const String customerJobsPost = "api/service-post/create";
+
   //------ chats ------------
   static const String contactList = "api/private-chats";
+
   // ---- home----
   static const String customerHome = "api/customer/homepage";
+
   // ---- applied----
   static const String customerApplied =
       "api/service-application/post/{applicantId}";
+
   // ---- applied----
   static const String customerAppliedDetails =
       "api/service-application/{applicantId}";
+
   //------ Notifications ----
   static const String allNotification = "/api/notifications";
+
   //------ reject ----
   static const String rejectApplications =
       "api/service-application/{applicantId}/status";

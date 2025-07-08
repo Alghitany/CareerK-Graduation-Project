@@ -8,8 +8,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../../../core/helpers/spacing.dart';
-import '../../../../../../../../core/theming/styles.dart';
 import '../../../../../../../../core/routing/routes.dart';
+import '../../../../../../../../core/theming/styles.dart';
 
 class CustomerTopBarBlocBuilder extends StatelessWidget {
   const CustomerTopBarBlocBuilder({super.key});
