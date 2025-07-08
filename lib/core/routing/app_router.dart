@@ -75,6 +75,7 @@ import '../../features/company/ui/jobs/company_jobs_screen.dart';
 import '../../features/company/ui/jobs_post/logic/company_jobs_post_cubit.dart';
 import '../../features/company/ui/jobs_post/ui/success/company_job_post_success_screen.dart';
 import '../../features/company/ui/profile/logic/company_profile_all_job_posts_logic/company_profile_all_job_posts_cubit.dart';
+import '../../features/company/ui/profile/logic/company_profile_applicants_number_logic/company_profile_applicants_number_cubit.dart';
 import '../../features/company/ui/profile/logic/company_profile_info_logic/company_profile_info_cubit.dart';
 import '../../features/company/ui/profile/ui/company_profile_screen.dart';
 import '../../features/company/ui/send_to_applicants/message-applicant/company_send_to_applicants_message_applicant_screen.dart';
@@ -257,6 +258,10 @@ class AppRouter {
               BlocProvider(
                 create: (_) => getIt<CompanyProfileAllJobPostsCubit>()
                   ..getCompanyAllJobPosts(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<CompanyProfileApplicantsNumberCubit>()
+                  ..getApplicantsNumber(),
               ),
             ],
             child: const CompanyProfileScreen(),

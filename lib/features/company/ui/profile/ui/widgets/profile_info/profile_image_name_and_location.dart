@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 
+import '../../../../../../../core/widgets/app_edit_profile_picture.dart';
+
 class ProfileImageNameAndLocation extends StatelessWidget {
   final String? profileImage;
   final String? companyName;
@@ -21,27 +23,14 @@ class ProfileImageNameAndLocation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Center(
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(64.r),
-            child: Image.network(
-              profileImage ?? '',
-              width: 104.w,
-              height: 104.h,
-              fit: BoxFit.cover,
-              loadingBuilder: (context, child, loadingProgress) {
-                if (loadingProgress == null) return child;
-                return shimmerImagePlaceholder();
-              },
-              errorBuilder: (context, error, stackTrace) {
-                return Image.asset(
-                  'assets/images/company_logo.png',
-                  width: 104.w,
-                  height: 104.h,
-                  fit: BoxFit.cover,
-                );
-              },
-            ),
+        Padding(
+          padding: EdgeInsets.fromLTRB(0.0.w, 8.h, 0.w, 0.h),
+          child: AppEditProfilePicture(
+            profileImage: profileImage,
+            imageRadius: 60,
+            editIconBackgroundRadius: 15,
+            editIconHeight: 15,
+            editIconWidth: 15,
           ),
         ),
         verticalSpace(34),

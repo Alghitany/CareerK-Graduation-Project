@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../../../../../core/helpers/spacing.dart';
 import '../../../data/models/post_details_models/job_details_response_body.dart';
 import '../../../logic/post_details_logic/job_details_cubit.dart';

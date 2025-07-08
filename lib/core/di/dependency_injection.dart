@@ -59,9 +59,11 @@ import '../../features/company/ui/home/ui/see_resume/data/repo/company_home_see_
 import '../../features/company/ui/home/ui/see_resume/logic/company_home_see_resume_cubit.dart';
 import '../../features/company/ui/jobs_post/data/repos/company_jobs_post_repo.dart';
 import '../../features/company/ui/jobs_post/logic/company_jobs_post_cubit.dart';
+import '../../features/company/ui/profile/data/repos/company_get_applicant_number_repo.dart';
 import '../../features/company/ui/profile/data/repos/company_profile_all_job_posts_repo.dart';
 import '../../features/company/ui/profile/data/repos/company_profile_info_repo.dart';
 import '../../features/company/ui/profile/logic/company_profile_all_job_posts_logic/company_profile_all_job_posts_cubit.dart';
+import '../../features/company/ui/profile/logic/company_profile_applicants_number_logic/company_profile_applicants_number_cubit.dart';
 import '../../features/company/ui/profile/logic/company_profile_info_logic/company_profile_info_cubit.dart';
 import '../../features/company/ui/sign_up/data/repo/company_sign_up_repo.dart';
 import '../../features/company/ui/sign_up/logic/company_sign_up_cubit.dart';
@@ -284,6 +286,15 @@ Future<void> setupGetIt() async {
   );
   getIt.registerFactory<CompanyProfileInfoCubit>(
     () => CompanyProfileInfoCubit(getIt()),
+  );
+
+  //get Company Applicant Number
+  getIt.registerLazySingleton<CompanyProfileApplicantsNumberRepo>(
+    () => CompanyProfileApplicantsNumberRepo(getIt()),
+  );
+
+  getIt.registerFactory<CompanyProfileApplicantsNumberCubit>(
+    () => CompanyProfileApplicantsNumberCubit(getIt()),
   );
 
   // All Job Posts

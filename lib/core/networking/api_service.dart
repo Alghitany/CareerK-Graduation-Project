@@ -28,6 +28,7 @@ import '../../features/company/ui/home/ui/see_resume/data/model/company_home_see
 import '../../features/company/ui/jobs_post/data/models/company_jobs_post_request_body.dart';
 import '../../features/company/ui/jobs_post/data/models/company_jobs_post_response.dart';
 import '../../features/company/ui/profile/data/models/company_profile_all_jobs_posts_models/company_profile_all_job_posts_response_body.dart';
+import '../../features/company/ui/profile/data/models/company_profile_applicants_number_models/company_profile_applicants_number_response_body.dart';
 import '../../features/company/ui/profile/data/models/company_profile_models/company_profile_response_body.dart';
 import '../../features/customer/ui/home/model/model/customer_home_response_body.dart';
 import '../../features/developer/data/models/developer_courses_and_jobs_main_page_profile_models/developer_courses_and_jobs_main_page_profile_response_model.dart';
@@ -199,6 +200,11 @@ abstract class ApiService {
   // Company All Job Posts
   @GET(ApiConstants.companyProfileAllJobPosts)
   Future<CompanyProfileAllJobPostsResponseBody> getCompanyProfileAllJobPosts();
+
+  // Company Get Applicants Number
+  @GET(ApiConstants.companyProfileApplicantsNumber)
+  Future<CompanyProfileApplicantsNumberResponseBody>
+      companyProfileGetApplicantsNumber();
 
   // Applied Jobs
   @GET(ApiConstants.developerProfileAppliedJobs)

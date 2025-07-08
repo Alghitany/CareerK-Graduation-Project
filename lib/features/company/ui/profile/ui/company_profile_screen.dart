@@ -1,4 +1,5 @@
 import 'package:carrerk/core/helpers/spacing.dart';
+import 'package:carrerk/features/company/ui/profile/ui/widgets/jobs_and_applicants_number/number_of_jobs_and_applicants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -26,7 +27,7 @@ class CompanyProfileScreen extends StatelessWidget {
               children: [
                 const ProfileInfoBlocBuilder(),
                 verticalSpace(11),
-                //const NumberOfJobsAndApplicants(),
+                const NumberOfJobsAndApplicants(),
                 verticalSpace(32),
                 const ProfileAllJobPostsBlocBuilder(),
               ],
