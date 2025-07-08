@@ -85,6 +85,9 @@ class ApiConstants {
       "/api/course-details/{courseId}/reviews";
 
   //-----> Profile
+  //->Profile
+  static const String companyProfile = "api/company/profile";
+
   //-> Applied Jobs
   static const String developerProfileAppliedJobs =
       "api/developer/my-applications";

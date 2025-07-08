@@ -61,6 +61,8 @@ import '../../features/company/ui/home/ui/see_resume/data/repo/company_home_see_
 import '../../features/company/ui/home/ui/see_resume/logic/company_home_see_resume_cubit.dart';
 import '../../features/company/ui/jobs_post/data/repos/company_jobs_post_repo.dart';
 import '../../features/company/ui/jobs_post/logic/company_jobs_post_cubit.dart';
+import '../../features/company/ui/profile/data/repos/company_profile_repo.dart';
+import '../../features/company/ui/profile/logic/company_profile_logic/company_profile_cubit.dart';
 import '../../features/company/ui/sign_up/data/repo/company_sign_up_repo.dart';
 import '../../features/company/ui/sign_up/logic/company_sign_up_cubit.dart';
 import '../../features/customer/ui/home/model/repo/customer_home_repo.dart';
@@ -273,6 +275,14 @@ Future<void> setupGetIt() async {
     () => SpecificCourseReviewsCubit(getIt()),
   );
   // -> Profile
+  // Company Profile
+  getIt.registerLazySingleton<CompanyProfileRepo>(
+    () => CompanyProfileRepo(getIt()),
+  );
+  getIt.registerFactory<CompanyProfileCubit>(
+    () => CompanyProfileCubit(getIt()),
+  );
+
   // -> Jobs Applied
   getIt.registerLazySingleton<DeveloperProfileAppliedJobsRepo>(
     () => DeveloperProfileAppliedJobsRepo(getIt()),

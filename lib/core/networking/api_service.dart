@@ -27,6 +27,7 @@ import '../../features/company/ui/home/ui/see_details/data/model/company_home_se
 import '../../features/company/ui/home/ui/see_resume/data/model/company_home_see_resume_response_body.dart';
 import '../../features/company/ui/jobs_post/data/models/company_jobs_post_request_body.dart';
 import '../../features/company/ui/jobs_post/data/models/company_jobs_post_response.dart';
+import '../../features/company/ui/profile/data/models/company_profile_models/company_profile_response_body.dart';
 import '../../features/customer/ui/home/model/model/customer_home_response_body.dart';
 import '../../features/developer/data/models/developer_courses_and_jobs_main_page_profile_models/developer_courses_and_jobs_main_page_profile_response_model.dart';
 import '../../features/developer/data/models/developer_recommendtions_models/developer_recommendations_response_body.dart';
@@ -189,6 +190,11 @@ abstract class ApiService {
   Future<DeveloperRecommendationsResponseBody> getDeveloperRecommendations();
 
   //-> Profile
+
+  // Company profile
+  @GET(ApiConstants.companyProfile)
+  Future<CompanyProfileResponseBody> getCompanyProfile();
+
   // Applied Jobs
   @GET(ApiConstants.developerProfileAppliedJobs)
   Future<DeveloperProfileAppliedJobsResponseBody>

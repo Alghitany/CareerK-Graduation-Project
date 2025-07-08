@@ -2,12 +2,11 @@ import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/widgets/company_bottom_navigation_bar.dart';
-import '../../../../core/widgets/company_floating_action_button.dart';
-import 'widgets/all_jobs_list.dart';
-import 'widgets/number_of_jobs_and_applicants.dart';
-import 'widgets/profile_icons.dart';
-import 'widgets/profile_image_name_and_location.dart';
+import '../../../../../core/widgets/company_bottom_navigation_bar.dart';
+import '../../../../../core/widgets/company_floating_action_button.dart';
+import '../../../../customer/ui/profile/widgets/all_jobs_list.dart';
+import '../../../../customer/ui/profile/widgets/number_of_applicant.dart';
+import 'widgets/profile_info_bloc_builder.dart';
 
 class CompanyProfileScreen extends StatelessWidget {
   const CompanyProfileScreen({super.key});
@@ -26,9 +25,7 @@ class CompanyProfileScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                const ProfileImageNameAndLocation(),
-                verticalSpace(16),
-                const ProfileIcons(),
+                const ProfileInfoBlocBuilder(),
                 verticalSpace(11),
                 const NumberOfJobsAndApplicants(),
                 verticalSpace(32),

@@ -1,10 +1,11 @@
 import 'package:carrerk/core/helpers/spacing.dart';
-import 'package:carrerk/features/company/ui/profile/widgets/profile_image_name_and_location.dart';
 import 'package:carrerk/features/customer/ui/profile/widgets/all_jobs_list.dart';
 import 'package:carrerk/features/customer/ui/profile/widgets/follow_contactus_buttons.dart';
 import 'package:carrerk/features/customer/ui/profile/widgets/number_of_applicant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../company/ui/profile/ui/widgets/profile_info/profile_image_name_and_location.dart';
 
 class CustomerProfileScreen extends StatelessWidget {
   const CustomerProfileScreen({super.key});

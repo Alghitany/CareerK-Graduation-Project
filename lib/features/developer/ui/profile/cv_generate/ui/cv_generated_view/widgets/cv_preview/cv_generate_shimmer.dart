@@ -15,7 +15,8 @@ class CVGenerateShimmer extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Lottie.asset(
-              'assets/animations/pdf_generate.json', // You can change the Lottie animation here
+              'assets/animations/pdf_generate.json',
+              // You can change the Lottie animation here
               width: 150.w,
               height: 150.h,
               fit: BoxFit.contain,

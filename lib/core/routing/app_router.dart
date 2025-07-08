@@ -74,7 +74,8 @@ import '../../features/company/ui/home/ui/send_offer/company_home_send_offer_scr
 import '../../features/company/ui/jobs/company_jobs_screen.dart';
 import '../../features/company/ui/jobs_post/logic/company_jobs_post_cubit.dart';
 import '../../features/company/ui/jobs_post/ui/success/company_job_post_success_screen.dart';
-import '../../features/company/ui/profile/company_profile_screen.dart';
+import '../../features/company/ui/profile/logic/company_profile_logic/company_profile_cubit.dart';
+import '../../features/company/ui/profile/ui/company_profile_screen.dart';
 import '../../features/company/ui/send_to_applicants/message-applicant/company_send_to_applicants_message_applicant_screen.dart';
 import '../../features/company/ui/sign_up/logic/company_sign_up_cubit.dart';
 import '../../features/customer/ui/sign_up/logic/customer_sign_up_cubit.dart';
@@ -246,8 +247,12 @@ class AppRouter {
       // Profile
       case Routes.companyProfileScreen:
         return MaterialPageRoute(
-          builder: (_) => const CompanyProfileScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<CompanyProfileCubit>()..getCompanyProfile(),
+            child: const CompanyProfileScreen(),
+          ),
         );
+
       // Jobs Post
       case Routes.companyJobsPostFlow:
         return MaterialPageRoute(
@@ -384,8 +389,8 @@ class AppRouter {
             providers: [
               BlocProvider(
                 create: (_) =>
-                getIt<DeveloperCoursesAndJobsMainPageProfileCubit>()
-                  ..getDeveloperCoursesMainPageProfile(),
+                    getIt<DeveloperCoursesAndJobsMainPageProfileCubit>()
+                      ..getDeveloperCoursesMainPageProfile(),
               ),
               BlocProvider(
                 create: (_) => getIt<DeveloperCoursesMainPageRoadmapsCubit>()
@@ -440,7 +445,8 @@ class AppRouter {
       case Routes.developerCoursesRoadmapsScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) => getIt<DeveloperCoursesRoadmapsCubit>()..getDeveloperCoursesRoadmaps(),
+            create: (context) => getIt<DeveloperCoursesRoadmapsCubit>()
+              ..getDeveloperCoursesRoadmaps(),
             child: const DeveloperCoursesRoadmapsScreen(),
           ),
         );
@@ -469,8 +475,8 @@ class AppRouter {
             providers: [
               BlocProvider(
                 create: (_) =>
-                getIt<DeveloperCoursesAndJobsMainPageProfileCubit>()
-                  ..getDeveloperCoursesMainPageProfile(),
+                    getIt<DeveloperCoursesAndJobsMainPageProfileCubit>()
+                      ..getDeveloperCoursesMainPageProfile(),
               ),
             ],
             child: const DeveloperJobsMainPageScreen(),

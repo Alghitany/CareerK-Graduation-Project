@@ -1,13 +1,22 @@
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class ProfileIcons extends StatelessWidget {
-  const ProfileIcons({super.key});
+  final String phoneNumber;
+  final String email;
+  final String location;
 
-  //TODO: This widget is duplicated should be reviewed
+  const ProfileIcons({
+    super.key,
+    required this.phoneNumber,
+    required this.email,
+    required this.location,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -15,31 +24,27 @@ class ProfileIcons extends StatelessWidget {
         const Spacer(),
         customCirclePhoneMessageLocationContainer(
           icon: "assets/svgs/phone_outlined.svg",
-          onTap: () {
-            //TODO Navigation Here
-          },
+          onTap: () => _showDialog(context, "Phone", phoneNumber),
         ),
         horizontalSpace(24),
         customCirclePhoneMessageLocationContainer(
           icon: "assets/svgs/mail_outlined.svg",
-          onTap: () {
-            //TODO Navigation Here
-          },
+          onTap: () => _showDialog(context, "Email", email),
         ),
         horizontalSpace(24),
         customCirclePhoneMessageLocationContainer(
           icon: "assets/svgs/location_pin_outlined.svg",
-          onTap: () {
-            //TODO Navigation Here
-          },
+          onTap: () => _showDialog(context, "Location", location),
         ),
         const Spacer(),
       ],
     );
   }
 
-  Widget customCirclePhoneMessageLocationContainer(
-      {required icon, required onTap}) {
+  Widget customCirclePhoneMessageLocationContainer({
+    required String icon,
+    required VoidCallback onTap,
+  }) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -60,6 +65,32 @@ class ProfileIcons extends StatelessWidget {
           colorFilter:
               const ColorFilter.mode(ColorsManager.duskyBlue, BlendMode.srcIn),
         ),
+      ),
+    );
+  }
+
+  void _showDialog(BuildContext context, String title, String value) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(title),
+        content: Text(value.isNotEmpty ? value : 'No $title provided'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Clipboard.setData(ClipboardData(text: value));
+              Navigator.of(context).pop();
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Copied to clipboard')),
+              );
+            },
+            child: const Text('Copy'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('Close'),
+          ),
+        ],
       ),
     );
   }
