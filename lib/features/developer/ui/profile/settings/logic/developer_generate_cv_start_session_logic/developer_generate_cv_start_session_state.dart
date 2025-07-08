@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../data/models/developer_generate_cv_start_session_models/developer_generate_cv_start_session_response.dart';
+
 part 'developer_generate_cv_start_session_state.freezed.dart';
 
 @freezed

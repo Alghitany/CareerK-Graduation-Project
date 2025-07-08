@@ -2,13 +2,21 @@ import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/widgets/app_label.dart';
 import 'package:carrerk/core/widgets/app_text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../logic/send_data_logic/developer_profile_cv_generate_send_data_cubit.dart';
+
 class EducationForm extends StatelessWidget {
-  const EducationForm({super.key});
+  final int index;
+
+  const EducationForm({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<DeveloperProfileCVGenerateSendDataCubit>();
+    final controllers = cubit.educationControllers[index];
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -21,6 +29,7 @@ class EducationForm extends StatelessWidget {
             SizedBox(
               width: 220.w,
               child: AppTextFormField(
+                controller: controllers['institution'],
                 height: 40.h,
                 contentPadding:
                     EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),
@@ -43,6 +52,7 @@ class EducationForm extends StatelessWidget {
             SizedBox(
               width: 200.w,
               child: AppTextFormField(
+                controller: controllers['field'],
                 height: 40.h,
                 contentPadding:
                     EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),
@@ -65,6 +75,7 @@ class EducationForm extends StatelessWidget {
             SizedBox(
               width: 70.w,
               child: AppTextFormField(
+                controller: controllers['startDate'],
                 height: 40.h,
                 keyboardType: TextInputType.number,
                 contentPadding:
@@ -81,6 +92,7 @@ class EducationForm extends StatelessWidget {
             SizedBox(
               width: 70.w,
               child: AppTextFormField(
+                controller: controllers['endDate'],
                 height: 40.h,
                 keyboardType: TextInputType.number,
                 contentPadding:
@@ -93,7 +105,6 @@ class EducationForm extends StatelessWidget {
             ),
           ],
         ),
-
         verticalSpace(8),
 
         /// Degree & GPA Row
@@ -105,6 +116,7 @@ class EducationForm extends StatelessWidget {
             SizedBox(
               width: 140.w,
               child: AppTextFormField(
+                controller: controllers['degree'],
                 height: 40.h,
                 contentPadding:
                     EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),
@@ -120,6 +132,7 @@ class EducationForm extends StatelessWidget {
             SizedBox(
               width: 55.w,
               child: AppTextFormField(
+                controller: controllers['gpa'],
                 height: 40.h,
                 contentPadding:
                     EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),

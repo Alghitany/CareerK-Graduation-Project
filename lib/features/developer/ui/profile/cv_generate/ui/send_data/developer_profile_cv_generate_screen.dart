@@ -2,12 +2,15 @@ import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
+import 'package:carrerk/features/developer/ui/profile/cv_generate/logic/send_data_logic/developer_profile_cv_generate_send_data_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'widgets/additional/additional_information_form.dart';
 import 'widgets/certification/certifications_form.dart';
+import 'widgets/developer_profile_cv_generate_send_data_bloc_listener.dart';
 import 'widgets/education/education_form.dart';
 import 'widgets/experience/experience_form.dart';
 import 'widgets/personal_info/personal_info_form.dart';
@@ -40,11 +43,19 @@ class _DeveloperProfileCVGenerateScreenState
   @override
   void initState() {
     super.initState();
-    print("Sesssssssssssssssssssion ID : ${widget.sessionId}");
+    final cubit = context.read<DeveloperProfileCVGenerateSendDataCubit>();
+
+    cubit.addEducationControllers();
+    cubit.addExperienceControllers();
+    cubit.addProjectControllers();
+    cubit.addCertificationControllers();
+    cubit.addAdditionalControllers();
   }
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<DeveloperProfileCVGenerateSendDataCubit>();
+
     return Scaffold(
       backgroundColor: ColorsManager.catskillWhite,
       body: SafeArea(
@@ -52,7 +63,9 @@ class _DeveloperProfileCVGenerateScreenState
           controller: _scrollController,
           padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 16.h),
           children: [
-            GenerateCVTopBar(onSubmit: () {}),
+            GenerateCVTopBar(onSubmit: () {
+              cubit.emitSendDataState(sessionId: widget.sessionId);
+            }),
             verticalSpace(8),
 
             /// Personal Info Section
@@ -73,7 +86,9 @@ class _DeveloperProfileCVGenerateScreenState
               iconPath: 'assets/svgs/education.svg',
               title: 'Education',
               hint: "Institution, Field, Date, Degree, GPA",
-              form: const EducationForm(),
+              formBuilder: (index) => EducationForm(index: index),
+              onAddController: cubit.addEducationControllers,
+              cubit: cubit,
             ),
             verticalSpace(8),
 
@@ -82,7 +97,9 @@ class _DeveloperProfileCVGenerateScreenState
               iconPath: 'assets/svgs/experience.svg',
               title: 'Experience',
               hint: "Position, Company, Achieved, Date",
-              form: const ExperienceForm(),
+              formBuilder: (index) => ExperienceForm(index: index),
+              onAddController: cubit.addExperienceControllers,
+              cubit: cubit,
             ),
             verticalSpace(8),
 
@@ -99,7 +116,9 @@ class _DeveloperProfileCVGenerateScreenState
               iconPath: 'assets/svgs/projects.svg',
               title: 'Projects',
               hint: "Title, Technologies, Description",
-              form: const ProjectsForm(),
+              formBuilder: (index) => ProjectsForm(index: index),
+              onAddController: cubit.addProjectControllers,
+              cubit: cubit,
             ),
             verticalSpace(8),
 
@@ -108,7 +127,9 @@ class _DeveloperProfileCVGenerateScreenState
               iconPath: 'assets/svgs/certificate.svg',
               title: 'Certifications',
               hint: "Certificate, Issuer, Date",
-              form: const CertificationsForm(),
+              formBuilder: (index) => CertificationsForm(index: index),
+              onAddController: cubit.addCertificationControllers,
+              cubit: cubit,
             ),
             verticalSpace(8),
 
@@ -117,17 +138,22 @@ class _DeveloperProfileCVGenerateScreenState
               iconPath: 'assets/svgs/add.svg',
               title: 'Additional',
               hint: "Languages, SoftSkills, Activities",
-              form: const AdditionalForm(),
+              formBuilder: (index) => AdditionalForm(index: index),
+              onAddController: cubit.addAdditionalControllers,
+              cubit: cubit,
             ),
             verticalSpace(8),
 
             AppTextButton(
               onPressed: () {
-                //TODO:Generate Functionality
+                cubit.emitSendDataState(sessionId: widget.sessionId);
               },
               buttonText: "Generate",
               textStyle: AppTextStyles.font14WhitePoppinsMedium,
-            )
+            ),
+
+            DeveloperProfileCVGenerateSendDataBlocListener(
+                sessionId: widget.sessionId),
           ],
         ),
       ),
@@ -139,7 +165,10 @@ class _DeveloperProfileCVGenerateScreenState
     required String iconPath,
     required String title,
     required String hint,
-    required Widget form,
+    required Widget Function(int index) formBuilder,
+    required VoidCallback onAddController,
+    required DeveloperProfileCVGenerateSendDataCubit
+        cubit, // ✅ Added cubit param
   }) {
     final GlobalKey<AnimatedListState> listKey = GlobalKey<AnimatedListState>();
 
@@ -169,9 +198,10 @@ class _DeveloperProfileCVGenerateScreenState
                     ),
                     title: title,
                     hint: hint,
-                    content: form,
+                    content: formBuilder(index),
                     onAdd: () {
-                      /// 👉 Correct Flow:
+                      onAddController();
+
                       final newIndex = tiles.length;
                       tiles.add(newIndex);
                       listKey.currentState?.insertItem(
@@ -180,7 +210,6 @@ class _DeveloperProfileCVGenerateScreenState
                       );
                       setInnerState(() {});
 
-                      /// Auto-scroll after a slight delay
                       Future.delayed(const Duration(milliseconds: 300), () {
                         _scrollController.animateTo(
                           _scrollController.position.maxScrollExtent + 300,
@@ -192,8 +221,30 @@ class _DeveloperProfileCVGenerateScreenState
                     onRemove: tiles.length > 1
                         ? () {
                             final removedIndex = index;
-                            // DON'T REMOVE THIS DELETE WILL BE BROKEN IF U DID
-                            final removedTile = tiles.removeAt(removedIndex);
+
+                            switch (title) {
+                              case 'Education':
+                                cubit.educationControllers
+                                    .removeAt(removedIndex);
+                                break;
+                              case 'Experience':
+                                cubit.experienceControllers
+                                    .removeAt(removedIndex);
+                                break;
+                              case 'Projects':
+                                cubit.projectControllers.removeAt(removedIndex);
+                                break;
+                              case 'Certifications':
+                                cubit.certificationControllers
+                                    .removeAt(removedIndex);
+                                break;
+                              case 'Additional':
+                                cubit.additionalControllers
+                                    .removeAt(removedIndex);
+                                break;
+                            }
+
+                            tiles.removeAt(removedIndex);
                             listKey.currentState?.removeItem(
                               removedIndex,
                               (context, animation) {
@@ -207,7 +258,7 @@ class _DeveloperProfileCVGenerateScreenState
                                     icon: SvgPicture.asset(iconPath),
                                     title: title,
                                     hint: hint,
-                                    content: form,
+                                    content: formBuilder(index),
                                   ),
                                 );
                               },

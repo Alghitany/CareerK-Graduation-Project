@@ -50,26 +50,22 @@ class SectionCard extends StatelessWidget {
           title: Row(
             children: [
               Expanded(
-                child:
-                    Text(title, style: AppTextStyles.font16DunePoppinsSemiBold),
+                child: Text(
+                  title,
+                  style: AppTextStyles.font16DunePoppinsSemiBold,
+                ),
               ),
               if (onRemove != null)
-                GestureDetector(
-                  behavior: HitTestBehavior.opaque,
-                  onTap: onRemove,
-                  child: const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Icon(Icons.close, color: Colors.red),
-                  ),
+                IconButton(
+                  icon: const Icon(Icons.close, color: Colors.red),
+                  onPressed: onRemove,
+                  tooltip: 'Remove',
                 ),
               if (onAdd != null)
-                GestureDetector(
-                  behavior: HitTestBehavior.opaque,
-                  onTap: onAdd,
-                  child: const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Icon(Icons.add, color: ColorsManager.blueBell),
-                  ),
+                IconButton(
+                  icon: const Icon(Icons.add, color: ColorsManager.blueBell),
+                  onPressed: onAdd,
+                  tooltip: 'Add',
                 ),
             ],
           ),

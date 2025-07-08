@@ -78,6 +78,7 @@ import '../../features/company/ui/profile/company_profile_screen.dart';
 import '../../features/company/ui/send_to_applicants/message-applicant/company_send_to_applicants_message_applicant_screen.dart';
 import '../../features/company/ui/sign_up/logic/company_sign_up_cubit.dart';
 import '../../features/customer/ui/sign_up/logic/customer_sign_up_cubit.dart';
+import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
 import '../../features/developer/logic/developer_recommendations_logic/developer_recommendations_cubit.dart';
 import '../../features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
 import '../../features/developer/ui/courses/related_courses/developer_courses_related_courses_screen.dart';
@@ -98,7 +99,11 @@ import '../../features/developer/ui/jobs/search/logic/developer_services_recentl
 import '../../features/developer/ui/jobs/search/ui/developer_jobs_search_screen.dart';
 import '../../features/developer/ui/jobs/service_details/logic/developer_jobs_service_details_cubit.dart';
 import '../../features/developer/ui/jobs/service_details/ui/developer_jobs_service_details_screen.dart';
-import '../../features/developer/ui/profile/cv_generate/ui/developer_profile_cv_generate_screen.dart';
+import '../../features/developer/ui/profile/cv_generate/data/models/generate_models/developer_profile_cv_generate_generated_request_body.dart';
+import '../../features/developer/ui/profile/cv_generate/logic/generate_logic/developer_profile_cv_generate_generated_cubit.dart';
+import '../../features/developer/ui/profile/cv_generate/logic/send_data_logic/developer_profile_cv_generate_send_data_cubit.dart';
+import '../../features/developer/ui/profile/cv_generate/ui/cv_generated_view/developer_profile_cv_generated_view_screen.dart';
+import '../../features/developer/ui/profile/cv_generate/ui/send_data/developer_profile_cv_generate_screen.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_job_withdraw_repo.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_profile_applied_jobs_repo.dart';
 import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_service_delete_repo.dart';
@@ -372,8 +377,13 @@ class AppRouter {
       // Courses
       case Routes.developerCoursesMainPageScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperCoursesMainPageScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<DeveloperCoursesAndJobsMainPageProfileCubit>()
+              ..getDeveloperCoursesMainPageProfile(),
+            child: const DeveloperCoursesMainPageScreen(),
+          ),
         );
+
       case Routes.developerCoursesRelatedCoursesScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperCoursesRelatedCoursesScreen(),
@@ -435,7 +445,11 @@ class AppRouter {
       //---> Jobs
       case Routes.developerJobsMainPageScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperJobsMainPageScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<DeveloperCoursesAndJobsMainPageProfileCubit>()
+              ..getDeveloperCoursesMainPageProfile(),
+            child: const DeveloperJobsMainPageScreen(),
+          ),
         );
       case Routes.developerJobsSearchScreen:
         return MaterialPageRoute(
@@ -528,8 +542,24 @@ class AppRouter {
       case Routes.developerProfileCVGenerateScreen:
         final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-          builder: (_) =>
-              DeveloperProfileCVGenerateScreen(sessionId: args.sessionId!),
+          builder: (_) => BlocProvider(
+            create: (context) =>
+                getIt<DeveloperProfileCVGenerateSendDataCubit>(),
+            child: DeveloperProfileCVGenerateScreen(sessionId: args.sessionId!),
+          ),
+        );
+      case Routes.developerProfileCvGeneratedViewScreen:
+        final args = settings.arguments as AppArgument;
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<DeveloperProfileCVGenerateGeneratedCubit>()
+              ..generateCV(
+                  sessionId: args.sessionId!,
+                  requestBody:
+                      DeveloperProfileCVGenerateGeneratedRequestBody()),
+            child: DeveloperProfileCvGeneratedViewScreen(
+                sessionId: args.sessionId!),
+          ),
         );
       case Routes.developerProfileSavedJobsScreen:
         return MaterialPageRoute(

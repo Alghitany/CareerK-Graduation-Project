@@ -11,19 +11,28 @@ class DeveloperGenerateCVStartSessionCubit
       : super(const DeveloperGenerateCVStartSessionState.initial());
 
   Future<void> startCVSession() async {
+    if (isClosed) return; // 👈 Prevent emitting after closing
     emit(const DeveloperGenerateCVStartSessionState.sessionStarting());
 
     final response = await _repo.startSession();
 
+    if (isClosed) return; // 👈 Prevent emitting after closing (after await)
     response.when(
-      success: (data) => emit(
-        DeveloperGenerateCVStartSessionState.sessionStartedSuccess(data),
-      ),
-      failure: (error) => emit(
-        DeveloperGenerateCVStartSessionState.sessionStartError(
-          error: error.apiErrorModel.message ?? 'Failed to start session',
-        ),
-      ),
+      success: (data) {
+        if (!isClosed) {
+          emit(
+              DeveloperGenerateCVStartSessionState.sessionStartedSuccess(data));
+        }
+      },
+      failure: (error) {
+        if (!isClosed) {
+          emit(
+            DeveloperGenerateCVStartSessionState.sessionStartError(
+              error: error.apiErrorModel.message ?? 'Failed to start session',
+            ),
+          );
+        }
+      },
     );
   }
 }

@@ -3,13 +3,18 @@ import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/widgets/app_label.dart';
 import 'package:carrerk/core/widgets/app_text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../logic/send_data_logic/developer_profile_cv_generate_send_data_cubit.dart';
 
 class PersonalInfoForm extends StatelessWidget {
   const PersonalInfoForm({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<DeveloperProfileCVGenerateSendDataCubit>();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -22,6 +27,7 @@ class PersonalInfoForm extends StatelessWidget {
             SizedBox(
               width: 220.w,
               child: AppTextFormField(
+                controller: cubit.nameController,
                 height: 40.h,
                 contentPadding:
                     EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),
@@ -47,6 +53,7 @@ class PersonalInfoForm extends StatelessWidget {
             SizedBox(
               width: 220.w,
               child: AppTextFormField(
+                controller: cubit.emailController,
                 height: 40.h,
                 contentPadding:
                     EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),
@@ -72,6 +79,7 @@ class PersonalInfoForm extends StatelessWidget {
             SizedBox(
               width: 220.w,
               child: AppTextFormField(
+                controller: cubit.phoneController,
                 height: 40.h,
                 contentPadding:
                     EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),
@@ -97,6 +105,7 @@ class PersonalInfoForm extends StatelessWidget {
             SizedBox(
               width: 220.w,
               child: AppTextFormField(
+                controller: cubit.addressController,
                 height: 40.h,
                 contentPadding:
                     EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),
@@ -122,6 +131,7 @@ class PersonalInfoForm extends StatelessWidget {
             SizedBox(
               width: 220.w,
               child: AppTextFormField(
+                controller: cubit.portfolioController,
                 height: 40.h,
                 contentPadding:
                     EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),
@@ -144,6 +154,7 @@ class PersonalInfoForm extends StatelessWidget {
             SizedBox(
               width: 220.w,
               child: AppTextFormField(
+                controller: cubit.linkedinController,
                 height: 40.h,
                 contentPadding:
                     EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),

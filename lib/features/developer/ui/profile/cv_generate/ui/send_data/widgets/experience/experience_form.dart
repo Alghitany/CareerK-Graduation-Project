@@ -1,17 +1,23 @@
-// widgets/experience_form/experience_form.dart
-
 import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/widgets/app_label.dart';
 import 'package:carrerk/core/widgets/app_text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../logic/send_data_logic/developer_profile_cv_generate_send_data_cubit.dart';
+
 class ExperienceForm extends StatelessWidget {
-  const ExperienceForm({super.key});
+  final int index;
+
+  const ExperienceForm({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<DeveloperProfileCVGenerateSendDataCubit>();
+    final controllers = cubit.experienceControllers[index];
+
     return Column(
       children: [
         /// Position Name Row
@@ -23,6 +29,7 @@ class ExperienceForm extends StatelessWidget {
             SizedBox(
               width: 230.w,
               child: AppTextFormField(
+                controller: controllers['position'],
                 height: 40.h,
                 hintText: 'Frontend Developer',
                 validator: (value) {
@@ -46,6 +53,7 @@ class ExperienceForm extends StatelessWidget {
             SizedBox(
               width: 230.w,
               child: AppTextFormField(
+                controller: controllers['company'],
                 height: 40.h,
                 hintText: 'Google',
                 validator: (value) {
@@ -60,7 +68,7 @@ class ExperienceForm extends StatelessWidget {
         ),
         verticalSpace(8),
 
-        /// Achievements Row
+        /// Achievements Row (Comma-separated)
         Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -69,12 +77,13 @@ class ExperienceForm extends StatelessWidget {
             SizedBox(
               width: 230.w,
               child: AppTextFormField(
+                controller: controllers['achievements'],
                 height: 60.h,
-                hintText: 'Enter your achievements...',
+                hintText: 'Achievement 1, Achievement 2...',
                 keyboardType: TextInputType.multiline,
                 minLines: 2,
                 maxLines: 3,
-                validator: (skills) {
+                validator: (value) {
                   return null;
                 },
               ),
@@ -83,37 +92,39 @@ class ExperienceForm extends StatelessWidget {
         ),
         verticalSpace(8),
 
-        /// Start Date & End Date Row
+        /// Start Year & End Year Row
         Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const AppLabel(text: "Start:"),
+            const AppLabel(text: "Start Year:"),
             const Spacer(),
             SizedBox(
-              width: 100.w,
+              width: 70.w,
               child: AppTextFormField(
+                controller: controllers['startDate'],
                 height: 40.h,
-                hintText: '2020',
+                keyboardType: TextInputType.number,
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),
+                hintText: '2018',
                 validator: (value) {
-                  if (value.isNullOrEmpty()) {
-                    return "Enter start date";
-                  }
                   return null;
                 },
               ),
             ),
             horizontalSpace(12),
-            const AppLabel(text: "End:"),
+            const AppLabel(text: "End Year:"),
             const Spacer(),
             SizedBox(
-              width: 100.w,
+              width: 70.w,
               child: AppTextFormField(
+                controller: controllers['endDate'],
                 height: 40.h,
-                hintText: '2023',
+                keyboardType: TextInputType.number,
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),
+                hintText: '2022',
                 validator: (value) {
-                  if (value.isNullOrEmpty()) {
-                    return "Enter end date";
-                  }
                   return null;
                 },
               ),
