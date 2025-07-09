@@ -1,7 +1,7 @@
 import '../../../../../../../core/networking/api_error_handler.dart';
 import '../../../../../../../core/networking/api_result.dart';
 import '../../../../../../../core/networking/api_service.dart';
-import '../models/developer_courses_main_page_roadmaps_response_model.dart';
+import '../models/main_page_roadmaps_models/developer_courses_main_page_roadmaps_response_model.dart';
 
 class DeveloperCoursesMainPageRoadmapsRepo {
   final ApiService _apiService;
