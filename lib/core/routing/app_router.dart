@@ -74,7 +74,11 @@ import '../../features/company/ui/home/ui/send_offer/company_home_send_offer_scr
 import '../../features/company/ui/jobs/company_jobs_screen.dart';
 import '../../features/company/ui/jobs_post/logic/company_jobs_post_cubit.dart';
 import '../../features/company/ui/jobs_post/ui/success/company_job_post_success_screen.dart';
-import '../../features/company/ui/profile/company_profile_screen.dart';
+import '../../features/company/ui/profile/logic/company_profile_all_job_posts_logic/company_profile_all_job_posts_cubit.dart';
+import '../../features/company/ui/profile/logic/company_profile_applicants_number_logic/company_profile_applicants_number_cubit.dart';
+import '../../features/company/ui/profile/logic/company_profile_edit_logic/company_profile_edit_cubit.dart';
+import '../../features/company/ui/profile/logic/company_profile_info_logic/company_profile_info_cubit.dart';
+import '../../features/company/ui/profile/ui/company_profile_screen.dart';
 import '../../features/company/ui/send_to_applicants/message-applicant/company_send_to_applicants_message_applicant_screen.dart';
 import '../../features/company/ui/sign_up/logic/company_sign_up_cubit.dart';
 import '../../features/customer/ui/sign_up/logic/customer_sign_up_cubit.dart';
@@ -95,8 +99,6 @@ import '../../features/developer/ui/home_main_page/logic/developer_courses_home_
 import '../../features/developer/ui/home_main_page/logic/developer_name_home_main_page_logic/developer_name_home_main_page_cubit.dart';
 import '../../features/developer/ui/home_main_page/logic/developer_tags_home_main_page_logic/developer_tags_home_main_page_cubit.dart';
 import '../../features/developer/ui/home_main_page/ui/developer_home_main_page_screen.dart';
-import '../../features/developer/ui/jobs/job_details/logic/developer_jobs_job_details_cubit.dart';
-import '../../features/developer/ui/jobs/job_details/ui/developer_jobs_job_details_screen.dart';
 import '../../features/developer/ui/jobs/search/logic/developer_jobs_recently_posted_logic/developer_jobs_recently_posted_cubit.dart';
 import '../../features/developer/ui/jobs/search/logic/developer_services_recently_posted_logic/developer_services_recently_posted_cubit.dart';
 import '../../features/developer/ui/jobs/search/ui/developer_jobs_search_screen.dart';
@@ -115,6 +117,8 @@ import '../../features/developer/ui/profile/jobs_applied/logic/developer_profile
 import '../../features/developer/ui/profile/jobs_applied/logic/developer_service_delete_logic/developer_service_delete_cubit.dart';
 import '../../features/developer/ui/profile/jobs_applied/ui/developer_profile_jobs_and_services_applied_screen.dart';
 import '../../features/notifications/ui/notifications_screen.dart';
+import '../../features/post_details/logic/post_details_logic/job_details_cubit.dart';
+import '../../features/post_details/ui/job_details/job_details_screen.dart';
 import '../../features/sign_up_user_type/sign_up_user_type_screen.dart';
 import '../di/dependency_injection.dart';
 import 'company_router/signup_router.dart';
@@ -246,8 +250,29 @@ class AppRouter {
       // Profile
       case Routes.companyProfileScreen:
         return MaterialPageRoute(
-          builder: (_) => const CompanyProfileScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) =>
+                    getIt<CompanyProfileInfoCubit>()..getCompanyProfileInfo(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<CompanyProfileAllJobPostsCubit>()
+                  ..getCompanyAllJobPosts(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<CompanyProfileApplicantsNumberCubit>()
+                  ..getApplicantsNumber(),
+              ),
+              BlocProvider(create: (_) => getIt<CompanyJobsDeletePostCubit>()),
+              BlocProvider(
+                create: (_) => getIt<CompanyProfileEditCubit>(),
+              ),
+            ],
+            child: const CompanyProfileScreen(),
+          ),
         );
+
       // Jobs Post
       case Routes.companyJobsPostFlow:
         return MaterialPageRoute(
@@ -384,8 +409,8 @@ class AppRouter {
             providers: [
               BlocProvider(
                 create: (_) =>
-                getIt<DeveloperCoursesAndJobsMainPageProfileCubit>()
-                  ..getDeveloperCoursesMainPageProfile(),
+                    getIt<DeveloperCoursesAndJobsMainPageProfileCubit>()
+                      ..getDeveloperCoursesMainPageProfile(),
               ),
               BlocProvider(
                 create: (_) => getIt<DeveloperCoursesMainPageRoadmapsCubit>()
@@ -440,7 +465,8 @@ class AppRouter {
       case Routes.developerCoursesRoadmapsScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) => getIt<DeveloperCoursesRoadmapsCubit>()..getDeveloperCoursesRoadmaps(),
+            create: (context) => getIt<DeveloperCoursesRoadmapsCubit>()
+              ..getDeveloperCoursesRoadmaps(),
             child: const DeveloperCoursesRoadmapsScreen(),
           ),
         );
@@ -469,8 +495,8 @@ class AppRouter {
             providers: [
               BlocProvider(
                 create: (_) =>
-                getIt<DeveloperCoursesAndJobsMainPageProfileCubit>()
-                  ..getDeveloperCoursesMainPageProfile(),
+                    getIt<DeveloperCoursesAndJobsMainPageProfileCubit>()
+                      ..getDeveloperCoursesMainPageProfile(),
               ),
             ],
             child: const DeveloperJobsMainPageScreen(),
@@ -502,15 +528,19 @@ class AppRouter {
           builder: (_) => MultiBlocProvider(
             providers: [
               BlocProvider(
-                create: (_) => getIt<DeveloperJobsJobDetailsCubit>()
-                  ..fetchJobDetails(args.jobId!),
+                create: (_) =>
+                    getIt<JobDetailsCubit>()..fetchJobDetails(args.jobId!),
               ),
               BlocProvider(
                 create: (_) => getIt<DeveloperSingleJobBookmarkCubit>()
                   ..bookmarkJob(args.jobId!),
               ),
+              BlocProvider(create: (_) => getIt<CompanyJobsDeletePostCubit>()),
             ],
-            child: DeveloperJobsJobDetailsScreen(jobId: args.jobId!),
+            child: JobDetailsScreen(
+              jobId: args.jobId!,
+              isCompany: args.isCompany ?? false,
+            ),
           ),
         );
       case Routes.developerJobsServiceDetailsScreen:

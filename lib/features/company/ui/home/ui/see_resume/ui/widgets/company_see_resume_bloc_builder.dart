@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'preview_cv/cv_shimmer.dart';
 import '../../data/model/company_home_see_resume_response_body.dart';
 import '../../logic/company_home_see_resume_cubit.dart';
 import '../../logic/company_home_see_resume_state.dart';
 import 'preview_cv/cv_preview_and_download.dart';
+import 'preview_cv/cv_shimmer.dart';
 
 class CompanyHomeSeeResumeBlocBuilder extends StatelessWidget {
   const CompanyHomeSeeResumeBlocBuilder({super.key});
