@@ -20,6 +20,7 @@ import 'package:carrerk/features/developer/ui/community/chat/developer_community
 import 'package:carrerk/features/developer/ui/courses/certification/developer_courses_certification_screen.dart';
 import 'package:carrerk/features/developer/ui/courses/cv_updated/download_cv/developer_courses_cv_updated_download_cv_screen.dart';
 import 'package:carrerk/features/developer/ui/courses/cv_updated/successful_update/developer_courses_cv_updated_successful_update_screen.dart';
+import 'package:carrerk/features/developer/ui/courses/main_page/logic/main_page_related_courses_logic/developer_courses_main_page_related_courses_cubit.dart';
 import 'package:carrerk/features/developer/ui/courses/main_page/ui/developer_courses_main_page_screen.dart';
 import 'package:carrerk/features/developer/ui/courses/my_courses/developer_courses_my_courses_screen.dart';
 import 'package:carrerk/features/developer/ui/courses/roadmaps/ui/developer_courses_roadmaps_screen.dart';
@@ -425,6 +426,11 @@ class AppRouter {
                 create: (_) =>
                     getIt<DeveloperCoursesMainPageOngoingCoursesCubit>()
                       ..getOngoingCourses(),
+              ),
+              BlocProvider(
+                create: (_) =>
+                    getIt<DeveloperCoursesMainPageRelatedCoursesCubit>()
+                      ..getRelatedCourses(),
               ),
             ],
             child: const DeveloperCoursesMainPageScreen(),

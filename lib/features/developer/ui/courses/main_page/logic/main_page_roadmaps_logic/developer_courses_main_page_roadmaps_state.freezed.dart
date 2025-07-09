@@ -26,6 +26,7 @@ mixin _$DeveloperCoursesMainPageRoadmapsState {
     required TResult Function(String error) error,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
@@ -47,6 +48,7 @@ mixin _$DeveloperCoursesMainPageRoadmapsState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
@@ -58,6 +60,7 @@ mixin _$DeveloperCoursesMainPageRoadmapsState {
         error,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
@@ -92,9 +95,9 @@ class _$DeveloperCoursesMainPageRoadmapsStateCopyWithImpl<$Res,
     implements $DeveloperCoursesMainPageRoadmapsStateCopyWith<$Res> {
   _$DeveloperCoursesMainPageRoadmapsStateCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
+// ignore: unused_field
   final $Val _value;
-  // ignore: unused_field
+// ignore: unused_field
   final $Res Function($Val) _then;
 
   /// Create a copy of DeveloperCoursesMainPageRoadmapsState
@@ -408,7 +411,7 @@ class _$DeveloperCoursesMainPageRoadmapsSuccessImpl
   @override
   List<DeveloperCoursesMainPageRoadmapsResponseModel> get roadmaps {
     if (_roadmaps is EqualUnmodifiableListView) return _roadmaps;
-    // ignore: implicit_dynamic_type
+// ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_roadmaps);
   }
 

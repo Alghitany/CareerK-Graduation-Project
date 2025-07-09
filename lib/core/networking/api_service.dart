@@ -36,6 +36,7 @@ import '../../features/developer/data/models/developer_recommendtions_models/dev
 import '../../features/developer/data/models/developer_single_course_bookmark_models/developer_single_course_bookmark_response_model.dart';
 import '../../features/developer/data/models/developer_single_job_bookmark_models/developer_single_job_bookmark_response_model.dart';
 import '../../features/developer/ui/courses/main_page/data/models/main_page_ongoing_courses/developer_courses_main_page_ongoing_courses_response_body.dart';
+import '../../features/developer/ui/courses/main_page/data/models/main_page_related_courses/developer_courses_main_page_related_courses_response_body.dart';
 import '../../features/developer/ui/courses/main_page/data/models/main_page_roadmaps_models/developer_courses_main_page_roadmaps_response_model.dart';
 import '../../features/developer/ui/courses/roadmaps/data/models/developer_courses_roadmaps_response_body.dart';
 import '../../features/developer/ui/courses/specific_category/data/models/developer_courses_specific_category_response_body.dart';
@@ -122,6 +123,11 @@ abstract class ApiService {
   @GET(ApiConstants.developerCoursesMainPageOngoingCourses)
   Future<List<DeveloperCoursesMainPageOngoingCoursesResponseBody>>
       getDeveloperOngoingCourses();
+
+  //-> Related Courses
+  @GET(ApiConstants.developerCoursesMainPageRelatedCourses)
+  Future<List<DeveloperCoursesMainPageRelatedCoursesResponseBody>>
+      getDeveloperRelatedCourses();
 
   //->Courses Roadmaps
   @GET(ApiConstants.developerTracksBasePath)

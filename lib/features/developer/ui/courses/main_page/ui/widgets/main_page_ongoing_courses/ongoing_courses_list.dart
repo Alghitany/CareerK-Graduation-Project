@@ -34,32 +34,31 @@ class _OngoingCoursesListState extends State<OngoingCoursesList> {
         itemBuilder: (context, index) {
           final course = widget.courses[index];
           double progress;
-          if(course.totalCount == 0){
+          if (course.totalCount == 0) {
             progress = 0;
-          }else {
+          } else {
             progress = course.completedCount / course.totalCount;
           }
-            return GestureDetector(
-              onTap: () {
-                context.pushNamed(Routes.developerCoursesMyCoursesScreen);
-              },
-              child: Card(
-                  elevation: 2,
-                  color: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                  ),
-                  child: SizedBox(
-                    width: 230.w,
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
+          return GestureDetector(
+            onTap: () {
+              context.pushNamed(Routes.developerCoursesMyCoursesScreen);
+            },
+            child: Card(
+              elevation: 2,
+              color: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.r),
+              ),
+              child: SizedBox(
+                width: 230.w,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
                     Stack(
-                    children: [
-                    ClipRRect(
-                    borderRadius: BorderRadius.only(
-                    topLeft:
-                    Radius.circular(10.r),
+                      children: [
+                        ClipRRect(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10.r),
                               topRight: Radius.circular(10.r),
                             ),
                             child: Image.network(
@@ -90,6 +89,7 @@ class _OngoingCoursesListState extends State<OngoingCoursesList> {
                                   ..bookmarkCourse(course.courseId),
                             child: DeveloperCourseBookmarkBlocBuilder(
                               courseId: course.courseId,
+                              heartType: true,
                             ),
                           ),
                         ),

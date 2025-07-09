@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import '../../data/models/main_page_ongoing_courses/developer_courses_main_page_ongoing_courses_response_body.dart';
 
 part 'developer_courses_main_page_ongoing_courses_state.freezed.dart';
@@ -16,7 +17,6 @@ class DeveloperCoursesMainPageOngoingCoursesState
     List<DeveloperCoursesMainPageOngoingCoursesResponseBody> courses,
   ) = DeveloperCoursesMainPageOngoingCoursesSuccess;
 
-  const factory DeveloperCoursesMainPageOngoingCoursesState.error({
-    required String error
-}) = DeveloperCoursesMainPageOngoingCoursesError;
+  const factory DeveloperCoursesMainPageOngoingCoursesState.error(
+      {required String error}) = DeveloperCoursesMainPageOngoingCoursesError;
 }

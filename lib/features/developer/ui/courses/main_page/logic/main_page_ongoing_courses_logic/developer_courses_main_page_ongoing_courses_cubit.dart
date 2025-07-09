@@ -21,8 +21,7 @@ class DeveloperCoursesMainPageOngoingCoursesCubit
       },
       failure: (error) {
         emit(DeveloperCoursesMainPageOngoingCoursesState.error(
-          error: error.apiErrorModel.message ?? "Failed to load"
-        ));
+            error: error.apiErrorModel.message ?? "Failed to load"));
       },
     );
   }

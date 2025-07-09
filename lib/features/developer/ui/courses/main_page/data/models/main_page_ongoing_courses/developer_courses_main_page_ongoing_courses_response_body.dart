@@ -42,7 +42,7 @@ class DeveloperCoursesMainPageOngoingCoursesResponseBody {
   });
 
   factory DeveloperCoursesMainPageOngoingCoursesResponseBody.fromJson(
-      Map<String, dynamic> json) =>
+          Map<String, dynamic> json) =>
       _$DeveloperCoursesMainPageOngoingCoursesResponseBodyFromJson(json);
 
   Map<String, dynamic> toJson() =>
