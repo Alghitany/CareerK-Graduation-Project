@@ -31,7 +31,7 @@ class ApiConstants {
   static const String developerJobsApply = "api/job-applications/apply";
 
   //-> Job Details
-  static const String developerJobsJobDetails = "api/job-post/{jobId}";
+  static const String jobDetails = "api/job-post/{jobId}";
 
   //-> Job Details
   static const String developerJobsServiceDetails =
@@ -85,6 +85,18 @@ class ApiConstants {
       "/api/course-details/{courseId}/reviews";
 
   //-----> Profile
+  //->Profile
+  static const String companyProfileInfo = "api/company/profile";
+
+  // All Job Posts
+  static const String companyProfileAllJobPosts = "api/company/job-posts";
+
+  //->Profile Get Applicant
+  static const String companyProfileApplicantsNumber = "api/company/applicants";
+
+  //->Profile Edit
+  static const String companyProfileEdit = "api/company/edit-profile";
+
   //-> Applied Jobs
   static const String developerProfileAppliedJobs =
       "api/developer/my-applications";
@@ -160,7 +172,7 @@ class ApiConstants {
       "/api/job-application/{applicationId}/status";
 
   //->Delete Post
-  static const String companyJobsDeletePost = "api/jobs/delete-job-post";
+  static const String companyJobsDeletePost = "api/company/job-posts/{jobId}";
 
   //------ Search ------------
   static const String searchCourses = "api/courses-page/search-courses";

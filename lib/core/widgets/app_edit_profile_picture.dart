@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
 
 class AppEditProfilePicture extends StatefulWidget {
@@ -18,6 +18,7 @@ class AppEditProfilePicture extends StatefulWidget {
   final double? editIconHeight;
   final double? editIconWidth;
   final void Function(File? imageFile)? onImageSelected;
+  final String? profileImage;
 
   const AppEditProfilePicture({
     super.key,
@@ -32,6 +33,7 @@ class AppEditProfilePicture extends StatefulWidget {
     this.editIconHeight,
     this.editIconWidth,
     this.onImageSelected,
+    this.profileImage,
   });
 
   @override
@@ -39,7 +41,7 @@ class AppEditProfilePicture extends StatefulWidget {
 }
 
 class _AppEditProfilePictureState extends State<AppEditProfilePicture> {
-  String? _imagePath;
+  String? _localImagePath;
   final ImagePicker _picker = ImagePicker();
 
   Future<void> _pickImage() async {
@@ -60,9 +62,8 @@ class _AppEditProfilePictureState extends State<AppEditProfilePicture> {
                       await _picker.pickImage(source: ImageSource.camera);
                   final file =
                       pickedFile != null ? File(pickedFile.path) : null;
-
                   setState(() {
-                    _imagePath = file?.path;
+                    _localImagePath = file?.path;
                   });
                   widget.onImageSelected?.call(file);
                 },
@@ -76,9 +77,8 @@ class _AppEditProfilePictureState extends State<AppEditProfilePicture> {
                       await _picker.pickImage(source: ImageSource.gallery);
                   final file =
                       pickedFile != null ? File(pickedFile.path) : null;
-
                   setState(() {
-                    _imagePath = file?.path;
+                    _localImagePath = file?.path;
                   });
                   widget.onImageSelected?.call(file);
                 },
@@ -90,6 +90,56 @@ class _AppEditProfilePictureState extends State<AppEditProfilePicture> {
     );
   }
 
+  Widget _buildImage() {
+    if (_localImagePath != null) {
+      return _buildFileImage(File(_localImagePath!));
+    } else if (widget.profileImage != null) {
+      if (widget.profileImage!.startsWith('http')) {
+        return _buildNetworkImage(widget.profileImage!);
+      } else {
+        return _buildFileImage(File(widget.profileImage!));
+      }
+    } else {
+      return _defaultIcon();
+    }
+  }
+
+  Widget _buildFileImage(File file) {
+    return ClipOval(
+      child: Image.file(
+        file,
+        fit: BoxFit.cover,
+        width: double.infinity,
+        height: double.infinity,
+        errorBuilder: (_, __, ___) => _defaultIcon(),
+      ),
+    );
+  }
+
+  Widget _buildNetworkImage(String url) {
+    return ClipOval(
+      child: Image.network(
+        url,
+        fit: BoxFit.cover,
+        width: double.infinity,
+        height: double.infinity,
+        errorBuilder: (_, __, ___) => _defaultIcon(),
+      ),
+    );
+  }
+
+  Widget _defaultIcon() {
+    return SvgPicture.asset(
+      "assets/svgs/person_filled.svg",
+      height: widget.defaultContentHeight ?? 105.h,
+      colorFilter: ColorFilter.mode(
+        widget.defaultContentColor ?? ColorsManager.ghostWhite,
+        BlendMode.srcIn,
+      ),
+      fit: BoxFit.contain,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -98,22 +148,7 @@ class _AppEditProfilePictureState extends State<AppEditProfilePicture> {
         CircleAvatar(
           radius: widget.imageRadius?.r ?? 70.r,
           backgroundColor: widget.backgroundColor ?? ColorsManager.titanWhite,
-          backgroundImage:
-              _imagePath != null ? FileImage(File(_imagePath!)) : null,
-          child: _imagePath == null
-              ? Align(
-                  alignment: Alignment.bottomCenter,
-                  child: SvgPicture.asset(
-                    "assets/svgs/person_filled.svg",
-                    height: widget.defaultContentHeight ?? 92.h,
-                    colorFilter: ColorFilter.mode(
-                      widget.defaultContentColor ?? ColorsManager.ghostWhite,
-                      BlendMode.srcIn,
-                    ),
-                    fit: BoxFit.contain,
-                  ),
-                )
-              : null, // Hide default icon when image is selected
+          child: _buildImage(),
         ),
         Positioned(
           bottom: widget.editIconBottomPosition ?? 5.h,

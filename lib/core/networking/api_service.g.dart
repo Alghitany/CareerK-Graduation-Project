@@ -565,33 +565,31 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<DeveloperJobsJobDetailsResponseBody> getDeveloperJobDetails(
-      String jobId) async {
+  Future<JobDetailsResponseBody> jobDetails(String jobId) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options =
-        _setStreamType<DeveloperJobsJobDetailsResponseBody>(Options(
+    final _options = _setStreamType<JobDetailsResponseBody>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
-            .compose(
-              _dio.options,
-              'api/job-post/${jobId}',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            )));
+        .compose(
+          _dio.options,
+          'api/job-post/${jobId}',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late DeveloperJobsJobDetailsResponseBody _value;
+    late JobDetailsResponseBody _value;
     try {
-      _value = DeveloperJobsJobDetailsResponseBody.fromJson(_result.data!);
+      _value = JobDetailsResponseBody.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -811,6 +809,110 @@ class _ApiService implements ApiService {
     late DeveloperRecommendationsResponseBody _value;
     try {
       _value = DeveloperRecommendationsResponseBody.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<CompanyProfileInfoResponseBody> getCompanyProfileInfo() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<CompanyProfileInfoResponseBody>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'api/company/profile',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late CompanyProfileInfoResponseBody _value;
+    try {
+      _value = CompanyProfileInfoResponseBody.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<CompanyProfileAllJobPostsResponseBody>
+      getCompanyProfileAllJobPosts() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options =
+        _setStreamType<CompanyProfileAllJobPostsResponseBody>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/company/job-posts',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late CompanyProfileAllJobPostsResponseBody _value;
+    try {
+      _value = CompanyProfileAllJobPostsResponseBody.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<CompanyProfileApplicantsNumberResponseBody>
+      companyProfileGetApplicantsNumber() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options =
+        _setStreamType<CompanyProfileApplicantsNumberResponseBody>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/company/applicants',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late CompanyProfileApplicantsNumberResponseBody _value;
+    try {
+      _value =
+          CompanyProfileApplicantsNumberResponseBody.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -1226,7 +1328,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'api/jobs/delete-job-post/${jobId}',
+          'api/company/job-posts/${jobId}',
           queryParameters: queryParameters,
           data: _data,
         )

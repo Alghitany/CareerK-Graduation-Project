@@ -35,7 +35,7 @@ class DeveloperProfileCvGeneratedViewScreen extends StatelessWidget {
                     child: IconButton(
                         onPressed: () {
                           context
-                              .pushNamed(Routes.developerProfileSettingsScreen);
+                              .pushNamed(Routes.developerProfileMainPageScreen);
                         },
                         icon: SvgPicture.asset('assets/svgs/exit.svg')),
                   ),

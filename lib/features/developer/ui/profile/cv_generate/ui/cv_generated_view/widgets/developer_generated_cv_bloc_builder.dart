@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../../../../../company/ui/home/ui/see_resume/ui/widgets/preview_cv/cv_preview_and_download.dart';
 import '../../../data/models/generate_models/developer_profile_cv_generate_generated_response.dart';
 import '../../../logic/generate_logic/developer_profile_cv_generate_generated_cubit.dart';

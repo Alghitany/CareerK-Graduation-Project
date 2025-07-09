@@ -12,6 +12,7 @@ class AppArgument {
   final String? chatRoomId;
   final String? sessionId;
   final bool? isExisting;
+  final bool? isCompany;
   final String? fileUrl;
 
   AppArgument({
@@ -26,6 +27,7 @@ class AppArgument {
     this.chatRoomId,
     this.sessionId,
     this.isExisting,
+    this.isCompany,
     this.fileUrl,
   });
 }
