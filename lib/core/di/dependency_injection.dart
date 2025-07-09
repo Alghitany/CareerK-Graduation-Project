@@ -59,11 +59,13 @@ import '../../features/company/ui/home/ui/see_resume/data/repo/company_home_see_
 import '../../features/company/ui/home/ui/see_resume/logic/company_home_see_resume_cubit.dart';
 import '../../features/company/ui/jobs_post/data/repos/company_jobs_post_repo.dart';
 import '../../features/company/ui/jobs_post/logic/company_jobs_post_cubit.dart';
-import '../../features/company/ui/profile/data/repos/company_get_applicant_number_repo.dart';
 import '../../features/company/ui/profile/data/repos/company_profile_all_job_posts_repo.dart';
+import '../../features/company/ui/profile/data/repos/company_profile_applicants_number_repo.dart';
+import '../../features/company/ui/profile/data/repos/company_profile_edit_repo.dart';
 import '../../features/company/ui/profile/data/repos/company_profile_info_repo.dart';
 import '../../features/company/ui/profile/logic/company_profile_all_job_posts_logic/company_profile_all_job_posts_cubit.dart';
 import '../../features/company/ui/profile/logic/company_profile_applicants_number_logic/company_profile_applicants_number_cubit.dart';
+import '../../features/company/ui/profile/logic/company_profile_edit_logic/company_profile_edit_cubit.dart';
 import '../../features/company/ui/profile/logic/company_profile_info_logic/company_profile_info_cubit.dart';
 import '../../features/company/ui/sign_up/data/repo/company_sign_up_repo.dart';
 import '../../features/company/ui/sign_up/logic/company_sign_up_cubit.dart';
@@ -288,13 +290,22 @@ Future<void> setupGetIt() async {
     () => CompanyProfileInfoCubit(getIt()),
   );
 
-  //get Company Applicant Number
+  // Company Applicants Number
   getIt.registerLazySingleton<CompanyProfileApplicantsNumberRepo>(
     () => CompanyProfileApplicantsNumberRepo(getIt()),
   );
 
   getIt.registerFactory<CompanyProfileApplicantsNumberCubit>(
     () => CompanyProfileApplicantsNumberCubit(getIt()),
+  );
+
+  // Company Profile Edit
+  getIt.registerLazySingleton<CompanyProfileEditRepo>(
+    () => CompanyProfileEditRepo(getIt()),
+  );
+
+  getIt.registerFactory<CompanyProfileEditCubit>(
+    () => CompanyProfileEditCubit(getIt()),
   );
 
   // All Job Posts

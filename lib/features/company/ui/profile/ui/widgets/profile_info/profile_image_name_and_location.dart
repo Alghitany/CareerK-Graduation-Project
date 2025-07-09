@@ -2,10 +2,12 @@ import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../../../../../core/widgets/app_edit_profile_picture.dart';
+import '../../../logic/company_profile_edit_logic/company_profile_edit_cubit.dart';
 
 class ProfileImageNameAndLocation extends StatelessWidget {
   final String? profileImage;
@@ -31,6 +33,19 @@ class ProfileImageNameAndLocation extends StatelessWidget {
             editIconBackgroundRadius: 15,
             editIconHeight: 15,
             editIconWidth: 15,
+            onImageSelected: (file) {
+              if (file != null) {
+                context
+                    .read<CompanyProfileEditCubit>()
+                    .setProfilePicturePath(file.path);
+                context.read<CompanyProfileEditCubit>().editCompanyProfile();
+
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                      content: Text('Profile picture updated successfully!')),
+                );
+              }
+            },
           ),
         ),
         verticalSpace(34),

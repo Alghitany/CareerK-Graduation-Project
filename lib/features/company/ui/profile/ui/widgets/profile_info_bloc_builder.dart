@@ -50,11 +50,7 @@ class ProfileInfoBlocBuilder extends StatelessWidget {
           city: data.city,
         ),
         verticalSpace(16),
-        ProfileIcons(
-          phoneNumber: data.phoneNumber,
-          email: data.email,
-          location: "${data.country}, ${data.city}, ${data.address}.",
-        ),
+        const ProfileIcons(),
       ],
     );
   }

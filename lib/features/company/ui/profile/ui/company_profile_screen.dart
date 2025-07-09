@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/widgets/company_bottom_navigation_bar.dart';
 import '../../../../../core/widgets/company_floating_action_button.dart';
+import 'widgets/company_profile_edit_bloc_listener.dart';
 import 'widgets/profile_all_job_posts_bloc_builder.dart';
 import 'widgets/profile_info_bloc_builder.dart';
 
@@ -30,6 +31,7 @@ class CompanyProfileScreen extends StatelessWidget {
                 const NumberOfJobsAndApplicants(),
                 verticalSpace(32),
                 const ProfileAllJobPostsBlocBuilder(),
+                const CompanyProfileEditBlocListener()
               ],
             ),
           ),

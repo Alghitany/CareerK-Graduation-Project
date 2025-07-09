@@ -230,6 +230,8 @@ abstract class ApiService {
     @Body() DeveloperProfileCVGenerateGeneratedRequestBody requestBody,
   );
 
+  // Edit Profile done with dio directly
+
   // Delete Job Application by ID
   @DELETE(ApiConstants.developerJobWithdraw)
   Future<DeveloperJobWithdrawResponseBody> deleteJobApplication(

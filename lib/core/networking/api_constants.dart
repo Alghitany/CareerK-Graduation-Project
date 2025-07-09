@@ -94,6 +94,9 @@ class ApiConstants {
   //->Profile Get Applicant
   static const String companyProfileApplicantsNumber = "api/company/applicants";
 
+  //->Profile Edit
+  static const String companyProfileEdit = "api/company/edit-profile";
+
   //-> Applied Jobs
   static const String developerProfileAppliedJobs =
       "api/developer/my-applications";

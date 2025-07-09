@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../data/repos/company_get_applicant_number_repo.dart';
+import '../../data/repos/company_profile_applicants_number_repo.dart';
 import 'company_profile_applicants_number_state.dart';
 
 class CompanyProfileApplicantsNumberCubit

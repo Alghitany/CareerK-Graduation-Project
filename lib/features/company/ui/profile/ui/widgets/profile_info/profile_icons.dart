@@ -1,46 +1,87 @@
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/theming/styles.dart';
+import 'package:carrerk/features/company/ui/profile/logic/company_profile_info_logic/company_profile_info_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../../../../core/widgets/app_text_button.dart';
+import '../../../logic/company_profile_edit_logic/company_profile_edit_cubit.dart';
+import '../../../logic/company_profile_info_logic/company_profile_info_state.dart';
 
 class ProfileIcons extends StatelessWidget {
-  final String phoneNumber;
-  final String email;
-  final String location;
-
-  const ProfileIcons({
-    super.key,
-    required this.phoneNumber,
-    required this.email,
-    required this.location,
-  });
+  const ProfileIcons({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        const Spacer(),
-        customCirclePhoneMessageLocationContainer(
-          icon: "assets/svgs/phone_outlined.svg",
-          onTap: () => _showDialog(context, "Phone", phoneNumber),
-        ),
-        horizontalSpace(24),
-        customCirclePhoneMessageLocationContainer(
-          icon: "assets/svgs/mail_outlined.svg",
-          onTap: () => _showDialog(context, "Email", email),
-        ),
-        horizontalSpace(24),
-        customCirclePhoneMessageLocationContainer(
-          icon: "assets/svgs/location_pin_outlined.svg",
-          onTap: () => _showDialog(context, "Location", location),
-        ),
-        const Spacer(),
-      ],
+    return BlocBuilder<CompanyProfileInfoCubit, CompanyProfileInfoState>(
+      builder: (context, state) {
+        return state.maybeWhen(
+          success: (profileData) => Row(
+            children: [
+              const Spacer(),
+              customCirclePhoneMessageLocationContainer(
+                icon: "assets/svgs/phone_outlined.svg",
+                onTap: () => _showDialog(
+                  context,
+                  "Phone",
+                  profileData.phoneNumber,
+                  (newValue) {
+                    context
+                        .read<CompanyProfileEditCubit>()
+                        .phoneNumberController
+                        .text = newValue;
+                    context
+                        .read<CompanyProfileEditCubit>()
+                        .editCompanyProfile();
+                  },
+                ),
+              ),
+              horizontalSpace(24),
+              customCirclePhoneMessageLocationContainer(
+                icon: "assets/svgs/mail_outlined.svg",
+                onTap: () => _showDialog(
+                  context,
+                  "Email",
+                  profileData.email,
+                  (newValue) {
+                    context
+                        .read<CompanyProfileEditCubit>()
+                        .contactEmailController
+                        .text = newValue;
+                    context
+                        .read<CompanyProfileEditCubit>()
+                        .editCompanyProfile();
+                  },
+                ),
+              ),
+              horizontalSpace(24),
+              customCirclePhoneMessageLocationContainer(
+                icon: "assets/svgs/location_pin_outlined.svg",
+                onTap: () => _showDialog(
+                  context,
+                  "Location",
+                  profileData.address,
+                  (newValue) {
+                    context
+                        .read<CompanyProfileEditCubit>()
+                        .addressController
+                        .text = newValue;
+                    context
+                        .read<CompanyProfileEditCubit>()
+                        .editCompanyProfile();
+                  },
+                ),
+              ),
+              const Spacer(),
+            ],
+          ),
+          orElse: () => const SizedBox.shrink(),
+        );
+      },
     );
   }
 
@@ -72,7 +113,12 @@ class ProfileIcons extends StatelessWidget {
     );
   }
 
-  void _showDialog(BuildContext context, String title, String initialValue) {
+  void _showDialog(
+    BuildContext context,
+    String title,
+    String initialValue,
+    Function(String) onSave,
+  ) {
     final controller = TextEditingController(text: initialValue);
 
     showDialog(
@@ -132,6 +178,7 @@ class ProfileIcons extends StatelessWidget {
                       buttonText: 'Save',
                       onPressed: () {
                         Navigator.of(context).pop();
+                        onSave(controller.text);
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text('$title updated: ${controller.text}'),
