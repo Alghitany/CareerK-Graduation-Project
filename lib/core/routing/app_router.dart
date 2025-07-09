@@ -85,7 +85,8 @@ import '../../features/customer/ui/sign_up/logic/customer_sign_up_cubit.dart';
 import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
 import '../../features/developer/logic/developer_recommendations_logic/developer_recommendations_cubit.dart';
 import '../../features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
-import '../../features/developer/ui/courses/main_page/logic/developer_courses_main_page_roadmaps_cubit.dart';
+import '../../features/developer/ui/courses/main_page/logic/main_page_ongoing_courses_logic/developer_courses_main_page_ongoing_courses_cubit.dart';
+import '../../features/developer/ui/courses/main_page/logic/main_page_roadmaps_logic/developer_courses_main_page_roadmaps_cubit.dart';
 import '../../features/developer/ui/courses/related_courses/developer_courses_related_courses_screen.dart';
 import '../../features/developer/ui/courses/roadmaps/logic/developer_courses_roadmaps_cubit.dart';
 import '../../features/developer/ui/courses/specific_category/logic/developer_courses_specific_category_cubit.dart';
@@ -337,6 +338,10 @@ class AppRouter {
                 create: (_) => getIt<DeveloperRecommendationsCubit>()
                   ..fetchRecommendations(),
               ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperRecommendationsCubit>()
+                  ..fetchRecommendations(),
+              ),
             ],
             child: const DeveloperHomeMainPageScreen(),
           ),
@@ -415,6 +420,11 @@ class AppRouter {
               BlocProvider(
                 create: (_) => getIt<DeveloperCoursesMainPageRoadmapsCubit>()
                   ..getDeveloperCoursesMainPageRoadmaps(),
+              ),
+              BlocProvider(
+                create: (_) =>
+                    getIt<DeveloperCoursesMainPageOngoingCoursesCubit>()
+                      ..getOngoingCourses(),
               ),
             ],
             child: const DeveloperCoursesMainPageScreen(),

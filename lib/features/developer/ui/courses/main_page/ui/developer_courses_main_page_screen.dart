@@ -10,7 +10,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../core/helpers/enums.dart';
 import '../../../../../../core/routing/app_argument.dart';
 import '../../../../../../core/widgets/courses_and_jobs_main_page_top_bar/courses_and_jobs_main_page_profile_bloc_builder.dart';
-import 'widgets/ongoing_courses_list.dart';
+import 'widgets/main_page_ongoing_courses/main_page_ongoing_courses_bloc_builder.dart';
 import 'widgets/related_courses_and_view_all.dart';
 import 'widgets/related_courses_list.dart';
 import 'widgets/roadmaps_suggestions/roadmaps_suggestions_bloc_builder.dart';
@@ -60,7 +60,7 @@ class DeveloperCoursesMainPageScreen extends StatelessWidget {
                   ),
                 ),
                 verticalSpace(8),
-                const OngoingCoursesList(),
+                const MainPageOngoingCoursesBlocBuilder(),
                 verticalSpace(16),
                 const RelatedCoursesAndViewAll(),
                 verticalSpace(8),

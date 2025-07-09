@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../../../core/networking/api_error_handler.dart';
-import '../data/models/developer_courses_main_page_roadmaps_response_model.dart';
+import '../../../../../../../core/networking/api_error_handler.dart';
+import '../../data/models/main_page_roadmaps_models/developer_courses_main_page_roadmaps_response_model.dart';
 
 part 'developer_courses_main_page_roadmaps_state.freezed.dart';
 

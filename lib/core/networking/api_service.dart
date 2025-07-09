@@ -35,7 +35,8 @@ import '../../features/developer/data/models/developer_courses_and_jobs_main_pag
 import '../../features/developer/data/models/developer_recommendtions_models/developer_recommendations_response_body.dart';
 import '../../features/developer/data/models/developer_single_course_bookmark_models/developer_single_course_bookmark_response_model.dart';
 import '../../features/developer/data/models/developer_single_job_bookmark_models/developer_single_job_bookmark_response_model.dart';
-import '../../features/developer/ui/courses/main_page/data/models/developer_courses_main_page_roadmaps_response_model.dart';
+import '../../features/developer/ui/courses/main_page/data/models/main_page_ongoing_courses/developer_courses_main_page_ongoing_courses_response_body.dart';
+import '../../features/developer/ui/courses/main_page/data/models/main_page_roadmaps_models/developer_courses_main_page_roadmaps_response_model.dart';
 import '../../features/developer/ui/courses/roadmaps/data/models/developer_courses_roadmaps_response_body.dart';
 import '../../features/developer/ui/courses/specific_category/data/models/developer_courses_specific_category_response_body.dart';
 import '../../features/developer/ui/courses/specific_course/data/model/specific_course_header_models/specific_course_header_response_body.dart';
@@ -106,15 +107,21 @@ abstract class ApiService {
     @Path('developerId') String developerId,
   );
 
-  //->Courses Main Page Profile
+  // Courses Main Page
+  //-> Profile
   @GET(ApiConstants.developerCoursesMainPageProfile)
   Future<DeveloperCoursesAndJobsMainPageProfileResponseModel>
       getDeveloperCoursesMainPageProfile();
 
-  //->Courses Main Page Roadmaps
+  //-> Roadmaps
   @GET(ApiConstants.developerCoursesMainPageRoadmaps)
   Future<List<DeveloperCoursesMainPageRoadmapsResponseModel>>
       getDeveloperCoursesMainPageRoadmaps();
+
+  //-> Ongoing Courses
+  @GET(ApiConstants.developerCoursesMainPageOngoingCourses)
+  Future<List<DeveloperCoursesMainPageOngoingCoursesResponseBody>>
+      getDeveloperOngoingCourses();
 
   //->Courses Roadmaps
   @GET(ApiConstants.developerTracksBasePath)

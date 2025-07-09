@@ -65,6 +65,10 @@ class ApiConstants {
   static const String developerCoursesMainPageRoadmaps =
       "api/courses-page/roadmaps/preview";
 
+  //------> Developer Courses Main Page Ongoing Courses
+  static const String developerCoursesMainPageOngoingCourses =
+      "api/courses-page/courses/ongoing";
+
   //-----> Roadmaps & Track Courses Base Path
   static const String developerTracksBasePath = "api/tracks-page/tracks";
 

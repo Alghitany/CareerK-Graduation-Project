@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../data/models/developer_courses_main_page_roadmaps_response_model.dart';
-import '../../../logic/developer_courses_main_page_roadmaps_cubit.dart';
-import '../../../logic/developer_courses_main_page_roadmaps_state.dart';
+import '../../../data/models/main_page_roadmaps_models/developer_courses_main_page_roadmaps_response_model.dart';
+import '../../../logic/main_page_roadmaps_logic/developer_courses_main_page_roadmaps_cubit.dart';
+import '../../../logic/main_page_roadmaps_logic/developer_courses_main_page_roadmaps_state.dart';
 import 'roadmaps_suggestions.dart';
 import 'roadmaps_suggestions_shimmer.dart';
 
