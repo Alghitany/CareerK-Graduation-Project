@@ -22,7 +22,7 @@ class MainPageOngoingCoursesBlocBuilder extends StatelessWidget {
         return state.maybeWhen(
           loading: () => setupLoading(),
           success: (courses) => setupSuccess(courses),
-          error: (error) => setupError(),
+          error: (error) => setupError(error),
           orElse: () => const SizedBox.shrink(),
         );
       },
@@ -38,7 +38,7 @@ class MainPageOngoingCoursesBlocBuilder extends StatelessWidget {
     return OngoingCoursesList(courses: courses);
   }
 
-  Widget setupError() {
-    return const Center(child: Text("Something went wrong"));
+  Widget setupError(String error) {
+    return Center(child: Text("Error: $error"));
   }
 }

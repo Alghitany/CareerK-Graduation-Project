@@ -12,14 +12,18 @@ class DeveloperCoursesMainPageOngoingCoursesResponseBody {
   @JsonKey(name: 'image_url')
   final String imageUrl;
 
+  final String? description;
+
+  final String? difficulty;
+
   @JsonKey(name: 'progress_percentage')
   final int progressPercentage;
 
   @JsonKey(name: 'resume_lesson_id')
-  final String resumeLessonId;
+  final String? resumeLessonId;
 
   @JsonKey(name: 'last_accessed_at')
-  final String lastAccessedAt;
+  final String? lastAccessedAt;
 
   final int totalCount;
   final int completedCount;
@@ -28,15 +32,17 @@ class DeveloperCoursesMainPageOngoingCoursesResponseBody {
     required this.courseId,
     required this.name,
     required this.imageUrl,
+    this.description,
+    this.difficulty,
     required this.progressPercentage,
-    required this.resumeLessonId,
-    required this.lastAccessedAt,
+    this.resumeLessonId,
+    this.lastAccessedAt,
     required this.totalCount,
     required this.completedCount,
   });
 
   factory DeveloperCoursesMainPageOngoingCoursesResponseBody.fromJson(
-          Map<String, dynamic> json) =>
+      Map<String, dynamic> json) =>
       _$DeveloperCoursesMainPageOngoingCoursesResponseBodyFromJson(json);
 
   Map<String, dynamic> toJson() =>

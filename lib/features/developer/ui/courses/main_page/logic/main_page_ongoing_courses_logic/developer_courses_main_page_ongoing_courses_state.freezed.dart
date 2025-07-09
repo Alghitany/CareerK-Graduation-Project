@@ -23,10 +23,9 @@ mixin _$DeveloperCoursesMainPageOngoingCoursesState {
     required TResult Function(
             List<DeveloperCoursesMainPageOngoingCoursesResponseBody> courses)
         success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(String error) error,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
@@ -34,7 +33,7 @@ mixin _$DeveloperCoursesMainPageOngoingCoursesState {
     TResult? Function(
             List<DeveloperCoursesMainPageOngoingCoursesResponseBody> courses)?
         success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(String error)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,11 +43,10 @@ mixin _$DeveloperCoursesMainPageOngoingCoursesState {
     TResult Function(
             List<DeveloperCoursesMainPageOngoingCoursesResponseBody> courses)?
         success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(String error)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(
@@ -64,7 +62,6 @@ mixin _$DeveloperCoursesMainPageOngoingCoursesState {
         error,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_DeveloperCoursesMainPageOngoingCoursesInitial value)?
@@ -106,9 +103,9 @@ class _$DeveloperCoursesMainPageOngoingCoursesStateCopyWithImpl<$Res,
   _$DeveloperCoursesMainPageOngoingCoursesStateCopyWithImpl(
       this._value, this._then);
 
-// ignore: unused_field
+  // ignore: unused_field
   final $Val _value;
-// ignore: unused_field
+  // ignore: unused_field
   final $Res Function($Val) _then;
 
   /// Create a copy of DeveloperCoursesMainPageOngoingCoursesState
@@ -169,7 +166,7 @@ class _$DeveloperCoursesMainPageOngoingCoursesInitialImpl
     required TResult Function(
             List<DeveloperCoursesMainPageOngoingCoursesResponseBody> courses)
         success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(String error) error,
   }) {
     return initial();
   }
@@ -182,7 +179,7 @@ class _$DeveloperCoursesMainPageOngoingCoursesInitialImpl
     TResult? Function(
             List<DeveloperCoursesMainPageOngoingCoursesResponseBody> courses)?
         success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(String error)? error,
   }) {
     return initial?.call();
   }
@@ -195,7 +192,7 @@ class _$DeveloperCoursesMainPageOngoingCoursesInitialImpl
     TResult Function(
             List<DeveloperCoursesMainPageOngoingCoursesResponseBody> courses)?
         success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -315,7 +312,7 @@ class _$DeveloperCoursesMainPageOngoingCoursesLoadingImpl
     required TResult Function(
             List<DeveloperCoursesMainPageOngoingCoursesResponseBody> courses)
         success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(String error) error,
   }) {
     return loading();
   }
@@ -328,7 +325,7 @@ class _$DeveloperCoursesMainPageOngoingCoursesLoadingImpl
     TResult? Function(
             List<DeveloperCoursesMainPageOngoingCoursesResponseBody> courses)?
         success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(String error)? error,
   }) {
     return loading?.call();
   }
@@ -341,7 +338,7 @@ class _$DeveloperCoursesMainPageOngoingCoursesLoadingImpl
     TResult Function(
             List<DeveloperCoursesMainPageOngoingCoursesResponseBody> courses)?
         success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -458,7 +455,7 @@ class _$DeveloperCoursesMainPageOngoingCoursesSuccessImpl
   @override
   List<DeveloperCoursesMainPageOngoingCoursesResponseBody> get courses {
     if (_courses is EqualUnmodifiableListView) return _courses;
-// ignore: implicit_dynamic_type
+    // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_courses);
   }
 
@@ -499,7 +496,7 @@ class _$DeveloperCoursesMainPageOngoingCoursesSuccessImpl
     required TResult Function(
             List<DeveloperCoursesMainPageOngoingCoursesResponseBody> courses)
         success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(String error) error,
   }) {
     return success(courses);
   }
@@ -512,7 +509,7 @@ class _$DeveloperCoursesMainPageOngoingCoursesSuccessImpl
     TResult? Function(
             List<DeveloperCoursesMainPageOngoingCoursesResponseBody> courses)?
         success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(String error)? error,
   }) {
     return success?.call(courses);
   }
@@ -525,7 +522,7 @@ class _$DeveloperCoursesMainPageOngoingCoursesSuccessImpl
     TResult Function(
             List<DeveloperCoursesMainPageOngoingCoursesResponseBody> courses)?
         success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -610,7 +607,7 @@ abstract class _$$DeveloperCoursesMainPageOngoingCoursesErrorImplCopyWith<
               then) =
       __$$DeveloperCoursesMainPageOngoingCoursesErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ErrorHandler errorHandler});
+  $Res call({String error});
 }
 
 /// @nodoc
@@ -629,13 +626,13 @@ class __$$DeveloperCoursesMainPageOngoingCoursesErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? errorHandler = null,
+    Object? error = null,
   }) {
     return _then(_$DeveloperCoursesMainPageOngoingCoursesErrorImpl(
-      null == errorHandler
-          ? _value.errorHandler
-          : errorHandler // ignore: cast_nullable_to_non_nullable
-              as ErrorHandler,
+      error: null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -644,14 +641,15 @@ class __$$DeveloperCoursesMainPageOngoingCoursesErrorImplCopyWithImpl<$Res>
 
 class _$DeveloperCoursesMainPageOngoingCoursesErrorImpl
     implements DeveloperCoursesMainPageOngoingCoursesError {
-  const _$DeveloperCoursesMainPageOngoingCoursesErrorImpl(this.errorHandler);
+  const _$DeveloperCoursesMainPageOngoingCoursesErrorImpl(
+      {required this.error});
 
   @override
-  final ErrorHandler errorHandler;
+  final String error;
 
   @override
   String toString() {
-    return 'DeveloperCoursesMainPageOngoingCoursesState.error(errorHandler: $errorHandler)';
+    return 'DeveloperCoursesMainPageOngoingCoursesState.error(error: $error)';
   }
 
   @override
@@ -659,12 +657,11 @@ class _$DeveloperCoursesMainPageOngoingCoursesErrorImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeveloperCoursesMainPageOngoingCoursesErrorImpl &&
-            (identical(other.errorHandler, errorHandler) ||
-                other.errorHandler == errorHandler));
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, errorHandler);
+  int get hashCode => Object.hash(runtimeType, error);
 
   /// Create a copy of DeveloperCoursesMainPageOngoingCoursesState
   /// with the given fields replaced by the non-null parameter values.
@@ -686,9 +683,9 @@ class _$DeveloperCoursesMainPageOngoingCoursesErrorImpl
     required TResult Function(
             List<DeveloperCoursesMainPageOngoingCoursesResponseBody> courses)
         success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(String error) error,
   }) {
-    return error(errorHandler);
+    return error(this.error);
   }
 
   @override
@@ -699,9 +696,9 @@ class _$DeveloperCoursesMainPageOngoingCoursesErrorImpl
     TResult? Function(
             List<DeveloperCoursesMainPageOngoingCoursesResponseBody> courses)?
         success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(String error)? error,
   }) {
-    return error?.call(errorHandler);
+    return error?.call(this.error);
   }
 
   @override
@@ -712,11 +709,11 @@ class _$DeveloperCoursesMainPageOngoingCoursesErrorImpl
     TResult Function(
             List<DeveloperCoursesMainPageOngoingCoursesResponseBody> courses)?
         success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(errorHandler);
+      return error(this.error);
     }
     return orElse();
   }
@@ -775,10 +772,10 @@ class _$DeveloperCoursesMainPageOngoingCoursesErrorImpl
 abstract class DeveloperCoursesMainPageOngoingCoursesError
     implements DeveloperCoursesMainPageOngoingCoursesState {
   const factory DeveloperCoursesMainPageOngoingCoursesError(
-          final ErrorHandler errorHandler) =
+          {required final String error}) =
       _$DeveloperCoursesMainPageOngoingCoursesErrorImpl;
 
-  ErrorHandler get errorHandler;
+  String get error;
 
   /// Create a copy of DeveloperCoursesMainPageOngoingCoursesState
   /// with the given fields replaced by the non-null parameter values.

@@ -22,7 +22,7 @@ class RoadmapsSuggestionsBlocBuilder extends StatelessWidget {
         return state.maybeWhen(
           loading: () => setupLoading(),
           success: (roadmaps) => setupSuccess(roadmaps),
-          error: (error) => setupError(),
+          error: (error) => setupError(error),
           orElse: () => const SizedBox.shrink(),
         );
       },
@@ -38,7 +38,7 @@ class RoadmapsSuggestionsBlocBuilder extends StatelessWidget {
     return RoadmapsSuggestions(roadmaps: roadmaps);
   }
 
-  Widget setupError() {
-    return const Center(child: Text("Something went wrong"));
+  Widget setupError(String error) {
+    return Center(child: Text("Error: $error"));
   }
 }
