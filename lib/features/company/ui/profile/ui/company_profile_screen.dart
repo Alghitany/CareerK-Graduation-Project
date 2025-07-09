@@ -1,10 +1,13 @@
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/features/company/ui/profile/ui/widgets/jobs_and_applicants_number/number_of_jobs_and_applicants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/widgets/company_bottom_navigation_bar.dart';
 import '../../../../../core/widgets/company_floating_action_button.dart';
+import '../../widgets/job_delete_bloc_listener.dart';
+import '../logic/company_profile_all_job_posts_logic/company_profile_all_job_posts_cubit.dart';
 import 'widgets/company_profile_edit_bloc_listener.dart';
 import 'widgets/profile_all_job_posts_bloc_builder.dart';
 import 'widgets/profile_info_bloc_builder.dart';
@@ -31,7 +34,14 @@ class CompanyProfileScreen extends StatelessWidget {
                 const NumberOfJobsAndApplicants(),
                 verticalSpace(32),
                 const ProfileAllJobPostsBlocBuilder(),
-                const CompanyProfileEditBlocListener()
+                const CompanyProfileEditBlocListener(),
+                JobDeleteBlocListener(
+                  onDeleteSuccess: () {
+                    context
+                        .read<CompanyProfileAllJobPostsCubit>()
+                        .getCompanyAllJobPosts();
+                  },
+                ),
               ],
             ),
           ),

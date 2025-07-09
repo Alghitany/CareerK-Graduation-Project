@@ -68,10 +68,11 @@ class _AllJobPostsListState extends State<AllJobPostsList> {
             style: AppTextStyles.font10RangoonGreenPoppinsRegular,
           ),
           trailing: TextButton(
-            onPressed: () async {
+            onPressed: () {
               final cubit = context.read<CompanyJobsDeletePostCubit>();
-              await cubit.deleteJobPost(job.id);
-              _deleteJob(index);
+              cubit.deleteJobPost(job.id, onSuccess: () {
+                _deleteJob(index);
+              });
             },
             child: Text(
               "Delete",

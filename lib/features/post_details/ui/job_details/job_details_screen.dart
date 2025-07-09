@@ -6,8 +6,10 @@ import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../company/logic/company_jobs_delete_post_cubit.dart';
 import 'widgets/job_details_bloc_builder.dart';
 import 'widgets/top_bar/back_icon_details_and_bookmark_icon.dart';
 
@@ -34,7 +36,11 @@ class JobDetailsScreen extends StatelessWidget {
               isCompany == true
                   ? AppTextButton(
                       onPressed: () {
-                        //Apply delete Job
+                        context
+                            .read<CompanyJobsDeletePostCubit>()
+                            .deleteJobPost(jobId, onSuccess: () {
+                          context.pop();
+                        });
                       },
                       backgroundColor: ColorsManager.artyClickRed,
                       buttonText: 'Delete',

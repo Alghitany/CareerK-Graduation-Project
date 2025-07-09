@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../data/repo/company_jobs_delete_post_repo.dart';
@@ -9,7 +11,7 @@ class CompanyJobsDeletePostCubit extends Cubit<CompanyJobsDeletePostState> {
   CompanyJobsDeletePostCubit(this._deleteRepo)
       : super(const CompanyJobsDeletePostState.initial());
 
-  Future<void> deleteJobPost(String jobId) async {
+  Future<void> deleteJobPost(String jobId, {VoidCallback? onSuccess}) async {
     emit(const CompanyJobsDeletePostState.deleteLoading());
 
     final result = await _deleteRepo.deleteJobPost(jobId: jobId);
@@ -17,6 +19,7 @@ class CompanyJobsDeletePostCubit extends Cubit<CompanyJobsDeletePostState> {
     result.when(
       success: (data) {
         emit(CompanyJobsDeletePostState.deleteSuccess(data));
+        onSuccess?.call();
       },
       failure: (error) {
         emit(CompanyJobsDeletePostState.deleteError(

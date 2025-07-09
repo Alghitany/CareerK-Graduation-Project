@@ -535,6 +535,7 @@ class AppRouter {
                 create: (_) => getIt<DeveloperSingleJobBookmarkCubit>()
                   ..bookmarkJob(args.jobId!),
               ),
+              BlocProvider(create: (_) => getIt<CompanyJobsDeletePostCubit>()),
             ],
             child: JobDetailsScreen(
               jobId: args.jobId!,
