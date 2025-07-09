@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../data/models/developer_courses_main_page_roadmaps_response_model.dart';
-import '../../../logic/developer_courses_main_page_roadmaps_cubit.dart';
-import '../../../logic/developer_courses_main_page_roadmaps_state.dart';
+import '../../../data/models/main_page_roadmaps_models/developer_courses_main_page_roadmaps_response_model.dart';
+import '../../../logic/main_page_roadmaps_logic/developer_courses_main_page_roadmaps_cubit.dart';
+import '../../../logic/main_page_roadmaps_logic/developer_courses_main_page_roadmaps_state.dart';
 import 'roadmaps_suggestions.dart';
 import 'roadmaps_suggestions_shimmer.dart';
 
@@ -22,7 +22,7 @@ class RoadmapsSuggestionsBlocBuilder extends StatelessWidget {
         return state.maybeWhen(
           loading: () => setupLoading(),
           success: (roadmaps) => setupSuccess(roadmaps),
-          error: (error) => setupError(),
+          error: (error) => setupError(error),
           orElse: () => const SizedBox.shrink(),
         );
       },
@@ -38,7 +38,7 @@ class RoadmapsSuggestionsBlocBuilder extends StatelessWidget {
     return RoadmapsSuggestions(roadmaps: roadmaps);
   }
 
-  Widget setupError() {
-    return const Center(child: Text("Something went wrong"));
+  Widget setupError(String error) {
+    return Center(child: Text("Error: $error"));
   }
 }

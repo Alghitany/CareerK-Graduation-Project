@@ -8,7 +8,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../../../../../core/routing/app_argument.dart';
 import '../../../../../../../../core/routing/routes.dart';
-import '../../../data/models/developer_courses_main_page_roadmaps_response_model.dart';
+import '../../../data/models/main_page_roadmaps_models/developer_courses_main_page_roadmaps_response_model.dart';
 
 class RoadmapsSuggestions extends StatelessWidget {
   final List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps;
