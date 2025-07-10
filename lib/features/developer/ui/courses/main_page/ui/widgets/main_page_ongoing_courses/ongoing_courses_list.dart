@@ -59,36 +59,19 @@ class _OngoingCoursesListState extends State<OngoingCoursesList> {
                   children: [
                     Stack(
                       children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10.r),
-                            topRight: Radius.circular(10.r),
-                          ),
-                          child: AppRegex.isSvg(course.imageUrl)
-                              ? SvgPicture.network(
-                                  "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(course.imageUrl)}",
-                                  width: double.infinity,
-                                  height: 120.h,
-                                  fit: BoxFit.cover,
-                                  placeholderBuilder: (_) => Container(
+                        Center(
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10.r),
+                              topRight: Radius.circular(10.r),
+                            ),
+                            child: AppRegex.isSvg(course.imageUrl)
+                                ? SvgPicture.network(
+                                    "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(course.imageUrl)}",
                                     width: double.infinity,
                                     height: 120.h,
-                                    color: ColorsManager.mercury,
-                                    alignment: Alignment.center,
-                                    child: const Icon(
-                                      Icons.broken_image,
-                                      color: ColorsManager.granite,
-                                      size: 32,
-                                    ),
-                                  ),
-                                )
-                              : Image.network(
-                                  "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(course.imageUrl)}",
-                                  width: double.infinity,
-                                  height: 120.h,
-                                  fit: BoxFit.cover,
-                                  errorBuilder: (context, error, stackTrace) {
-                                    return Container(
+                                    fit: BoxFit.cover,
+                                    placeholderBuilder: (_) => Container(
                                       width: double.infinity,
                                       height: 120.h,
                                       color: ColorsManager.mercury,
@@ -98,13 +81,32 @@ class _OngoingCoursesListState extends State<OngoingCoursesList> {
                                         color: ColorsManager.granite,
                                         size: 32,
                                       ),
-                                    );
-                                  },
-                                ),
+                                    ),
+                                  )
+                                : Image.network(
+                                    "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(course.imageUrl)}",
+                                    width: double.infinity,
+                                    height: 120.h,
+                                    fit: BoxFit.cover,
+                                    errorBuilder: (context, error, stackTrace) {
+                                      return Container(
+                                        width: double.infinity,
+                                        height: 120.h,
+                                        color: ColorsManager.mercury,
+                                        alignment: Alignment.center,
+                                        child: const Icon(
+                                          Icons.broken_image,
+                                          color: ColorsManager.granite,
+                                          size: 32,
+                                        ),
+                                      );
+                                    },
+                                  ),
+                          ),
                         ),
                         Positioned(
-                          top: 8.h,
-                          left: 8.w,
+                          top: 4.h,
+                          left: 4.w,
                           child: BlocProvider(
                             create: (_) =>
                                 getIt<DeveloperSingleCourseBookmarkCubit>()
