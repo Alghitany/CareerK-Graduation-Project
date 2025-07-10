@@ -17,10 +17,13 @@ class AppEditProfilePicture extends StatefulWidget {
   final Color? editIconBackgroundColor;
   final double? editIconHeight;
   final double? editIconWidth;
+  final String? profileImage;
+
   final void Function(File? imageFile)? onImageSelected;
 
   const AppEditProfilePicture({
     super.key,
+    this.profileImage,
     this.imageRadius,
     this.backgroundColor,
     this.defaultContentHeight,

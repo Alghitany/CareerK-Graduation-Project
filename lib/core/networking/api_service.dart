@@ -4,9 +4,9 @@ import 'package:carrerk/features/customer/ui/applied/data/model/first_screen_mod
 import 'package:carrerk/features/customer/ui/applied/data/model/reject_applications_model/reject_application_response.dart';
 import 'package:carrerk/features/customer/ui/applied/data/model/reject_applications_model/reject_applications_request_model.dart';
 import 'package:carrerk/features/customer/ui/applied/data/model/secound_screen_model/application_details_response_body.dart';
-import 'package:carrerk/features/customer/ui/profile/data/model/get_applicants_model/total_applicants_response.dart';
-import 'package:carrerk/features/customer/ui/profile/data/model/get_service_posts_model/customer_profile_get_all_service_post_response_body.dart';
-import 'package:carrerk/features/customer/ui/profile/data/model/view_profile_model/customer_profile_response_body.dart';
+import 'package:carrerk/features/notifications/data/model/get_all/all_notifications_response_model.dart';
+import 'package:carrerk/features/notifications/data/model/mark_one/mark_notification_read_request_model.dart';
+import 'package:carrerk/features/notifications/data/model/mark_one/mark_notification_read_response_model.dart';
 
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
@@ -279,6 +279,17 @@ abstract class ApiService {
   Future<ChatsAllChatsResponseBody> getAllChats();
 
 //----------------- Customer
+
+// notification
+// get all
+  @GET(ApiConstants.allNotification)
+  Future<AllNotificationsResponseModel> getAllNotifications();
+// mark one
+  @PATCH(ApiConstants.markOneNotification)
+  Future<MarkNotificationReadResponseModel> markNotificationAsRead(
+    @Path('notificationId') String notificationId,
+    @Body() MarkNotificationReadRequestModel request,
+  );
   //->Post Job
   @POST(ApiConstants.customerJobsPost)
   Future<CustomerJobsPostResponse> customerJobsPost(
@@ -307,13 +318,11 @@ abstract class ApiService {
   );
 
   // -------------reject
-
-  // @PATCH(ApiConstants.rejectApplications)
-  // Future<RejectApplicationResponse> rejectApplication(
-  //   @Path('applicantId') String applicantId,
-  //   @Body() RejectApplicationsRequestModel request,
-  // );
-
+  @PATCH(ApiConstants.rejectApplications)
+  Future<RejectApplicationResponseBody> rejectApplication(
+    @Path('applicantId') String applicantId,
+    @Body() RejectApplicationRequestBody request,
+  );
   @POST(ApiConstants.startChatRoom)
   Future<StartChatRoomResponse> startPrivateChat(
     @Body() StartChatRoomRequestBody body,
@@ -323,16 +332,7 @@ abstract class ApiService {
   Future<GetChatMessagesResponseBody> getChatMessages(
     @Path('chatRoomId') String chatRoomId,
   );
-// View customer profile
-  @GET(ApiConstants.customerviewprofile)
-  Future<CustomerProfileResponseBody> getCustomerViewProfie();
-// View customer profile
-  @GET(ApiConstants.customergetserviceposts)
-  Future<CustomerProfileGetAllServicePostResponseBody>
-      getCustomerpostservices();
-  // get applications
-  @GET(ApiConstants.customergetapplications)
-  Future<TotalApplicantsResponse> getCustomerApplications();
+// // View customer profile
 
 //----------------- Customer
 // Customer Sign up Handled with dio

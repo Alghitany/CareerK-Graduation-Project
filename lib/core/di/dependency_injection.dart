@@ -13,12 +13,10 @@ import 'package:carrerk/features/customer/ui/applied/data/repo/first_screen_repo
 import 'package:carrerk/features/customer/ui/applied/data/repo/reject_applications_repo/reject_applications_repo.dart';
 import 'package:carrerk/features/customer/ui/applied/data/repo/secound_screen_repo/application_details_repo.dart';
 import 'package:carrerk/features/customer/ui/applied/logic/first_screen_logic/applications_cubit.dart';
+import 'package:carrerk/features/customer/ui/applied/logic/reject_applications_logic/reject_applications_cubit.dart';
 import 'package:carrerk/features/customer/ui/applied/logic/secound_screen_logic/application_details_cubit.dart';
 import 'package:carrerk/features/customer/ui/home/logic/customer_home_cubit.dart';
-import 'package:carrerk/features/customer/ui/profile/data/repo/get_service_posts_repo/customer_profile_get_all_service_post_repo.dart';
-import 'package:carrerk/features/customer/ui/profile/data/repo/view_profile_repo/customer_profile_repo.dart';
-import 'package:carrerk/features/customer/ui/profile/logic/get_service_posts/customer_profile_get_all_service_post_cubit.dart';
-import 'package:carrerk/features/customer/ui/profile/logic/view_profile/customer_profile_cubit.dart';
+
 import 'package:carrerk/features/customer/ui/sign_up/data/repo/customer_sign_up_repo.dart';
 import 'package:carrerk/features/customer/ui/sign_up/logic/customer_sign_up_cubit.dart';
 import 'package:carrerk/features/developer/data/repo/developer_single_job_bookmark_repo.dart';
@@ -42,6 +40,10 @@ import 'package:carrerk/features/developer/ui/profile/jobs_applied/data/repo/dev
 import 'package:carrerk/features/developer/ui/profile/jobs_applied/data/repo/developer_profile_applied_jobs_repo.dart';
 import 'package:carrerk/features/developer/ui/profile/settings/data/repos/developer_generate_cv_start_session_repo.dart';
 import 'package:carrerk/features/developer/ui/profile/settings/logic/developer_generate_cv_start_session_logic/developer_generate_cv_start_session_cubit.dart';
+import 'package:carrerk/features/notifications/data/repo/get_all/all_notifications_repo.dart';
+import 'package:carrerk/features/notifications/data/repo/mark_one/mark_notification_read_repo.dart';
+import 'package:carrerk/features/notifications/logic/get_all/all_notification_cubit.dart';
+import 'package:carrerk/features/notifications/logic/mark_one/mark_notification_read_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -430,29 +432,32 @@ Future<void> setupGetIt() async {
       () => ApplicationDetailsCubit(getIt()));
 
 // view profile
-  getIt.registerLazySingleton<CustomerProfileRepo>(
-    () => CustomerProfileRepo(getIt()),
-  );
-
-  getIt.registerFactory<CustomerProfileCubit>(
-      () => CustomerProfileCubit(getIt()));
-// get posts
-  getIt.registerLazySingleton<CustomerProfileGetAllServicePostRepo>(
-    () => CustomerProfileGetAllServicePostRepo(getIt()),
-  );
-
-  getIt.registerFactory<CustomerProfileGetAllServicePostCubit>(
-      () => CustomerProfileGetAllServicePostCubit(getIt()));
 
 //  customer -- reject
-  //  getIt.registerLazySingleton<RejectApplicationsRepo>(
-  //   () => RejectApplicationsRepo(getIt<Dio>()),
+  getIt.registerLazySingleton<RejectApplicationRepo>(
+    () => RejectApplicationRepo(getIt()),
+  );
 
-  // );
+  getIt.registerFactory<RejectApplicationCubit>(
+    () => RejectApplicationCubit(getIt()),
+  );
+// notification
+  getIt.registerLazySingleton<AllNotificationsRepo>(
+    () => AllNotificationsRepo(getIt<ApiService>()),
+  );
 
-  // getIt.registerFactory<CustomerSignupCubit>(
-  //   () => CustomerSignupCubit(getIt<CustomerSignupRepo>()),
-  // );
+  getIt.registerFactory<AllNotificationCubit>(
+    () => AllNotificationCubit(getIt<AllNotificationsRepo>()),
+  );
+
+  getIt.registerLazySingleton<MarkNotificationReadRepo>(
+    () => MarkNotificationReadRepo(getIt<ApiService>()),
+  );
+
+  getIt.registerFactory<MarkNotificationReadCubit>(
+    () => MarkNotificationReadCubit(getIt<MarkNotificationReadRepo>()),
+  );
+
   // Customer -> Signup
   getIt.registerLazySingleton<CustomerSignupRepo>(
     () => CustomerSignupRepo(getIt<Dio>()),

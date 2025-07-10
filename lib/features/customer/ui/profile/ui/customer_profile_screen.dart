@@ -3,9 +3,10 @@ import 'package:carrerk/core/widgets/app_back_icon.dart';
 
 import 'package:carrerk/features/customer/ui/profile/ui/widgets/all_jobs_list.dart';
 import 'package:carrerk/features/customer/ui/profile/ui/widgets/call_and_chat_Icons.dart';
-import 'package:carrerk/features/customer/ui/profile/ui/widgets/customer_all_jobs_bloc_builder.dart';
-import 'package:carrerk/features/customer/ui/profile/ui/widgets/number_of_jobs_and_applicants_bloc_builder.dart';
-import 'package:carrerk/features/customer/ui/profile/ui/widgets/profile_bloc_builder.dart';
+import 'package:carrerk/features/customer/ui/profile/ui/widgets/number_of_applicant.dart'
+    show NumberOfJobsAndApplicants;
+import 'package:carrerk/features/customer/ui/profile/ui/widgets/profile_image_name_and_location.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -25,15 +26,13 @@ class CustomerProfileScreen extends StatelessWidget {
             child: Column(
               children: [
                 AppBackIcon(),
-                const CustomerProfileBlocBuilder(),
+                const ProfileImageNameAndLocation(),
                 verticalSpace(16),
                 const CallAndChatIcons(),
                 verticalSpace(11),
-                NumberOfJobsAndApplicantsBlocBuilder(
-                  applicantsCount: applicantsCount,
-                ),
+                NumberOfJobsAndApplicants(),
                 verticalSpace(32),
-                const CustomerAllJobsBlocBuilder(),
+                const AllJobsList(),
               ],
             ),
           ),

@@ -1,31 +1,32 @@
-import 'package:carrerk/core/networking/api_error_handler.dart';
-import 'package:carrerk/core/networking/api_result.dart';
-import 'package:carrerk/core/networking/api_service.dart';
 import 'package:carrerk/features/customer/ui/applied/data/model/reject_applications_model/reject_application_response.dart';
+
 import 'package:carrerk/features/customer/ui/applied/data/model/reject_applications_model/reject_applications_request_model.dart';
 
 import '../../../../../../../core/networking/api_error_handler.dart';
 import '../../../../../../../core/networking/api_result.dart';
 import '../../../../../../../core/networking/api_service.dart';
-import '../../model/reject_applications_model/reject_application_response.dart';
 
-class RejectApplicationsRepo {
+class RejectApplicationRepo {
   final ApiService _apiService;
 
-  RejectApplicationsRepo(this._apiService);
+  RejectApplicationRepo(this._apiService);
 
-  // Future<ApiResult<RejectApplicationResponse>> rejectApplication({
-  //   required String applicationId,
-  //   required RejectApplicationsRequestModel request,
-  // }) async {
-  //   try {
-  //     final response = await _apiService.rejectApplication(
-  //       applicationId,
+  /// Sends a reject request for a given application ID with a status payload.
+  Future<ApiResult<RejectApplicationResponseBody>> rejectApplication({
+    required String applicationId,
+    required String status,
+  }) async {
+    try {
+      final requestBody = RejectApplicationRequestBody(status: status);
 
-  //     );
-  //     return ApiResult.success(response);
-  //   } catch (error) {
-  //     return ApiResult.failure(ErrorHandler.handle(error));
-  //   }
-  // }
+      final response = await _apiService.rejectApplication(
+        applicationId,
+        requestBody,
+      );
+
+      return ApiResult.success(response);
+    } catch (error) {
+      return ApiResult.failure(ErrorHandler.handle(error));
+    }
+  }
 }

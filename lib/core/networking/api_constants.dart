@@ -1,7 +1,7 @@
 class ApiConstants {
-  static const String apiBaseUrl = "https://e419-197-164-8-153.ngrok-free.app/";
+  static const String apiBaseUrl = "https://94deaea98e01.ngrok-free.app/";
   static const String baseImageUrl =
-      "https://e419-197-164-8-153.ngrok-free.app/uploads/profile_pictures/";
+      "https://94deaea98e01.ngrok-free.app/uploads/profile_pictures/";
 
   //------ Authentication -------
   static const String authenticationLogin = "api/auth/login";
@@ -132,7 +132,11 @@ class ApiConstants {
       "api/service-application/{applicantId}";
 
   //------ Notifications ----
+  //get all
   static const String allNotification = "/api/notifications";
+  //mark one
+  static const String markOneNotification =
+      "/api/notifications/{notificationId}/read";
 
   //------ reject ----
   static const String rejectApplications =

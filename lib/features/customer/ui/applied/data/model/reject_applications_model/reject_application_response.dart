@@ -3,65 +3,58 @@ import 'package:json_annotation/json_annotation.dart';
 part 'reject_application_response.g.dart';
 
 @JsonSerializable()
-class RejectApplicationResponse {
-  @JsonKey(name: 'application')
-  ApplicationData? application;
+class RejectApplicationResponseBody {
+  final Application application;
 
-  RejectApplicationResponse({this.application});
+  RejectApplicationResponseBody({
+    required this.application,
+  });
 
-  factory RejectApplicationResponse.fromJson(Map<String, dynamic> json) =>
-      _$RejectApplicationResponseFromJson(json);
+  factory RejectApplicationResponseBody.fromJson(Map<String, dynamic> json) =>
+      _$RejectApplicationResponseBodyFromJson(json);
 
-  Map<String, dynamic> toJson() => _$RejectApplicationResponseToJson(this);
+  Map<String, dynamic> toJson() => _$RejectApplicationResponseBodyToJson(this);
 }
 
 @JsonSerializable()
-class ApplicationData {
-  String? id;
-
+class Application {
+  final String id;
   @JsonKey(name: 'developer_id')
-  String? developerId;
-
+  final String developerId;
   @JsonKey(name: 'service_post_id')
-  String? servicePostId;
-
+  final String servicePostId;
   @JsonKey(name: 'submitted_at')
-  String? submittedAt;
-
+  final String submittedAt;
   @JsonKey(name: 'created_at')
-  String? createdAt;
-
-  String? status;
-  String? name;
-  String? email;
-  String? phone;
-
+  final String createdAt;
+  final String status;
+  final String name;
+  final String email;
+  final String phone;
   @JsonKey(name: 'years_of_experience')
-  int? yearsOfExperience;
-
+  final int yearsOfExperience;
   @JsonKey(name: 'expected_salary')
-  String? expectedSalary;
-
+  final String expectedSalary;
   @JsonKey(name: 'uploaded_cv')
-  String? uploadedCv;
+  final String uploadedCv;
 
-  ApplicationData({
-    this.id,
-    this.developerId,
-    this.servicePostId,
-    this.submittedAt,
-    this.createdAt,
-    this.status,
-    this.name,
-    this.email,
-    this.phone,
-    this.yearsOfExperience,
-    this.expectedSalary,
-    this.uploadedCv,
+  Application({
+    required this.id,
+    required this.developerId,
+    required this.servicePostId,
+    required this.submittedAt,
+    required this.createdAt,
+    required this.status,
+    required this.name,
+    required this.email,
+    required this.phone,
+    required this.yearsOfExperience,
+    required this.expectedSalary,
+    required this.uploadedCv,
   });
 
-  factory ApplicationData.fromJson(Map<String, dynamic> json) =>
-      _$ApplicationDataFromJson(json);
+  factory Application.fromJson(Map<String, dynamic> json) =>
+      _$ApplicationFromJson(json);
 
-  Map<String, dynamic> toJson() => _$ApplicationDataToJson(this);
+  Map<String, dynamic> toJson() => _$ApplicationToJson(this);
 }

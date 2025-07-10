@@ -6,6 +6,11 @@ import 'package:carrerk/features/customer/ui/applied/ui/secound/widgets/back_ico
 import 'package:carrerk/features/customer/ui/applied/ui/secound/widgets/client_description.dart';
 import 'package:carrerk/features/customer/ui/applied/ui/secound/widgets/client_info_and_salary.dart';
 import 'package:carrerk/features/customer/ui/applied/ui/secound/widgets/client_location.dart';
+import 'package:carrerk/features/customer/ui/applied/ui/secound/widgets/contact_bloc_builder.dart';
+import 'package:carrerk/features/customer/ui/applied/ui/secound/widgets/contact_button.dart'
+    show ContactButton;
+import 'package:carrerk/features/customer/ui/applied/ui/secound/widgets/hire_button_bloc_builder.dart';
+import 'package:carrerk/features/customer/ui/applied/ui/secound/widgets/hired_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -41,11 +46,19 @@ class ApplicationDetailsContent extends StatelessWidget {
             description: developer.briefBio,
           ),
           verticalSpace(32),
-          AppTextButton(
-            onPressed: () {},
-            buttonText: 'Hire',
-            textStyle: AppTextStyles.font14WhitePoppinsMedium,
-          ),
+          Row(
+            children: [
+              Expanded(
+                  child: ContactUserSection(
+                userId: data.application.developerId,
+              )),
+              horizontalSpace(16),
+              Expanded(
+                  child: HireButtonBlocBuilder(
+                applicationId: application.id,
+              )),
+            ],
+          )
         ],
       ),
     );

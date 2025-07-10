@@ -3,15 +3,12 @@ import 'package:json_annotation/json_annotation.dart';
 part 'reject_applications_request_model.g.dart';
 
 @JsonSerializable()
-class RejectApplicationsRequestModel {
+class RejectApplicationRequestBody {
   final String status;
 
-  RejectApplicationsRequestModel({
+  RejectApplicationRequestBody({
     required this.status,
   });
 
-  factory RejectApplicationsRequestModel.fromJson(Map<String, dynamic> json) =>
-      _$RejectApplicationsRequestModelFromJson(json);
-
-  Map<String, dynamic> toJson() => _$RejectApplicationsRequestModelToJson(this);
+  Map<String, dynamic> toJson() => _$RejectApplicationRequestBodyToJson(this);
 }

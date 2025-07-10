@@ -6,14 +6,14 @@ part of 'reject_applications_request_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-RejectApplicationsRequestModel _$RejectApplicationsRequestModelFromJson(
+RejectApplicationRequestBody _$RejectApplicationRequestBodyFromJson(
         Map<String, dynamic> json) =>
-    RejectApplicationsRequestModel(
+    RejectApplicationRequestBody(
       status: json['status'] as String,
     );
 
-Map<String, dynamic> _$RejectApplicationsRequestModelToJson(
-        RejectApplicationsRequestModel instance) =>
+Map<String, dynamic> _$RejectApplicationRequestBodyToJson(
+        RejectApplicationRequestBody instance) =>
     <String, dynamic>{
       'status': instance.status,
     };

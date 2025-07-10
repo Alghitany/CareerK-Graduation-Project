@@ -4,13 +4,11 @@ import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/theming/styles.dart';
 
 import '../../../../../../../core/theming/colors.dart';
-import '../../data/model/get_service_posts_model/customer_profile_get_all_service_post_response_body.dart';
 
 class AllJobsList extends StatelessWidget {
-  final List<PostItem> posts;
-  final int? jobs;
-
-  const AllJobsList({super.key, required this.posts, this.jobs});
+  const AllJobsList({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +26,8 @@ class AllJobsList extends StatelessWidget {
           height: MediaQuery.of(context).size.height - 100,
           child: ListView.builder(
             physics: const NeverScrollableScrollPhysics(),
-            itemCount: posts.length,
+            itemCount: 5,
             itemBuilder: (context, index) {
-              final post = posts[index];
               return Card(
                 color: Colors.white,
                 elevation: 0,
@@ -49,12 +46,12 @@ class AllJobsList extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              post.title ?? '',
+                              'sad',
                               style: AppTextStyles.font16BlackPoppinsMedium,
                             ),
                             verticalSpace(4),
                             Text(
-                              post.serviceType ?? '',
+                              'adasdada',
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                               style: AppTextStyles
@@ -62,7 +59,7 @@ class AllJobsList extends StatelessWidget {
                             ),
                             verticalSpace(4),
                             Text(
-                              post.budgetRange ?? '',
+                              'dasasda',
                               style: AppTextStyles
                                   .font10RangoonGreenPoppinsRegular,
                             ),

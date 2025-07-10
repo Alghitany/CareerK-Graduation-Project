@@ -166,9 +166,12 @@ class Routes {
   // Profile
   static const String customerProfileScreen = "/customerProfileScreen";
 
-  //jops_post
+  //jops_post   CustomerJobPostSuccessScreen
 
   static const String customerJobPostScreen = "/customerJobPostScreen";
+  //jops_post_success   
+
+  static const String customerJobPostSuccessScreen = "/customerJobPostSuccessScreen";
 
   //home
   static const String customerHomeMainPageScreen =
