@@ -63,10 +63,12 @@ import '../../features/company/ui/profile/logic/company_profile_info_logic/compa
 import '../../features/company/ui/sign_up/data/repo/company_sign_up_repo.dart';
 import '../../features/company/ui/sign_up/logic/company_sign_up_cubit.dart';
 import '../../features/customer/ui/home/model/repo/customer_home_repo.dart';
+import '../../features/developer/data/repo/developer_add_course_bookmark_repo.dart';
 import '../../features/developer/data/repo/developer_add_job_bookmark_repo.dart';
 import '../../features/developer/data/repo/developer_courses_and_jobs_main_page_profile_repo.dart';
 import '../../features/developer/data/repo/developer_recommendations_repo.dart';
 import '../../features/developer/data/repo/developer_single_course_bookmark_repo.dart';
+import '../../features/developer/logic/developer_add_course_bookmark_logic/developer_add_course_bookmark_cubit.dart';
 import '../../features/developer/logic/developer_add_job_bookmark_logic/developer_add_job_bookmark_cubit.dart';
 import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
 import '../../features/developer/logic/developer_recommendations_logic/developer_recommendations_cubit.dart';
@@ -212,13 +214,19 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<DeveloperAddJobBookmarkCubit>(
     () => DeveloperAddJobBookmarkCubit(getIt()),
   );
-
   // Single Job Bookmark
   getIt.registerLazySingleton<DeveloperSingleJobBookmarkRepo>(
     () => DeveloperSingleJobBookmarkRepo(getIt()),
   );
   getIt.registerFactory<DeveloperSingleJobBookmarkCubit>(
     () => DeveloperSingleJobBookmarkCubit(getIt()),
+  );
+  // Add Course Bookmark
+  getIt.registerLazySingleton<DeveloperAddCourseBookmarkRepo>(
+    () => DeveloperAddCourseBookmarkRepo(getIt()),
+  );
+  getIt.registerFactory<DeveloperAddCourseBookmarkCubit>(
+    () => DeveloperAddCourseBookmarkCubit(getIt()),
   );
   // Single Course Bookmark
   getIt.registerLazySingleton<DeveloperSingleCourseBookmarkRepo>(

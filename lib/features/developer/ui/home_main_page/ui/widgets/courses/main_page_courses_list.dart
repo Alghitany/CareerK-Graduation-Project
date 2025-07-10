@@ -14,6 +14,7 @@ import 'package:shimmer/shimmer.dart';
 import '../../../../../../../core/di/dependency_injection.dart';
 import '../../../../../../../core/helpers/app_regex.dart';
 import '../../../../../../../core/theming/styles.dart';
+import '../../../../../logic/developer_add_course_bookmark_logic/developer_add_course_bookmark_cubit.dart';
 import '../../../../../logic/developer_single_course_bookmark_logic/developer_single_course_bookmark_cubit.dart';
 import '../../../data/models/developer_courses_home_main_page_models/developer_courses_home_main_page_response_body.dart';
 
@@ -159,16 +160,22 @@ class _MainPageCoursesListState extends State<MainPageCoursesList> {
                                 ),
                               ],
                             ),
-                            // BlocProvider only wraps the bookmark widget
                             Padding(
                               padding: EdgeInsets.only(bottom: 24.0.h),
-                              child: BlocProvider(
-                                create: (_) =>
-                                    getIt<DeveloperSingleCourseBookmarkCubit>()
+                              child: MultiBlocProvider(
+                                providers: [
+                                  BlocProvider(
+                                    create: (_) => getIt<
+                                        DeveloperSingleCourseBookmarkCubit>()
                                       ..bookmarkCourse(course.courseId!),
+                                  ),
+                                  BlocProvider(
+                                    create: (_) => getIt<
+                                        DeveloperAddCourseBookmarkCubit>(),
+                                  ),
+                                ],
                                 child: DeveloperCourseBookmarkBlocBuilder(
-                                  courseId: course.courseId ?? '',
-                                ),
+                                    courseId: course.courseId ?? ''),
                               ),
                             ),
                           ],

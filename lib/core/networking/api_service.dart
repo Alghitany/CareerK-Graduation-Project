@@ -31,6 +31,8 @@ import '../../features/company/ui/profile/data/models/company_profile_all_jobs_p
 import '../../features/company/ui/profile/data/models/company_profile_applicants_number_models/company_profile_applicants_number_response_body.dart';
 import '../../features/company/ui/profile/data/models/company_profile_info_models/company_profile_info_response_body.dart';
 import '../../features/customer/ui/home/model/model/customer_home_response_body.dart';
+import '../../features/developer/data/models/developer_add_course_bookmark_models/developer_add_course_bookmark_request_body.dart';
+import '../../features/developer/data/models/developer_add_course_bookmark_models/developer_add_course_bookmark_response.dart';
 import '../../features/developer/data/models/developer_add_job_bookmark_models/developer_add_job_bookmark_request_body.dart';
 import '../../features/developer/data/models/developer_add_job_bookmark_models/developer_add_job_bookmark_response.dart';
 import '../../features/developer/data/models/developer_courses_and_jobs_main_page_profile_models/developer_courses_and_jobs_main_page_profile_response_model.dart';
@@ -196,6 +198,13 @@ abstract class ApiService {
   @GET(ApiConstants.developerSingleJobBookmark)
   Future<DeveloperSingleJobBookmarkResponseModel> bookmarkJob(
     @Path("jobId") String jobId,
+  );
+
+  //-> Add Course Bookmark
+  @PATCH(ApiConstants.developerAddCourseBookmark)
+  Future<DeveloperAddCourseBookmarkResponse> addCourseBookmark(
+    @Path("courseId") String courseId,
+    @Body() DeveloperAddCourseBookmarkRequestBody body,
   );
 
   //-> Single Course Bookmark
