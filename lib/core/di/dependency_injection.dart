@@ -103,6 +103,8 @@ import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_ser
 import '../../features/developer/ui/profile/jobs_applied/logic/developer_job_withdraw_logic/developer_job_withdraw_cubit.dart';
 import '../../features/developer/ui/profile/jobs_applied/logic/developer_profile_applied_jobs_logic/developer_profile_applied_jobs_cubit.dart';
 import '../../features/developer/ui/profile/jobs_applied/logic/developer_service_delete_logic/developer_service_delete_cubit.dart';
+import '../../features/developer/ui/profile/main_page/data/repos/developer_profile_main_page_info_repo.dart';
+import '../../features/developer/ui/profile/main_page/logic/profile_info_logic/developer_profile_main_page_info_cubit.dart';
 import '../../features/developer/ui/sign_up/data/repos/developer_sign_up_repo.dart';
 import '../../features/developer/ui/sign_up/logic/developer_sign_up_cubit.dart';
 import '../../features/post_details/data/repo/job_details_repo.dart';
@@ -300,31 +302,12 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<SpecificCourseReviewsCubit>(
     () => SpecificCourseReviewsCubit(getIt()),
   );
-  // -> Profile
-  // Profile Info
-  getIt.registerLazySingleton<CompanyProfileInfoRepo>(
-    () => CompanyProfileInfoRepo(getIt()),
+  //-> Profile
+  getIt.registerLazySingleton<DeveloperProfileMainPageInfoRepo>(
+        () => DeveloperProfileMainPageInfoRepo(getIt()),
   );
-  getIt.registerFactory<CompanyProfileInfoCubit>(
-    () => CompanyProfileInfoCubit(getIt()),
-  );
-
-  // Company Applicants Number
-  getIt.registerLazySingleton<CompanyProfileApplicantsNumberRepo>(
-    () => CompanyProfileApplicantsNumberRepo(getIt()),
-  );
-
-  getIt.registerFactory<CompanyProfileApplicantsNumberCubit>(
-    () => CompanyProfileApplicantsNumberCubit(getIt()),
-  );
-
-  // Company Profile Edit
-  getIt.registerLazySingleton<CompanyProfileEditRepo>(
-    () => CompanyProfileEditRepo(getIt()),
-  );
-
-  getIt.registerFactory<CompanyProfileEditCubit>(
-    () => CompanyProfileEditCubit(getIt()),
+  getIt.registerFactory<DeveloperProfileMainPageInfoCubit>(
+        () => DeveloperProfileMainPageInfoCubit(getIt()),
   );
 
   // All Job Posts
@@ -370,6 +353,32 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<DeveloperServiceDeleteCubit>(
       () => DeveloperServiceDeleteCubit(getIt()));
   // Company
+  //-> Profile
+  // Profile Info
+  getIt.registerLazySingleton<CompanyProfileInfoRepo>(
+        () => CompanyProfileInfoRepo(getIt()),
+  );
+  getIt.registerFactory<CompanyProfileInfoCubit>(
+        () => CompanyProfileInfoCubit(getIt()),
+  );
+
+  // Company Applicants Number
+  getIt.registerLazySingleton<CompanyProfileApplicantsNumberRepo>(
+        () => CompanyProfileApplicantsNumberRepo(getIt()),
+  );
+
+  getIt.registerFactory<CompanyProfileApplicantsNumberCubit>(
+        () => CompanyProfileApplicantsNumberCubit(getIt()),
+  );
+
+  // Company Profile Edit
+  getIt.registerLazySingleton<CompanyProfileEditRepo>(
+        () => CompanyProfileEditRepo(getIt()),
+  );
+
+  getIt.registerFactory<CompanyProfileEditCubit>(
+        () => CompanyProfileEditCubit(getIt()),
+  );
   // company -> Signup
   getIt.registerLazySingleton<CompanySignupRepo>(
     () => CompanySignupRepo(getIt<Dio>()),

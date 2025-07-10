@@ -8,7 +8,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class ProfileTopBar extends StatelessWidget {
-  const ProfileTopBar({super.key});
+  final String profileImage;
+  const ProfileTopBar({super.key, required this.profileImage});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +31,8 @@ class ProfileTopBar extends StatelessWidget {
         const Spacer(),
         Padding(
           padding: EdgeInsets.fromLTRB(0.0.w, 8.h, 0.w, 0.h),
-          child: const AppEditProfilePicture(
+          child: AppEditProfilePicture(
+            profileImage: profileImage,
             imageRadius: 60,
             editIconBackgroundRadius: 15,
             editIconHeight: 15,

@@ -3,9 +3,10 @@ import 'package:carrerk/core/widgets/developer_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'widgets/name_and_title.dart';
-import 'widgets/phone_message_and_location_icons.dart';
-import 'widgets/profile_top_bar.dart';
+import 'widgets/developer_profile_main_page_info_bloc_builder.dart';
+import 'widgets/profile_info/name_and_title.dart';
+import 'widgets/profile_info/phone_message_and_location_icons.dart';
+import 'widgets/profile_info/profile_top_bar.dart';
 import 'widgets/skills_progress.dart';
 
 class DeveloperProfileMainPageScreen extends StatelessWidget {
@@ -23,13 +24,9 @@ class DeveloperProfileMainPageScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                const ProfileTopBar(),
+                const DeveloperProfileMainPageInfoBlocBuilder(),
                 verticalSpace(16),
-                //TODO: Pass real name and title
-                const NameAndTitle(),
-                verticalSpace(16),
-                const PhoneMessageAndLocationIcons(),
-                verticalSpace(16),
+                //TODO: Abdulrahman Will Do New Endpoint
                 const SkillsProgress(),
               ],
             ),

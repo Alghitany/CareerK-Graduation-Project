@@ -30,7 +30,7 @@ import 'package:carrerk/features/developer/ui/jobs/apply/logic/developer_jobs_ap
 import 'package:carrerk/features/developer/ui/jobs/apply/ui/developer_jobs_apply_screen.dart';
 import 'package:carrerk/features/developer/ui/jobs/main_page/developer_jobs_main_page_screen.dart';
 import 'package:carrerk/features/developer/ui/profile/edit_profile/developer_profile_edit_profile_screen.dart';
-import 'package:carrerk/features/developer/ui/profile/main_page/developer_profile_main_page_screen.dart';
+import 'package:carrerk/features/developer/ui/profile/main_page/ui/developer_profile_main_page_screen.dart';
 import 'package:carrerk/features/developer/ui/profile/payment/add_new_cart/developer_profile_payment_add_new_card_screen.dart';
 import 'package:carrerk/features/developer/ui/profile/payment/option/developer_profile_payment_option_screen.dart';
 import 'package:carrerk/features/developer/ui/profile/saved_jobs/developer_profile_saved_jobs_screen.dart';
@@ -117,6 +117,7 @@ import '../../features/developer/ui/profile/jobs_applied/logic/developer_job_wit
 import '../../features/developer/ui/profile/jobs_applied/logic/developer_profile_applied_jobs_logic/developer_profile_applied_jobs_cubit.dart';
 import '../../features/developer/ui/profile/jobs_applied/logic/developer_service_delete_logic/developer_service_delete_cubit.dart';
 import '../../features/developer/ui/profile/jobs_applied/ui/developer_profile_jobs_and_services_applied_screen.dart';
+import '../../features/developer/ui/profile/main_page/logic/profile_info_logic/developer_profile_main_page_info_cubit.dart';
 import '../../features/notifications/ui/notifications_screen.dart';
 import '../../features/post_details/logic/post_details_logic/job_details_cubit.dart';
 import '../../features/post_details/ui/job_details/job_details_screen.dart';
@@ -591,8 +592,13 @@ class AppRouter {
       // Profile
       case Routes.developerProfileMainPageScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperProfileMainPageScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<DeveloperProfileMainPageInfoCubit>()
+              ..fetchDeveloperProfileMainPageInfo(),
+            child: const DeveloperProfileMainPageScreen(),
+          ),
         );
+
       case Routes.developerProfileSettingsScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
