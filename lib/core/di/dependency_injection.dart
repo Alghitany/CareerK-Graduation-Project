@@ -14,7 +14,7 @@ import 'package:carrerk/features/customer/profile/data/repo/customer_profile_all
 import 'package:carrerk/features/customer/profile/data/repo/customer_profile_applicants_number_repo.dart';
 import 'package:carrerk/features/customer/profile/data/repo/customer_profile_edit_repo.dart';
 import 'package:carrerk/features/customer/profile/data/repo/customer_profile_info_repo.dart';
-import 'package:carrerk/features/customer/profile/logic/company_jobs_delete_post_logic/customer_jobs_delete_post_cubit.dart';
+import 'package:carrerk/features/customer/profile/logic/customer_jobs_delete_post_logic/customer_jobs_delete_post_cubit.dart';
 import 'package:carrerk/features/customer/profile/logic/customer_profile_all_job_posts_logic/customer_profile_all_job_posts_cubit.dart';
 import 'package:carrerk/features/customer/profile/logic/customer_profile_applicants_number_logic/customer_profile_applicants_number_cubit.dart';
 import 'package:carrerk/features/customer/profile/logic/customer_profile_edit_logic/customer_profile_edit_cubit.dart';

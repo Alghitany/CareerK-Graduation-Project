@@ -48,7 +48,6 @@ class ProfileInfoBlocBuilder extends StatelessWidget {
         ProfileImageNameAndLocation(
           profileImage: data.profilePicture,
           customerName: data.name,
-          city: data.contactEmail,
         ),
         verticalSpace(16),
         const ProfileIcons(),

@@ -3,7 +3,7 @@ import 'package:carrerk/core/routing/app_argument.dart';
 import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/features/customer/profile/data/model/customer_profile_all_service_posts/customer_profile_all_service_posts_response_body.dart';
-import 'package:carrerk/features/customer/profile/logic/company_jobs_delete_post_logic/customer_jobs_delete_post_cubit.dart';
+import 'package:carrerk/features/customer/profile/logic/customer_jobs_delete_post_logic/customer_jobs_delete_post_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -55,16 +55,26 @@ class _AllJobsListState extends State<AllJobsList> {
           onTap: () {
             Navigator.of(context).pushNamed(
               Routes.developerJobsJobDetailsScreen,
-              arguments: AppArgument(jobId: job.id, isCustomer: true),
+              arguments: AppArgument(
+                jobId: job.id,
+              ),
             );
           },
           title: Text(
             job.title,
             style: AppTextStyles.font16BlackPoppinsMedium,
           ),
-          subtitle: Text(
-            job.budgetRange,
-            style: AppTextStyles.font10RangoonGreenPoppinsRegular,
+          subtitle: Row(
+            children: [
+              Text(
+                'budget : ',
+                style: AppTextStyles.font12WaikawaGreyPoppinsRegular,
+              ),
+              Text(
+                " ${job.budgetRange}",
+                style: AppTextStyles.font14LiverPoppinsMedium,
+              ),
+            ],
           ),
           trailing: TextButton(
             onPressed: () async {

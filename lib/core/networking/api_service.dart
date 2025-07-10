@@ -284,7 +284,7 @@ abstract class ApiService {
 
 //----------------- Customer
 // -> Delete Customer Job
-  @DELETE("${ApiConstants.customerJobsDeletePost}/{jobId}")
+  @DELETE("${ApiConstants.customerJobsDeletePost}")
   Future<CustomerJobsDeletePostResponse> deleteCustomerJobPost(
     @Path("jobId") String jobId,
   );

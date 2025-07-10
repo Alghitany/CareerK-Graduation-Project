@@ -1330,7 +1330,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'api/company/service-posts/${jobId}/${jobId}',
+          'api/customer/service-posts/${jobId}',
           queryParameters: queryParameters,
           data: _data,
         )

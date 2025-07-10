@@ -151,7 +151,7 @@ class ApiConstants {
   static const String customereditprofile = "/api/customer/edit-profile";
   //->Delete Post
   static const String customerJobsDeletePost =
-      "api/company/service-posts/{jobId}";
+      "api/customer/service-posts/{jobId}";
   //------ company ------------
   //->Sign up
   static const String companySignup = "api/company/register";

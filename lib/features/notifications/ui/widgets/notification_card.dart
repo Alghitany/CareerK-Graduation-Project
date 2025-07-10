@@ -200,8 +200,8 @@ class _NotificationListState extends State<NotificationList> {
   }) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
-      height: 139.h,
       width: double.infinity.w,
+      constraints: BoxConstraints(minHeight: 139.h),
       padding: EdgeInsets.fromLTRB(21.5.w, 18.h, 13.w, 14.h),
       margin: EdgeInsets.symmetric(vertical: 6.h),
       decoration: BoxDecoration(
@@ -210,23 +210,31 @@ class _NotificationListState extends State<NotificationList> {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
           Row(
             children: [
               if (!isRead)
                 const Icon(Icons.circle, color: Colors.white, size: 12),
               if (!isRead) horizontalSpace(8),
-              Text(title,
+              Flexible(
+                child: Text(
+                  title,
+                  overflow: TextOverflow.ellipsis,
                   style: isRead
                       ? AppTextStyles.font16BlackPoppinsSemiBold
-                      : AppTextStyles.font16WhitePoppinsSemiBold),
+                      : AppTextStyles.font16WhitePoppinsSemiBold,
+                ),
+              ),
             ],
           ),
           verticalSpace(6),
-          Text(description,
-              style: isRead
-                  ? AppTextStyles.font14BlackPoppinsRegular
-                  : AppTextStyles.font14WhitePoppinsRegular),
+          Text(
+            description,
+            style: isRead
+                ? AppTextStyles.font14BlackPoppinsRegular
+                : AppTextStyles.font14WhitePoppinsRegular,
+          ),
           verticalSpace(12),
           Row(
             children: [
@@ -234,25 +242,31 @@ class _NotificationListState extends State<NotificationList> {
                   color: isRead ? ColorsManager.lemonGrass : Colors.white,
                   size: 14),
               horizontalSpace(4),
-              Text(time,
-                  style: isRead
-                      ? AppTextStyles.font14LemonGrassPoppinsRegular
-                      : AppTextStyles.font14WhitePoppinsRegular),
+              Text(
+                time,
+                style: isRead
+                    ? AppTextStyles.font14LemonGrassPoppinsRegular
+                    : AppTextStyles.font14WhitePoppinsRegular,
+              ),
               const Spacer(),
               !isRead
                   ? GestureDetector(
                       onTap: () {
                         markAsRead(index);
                       },
-                      child: Text("Mark as read",
-                          style: AppTextStyles.font14WhitePoppinsMedium),
+                      child: Text(
+                        "Mark as read",
+                        style: AppTextStyles.font14WhitePoppinsMedium,
+                      ),
                     )
                   : GestureDetector(
                       onTap: () {
                         deleteNotification(index);
                       },
-                      child: Text("Delete",
-                          style: AppTextStyles.font14ArtyClickRedPoppinsMedium),
+                      child: Text(
+                        "Delete",
+                        style: AppTextStyles.font14ArtyClickRedPoppinsMedium,
+                      ),
                     )
             ],
           ),

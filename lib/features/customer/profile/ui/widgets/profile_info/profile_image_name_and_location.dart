@@ -12,13 +12,11 @@ import '../../../../../../../core/widgets/app_edit_profile_picture.dart';
 class ProfileImageNameAndLocation extends StatelessWidget {
   final String? profileImage;
   final String? customerName;
-  final String? city;
 
   const ProfileImageNameAndLocation({
     super.key,
     this.profileImage,
     this.customerName,
-    this.city,
   });
 
   @override
@@ -52,11 +50,6 @@ class ProfileImageNameAndLocation extends StatelessWidget {
         Text(
           customerName ?? 'Unknown Name',
           style: AppTextStyles.font16BlackPoppinsSemiBold,
-        ),
-        verticalSpace(8),
-        Text(
-          city ?? 'Unknown Location',
-          style: AppTextStyles.font14GranitePoppinsMedium,
         ),
       ],
     );
