@@ -642,10 +642,12 @@ class AppRouter {
           builder: (_) => MultiBlocProvider(
             providers: [
               BlocProvider(
-                create: (_) => getIt<DeveloperProfileSettingsGetMyCVCubit>()..getMyCV(),
+                create: (_) =>
+                    getIt<DeveloperProfileSettingsGetMyCVCubit>()..getMyCV(),
               ),
               BlocProvider(
-                create: (_) => getIt<DeveloperProfileSettingsUpdateUploadedCVCubit>(),
+                create: (_) =>
+                    getIt<DeveloperProfileSettingsUpdateUploadedCVCubit>(),
               ),
               BlocProvider(
                 create: (_) => getIt<DeveloperProfileSettingsDeleteCVCubit>(),

@@ -94,6 +94,7 @@ class SettingsOptionsList extends StatelessWidget {
               leadingIconHeight: 21.5,
               leadingIconWidth: 18,
               onTap: () {
+                //TODO: Add Chat Bot
                 context.pushNamed(Routes.developerProfilePaymentOptionScreen);
               },
             ),

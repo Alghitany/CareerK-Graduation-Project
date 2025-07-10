@@ -711,6 +711,43 @@ class _ApiService implements ApiService {
   }
 
   @override
+  Future<DeveloperAddJobBookmarkResponse> addJobBookmark(
+    String jobId,
+    DeveloperAddJobBookmarkRequestBody developerAddJobBookmarkRequestBody,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(developerAddJobBookmarkRequestBody.toJson());
+    final _options = _setStreamType<DeveloperAddJobBookmarkResponse>(Options(
+      method: 'PATCH',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'api/bookmarks/${jobId}',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DeveloperAddJobBookmarkResponse _value;
+    try {
+      _value = DeveloperAddJobBookmarkResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
   Future<DeveloperSingleJobBookmarkResponseModel> bookmarkJob(
       String jobId) async {
     final _extra = <String, dynamic>{};

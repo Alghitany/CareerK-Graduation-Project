@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'specific_course_overview_state.dart';
+part of 'developer_add_job_bookmark_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$SpecificCourseOverviewState {
+mixin _$DeveloperAddJobBookmarkState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(SpecificCourseOverviewResponseBody data) success,
+    required TResult Function(DeveloperAddJobBookmarkResponse response) success,
     required TResult Function(ErrorHandler errorHandler) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -29,7 +29,7 @@ mixin _$SpecificCourseOverviewState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(SpecificCourseOverviewResponseBody data)? success,
+    TResult? Function(DeveloperAddJobBookmarkResponse response)? success,
     TResult? Function(ErrorHandler errorHandler)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ mixin _$SpecificCourseOverviewState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(SpecificCourseOverviewResponseBody data)? success,
+    TResult Function(DeveloperAddJobBookmarkResponse response)? success,
     TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) =>
@@ -46,52 +46,52 @@ mixin _$SpecificCourseOverviewState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(SpecificCourseOverviewLoading value) loading,
-    required TResult Function(SpecificCourseOverviewSuccess value) success,
-    required TResult Function(SpecificCourseOverviewError value) error,
+    required TResult Function(DeveloperAddJobBookmarkLoading value) loading,
+    required TResult Function(DeveloperAddJobBookmarkSuccess value) success,
+    required TResult Function(DeveloperAddJobBookmarkError value) error,
   }) =>
       throw _privateConstructorUsedError;
 
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(SpecificCourseOverviewLoading value)? loading,
-    TResult? Function(SpecificCourseOverviewSuccess value)? success,
-    TResult? Function(SpecificCourseOverviewError value)? error,
+    TResult? Function(DeveloperAddJobBookmarkLoading value)? loading,
+    TResult? Function(DeveloperAddJobBookmarkSuccess value)? success,
+    TResult? Function(DeveloperAddJobBookmarkError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(SpecificCourseOverviewLoading value)? loading,
-    TResult Function(SpecificCourseOverviewSuccess value)? success,
-    TResult Function(SpecificCourseOverviewError value)? error,
+    TResult Function(DeveloperAddJobBookmarkLoading value)? loading,
+    TResult Function(DeveloperAddJobBookmarkSuccess value)? success,
+    TResult Function(DeveloperAddJobBookmarkError value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SpecificCourseOverviewStateCopyWith<$Res> {
-  factory $SpecificCourseOverviewStateCopyWith(
-          SpecificCourseOverviewState value,
-          $Res Function(SpecificCourseOverviewState) then) =
-      _$SpecificCourseOverviewStateCopyWithImpl<$Res,
-          SpecificCourseOverviewState>;
+abstract class $DeveloperAddJobBookmarkStateCopyWith<$Res> {
+  factory $DeveloperAddJobBookmarkStateCopyWith(
+          DeveloperAddJobBookmarkState value,
+          $Res Function(DeveloperAddJobBookmarkState) then) =
+      _$DeveloperAddJobBookmarkStateCopyWithImpl<$Res,
+          DeveloperAddJobBookmarkState>;
 }
 
 /// @nodoc
-class _$SpecificCourseOverviewStateCopyWithImpl<$Res,
-        $Val extends SpecificCourseOverviewState>
-    implements $SpecificCourseOverviewStateCopyWith<$Res> {
-  _$SpecificCourseOverviewStateCopyWithImpl(this._value, this._then);
+class _$DeveloperAddJobBookmarkStateCopyWithImpl<$Res,
+        $Val extends DeveloperAddJobBookmarkState>
+    implements $DeveloperAddJobBookmarkStateCopyWith<$Res> {
+  _$DeveloperAddJobBookmarkStateCopyWithImpl(this._value, this._then);
 
 // ignore: unused_field
   final $Val _value;
 // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of SpecificCourseOverviewState
+  /// Create a copy of DeveloperAddJobBookmarkState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -104,13 +104,13 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$SpecificCourseOverviewStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$DeveloperAddJobBookmarkStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of SpecificCourseOverviewState
+  /// Create a copy of DeveloperAddJobBookmarkState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -121,7 +121,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'SpecificCourseOverviewState.initial()';
+    return 'DeveloperAddJobBookmarkState.initial()';
   }
 
   @override
@@ -138,7 +138,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(SpecificCourseOverviewResponseBody data) success,
+    required TResult Function(DeveloperAddJobBookmarkResponse response) success,
     required TResult Function(ErrorHandler errorHandler) error,
   }) {
     return initial();
@@ -149,7 +149,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(SpecificCourseOverviewResponseBody data)? success,
+    TResult? Function(DeveloperAddJobBookmarkResponse response)? success,
     TResult? Function(ErrorHandler errorHandler)? error,
   }) {
     return initial?.call();
@@ -160,7 +160,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(SpecificCourseOverviewResponseBody data)? success,
+    TResult Function(DeveloperAddJobBookmarkResponse response)? success,
     TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) {
@@ -174,9 +174,9 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(SpecificCourseOverviewLoading value) loading,
-    required TResult Function(SpecificCourseOverviewSuccess value) success,
-    required TResult Function(SpecificCourseOverviewError value) error,
+    required TResult Function(DeveloperAddJobBookmarkLoading value) loading,
+    required TResult Function(DeveloperAddJobBookmarkSuccess value) success,
+    required TResult Function(DeveloperAddJobBookmarkError value) error,
   }) {
     return initial(this);
   }
@@ -185,9 +185,9 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(SpecificCourseOverviewLoading value)? loading,
-    TResult? Function(SpecificCourseOverviewSuccess value)? success,
-    TResult? Function(SpecificCourseOverviewError value)? error,
+    TResult? Function(DeveloperAddJobBookmarkLoading value)? loading,
+    TResult? Function(DeveloperAddJobBookmarkSuccess value)? success,
+    TResult? Function(DeveloperAddJobBookmarkError value)? error,
   }) {
     return initial?.call(this);
   }
@@ -196,9 +196,9 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(SpecificCourseOverviewLoading value)? loading,
-    TResult Function(SpecificCourseOverviewSuccess value)? success,
-    TResult Function(SpecificCourseOverviewError value)? error,
+    TResult Function(DeveloperAddJobBookmarkLoading value)? loading,
+    TResult Function(DeveloperAddJobBookmarkSuccess value)? success,
+    TResult Function(DeveloperAddJobBookmarkError value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -208,48 +208,48 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements SpecificCourseOverviewState {
+abstract class _Initial implements DeveloperAddJobBookmarkState {
   const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$SpecificCourseOverviewLoadingImplCopyWith<$Res> {
-  factory _$$SpecificCourseOverviewLoadingImplCopyWith(
-          _$SpecificCourseOverviewLoadingImpl value,
-          $Res Function(_$SpecificCourseOverviewLoadingImpl) then) =
-      __$$SpecificCourseOverviewLoadingImplCopyWithImpl<$Res>;
+abstract class _$$DeveloperAddJobBookmarkLoadingImplCopyWith<$Res> {
+  factory _$$DeveloperAddJobBookmarkLoadingImplCopyWith(
+          _$DeveloperAddJobBookmarkLoadingImpl value,
+          $Res Function(_$DeveloperAddJobBookmarkLoadingImpl) then) =
+      __$$DeveloperAddJobBookmarkLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$SpecificCourseOverviewLoadingImplCopyWithImpl<$Res>
-    extends _$SpecificCourseOverviewStateCopyWithImpl<$Res,
-        _$SpecificCourseOverviewLoadingImpl>
-    implements _$$SpecificCourseOverviewLoadingImplCopyWith<$Res> {
-  __$$SpecificCourseOverviewLoadingImplCopyWithImpl(
-      _$SpecificCourseOverviewLoadingImpl _value,
-      $Res Function(_$SpecificCourseOverviewLoadingImpl) _then)
+class __$$DeveloperAddJobBookmarkLoadingImplCopyWithImpl<$Res>
+    extends _$DeveloperAddJobBookmarkStateCopyWithImpl<$Res,
+        _$DeveloperAddJobBookmarkLoadingImpl>
+    implements _$$DeveloperAddJobBookmarkLoadingImplCopyWith<$Res> {
+  __$$DeveloperAddJobBookmarkLoadingImplCopyWithImpl(
+      _$DeveloperAddJobBookmarkLoadingImpl _value,
+      $Res Function(_$DeveloperAddJobBookmarkLoadingImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of SpecificCourseOverviewState
+  /// Create a copy of DeveloperAddJobBookmarkState
   /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$SpecificCourseOverviewLoadingImpl
-    implements SpecificCourseOverviewLoading {
-  const _$SpecificCourseOverviewLoadingImpl();
+class _$DeveloperAddJobBookmarkLoadingImpl
+    implements DeveloperAddJobBookmarkLoading {
+  const _$DeveloperAddJobBookmarkLoadingImpl();
 
   @override
   String toString() {
-    return 'SpecificCourseOverviewState.loading()';
+    return 'DeveloperAddJobBookmarkState.loading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SpecificCourseOverviewLoadingImpl);
+            other is _$DeveloperAddJobBookmarkLoadingImpl);
   }
 
   @override
@@ -260,7 +260,7 @@ class _$SpecificCourseOverviewLoadingImpl
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(SpecificCourseOverviewResponseBody data) success,
+    required TResult Function(DeveloperAddJobBookmarkResponse response) success,
     required TResult Function(ErrorHandler errorHandler) error,
   }) {
     return loading();
@@ -271,7 +271,7 @@ class _$SpecificCourseOverviewLoadingImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(SpecificCourseOverviewResponseBody data)? success,
+    TResult? Function(DeveloperAddJobBookmarkResponse response)? success,
     TResult? Function(ErrorHandler errorHandler)? error,
   }) {
     return loading?.call();
@@ -282,7 +282,7 @@ class _$SpecificCourseOverviewLoadingImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(SpecificCourseOverviewResponseBody data)? success,
+    TResult Function(DeveloperAddJobBookmarkResponse response)? success,
     TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) {
@@ -296,9 +296,9 @@ class _$SpecificCourseOverviewLoadingImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(SpecificCourseOverviewLoading value) loading,
-    required TResult Function(SpecificCourseOverviewSuccess value) success,
-    required TResult Function(SpecificCourseOverviewError value) error,
+    required TResult Function(DeveloperAddJobBookmarkLoading value) loading,
+    required TResult Function(DeveloperAddJobBookmarkSuccess value) success,
+    required TResult Function(DeveloperAddJobBookmarkError value) error,
   }) {
     return loading(this);
   }
@@ -307,9 +307,9 @@ class _$SpecificCourseOverviewLoadingImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(SpecificCourseOverviewLoading value)? loading,
-    TResult? Function(SpecificCourseOverviewSuccess value)? success,
-    TResult? Function(SpecificCourseOverviewError value)? error,
+    TResult? Function(DeveloperAddJobBookmarkLoading value)? loading,
+    TResult? Function(DeveloperAddJobBookmarkSuccess value)? success,
+    TResult? Function(DeveloperAddJobBookmarkError value)? error,
   }) {
     return loading?.call(this);
   }
@@ -318,9 +318,9 @@ class _$SpecificCourseOverviewLoadingImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(SpecificCourseOverviewLoading value)? loading,
-    TResult Function(SpecificCourseOverviewSuccess value)? success,
-    TResult Function(SpecificCourseOverviewError value)? error,
+    TResult Function(DeveloperAddJobBookmarkLoading value)? loading,
+    TResult Function(DeveloperAddJobBookmarkSuccess value)? success,
+    TResult Function(DeveloperAddJobBookmarkError value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -330,92 +330,93 @@ class _$SpecificCourseOverviewLoadingImpl
   }
 }
 
-abstract class SpecificCourseOverviewLoading
-    implements SpecificCourseOverviewState {
-  const factory SpecificCourseOverviewLoading() =
-      _$SpecificCourseOverviewLoadingImpl;
+abstract class DeveloperAddJobBookmarkLoading
+    implements DeveloperAddJobBookmarkState {
+  const factory DeveloperAddJobBookmarkLoading() =
+      _$DeveloperAddJobBookmarkLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$SpecificCourseOverviewSuccessImplCopyWith<$Res> {
-  factory _$$SpecificCourseOverviewSuccessImplCopyWith(
-          _$SpecificCourseOverviewSuccessImpl value,
-          $Res Function(_$SpecificCourseOverviewSuccessImpl) then) =
-      __$$SpecificCourseOverviewSuccessImplCopyWithImpl<$Res>;
+abstract class _$$DeveloperAddJobBookmarkSuccessImplCopyWith<$Res> {
+  factory _$$DeveloperAddJobBookmarkSuccessImplCopyWith(
+          _$DeveloperAddJobBookmarkSuccessImpl value,
+          $Res Function(_$DeveloperAddJobBookmarkSuccessImpl) then) =
+      __$$DeveloperAddJobBookmarkSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({SpecificCourseOverviewResponseBody data});
+  $Res call({DeveloperAddJobBookmarkResponse response});
 }
 
 /// @nodoc
-class __$$SpecificCourseOverviewSuccessImplCopyWithImpl<$Res>
-    extends _$SpecificCourseOverviewStateCopyWithImpl<$Res,
-        _$SpecificCourseOverviewSuccessImpl>
-    implements _$$SpecificCourseOverviewSuccessImplCopyWith<$Res> {
-  __$$SpecificCourseOverviewSuccessImplCopyWithImpl(
-      _$SpecificCourseOverviewSuccessImpl _value,
-      $Res Function(_$SpecificCourseOverviewSuccessImpl) _then)
+class __$$DeveloperAddJobBookmarkSuccessImplCopyWithImpl<$Res>
+    extends _$DeveloperAddJobBookmarkStateCopyWithImpl<$Res,
+        _$DeveloperAddJobBookmarkSuccessImpl>
+    implements _$$DeveloperAddJobBookmarkSuccessImplCopyWith<$Res> {
+  __$$DeveloperAddJobBookmarkSuccessImplCopyWithImpl(
+      _$DeveloperAddJobBookmarkSuccessImpl _value,
+      $Res Function(_$DeveloperAddJobBookmarkSuccessImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of SpecificCourseOverviewState
+  /// Create a copy of DeveloperAddJobBookmarkState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? response = null,
   }) {
-    return _then(_$SpecificCourseOverviewSuccessImpl(
-      null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as SpecificCourseOverviewResponseBody,
+    return _then(_$DeveloperAddJobBookmarkSuccessImpl(
+      null == response
+          ? _value.response
+          : response // ignore: cast_nullable_to_non_nullable
+              as DeveloperAddJobBookmarkResponse,
     ));
   }
 }
 
 /// @nodoc
 
-class _$SpecificCourseOverviewSuccessImpl
-    implements SpecificCourseOverviewSuccess {
-  const _$SpecificCourseOverviewSuccessImpl(this.data);
+class _$DeveloperAddJobBookmarkSuccessImpl
+    implements DeveloperAddJobBookmarkSuccess {
+  const _$DeveloperAddJobBookmarkSuccessImpl(this.response);
 
   @override
-  final SpecificCourseOverviewResponseBody data;
+  final DeveloperAddJobBookmarkResponse response;
 
   @override
   String toString() {
-    return 'SpecificCourseOverviewState.success(data: $data)';
+    return 'DeveloperAddJobBookmarkState.success(response: $response)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SpecificCourseOverviewSuccessImpl &&
-            (identical(other.data, data) || other.data == data));
+            other is _$DeveloperAddJobBookmarkSuccessImpl &&
+            (identical(other.response, response) ||
+                other.response == response));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode => Object.hash(runtimeType, response);
 
-  /// Create a copy of SpecificCourseOverviewState
+  /// Create a copy of DeveloperAddJobBookmarkState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$SpecificCourseOverviewSuccessImplCopyWith<
-          _$SpecificCourseOverviewSuccessImpl>
-      get copyWith => __$$SpecificCourseOverviewSuccessImplCopyWithImpl<
-          _$SpecificCourseOverviewSuccessImpl>(this, _$identity);
+  _$$DeveloperAddJobBookmarkSuccessImplCopyWith<
+          _$DeveloperAddJobBookmarkSuccessImpl>
+      get copyWith => __$$DeveloperAddJobBookmarkSuccessImplCopyWithImpl<
+          _$DeveloperAddJobBookmarkSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(SpecificCourseOverviewResponseBody data) success,
+    required TResult Function(DeveloperAddJobBookmarkResponse response) success,
     required TResult Function(ErrorHandler errorHandler) error,
   }) {
-    return success(data);
+    return success(response);
   }
 
   @override
@@ -423,10 +424,10 @@ class _$SpecificCourseOverviewSuccessImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(SpecificCourseOverviewResponseBody data)? success,
+    TResult? Function(DeveloperAddJobBookmarkResponse response)? success,
     TResult? Function(ErrorHandler errorHandler)? error,
   }) {
-    return success?.call(data);
+    return success?.call(response);
   }
 
   @override
@@ -434,12 +435,12 @@ class _$SpecificCourseOverviewSuccessImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(SpecificCourseOverviewResponseBody data)? success,
+    TResult Function(DeveloperAddJobBookmarkResponse response)? success,
     TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(data);
+      return success(response);
     }
     return orElse();
   }
@@ -448,9 +449,9 @@ class _$SpecificCourseOverviewSuccessImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(SpecificCourseOverviewLoading value) loading,
-    required TResult Function(SpecificCourseOverviewSuccess value) success,
-    required TResult Function(SpecificCourseOverviewError value) error,
+    required TResult Function(DeveloperAddJobBookmarkLoading value) loading,
+    required TResult Function(DeveloperAddJobBookmarkSuccess value) success,
+    required TResult Function(DeveloperAddJobBookmarkError value) error,
   }) {
     return success(this);
   }
@@ -459,9 +460,9 @@ class _$SpecificCourseOverviewSuccessImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(SpecificCourseOverviewLoading value)? loading,
-    TResult? Function(SpecificCourseOverviewSuccess value)? success,
-    TResult? Function(SpecificCourseOverviewError value)? error,
+    TResult? Function(DeveloperAddJobBookmarkLoading value)? loading,
+    TResult? Function(DeveloperAddJobBookmarkSuccess value)? success,
+    TResult? Function(DeveloperAddJobBookmarkError value)? error,
   }) {
     return success?.call(this);
   }
@@ -470,9 +471,9 @@ class _$SpecificCourseOverviewSuccessImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(SpecificCourseOverviewLoading value)? loading,
-    TResult Function(SpecificCourseOverviewSuccess value)? success,
-    TResult Function(SpecificCourseOverviewError value)? error,
+    TResult Function(DeveloperAddJobBookmarkLoading value)? loading,
+    TResult Function(DeveloperAddJobBookmarkSuccess value)? success,
+    TResult Function(DeveloperAddJobBookmarkError value)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -482,50 +483,50 @@ class _$SpecificCourseOverviewSuccessImpl
   }
 }
 
-abstract class SpecificCourseOverviewSuccess
-    implements SpecificCourseOverviewState {
-  const factory SpecificCourseOverviewSuccess(
-          final SpecificCourseOverviewResponseBody data) =
-      _$SpecificCourseOverviewSuccessImpl;
+abstract class DeveloperAddJobBookmarkSuccess
+    implements DeveloperAddJobBookmarkState {
+  const factory DeveloperAddJobBookmarkSuccess(
+          final DeveloperAddJobBookmarkResponse response) =
+      _$DeveloperAddJobBookmarkSuccessImpl;
 
-  SpecificCourseOverviewResponseBody get data;
+  DeveloperAddJobBookmarkResponse get response;
 
-  /// Create a copy of SpecificCourseOverviewState
+  /// Create a copy of DeveloperAddJobBookmarkState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SpecificCourseOverviewSuccessImplCopyWith<
-          _$SpecificCourseOverviewSuccessImpl>
+  _$$DeveloperAddJobBookmarkSuccessImplCopyWith<
+          _$DeveloperAddJobBookmarkSuccessImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SpecificCourseOverviewErrorImplCopyWith<$Res> {
-  factory _$$SpecificCourseOverviewErrorImplCopyWith(
-          _$SpecificCourseOverviewErrorImpl value,
-          $Res Function(_$SpecificCourseOverviewErrorImpl) then) =
-      __$$SpecificCourseOverviewErrorImplCopyWithImpl<$Res>;
+abstract class _$$DeveloperAddJobBookmarkErrorImplCopyWith<$Res> {
+  factory _$$DeveloperAddJobBookmarkErrorImplCopyWith(
+          _$DeveloperAddJobBookmarkErrorImpl value,
+          $Res Function(_$DeveloperAddJobBookmarkErrorImpl) then) =
+      __$$DeveloperAddJobBookmarkErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ErrorHandler errorHandler});
 }
 
 /// @nodoc
-class __$$SpecificCourseOverviewErrorImplCopyWithImpl<$Res>
-    extends _$SpecificCourseOverviewStateCopyWithImpl<$Res,
-        _$SpecificCourseOverviewErrorImpl>
-    implements _$$SpecificCourseOverviewErrorImplCopyWith<$Res> {
-  __$$SpecificCourseOverviewErrorImplCopyWithImpl(
-      _$SpecificCourseOverviewErrorImpl _value,
-      $Res Function(_$SpecificCourseOverviewErrorImpl) _then)
+class __$$DeveloperAddJobBookmarkErrorImplCopyWithImpl<$Res>
+    extends _$DeveloperAddJobBookmarkStateCopyWithImpl<$Res,
+        _$DeveloperAddJobBookmarkErrorImpl>
+    implements _$$DeveloperAddJobBookmarkErrorImplCopyWith<$Res> {
+  __$$DeveloperAddJobBookmarkErrorImplCopyWithImpl(
+      _$DeveloperAddJobBookmarkErrorImpl _value,
+      $Res Function(_$DeveloperAddJobBookmarkErrorImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of SpecificCourseOverviewState
+  /// Create a copy of DeveloperAddJobBookmarkState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? errorHandler = null,
   }) {
-    return _then(_$SpecificCourseOverviewErrorImpl(
+    return _then(_$DeveloperAddJobBookmarkErrorImpl(
       null == errorHandler
           ? _value.errorHandler
           : errorHandler // ignore: cast_nullable_to_non_nullable
@@ -536,22 +537,23 @@ class __$$SpecificCourseOverviewErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SpecificCourseOverviewErrorImpl implements SpecificCourseOverviewError {
-  const _$SpecificCourseOverviewErrorImpl(this.errorHandler);
+class _$DeveloperAddJobBookmarkErrorImpl
+    implements DeveloperAddJobBookmarkError {
+  const _$DeveloperAddJobBookmarkErrorImpl(this.errorHandler);
 
   @override
   final ErrorHandler errorHandler;
 
   @override
   String toString() {
-    return 'SpecificCourseOverviewState.error(errorHandler: $errorHandler)';
+    return 'DeveloperAddJobBookmarkState.error(errorHandler: $errorHandler)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SpecificCourseOverviewErrorImpl &&
+            other is _$DeveloperAddJobBookmarkErrorImpl &&
             (identical(other.errorHandler, errorHandler) ||
                 other.errorHandler == errorHandler));
   }
@@ -559,21 +561,22 @@ class _$SpecificCourseOverviewErrorImpl implements SpecificCourseOverviewError {
   @override
   int get hashCode => Object.hash(runtimeType, errorHandler);
 
-  /// Create a copy of SpecificCourseOverviewState
+  /// Create a copy of DeveloperAddJobBookmarkState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$SpecificCourseOverviewErrorImplCopyWith<_$SpecificCourseOverviewErrorImpl>
-      get copyWith => __$$SpecificCourseOverviewErrorImplCopyWithImpl<
-          _$SpecificCourseOverviewErrorImpl>(this, _$identity);
+  _$$DeveloperAddJobBookmarkErrorImplCopyWith<
+          _$DeveloperAddJobBookmarkErrorImpl>
+      get copyWith => __$$DeveloperAddJobBookmarkErrorImplCopyWithImpl<
+          _$DeveloperAddJobBookmarkErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(SpecificCourseOverviewResponseBody data) success,
+    required TResult Function(DeveloperAddJobBookmarkResponse response) success,
     required TResult Function(ErrorHandler errorHandler) error,
   }) {
     return error(errorHandler);
@@ -584,7 +587,7 @@ class _$SpecificCourseOverviewErrorImpl implements SpecificCourseOverviewError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(SpecificCourseOverviewResponseBody data)? success,
+    TResult? Function(DeveloperAddJobBookmarkResponse response)? success,
     TResult? Function(ErrorHandler errorHandler)? error,
   }) {
     return error?.call(errorHandler);
@@ -595,7 +598,7 @@ class _$SpecificCourseOverviewErrorImpl implements SpecificCourseOverviewError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(SpecificCourseOverviewResponseBody data)? success,
+    TResult Function(DeveloperAddJobBookmarkResponse response)? success,
     TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) {
@@ -609,9 +612,9 @@ class _$SpecificCourseOverviewErrorImpl implements SpecificCourseOverviewError {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(SpecificCourseOverviewLoading value) loading,
-    required TResult Function(SpecificCourseOverviewSuccess value) success,
-    required TResult Function(SpecificCourseOverviewError value) error,
+    required TResult Function(DeveloperAddJobBookmarkLoading value) loading,
+    required TResult Function(DeveloperAddJobBookmarkSuccess value) success,
+    required TResult Function(DeveloperAddJobBookmarkError value) error,
   }) {
     return error(this);
   }
@@ -620,9 +623,9 @@ class _$SpecificCourseOverviewErrorImpl implements SpecificCourseOverviewError {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(SpecificCourseOverviewLoading value)? loading,
-    TResult? Function(SpecificCourseOverviewSuccess value)? success,
-    TResult? Function(SpecificCourseOverviewError value)? error,
+    TResult? Function(DeveloperAddJobBookmarkLoading value)? loading,
+    TResult? Function(DeveloperAddJobBookmarkSuccess value)? success,
+    TResult? Function(DeveloperAddJobBookmarkError value)? error,
   }) {
     return error?.call(this);
   }
@@ -631,9 +634,9 @@ class _$SpecificCourseOverviewErrorImpl implements SpecificCourseOverviewError {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(SpecificCourseOverviewLoading value)? loading,
-    TResult Function(SpecificCourseOverviewSuccess value)? success,
-    TResult Function(SpecificCourseOverviewError value)? error,
+    TResult Function(DeveloperAddJobBookmarkLoading value)? loading,
+    TResult Function(DeveloperAddJobBookmarkSuccess value)? success,
+    TResult Function(DeveloperAddJobBookmarkError value)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -643,16 +646,17 @@ class _$SpecificCourseOverviewErrorImpl implements SpecificCourseOverviewError {
   }
 }
 
-abstract class SpecificCourseOverviewError
-    implements SpecificCourseOverviewState {
-  const factory SpecificCourseOverviewError(final ErrorHandler errorHandler) =
-      _$SpecificCourseOverviewErrorImpl;
+abstract class DeveloperAddJobBookmarkError
+    implements DeveloperAddJobBookmarkState {
+  const factory DeveloperAddJobBookmarkError(final ErrorHandler errorHandler) =
+      _$DeveloperAddJobBookmarkErrorImpl;
 
   ErrorHandler get errorHandler;
 
-  /// Create a copy of SpecificCourseOverviewState
+  /// Create a copy of DeveloperAddJobBookmarkState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SpecificCourseOverviewErrorImplCopyWith<_$SpecificCourseOverviewErrorImpl>
+  _$$DeveloperAddJobBookmarkErrorImplCopyWith<
+          _$DeveloperAddJobBookmarkErrorImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

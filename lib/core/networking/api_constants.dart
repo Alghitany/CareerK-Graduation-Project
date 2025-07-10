@@ -37,7 +37,10 @@ class ApiConstants {
   static const String developerJobsServiceDetails =
       "api/service-post/{serviceId}";
 
-  //-> Single Job Bookmark
+  //-> Add Job Bookmark
+  static const String developerAddJobBookmark = "api/bookmarks/{jobId}";
+
+  //-> Get Job Bookmark
   static const String developerSingleJobBookmark =
       "/api/bookmarks/bookmark/{jobId}";
 
