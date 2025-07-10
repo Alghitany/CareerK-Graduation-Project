@@ -55,29 +55,30 @@ class RelatedCoursesList extends StatelessWidget {
                           ),
                           child: AppRegex.isSvg(course.imageUrl)
                               ? SvgPicture.network(
-                            "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(course.imageUrl)}",
-                            width: double.infinity,
-                            height: 120.h,
-                            fit: BoxFit.cover,
-                            placeholderBuilder: (_) => Container(
-                              width: double.infinity,
-                              height: 120.h,
-                              color: ColorsManager.mercury,
-                              child: const Icon(Icons.broken_image),
-                            ),
-                          )
+                                  "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(course.imageUrl)}",
+                                  width: double.infinity,
+                                  height: 120.h,
+                                  fit: BoxFit.cover,
+                                  placeholderBuilder: (_) => Container(
+                                    width: double.infinity,
+                                    height: 120.h,
+                                    color: ColorsManager.mercury,
+                                    child: const Icon(Icons.broken_image),
+                                  ),
+                                )
                               : Image.network(
-                            "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(course.imageUrl)}",
-                            width: double.infinity,
-                            height: 120.h,
-                            fit: BoxFit.cover,
-                            errorBuilder: (context, error, stackTrace) => Container(
-                              width: double.infinity,
-                              height: 120.h,
-                              color: ColorsManager.mercury,
-                              child: const Icon(Icons.broken_image),
-                            ),
-                          ),
+                                  "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(course.imageUrl)}",
+                                  width: double.infinity,
+                                  height: 120.h,
+                                  fit: BoxFit.cover,
+                                  errorBuilder: (context, error, stackTrace) =>
+                                      Container(
+                                    width: double.infinity,
+                                    height: 120.h,
+                                    color: ColorsManager.mercury,
+                                    child: const Icon(Icons.broken_image),
+                                  ),
+                                ),
                         ),
                       ],
                     ),

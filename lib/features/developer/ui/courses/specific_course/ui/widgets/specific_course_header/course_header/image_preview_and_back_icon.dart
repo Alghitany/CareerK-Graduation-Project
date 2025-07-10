@@ -32,35 +32,35 @@ class ImagePreviewAndBackIcon extends StatelessWidget {
           ),
           child: AppRegex.isSvg(imageUrl!)
               ? SvgPicture.network(
-            "${ApiConstants.apiBaseUrl}$imageUrl",
-            height: 285.h,
-            width: double.infinity,
-            fit: BoxFit.cover,
-            placeholderBuilder: (context) => Image.asset(
-              'assets/images/html_course.png',
-              height: 285.h,
-              width: double.infinity,
-              fit: BoxFit.cover,
-            ),
-            errorBuilder: (context, error, stackTrace) => Image.asset(
-              'assets/images/html_course.png',
-              height: 285.h,
-              width: double.infinity,
-              fit: BoxFit.cover,
-            ),
-          )
+                  "${ApiConstants.apiBaseUrl}$imageUrl",
+                  height: 285.h,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                  placeholderBuilder: (context) => Image.asset(
+                    'assets/images/html_course.png',
+                    height: 285.h,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
+                  errorBuilder: (context, error, stackTrace) => Image.asset(
+                    'assets/images/html_course.png',
+                    height: 285.h,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
+                )
               : Image.network(
-            "${ApiConstants.apiBaseUrl}$imageUrl",
-            height: 285.h,
-            width: double.infinity,
-            fit: BoxFit.cover,
-            errorBuilder: (context, error, stackTrace) => Image.asset(
-              'assets/images/html_course.png',
-              height: 285.h,
-              width: double.infinity,
-              fit: BoxFit.cover,
-            ),
-          ),
+                  "${ApiConstants.apiBaseUrl}$imageUrl",
+                  height: 285.h,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) => Image.asset(
+                    'assets/images/html_course.png',
+                    height: 285.h,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
+                ),
         ),
         // Back Button
         Positioned(

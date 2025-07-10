@@ -43,44 +43,44 @@ class CourseCard extends StatelessWidget {
               ),
               child: AppRegex.isSvg(imagePath)
                   ? SvgPicture.network(
-                "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(imagePath)}",
-                height: 120.h,
-                width: double.infinity,
-                fit: BoxFit.fill,
-                placeholderBuilder: (context) => Image.asset(
-                  'assets/images/html_course.png',
-                  height: 120.h,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
-                ),
-                errorBuilder: (context, error, stackTrace) => Image.asset(
-                  'assets/images/html_course.png',
-                  height: 120.h,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
-                ),
-              )
+                      "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(imagePath)}",
+                      height: 120.h,
+                      width: double.infinity,
+                      fit: BoxFit.fill,
+                      placeholderBuilder: (context) => Image.asset(
+                        'assets/images/html_course.png',
+                        height: 120.h,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
+                      errorBuilder: (context, error, stackTrace) => Image.asset(
+                        'assets/images/html_course.png',
+                        height: 120.h,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
+                    )
                   : Image.network(
-                "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(imagePath)}",
-                height: 120.h,
-                width: double.infinity,
-                fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) => Image.asset(
-                  'assets/images/html_course.png',
-                  height: 120.h,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
-                ),
-                loadingBuilder: (context, child, loadingProgress) {
-                  if (loadingProgress == null) return child;
-                  return Image.asset(
-                    'assets/images/html_course.png',
-                    height: 120.h,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  );
-                },
-              ),
+                      "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(imagePath)}",
+                      height: 120.h,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) => Image.asset(
+                        'assets/images/html_course.png',
+                        height: 120.h,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
+                      loadingBuilder: (context, child, loadingProgress) {
+                        if (loadingProgress == null) return child;
+                        return Image.asset(
+                          'assets/images/html_course.png',
+                          height: 120.h,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        );
+                      },
+                    ),
             ),
             Padding(
               padding: EdgeInsets.fromLTRB(8.0.w, 8.0.h, 8.0.w, 0.0.h),

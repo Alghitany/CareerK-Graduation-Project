@@ -94,7 +94,8 @@ class DeveloperProfileMainPageInfoResponseBody {
     this.uploadedCvLink,
   });
 
-  factory DeveloperProfileMainPageInfoResponseBody.fromJson(Map<String, dynamic> json) =>
+  factory DeveloperProfileMainPageInfoResponseBody.fromJson(
+          Map<String, dynamic> json) =>
       _$DeveloperProfileMainPageInfoResponseBodyFromJson(json);
 
   Map<String, dynamic> toJson() =>

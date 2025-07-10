@@ -33,26 +33,25 @@ class NameTitleAndImage extends StatelessWidget {
             borderRadius: BorderRadius.circular(16.r),
             child: AppRegex.isSvg(profileImageUrl)
                 ? SvgPicture.network(
-              "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(profileImageUrl)}",
-              fit: BoxFit.cover,
-              placeholderBuilder: (_) => Image.asset(
-                'assets/images/company_home_developer_logo.png',
-                fit: BoxFit.cover,
-              ),
-            )
+                    "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(profileImageUrl)}",
+                    fit: BoxFit.cover,
+                    placeholderBuilder: (_) => Image.asset(
+                      'assets/images/company_home_developer_logo.png',
+                      fit: BoxFit.cover,
+                    ),
+                  )
                 : Image.network(
-              "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(profileImageUrl)}",
-              fit: BoxFit.cover,
-              errorBuilder: (context, error, stackTrace) {
-                return Image.asset(
-                  'assets/images/company_home_developer_logo.png',
-                  fit: BoxFit.cover,
-                );
-              },
-            ),
+                    "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(profileImageUrl)}",
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Image.asset(
+                        'assets/images/company_home_developer_logo.png',
+                        fit: BoxFit.cover,
+                      );
+                    },
+                  ),
           ),
         ),
-
         horizontalSpace(16),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,

@@ -78,7 +78,7 @@ class PhoneMessageAndLocationIcons extends StatelessWidget {
           height: 21.h,
           width: 21.w,
           colorFilter:
-          const ColorFilter.mode(ColorsManager.duskyBlue, BlendMode.srcIn),
+              const ColorFilter.mode(ColorsManager.duskyBlue, BlendMode.srcIn),
         ),
       ),
     );
@@ -92,7 +92,7 @@ class PhoneMessageAndLocationIcons extends StatelessWidget {
       builder: (context) {
         return Dialog(
           shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
           child: Padding(
             padding: const EdgeInsets.all(20),
             child: Column(
@@ -133,8 +133,7 @@ class PhoneMessageAndLocationIcons extends StatelessWidget {
                       icon: const Icon(Icons.copy),
                       tooltip: 'Copy',
                       onPressed: () {
-                        Clipboard.setData(
-                            ClipboardData(text: controller.text));
+                        Clipboard.setData(ClipboardData(text: controller.text));
                         Navigator.of(context).pop();
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text('Copied to clipboard')),

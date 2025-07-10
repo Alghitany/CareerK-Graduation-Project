@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../../../../../core/helpers/spacing.dart';
 import '../../data/models/profile_info_models/developer_profile_main_page_info_response_body.dart';
 import '../../logic/profile_info_logic/developer_profile_main_page_info_cubit.dart';
@@ -19,7 +20,7 @@ class DeveloperProfileMainPageInfoBlocBuilder extends StatelessWidget {
     return BlocBuilder<DeveloperProfileMainPageInfoCubit,
         DeveloperProfileMainPageInfoState>(
       buildWhen: (previous, current) =>
-      current is Loading || current is Success || current is Error,
+          current is Loading || current is Success || current is Error,
       builder: (context, state) {
         return state.maybeWhen(
           loading: () => setupLoading(),
@@ -49,8 +50,8 @@ class DeveloperProfileMainPageInfoBlocBuilder extends StatelessWidget {
         ProfileTopBar(profileImage: data.profilePicture ?? ""),
         verticalSpace(16),
         NameAndTitle(
-          name: "${data.firstName} ${data.lastName}" ,
-          title: data.currentTrack ?? "No Title"),
+            name: "${data.firstName} ${data.lastName}",
+            title: data.currentTrack ?? "No Title"),
         verticalSpace(16),
         const PhoneMessageAndLocationIcons(),
       ],

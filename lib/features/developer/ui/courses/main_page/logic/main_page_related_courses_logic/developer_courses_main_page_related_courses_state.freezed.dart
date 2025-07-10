@@ -26,6 +26,7 @@ mixin _$DeveloperCoursesMainPageRelatedCoursesState {
     required TResult Function(String error) error,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
@@ -47,6 +48,7 @@ mixin _$DeveloperCoursesMainPageRelatedCoursesState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(
@@ -62,6 +64,7 @@ mixin _$DeveloperCoursesMainPageRelatedCoursesState {
         error,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_DeveloperCoursesMainPageRelatedCoursesInitial value)?
@@ -103,9 +106,9 @@ class _$DeveloperCoursesMainPageRelatedCoursesStateCopyWithImpl<$Res,
   _$DeveloperCoursesMainPageRelatedCoursesStateCopyWithImpl(
       this._value, this._then);
 
-  // ignore: unused_field
+// ignore: unused_field
   final $Val _value;
-  // ignore: unused_field
+// ignore: unused_field
   final $Res Function($Val) _then;
 
   /// Create a copy of DeveloperCoursesMainPageRelatedCoursesState
@@ -455,7 +458,7 @@ class _$DeveloperCoursesMainPageRelatedCoursesSuccessImpl
   @override
   List<DeveloperCoursesMainPageRelatedCoursesResponseBody> get courses {
     if (_courses is EqualUnmodifiableListView) return _courses;
-    // ignore: implicit_dynamic_type
+// ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_courses);
   }
 

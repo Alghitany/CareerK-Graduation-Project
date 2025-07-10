@@ -9,6 +9,7 @@ import 'package:flutter_svg/svg.dart';
 
 class ProfileTopBar extends StatelessWidget {
   final String profileImage;
+
   const ProfileTopBar({super.key, required this.profileImage});
 
   @override

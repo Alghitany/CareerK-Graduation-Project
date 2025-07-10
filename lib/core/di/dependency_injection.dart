@@ -304,10 +304,10 @@ Future<void> setupGetIt() async {
   );
   //-> Profile
   getIt.registerLazySingleton<DeveloperProfileMainPageInfoRepo>(
-        () => DeveloperProfileMainPageInfoRepo(getIt()),
+    () => DeveloperProfileMainPageInfoRepo(getIt()),
   );
   getIt.registerFactory<DeveloperProfileMainPageInfoCubit>(
-        () => DeveloperProfileMainPageInfoCubit(getIt()),
+    () => DeveloperProfileMainPageInfoCubit(getIt()),
   );
 
   // All Job Posts
@@ -356,28 +356,28 @@ Future<void> setupGetIt() async {
   //-> Profile
   // Profile Info
   getIt.registerLazySingleton<CompanyProfileInfoRepo>(
-        () => CompanyProfileInfoRepo(getIt()),
+    () => CompanyProfileInfoRepo(getIt()),
   );
   getIt.registerFactory<CompanyProfileInfoCubit>(
-        () => CompanyProfileInfoCubit(getIt()),
+    () => CompanyProfileInfoCubit(getIt()),
   );
 
   // Company Applicants Number
   getIt.registerLazySingleton<CompanyProfileApplicantsNumberRepo>(
-        () => CompanyProfileApplicantsNumberRepo(getIt()),
+    () => CompanyProfileApplicantsNumberRepo(getIt()),
   );
 
   getIt.registerFactory<CompanyProfileApplicantsNumberCubit>(
-        () => CompanyProfileApplicantsNumberCubit(getIt()),
+    () => CompanyProfileApplicantsNumberCubit(getIt()),
   );
 
   // Company Profile Edit
   getIt.registerLazySingleton<CompanyProfileEditRepo>(
-        () => CompanyProfileEditRepo(getIt()),
+    () => CompanyProfileEditRepo(getIt()),
   );
 
   getIt.registerFactory<CompanyProfileEditCubit>(
-        () => CompanyProfileEditCubit(getIt()),
+    () => CompanyProfileEditCubit(getIt()),
   );
   // company -> Signup
   getIt.registerLazySingleton<CompanySignupRepo>(

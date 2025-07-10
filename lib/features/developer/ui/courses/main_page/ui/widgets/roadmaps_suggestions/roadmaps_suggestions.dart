@@ -43,33 +43,35 @@ class RoadmapsSuggestions extends StatelessWidget {
                       color: ColorsManager.chambray,
                     ),
                     child: Center(
-                      child: AppRegex.isSvg('${ApiConstants.apiBaseUrl}${item.imageUrl}')
+                      child: AppRegex.isSvg(
+                              '${ApiConstants.apiBaseUrl}${item.imageUrl}')
                           ? SvgPicture.network(
-                        '${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(item.imageUrl)}',
-                        width: 32.w,
-                        height: 32.h,
-                        fit: BoxFit.cover,
-                        placeholderBuilder: (_) => SvgPicture.asset(
-                          'assets/svgs/community_card_icon.svg',
-                          width: 32.w,
-                          height: 32.h,
-                          colorFilter:
-                          const ColorFilter.mode(Colors.white, BlendMode.srcIn),
-                        ),
-                      )
+                              '${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(item.imageUrl)}',
+                              width: 32.w,
+                              height: 32.h,
+                              fit: BoxFit.cover,
+                              placeholderBuilder: (_) => SvgPicture.asset(
+                                'assets/svgs/community_card_icon.svg',
+                                width: 32.w,
+                                height: 32.h,
+                                colorFilter: const ColorFilter.mode(
+                                    Colors.white, BlendMode.srcIn),
+                              ),
+                            )
                           : Image.network(
-                        '${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(item.imageUrl)}',
-                        width: 32.w,
-                        height: 32.h,
-                        fit: BoxFit.cover,
-                        errorBuilder: (context, error, stackTrace) => SvgPicture.asset(
-                          'assets/svgs/community_card_icon.svg',
-                          width: 32.w,
-                          height: 32.h,
-                          colorFilter:
-                          const ColorFilter.mode(Colors.white, BlendMode.srcIn),
-                        ),
-                      ),
+                              '${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(item.imageUrl)}',
+                              width: 32.w,
+                              height: 32.h,
+                              fit: BoxFit.cover,
+                              errorBuilder: (context, error, stackTrace) =>
+                                  SvgPicture.asset(
+                                'assets/svgs/community_card_icon.svg',
+                                width: 32.w,
+                                height: 32.h,
+                                colorFilter: const ColorFilter.mode(
+                                    Colors.white, BlendMode.srcIn),
+                              ),
+                            ),
                     ),
                   ),
                   verticalSpace(8),

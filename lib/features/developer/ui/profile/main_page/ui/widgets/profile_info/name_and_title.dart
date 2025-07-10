@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class NameAndTitle extends StatelessWidget {
   final String name;
   final String title;
+
   const NameAndTitle({super.key, required this.name, required this.title});
 
   @override

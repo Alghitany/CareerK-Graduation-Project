@@ -63,33 +63,36 @@ class _MainPageCoursesListState extends State<MainPageCoursesList> {
                             ),
                             child: AppRegex.isSvg(course.imageUrl ?? '')
                                 ? SvgPicture.network(
-                              "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(course.imageUrl)}",
-                              fit: BoxFit.cover,
-                              width: double.infinity,
-                              height: 134.h,
-                              placeholderBuilder: (context) => Shimmer.fromColors(
-                                baseColor: ColorsManager.ghostWhite,
-                                highlightColor: ColorsManager.mercury,
-                                child: SizedBox(
-                                  width: double.infinity,
-                                  height: 134.h,
-                                ),
-                              ),
-                            )
+                                    "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(course.imageUrl)}",
+                                    fit: BoxFit.cover,
+                                    width: double.infinity,
+                                    height: 134.h,
+                                    placeholderBuilder: (context) =>
+                                        Shimmer.fromColors(
+                                      baseColor: ColorsManager.ghostWhite,
+                                      highlightColor: ColorsManager.mercury,
+                                      child: SizedBox(
+                                        width: double.infinity,
+                                        height: 134.h,
+                                      ),
+                                    ),
+                                  )
                                 : Image.network(
-                              "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(course.imageUrl)}",
-                              fit: BoxFit.cover,
-                              width: double.infinity,
-                              height: 134.h,
-                              errorBuilder: (context, error, stackTrace) => Shimmer.fromColors(
-                                baseColor: ColorsManager.ghostWhite,
-                                highlightColor: ColorsManager.mercury,
-                                child: SizedBox(
-                                  width: double.infinity,
-                                  height: 134.h,
-                                ),
-                              ),
-                            ),
+                                    "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(course.imageUrl)}",
+                                    fit: BoxFit.cover,
+                                    width: double.infinity,
+                                    height: 134.h,
+                                    errorBuilder:
+                                        (context, error, stackTrace) =>
+                                            Shimmer.fromColors(
+                                      baseColor: ColorsManager.ghostWhite,
+                                      highlightColor: ColorsManager.mercury,
+                                      child: SizedBox(
+                                        width: double.infinity,
+                                        height: 134.h,
+                                      ),
+                                    ),
+                                  ),
                           ),
                         ),
                         Row(

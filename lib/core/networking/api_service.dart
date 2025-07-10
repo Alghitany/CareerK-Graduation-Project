@@ -209,7 +209,7 @@ abstract class ApiService {
   // Info
   @GET(ApiConstants.developerProfileInfo)
   Future<DeveloperProfileMainPageInfoResponseBody>
-  getDeveloperProfileMainPageInfo();
+      getDeveloperProfileMainPageInfo();
 
   //-> Settings
   // Applied Jobs
@@ -293,7 +293,7 @@ abstract class ApiService {
   // Company Get Applicants Number
   @GET(ApiConstants.companyProfileApplicantsNumber)
   Future<CompanyProfileApplicantsNumberResponseBody>
-  companyProfileGetApplicantsNumber();
+      companyProfileGetApplicantsNumber();
 
   //-> Delete Job
   @DELETE(ApiConstants.companyJobsDeletePost)

@@ -66,41 +66,41 @@ class _OngoingCoursesListState extends State<OngoingCoursesList> {
                           ),
                           child: AppRegex.isSvg(course.imageUrl)
                               ? SvgPicture.network(
-                            "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(course.imageUrl)}",
-                            width: double.infinity,
-                            height: 120.h,
-                            fit: BoxFit.cover,
-                            placeholderBuilder: (_) => Container(
-                              width: double.infinity,
-                              height: 120.h,
-                              color: ColorsManager.mercury,
-                              alignment: Alignment.center,
-                              child: const Icon(
-                                Icons.broken_image,
-                                color: ColorsManager.granite,
-                                size: 32,
-                              ),
-                            ),
-                          )
+                                  "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(course.imageUrl)}",
+                                  width: double.infinity,
+                                  height: 120.h,
+                                  fit: BoxFit.cover,
+                                  placeholderBuilder: (_) => Container(
+                                    width: double.infinity,
+                                    height: 120.h,
+                                    color: ColorsManager.mercury,
+                                    alignment: Alignment.center,
+                                    child: const Icon(
+                                      Icons.broken_image,
+                                      color: ColorsManager.granite,
+                                      size: 32,
+                                    ),
+                                  ),
+                                )
                               : Image.network(
-                            "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(course.imageUrl)}",
-                            width: double.infinity,
-                            height: 120.h,
-                            fit: BoxFit.cover,
-                            errorBuilder: (context, error, stackTrace) {
-                              return Container(
-                                width: double.infinity,
-                                height: 120.h,
-                                color: ColorsManager.mercury,
-                                alignment: Alignment.center,
-                                child: const Icon(
-                                  Icons.broken_image,
-                                  color: ColorsManager.granite,
-                                  size: 32,
+                                  "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(course.imageUrl)}",
+                                  width: double.infinity,
+                                  height: 120.h,
+                                  fit: BoxFit.cover,
+                                  errorBuilder: (context, error, stackTrace) {
+                                    return Container(
+                                      width: double.infinity,
+                                      height: 120.h,
+                                      color: ColorsManager.mercury,
+                                      alignment: Alignment.center,
+                                      child: const Icon(
+                                        Icons.broken_image,
+                                        color: ColorsManager.granite,
+                                        size: 32,
+                                      ),
+                                    );
+                                  },
                                 ),
-                              );
-                            },
-                          ),
                         ),
                         Positioned(
                           top: 8.h,
