@@ -20,6 +20,7 @@ import 'package:carrerk/features/developer/ui/community/chat/developer_community
 import 'package:carrerk/features/developer/ui/courses/certification/developer_courses_certification_screen.dart';
 import 'package:carrerk/features/developer/ui/courses/cv_updated/download_cv/developer_courses_cv_updated_download_cv_screen.dart';
 import 'package:carrerk/features/developer/ui/courses/cv_updated/successful_update/developer_courses_cv_updated_successful_update_screen.dart';
+import 'package:carrerk/features/developer/ui/courses/main_page/logic/main_page_related_courses_logic/developer_courses_main_page_related_courses_cubit.dart';
 import 'package:carrerk/features/developer/ui/courses/main_page/ui/developer_courses_main_page_screen.dart';
 import 'package:carrerk/features/developer/ui/courses/my_courses/developer_courses_my_courses_screen.dart';
 import 'package:carrerk/features/developer/ui/courses/roadmaps/ui/developer_courses_roadmaps_screen.dart';
@@ -79,13 +80,13 @@ import '../../features/company/ui/profile/logic/company_profile_applicants_numbe
 import '../../features/company/ui/profile/logic/company_profile_edit_logic/company_profile_edit_cubit.dart';
 import '../../features/company/ui/profile/logic/company_profile_info_logic/company_profile_info_cubit.dart';
 import '../../features/company/ui/profile/ui/company_profile_screen.dart';
-import '../../features/company/ui/send_to_applicants/message-applicant/company_send_to_applicants_message_applicant_screen.dart';
 import '../../features/company/ui/sign_up/logic/company_sign_up_cubit.dart';
 import '../../features/customer/ui/sign_up/logic/customer_sign_up_cubit.dart';
 import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
 import '../../features/developer/logic/developer_recommendations_logic/developer_recommendations_cubit.dart';
 import '../../features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
-import '../../features/developer/ui/courses/main_page/logic/developer_courses_main_page_roadmaps_cubit.dart';
+import '../../features/developer/ui/courses/main_page/logic/main_page_ongoing_courses_logic/developer_courses_main_page_ongoing_courses_cubit.dart';
+import '../../features/developer/ui/courses/main_page/logic/main_page_roadmaps_logic/developer_courses_main_page_roadmaps_cubit.dart';
 import '../../features/developer/ui/courses/related_courses/developer_courses_related_courses_screen.dart';
 import '../../features/developer/ui/courses/roadmaps/logic/developer_courses_roadmaps_cubit.dart';
 import '../../features/developer/ui/courses/specific_category/logic/developer_courses_specific_category_cubit.dart';
@@ -289,11 +290,6 @@ class AppRouter {
             child: CompanyJobPostSuccessScreen(jobId: args.jobId!),
           ),
         );
-      // Send To Clients
-      case Routes.companySendToClientsScreen:
-        return MaterialPageRoute(
-          builder: (_) => const CompanySendToApplicantsMessageApplicantScreen(),
-        );
 
       // ---------------- Developer ----------------
       // Sign Up
@@ -332,6 +328,10 @@ class AppRouter {
               ),
               BlocProvider(
                 create: (context) => getIt<DeveloperCoursesHomeMainPageCubit>(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperRecommendationsCubit>()
+                  ..fetchRecommendations(),
               ),
               BlocProvider(
                 create: (_) => getIt<DeveloperRecommendationsCubit>()
@@ -415,6 +415,16 @@ class AppRouter {
               BlocProvider(
                 create: (_) => getIt<DeveloperCoursesMainPageRoadmapsCubit>()
                   ..getDeveloperCoursesMainPageRoadmaps(),
+              ),
+              BlocProvider(
+                create: (_) =>
+                    getIt<DeveloperCoursesMainPageOngoingCoursesCubit>()
+                      ..getOngoingCourses(),
+              ),
+              BlocProvider(
+                create: (_) =>
+                    getIt<DeveloperCoursesMainPageRelatedCoursesCubit>()
+                      ..getRelatedCourses(),
               ),
             ],
             child: const DeveloperCoursesMainPageScreen(),

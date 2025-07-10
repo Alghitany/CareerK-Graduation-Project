@@ -8,8 +8,10 @@ import '../../../features/developer/logic/developer_single_course_bookmark_logic
 
 class DeveloperCourseBookmarkBlocBuilder extends StatelessWidget {
   final String courseId;
+  final bool? heartType;
 
-  const DeveloperCourseBookmarkBlocBuilder({super.key, required this.courseId});
+  const DeveloperCourseBookmarkBlocBuilder(
+      {super.key, required this.courseId, this.heartType});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,8 @@ class DeveloperCourseBookmarkBlocBuilder extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen(
           loading: () => setupLoading(),
-          success: (data) => setupSuccess(context, data.isBookmarked),
+          success: (data) =>
+              setupSuccess(context, data.isBookmarked, heartType ?? false),
           error: (_) => setupError(context),
           orElse: () => const SizedBox.shrink(),
         );
@@ -45,7 +48,7 @@ class DeveloperCourseBookmarkBlocBuilder extends StatelessWidget {
     );
   }
 
-  Widget setupSuccess(BuildContext context, bool isBookmarked) {
+  Widget setupSuccess(BuildContext context, bool isBookmarked, bool heartIcon) {
     return IconButton(
       padding: EdgeInsets.zero,
       onPressed: () {
@@ -53,13 +56,26 @@ class DeveloperCourseBookmarkBlocBuilder extends StatelessWidget {
             .read<DeveloperSingleCourseBookmarkCubit>()
             .bookmarkCourse(courseId);
       },
-      icon: SvgPicture.asset(
-        isBookmarked
-            ? 'assets/svgs/bookmark_filled.svg'
-            : 'assets/svgs/bookmark_outlined.svg',
-        height: 22.h,
-        width: 22.w,
-      ),
+      icon: heartIcon
+          ? Container(
+              padding: EdgeInsets.all(6.h),
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.white,
+              ),
+              child: SvgPicture.asset(
+                isBookmarked
+                    ? 'assets/svgs/heart.svg'
+                    : 'assets/svgs/empty_heart.svg',
+              ),
+            )
+          : SvgPicture.asset(
+              isBookmarked
+                  ? 'assets/svgs/bookmark_filled.svg'
+                  : 'assets/svgs/bookmark_outlined.svg',
+              height: 22.h,
+              width: 22.w,
+            ),
     );
   }
 

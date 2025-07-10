@@ -1,12 +1,15 @@
 import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
+import 'package:carrerk/core/networking/api_constants.dart';
 import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
+import '../../../../../../../../../core/helpers/app_regex.dart';
 import '../../../data/model/company_home_main_page_response_body.dart';
 
 class AvailablePeopleTextAndList extends StatelessWidget {
@@ -50,12 +53,43 @@ class AvailablePeopleTextAndList extends StatelessWidget {
                       children: [
                         CircleAvatar(
                           radius: 24,
-                          backgroundImage: developer.profilePicture != null
-                              ? NetworkImage(developer.profilePicture!)
-                              : const AssetImage(
-                                      'assets/images/company_home_developer_logo.png')
-                                  as ImageProvider,
+                          backgroundColor: Colors.transparent, // Optional: to avoid background color behind SVG
+                          child: developer.profilePicture != null
+                              ? (AppRegex.isSvg(developer.profilePicture)
+                              ? SvgPicture.network(
+                            "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(developer.profilePicture)}",
+                            width: 48,
+                            height: 48,
+                            fit: BoxFit.cover,
+                            placeholderBuilder: (_) => Image.asset(
+                              'assets/images/company_home_developer_logo.png',
+                              width: 48,
+                              height: 48,
+                              fit: BoxFit.cover,
+                            ),
+                          )
+                              : ClipOval(
+                            child: Image.network(
+                              "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(developer.profilePicture)}",
+                              width: 48,
+                              height: 48,
+                              fit: BoxFit.cover,
+                              errorBuilder: (_, __, ___) => Image.asset(
+                                'assets/images/company_home_developer_logo.png',
+                                width: 48,
+                                height: 48,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ))
+                              : Image.asset(
+                            'assets/images/company_home_developer_logo.png',
+                            width: 48,
+                            height: 48,
+                            fit: BoxFit.cover,
+                          ),
                         ),
+
                         horizontalSpace(4),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,

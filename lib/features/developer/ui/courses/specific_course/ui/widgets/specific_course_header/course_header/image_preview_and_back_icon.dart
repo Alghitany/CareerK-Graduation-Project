@@ -1,3 +1,4 @@
+import 'package:carrerk/core/networking/api_constants.dart';
 import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,6 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../../../../../../core/di/dependency_injection.dart';
+import '../../../../../../../../../core/helpers/app_regex.dart';
 import '../../../../../../../../../core/theming/colors.dart';
 import '../../../../../../../../../core/widgets/course_bookmark/developer_course_bookmark_bloc_builder.dart';
 import '../../../../../../../logic/developer_single_course_bookmark_logic/developer_single_course_bookmark_cubit.dart';
@@ -28,19 +30,36 @@ class ImagePreviewAndBackIcon extends StatelessWidget {
             bottomLeft: Radius.circular(16.r),
             bottomRight: Radius.circular(16.r),
           ),
-          child: Image.network(
-            imageUrl!,
+          child: AppRegex.isSvg(imageUrl!)
+              ? SvgPicture.network(
+            "${ApiConstants.apiBaseUrl}$imageUrl",
             height: 285.h,
             width: double.infinity,
             fit: BoxFit.cover,
-            errorBuilder: (context, error, stackTrace) {
-              return Image.asset(
-                'assets/images/html_course.png',
-                height: 285.h,
-                width: double.infinity,
-                fit: BoxFit.cover,
-              );
-            },
+            placeholderBuilder: (context) => Image.asset(
+              'assets/images/html_course.png',
+              height: 285.h,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
+            errorBuilder: (context, error, stackTrace) => Image.asset(
+              'assets/images/html_course.png',
+              height: 285.h,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
+          )
+              : Image.network(
+            "${ApiConstants.apiBaseUrl}$imageUrl",
+            height: 285.h,
+            width: double.infinity,
+            fit: BoxFit.cover,
+            errorBuilder: (context, error, stackTrace) => Image.asset(
+              'assets/images/html_course.png',
+              height: 285.h,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         // Back Button

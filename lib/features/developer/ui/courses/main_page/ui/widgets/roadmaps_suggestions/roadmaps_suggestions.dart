@@ -6,9 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../../../../../../core/helpers/app_regex.dart';
 import '../../../../../../../../core/routing/app_argument.dart';
 import '../../../../../../../../core/routing/routes.dart';
-import '../../../data/models/developer_courses_main_page_roadmaps_response_model.dart';
+import '../../../data/models/main_page_roadmaps_models/developer_courses_main_page_roadmaps_response_model.dart';
 
 class RoadmapsSuggestions extends StatelessWidget {
   final List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps;
@@ -42,18 +43,31 @@ class RoadmapsSuggestions extends StatelessWidget {
                       color: ColorsManager.chambray,
                     ),
                     child: Center(
-                      child: Image.network(
-                        '${ApiConstants.apiBaseUrl}${item.imageUrl}',
+                      child: AppRegex.isSvg('${ApiConstants.apiBaseUrl}${item.imageUrl}')
+                          ? SvgPicture.network(
+                        '${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(item.imageUrl)}',
                         width: 32.w,
                         height: 32.h,
                         fit: BoxFit.cover,
-                        errorBuilder: (context, error, stackTrace) =>
-                            SvgPicture.asset(
+                        placeholderBuilder: (_) => SvgPicture.asset(
                           'assets/svgs/community_card_icon.svg',
                           width: 32.w,
                           height: 32.h,
-                          colorFilter: const ColorFilter.mode(
-                              Colors.white, BlendMode.srcIn),
+                          colorFilter:
+                          const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                        ),
+                      )
+                          : Image.network(
+                        '${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(item.imageUrl)}',
+                        width: 32.w,
+                        height: 32.h,
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) => SvgPicture.asset(
+                          'assets/svgs/community_card_icon.svg',
+                          width: 32.w,
+                          height: 32.h,
+                          colorFilter:
+                          const ColorFilter.mode(Colors.white, BlendMode.srcIn),
                         ),
                       ),
                     ),

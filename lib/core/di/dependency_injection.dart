@@ -76,7 +76,11 @@ import '../../features/developer/data/repo/developer_single_course_bookmark_repo
 import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
 import '../../features/developer/logic/developer_recommendations_logic/developer_recommendations_cubit.dart';
 import '../../features/developer/logic/developer_single_course_bookmark_logic/developer_single_course_bookmark_cubit.dart';
-import '../../features/developer/ui/courses/main_page/logic/developer_courses_main_page_roadmaps_cubit.dart';
+import '../../features/developer/ui/courses/main_page/data/repo/developer_courses_main_page_ongoing_courses_repo.dart';
+import '../../features/developer/ui/courses/main_page/data/repo/developer_courses_main_page_related_courses_repo.dart';
+import '../../features/developer/ui/courses/main_page/logic/main_page_ongoing_courses_logic/developer_courses_main_page_ongoing_courses_cubit.dart';
+import '../../features/developer/ui/courses/main_page/logic/main_page_related_courses_logic/developer_courses_main_page_related_courses_cubit.dart';
+import '../../features/developer/ui/courses/main_page/logic/main_page_roadmaps_logic/developer_courses_main_page_roadmaps_cubit.dart';
 import '../../features/developer/ui/courses/roadmaps/data/repo/developer_courses_roadmaps_repo.dart';
 import '../../features/developer/ui/courses/roadmaps/logic/developer_courses_roadmaps_cubit.dart';
 import '../../features/developer/ui/courses/specific_course/data/repo/specific_course_lectures_repo.dart';
@@ -237,6 +241,21 @@ Future<void> setupGetIt() async {
   );
   getIt.registerFactory<DeveloperCoursesMainPageRoadmapsCubit>(
     () => DeveloperCoursesMainPageRoadmapsCubit(getIt()),
+  );
+  //->Ongoing Courses
+  getIt.registerLazySingleton<DeveloperCoursesMainPageOngoingCoursesRepo>(
+    () => DeveloperCoursesMainPageOngoingCoursesRepo(getIt()),
+  );
+  getIt.registerFactory<DeveloperCoursesMainPageOngoingCoursesCubit>(
+    () => DeveloperCoursesMainPageOngoingCoursesCubit(getIt()),
+  );
+  //->Related Courses
+  getIt.registerLazySingleton<DeveloperCoursesMainPageRelatedCoursesRepo>(
+    () => DeveloperCoursesMainPageRelatedCoursesRepo(getIt()),
+  );
+
+  getIt.registerFactory<DeveloperCoursesMainPageRelatedCoursesCubit>(
+    () => DeveloperCoursesMainPageRelatedCoursesCubit(getIt()),
   );
   //-> Courses Roadmaps
   getIt.registerLazySingleton<DeveloperCoursesRoadmapsRepo>(

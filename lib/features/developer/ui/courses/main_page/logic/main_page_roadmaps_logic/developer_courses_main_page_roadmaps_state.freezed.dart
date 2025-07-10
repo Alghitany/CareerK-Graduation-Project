@@ -23,7 +23,7 @@ mixin _$DeveloperCoursesMainPageRoadmapsState {
     required TResult Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)
         success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(String error) error,
   }) =>
       throw _privateConstructorUsedError;
 
@@ -34,7 +34,7 @@ mixin _$DeveloperCoursesMainPageRoadmapsState {
     TResult? Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)?
         success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(String error)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,7 +44,7 @@ mixin _$DeveloperCoursesMainPageRoadmapsState {
     TResult Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)?
         success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(String error)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -150,7 +150,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)
         success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(String error) error,
   }) {
     return initial();
   }
@@ -163,7 +163,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)?
         success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(String error)? error,
   }) {
     return initial?.call();
   }
@@ -176,7 +176,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)?
         success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -281,7 +281,7 @@ class _$DeveloperCoursesMainPageRoadmapsLoadingImpl
     required TResult Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)
         success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(String error) error,
   }) {
     return loading();
   }
@@ -294,7 +294,7 @@ class _$DeveloperCoursesMainPageRoadmapsLoadingImpl
     TResult? Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)?
         success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(String error)? error,
   }) {
     return loading?.call();
   }
@@ -307,7 +307,7 @@ class _$DeveloperCoursesMainPageRoadmapsLoadingImpl
     TResult Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)?
         success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -451,7 +451,7 @@ class _$DeveloperCoursesMainPageRoadmapsSuccessImpl
     required TResult Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)
         success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(String error) error,
   }) {
     return success(roadmaps);
   }
@@ -464,7 +464,7 @@ class _$DeveloperCoursesMainPageRoadmapsSuccessImpl
     TResult? Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)?
         success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(String error)? error,
   }) {
     return success?.call(roadmaps);
   }
@@ -477,7 +477,7 @@ class _$DeveloperCoursesMainPageRoadmapsSuccessImpl
     TResult Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)?
         success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -550,7 +550,7 @@ abstract class _$$DeveloperCoursesMainPageRoadmapsErrorImplCopyWith<$Res> {
           $Res Function(_$DeveloperCoursesMainPageRoadmapsErrorImpl) then) =
       __$$DeveloperCoursesMainPageRoadmapsErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ErrorHandler errorHandler});
+  $Res call({String error});
 }
 
 /// @nodoc
@@ -568,13 +568,13 @@ class __$$DeveloperCoursesMainPageRoadmapsErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? errorHandler = null,
+    Object? error = null,
   }) {
     return _then(_$DeveloperCoursesMainPageRoadmapsErrorImpl(
-      null == errorHandler
-          ? _value.errorHandler
-          : errorHandler // ignore: cast_nullable_to_non_nullable
-              as ErrorHandler,
+      error: null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -583,14 +583,14 @@ class __$$DeveloperCoursesMainPageRoadmapsErrorImplCopyWithImpl<$Res>
 
 class _$DeveloperCoursesMainPageRoadmapsErrorImpl
     implements DeveloperCoursesMainPageRoadmapsError {
-  const _$DeveloperCoursesMainPageRoadmapsErrorImpl(this.errorHandler);
+  const _$DeveloperCoursesMainPageRoadmapsErrorImpl({required this.error});
 
   @override
-  final ErrorHandler errorHandler;
+  final String error;
 
   @override
   String toString() {
-    return 'DeveloperCoursesMainPageRoadmapsState.error(errorHandler: $errorHandler)';
+    return 'DeveloperCoursesMainPageRoadmapsState.error(error: $error)';
   }
 
   @override
@@ -598,12 +598,11 @@ class _$DeveloperCoursesMainPageRoadmapsErrorImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeveloperCoursesMainPageRoadmapsErrorImpl &&
-            (identical(other.errorHandler, errorHandler) ||
-                other.errorHandler == errorHandler));
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, errorHandler);
+  int get hashCode => Object.hash(runtimeType, error);
 
   /// Create a copy of DeveloperCoursesMainPageRoadmapsState
   /// with the given fields replaced by the non-null parameter values.
@@ -623,9 +622,9 @@ class _$DeveloperCoursesMainPageRoadmapsErrorImpl
     required TResult Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)
         success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(String error) error,
   }) {
-    return error(errorHandler);
+    return error(this.error);
   }
 
   @override
@@ -636,9 +635,9 @@ class _$DeveloperCoursesMainPageRoadmapsErrorImpl
     TResult? Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)?
         success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(String error)? error,
   }) {
-    return error?.call(errorHandler);
+    return error?.call(this.error);
   }
 
   @override
@@ -649,11 +648,11 @@ class _$DeveloperCoursesMainPageRoadmapsErrorImpl
     TResult Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)?
         success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(errorHandler);
+      return error(this.error);
     }
     return orElse();
   }
@@ -702,10 +701,10 @@ class _$DeveloperCoursesMainPageRoadmapsErrorImpl
 abstract class DeveloperCoursesMainPageRoadmapsError
     implements DeveloperCoursesMainPageRoadmapsState {
   const factory DeveloperCoursesMainPageRoadmapsError(
-          final ErrorHandler errorHandler) =
+          {required final String error}) =
       _$DeveloperCoursesMainPageRoadmapsErrorImpl;
 
-  ErrorHandler get errorHandler;
+  String get error;
 
   /// Create a copy of DeveloperCoursesMainPageRoadmapsState
   /// with the given fields replaced by the non-null parameter values.

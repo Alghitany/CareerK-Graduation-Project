@@ -1,5 +1,6 @@
 import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
+import 'package:carrerk/core/networking/api_constants.dart';
 import 'package:carrerk/core/routing/app_argument.dart';
 import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
@@ -8,6 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../../../../../../../../core/helpers/app_regex.dart';
 import '../../../../../../../../../core/theming/colors.dart';
 import '../../../../../../../../../core/theming/styles.dart';
 import '../../../../../../../../chats/person_chat/data/models/start_chat/start_chat_room_request_body.dart';
@@ -57,9 +59,23 @@ class RecentPeopleApplied extends StatelessWidget {
                             CircleAvatar(
                               radius: 24,
                               backgroundColor: Colors.grey[200],
-                              child: ClipOval(
+                              child: (person.profilePicture != null && person.profilePicture!.isNotEmpty)
+                                  ? (AppRegex.isSvg(person.profilePicture)
+                                  ? SvgPicture.network(
+                                "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(person.profilePicture)}",
+                                width: 48,
+                                height: 48,
+                                fit: BoxFit.cover,
+                                placeholderBuilder: (_) => Image.asset(
+                                  'assets/images/company_home_developer_logo.png',
+                                  width: 48,
+                                  height: 48,
+                                  fit: BoxFit.cover,
+                                ),
+                              )
+                                  : ClipOval(
                                 child: Image.network(
-                                  person.profilePicture ?? "",
+                                  "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(person.profilePicture)}",
                                   fit: BoxFit.cover,
                                   width: 48,
                                   height: 48,
@@ -72,6 +88,12 @@ class RecentPeopleApplied extends StatelessWidget {
                                     );
                                   },
                                 ),
+                              ))
+                                  : Image.asset(
+                                'assets/images/company_home_developer_logo.png',
+                                width: 48,
+                                height: 48,
+                                fit: BoxFit.cover,
                               ),
                             ),
                             horizontalSpace(6),

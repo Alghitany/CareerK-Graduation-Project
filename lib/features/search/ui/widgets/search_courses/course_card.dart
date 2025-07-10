@@ -1,7 +1,11 @@
+import 'package:carrerk/core/helpers/spacing.dart';
+import 'package:carrerk/core/networking/api_constants.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
+import '../../../../../core/helpers/app_regex.dart';
 import '../../../../../core/theming/colors.dart';
 
 class CourseCard extends StatelessWidget {
@@ -44,8 +48,21 @@ class CourseCard extends StatelessWidget {
           // Course Image
           ClipRRect(
             borderRadius: BorderRadius.circular(12.r),
-            child: Image.network(
-              imageUrl,
+            child: AppRegex.isSvg(imageUrl)
+                ? SvgPicture.network(
+              "${ApiConstants.apiBaseUrl}$imageUrl",
+              width: 80.w,
+              height: 80.w,
+              fit: BoxFit.cover,
+              placeholderBuilder: (_) => Image.asset(
+                'assets/images/html_course.png',
+                width: 80.w,
+                height: 80.w,
+                fit: BoxFit.cover,
+              ),
+            )
+                : Image.network(
+              "${ApiConstants.apiBaseUrl}$imageUrl",
               width: 80.w,
               height: 80.w,
               fit: BoxFit.cover,
@@ -59,7 +76,7 @@ class CourseCard extends StatelessWidget {
               },
             ),
           ),
-          SizedBox(width: 12.w),
+          horizontalSpace(12),
 
           // Course Details
           Expanded(

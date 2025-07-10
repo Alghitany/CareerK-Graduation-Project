@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:carrerk/core/helpers/app_regex.dart';
+import 'package:carrerk/core/networking/api_constants.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -117,16 +119,28 @@ class _AppEditProfilePictureState extends State<AppEditProfilePicture> {
   }
 
   Widget _buildNetworkImage(String url) {
-    return ClipOval(
-      child: Image.network(
-        url,
-        fit: BoxFit.cover,
-        width: double.infinity,
-        height: double.infinity,
-        errorBuilder: (_, __, ___) => _defaultIcon(),
-      ),
-    );
+    if (AppRegex.isSvg(url)) {
+      return ClipOval(
+        child: SvgPicture.network(
+          "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(url)}",
+          width: double.infinity,
+          height: double.infinity,
+          placeholderBuilder: (_) => _defaultIcon(),
+        ),
+      );
+    } else {
+      return ClipOval(
+        child: Image.network(
+          "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(url)}",
+          fit: BoxFit.cover,
+          width: double.infinity,
+          height: double.infinity,
+          errorBuilder: (_, __, ___) => _defaultIcon(),
+        ),
+      );
+    }
   }
+
 
   Widget _defaultIcon() {
     return SvgPicture.asset(

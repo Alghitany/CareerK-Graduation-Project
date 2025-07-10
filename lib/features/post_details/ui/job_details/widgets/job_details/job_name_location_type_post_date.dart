@@ -1,4 +1,5 @@
 import 'package:carrerk/core/helpers/spacing.dart';
+import 'package:carrerk/core/networking/api_constants.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../../../../../core/helpers/date_formatter.dart';
+import '../../../../../../core/helpers/app_regex.dart';
 import '../../../../data/models/post_details_models/job_details_response_body.dart';
 
 class JobNameLocationTypePostDate extends StatelessWidget {
@@ -81,19 +83,36 @@ class JobNameLocationTypePostDate extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(8.r),
-                child: Image.network(
-                  data.companyProfilePicture ??
-                      'https://via.placeholder.com/72.png',
+                child: AppRegex.isSvg(data.companyProfilePicture ?? '')
+                    ? SvgPicture.network(
+                  "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(data.companyProfilePicture)}",
                   height: 72.h,
                   width: 72.w,
                   fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) {
-                    return Image.asset(
-                      'assets/images/recommended_job.png',
-                      height: 72.h,
-                      width: 72.w,
-                    );
-                  },
+                  placeholderBuilder: (context) => Image.asset(
+                    'assets/images/recommended_job.png',
+                    height: 72.h,
+                    width: 72.w,
+                    fit: BoxFit.cover,
+                  ),
+                  errorBuilder: (context, error, stackTrace) => Image.asset(
+                    'assets/images/recommended_job.png',
+                    height: 72.h,
+                    width: 72.w,
+                    fit: BoxFit.cover,
+                  ),
+                )
+                    : Image.network(
+                  "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(data.companyProfilePicture)}",
+                  height: 72.h,
+                  width: 72.w,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) => Image.asset(
+                    'assets/images/recommended_job.png',
+                    height: 72.h,
+                    width: 72.w,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               verticalSpace(4),

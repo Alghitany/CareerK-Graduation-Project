@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../data/repo/developer_courses_main_page_roadmaps_repo.dart';
+import '../../data/repo/developer_courses_main_page_roadmaps_repo.dart';
 import 'developer_courses_main_page_roadmaps_state.dart';
 
 class DeveloperCoursesMainPageRoadmapsCubit
@@ -18,8 +18,9 @@ class DeveloperCoursesMainPageRoadmapsCubit
       success: (roadmaps) {
         emit(DeveloperCoursesMainPageRoadmapsState.success(roadmaps));
       },
-      failure: (errorHandler) {
-        emit(DeveloperCoursesMainPageRoadmapsState.error(errorHandler));
+      failure: (error) {
+        emit(DeveloperCoursesMainPageRoadmapsState.error(
+            error: error.apiErrorModel.message ?? 'Failed to load data'));
       },
     );
   }

@@ -1,37 +1,30 @@
 import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
+import 'package:carrerk/core/networking/api_constants.dart';
 import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../../../../../../../core/di/dependency_injection.dart';
+import '../../../../../../../../core/helpers/app_regex.dart';
+import '../../../../../../../../core/widgets/course_bookmark/developer_course_bookmark_bloc_builder.dart';
+import '../../../../../../logic/developer_single_course_bookmark_logic/developer_single_course_bookmark_cubit.dart';
+import '../../../data/models/main_page_ongoing_courses/developer_courses_main_page_ongoing_courses_response_body.dart';
+
 class OngoingCoursesList extends StatefulWidget {
-  const OngoingCoursesList({super.key});
+  final List<DeveloperCoursesMainPageOngoingCoursesResponseBody> courses;
+
+  const OngoingCoursesList({super.key, required this.courses});
 
   @override
   State<OngoingCoursesList> createState() => _OngoingCoursesListState();
 }
 
 class _OngoingCoursesListState extends State<OngoingCoursesList> {
-  final List<Map<String, dynamic>> courses = [
-    {
-      'imagePath': "assets/images/html_course.png",
-      'title': "React Js",
-      'completed': 12,
-      'total': 30,
-      'isFavourite': false
-    },
-    {
-      'imagePath': "assets/images/html_course.png",
-      'title': "React Js",
-      'completed': 12,
-      'total': 30,
-      'isFavourite': false
-    },
-  ];
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -39,11 +32,16 @@ class _OngoingCoursesListState extends State<OngoingCoursesList> {
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         padding: EdgeInsets.symmetric(horizontal: 16.w),
-        itemCount: courses.length,
+        itemCount: widget.courses.length,
         separatorBuilder: (context, index) => horizontalSpace(14),
         itemBuilder: (context, index) {
-          final course = courses[index];
-          double progress = course['completed'] / course['total'];
+          final course = widget.courses[index];
+          double progress;
+          if (course.totalCount == 0) {
+            progress = 0;
+          } else {
+            progress = course.completedCount / course.totalCount;
+          }
           return GestureDetector(
             onTap: () {
               context.pushNamed(Routes.developerCoursesMyCoursesScreen);
@@ -66,33 +64,54 @@ class _OngoingCoursesListState extends State<OngoingCoursesList> {
                             topLeft: Radius.circular(10.r),
                             topRight: Radius.circular(10.r),
                           ),
-                          child: Image.asset(
-                            course['imagePath'],
+                          child: AppRegex.isSvg(course.imageUrl)
+                              ? SvgPicture.network(
+                            "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(course.imageUrl)}",
                             width: double.infinity,
                             height: 120.h,
                             fit: BoxFit.cover,
+                            placeholderBuilder: (_) => Container(
+                              width: double.infinity,
+                              height: 120.h,
+                              color: ColorsManager.mercury,
+                              alignment: Alignment.center,
+                              child: const Icon(
+                                Icons.broken_image,
+                                color: ColorsManager.granite,
+                                size: 32,
+                              ),
+                            ),
+                          )
+                              : Image.network(
+                            "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(course.imageUrl)}",
+                            width: double.infinity,
+                            height: 120.h,
+                            fit: BoxFit.cover,
+                            errorBuilder: (context, error, stackTrace) {
+                              return Container(
+                                width: double.infinity,
+                                height: 120.h,
+                                color: ColorsManager.mercury,
+                                alignment: Alignment.center,
+                                child: const Icon(
+                                  Icons.broken_image,
+                                  color: ColorsManager.granite,
+                                  size: 32,
+                                ),
+                              );
+                            },
                           ),
                         ),
                         Positioned(
                           top: 8.h,
                           left: 8.w,
-                          child: GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                course['isFavourite'] = !course['isFavourite'];
-                              });
-                            },
-                            child: Container(
-                              padding: EdgeInsets.all(6.h),
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.white,
-                              ),
-                              child: SvgPicture.asset(
-                                course['isFavourite']
-                                    ? 'assets/svgs/heart.svg'
-                                    : 'assets/svgs/empty_heart.svg',
-                              ),
+                          child: BlocProvider(
+                            create: (_) =>
+                                getIt<DeveloperSingleCourseBookmarkCubit>()
+                                  ..bookmarkCourse(course.courseId),
+                            child: DeveloperCourseBookmarkBlocBuilder(
+                              courseId: course.courseId,
+                              heartType: true,
                             ),
                           ),
                         ),
@@ -105,13 +124,16 @@ class _OngoingCoursesListState extends State<OngoingCoursesList> {
                         children: [
                           Row(
                             children: [
-                              Text(
-                                course['title'],
-                                style: AppTextStyles.font14DunePoppinsRegular,
+                              Expanded(
+                                child: Text(
+                                  course.name,
+                                  style: AppTextStyles.font14DunePoppinsRegular,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               ),
-                              const Spacer(),
+                              horizontalSpace(4),
                               Text(
-                                "(${course['total']} lessons)",
+                                "(${course.totalCount} lessons)",
                                 style: AppTextStyles
                                     .font12SilverChalicePoppinsMedium,
                               ),
@@ -133,7 +155,7 @@ class _OngoingCoursesListState extends State<OngoingCoursesList> {
                               ),
                               horizontalSpace(8),
                               Text(
-                                "${course['completed']}/${course['total']}",
+                                "${course.completedCount}/${course.totalCount}",
                                 style: AppTextStyles.font12BlueJayPoppinsMedium,
                               ),
                             ],
