@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../../../../../../core/helpers/spacing.dart';
+import '../../../widgets/developer_profile_edit_bloc_listener.dart';
 import '../../data/models/profile_info_models/developer_profile_main_page_info_response_body.dart';
 import '../../logic/profile_info_logic/developer_profile_main_page_info_cubit.dart';
 import '../../logic/profile_info_logic/developer_profile_main_page_info_state.dart';
-import 'profile_info/name_and_title.dart';
-import 'profile_info/name_and_title_shimmer.dart';
-import 'profile_info/phone_message_and_location_icons.dart';
-import 'profile_info/phone_message_and_location_icons_shimmer.dart';
-import 'profile_info/profile_top_bar.dart';
-import 'profile_info/profile_top_bar_shimmer.dart';
+import 'profile_info/info/name_and_title.dart';
+import 'profile_info/info/phone_message_and_location_icons.dart';
+import 'profile_info/info/profile_top_bar.dart';
+import 'profile_info/shimmer/name_and_title_shimmer.dart';
+import 'profile_info/shimmer/phone_message_and_location_icons_shimmer.dart';
+import 'profile_info/shimmer/profile_top_bar_shimmer.dart';
 
 class DeveloperProfileMainPageInfoBlocBuilder extends StatelessWidget {
   const DeveloperProfileMainPageInfoBlocBuilder({super.key});
@@ -46,13 +48,14 @@ class DeveloperProfileMainPageInfoBlocBuilder extends StatelessWidget {
   Widget setupSuccess(DeveloperProfileMainPageInfoResponseBody data) {
     return Column(
       children: [
-        ProfileTopBar(profileImage: data.profilePicture ?? ""),
+        ProfileTopBar(profileImage: data.profilePictureLink ?? ""),
         verticalSpace(16),
         NameAndTitle(
             name: "${data.firstName} ${data.lastName}",
             title: data.currentTrack ?? "No Title"),
         verticalSpace(16),
         const PhoneMessageAndLocationIcons(),
+        const DeveloperProfileEditBlocListener(),
       ],
     );
   }

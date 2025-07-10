@@ -4,6 +4,7 @@ import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../../../../../../../core/theming/colors.dart';
 import '../../../logic/send_data_logic/developer_profile_cv_generate_send_data_cubit.dart';
 import '../../../logic/send_data_logic/developer_profile_cv_generate_send_data_state.dart';

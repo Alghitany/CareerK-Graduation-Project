@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'widgets/developer_generate_cv_start_session_bloc_listener.dart';
-import 'widgets/profile_picture_name_and_mail.dart';
+import 'widgets/profile_picture_name_and_mail_bloc_builder.dart';
 import 'widgets/settings_options_list.dart';
 
 class DeveloperProfileSettingsScreen extends StatelessWidget {
@@ -25,7 +25,7 @@ class DeveloperProfileSettingsScreen extends StatelessWidget {
                 alignment: Alignment.centerRight,
               ),
               verticalSpace(24),
-              const ProfilePictureNameAndMail(),
+              const ProfilePictureNameAndMailBlocBuilder(),
               verticalSpace(16),
               const SettingsOptionsList(),
               const DeveloperGenerateCVStartSessionBlocListener()

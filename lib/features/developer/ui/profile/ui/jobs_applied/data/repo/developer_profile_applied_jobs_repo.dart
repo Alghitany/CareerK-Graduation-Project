@@ -1,5 +1,6 @@
 import 'package:carrerk/core/networking/api_error_handler.dart';
 import 'package:carrerk/core/networking/api_result.dart';
+
 import '../../../../../../../../core/networking/api_service.dart';
 import '../models/developer_profile_applied_jobs_models/developer_profile_applied_jobs_response_body.dart';
 

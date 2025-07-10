@@ -1,14 +1,18 @@
 import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/theming/colors.dart';
+import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../../../../../../../../core/routing/routes.dart';
-import '../../../logic/profile_info_logic/developer_profile_main_page_info_cubit.dart';
-import '../../../logic/profile_info_logic/developer_profile_main_page_info_state.dart';
+
+import '../../../../../../../../../../core/routing/routes.dart';
+import '../../../../../../../../../../core/widgets/app_text_button.dart';
+import '../../../../../../logic/developer_profile_edit_cubit.dart';
+import '../../../../logic/profile_info_logic/developer_profile_main_page_info_cubit.dart';
+import '../../../../logic/profile_info_logic/developer_profile_main_page_info_state.dart';
 
 class PhoneMessageAndLocationIcons extends StatelessWidget {
   const PhoneMessageAndLocationIcons({super.key});
@@ -28,6 +32,11 @@ class PhoneMessageAndLocationIcons extends StatelessWidget {
                   context,
                   "Phone",
                   profileData.phoneNumber ?? '',
+                  (newValue) {
+                    context.read<DeveloperProfileEditCubit>()
+                      ..phoneNumberController.text = newValue
+                      ..editDeveloperProfile();
+                  },
                 ),
               ),
               horizontalSpace(24),
@@ -43,7 +52,12 @@ class PhoneMessageAndLocationIcons extends StatelessWidget {
                 onTap: () => _showDialog(
                   context,
                   "Location",
-                  profileData.city ?? '',
+                  "${profileData.country}, ${profileData.city}, ${profileData.address}",
+                  (newValue) {
+                    context.read<DeveloperProfileEditCubit>()
+                      ..cityController.text = newValue
+                      ..editDeveloperProfile();
+                  },
                 ),
               ),
               const Spacer(),
@@ -83,8 +97,13 @@ class PhoneMessageAndLocationIcons extends StatelessWidget {
     );
   }
 
-  void _showDialog(BuildContext context, String title, String value) {
-    final controller = TextEditingController(text: value);
+  void _showDialog(
+    BuildContext context,
+    String title,
+    String initialValue,
+    Function(String) onSave,
+  ) {
+    final controller = TextEditingController(text: initialValue);
 
     showDialog(
       context: context,
@@ -101,7 +120,7 @@ class PhoneMessageAndLocationIcons extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      title,
+                      "Edit $title",
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -117,8 +136,8 @@ class PhoneMessageAndLocationIcons extends StatelessWidget {
                 const SizedBox(height: 16),
                 TextField(
                   controller: controller,
-                  readOnly: true,
                   decoration: InputDecoration(
+                    hintText: "Enter $title",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
@@ -126,7 +145,7 @@ class PhoneMessageAndLocationIcons extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
                       icon: const Icon(Icons.copy),
@@ -138,6 +157,25 @@ class PhoneMessageAndLocationIcons extends StatelessWidget {
                           const SnackBar(content: Text('Copied to clipboard')),
                         );
                       },
+                    ),
+                    AppTextButton(
+                      buttonText: 'Save',
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                        onSave(controller.text);
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text('$title updated: ${controller.text}'),
+                            duration: const Duration(seconds: 2),
+                          ),
+                        );
+                      },
+                      borderRadius: 12.r,
+                      backgroundColor: ColorsManager.primaryWildBlueYonder,
+                      textStyle: AppTextStyles.font14WhitePoppinsMedium,
+                      horizontalPadding: 5.w,
+                      verticalPadding: 3.h,
+                      buttonWidth: 80.w,
                     ),
                   ],
                 ),

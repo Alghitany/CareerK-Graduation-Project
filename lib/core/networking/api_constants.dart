@@ -96,6 +96,9 @@ class ApiConstants {
   //-> Info
   static const String developerProfileInfo = "/api/developer/profile";
 
+  //-> Edit
+  static const String developerProfileEdit = "api/developer/edit-profile";
+
   //-> Applied Jobs
   static const String developerProfileAppliedJobs =
       "api/developer/my-applications";

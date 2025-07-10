@@ -37,6 +37,7 @@ import 'package:carrerk/features/search/logic/search_courses_cubit.dart';
 import 'package:carrerk/features/search/ui/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../features/authentication/change_password/logic/change_password_cubit.dart';
 import '../../features/authentication/change_password/ui/change_password_screen.dart';
 import '../../features/authentication/login/logic/login_cubit.dart';
@@ -97,6 +98,7 @@ import '../../features/developer/ui/jobs/search/logic/developer_services_recentl
 import '../../features/developer/ui/jobs/search/ui/developer_jobs_search_screen.dart';
 import '../../features/developer/ui/jobs/service_details/logic/developer_jobs_service_details_cubit.dart';
 import '../../features/developer/ui/jobs/service_details/ui/developer_jobs_service_details_screen.dart';
+import '../../features/developer/ui/profile/logic/developer_profile_edit_cubit.dart';
 import '../../features/developer/ui/profile/ui/cv_generate/data/models/generate_models/developer_profile_cv_generate_generated_request_body.dart';
 import '../../features/developer/ui/profile/ui/cv_generate/logic/generate_logic/developer_profile_cv_generate_generated_cubit.dart';
 import '../../features/developer/ui/profile/ui/cv_generate/logic/send_data_logic/developer_profile_cv_generate_send_data_cubit.dart';
@@ -591,24 +593,47 @@ class AppRouter {
       // Profile
       case Routes.developerProfileMainPageScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (_) => getIt<DeveloperProfileMainPageInfoCubit>()
-              ..fetchDeveloperProfileMainPageInfo(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) => getIt<DeveloperProfileMainPageInfoCubit>()
+                  ..fetchDeveloperProfileMainPageInfo(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperProfileEditCubit>(),
+              ),
+            ],
             child: const DeveloperProfileMainPageScreen(),
           ),
         );
 
       case Routes.developerProfileSettingsScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (_) => getIt<DeveloperGenerateCVStartSessionCubit>(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) => getIt<DeveloperGenerateCVStartSessionCubit>(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperProfileEditCubit>(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperProfileMainPageInfoCubit>()
+                  ..fetchDeveloperProfileMainPageInfo(),
+              ),
+            ],
             child: const DeveloperProfileSettingsScreen(),
           ),
         );
+
       case Routes.developerProfileEditProfileScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperProfileEditProfileScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<DeveloperProfileEditCubit>(),
+            child: const DeveloperProfileEditProfileScreen(),
+          ),
         );
+
       case Routes.developerProfileCVGenerateScreen:
         final args = settings.arguments as AppArgument;
         return MaterialPageRoute(

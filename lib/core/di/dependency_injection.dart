@@ -29,6 +29,7 @@ import 'package:carrerk/features/developer/ui/home_main_page/logic/developer_cou
 import 'package:carrerk/features/developer/ui/jobs/search/data/repo/developer_jobs_recently_posted_repo.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+
 import '../../features/authentication/change_password/data/repos/change_password_repo.dart';
 import '../../features/authentication/change_password/logic/change_password_cubit.dart';
 import '../../features/authentication/login/data/repos/login_repo.dart';
@@ -90,6 +91,8 @@ import '../../features/developer/ui/jobs/search/logic/developer_jobs_recently_po
 import '../../features/developer/ui/jobs/search/logic/developer_services_recently_posted_logic/developer_services_recently_posted_cubit.dart';
 import '../../features/developer/ui/jobs/service_details/data/repo/developer_jobs_service_details_repo.dart';
 import '../../features/developer/ui/jobs/service_details/logic/developer_jobs_service_details_cubit.dart';
+import '../../features/developer/ui/profile/data/repos/developer_profile_edit_repo.dart';
+import '../../features/developer/ui/profile/logic/developer_profile_edit_cubit.dart';
 import '../../features/developer/ui/profile/ui/cv_generate/data/repos/developer_profile_cv_generate_generated_repo.dart';
 import '../../features/developer/ui/profile/ui/cv_generate/data/repos/developer_profile_cv_generate_send_data_repo.dart';
 import '../../features/developer/ui/profile/ui/cv_generate/logic/generate_logic/developer_profile_cv_generate_generated_cubit.dart';
@@ -302,11 +305,20 @@ Future<void> setupGetIt() async {
     () => SpecificCourseReviewsCubit(getIt()),
   );
   //-> Profile
+  //-> Info
   getIt.registerLazySingleton<DeveloperProfileMainPageInfoRepo>(
     () => DeveloperProfileMainPageInfoRepo(getIt()),
   );
   getIt.registerFactory<DeveloperProfileMainPageInfoCubit>(
     () => DeveloperProfileMainPageInfoCubit(getIt()),
+  );
+  //-> Edit
+  getIt.registerLazySingleton<DeveloperProfileEditRepo>(
+    () => DeveloperProfileEditRepo(getIt()),
+  );
+
+  getIt.registerFactory<DeveloperProfileEditCubit>(
+    () => DeveloperProfileEditCubit(getIt()),
   );
 
   // All Job Posts

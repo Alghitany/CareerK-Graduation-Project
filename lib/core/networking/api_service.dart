@@ -211,6 +211,8 @@ abstract class ApiService {
   Future<DeveloperProfileMainPageInfoResponseBody>
       getDeveloperProfileMainPageInfo();
 
+  // Edit Profile Use Dio Directly
+
   //-> Settings
   // Applied Jobs
   @GET(ApiConstants.developerProfileAppliedJobs)

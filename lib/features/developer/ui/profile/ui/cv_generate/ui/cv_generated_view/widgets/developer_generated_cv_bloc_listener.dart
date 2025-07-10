@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../../../../../../../core/theming/colors.dart';
 import '../../../../../../../../../core/theming/styles.dart';
 import '../../../logic/generate_logic/developer_profile_cv_generate_generated_cubit.dart';
