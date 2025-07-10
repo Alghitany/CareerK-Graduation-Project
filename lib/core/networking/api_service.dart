@@ -3,7 +3,6 @@ import 'package:carrerk/features/customer/data/models/customer_jobs_post_respons
 import 'package:carrerk/features/customer/ui/applied/data/model/first_screen_model/applications_response_body.dart';
 import 'package:carrerk/features/customer/ui/applied/data/model/reject_applications_model/reject_application_response.dart';
 import 'package:carrerk/features/customer/ui/applied/data/model/secound_screen_model/application_details_response_body.dart';
-import 'package:carrerk/features/developer/ui/profile/main_page/ui/developer_profile_main_page_screen.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 

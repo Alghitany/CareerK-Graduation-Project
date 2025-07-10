@@ -4,9 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'widgets/developer_profile_main_page_info_bloc_builder.dart';
-import 'widgets/profile_info/name_and_title.dart';
-import 'widgets/profile_info/phone_message_and_location_icons.dart';
-import 'widgets/profile_info/profile_top_bar.dart';
 import 'widgets/skills_progress.dart';
 
 class DeveloperProfileMainPageScreen extends StatelessWidget {
