@@ -50,14 +50,15 @@ import '../../features/developer/ui/home_main_page/data/models/developer_tags_ho
 import '../../features/developer/ui/jobs/search/data/models/developer_jobs_recently_posted_models/developer_jobs_recently_posted_response_body.dart';
 import '../../features/developer/ui/jobs/search/data/models/developer_services_recently_posted_models/developer_services_recently_posted_response_body.dart';
 import '../../features/developer/ui/jobs/service_details/data/model/developer_jobs_service_details_response_body.dart';
-import '../../features/developer/ui/profile/cv_generate/data/models/generate_models/developer_profile_cv_generate_generated_request_body.dart';
-import '../../features/developer/ui/profile/cv_generate/data/models/generate_models/developer_profile_cv_generate_generated_response.dart';
-import '../../features/developer/ui/profile/cv_generate/data/models/send_data_models/developer_profile_cv_generate_send_data_request_body.dart';
-import '../../features/developer/ui/profile/cv_generate/data/models/send_data_models/developer_profile_cv_generate_send_data_response.dart';
-import '../../features/developer/ui/profile/jobs_applied/data/models/developer_profile_applied_jobs_models/developer_profile_applied_jobs_response_body.dart';
-import '../../features/developer/ui/profile/jobs_applied/data/models/job_withdraw/developer_job_withdraw_response_body.dart';
-import '../../features/developer/ui/profile/jobs_applied/data/models/service_delete/developer_service_delete_response_body.dart';
-import '../../features/developer/ui/profile/settings/data/models/developer_generate_cv_start_session_models/developer_generate_cv_start_session_response.dart';
+import '../../features/developer/ui/profile/ui/cv_generate/data/models/generate_models/developer_profile_cv_generate_generated_request_body.dart';
+import '../../features/developer/ui/profile/ui/cv_generate/data/models/generate_models/developer_profile_cv_generate_generated_response.dart';
+import '../../features/developer/ui/profile/ui/cv_generate/data/models/send_data_models/developer_profile_cv_generate_send_data_request_body.dart';
+import '../../features/developer/ui/profile/ui/cv_generate/data/models/send_data_models/developer_profile_cv_generate_send_data_response.dart';
+import '../../features/developer/ui/profile/ui/jobs_applied/data/models/developer_profile_applied_jobs_models/developer_profile_applied_jobs_response_body.dart';
+import '../../features/developer/ui/profile/ui/jobs_applied/data/models/job_withdraw/developer_job_withdraw_response_body.dart';
+import '../../features/developer/ui/profile/ui/jobs_applied/data/models/service_delete/developer_service_delete_response_body.dart';
+import '../../features/developer/ui/profile/ui/main_page/data/models/profile_info_models/developer_profile_main_page_info_response_body.dart';
+import '../../features/developer/ui/profile/ui/settings/data/models/developer_generate_cv_start_session_models/developer_generate_cv_start_session_response.dart';
 import '../../features/post_details/data/models/post_details_models/job_details_response_body.dart';
 import '../../features/search/data/model/search_courses_response_body.dart';
 import 'api_constants.dart';
@@ -205,20 +206,14 @@ abstract class ApiService {
   Future<DeveloperRecommendationsResponseBody> getDeveloperRecommendations();
 
   //-> Profile
+  // Info
+  @GET(ApiConstants.developerProfileInfo)
+  Future<DeveloperProfileMainPageInfoResponseBody>
+      getDeveloperProfileMainPageInfo();
 
-  // Profile Info
-  @GET(ApiConstants.companyProfileInfo)
-  Future<CompanyProfileInfoResponseBody> getCompanyProfileInfo();
+  // Edit Profile Use Dio Directly
 
-  // Company All Job Posts
-  @GET(ApiConstants.companyProfileAllJobPosts)
-  Future<CompanyProfileAllJobPostsResponseBody> getCompanyProfileAllJobPosts();
-
-  // Company Get Applicants Number
-  @GET(ApiConstants.companyProfileApplicantsNumber)
-  Future<CompanyProfileApplicantsNumberResponseBody>
-      companyProfileGetApplicantsNumber();
-
+  //-> Settings
   // Applied Jobs
   @GET(ApiConstants.developerProfileAppliedJobs)
   Future<DeveloperProfileAppliedJobsResponseBody>
@@ -287,6 +282,20 @@ abstract class ApiService {
     @Path('applicationId') String applicationId,
     @Body() CompanyUpdateStatusRequestBody requestBody,
   );
+
+  //-> Profile
+  // Profile Info
+  @GET(ApiConstants.companyProfileInfo)
+  Future<CompanyProfileInfoResponseBody> getCompanyProfileInfo();
+
+  // Company All Job Posts
+  @GET(ApiConstants.companyProfileAllJobPosts)
+  Future<CompanyProfileAllJobPostsResponseBody> getCompanyProfileAllJobPosts();
+
+  // Company Get Applicants Number
+  @GET(ApiConstants.companyProfileApplicantsNumber)
+  Future<CompanyProfileApplicantsNumberResponseBody>
+      companyProfileGetApplicantsNumber();
 
   //-> Delete Job
   @DELETE(ApiConstants.companyJobsDeletePost)

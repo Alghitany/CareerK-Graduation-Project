@@ -29,41 +29,42 @@ class HomePageTopBar extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 28.r,
-            backgroundColor: Colors.transparent, // Optional: avoid background color
+            backgroundColor: Colors.transparent,
+            // Optional: avoid background color
             child: profilePicture != null && profilePicture!.isNotEmpty
                 ? (AppRegex.isSvg(profilePicture)
-                ? SvgPicture.network(
-              "${ApiConstants.apiBaseUrl}$profilePicture",
-              width: 56.r, // Adjust according to radius * 2
-              height: 56.r,
-              fit: BoxFit.cover,
-              placeholderBuilder: (_) => Image.asset(
-                "assets/images/company_logo.png",
-                width: 56.r,
-                height: 56.r,
-                fit: BoxFit.cover,
-              ),
-            )
-                : ClipOval(
-              child: Image.network(
-                "${ApiConstants.apiBaseUrl}$profilePicture",
-                width: 56.r,
-                height: 56.r,
-                fit: BoxFit.cover,
-                errorBuilder: (_, __, ___) => Image.asset(
-                  "assets/images/company_logo.png",
-                  width: 56.r,
-                  height: 56.r,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ))
+                    ? SvgPicture.network(
+                        "${ApiConstants.apiBaseUrl}$profilePicture",
+                        width: 56.r, // Adjust according to radius * 2
+                        height: 56.r,
+                        fit: BoxFit.cover,
+                        placeholderBuilder: (_) => Image.asset(
+                          "assets/images/company_logo.png",
+                          width: 56.r,
+                          height: 56.r,
+                          fit: BoxFit.cover,
+                        ),
+                      )
+                    : ClipOval(
+                        child: Image.network(
+                          "${ApiConstants.apiBaseUrl}$profilePicture",
+                          width: 56.r,
+                          height: 56.r,
+                          fit: BoxFit.cover,
+                          errorBuilder: (_, __, ___) => Image.asset(
+                            "assets/images/company_logo.png",
+                            width: 56.r,
+                            height: 56.r,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ))
                 : Image.asset(
-              "assets/images/company_logo.png",
-              width: 56.r,
-              height: 56.r,
-              fit: BoxFit.cover,
-            ),
+                    "assets/images/company_logo.png",
+                    width: 56.r,
+                    height: 56.r,
+                    fit: BoxFit.cover,
+                  ),
           ),
           horizontalSpace(16.w),
           Column(

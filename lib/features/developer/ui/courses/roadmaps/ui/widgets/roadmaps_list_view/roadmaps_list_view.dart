@@ -61,43 +61,46 @@ class RoadmapsListView extends StatelessWidget {
                     ),
                     child: roadmap.imageUrl.isNotEmpty
                         ? ClipRRect(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(16.r),
-                        bottomLeft: Radius.circular(16.r),
-                      ),
-                      child: AppRegex.isSvg(roadmap.imageUrl)
-                          ? SvgPicture.network(
-                        "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(roadmap.imageUrl)}",
-                        fit: BoxFit.cover,
-                        placeholderBuilder: (_) => Center(
-                          child: Text(
-                            roadmap.trackTitle,
-                            textAlign: TextAlign.center,
-                            style: AppTextStyles.font20GlaucousPoppinsSemiBold,
-                          ),
-                        ),
-                      )
-                          : Image.network(
-                        "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(roadmap.imageUrl)}",
-                        fit: BoxFit.cover,
-                        errorBuilder: (context, error, stackTrace) {
-                          return Center(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(16.r),
+                              bottomLeft: Radius.circular(16.r),
+                            ),
+                            child: AppRegex.isSvg(roadmap.imageUrl)
+                                ? SvgPicture.network(
+                                    "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(roadmap.imageUrl)}",
+                                    fit: BoxFit.cover,
+                                    placeholderBuilder: (_) => Center(
+                                      child: Text(
+                                        roadmap.trackTitle,
+                                        textAlign: TextAlign.center,
+                                        style: AppTextStyles
+                                            .font20GlaucousPoppinsSemiBold,
+                                      ),
+                                    ),
+                                  )
+                                : Image.network(
+                                    "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(roadmap.imageUrl)}",
+                                    fit: BoxFit.cover,
+                                    errorBuilder: (context, error, stackTrace) {
+                                      return Center(
+                                        child: Text(
+                                          roadmap.trackTitle,
+                                          textAlign: TextAlign.center,
+                                          style: AppTextStyles
+                                              .font20GlaucousPoppinsSemiBold,
+                                        ),
+                                      );
+                                    },
+                                  ),
+                          )
+                        : Center(
                             child: Text(
                               roadmap.trackTitle,
                               textAlign: TextAlign.center,
-                              style: AppTextStyles.font20GlaucousPoppinsSemiBold,
+                              style:
+                                  AppTextStyles.font20GlaucousPoppinsSemiBold,
                             ),
-                          );
-                        },
-                      ),
-                    )
-                        : Center(
-                      child: Text(
-                        roadmap.trackTitle,
-                        textAlign: TextAlign.center,
-                        style: AppTextStyles.font20GlaucousPoppinsSemiBold,
-                      ),
-                    ),
+                          ),
                   ),
 
                   horizontalSpace(9),

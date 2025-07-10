@@ -141,7 +141,6 @@ class _AppEditProfilePictureState extends State<AppEditProfilePicture> {
     }
   }
 
-
   Widget _defaultIcon() {
     return SvgPicture.asset(
       "assets/svgs/person_filled.svg",

@@ -53,34 +53,34 @@ class CoursesAndJobsMainPageTopBar extends StatelessWidget {
               clipBehavior: Clip.hardEdge,
               child: (profilePicture != null && profilePicture!.isNotEmpty)
                   ? (AppRegex.isSvg(profilePicture)
-                  ? SvgPicture.network(
-                "${ApiConstants.apiBaseUrl}$profilePicture",
-                fit: BoxFit.cover,
-                placeholderBuilder: (_) => Padding(
-                  padding: EdgeInsets.all(12.w),
-                  child: SvgPicture.asset(
-                    "assets/svgs/person_outlined.svg",
-                    colorFilter: const ColorFilter.mode(
-                      ColorsManager.lemonGrass,
-                      BlendMode.srcIn,
-                    ),
-                  ),
-                ),
-              )
-                  : Image.network(
-                "${ApiConstants.apiBaseUrl}$profilePicture",
-                fit: BoxFit.cover,
-              ))
+                      ? SvgPicture.network(
+                          "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(profilePicture)}",
+                          fit: BoxFit.cover,
+                          placeholderBuilder: (_) => Padding(
+                            padding: EdgeInsets.all(12.w),
+                            child: SvgPicture.asset(
+                              "assets/svgs/person_outlined.svg",
+                              colorFilter: const ColorFilter.mode(
+                                ColorsManager.lemonGrass,
+                                BlendMode.srcIn,
+                              ),
+                            ),
+                          ),
+                        )
+                      : Image.network(
+                          "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(profilePicture)}",
+                          fit: BoxFit.cover,
+                        ))
                   : Padding(
-                padding: EdgeInsets.all(12.w),
-                child: SvgPicture.asset(
-                  "assets/svgs/person_outlined.svg",
-                  colorFilter: const ColorFilter.mode(
-                    ColorsManager.lemonGrass,
-                    BlendMode.srcIn,
-                  ),
-                ),
-              ),
+                      padding: EdgeInsets.all(12.w),
+                      child: SvgPicture.asset(
+                        "assets/svgs/person_outlined.svg",
+                        colorFilter: const ColorFilter.mode(
+                          ColorsManager.lemonGrass,
+                          BlendMode.srcIn,
+                        ),
+                      ),
+                    ),
             ),
           ),
         ],

@@ -88,5 +88,4 @@ class AppRegex {
     String cutUrl = cutBaseUrl(imageUrl);
     return cutUrl.toLowerCase().endsWith('.svg');
   }
-
 }

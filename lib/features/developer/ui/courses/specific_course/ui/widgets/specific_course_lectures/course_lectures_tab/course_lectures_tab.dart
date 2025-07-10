@@ -46,7 +46,7 @@ class CourseLecturesTab extends StatelessWidget {
                       : 'assets/svgs/play.svg';
 
                   final iconBackgroundColor =
-                  isFirst ? ColorsManager.duskyBlue : Colors.white;
+                      isFirst ? ColorsManager.duskyBlue : Colors.white;
 
                   return Padding(
                     padding: EdgeInsets.only(bottom: 16.h),
@@ -62,7 +62,8 @@ class CourseLecturesTab extends StatelessWidget {
                             if (!launched) {
                               messenger.showSnackBar(
                                 const SnackBar(
-                                    content: Text('Could not launch the video')),
+                                    content:
+                                        Text('Could not launch the video')),
                               );
                             }
                           } catch (e) {
@@ -167,8 +168,8 @@ class CourseLecturesTab extends StatelessWidget {
                 final messenger = ScaffoldMessenger.of(context);
 
                 final firstVideo = videoLectures.firstWhere(
-                      (lecture) =>
-                  lecture.videoUrl != null &&
+                  (lecture) =>
+                      lecture.videoUrl != null &&
                       lecture.videoUrl!.trim().isNotEmpty,
                   orElse: () => SpecificCourseLecturesResponseBody(
                     type: '',

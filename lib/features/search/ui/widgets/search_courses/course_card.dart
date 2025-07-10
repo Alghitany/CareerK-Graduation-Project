@@ -50,31 +50,31 @@ class CourseCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(12.r),
             child: AppRegex.isSvg(imageUrl)
                 ? SvgPicture.network(
-              "${ApiConstants.apiBaseUrl}$imageUrl",
-              width: 80.w,
-              height: 80.w,
-              fit: BoxFit.cover,
-              placeholderBuilder: (_) => Image.asset(
-                'assets/images/html_course.png',
-                width: 80.w,
-                height: 80.w,
-                fit: BoxFit.cover,
-              ),
-            )
+                    "${ApiConstants.apiBaseUrl}$imageUrl",
+                    width: 80.w,
+                    height: 80.w,
+                    fit: BoxFit.cover,
+                    placeholderBuilder: (_) => Image.asset(
+                      'assets/images/html_course.png',
+                      width: 80.w,
+                      height: 80.w,
+                      fit: BoxFit.cover,
+                    ),
+                  )
                 : Image.network(
-              "${ApiConstants.apiBaseUrl}$imageUrl",
-              width: 80.w,
-              height: 80.w,
-              fit: BoxFit.cover,
-              errorBuilder: (context, error, stackTrace) {
-                return Image.asset(
-                  'assets/images/html_course.png',
-                  width: 80.w,
-                  height: 80.w,
-                  fit: BoxFit.cover,
-                );
-              },
-            ),
+                    "${ApiConstants.apiBaseUrl}$imageUrl",
+                    width: 80.w,
+                    height: 80.w,
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Image.asset(
+                        'assets/images/html_course.png',
+                        width: 80.w,
+                        height: 80.w,
+                        fit: BoxFit.cover,
+                      );
+                    },
+                  ),
           ),
           horizontalSpace(12),
 
