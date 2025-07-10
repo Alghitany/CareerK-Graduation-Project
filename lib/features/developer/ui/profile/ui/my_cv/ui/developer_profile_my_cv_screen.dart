@@ -1,18 +1,17 @@
 import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:permission_handler/permission_handler.dart';
-
 import '../../../../../../../core/helpers/spacing.dart';
 import '../../../../../../../core/theming/colors.dart';
 import '../../../../../../../core/theming/styles.dart';
 import '../../../../../../../core/widgets/app_text_button.dart';
 import '../logic/developer_profile_settings_get_my_cv_logic/developer_profile_sittings_get_my_cv_cubit.dart';
-import '../logic/developer_profile_settings_update_uploaded_cv_logic/developer_profile_settings_update_uploaded_cv_cubit.dart'; // import your update cubit
+import '../logic/developer_profile_settings_update_uploaded_cv_logic/developer_profile_settings_update_uploaded_cv_cubit.dart';
+import '../logic/developer_profile_settings_delete_cv_logic/developer_profile_settings_delete_cv_cubit.dart';
 import 'widgets/developer_profile_my_cv_bloc_builder.dart';
 import 'widgets/my_cv_top_bar.dart';
 
@@ -42,7 +41,7 @@ class _DeveloperProfileMyCvScreenState
 
       return photos.isGranted || videos.isGranted || audio.isGranted;
     }
-    return true; // No special permission on iOS
+    return true;
   }
 
   Future<void> downloadCV(String cvUrl) async {
@@ -105,20 +104,17 @@ class _DeveloperProfileMyCvScreenState
     );
 
     if (result == null || result.files.isEmpty) {
-      // User cancelled or no file selected
       return;
     }
 
     final filePath = result.files.single.path!;
 
-    // Show loading snackbar BEFORE async gap
     messenger.showSnackBar(
       const SnackBar(content: Text('Uploading CV...')),
     );
 
     await updateCubit.updateUploadedMyCV(filePath);
 
-    // Now use the captured cubits and messenger safely
     final state = updateCubit.state;
     state.maybeWhen(
       success: (_) {
@@ -138,6 +134,8 @@ class _DeveloperProfileMyCvScreenState
 
   @override
   Widget build(BuildContext context) {
+    final deleteCvCubit = context.read<DeveloperProfileSettingsDeleteCVCubit>();
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -151,24 +149,26 @@ class _DeveloperProfileMyCvScreenState
                   });
                 },
                 isUploadedCV: isUploadedCV,
+                deleteCvCubit: deleteCvCubit,
               ),
               verticalSpace(56),
               DeveloperProfileMyCVBlocBuilder(isUploadedCV: isUploadedCV),
               verticalSpace(64),
               Row(
                 children: [
-                  Expanded(
-                    child: AppTextButton(
-                      buttonText: 'Update',
-                      backgroundColor: Colors.white,
-                      textStyle: AppTextStyles
-                          .font14PrimaryWildBlueYonderPoppinsMedium,
-                      borderColor: ColorsManager.primaryWildBlueYonder,
-                      onPressed: () async {
-                        await pickAndUploadCV();
-                      },
+                  if (isUploadedCV)
+                    Expanded(
+                      child: AppTextButton(
+                        buttonText: 'Update',
+                        backgroundColor: Colors.white,
+                        textStyle: AppTextStyles
+                            .font14PrimaryWildBlueYonderPoppinsMedium,
+                        borderColor: ColorsManager.primaryWildBlueYonder,
+                        onPressed: () async {
+                          await pickAndUploadCV();
+                        },
+                      ),
                     ),
-                  ),
                   horizontalSpace(16),
                   Expanded(
                     child: Stack(

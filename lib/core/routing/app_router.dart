@@ -29,6 +29,7 @@ import 'package:carrerk/features/developer/ui/jobs/application_submitted/develop
 import 'package:carrerk/features/developer/ui/jobs/apply/logic/developer_jobs_apply_cubit.dart';
 import 'package:carrerk/features/developer/ui/jobs/apply/ui/developer_jobs_apply_screen.dart';
 import 'package:carrerk/features/developer/ui/jobs/main_page/developer_jobs_main_page_screen.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/my_cv/logic/developer_profile_settings_delete_cv_logic/developer_profile_settings_delete_cv_cubit.dart';
 import 'package:carrerk/features/developer/ui/profile/ui/my_cv/logic/developer_profile_settings_get_my_cv_logic/developer_profile_sittings_get_my_cv_cubit.dart';
 import 'package:carrerk/features/developer/ui/profile/ui/my_cv/ui/developer_profile_my_cv_screen.dart';
 import 'package:carrerk/features/developer/ui/sign_up/logic/developer_sign_up_cubit.dart';
@@ -641,12 +642,13 @@ class AppRouter {
           builder: (_) => MultiBlocProvider(
             providers: [
               BlocProvider(
-                create: (_) =>
-                    getIt<DeveloperProfileSettingsGetMyCVCubit>()..getMyCV(),
+                create: (_) => getIt<DeveloperProfileSettingsGetMyCVCubit>()..getMyCV(),
               ),
               BlocProvider(
-                create: (_) =>
-                    getIt<DeveloperProfileSettingsUpdateUploadedCVCubit>(),
+                create: (_) => getIt<DeveloperProfileSettingsUpdateUploadedCVCubit>(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperProfileSettingsDeleteCVCubit>(),
               ),
             ],
             child: const DeveloperProfileMyCvScreen(),

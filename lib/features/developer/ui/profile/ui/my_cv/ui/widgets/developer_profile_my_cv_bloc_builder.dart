@@ -38,8 +38,14 @@ class DeveloperProfileMyCVBlocBuilder extends StatelessWidget {
 
   Widget _buildSuccess(DeveloperProfileSettingsGetMyCVResponseBody data) {
     final cvUrl = isUploadedCV ? data.uploadedCV : data.generatedCV;
+    if (cvUrl == null || cvUrl.isEmpty) {
+      return const Center(
+        child: Text("There is no CV available."),
+      );
+    }
+
     return CvPreviewAndDownload(
-      cvUrl: cvUrl ?? '',
+      cvUrl: cvUrl,
     );
   }
 
