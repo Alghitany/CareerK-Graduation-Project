@@ -1,5 +1,5 @@
 class ApiConstants {
-  static const String apiBaseUrl = "https://e419-197-164-8-153.ngrok-free.app/";
+  static const String apiBaseUrl = "https://94deaea98e01.ngrok-free.app/";
   static const String baseImageUrl =
       "https://e419-197-164-8-153.ngrok-free.app/uploads/profile_pictures/";
 
@@ -93,21 +93,24 @@ class ApiConstants {
       "/api/course-details/{courseId}/reviews";
 
   //-----> Profile
-  //->Profile
-  static const String companyProfileInfo = "api/company/profile";
+  //-> Info
+  static const String developerProfileInfo = "/api/developer/profile";
 
-  // All Job Posts
-  static const String companyProfileAllJobPosts = "api/company/job-posts";
-
-  //->Profile Get Applicant
-  static const String companyProfileApplicantsNumber = "api/company/applicants";
-
-  //->Profile Edit
-  static const String companyProfileEdit = "api/company/edit-profile";
+  //-> Edit
+  static const String developerProfileEdit = "api/developer/edit-profile";
 
   //-> Applied Jobs
   static const String developerProfileAppliedJobs =
       "api/developer/my-applications";
+
+  // Get My CV
+  static const String developerProfileSettingsGetMyCV = "api/developer/my-cv";
+
+  // Delete My CV
+  static const String developerDeleteMyCV = 'api/developer/my-cv';
+
+  // Update Uploaded CV
+  static const String developerUpdateUploadedCV = "api/developer/my-cv";
 
   //-> Generate CV With Ai
   // Start Session
@@ -181,6 +184,19 @@ class ApiConstants {
 
   //->Delete Post
   static const String companyJobsDeletePost = "api/company/job-posts/{jobId}";
+
+  //-> Profile
+  // Info
+  static const String companyProfileInfo = "api/company/profile";
+
+  // All Job Posts
+  static const String companyProfileAllJobPosts = "api/company/job-posts";
+
+  //->Profile Get Applicant
+  static const String companyProfileApplicantsNumber = "api/company/applicants";
+
+  //->Profile Edit
+  static const String companyProfileEdit = "api/company/edit-profile";
 
   //------ Search ------------
   static const String searchCourses = "api/courses-page/search-courses";

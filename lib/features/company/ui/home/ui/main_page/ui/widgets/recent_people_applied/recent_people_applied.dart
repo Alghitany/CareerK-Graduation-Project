@@ -59,42 +59,45 @@ class RecentPeopleApplied extends StatelessWidget {
                             CircleAvatar(
                               radius: 24,
                               backgroundColor: Colors.grey[200],
-                              child: (person.profilePicture != null && person.profilePicture!.isNotEmpty)
+                              child: (person.profilePicture != null &&
+                                      person.profilePicture!.isNotEmpty)
                                   ? (AppRegex.isSvg(person.profilePicture)
-                                  ? SvgPicture.network(
-                                "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(person.profilePicture)}",
-                                width: 48,
-                                height: 48,
-                                fit: BoxFit.cover,
-                                placeholderBuilder: (_) => Image.asset(
-                                  'assets/images/company_home_developer_logo.png',
-                                  width: 48,
-                                  height: 48,
-                                  fit: BoxFit.cover,
-                                ),
-                              )
-                                  : ClipOval(
-                                child: Image.network(
-                                  "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(person.profilePicture)}",
-                                  fit: BoxFit.cover,
-                                  width: 48,
-                                  height: 48,
-                                  errorBuilder: (context, error, stackTrace) {
-                                    return Image.asset(
+                                      ? SvgPicture.network(
+                                          "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(person.profilePicture)}",
+                                          width: 48,
+                                          height: 48,
+                                          fit: BoxFit.cover,
+                                          placeholderBuilder: (_) =>
+                                              Image.asset(
+                                            'assets/images/company_home_developer_logo.png',
+                                            width: 48,
+                                            height: 48,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        )
+                                      : ClipOval(
+                                          child: Image.network(
+                                            "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(person.profilePicture)}",
+                                            fit: BoxFit.cover,
+                                            width: 48,
+                                            height: 48,
+                                            errorBuilder:
+                                                (context, error, stackTrace) {
+                                              return Image.asset(
+                                                'assets/images/company_home_developer_logo.png',
+                                                fit: BoxFit.cover,
+                                                width: 48,
+                                                height: 48,
+                                              );
+                                            },
+                                          ),
+                                        ))
+                                  : Image.asset(
                                       'assets/images/company_home_developer_logo.png',
-                                      fit: BoxFit.cover,
                                       width: 48,
                                       height: 48,
-                                    );
-                                  },
-                                ),
-                              ))
-                                  : Image.asset(
-                                'assets/images/company_home_developer_logo.png',
-                                width: 48,
-                                height: 48,
-                                fit: BoxFit.cover,
-                              ),
+                                      fit: BoxFit.cover,
+                                    ),
                             ),
                             horizontalSpace(6),
                             Column(

@@ -66,50 +66,52 @@ class _MainPageRecommendedJobsListState
                   borderRadius: BorderRadius.circular(12),
                   child: AppRegex.isSvg(job.companyProfilePicture ?? '')
                       ? SvgPicture.network(
-                    "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(job.companyProfilePicture)}",
-                    width: 88.w,
-                    height: 88.h,
-                    fit: BoxFit.cover,
-                    placeholderBuilder: (context) => Shimmer.fromColors(
-                      baseColor: Colors.grey.shade300,
-                      highlightColor: Colors.grey.shade100,
-                      child: Container(
-                        width: 88.w,
-                        height: 88.h,
-                        color: Colors.white,
-                      ),
-                    ),
-                    errorBuilder: (context, error, stackTrace) => Image.asset(
-                      "assets/images/recommended_job.png",
-                      width: 88.w,
-                      height: 88.h,
-                      fit: BoxFit.cover,
-                    ),
-                  )
-                      : Image.network(
-                    "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(job.companyProfilePicture)}",
-                    width: 88.w,
-                    height: 88.h,
-                    fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) => Image.asset(
-                      "assets/images/recommended_job.png",
-                      width: 88.w,
-                      height: 88.h,
-                      fit: BoxFit.cover,
-                    ),
-                    loadingBuilder: (context, child, loadingProgress) {
-                      if (loadingProgress == null) return child;
-                      return Shimmer.fromColors(
-                        baseColor: Colors.grey.shade300,
-                        highlightColor: Colors.grey.shade100,
-                        child: Container(
+                          "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(job.companyProfilePicture)}",
                           width: 88.w,
                           height: 88.h,
-                          color: Colors.white,
+                          fit: BoxFit.cover,
+                          placeholderBuilder: (context) => Shimmer.fromColors(
+                            baseColor: Colors.grey.shade300,
+                            highlightColor: Colors.grey.shade100,
+                            child: Container(
+                              width: 88.w,
+                              height: 88.h,
+                              color: Colors.white,
+                            ),
+                          ),
+                          errorBuilder: (context, error, stackTrace) =>
+                              Image.asset(
+                            "assets/images/recommended_job.png",
+                            width: 88.w,
+                            height: 88.h,
+                            fit: BoxFit.cover,
+                          ),
+                        )
+                      : Image.network(
+                          "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(job.companyProfilePicture)}",
+                          width: 88.w,
+                          height: 88.h,
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) =>
+                              Image.asset(
+                            "assets/images/recommended_job.png",
+                            width: 88.w,
+                            height: 88.h,
+                            fit: BoxFit.cover,
+                          ),
+                          loadingBuilder: (context, child, loadingProgress) {
+                            if (loadingProgress == null) return child;
+                            return Shimmer.fromColors(
+                              baseColor: Colors.grey.shade300,
+                              highlightColor: Colors.grey.shade100,
+                              child: Container(
+                                width: 88.w,
+                                height: 88.h,
+                                color: Colors.white,
+                              ),
+                            );
+                          },
                         ),
-                      );
-                    },
-                  ),
                 ),
 
                 horizontalSpace(12),

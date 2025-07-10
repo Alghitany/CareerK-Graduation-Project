@@ -85,35 +85,37 @@ class JobNameLocationTypePostDate extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8.r),
                 child: AppRegex.isSvg(data.companyProfilePicture ?? '')
                     ? SvgPicture.network(
-                  "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(data.companyProfilePicture)}",
-                  height: 72.h,
-                  width: 72.w,
-                  fit: BoxFit.cover,
-                  placeholderBuilder: (context) => Image.asset(
-                    'assets/images/recommended_job.png',
-                    height: 72.h,
-                    width: 72.w,
-                    fit: BoxFit.cover,
-                  ),
-                  errorBuilder: (context, error, stackTrace) => Image.asset(
-                    'assets/images/recommended_job.png',
-                    height: 72.h,
-                    width: 72.w,
-                    fit: BoxFit.cover,
-                  ),
-                )
+                        "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(data.companyProfilePicture)}",
+                        height: 72.h,
+                        width: 72.w,
+                        fit: BoxFit.cover,
+                        placeholderBuilder: (context) => Image.asset(
+                          'assets/images/recommended_job.png',
+                          height: 72.h,
+                          width: 72.w,
+                          fit: BoxFit.cover,
+                        ),
+                        errorBuilder: (context, error, stackTrace) =>
+                            Image.asset(
+                          'assets/images/recommended_job.png',
+                          height: 72.h,
+                          width: 72.w,
+                          fit: BoxFit.cover,
+                        ),
+                      )
                     : Image.network(
-                  "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(data.companyProfilePicture)}",
-                  height: 72.h,
-                  width: 72.w,
-                  fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) => Image.asset(
-                    'assets/images/recommended_job.png',
-                    height: 72.h,
-                    width: 72.w,
-                    fit: BoxFit.cover,
-                  ),
-                ),
+                        "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(data.companyProfilePicture)}",
+                        height: 72.h,
+                        width: 72.w,
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) =>
+                            Image.asset(
+                          'assets/images/recommended_job.png',
+                          height: 72.h,
+                          width: 72.w,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
               ),
               verticalSpace(4),
               Row(

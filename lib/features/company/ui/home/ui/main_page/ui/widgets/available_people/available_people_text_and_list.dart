@@ -53,43 +53,44 @@ class AvailablePeopleTextAndList extends StatelessWidget {
                       children: [
                         CircleAvatar(
                           radius: 24,
-                          backgroundColor: Colors.transparent, // Optional: to avoid background color behind SVG
+                          backgroundColor: Colors.transparent,
+                          // Optional: to avoid background color behind SVG
                           child: developer.profilePicture != null
                               ? (AppRegex.isSvg(developer.profilePicture)
-                              ? SvgPicture.network(
-                            "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(developer.profilePicture)}",
-                            width: 48,
-                            height: 48,
-                            fit: BoxFit.cover,
-                            placeholderBuilder: (_) => Image.asset(
-                              'assets/images/company_home_developer_logo.png',
-                              width: 48,
-                              height: 48,
-                              fit: BoxFit.cover,
-                            ),
-                          )
-                              : ClipOval(
-                            child: Image.network(
-                              "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(developer.profilePicture)}",
-                              width: 48,
-                              height: 48,
-                              fit: BoxFit.cover,
-                              errorBuilder: (_, __, ___) => Image.asset(
-                                'assets/images/company_home_developer_logo.png',
-                                width: 48,
-                                height: 48,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ))
+                                  ? SvgPicture.network(
+                                      "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(developer.profilePicture)}",
+                                      width: 48,
+                                      height: 48,
+                                      fit: BoxFit.cover,
+                                      placeholderBuilder: (_) => Image.asset(
+                                        'assets/images/company_home_developer_logo.png',
+                                        width: 48,
+                                        height: 48,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    )
+                                  : ClipOval(
+                                      child: Image.network(
+                                        "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(developer.profilePicture)}",
+                                        width: 48,
+                                        height: 48,
+                                        fit: BoxFit.cover,
+                                        errorBuilder: (_, __, ___) =>
+                                            Image.asset(
+                                          'assets/images/company_home_developer_logo.png',
+                                          width: 48,
+                                          height: 48,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ))
                               : Image.asset(
-                            'assets/images/company_home_developer_logo.png',
-                            width: 48,
-                            height: 48,
-                            fit: BoxFit.cover,
-                          ),
+                                  'assets/images/company_home_developer_logo.png',
+                                  width: 48,
+                                  height: 48,
+                                  fit: BoxFit.cover,
+                                ),
                         ),
-
                         horizontalSpace(4),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,

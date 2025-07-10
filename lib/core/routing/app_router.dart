@@ -29,13 +29,9 @@ import 'package:carrerk/features/developer/ui/jobs/application_submitted/develop
 import 'package:carrerk/features/developer/ui/jobs/apply/logic/developer_jobs_apply_cubit.dart';
 import 'package:carrerk/features/developer/ui/jobs/apply/ui/developer_jobs_apply_screen.dart';
 import 'package:carrerk/features/developer/ui/jobs/main_page/developer_jobs_main_page_screen.dart';
-import 'package:carrerk/features/developer/ui/profile/edit_profile/developer_profile_edit_profile_screen.dart';
-import 'package:carrerk/features/developer/ui/profile/main_page/developer_profile_main_page_screen.dart';
-import 'package:carrerk/features/developer/ui/profile/payment/add_new_cart/developer_profile_payment_add_new_card_screen.dart';
-import 'package:carrerk/features/developer/ui/profile/payment/option/developer_profile_payment_option_screen.dart';
-import 'package:carrerk/features/developer/ui/profile/saved_jobs/developer_profile_saved_jobs_screen.dart';
-import 'package:carrerk/features/developer/ui/profile/settings/logic/developer_generate_cv_start_session_logic/developer_generate_cv_start_session_cubit.dart';
-import 'package:carrerk/features/developer/ui/profile/settings/ui/developer_profile_settings_screen.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/my_cv/logic/developer_profile_settings_delete_cv_logic/developer_profile_settings_delete_cv_cubit.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/my_cv/logic/developer_profile_settings_get_my_cv_logic/developer_profile_sittings_get_my_cv_cubit.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/my_cv/ui/developer_profile_my_cv_screen.dart';
 import 'package:carrerk/features/developer/ui/sign_up/logic/developer_sign_up_cubit.dart';
 import 'package:carrerk/features/developer/ui/sign_up_completed/cv_downloaded/developer_sign_up_completed_cv_downloaded.dart';
 import 'package:carrerk/features/developer/ui/sign_up_completed/cv_is_done/developer_sign_up_completed_cv_is_done.dart';
@@ -105,18 +101,28 @@ import '../../features/developer/ui/jobs/search/logic/developer_services_recentl
 import '../../features/developer/ui/jobs/search/ui/developer_jobs_search_screen.dart';
 import '../../features/developer/ui/jobs/service_details/logic/developer_jobs_service_details_cubit.dart';
 import '../../features/developer/ui/jobs/service_details/ui/developer_jobs_service_details_screen.dart';
-import '../../features/developer/ui/profile/cv_generate/data/models/generate_models/developer_profile_cv_generate_generated_request_body.dart';
-import '../../features/developer/ui/profile/cv_generate/logic/generate_logic/developer_profile_cv_generate_generated_cubit.dart';
-import '../../features/developer/ui/profile/cv_generate/logic/send_data_logic/developer_profile_cv_generate_send_data_cubit.dart';
-import '../../features/developer/ui/profile/cv_generate/ui/cv_generated_view/developer_profile_cv_generated_view_screen.dart';
-import '../../features/developer/ui/profile/cv_generate/ui/send_data/developer_profile_cv_generate_screen.dart';
-import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_job_withdraw_repo.dart';
-import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_profile_applied_jobs_repo.dart';
-import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_service_delete_repo.dart';
-import '../../features/developer/ui/profile/jobs_applied/logic/developer_job_withdraw_logic/developer_job_withdraw_cubit.dart';
-import '../../features/developer/ui/profile/jobs_applied/logic/developer_profile_applied_jobs_logic/developer_profile_applied_jobs_cubit.dart';
-import '../../features/developer/ui/profile/jobs_applied/logic/developer_service_delete_logic/developer_service_delete_cubit.dart';
-import '../../features/developer/ui/profile/jobs_applied/ui/developer_profile_jobs_and_services_applied_screen.dart';
+import '../../features/developer/ui/profile/logic/developer_profile_edit_cubit.dart';
+import '../../features/developer/ui/profile/ui/cv_generate/data/models/generate_models/developer_profile_cv_generate_generated_request_body.dart';
+import '../../features/developer/ui/profile/ui/cv_generate/logic/generate_logic/developer_profile_cv_generate_generated_cubit.dart';
+import '../../features/developer/ui/profile/ui/cv_generate/logic/send_data_logic/developer_profile_cv_generate_send_data_cubit.dart';
+import '../../features/developer/ui/profile/ui/cv_generate/ui/cv_generated_view/developer_profile_cv_generated_view_screen.dart';
+import '../../features/developer/ui/profile/ui/cv_generate/ui/send_data/developer_profile_cv_generate_screen.dart';
+import '../../features/developer/ui/profile/ui/edit_profile/developer_profile_edit_profile_screen.dart';
+import '../../features/developer/ui/profile/ui/jobs_applied/data/repo/developer_job_withdraw_repo.dart';
+import '../../features/developer/ui/profile/ui/jobs_applied/data/repo/developer_profile_applied_jobs_repo.dart';
+import '../../features/developer/ui/profile/ui/jobs_applied/data/repo/developer_service_delete_repo.dart';
+import '../../features/developer/ui/profile/ui/jobs_applied/logic/developer_job_withdraw_logic/developer_job_withdraw_cubit.dart';
+import '../../features/developer/ui/profile/ui/jobs_applied/logic/developer_profile_applied_jobs_logic/developer_profile_applied_jobs_cubit.dart';
+import '../../features/developer/ui/profile/ui/jobs_applied/logic/developer_service_delete_logic/developer_service_delete_cubit.dart';
+import '../../features/developer/ui/profile/ui/jobs_applied/ui/developer_profile_jobs_and_services_applied_screen.dart';
+import '../../features/developer/ui/profile/ui/main_page/logic/profile_info_logic/developer_profile_main_page_info_cubit.dart';
+import '../../features/developer/ui/profile/ui/main_page/ui/developer_profile_main_page_screen.dart';
+import '../../features/developer/ui/profile/ui/my_cv/logic/developer_profile_settings_update_uploaded_cv_logic/developer_profile_settings_update_uploaded_cv_cubit.dart';
+import '../../features/developer/ui/profile/ui/payment/add_new_cart/developer_profile_payment_add_new_card_screen.dart';
+import '../../features/developer/ui/profile/ui/payment/option/developer_profile_payment_option_screen.dart';
+import '../../features/developer/ui/profile/ui/saved_jobs/developer_profile_saved_jobs_screen.dart';
+import '../../features/developer/ui/profile/ui/settings/logic/developer_generate_cv_start_session_logic/developer_generate_cv_start_session_cubit.dart';
+import '../../features/developer/ui/profile/ui/settings/ui/developer_profile_settings_screen.dart';
 import '../../features/notifications/ui/notifications_screen.dart';
 import '../../features/post_details/logic/post_details_logic/job_details_cubit.dart';
 import '../../features/post_details/ui/job_details/job_details_screen.dart';
@@ -591,18 +597,62 @@ class AppRouter {
       // Profile
       case Routes.developerProfileMainPageScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperProfileMainPageScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) => getIt<DeveloperProfileMainPageInfoCubit>()
+                  ..fetchDeveloperProfileMainPageInfo(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperProfileEditCubit>(),
+              ),
+            ],
+            child: const DeveloperProfileMainPageScreen(),
+          ),
         );
+
       case Routes.developerProfileSettingsScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (_) => getIt<DeveloperGenerateCVStartSessionCubit>(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) => getIt<DeveloperGenerateCVStartSessionCubit>(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperProfileEditCubit>(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperProfileMainPageInfoCubit>()
+                  ..fetchDeveloperProfileMainPageInfo(),
+              ),
+            ],
             child: const DeveloperProfileSettingsScreen(),
           ),
         );
+
       case Routes.developerProfileEditProfileScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperProfileEditProfileScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<DeveloperProfileEditCubit>(),
+            child: const DeveloperProfileEditProfileScreen(),
+          ),
+        );
+      case Routes.developerProfileMyCVScreen:
+        return MaterialPageRoute(
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) => getIt<DeveloperProfileSettingsGetMyCVCubit>()..getMyCV(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperProfileSettingsUpdateUploadedCVCubit>(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperProfileSettingsDeleteCVCubit>(),
+              ),
+            ],
+            child: const DeveloperProfileMyCvScreen(),
+          ),
         );
       case Routes.developerProfileCVGenerateScreen:
         final args = settings.arguments as AppArgument;
