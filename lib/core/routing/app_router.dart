@@ -116,6 +116,7 @@ import '../../features/developer/ui/profile/ui/jobs_applied/logic/developer_serv
 import '../../features/developer/ui/profile/ui/jobs_applied/ui/developer_profile_jobs_and_services_applied_screen.dart';
 import '../../features/developer/ui/profile/ui/main_page/logic/profile_info_logic/developer_profile_main_page_info_cubit.dart';
 import '../../features/developer/ui/profile/ui/main_page/ui/developer_profile_main_page_screen.dart';
+import '../../features/developer/ui/profile/ui/my_cv/logic/developer_profile_settings_update_uploaded_cv_logic/developer_profile_settings_update_uploaded_cv_cubit.dart';
 import '../../features/developer/ui/profile/ui/payment/add_new_cart/developer_profile_payment_add_new_card_screen.dart';
 import '../../features/developer/ui/profile/ui/payment/option/developer_profile_payment_option_screen.dart';
 import '../../features/developer/ui/profile/ui/saved_jobs/developer_profile_saved_jobs_screen.dart';
@@ -637,9 +638,17 @@ class AppRouter {
         );
       case Routes.developerProfileMyCVScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (_) =>
-                getIt<DeveloperProfileSettingsGetMyCVCubit>()..getMyCV(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) =>
+                    getIt<DeveloperProfileSettingsGetMyCVCubit>()..getMyCV(),
+              ),
+              BlocProvider(
+                create: (_) =>
+                    getIt<DeveloperProfileSettingsUpdateUploadedCVCubit>(),
+              ),
+            ],
             child: const DeveloperProfileMyCvScreen(),
           ),
         );

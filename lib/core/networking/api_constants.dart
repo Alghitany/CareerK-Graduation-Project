@@ -106,6 +106,9 @@ class ApiConstants {
   // Get My CV
   static const String developerProfileSettingsGetMyCV = "api/developer/my-cv";
 
+  // Update Uploaded CV
+  static const String developerUpdateUploadedCV = "api/developer/my-cv";
+
   //-> Generate CV With Ai
   // Start Session
   static const String developerProfileGenerateCVStartSession =

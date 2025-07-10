@@ -105,8 +105,10 @@ import '../../features/developer/ui/profile/ui/jobs_applied/logic/developer_prof
 import '../../features/developer/ui/profile/ui/jobs_applied/logic/developer_service_delete_logic/developer_service_delete_cubit.dart';
 import '../../features/developer/ui/profile/ui/main_page/data/repos/developer_profile_main_page_info_repo.dart';
 import '../../features/developer/ui/profile/ui/main_page/logic/profile_info_logic/developer_profile_main_page_info_cubit.dart';
+import '../../features/developer/ui/profile/ui/my_cv/data/repos/developer_profile_settings_update_uploaded_my_cv_repo.dart';
 import '../../features/developer/ui/profile/ui/my_cv/data/repos/developer_profile_sittings_get_my_cv_repo.dart';
 import '../../features/developer/ui/profile/ui/my_cv/logic/developer_profile_settings_get_my_cv_logic/developer_profile_sittings_get_my_cv_cubit.dart';
+import '../../features/developer/ui/profile/ui/my_cv/logic/developer_profile_settings_update_uploaded_cv_logic/developer_profile_settings_update_uploaded_cv_cubit.dart';
 import '../../features/developer/ui/profile/ui/settings/data/repos/developer_generate_cv_start_session_repo.dart';
 import '../../features/developer/ui/profile/ui/settings/logic/developer_generate_cv_start_session_logic/developer_generate_cv_start_session_cubit.dart';
 import '../../features/developer/ui/sign_up/data/repos/developer_sign_up_repo.dart';
@@ -321,13 +323,19 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<DeveloperProfileEditCubit>(
     () => DeveloperProfileEditCubit(getIt()),
   );
-  //-> My CV
+  //-> Get My CV
   getIt.registerLazySingleton<DeveloperProfileSettingsGetMyCVRepo>(
     () => DeveloperProfileSettingsGetMyCVRepo(getIt()),
   );
-
   getIt.registerFactory<DeveloperProfileSettingsGetMyCVCubit>(
     () => DeveloperProfileSettingsGetMyCVCubit(getIt()),
+  );
+  //-> Update Uploaded CV
+  getIt.registerLazySingleton<DeveloperProfileSettingsUpdateUploadedCVRepo>(
+    () => DeveloperProfileSettingsUpdateUploadedCVRepo(getIt()),
+  );
+  getIt.registerFactory<DeveloperProfileSettingsUpdateUploadedCVCubit>(
+    () => DeveloperProfileSettingsUpdateUploadedCVCubit(getIt()),
   );
   // All Job Posts
   getIt.registerLazySingleton<CompanyProfileAllJobPostsRepo>(

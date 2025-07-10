@@ -1,14 +1,18 @@
 import 'dart:io';
+
 import 'package:dio/dio.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:permission_handler/permission_handler.dart';
+
 import '../../../../../../../core/helpers/spacing.dart';
 import '../../../../../../../core/theming/colors.dart';
 import '../../../../../../../core/theming/styles.dart';
 import '../../../../../../../core/widgets/app_text_button.dart';
 import '../logic/developer_profile_settings_get_my_cv_logic/developer_profile_sittings_get_my_cv_cubit.dart';
+import '../logic/developer_profile_settings_update_uploaded_cv_logic/developer_profile_settings_update_uploaded_cv_cubit.dart'; // import your update cubit
 import 'widgets/developer_profile_my_cv_bloc_builder.dart';
 import 'widgets/my_cv_top_bar.dart';
 
@@ -26,13 +30,12 @@ class _DeveloperProfileMyCvScreenState
   bool isDownloading = false;
   double downloadProgress = 0.0;
 
-  /// ✅ Requesting permission safely for Android versions.
   Future<bool> requestStoragePermission() async {
     if (Platform.isAndroid) {
       final storagePermission = await Permission.storage.request();
       if (storagePermission.isGranted) return true;
 
-      // For Android 13+ (API 33+), additional media permissions:
+      // Android 13+ permissions:
       final photos = await Permission.photos.request();
       final videos = await Permission.videos.request();
       final audio = await Permission.audio.request();
@@ -42,7 +45,6 @@ class _DeveloperProfileMyCvScreenState
     return true; // No special permission on iOS
   }
 
-  /// ✅ Download CV with progress indicator.
   Future<void> downloadCV(String cvUrl) async {
     final messenger = ScaffoldMessenger.of(context);
 
@@ -91,6 +93,49 @@ class _DeveloperProfileMyCvScreenState
     }
   }
 
+  Future<void> pickAndUploadCV() async {
+    final messenger = ScaffoldMessenger.of(context);
+    final updateCubit =
+        context.read<DeveloperProfileSettingsUpdateUploadedCVCubit>();
+    final getMyCVCubit = context.read<DeveloperProfileSettingsGetMyCVCubit>();
+
+    final result = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ['pdf', 'doc', 'docx'],
+    );
+
+    if (result == null || result.files.isEmpty) {
+      // User cancelled or no file selected
+      return;
+    }
+
+    final filePath = result.files.single.path!;
+
+    // Show loading snackbar BEFORE async gap
+    messenger.showSnackBar(
+      const SnackBar(content: Text('Uploading CV...')),
+    );
+
+    await updateCubit.updateUploadedMyCV(filePath);
+
+    // Now use the captured cubits and messenger safely
+    final state = updateCubit.state;
+    state.maybeWhen(
+      success: (_) {
+        messenger.showSnackBar(
+          const SnackBar(content: Text('CV uploaded successfully!')),
+        );
+        getMyCVCubit.getMyCV();
+      },
+      error: (error) {
+        messenger.showSnackBar(
+          SnackBar(content: Text('Upload failed: $error')),
+        );
+      },
+      orElse: () {},
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -119,8 +164,8 @@ class _DeveloperProfileMyCvScreenState
                       textStyle: AppTextStyles
                           .font14PrimaryWildBlueYonderPoppinsMedium,
                       borderColor: ColorsManager.primaryWildBlueYonder,
-                      onPressed: () {
-                        // TODO: Implement Update CV logic
+                      onPressed: () async {
+                        await pickAndUploadCV();
                       },
                     ),
                   ),
