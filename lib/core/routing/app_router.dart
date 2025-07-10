@@ -80,7 +80,6 @@ import '../../features/company/ui/profile/logic/company_profile_applicants_numbe
 import '../../features/company/ui/profile/logic/company_profile_edit_logic/company_profile_edit_cubit.dart';
 import '../../features/company/ui/profile/logic/company_profile_info_logic/company_profile_info_cubit.dart';
 import '../../features/company/ui/profile/ui/company_profile_screen.dart';
-import '../../features/company/ui/send_to_applicants/message-applicant/company_send_to_applicants_message_applicant_screen.dart';
 import '../../features/company/ui/sign_up/logic/company_sign_up_cubit.dart';
 import '../../features/customer/ui/sign_up/logic/customer_sign_up_cubit.dart';
 import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
@@ -290,11 +289,6 @@ class AppRouter {
             create: (_) => getIt<CompanyJobsDeletePostCubit>(),
             child: CompanyJobPostSuccessScreen(jobId: args.jobId!),
           ),
-        );
-      // Send To Clients
-      case Routes.companySendToClientsScreen:
-        return MaterialPageRoute(
-          builder: (_) => const CompanySendToApplicantsMessageApplicantScreen(),
         );
 
       // ---------------- Developer ----------------

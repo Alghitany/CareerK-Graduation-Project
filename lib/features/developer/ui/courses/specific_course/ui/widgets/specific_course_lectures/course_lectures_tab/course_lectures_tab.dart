@@ -15,7 +15,12 @@ class CourseLecturesTab extends StatelessWidget {
   const CourseLecturesTab({super.key, required this.lectures});
 
   @override
+  @override
   Widget build(BuildContext context) {
+    final videoLectures = lectures
+        .where((lecture) => lecture.type.toLowerCase() == 'video')
+        .toList();
+
     return SizedBox(
       height: MediaQuery.of(context).size.height / 2.15,
       child: Stack(
@@ -30,7 +35,7 @@ class CourseLecturesTab extends StatelessWidget {
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: Column(
-                children: lectures.asMap().entries.map((entry) {
+                children: videoLectures.asMap().entries.map((entry) {
                   final index = entry.key;
                   final lecture = entry.value;
 
@@ -38,27 +43,17 @@ class CourseLecturesTab extends StatelessWidget {
 
                   final iconAsset = isFirst
                       ? 'assets/svgs/first_play.svg'
-                      : switch (lecture.type) {
-                          'video' => 'assets/svgs/play.svg',
-                          'quiz' => 'assets/svgs/quiz_play.svg',
-                          _ => 'assets/svgs/play.svg',
-                        };
+                      : 'assets/svgs/play.svg';
 
-                  final iconBackgroundColor = isFirst
-                      ? ColorsManager.duskyBlue
-                      : switch (lecture.type) {
-                          'video' => Colors.white,
-                          'quiz' => ColorsManager.aquaHaze,
-                          _ => Colors.white,
-                        };
+                  final iconBackgroundColor =
+                  isFirst ? ColorsManager.duskyBlue : Colors.white;
 
                   return Padding(
                     padding: EdgeInsets.only(bottom: 16.h),
                     child: GestureDetector(
                       onTap: () async {
                         final messenger = ScaffoldMessenger.of(context);
-                        if (lecture.type == 'video' &&
-                            lecture.videoUrl != null &&
+                        if (lecture.videoUrl != null &&
                             lecture.videoUrl!.trim().isNotEmpty) {
                           final Uri uri = Uri.parse(lecture.videoUrl!);
                           try {
@@ -67,8 +62,7 @@ class CourseLecturesTab extends StatelessWidget {
                             if (!launched) {
                               messenger.showSnackBar(
                                 const SnackBar(
-                                    content:
-                                        Text('Could not launch the video')),
+                                    content: Text('Could not launch the video')),
                               );
                             }
                           } catch (e) {
@@ -77,17 +71,10 @@ class CourseLecturesTab extends StatelessWidget {
                                   content: Text('Failed to launch video')),
                             );
                           }
-                        } else if (lecture.type == 'quiz') {
-                          messenger.showSnackBar(
-                            const SnackBar(
-                                content:
-                                    Text('Quiz tapped - Feature coming soon')),
-                          );
                         } else {
                           messenger.showSnackBar(
                             const SnackBar(
-                                content: Text(
-                                    'This lecture has no associated action')),
+                                content: Text('No video URL available')),
                           );
                         }
                       },
@@ -128,9 +115,7 @@ class CourseLecturesTab extends StatelessWidget {
                                 style: AppTextStyles.font16DunePoppinsMedium,
                               ),
                               Text(
-                                lecture.type == 'video'
-                                    ? lecture.videoTime ?? ''
-                                    : 'Quiz',
+                                lecture.videoTime ?? '',
                                 style: AppTextStyles.font14NobelPoppinsRegular,
                               ),
                             ],
@@ -181,10 +166,9 @@ class CourseLecturesTab extends StatelessWidget {
               onPressed: () async {
                 final messenger = ScaffoldMessenger.of(context);
 
-                final firstVideo = lectures.firstWhere(
-                  (lecture) =>
-                      lecture.type == 'video' &&
-                      lecture.videoUrl != null &&
+                final firstVideo = videoLectures.firstWhere(
+                      (lecture) =>
+                  lecture.videoUrl != null &&
                       lecture.videoUrl!.trim().isNotEmpty,
                   orElse: () => SpecificCourseLecturesResponseBody(
                     type: '',

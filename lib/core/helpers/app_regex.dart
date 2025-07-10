@@ -1,4 +1,5 @@
 import 'package:carrerk/core/helpers/extensions.dart';
+import 'package:carrerk/core/networking/api_constants.dart';
 
 class AppRegex {
   static bool isValidEmail(String? email) {
@@ -71,4 +72,21 @@ class AppRegex {
       r'^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$',
     ).hasMatch(date);
   }
+
+  static String cutBaseUrl(String? imageUrl) {
+    String apiBaseUrl = ApiConstants.apiBaseUrl;
+    if (imageUrl == null) return '';
+
+    if (imageUrl.startsWith(apiBaseUrl)) {
+      return imageUrl.replaceFirst(apiBaseUrl, '');
+    } else {
+      return imageUrl;
+    }
+  }
+
+  static bool isSvg(String? imageUrl) {
+    String cutUrl = cutBaseUrl(imageUrl);
+    return cutUrl.toLowerCase().endsWith('.svg');
+  }
+
 }

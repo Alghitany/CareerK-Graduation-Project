@@ -1,4 +1,5 @@
 import 'package:carrerk/core/helpers/spacing.dart';
+import 'package:carrerk/core/networking/api_constants.dart';
 import 'package:carrerk/core/routing/app_argument.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/theming/styles.dart';
@@ -6,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../../../../../../core/helpers/app_regex.dart';
 import '../../../../../../../../core/routing/routes.dart';
 import '../../../data/models/developer_courses_roadmaps_response_body.dart';
 
@@ -57,35 +59,45 @@ class RoadmapsListView extends StatelessWidget {
                       ),
                       color: ColorsManager.aquaHaze,
                     ),
-                    child: (roadmap.imageUrl.isNotEmpty)
+                    child: roadmap.imageUrl.isNotEmpty
                         ? ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(16.r),
-                              bottomLeft: Radius.circular(16.r),
-                            ),
-                            child: Image.network(
-                              roadmap.imageUrl,
-                              fit: BoxFit.cover,
-                              errorBuilder: (context, error, stackTrace) {
-                                return Center(
-                                  child: Text(
-                                    roadmap.trackTitle,
-                                    textAlign: TextAlign.center,
-                                    style: AppTextStyles
-                                        .font20GlaucousPoppinsSemiBold,
-                                  ),
-                                );
-                              },
-                            ),
-                          )
-                        : Center(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(16.r),
+                        bottomLeft: Radius.circular(16.r),
+                      ),
+                      child: AppRegex.isSvg(roadmap.imageUrl)
+                          ? SvgPicture.network(
+                        "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(roadmap.imageUrl)}",
+                        fit: BoxFit.cover,
+                        placeholderBuilder: (_) => Center(
+                          child: Text(
+                            roadmap.trackTitle,
+                            textAlign: TextAlign.center,
+                            style: AppTextStyles.font20GlaucousPoppinsSemiBold,
+                          ),
+                        ),
+                      )
+                          : Image.network(
+                        "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(roadmap.imageUrl)}",
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) {
+                          return Center(
                             child: Text(
                               roadmap.trackTitle,
                               textAlign: TextAlign.center,
-                              style:
-                                  AppTextStyles.font20GlaucousPoppinsSemiBold,
+                              style: AppTextStyles.font20GlaucousPoppinsSemiBold,
                             ),
-                          ),
+                          );
+                        },
+                      ),
+                    )
+                        : Center(
+                      child: Text(
+                        roadmap.trackTitle,
+                        textAlign: TextAlign.center,
+                        style: AppTextStyles.font20GlaucousPoppinsSemiBold,
+                      ),
+                    ),
                   ),
 
                   horizontalSpace(9),

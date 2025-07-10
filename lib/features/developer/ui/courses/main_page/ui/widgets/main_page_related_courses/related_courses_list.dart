@@ -1,4 +1,5 @@
 import 'package:carrerk/core/helpers/extensions.dart';
+import 'package:carrerk/core/networking/api_constants.dart';
 import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/theming/styles.dart';
@@ -6,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../../../../../../../core/helpers/app_regex.dart';
 import '../../../../../../../../core/helpers/spacing.dart';
 import '../../../data/models/main_page_related_courses/developer_courses_main_page_related_courses_response_body.dart';
 
@@ -51,13 +53,25 @@ class RelatedCoursesList extends StatelessWidget {
                             topLeft: Radius.circular(10.r),
                             topRight: Radius.circular(10.r),
                           ),
-                          child: Image.network(
-                            course.imageUrl,
+                          child: AppRegex.isSvg(course.imageUrl)
+                              ? SvgPicture.network(
+                            "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(course.imageUrl)}",
                             width: double.infinity,
                             height: 120.h,
                             fit: BoxFit.cover,
-                            errorBuilder: (context, error, stackTrace) =>
-                                Container(
+                            placeholderBuilder: (_) => Container(
+                              width: double.infinity,
+                              height: 120.h,
+                              color: ColorsManager.mercury,
+                              child: const Icon(Icons.broken_image),
+                            ),
+                          )
+                              : Image.network(
+                            "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(course.imageUrl)}",
+                            width: double.infinity,
+                            height: 120.h,
+                            fit: BoxFit.cover,
+                            errorBuilder: (context, error, stackTrace) => Container(
                               width: double.infinity,
                               height: 120.h,
                               color: ColorsManager.mercury,

@@ -1,13 +1,16 @@
 import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
+import 'package:carrerk/core/networking/api_constants.dart';
 import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../../../../../../core/di/dependency_injection.dart';
+import '../../../../../../../../core/helpers/app_regex.dart';
 import '../../../../../../../../core/widgets/course_bookmark/developer_course_bookmark_bloc_builder.dart';
 import '../../../../../../logic/developer_single_course_bookmark_logic/developer_single_course_bookmark_cubit.dart';
 import '../../../data/models/main_page_ongoing_courses/developer_courses_main_page_ongoing_courses_response_body.dart';
@@ -57,29 +60,48 @@ class _OngoingCoursesListState extends State<OngoingCoursesList> {
                     Stack(
                       children: [
                         ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(10.r),
-                              topRight: Radius.circular(10.r),
-                            ),
-                            child: Image.network(
-                              course.imageUrl,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(10.r),
+                            topRight: Radius.circular(10.r),
+                          ),
+                          child: AppRegex.isSvg(course.imageUrl)
+                              ? SvgPicture.network(
+                            "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(course.imageUrl)}",
+                            width: double.infinity,
+                            height: 120.h,
+                            fit: BoxFit.cover,
+                            placeholderBuilder: (_) => Container(
                               width: double.infinity,
                               height: 120.h,
-                              fit: BoxFit.cover,
-                              errorBuilder: (context, error, stackTrace) {
-                                return Container(
-                                  width: double.infinity,
-                                  height: 120.h,
-                                  color: ColorsManager.mercury,
-                                  alignment: Alignment.center,
-                                  child: const Icon(
-                                    Icons.broken_image,
-                                    color: ColorsManager.granite,
-                                    size: 32,
-                                  ),
-                                );
-                              },
-                            )),
+                              color: ColorsManager.mercury,
+                              alignment: Alignment.center,
+                              child: const Icon(
+                                Icons.broken_image,
+                                color: ColorsManager.granite,
+                                size: 32,
+                              ),
+                            ),
+                          )
+                              : Image.network(
+                            "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(course.imageUrl)}",
+                            width: double.infinity,
+                            height: 120.h,
+                            fit: BoxFit.cover,
+                            errorBuilder: (context, error, stackTrace) {
+                              return Container(
+                                width: double.infinity,
+                                height: 120.h,
+                                color: ColorsManager.mercury,
+                                alignment: Alignment.center,
+                                child: const Icon(
+                                  Icons.broken_image,
+                                  color: ColorsManager.granite,
+                                  size: 32,
+                                ),
+                              );
+                            },
+                          ),
+                        ),
                         Positioned(
                           top: 8.h,
                           left: 8.w,
