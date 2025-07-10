@@ -29,6 +29,9 @@ import 'package:carrerk/features/developer/ui/jobs/application_submitted/develop
 import 'package:carrerk/features/developer/ui/jobs/apply/logic/developer_jobs_apply_cubit.dart';
 import 'package:carrerk/features/developer/ui/jobs/apply/ui/developer_jobs_apply_screen.dart';
 import 'package:carrerk/features/developer/ui/jobs/main_page/developer_jobs_main_page_screen.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/my_cv/logic/developer_profile_settings_delete_cv_logic/developer_profile_settings_delete_cv_cubit.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/my_cv/logic/developer_profile_settings_get_my_cv_logic/developer_profile_sittings_get_my_cv_cubit.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/my_cv/ui/developer_profile_my_cv_screen.dart';
 import 'package:carrerk/features/developer/ui/sign_up/logic/developer_sign_up_cubit.dart';
 import 'package:carrerk/features/developer/ui/sign_up_completed/cv_downloaded/developer_sign_up_completed_cv_downloaded.dart';
 import 'package:carrerk/features/developer/ui/sign_up_completed/cv_is_done/developer_sign_up_completed_cv_is_done.dart';
@@ -114,6 +117,7 @@ import '../../features/developer/ui/profile/ui/jobs_applied/logic/developer_serv
 import '../../features/developer/ui/profile/ui/jobs_applied/ui/developer_profile_jobs_and_services_applied_screen.dart';
 import '../../features/developer/ui/profile/ui/main_page/logic/profile_info_logic/developer_profile_main_page_info_cubit.dart';
 import '../../features/developer/ui/profile/ui/main_page/ui/developer_profile_main_page_screen.dart';
+import '../../features/developer/ui/profile/ui/my_cv/logic/developer_profile_settings_update_uploaded_cv_logic/developer_profile_settings_update_uploaded_cv_cubit.dart';
 import '../../features/developer/ui/profile/ui/payment/add_new_cart/developer_profile_payment_add_new_card_screen.dart';
 import '../../features/developer/ui/profile/ui/payment/option/developer_profile_payment_option_screen.dart';
 import '../../features/developer/ui/profile/ui/saved_jobs/developer_profile_saved_jobs_screen.dart';
@@ -633,7 +637,23 @@ class AppRouter {
             child: const DeveloperProfileEditProfileScreen(),
           ),
         );
-
+      case Routes.developerProfileMyCVScreen:
+        return MaterialPageRoute(
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) => getIt<DeveloperProfileSettingsGetMyCVCubit>()..getMyCV(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperProfileSettingsUpdateUploadedCVCubit>(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperProfileSettingsDeleteCVCubit>(),
+              ),
+            ],
+            child: const DeveloperProfileMyCvScreen(),
+          ),
+        );
       case Routes.developerProfileCVGenerateScreen:
         final args = settings.arguments as AppArgument;
         return MaterialPageRoute(

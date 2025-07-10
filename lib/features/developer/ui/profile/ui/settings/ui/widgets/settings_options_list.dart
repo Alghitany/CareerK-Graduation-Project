@@ -46,7 +46,7 @@ class SettingsOptionsList extends StatelessWidget {
               leadingIconHeight: 19.5,
               leadingIconWidth: 15,
               onTap: () {
-                context.pushNamed(Routes.developerSignUpCompletedCvIsDone);
+                context.pushNamed(Routes.developerProfileMyCVScreen);
               },
             ),
             settingServiceRow(
@@ -89,9 +89,9 @@ class SettingsOptionsList extends StatelessWidget {
               },
             ),
             settingServiceRow(
-              icon: 'assets/svgs/payment.svg',
-              text: 'Payment Option',
-              leadingIconHeight: 18,
+              icon: 'assets/svgs/chat_bot.svg',
+              text: 'Chat with AI',
+              leadingIconHeight: 21.5,
               leadingIconWidth: 18,
               onTap: () {
                 context.pushNamed(Routes.developerProfilePaymentOptionScreen);

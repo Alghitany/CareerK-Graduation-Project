@@ -48,37 +48,39 @@ class RelatedCoursesList extends StatelessWidget {
                   children: [
                     Stack(
                       children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10.r),
-                            topRight: Radius.circular(10.r),
+                        Center(
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10.r),
+                              topRight: Radius.circular(10.r),
+                            ),
+                            child: AppRegex.isSvg(course.imageUrl)
+                                ? SvgPicture.network(
+                                    "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(course.imageUrl)}",
+                                    width: double.infinity,
+                                    height: 120.h,
+                                    fit: BoxFit.cover,
+                                    placeholderBuilder: (_) => Container(
+                                      width: double.infinity,
+                                      height: 120.h,
+                                      color: ColorsManager.mercury,
+                                      child: const Icon(Icons.broken_image),
+                                    ),
+                                  )
+                                : Image.network(
+                                    "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(course.imageUrl)}",
+                                    width: double.infinity,
+                                    height: 120.h,
+                                    fit: BoxFit.cover,
+                                    errorBuilder: (context, error, stackTrace) =>
+                                        Container(
+                                      width: double.infinity,
+                                      height: 120.h,
+                                      color: ColorsManager.mercury,
+                                      child: const Icon(Icons.broken_image),
+                                    ),
+                                  ),
                           ),
-                          child: AppRegex.isSvg(course.imageUrl)
-                              ? SvgPicture.network(
-                                  "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(course.imageUrl)}",
-                                  width: double.infinity,
-                                  height: 120.h,
-                                  fit: BoxFit.cover,
-                                  placeholderBuilder: (_) => Container(
-                                    width: double.infinity,
-                                    height: 120.h,
-                                    color: ColorsManager.mercury,
-                                    child: const Icon(Icons.broken_image),
-                                  ),
-                                )
-                              : Image.network(
-                                  "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(course.imageUrl)}",
-                                  width: double.infinity,
-                                  height: 120.h,
-                                  fit: BoxFit.cover,
-                                  errorBuilder: (context, error, stackTrace) =>
-                                      Container(
-                                    width: double.infinity,
-                                    height: 120.h,
-                                    color: ColorsManager.mercury,
-                                    child: const Icon(Icons.broken_image),
-                                  ),
-                                ),
                         ),
                       ],
                     ),
