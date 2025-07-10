@@ -50,7 +50,7 @@ class ApplicationDetailsContent extends StatelessWidget {
             children: [
               Expanded(
                   child: ContactUserSection(
-                userId: data.application.developerId,
+                userId: developer.id,
               )),
               horizontalSpace(16),
               Expanded(

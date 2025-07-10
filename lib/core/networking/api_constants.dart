@@ -147,7 +147,11 @@ class ApiConstants {
   static const String customergetserviceposts = "/api/customer/service-posts";
   // ------ get applications -----
   static const String customergetapplications = "/api/customer/applicants";
-
+  // ------ edit profile -----
+  static const String customereditprofile = "/api/customer/edit-profile";
+  //->Delete Post
+  static const String customerJobsDeletePost =
+      "api/company/service-posts/{jobId}";
   //------ company ------------
   //->Sign up
   static const String companySignup = "api/company/register";

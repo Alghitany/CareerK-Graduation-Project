@@ -5,8 +5,16 @@ import 'package:carrerk/core/widgets/pdf_viewer_screen.dart';
 import 'package:carrerk/features/authentication/reset_password/logic/reset_password_cubit.dart';
 import 'package:carrerk/features/authentication/verify_code/logic/verify_code_cubit.dart';
 import 'package:carrerk/features/authentication/verify_code/ui/verify_code_screen.dart';
+import 'package:carrerk/features/company/ui/profile/company_profile_screen.dart';
 
 import 'package:carrerk/features/customer/logic/customer_jobs_post_cubit.dart';
+import 'package:carrerk/features/customer/profile/customer_profile_screen.dart';
+import 'package:carrerk/features/customer/profile/logic/company_jobs_delete_post_logic/customer_jobs_delete_post_cubit.dart';
+import 'package:carrerk/features/customer/profile/logic/customer_profile_all_job_posts_logic/customer_profile_all_job_posts_cubit.dart';
+import 'package:carrerk/features/customer/profile/logic/customer_profile_applicants_number_logic/customer_profile_applicants_number_cubit.dart';
+import 'package:carrerk/features/customer/profile/logic/customer_profile_edit_logic/customer_profile_edit_cubit.dart';
+import 'package:carrerk/features/customer/profile/logic/customer_profile_info_logic/customer_profile_info_cubit.dart';
+
 import 'package:carrerk/features/customer/ui/applied/data/repo/reject_applications_repo/reject_applications_repo.dart';
 import 'package:carrerk/features/customer/ui/applied/data/repo/secound_screen_repo/application_details_repo.dart';
 import 'package:carrerk/features/customer/ui/applied/logic/first_screen_logic/applications_cubit.dart';
@@ -18,7 +26,6 @@ import 'package:carrerk/features/customer/ui/home/logic/customer_home_cubit.dart
 import 'package:carrerk/features/customer/ui/home/ui/customer_home_main_page.dart';
 import 'package:carrerk/features/customer/ui/jobs_post/customer_jobs_post.dart';
 
-import 'package:carrerk/features/customer/ui/profile/ui/customer_profile_screen.dart';
 import 'package:carrerk/features/customer/ui/sign_up/compulsory_data/customer_sign_up_compulsory_data_screen.dart';
 import 'package:carrerk/features/developer/ui/community/all_communities/developer_community_all_communities_screen.dart';
 import 'package:carrerk/features/developer/ui/community/chat/developer_community_chat_screen.dart';
@@ -82,7 +89,7 @@ import '../../features/company/ui/home/ui/send_offer/company_home_send_offer_scr
 import '../../features/company/ui/jobs/company_jobs_screen.dart';
 import '../../features/company/ui/jobs_post/logic/company_jobs_post_cubit.dart';
 import '../../features/company/ui/jobs_post/ui/success/company_job_post_success_screen.dart';
-import '../../features/company/ui/profile/company_profile_screen.dart';
+
 import '../../features/company/ui/send_to_applicants/message-applicant/company_send_to_applicants_message_applicant_screen.dart';
 import '../../features/company/ui/sign_up/logic/company_sign_up_cubit.dart';
 import '../../features/customer/ui/jobs_post/widgets/_jobs_post_success.dart';
@@ -734,7 +741,29 @@ class AppRouter {
 
       case Routes.customerProfileScreen:
         return MaterialPageRoute(
-          builder: (_) => const CustomerProfileScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) =>
+                    getIt<CustomerProfileInfoCubit>()..getCustomerProfileInfo(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<CustomerProfileAllServicePostsCubit>()
+                  ..getCustomerAllServicePosts(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<CustomerProfileApplicantsNumberCubit>()
+                  ..getApplicantsNumber(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<CustomerJobsDeletePostCubit>(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<CustomerProfileEditCubit>(),
+              ),
+            ],
+            child: const CustomerProfileScreen(),
+          ),
         );
 
       // ---------------- PDF View ----------------

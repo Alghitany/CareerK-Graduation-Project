@@ -9,6 +9,16 @@ import 'package:carrerk/features/company/ui/home/ui/main_page/data/repo/company_
 import 'package:carrerk/features/company/ui/home/ui/see_details/data/repo/company_home_see_details_repo.dart';
 import 'package:carrerk/features/customer/data/repos/customer_jobs_post_repo.dart';
 import 'package:carrerk/features/customer/logic/customer_jobs_post_cubit.dart';
+import 'package:carrerk/features/customer/profile/data/repo/customer_jobs_delete_post_repo.dart';
+import 'package:carrerk/features/customer/profile/data/repo/customer_profile_all_service_posts_repo.dart';
+import 'package:carrerk/features/customer/profile/data/repo/customer_profile_applicants_number_repo.dart';
+import 'package:carrerk/features/customer/profile/data/repo/customer_profile_edit_repo.dart';
+import 'package:carrerk/features/customer/profile/data/repo/customer_profile_info_repo.dart';
+import 'package:carrerk/features/customer/profile/logic/company_jobs_delete_post_logic/customer_jobs_delete_post_cubit.dart';
+import 'package:carrerk/features/customer/profile/logic/customer_profile_all_job_posts_logic/customer_profile_all_job_posts_cubit.dart';
+import 'package:carrerk/features/customer/profile/logic/customer_profile_applicants_number_logic/customer_profile_applicants_number_cubit.dart';
+import 'package:carrerk/features/customer/profile/logic/customer_profile_edit_logic/customer_profile_edit_cubit.dart';
+import 'package:carrerk/features/customer/profile/logic/customer_profile_info_logic/customer_profile_info_cubit.dart';
 import 'package:carrerk/features/customer/ui/applied/data/repo/first_screen_repo/applications_repo.dart';
 import 'package:carrerk/features/customer/ui/applied/data/repo/reject_applications_repo/reject_applications_repo.dart';
 import 'package:carrerk/features/customer/ui/applied/data/repo/secound_screen_repo/application_details_repo.dart';
@@ -431,8 +441,6 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<ApplicationDetailsCubit>(
       () => ApplicationDetailsCubit(getIt()));
 
-// view profile
-
 //  customer -- reject
   getIt.registerLazySingleton<RejectApplicationRepo>(
     () => RejectApplicationRepo(getIt()),
@@ -465,4 +473,42 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<CustomerSignupCubit>(
     () => CustomerSignupCubit(getIt<CustomerSignupRepo>()),
   );
+  // profile
+  // Profile Info
+  getIt.registerLazySingleton<CustomerProfileInfoRepo>(
+    () => CustomerProfileInfoRepo(getIt()),
+  );
+  getIt.registerFactory<CustomerProfileInfoCubit>(
+    () => CustomerProfileInfoCubit(getIt()),
+  );
+  // Company Applicants Number
+  getIt.registerLazySingleton<CustomerProfileApplicantsNumberRepo>(
+    () => CustomerProfileApplicantsNumberRepo(getIt()),
+  );
+
+  getIt.registerFactory<CustomerProfileApplicantsNumberCubit>(
+    () => CustomerProfileApplicantsNumberCubit(getIt()),
+  );
+  // All Job Posts
+  getIt.registerLazySingleton<CustomerProfileAllServicePostsRepo>(
+    () => CustomerProfileAllServicePostsRepo(getIt()),
+  );
+
+  getIt.registerFactory<CustomerProfileAllServicePostsCubit>(
+    () => CustomerProfileAllServicePostsCubit(getIt()),
+  );
+
+  // customer Profile Edit
+  getIt.registerLazySingleton<CustomerProfileEditRepo>(
+    () => CustomerProfileEditRepo(getIt()),
+  );
+
+  getIt.registerFactory<CustomerProfileEditCubit>(
+    () => CustomerProfileEditCubit(getIt()),
+  );
+
+  getIt.registerLazySingleton<CustomerJobsDeletePostRepo>(
+      () => CustomerJobsDeletePostRepo(getIt()));
+  getIt.registerLazySingleton<CustomerJobsDeletePostCubit>(
+      () => CustomerJobsDeletePostCubit(getIt()));
 }

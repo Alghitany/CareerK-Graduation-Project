@@ -1,5 +1,9 @@
 import 'package:carrerk/features/customer/data/models/customer_jobs_post_request_body.dart';
 import 'package:carrerk/features/customer/data/models/customer_jobs_post_response.dart';
+import 'package:carrerk/features/customer/profile/data/model/customer_jobs_delete_post/customer_jobs_delete_post_response.dart';
+import 'package:carrerk/features/customer/profile/data/model/customer_profile_all_service_posts/customer_profile_all_service_posts_response_body.dart';
+import 'package:carrerk/features/customer/profile/data/model/customer_profile_applicants_number_models/customer_profile_applicants_number_response_body.dart';
+import 'package:carrerk/features/customer/profile/data/model/customer_profile_info/customer_profile_info_response_body.dart';
 import 'package:carrerk/features/customer/ui/applied/data/model/first_screen_model/applications_response_body.dart';
 import 'package:carrerk/features/customer/ui/applied/data/model/reject_applications_model/reject_application_response.dart';
 import 'package:carrerk/features/customer/ui/applied/data/model/reject_applications_model/reject_applications_request_model.dart';
@@ -279,6 +283,11 @@ abstract class ApiService {
   Future<ChatsAllChatsResponseBody> getAllChats();
 
 //----------------- Customer
+// -> Delete Customer Job
+  @DELETE("${ApiConstants.customerJobsDeletePost}/{jobId}")
+  Future<CustomerJobsDeletePostResponse> deleteCustomerJobPost(
+    @Path("jobId") String jobId,
+  );
 
 // notification
 // get all
@@ -332,7 +341,18 @@ abstract class ApiService {
   Future<GetChatMessagesResponseBody> getChatMessages(
     @Path('chatRoomId') String chatRoomId,
   );
-// // View customer profile
+//  customer profile
+// profile info
+  @GET(ApiConstants.customerviewprofile)
+  Future<CustomerProfileInfoResponseBody> getProfileInfo();
+// profile jobs_posts
+  @GET(ApiConstants.customergetserviceposts)
+  Future<CustomerProfileAllServicePostsResponseBody>
+      getProfileAllServicePosts();
+// profile bumber of applications
+  @GET(ApiConstants.customergetapplications)
+  Future<CustomerProfileApplicantsNumberResponseBody>
+      getProfileApplicationsNumber();
 
 //----------------- Customer
 // Customer Sign up Handled with dio

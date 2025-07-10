@@ -2,7 +2,7 @@ import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/features/customer/ui/home/logic/customer_home_cubit.dart';
 import 'package:carrerk/features/customer/ui/home/logic/customer_home_state.dart';
 import 'package:carrerk/features/customer/ui/home/model/model/customer_home_response_body.dart';
-import 'package:carrerk/features/customer/ui/profile/ui/customer_profile_screen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -57,7 +57,9 @@ class CustomerTopBarBlocBuilder extends StatelessWidget {
           children: [
             GestureDetector(
                 onTap: () {
-                  context.pushNamed(Routes.customerProfileScreen);
+                  context.pushNamed(
+                    Routes.customerProfileScreen,
+                  );
                 },
                 child: Container(
                   width: 48.w,
