@@ -46,7 +46,7 @@ class SettingsOptionsList extends StatelessWidget {
               leadingIconHeight: 19.5,
               leadingIconWidth: 15,
               onTap: () {
-                context.pushNamed(Routes.developerSignUpCompletedCvIsDone);
+                context.pushNamed(Routes.developerProfileMyCVScreen);
               },
             ),
             settingServiceRow(

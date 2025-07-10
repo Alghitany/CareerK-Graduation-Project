@@ -103,6 +103,9 @@ class ApiConstants {
   static const String developerProfileAppliedJobs =
       "api/developer/my-applications";
 
+  // Get My CV
+  static const String developerProfileSettingsGetMyCV = "api/developer/my-cv";
+
   //-> Generate CV With Ai
   // Start Session
   static const String developerProfileGenerateCVStartSession =

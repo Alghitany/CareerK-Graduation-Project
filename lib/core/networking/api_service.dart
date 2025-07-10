@@ -58,6 +58,7 @@ import '../../features/developer/ui/profile/ui/jobs_applied/data/models/develope
 import '../../features/developer/ui/profile/ui/jobs_applied/data/models/job_withdraw/developer_job_withdraw_response_body.dart';
 import '../../features/developer/ui/profile/ui/jobs_applied/data/models/service_delete/developer_service_delete_response_body.dart';
 import '../../features/developer/ui/profile/ui/main_page/data/models/profile_info_models/developer_profile_main_page_info_response_body.dart';
+import '../../features/developer/ui/profile/ui/my_cv/data/models/developer_profile_settings_get_my_cv_models/developer_profile_settings_get_my_cv_response_body.dart';
 import '../../features/developer/ui/profile/ui/settings/data/models/developer_generate_cv_start_session_models/developer_generate_cv_start_session_response.dart';
 import '../../features/post_details/data/models/post_details_models/job_details_response_body.dart';
 import '../../features/search/data/model/search_courses_response_body.dart';
@@ -218,6 +219,10 @@ abstract class ApiService {
   @GET(ApiConstants.developerProfileAppliedJobs)
   Future<DeveloperProfileAppliedJobsResponseBody>
       getDeveloperProfileAppliedJobs();
+
+  // Developer Profile – Get My CV
+  @GET(ApiConstants.developerProfileSettingsGetMyCV)
+  Future<DeveloperProfileSettingsGetMyCVResponseBody> getDeveloperMyCV();
 
   // Generate CV With Ai Start Session
   @POST(ApiConstants.developerProfileGenerateCVStartSession)

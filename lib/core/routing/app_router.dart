@@ -29,6 +29,8 @@ import 'package:carrerk/features/developer/ui/jobs/application_submitted/develop
 import 'package:carrerk/features/developer/ui/jobs/apply/logic/developer_jobs_apply_cubit.dart';
 import 'package:carrerk/features/developer/ui/jobs/apply/ui/developer_jobs_apply_screen.dart';
 import 'package:carrerk/features/developer/ui/jobs/main_page/developer_jobs_main_page_screen.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/my_cv/logic/developer_profile_settings_get_my_cv_logic/developer_profile_sittings_get_my_cv_cubit.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/my_cv/ui/developer_profile_my_cv_screen.dart';
 import 'package:carrerk/features/developer/ui/sign_up/logic/developer_sign_up_cubit.dart';
 import 'package:carrerk/features/developer/ui/sign_up_completed/cv_downloaded/developer_sign_up_completed_cv_downloaded.dart';
 import 'package:carrerk/features/developer/ui/sign_up_completed/cv_is_done/developer_sign_up_completed_cv_is_done.dart';
@@ -633,7 +635,14 @@ class AppRouter {
             child: const DeveloperProfileEditProfileScreen(),
           ),
         );
-
+      case Routes.developerProfileMyCVScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (_) =>
+                getIt<DeveloperProfileSettingsGetMyCVCubit>()..getMyCV(),
+            child: const DeveloperProfileMyCvScreen(),
+          ),
+        );
       case Routes.developerProfileCVGenerateScreen:
         final args = settings.arguments as AppArgument;
         return MaterialPageRoute(

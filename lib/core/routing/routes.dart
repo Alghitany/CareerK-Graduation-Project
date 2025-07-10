@@ -142,6 +142,8 @@ class Routes {
       "/developerProfileSettingsScreen";
   static const String developerProfileEditProfileScreen =
       "/developerProfileEditProfileScreen";
+  static const String developerProfileMyCVScreen =
+      "/developerProfileMyCVScreen";
   static const String developerProfileJobsAppliedScreen =
       "/developerProfileJobsAppliedScreen";
   static const String developerProfileCVGenerateScreen =
