@@ -1,17 +1,19 @@
 import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:permission_handler/permission_handler.dart';
+
 import '../../../../../../../core/helpers/spacing.dart';
 import '../../../../../../../core/theming/colors.dart';
 import '../../../../../../../core/theming/styles.dart';
 import '../../../../../../../core/widgets/app_text_button.dart';
+import '../logic/developer_profile_settings_delete_cv_logic/developer_profile_settings_delete_cv_cubit.dart';
 import '../logic/developer_profile_settings_get_my_cv_logic/developer_profile_sittings_get_my_cv_cubit.dart';
 import '../logic/developer_profile_settings_update_uploaded_cv_logic/developer_profile_settings_update_uploaded_cv_cubit.dart';
-import '../logic/developer_profile_settings_delete_cv_logic/developer_profile_settings_delete_cv_cubit.dart';
 import 'widgets/developer_profile_my_cv_bloc_builder.dart';
 import 'widgets/my_cv_top_bar.dart';
 

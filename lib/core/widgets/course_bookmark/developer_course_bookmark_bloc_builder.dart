@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../features/developer/data/models/developer_add_course_bookmark_models/developer_add_course_bookmark_request_body.dart';
+import '../../../features/developer/logic/developer_add_course_bookmark_logic/developer_add_course_bookmark_cubit.dart';
 import '../../../features/developer/logic/developer_single_course_bookmark_logic/developer_single_course_bookmark_cubit.dart';
 import '../../../features/developer/logic/developer_single_course_bookmark_logic/developer_single_course_bookmark_state.dart';
 
@@ -10,8 +12,11 @@ class DeveloperCourseBookmarkBlocBuilder extends StatelessWidget {
   final String courseId;
   final bool? heartType;
 
-  const DeveloperCourseBookmarkBlocBuilder(
-      {super.key, required this.courseId, this.heartType});
+  const DeveloperCourseBookmarkBlocBuilder({
+    super.key,
+    required this.courseId,
+    this.heartType,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -51,10 +56,19 @@ class DeveloperCourseBookmarkBlocBuilder extends StatelessWidget {
   Widget setupSuccess(BuildContext context, bool isBookmarked, bool heartIcon) {
     return IconButton(
       padding: EdgeInsets.zero,
-      onPressed: () {
-        context
-            .read<DeveloperSingleCourseBookmarkCubit>()
-            .bookmarkCourse(courseId);
+      onPressed: () async {
+        final addBookmarkCubit =
+            context.read<DeveloperAddCourseBookmarkCubit>();
+        final singleBookmarkCubit =
+            context.read<DeveloperSingleCourseBookmarkCubit>();
+
+        await addBookmarkCubit.addCourseBookmark(
+          courseId: courseId,
+          body: const DeveloperAddCourseBookmarkRequestBody(),
+        );
+
+        // Refresh bookmark state after change
+        singleBookmarkCubit.bookmarkCourse(courseId);
       },
       icon: heartIcon
           ? Container(
@@ -83,7 +97,6 @@ class DeveloperCourseBookmarkBlocBuilder extends StatelessWidget {
     return IconButton(
       padding: EdgeInsets.zero,
       onPressed: () {
-        // Retry bookmarking on error
         context
             .read<DeveloperSingleCourseBookmarkCubit>()
             .bookmarkCourse(courseId);

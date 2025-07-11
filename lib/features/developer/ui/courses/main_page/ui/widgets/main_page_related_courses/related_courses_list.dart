@@ -72,8 +72,9 @@ class RelatedCoursesList extends StatelessWidget {
                                     width: double.infinity,
                                     height: 120.h,
                                     fit: BoxFit.cover,
-                                    errorBuilder: (context, error, stackTrace) =>
-                                        Container(
+                                    errorBuilder:
+                                        (context, error, stackTrace) =>
+                                            Container(
                                       width: double.infinity,
                                       height: 120.h,
                                       color: ColorsManager.mercury,

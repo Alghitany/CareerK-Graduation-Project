@@ -14,6 +14,7 @@ import '../../../../../../../core/di/dependency_injection.dart';
 import '../../../../../../../core/helpers/app_regex.dart';
 import '../../../../../../../core/widgets/job_bookmark/developer_job_bookmark_bloc_builder.dart';
 import '../../../../../data/models/developer_recommendtions_models/developer_recommendations_response_body.dart';
+import '../../../../../logic/developer_add_job_bookmark_logic/developer_add_job_bookmark_cubit.dart';
 import '../../../../../logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
 
 class MainPageRecommendedJobsList extends StatefulWidget {
@@ -150,9 +151,14 @@ class _MainPageRecommendedJobsListState
                 ),
 
                 // BlocProvider wraps only the bookmark widget
-                BlocProvider(
-                  create: (_) => getIt<DeveloperSingleJobBookmarkCubit>()
-                    ..bookmarkJob(job.id!),
+                MultiBlocProvider(
+                  providers: [
+                    BlocProvider(
+                        create: (_) => getIt<DeveloperSingleJobBookmarkCubit>()
+                          ..bookmarkJob(job.id!)),
+                    BlocProvider(
+                        create: (_) => getIt<DeveloperAddJobBookmarkCubit>()),
+                  ],
                   child: DeveloperJobBookmarkBlocBuilder(postId: job.id!),
                 ),
               ],

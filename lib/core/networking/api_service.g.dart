@@ -14,7 +14,7 @@ class _ApiService implements ApiService {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'https://94deaea98e01.ngrok-free.app/';
+    baseUrl ??= 'https://899d0f411e11.ngrok-free.app/';
   }
 
   final Dio _dio;
@@ -711,6 +711,43 @@ class _ApiService implements ApiService {
   }
 
   @override
+  Future<DeveloperAddJobBookmarkResponse> addJobBookmark(
+    String jobId,
+    DeveloperAddJobBookmarkRequestBody developerAddJobBookmarkRequestBody,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(developerAddJobBookmarkRequestBody.toJson());
+    final _options = _setStreamType<DeveloperAddJobBookmarkResponse>(Options(
+      method: 'PATCH',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'api/bookmarks/${jobId}',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DeveloperAddJobBookmarkResponse _value;
+    try {
+      _value = DeveloperAddJobBookmarkResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
   Future<DeveloperSingleJobBookmarkResponseModel> bookmarkJob(
       String jobId) async {
     final _extra = <String, dynamic>{};
@@ -738,6 +775,43 @@ class _ApiService implements ApiService {
     late DeveloperSingleJobBookmarkResponseModel _value;
     try {
       _value = DeveloperSingleJobBookmarkResponseModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<DeveloperAddCourseBookmarkResponse> addCourseBookmark(
+    String courseId,
+    DeveloperAddCourseBookmarkRequestBody body,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(body.toJson());
+    final _options = _setStreamType<DeveloperAddCourseBookmarkResponse>(Options(
+      method: 'PATCH',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'api/course-bookmarks/${courseId}/bookmark',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DeveloperAddCourseBookmarkResponse _value;
+    try {
+      _value = DeveloperAddCourseBookmarkResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -1144,6 +1218,126 @@ class _ApiService implements ApiService {
     try {
       _value =
           DeveloperProfileCVGenerateGeneratedResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<List<DeveloperProfileJobsBookmarkedResponseBody>>
+      getDeveloperJobBookmarks(String postType) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'postType': postType};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options =
+        _setStreamType<List<DeveloperProfileJobsBookmarkedResponseBody>>(
+            Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+                .compose(
+                  _dio.options,
+                  'api/bookmarks/',
+                  queryParameters: queryParameters,
+                  data: _data,
+                )
+                .copyWith(
+                    baseUrl: _combineBaseUrls(
+                  _dio.options.baseUrl,
+                  baseUrl,
+                )));
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<DeveloperProfileJobsBookmarkedResponseBody> _value;
+    try {
+      _value = _result.data!
+          .map((dynamic i) =>
+              DeveloperProfileJobsBookmarkedResponseBody.fromJson(
+                  i as Map<String, dynamic>))
+          .toList();
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<List<DeveloperProfileServicesBookmarkedResponseBody>>
+      getDeveloperBookmarkedServices(String postType) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'postType': postType};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options =
+        _setStreamType<List<DeveloperProfileServicesBookmarkedResponseBody>>(
+            Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+                .compose(
+                  _dio.options,
+                  'api/bookmarks/',
+                  queryParameters: queryParameters,
+                  data: _data,
+                )
+                .copyWith(
+                    baseUrl: _combineBaseUrls(
+                  _dio.options.baseUrl,
+                  baseUrl,
+                )));
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<DeveloperProfileServicesBookmarkedResponseBody> _value;
+    try {
+      _value = _result.data!
+          .map((dynamic i) =>
+              DeveloperProfileServicesBookmarkedResponseBody.fromJson(
+                  i as Map<String, dynamic>))
+          .toList();
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<List<DeveloperProfileCoursesBookmarkedResponseBody>>
+      getDeveloperProfileBookmarkedCourses() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options =
+        _setStreamType<List<DeveloperProfileCoursesBookmarkedResponseBody>>(
+            Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+                .compose(
+                  _dio.options,
+                  'api/course-bookmarks/bookmarks',
+                  queryParameters: queryParameters,
+                  data: _data,
+                )
+                .copyWith(
+                    baseUrl: _combineBaseUrls(
+                  _dio.options.baseUrl,
+                  baseUrl,
+                )));
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<DeveloperProfileCoursesBookmarkedResponseBody> _value;
+    try {
+      _value = _result.data!
+          .map((dynamic i) =>
+              DeveloperProfileCoursesBookmarkedResponseBody.fromJson(
+                  i as Map<String, dynamic>))
+          .toList();
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

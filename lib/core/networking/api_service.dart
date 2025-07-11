@@ -3,6 +3,9 @@ import 'package:carrerk/features/customer/data/models/customer_jobs_post_respons
 import 'package:carrerk/features/customer/ui/applied/data/model/first_screen_model/applications_response_body.dart';
 import 'package:carrerk/features/customer/ui/applied/data/model/reject_applications_model/reject_application_response.dart';
 import 'package:carrerk/features/customer/ui/applied/data/model/secound_screen_model/application_details_response_body.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/bookmarks/data/models/developer_profile_courses_bookmarked_models/developer_profile_courses_bookmarked_response_body.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/bookmarks/data/models/developer_profile_jobs_bookmarked_models/developer_profile_jobs_bookmarked_response_body.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/bookmarks/data/models/developer_profile_services_bookmarked_models/developer_profile_services_bookmarked_response_body.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -31,6 +34,10 @@ import '../../features/company/ui/profile/data/models/company_profile_all_jobs_p
 import '../../features/company/ui/profile/data/models/company_profile_applicants_number_models/company_profile_applicants_number_response_body.dart';
 import '../../features/company/ui/profile/data/models/company_profile_info_models/company_profile_info_response_body.dart';
 import '../../features/customer/ui/home/model/model/customer_home_response_body.dart';
+import '../../features/developer/data/models/developer_add_course_bookmark_models/developer_add_course_bookmark_request_body.dart';
+import '../../features/developer/data/models/developer_add_course_bookmark_models/developer_add_course_bookmark_response.dart';
+import '../../features/developer/data/models/developer_add_job_bookmark_models/developer_add_job_bookmark_request_body.dart';
+import '../../features/developer/data/models/developer_add_job_bookmark_models/developer_add_job_bookmark_response.dart';
 import '../../features/developer/data/models/developer_courses_and_jobs_main_page_profile_models/developer_courses_and_jobs_main_page_profile_response_model.dart';
 import '../../features/developer/data/models/developer_recommendtions_models/developer_recommendations_response_body.dart';
 import '../../features/developer/data/models/developer_single_course_bookmark_models/developer_single_course_bookmark_response_model.dart';
@@ -182,10 +189,25 @@ abstract class ApiService {
     @Path("serviceId") String serviceId,
   );
 
+  //-> Add Job Bookmark
+  @PATCH(ApiConstants.developerAddJobBookmark)
+  Future<DeveloperAddJobBookmarkResponse> addJobBookmark(
+    @Path("jobId") String jobId,
+    @Body()
+    DeveloperAddJobBookmarkRequestBody developerAddJobBookmarkRequestBody,
+  );
+
   //-> Single Job Bookmark
   @GET(ApiConstants.developerSingleJobBookmark)
   Future<DeveloperSingleJobBookmarkResponseModel> bookmarkJob(
     @Path("jobId") String jobId,
+  );
+
+  //-> Add Course Bookmark
+  @PATCH(ApiConstants.developerAddCourseBookmark)
+  Future<DeveloperAddCourseBookmarkResponse> addCourseBookmark(
+    @Path("courseId") String courseId,
+    @Body() DeveloperAddCourseBookmarkRequestBody body,
   );
 
   //-> Single Course Bookmark
@@ -230,8 +252,10 @@ abstract class ApiService {
   // Delete My CV
   @DELETE(ApiConstants.developerDeleteMyCV)
   Future<DeveloperProfileSettingsDeleteCVResponseBody> deleteMyCV(
-      @Body() DeveloperProfileSettingsDeleteCVRequestBody developerProfileSettingsDeleteCVRequestBody,
-      );
+    @Body()
+    DeveloperProfileSettingsDeleteCVRequestBody
+        developerProfileSettingsDeleteCVRequestBody,
+  );
 
   // Generate CV With Ai Start Session
   @POST(ApiConstants.developerProfileGenerateCVStartSession)
@@ -253,6 +277,25 @@ abstract class ApiService {
   );
 
   // Edit Profile done with dio directly
+  //-> Bookmarked
+  // Posts
+  @GET(ApiConstants.developerProfilePostsBookmarked)
+  Future<List<DeveloperProfileJobsBookmarkedResponseBody>>
+      getDeveloperJobBookmarks(
+    @Query("postType") String postType,
+  );
+
+  // Services
+  @GET(ApiConstants.developerProfilePostsBookmarked)
+  Future<List<DeveloperProfileServicesBookmarkedResponseBody>>
+      getDeveloperBookmarkedServices(
+    @Query("postType") String postType,
+  );
+
+  // Courses
+  @GET(ApiConstants.developerProfileCoursesBookmarked)
+  Future<List<DeveloperProfileCoursesBookmarkedResponseBody>>
+      getDeveloperProfileBookmarkedCourses();
 
   // Delete Job Application by ID
   @DELETE(ApiConstants.developerJobWithdraw)

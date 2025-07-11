@@ -29,6 +29,8 @@ import 'package:carrerk/features/developer/ui/jobs/application_submitted/develop
 import 'package:carrerk/features/developer/ui/jobs/apply/logic/developer_jobs_apply_cubit.dart';
 import 'package:carrerk/features/developer/ui/jobs/apply/ui/developer_jobs_apply_screen.dart';
 import 'package:carrerk/features/developer/ui/jobs/main_page/developer_jobs_main_page_screen.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/bookmarks/data/repos/developer_profile_services_bookmarked_repo.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/bookmarks/logic/developer_profile_services_bookmarked_logic/developer_profile_services_bookmarked_cubit.dart';
 import 'package:carrerk/features/developer/ui/profile/ui/my_cv/logic/developer_profile_settings_delete_cv_logic/developer_profile_settings_delete_cv_cubit.dart';
 import 'package:carrerk/features/developer/ui/profile/ui/my_cv/logic/developer_profile_settings_get_my_cv_logic/developer_profile_sittings_get_my_cv_cubit.dart';
 import 'package:carrerk/features/developer/ui/profile/ui/my_cv/ui/developer_profile_my_cv_screen.dart';
@@ -102,6 +104,11 @@ import '../../features/developer/ui/jobs/search/ui/developer_jobs_search_screen.
 import '../../features/developer/ui/jobs/service_details/logic/developer_jobs_service_details_cubit.dart';
 import '../../features/developer/ui/jobs/service_details/ui/developer_jobs_service_details_screen.dart';
 import '../../features/developer/ui/profile/logic/developer_profile_edit_cubit.dart';
+import '../../features/developer/ui/profile/ui/bookmarks/data/repos/developer_profile_courses_bookmarked_repo.dart';
+import '../../features/developer/ui/profile/ui/bookmarks/data/repos/developer_profile_jobs_bookmarked_repo.dart';
+import '../../features/developer/ui/profile/ui/bookmarks/developer_profile_bookmarks_screen.dart';
+import '../../features/developer/ui/profile/ui/bookmarks/logic/developer_profile_courses_bookmarked_logic/developer_profile_courses_bookmarked_cubit.dart';
+import '../../features/developer/ui/profile/ui/bookmarks/logic/developer_profile_jobs_logic/developer_profile_jobs_bookmarked_cubit.dart';
 import '../../features/developer/ui/profile/ui/cv_generate/data/models/generate_models/developer_profile_cv_generate_generated_request_body.dart';
 import '../../features/developer/ui/profile/ui/cv_generate/logic/generate_logic/developer_profile_cv_generate_generated_cubit.dart';
 import '../../features/developer/ui/profile/ui/cv_generate/logic/send_data_logic/developer_profile_cv_generate_send_data_cubit.dart';
@@ -120,7 +127,6 @@ import '../../features/developer/ui/profile/ui/main_page/ui/developer_profile_ma
 import '../../features/developer/ui/profile/ui/my_cv/logic/developer_profile_settings_update_uploaded_cv_logic/developer_profile_settings_update_uploaded_cv_cubit.dart';
 import '../../features/developer/ui/profile/ui/payment/add_new_cart/developer_profile_payment_add_new_card_screen.dart';
 import '../../features/developer/ui/profile/ui/payment/option/developer_profile_payment_option_screen.dart';
-import '../../features/developer/ui/profile/ui/saved_jobs/developer_profile_saved_jobs_screen.dart';
 import '../../features/developer/ui/profile/ui/settings/logic/developer_generate_cv_start_session_logic/developer_generate_cv_start_session_cubit.dart';
 import '../../features/developer/ui/profile/ui/settings/ui/developer_profile_settings_screen.dart';
 import '../../features/notifications/ui/notifications_screen.dart';
@@ -642,10 +648,12 @@ class AppRouter {
           builder: (_) => MultiBlocProvider(
             providers: [
               BlocProvider(
-                create: (_) => getIt<DeveloperProfileSettingsGetMyCVCubit>()..getMyCV(),
+                create: (_) =>
+                    getIt<DeveloperProfileSettingsGetMyCVCubit>()..getMyCV(),
               ),
               BlocProvider(
-                create: (_) => getIt<DeveloperProfileSettingsUpdateUploadedCVCubit>(),
+                create: (_) =>
+                    getIt<DeveloperProfileSettingsUpdateUploadedCVCubit>(),
               ),
               BlocProvider(
                 create: (_) => getIt<DeveloperProfileSettingsDeleteCVCubit>(),
@@ -676,9 +684,33 @@ class AppRouter {
                 sessionId: args.sessionId!),
           ),
         );
-      case Routes.developerProfileSavedJobsScreen:
+      case Routes.developerProfileBookmarksScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperProfileSavedJobsScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              // Jobs Bookmarked
+              BlocProvider(
+                create: (context) => DeveloperProfileJobsBookmarkedCubit(
+                  getIt<DeveloperProfileJobsBookmarkedRepo>(),
+                )..getBookmarkedJobs(),
+              ),
+
+              // Services Bookmarked
+              BlocProvider(
+                create: (context) => DeveloperProfileServicesBookmarkedCubit(
+                  getIt<DeveloperProfileServicesBookmarkedRepo>(),
+                )..getBookmarkedServices(),
+              ),
+
+              // Courses Bookmarked
+              BlocProvider(
+                create: (context) => DeveloperProfileCoursesBookmarkedCubit(
+                  getIt<DeveloperProfileCoursesBookmarkedRepo>(),
+                )..getBookmarkedCourses(),
+              ),
+            ],
+            child: const DeveloperProfileBookmarksScreen(),
+          ),
         );
       case Routes.developerProfileJobsAppliedScreen:
         return MaterialPageRoute(

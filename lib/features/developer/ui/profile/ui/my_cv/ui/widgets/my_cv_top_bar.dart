@@ -2,6 +2,7 @@ import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:carrerk/features/developer/ui/profile/ui/my_cv/data/models/developer_profile_settings_delete_cv/developer_profile_settings_delete_cv_request_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../../../../../../core/theming/styles.dart';
 import '../../logic/developer_profile_settings_delete_cv_logic/developer_profile_settings_delete_cv_cubit.dart';
 
