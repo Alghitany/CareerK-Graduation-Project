@@ -27,6 +27,7 @@ import 'package:carrerk/features/developer/ui/home_main_page/data/repos/develope
 import 'package:carrerk/features/developer/ui/home_main_page/data/repos/developer_tags_home_main_page_repo.dart';
 import 'package:carrerk/features/developer/ui/home_main_page/logic/developer_courses_home_main_page_logic/developer_courses_home_main_page_cubit.dart';
 import 'package:carrerk/features/developer/ui/jobs/search/data/repo/developer_jobs_recently_posted_repo.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/bookmarks/data/repos/developer_profile_services_bookmarked_repo.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -97,6 +98,11 @@ import '../../features/developer/ui/jobs/service_details/data/repo/developer_job
 import '../../features/developer/ui/jobs/service_details/logic/developer_jobs_service_details_cubit.dart';
 import '../../features/developer/ui/profile/data/repos/developer_profile_edit_repo.dart';
 import '../../features/developer/ui/profile/logic/developer_profile_edit_cubit.dart';
+import '../../features/developer/ui/profile/ui/bookmarks/data/repos/developer_profile_courses_bookmarked_repo.dart';
+import '../../features/developer/ui/profile/ui/bookmarks/data/repos/developer_profile_jobs_bookmarked_repo.dart';
+import '../../features/developer/ui/profile/ui/bookmarks/logic/developer_profile_courses_bookmarked_logic/developer_profile_courses_bookmarked_cubit.dart';
+import '../../features/developer/ui/profile/ui/bookmarks/logic/developer_profile_jobs_logic/developer_profile_jobs_bookmarked_cubit.dart';
+import '../../features/developer/ui/profile/ui/bookmarks/logic/developer_profile_services_bookmarked_logic/developer_profile_services_bookmarked_cubit.dart';
 import '../../features/developer/ui/profile/ui/cv_generate/data/repos/developer_profile_cv_generate_generated_repo.dart';
 import '../../features/developer/ui/profile/ui/cv_generate/data/repos/developer_profile_cv_generate_send_data_repo.dart';
 import '../../features/developer/ui/profile/ui/cv_generate/logic/generate_logic/developer_profile_cv_generate_generated_cubit.dart';
@@ -381,6 +387,27 @@ Future<void> setupGetIt() async {
   );
   getIt.registerFactory<DeveloperProfileAppliedJobsCubit>(
     () => DeveloperProfileAppliedJobsCubit(getIt()),
+  );
+  // -> Bookmarked Jobs
+  getIt.registerLazySingleton<DeveloperProfileJobsBookmarkedRepo>(
+    () => DeveloperProfileJobsBookmarkedRepo(getIt()),
+  );
+  getIt.registerFactory<DeveloperProfileJobsBookmarkedCubit>(
+    () => DeveloperProfileJobsBookmarkedCubit(getIt()),
+  );
+  // -> Bookmarked Services
+  getIt.registerLazySingleton<DeveloperProfileServicesBookmarkedRepo>(
+    () => DeveloperProfileServicesBookmarkedRepo(getIt()),
+  );
+  getIt.registerFactory<DeveloperProfileServicesBookmarkedCubit>(
+    () => DeveloperProfileServicesBookmarkedCubit(getIt()),
+  );
+  // -> Bookmarked Courses
+  getIt.registerLazySingleton<DeveloperProfileCoursesBookmarkedRepo>(
+    () => DeveloperProfileCoursesBookmarkedRepo(getIt()),
+  );
+  getIt.registerFactory<DeveloperProfileCoursesBookmarkedCubit>(
+    () => DeveloperProfileCoursesBookmarkedCubit(getIt()),
   );
   // -> Generate CV
   // Start Session

@@ -132,8 +132,8 @@ class Routes {
       "/developerJobsAllCategoriesScreen";
   static const String developerJobsJobDetailsScreen =
       "/developerJobsJobDetailsScreen";
-  static const String developerProfileSavedJobsScreen =
-      "/developerProfileSavedJobsScreen";
+  static const String developerProfileBookmarksScreen =
+      "/developerProfileBookmarksScreen";
 
   // Profile
   static const String developerProfileMainPageScreen =
