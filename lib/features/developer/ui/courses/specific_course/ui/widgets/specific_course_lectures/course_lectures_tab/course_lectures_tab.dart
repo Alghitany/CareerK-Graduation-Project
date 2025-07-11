@@ -1,18 +1,20 @@
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/theming/styles.dart';
-import 'package:carrerk/core/widgets/app_text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../data/model/specific_course_lectures_models/specific_course_lectures_response_body.dart';
+import 'enroll_button_bloc_consumer.dart';
 
 class CourseLecturesTab extends StatelessWidget {
   final List<SpecificCourseLecturesResponseBody> lectures;
+  final String courseId;
 
-  const CourseLecturesTab({super.key, required this.lectures});
+  const CourseLecturesTab(
+      {super.key, required this.lectures, required this.courseId});
 
   @override
   @override
@@ -157,54 +159,7 @@ class CourseLecturesTab extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
-            bottom: 45.h,
-            left: 24.w,
-            right: 24.w,
-            child: AppTextButton(
-              buttonText: "Enroll Now",
-              textStyle: AppTextStyles.font14WhitePoppinsMedium,
-              onPressed: () async {
-                final messenger = ScaffoldMessenger.of(context);
-
-                final firstVideo = videoLectures.firstWhere(
-                  (lecture) =>
-                      lecture.videoUrl != null &&
-                      lecture.videoUrl!.trim().isNotEmpty,
-                  orElse: () => SpecificCourseLecturesResponseBody(
-                    type: '',
-                    title: '',
-                    videoTime: '',
-                    videoUrl: '',
-                  ),
-                );
-
-                final videoUrl = firstVideo.videoUrl;
-
-                if (videoUrl != null && videoUrl.trim().isNotEmpty) {
-                  final Uri uri = Uri.parse(videoUrl);
-                  try {
-                    final launched = await launchUrl(uri,
-                        mode: LaunchMode.externalApplication);
-                    if (!launched) {
-                      messenger.showSnackBar(
-                        const SnackBar(
-                            content: Text('Could not launch the video')),
-                      );
-                    }
-                  } catch (e) {
-                    messenger.showSnackBar(
-                      const SnackBar(content: Text('Failed to launch video')),
-                    );
-                  }
-                } else {
-                  messenger.showSnackBar(
-                    const SnackBar(content: Text('No video available')),
-                  );
-                }
-              },
-            ),
-          ),
+          EnrollButtonBlocConsumer(courseId: courseId),
         ],
       ),
     );

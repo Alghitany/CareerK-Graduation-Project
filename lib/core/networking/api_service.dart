@@ -47,6 +47,8 @@ import '../../features/developer/ui/courses/main_page/data/models/main_page_rela
 import '../../features/developer/ui/courses/main_page/data/models/main_page_roadmaps_models/developer_courses_main_page_roadmaps_response_model.dart';
 import '../../features/developer/ui/courses/roadmaps/data/models/developer_courses_roadmaps_response_body.dart';
 import '../../features/developer/ui/courses/specific_category/data/models/developer_courses_specific_category_response_body.dart';
+import '../../features/developer/ui/courses/specific_course/data/model/specific_course_enroll_models/specific_course_enroll_request_body.dart';
+import '../../features/developer/ui/courses/specific_course/data/model/specific_course_enroll_models/specific_course_enroll_response.dart';
 import '../../features/developer/ui/courses/specific_course/data/model/specific_course_header_models/specific_course_header_response_body.dart';
 import '../../features/developer/ui/courses/specific_course/data/model/specific_course_lectures_models/specific_course_lectures_response_body.dart';
 import '../../features/developer/ui/courses/specific_course/data/model/specific_course_overview_models/specific_course_overview_response_body.dart';
@@ -168,6 +170,12 @@ abstract class ApiService {
   // -> Lectures
   @GET(ApiConstants.developerSpecificCourseLectures)
   Future<List<SpecificCourseLecturesResponseBody>> getSpecificCourseLectures(
+    @Path('courseId') String courseId,
+  );
+
+  @PATCH(ApiConstants.developerSpecificCourseEnroll)
+  Future<SpecificCourseEnrollResponse> enrollInSpecificCourse(
+    @Body() SpecificCourseEnrollRequestBody requestBody,
     @Path('courseId') String courseId,
   );
 

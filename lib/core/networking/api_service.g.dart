@@ -585,7 +585,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              '/api/course-details/${courseId}/contents',
+              'api/course-details/${courseId}/contents',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -609,6 +609,43 @@ class _ApiService implements ApiService {
   }
 
   @override
+  Future<SpecificCourseEnrollResponse> enrollInSpecificCourse(
+    SpecificCourseEnrollRequestBody requestBody,
+    String courseId,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(requestBody.toJson());
+    final _options = _setStreamType<SpecificCourseEnrollResponse>(Options(
+      method: 'PATCH',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'api/course-enrollment/enroll/${courseId}',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late SpecificCourseEnrollResponse _value;
+    try {
+      _value = SpecificCourseEnrollResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
   Future<SpecificCourseReviewsResponseBody> getSpecificCourseReviews(
       String courseId) async {
     final _extra = <String, dynamic>{};
@@ -622,7 +659,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          '/api/course-details/${courseId}/reviews',
+          'api/course-details/${courseId}/reviews',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -983,7 +1020,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              '/api/developer/profile',
+              'api/developer/profile',
               queryParameters: queryParameters,
               data: _data,
             )

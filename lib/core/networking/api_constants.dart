@@ -93,15 +93,19 @@ class ApiConstants {
 
   //-----> Specific Course Lectures
   static const String developerSpecificCourseLectures =
-      "/api/course-details/{courseId}/contents";
+      "api/course-details/{courseId}/contents";
+
+  //-----> Specific Course Enroll
+  static const String developerSpecificCourseEnroll =
+      "api/course-enrollment/enroll/{courseId}";
 
   //-----> Specific Course Lectures
   static const String developerSpecificCourseReviews =
-      "/api/course-details/{courseId}/reviews";
+      "api/course-details/{courseId}/reviews";
 
   //-----> Profile
   //-> Info
-  static const String developerProfileInfo = "/api/developer/profile";
+  static const String developerProfileInfo = "api/developer/profile";
 
   //-> Edit
   static const String developerProfileEdit = "api/developer/edit-profile";
