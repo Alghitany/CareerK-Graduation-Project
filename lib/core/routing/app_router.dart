@@ -17,14 +17,6 @@ import 'package:carrerk/features/customer/ui/profile/customer_profile_screen.dar
 import 'package:carrerk/features/customer/ui/sign_up/compulsory_data/customer_sign_up_compulsory_data_screen.dart';
 import 'package:carrerk/features/developer/ui/community/all_communities/developer_community_all_communities_screen.dart';
 import 'package:carrerk/features/developer/ui/community/chat/developer_community_chat_screen.dart';
-import 'package:carrerk/features/developer/ui/courses/certification/developer_courses_certification_screen.dart';
-import 'package:carrerk/features/developer/ui/courses/cv_updated/download_cv/developer_courses_cv_updated_download_cv_screen.dart';
-import 'package:carrerk/features/developer/ui/courses/cv_updated/successful_update/developer_courses_cv_updated_successful_update_screen.dart';
-import 'package:carrerk/features/developer/ui/courses/main_page/logic/main_page_related_courses_logic/developer_courses_main_page_related_courses_cubit.dart';
-import 'package:carrerk/features/developer/ui/courses/main_page/ui/developer_courses_main_page_screen.dart';
-import 'package:carrerk/features/developer/ui/courses/my_courses/developer_courses_my_courses_screen.dart';
-import 'package:carrerk/features/developer/ui/courses/roadmaps/ui/developer_courses_roadmaps_screen.dart';
-import 'package:carrerk/features/developer/ui/courses/specific_course/logic/specific_course_lesson_complete_logic/specific_course_lesson_complete_cubit.dart';
 import 'package:carrerk/features/developer/ui/jobs/all_categories/developer_jobs_all_categories_screen.dart';
 import 'package:carrerk/features/developer/ui/jobs/application_submitted/developer_jobs_application_submitted_screen.dart';
 import 'package:carrerk/features/developer/ui/jobs/apply/logic/developer_jobs_apply_cubit.dart';
@@ -84,18 +76,27 @@ import '../../features/customer/ui/sign_up/logic/customer_sign_up_cubit.dart';
 import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
 import '../../features/developer/logic/developer_recommendations_logic/developer_recommendations_cubit.dart';
 import '../../features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
-import '../../features/developer/ui/courses/main_page/logic/main_page_ongoing_courses_logic/developer_courses_main_page_ongoing_courses_cubit.dart';
-import '../../features/developer/ui/courses/main_page/logic/main_page_roadmaps_logic/developer_courses_main_page_roadmaps_cubit.dart';
-import '../../features/developer/ui/courses/related_courses/developer_courses_related_courses_screen.dart';
-import '../../features/developer/ui/courses/roadmaps/logic/developer_courses_roadmaps_cubit.dart';
-import '../../features/developer/ui/courses/specific_category/logic/developer_courses_specific_category_cubit.dart';
-import '../../features/developer/ui/courses/specific_category/ui/developer_courses_specific_category_screen.dart';
-import '../../features/developer/ui/courses/specific_course/logic/specific_course_enroll_logic/specific_course_enroll_cubit.dart';
-import '../../features/developer/ui/courses/specific_course/logic/specific_course_header_logic/specific_course_header_cubit.dart';
-import '../../features/developer/ui/courses/specific_course/logic/specific_course_lectures_logic/specific_course_lectures_cubit.dart';
-import '../../features/developer/ui/courses/specific_course/logic/specific_course_overview_logic/specific_course_overview_cubit.dart';
-import '../../features/developer/ui/courses/specific_course/logic/specific_course_reviews_logic/specific_course_reviews_cubit.dart';
-import '../../features/developer/ui/courses/specific_course/ui/developer_courses_specific_course_screen.dart';
+import '../../features/developer/ui/courses/logic/ongoing_courses_logic/developer_courses_ongoing_cubit.dart';
+import '../../features/developer/ui/courses/logic/related_courses_logic/developer_courses_related_courses_cubit.dart';
+import '../../features/developer/ui/courses/ui/certification/developer_courses_certification_screen.dart';
+import '../../features/developer/ui/courses/ui/cv_updated/download_cv/developer_courses_cv_updated_download_cv_screen.dart';
+import '../../features/developer/ui/courses/ui/cv_updated/successful_update/developer_courses_cv_updated_successful_update_screen.dart';
+import '../../features/developer/ui/courses/ui/main_page/logic/main_page_roadmaps_logic/developer_courses_main_page_roadmaps_cubit.dart';
+import '../../features/developer/ui/courses/ui/main_page/ui/developer_courses_main_page_screen.dart';
+import '../../features/developer/ui/courses/ui/my_courses/logic/developer_courses_completed_logic/developer_courses_completed_cubit.dart';
+import '../../features/developer/ui/courses/ui/my_courses/ui/developer_courses_my_courses_screen.dart';
+import '../../features/developer/ui/courses/ui/related_courses/developer_courses_related_courses_screen.dart';
+import '../../features/developer/ui/courses/ui/roadmaps/logic/developer_courses_roadmaps_cubit.dart';
+import '../../features/developer/ui/courses/ui/roadmaps/ui/developer_courses_roadmaps_screen.dart';
+import '../../features/developer/ui/courses/ui/specific_category/logic/developer_courses_specific_category_cubit.dart';
+import '../../features/developer/ui/courses/ui/specific_category/ui/developer_courses_specific_category_screen.dart';
+import '../../features/developer/ui/courses/ui/specific_course/logic/specific_course_enroll_logic/specific_course_enroll_cubit.dart';
+import '../../features/developer/ui/courses/ui/specific_course/logic/specific_course_header_logic/specific_course_header_cubit.dart';
+import '../../features/developer/ui/courses/ui/specific_course/logic/specific_course_lectures_logic/specific_course_lectures_cubit.dart';
+import '../../features/developer/ui/courses/ui/specific_course/logic/specific_course_lesson_complete_logic/specific_course_lesson_complete_cubit.dart';
+import '../../features/developer/ui/courses/ui/specific_course/logic/specific_course_overview_logic/specific_course_overview_cubit.dart';
+import '../../features/developer/ui/courses/ui/specific_course/logic/specific_course_reviews_logic/specific_course_reviews_cubit.dart';
+import '../../features/developer/ui/courses/ui/specific_course/ui/developer_courses_specific_course_screen.dart';
 import '../../features/developer/ui/home_main_page/logic/developer_courses_home_main_page_logic/developer_courses_home_main_page_cubit.dart';
 import '../../features/developer/ui/home_main_page/logic/developer_name_home_main_page_logic/developer_name_home_main_page_cubit.dart';
 import '../../features/developer/ui/home_main_page/logic/developer_tags_home_main_page_logic/developer_tags_home_main_page_cubit.dart';
@@ -432,13 +433,11 @@ class AppRouter {
               ),
               BlocProvider(
                 create: (_) =>
-                    getIt<DeveloperCoursesMainPageOngoingCoursesCubit>()
-                      ..getOngoingCourses(),
+                    getIt<DeveloperCoursesOngoingCubit>()..getOngoingCourses(),
               ),
               BlocProvider(
-                create: (_) =>
-                    getIt<DeveloperCoursesMainPageRelatedCoursesCubit>()
-                      ..getRelatedCourses(),
+                create: (_) => getIt<DeveloperCoursesRelatedCoursesCubit>()
+                  ..getRelatedCourses(),
               ),
             ],
             child: const DeveloperCoursesMainPageScreen(),
@@ -447,8 +446,13 @@ class AppRouter {
 
       case Routes.developerCoursesRelatedCoursesScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperCoursesRelatedCoursesScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<DeveloperCoursesRelatedCoursesCubit>()
+              ..getRelatedCourses(),
+            child: const DeveloperCoursesRelatedCoursesScreen(),
+          ),
         );
+
       case Routes.developerCoursesSpecificCategoryScreen:
         final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
@@ -502,8 +506,21 @@ class AppRouter {
         );
       case Routes.developerCoursesMyCoursesScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperCoursesMyCoursesScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) =>
+                    getIt<DeveloperCoursesOngoingCubit>()..getOngoingCourses(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperCoursesCompletedCubit>()
+                  ..getCompletedCourses(),
+              ),
+            ],
+            child: const DeveloperCoursesMyCoursesScreen(),
+          ),
         );
+
       case Routes.developerCoursesCertificationScreen:
         return MaterialPageRoute(
           builder: (_) => const DeveloperCoursesCertificationScreen(),
