@@ -36,19 +36,21 @@ class _DeveloperProfileBookmarksScreenState
             padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 0.h),
             child: Column(
               children: [
-                Stack(
+                Row(
                   children: [
                     const AppBackIcon(),
-                    Center(
-                      child: Text(
-                        "Bookmarks",
-                        style: AppTextStyles.font24DunePoppinsMedium,
+                    Expanded(
+                      child: Center(
+                        child: Text(
+                          "Bookmarks",
+                          style: AppTextStyles.font24DunePoppinsMedium,
+                        ),
                       ),
-                    )
+                    ),
+                    horizontalSpace(32),
                   ],
                 ),
                 verticalSpace(16),
-                //TODO: Maybe the job container can be reusable component
                 AppTabSwitcher(
                   tabs: const ['Jobs', 'Services', 'Courses'],
                   selectedIndex: currentTabIndex,
