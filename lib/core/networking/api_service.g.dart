@@ -351,36 +351,35 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<List<DeveloperCoursesMainPageOngoingCoursesResponseBody>>
-      getDeveloperOngoingCourses() async {
+  Future<List<DeveloperCoursesCompletedResponseBody>>
+      getDeveloperCompletedCourses(String status) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'status': status};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<
-        List<DeveloperCoursesMainPageOngoingCoursesResponseBody>>(Options(
+    final _options =
+        _setStreamType<List<DeveloperCoursesCompletedResponseBody>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
-        .compose(
-          _dio.options,
-          'api/courses-page/courses/ongoing',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        )));
+            .compose(
+              _dio.options,
+              '/api/courses-page/courses/ongoing',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            )));
     final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<DeveloperCoursesMainPageOngoingCoursesResponseBody> _value;
+    late List<DeveloperCoursesCompletedResponseBody> _value;
     try {
       _value = _result.data!
-          .map((dynamic i) =>
-              DeveloperCoursesMainPageOngoingCoursesResponseBody.fromJson(
-                  i as Map<String, dynamic>))
+          .map((dynamic i) => DeveloperCoursesCompletedResponseBody.fromJson(
+              i as Map<String, dynamic>))
           .toList();
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
@@ -390,35 +389,74 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<List<DeveloperCoursesMainPageRelatedCoursesResponseBody>>
+  Future<List<DeveloperCoursesOngoingResponseBody>>
+      getDeveloperOngoingCourses() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options =
+        _setStreamType<List<DeveloperCoursesOngoingResponseBody>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/courses-page/courses/ongoing',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            )));
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<DeveloperCoursesOngoingResponseBody> _value;
+    try {
+      _value = _result.data!
+          .map((dynamic i) => DeveloperCoursesOngoingResponseBody.fromJson(
+              i as Map<String, dynamic>))
+          .toList();
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<List<DeveloperCoursesRelatedCoursesResponseBody>>
       getDeveloperRelatedCourses() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<
-        List<DeveloperCoursesMainPageRelatedCoursesResponseBody>>(Options(
+    final _options =
+        _setStreamType<List<DeveloperCoursesRelatedCoursesResponseBody>>(
+            Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
-        .compose(
-          _dio.options,
-          'api/courses-page/courses/related',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        )));
+                .compose(
+                  _dio.options,
+                  'api/courses-page/courses/related',
+                  queryParameters: queryParameters,
+                  data: _data,
+                )
+                .copyWith(
+                    baseUrl: _combineBaseUrls(
+                  _dio.options.baseUrl,
+                  baseUrl,
+                )));
     final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<DeveloperCoursesMainPageRelatedCoursesResponseBody> _value;
+    late List<DeveloperCoursesRelatedCoursesResponseBody> _value;
     try {
       _value = _result.data!
           .map((dynamic i) =>
-              DeveloperCoursesMainPageRelatedCoursesResponseBody.fromJson(
+              DeveloperCoursesRelatedCoursesResponseBody.fromJson(
                   i as Map<String, dynamic>))
           .toList();
     } on Object catch (e, s) {
