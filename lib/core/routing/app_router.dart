@@ -43,6 +43,8 @@ import '../../features/authentication/login/ui/login_screen.dart';
 import '../../features/authentication/onboarding/on_boarding_screen.dart';
 import '../../features/authentication/reset_password/ui/reset_password_screen.dart';
 import '../../features/authentication/successful_change_password/successful_change_password.dart';
+import '../../features/chat_bot/logic/chat_bot_cubit.dart';
+import '../../features/chat_bot/ui/chat_bot_screen.dart';
 import '../../features/chats/all_chats/logic/chats_all_chats_cubit.dart';
 import '../../features/chats/all_chats/ui/chats_all_chats.dart';
 import '../../features/chats/contact_list/all_chats/logic/contact_list_all_chats_cubit.dart';
@@ -846,6 +848,15 @@ class AppRouter {
         final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
           builder: (_) => PdfViewerScreen(url: args.fileUrl!),
+        );
+      // ---------------- ChatBot ----------------
+      case Routes.chatBotScreen:
+        final args = settings.arguments as AppArgument;
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<ChatBotCubit>(),
+            child: ChatBotScreen(id: args.developerId!),
+          ),
         );
       default:
         return null;

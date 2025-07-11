@@ -231,6 +231,9 @@ class ApiConstants {
   static const String allChats = "api/private-chats";
   static const String startChatRoom = "api/private-chats/start";
   static const String sendAndReceiveMessages = "api/private-chats/{chatRoomId}";
+
+  //------ chats ------------
+  static const String chatBot = "api/chatbot/ask";
 }
 
 class ApiErrors {

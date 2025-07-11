@@ -1,7 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../../../core/networking/api_error_handler.dart';
-import '../../../../../../core/networking/api_error_handler.dart';
 import '../data/models/developer_courses_specific_category_response_body.dart';
 
 part 'developer_courses_specific_category_state.freezed.dart';

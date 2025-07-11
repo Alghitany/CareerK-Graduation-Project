@@ -189,4 +189,7 @@ class Routes {
 
   // ---------------- PDF Viewer ----------------
   static const String pdfViewerScreen = "/pdfViewerScreen";
+
+  // ------------------ Chat Bot   ----------------
+  static const String chatBotScreen = "/chatBotScreen";
 }
