@@ -24,6 +24,7 @@ import 'package:carrerk/features/developer/ui/courses/main_page/logic/main_page_
 import 'package:carrerk/features/developer/ui/courses/main_page/ui/developer_courses_main_page_screen.dart';
 import 'package:carrerk/features/developer/ui/courses/my_courses/developer_courses_my_courses_screen.dart';
 import 'package:carrerk/features/developer/ui/courses/roadmaps/ui/developer_courses_roadmaps_screen.dart';
+import 'package:carrerk/features/developer/ui/courses/specific_course/logic/specific_course_lesson_complete_logic/specific_course_lesson_complete_cubit.dart';
 import 'package:carrerk/features/developer/ui/jobs/all_categories/developer_jobs_all_categories_screen.dart';
 import 'package:carrerk/features/developer/ui/jobs/application_submitted/developer_jobs_application_submitted_screen.dart';
 import 'package:carrerk/features/developer/ui/jobs/apply/logic/developer_jobs_apply_cubit.dart';
@@ -481,6 +482,9 @@ class AppRouter {
               ),
               BlocProvider(
                 create: (context) => getIt<SpecificCourseEnrollCubit>(),
+              ),
+              BlocProvider(
+                create: (context) => getIt<SpecificCourseLessonCompleteCubit>(),
               ),
             ],
             child:

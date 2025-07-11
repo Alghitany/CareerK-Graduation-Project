@@ -99,6 +99,10 @@ class ApiConstants {
   static const String developerSpecificCourseEnroll =
       "api/course-enrollment/enroll/{courseId}";
 
+  //-----> Specific Course Enroll
+  static const String developerSpecificCourseLessonComplete =
+      "api/course-enrollment/lessons/complete";
+
   //-----> Specific Course Lectures
   static const String developerSpecificCourseReviews =
       "api/course-details/{courseId}/reviews";

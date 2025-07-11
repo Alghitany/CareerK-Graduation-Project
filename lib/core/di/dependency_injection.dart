@@ -83,10 +83,12 @@ import '../../features/developer/ui/courses/roadmaps/data/repo/developer_courses
 import '../../features/developer/ui/courses/roadmaps/logic/developer_courses_roadmaps_cubit.dart';
 import '../../features/developer/ui/courses/specific_course/data/repo/specific_course_enroll_repo.dart';
 import '../../features/developer/ui/courses/specific_course/data/repo/specific_course_lectures_repo.dart';
+import '../../features/developer/ui/courses/specific_course/data/repo/specific_course_lesson_complete_repo.dart';
 import '../../features/developer/ui/courses/specific_course/data/repo/specific_course_overview_repo.dart';
 import '../../features/developer/ui/courses/specific_course/data/repo/specific_course_reviews_repo.dart';
 import '../../features/developer/ui/courses/specific_course/logic/specific_course_enroll_logic/specific_course_enroll_cubit.dart';
 import '../../features/developer/ui/courses/specific_course/logic/specific_course_lectures_logic/specific_course_lectures_cubit.dart';
+import '../../features/developer/ui/courses/specific_course/logic/specific_course_lesson_complete_logic/specific_course_lesson_complete_cubit.dart';
 import '../../features/developer/ui/courses/specific_course/logic/specific_course_overview_logic/specific_course_overview_cubit.dart';
 import '../../features/developer/ui/courses/specific_course/logic/specific_course_reviews_logic/specific_course_reviews_cubit.dart';
 import '../../features/developer/ui/home_main_page/logic/developer_name_home_main_page_logic/developer_name_home_main_page_cubit.dart';
@@ -329,6 +331,13 @@ Future<void> setupGetIt() async {
   );
   getIt.registerFactory<SpecificCourseEnrollCubit>(
     () => SpecificCourseEnrollCubit(getIt()),
+  );
+  // -> Lesson Complete
+  getIt.registerLazySingleton<SpecificCourseLessonCompleteRepo>(
+        () => SpecificCourseLessonCompleteRepo(getIt()),
+  );
+  getIt.registerFactory<SpecificCourseLessonCompleteCubit>(
+        () => SpecificCourseLessonCompleteCubit(getIt()),
   );
   //-> Lectures
   getIt.registerLazySingleton<SpecificCourseLecturesRepo>(

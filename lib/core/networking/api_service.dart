@@ -51,6 +51,8 @@ import '../../features/developer/ui/courses/specific_course/data/model/specific_
 import '../../features/developer/ui/courses/specific_course/data/model/specific_course_enroll_models/specific_course_enroll_response.dart';
 import '../../features/developer/ui/courses/specific_course/data/model/specific_course_header_models/specific_course_header_response_body.dart';
 import '../../features/developer/ui/courses/specific_course/data/model/specific_course_lectures_models/specific_course_lectures_response_body.dart';
+import '../../features/developer/ui/courses/specific_course/data/model/specific_course_lesson_complete_models/specific_course_lesson_complete_request_body.dart';
+import '../../features/developer/ui/courses/specific_course/data/model/specific_course_lesson_complete_models/specific_course_lesson_complete_response.dart';
 import '../../features/developer/ui/courses/specific_course/data/model/specific_course_overview_models/specific_course_overview_response_body.dart';
 import '../../features/developer/ui/courses/specific_course/data/model/specific_course_reviews_models/specific_course_reviews_response_body.dart';
 import '../../features/developer/ui/home_main_page/data/models/developer_courses_home_main_page_models/developer_courses_home_main_page_response_body.dart';
@@ -173,11 +175,17 @@ abstract class ApiService {
     @Path('courseId') String courseId,
   );
 
+  //Enroll
   @PATCH(ApiConstants.developerSpecificCourseEnroll)
   Future<SpecificCourseEnrollResponse> enrollInSpecificCourse(
     @Body() SpecificCourseEnrollRequestBody requestBody,
     @Path('courseId') String courseId,
   );
+  // Lesson Complete
+  @PATCH(ApiConstants.developerSpecificCourseLessonComplete)
+  Future<SpecificCourseLessonCompleteResponse> completeLesson(
+      @Body() SpecificCourseLessonCompleteRequestBody requestBody,
+      );
 
   // -> Reviews
   @GET(ApiConstants.developerSpecificCourseReviews)

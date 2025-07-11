@@ -9,10 +9,12 @@ part of 'specific_course_lectures_response_body.dart';
 SpecificCourseLecturesResponseBody _$SpecificCourseLecturesResponseBodyFromJson(
         Map<String, dynamic> json) =>
     SpecificCourseLecturesResponseBody(
+      id: json['id'] as String,
       type: json['type'] as String,
       title: json['title'] as String,
       videoTime: json['video_time'] as String?,
       videoUrl: json['video_url'] as String?,
+      embedUrl: json['embed_url'] as String?,
       questions: (json['questions'] as List<dynamic>?)
           ?.map((e) => QuizQuestion.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -21,10 +23,12 @@ SpecificCourseLecturesResponseBody _$SpecificCourseLecturesResponseBodyFromJson(
 Map<String, dynamic> _$SpecificCourseLecturesResponseBodyToJson(
         SpecificCourseLecturesResponseBody instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'type': instance.type,
       'title': instance.title,
       'video_time': instance.videoTime,
       'video_url': instance.videoUrl,
+      'embed_url': instance.embedUrl,
       'questions': instance.questions,
     };
 
