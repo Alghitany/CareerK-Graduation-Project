@@ -1,5 +1,6 @@
 import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
+import 'package:carrerk/core/routing/app_argument.dart';
 import 'package:carrerk/core/theming/colors.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +8,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../../../../../../../core/helpers/constants.dart';
+import '../../../../../../../../core/helpers/shared_pref_helper.dart';
 import '../../../../../../../../core/routing/routes.dart';
 import '../../../logout/developer_profile_logout_screen.dart';
 import '../../logic/developer_generate_cv_start_session_logic/developer_generate_cv_start_session_cubit.dart';
@@ -93,9 +96,14 @@ class SettingsOptionsList extends StatelessWidget {
               text: 'Chat with AI',
               leadingIconHeight: 21.5,
               leadingIconWidth: 18,
-              onTap: () {
-                //TODO: Add Chat Bot
-                context.pushNamed(Routes.developerProfilePaymentOptionScreen);
+              onTap: () async {
+                final navigator = Navigator.of(context);
+                final userId = await SharedPrefHelper.getSecuredString(
+                    SharedPrefKeys.userId);
+                navigator.pushNamed(
+                  Routes.chatBotScreen,
+                  arguments: AppArgument(developerId: userId),
+                );
               },
             ),
             settingServiceRow(

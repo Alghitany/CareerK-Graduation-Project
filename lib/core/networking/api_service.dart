@@ -17,6 +17,8 @@ import '../../features/authentication/reset_password/data/models/reset_password_
 import '../../features/authentication/reset_password/data/models/reset_password_response.dart';
 import '../../features/authentication/verify_code/data/model/verify_code_request_body.dart';
 import '../../features/authentication/verify_code/data/model/verify_code_response.dart';
+import '../../features/chat_bot/data/models/chat_bot_request_body.dart';
+import '../../features/chat_bot/data/models/chat_bot_response.dart';
 import '../../features/chats/all_chats/data/model/chats_all_chats_response_body.dart';
 import '../../features/chats/contact_list/all_chats/data/model/conact_list_all_chats_response_body.dart';
 import '../../features/chats/person_chat/data/models/get_chat_messages/get_chat_messages_response_body.dart';
@@ -442,4 +444,10 @@ abstract class ApiService {
 
 //----------------- Customer
 // Customer Sign up Handled with dio
+
+//----------------- Chat Bot
+  @POST(ApiConstants.chatBot)
+  Future<ChatBotResponse> sendMessage(
+    @Body() ChatBotRequestBody body,
+  );
 }

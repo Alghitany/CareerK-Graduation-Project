@@ -34,6 +34,8 @@ import '../../features/authentication/reset_password/data/repos/reset_password_r
 import '../../features/authentication/reset_password/logic/reset_password_cubit.dart';
 import '../../features/authentication/verify_code/data/repo/verify_code_repo.dart';
 import '../../features/authentication/verify_code/logic/verify_code_cubit.dart';
+import '../../features/chat_bot/data/repo/chat_bot_repo.dart';
+import '../../features/chat_bot/logic/chat_bot_cubit.dart';
 import '../../features/chats/all_chats/data/repo/chats_all_chats_repo.dart';
 import '../../features/chats/all_chats/logic/chats_all_chats_cubit.dart';
 import '../../features/chats/person_chat/data/repo/send_messages_repo.dart';
@@ -608,5 +610,13 @@ Future<void> setupGetIt() async {
   );
   getIt.registerFactory<CustomerSignupCubit>(
     () => CustomerSignupCubit(getIt<CustomerSignupRepo>()),
+  );
+
+  // ChatBot -> Send Message
+  getIt.registerLazySingleton<ChatBotRepo>(
+    () => ChatBotRepo(getIt<ApiService>()),
+  );
+  getIt.registerFactory<ChatBotCubit>(
+    () => ChatBotCubit(getIt()),
   );
 }
