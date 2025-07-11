@@ -43,7 +43,7 @@ class DeveloperProfileMainPageInfoResponseBody {
   final String? typeOfJob;
 
   @JsonKey(name: 'years_of_experience')
-  final String? yearsOfExperience;
+  final int? yearsOfExperience;
 
   @JsonKey(name: 'expected_salary')
   final String? expectedSalary;
