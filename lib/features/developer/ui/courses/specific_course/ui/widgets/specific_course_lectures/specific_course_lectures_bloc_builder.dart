@@ -8,7 +8,9 @@ import 'course_lectures_tab/course_lectures_tab.dart';
 import 'course_lectures_tab/course_lectures_tab_shimmer.dart';
 
 class SpecificCourseLecturesBlocBuilder extends StatelessWidget {
-  const SpecificCourseLecturesBlocBuilder({super.key});
+  final String courseId;
+
+  const SpecificCourseLecturesBlocBuilder({super.key, required this.courseId});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,10 @@ class SpecificCourseLecturesBlocBuilder extends StatelessWidget {
   }
 
   Widget setupSuccess(List<SpecificCourseLecturesResponseBody> lectures) {
-    return CourseLecturesTab(lectures: lectures);
+    return CourseLecturesTab(
+      lectures: lectures,
+      courseId: courseId,
+    );
   }
 
   Widget setupError() {

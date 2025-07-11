@@ -48,7 +48,9 @@ class _DeveloperCoursesSpecificCourseScreenState
                 option0: SpecificCourseOverviewBlocBuilder(
                   onStartLearning: switchToLecturesTab,
                 ),
-                option1: const SpecificCourseLecturesBlocBuilder(),
+                option1: SpecificCourseLecturesBlocBuilder(
+                  courseId: widget.courseId ?? "",
+                ),
                 option2: const SpecificCourseReviewsBlocBuilder(),
               ),
             ],

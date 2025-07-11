@@ -24,6 +24,7 @@ import 'package:carrerk/features/developer/ui/courses/main_page/logic/main_page_
 import 'package:carrerk/features/developer/ui/courses/main_page/ui/developer_courses_main_page_screen.dart';
 import 'package:carrerk/features/developer/ui/courses/my_courses/developer_courses_my_courses_screen.dart';
 import 'package:carrerk/features/developer/ui/courses/roadmaps/ui/developer_courses_roadmaps_screen.dart';
+import 'package:carrerk/features/developer/ui/courses/specific_course/logic/specific_course_lesson_complete_logic/specific_course_lesson_complete_cubit.dart';
 import 'package:carrerk/features/developer/ui/jobs/all_categories/developer_jobs_all_categories_screen.dart';
 import 'package:carrerk/features/developer/ui/jobs/application_submitted/developer_jobs_application_submitted_screen.dart';
 import 'package:carrerk/features/developer/ui/jobs/apply/logic/developer_jobs_apply_cubit.dart';
@@ -89,6 +90,7 @@ import '../../features/developer/ui/courses/related_courses/developer_courses_re
 import '../../features/developer/ui/courses/roadmaps/logic/developer_courses_roadmaps_cubit.dart';
 import '../../features/developer/ui/courses/specific_category/logic/developer_courses_specific_category_cubit.dart';
 import '../../features/developer/ui/courses/specific_category/ui/developer_courses_specific_category_screen.dart';
+import '../../features/developer/ui/courses/specific_course/logic/specific_course_enroll_logic/specific_course_enroll_cubit.dart';
 import '../../features/developer/ui/courses/specific_course/logic/specific_course_header_logic/specific_course_header_cubit.dart';
 import '../../features/developer/ui/courses/specific_course/logic/specific_course_lectures_logic/specific_course_lectures_cubit.dart';
 import '../../features/developer/ui/courses/specific_course/logic/specific_course_overview_logic/specific_course_overview_cubit.dart';
@@ -477,6 +479,12 @@ class AppRouter {
               BlocProvider(
                 create: (context) => getIt<SpecificCourseReviewsCubit>()
                   ..getSpecificCourseReviews(args.courseId!),
+              ),
+              BlocProvider(
+                create: (context) => getIt<SpecificCourseEnrollCubit>(),
+              ),
+              BlocProvider(
+                create: (context) => getIt<SpecificCourseLessonCompleteCubit>(),
               ),
             ],
             child:
