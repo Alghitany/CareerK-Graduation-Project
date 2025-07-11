@@ -1,5 +1,5 @@
 class ApiConstants {
-  static const String apiBaseUrl = "https://94deaea98e01.ngrok-free.app/";
+  static const String apiBaseUrl = "https://899d0f411e11.ngrok-free.app/";
   static const String baseImageUrl =
       "https://e419-197-164-8-153.ngrok-free.app/uploads/profile_pictures/";
 
@@ -131,6 +131,13 @@ class ApiConstants {
   // Generate
   static const String developerProfileGenerateCVGenerated =
       "api/cv-generation/{sessionId}/generate";
+
+  //-> Posts Bookmarked
+  static const String developerProfilePostsBookmarked = "api/bookmarks/";
+
+  //-> Courses Bookmarked
+  static const String developerProfileCoursesBookmarked =
+      "api/course-bookmarks/bookmarks";
 
   //-> Job Withdraw
   static const String developerJobWithdraw =

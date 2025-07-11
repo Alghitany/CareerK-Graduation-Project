@@ -63,11 +63,11 @@ class SettingsOptionsList extends StatelessWidget {
             ),
             settingServiceRow(
               icon: 'assets/svgs/bookmark_outlined.svg',
-              text: 'Job Saved',
+              text: 'Bookmarks',
               leadingIconHeight: 18,
               leadingIconWidth: 15,
               onTap: () {
-                context.pushNamed(Routes.developerProfileSavedJobsScreen);
+                context.pushNamed(Routes.developerProfileBookmarksScreen);
               },
             ),
             settingServiceRow(

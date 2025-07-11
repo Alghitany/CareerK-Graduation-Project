@@ -3,6 +3,9 @@ import 'package:carrerk/features/customer/data/models/customer_jobs_post_respons
 import 'package:carrerk/features/customer/ui/applied/data/model/first_screen_model/applications_response_body.dart';
 import 'package:carrerk/features/customer/ui/applied/data/model/reject_applications_model/reject_application_response.dart';
 import 'package:carrerk/features/customer/ui/applied/data/model/secound_screen_model/application_details_response_body.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/bookmarks/data/models/developer_profile_courses_bookmarked_models/developer_profile_courses_bookmarked_response_body.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/bookmarks/data/models/developer_profile_jobs_bookmarked_models/developer_profile_jobs_bookmarked_response_body.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/bookmarks/data/models/developer_profile_services_bookmarked_models/developer_profile_services_bookmarked_response_body.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -274,6 +277,25 @@ abstract class ApiService {
   );
 
   // Edit Profile done with dio directly
+  //-> Bookmarked
+  // Posts
+  @GET(ApiConstants.developerProfilePostsBookmarked)
+  Future<List<DeveloperProfileJobsBookmarkedResponseBody>>
+      getDeveloperJobBookmarks(
+    @Query("postType") String postType,
+  );
+
+  // Services
+  @GET(ApiConstants.developerProfilePostsBookmarked)
+  Future<List<DeveloperProfileServicesBookmarkedResponseBody>>
+      getDeveloperBookmarkedServices(
+    @Query("postType") String postType,
+  );
+
+  // Courses
+  @GET(ApiConstants.developerProfileCoursesBookmarked)
+  Future<List<DeveloperProfileCoursesBookmarkedResponseBody>>
+      getDeveloperProfileBookmarkedCourses();
 
   // Delete Job Application by ID
   @DELETE(ApiConstants.developerJobWithdraw)
