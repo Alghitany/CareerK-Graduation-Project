@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,10 +15,12 @@ class CompanyHomeSeeResumeBlocBuilder extends StatefulWidget {
   const CompanyHomeSeeResumeBlocBuilder({super.key});
 
   @override
-  State<CompanyHomeSeeResumeBlocBuilder> createState() => _CompanyHomeSeeResumeBlocBuilderState();
+  State<CompanyHomeSeeResumeBlocBuilder> createState() =>
+      _CompanyHomeSeeResumeBlocBuilderState();
 }
 
-class _CompanyHomeSeeResumeBlocBuilderState extends State<CompanyHomeSeeResumeBlocBuilder> {
+class _CompanyHomeSeeResumeBlocBuilderState
+    extends State<CompanyHomeSeeResumeBlocBuilder> {
   bool isDownloading = false;
   double downloadProgress = 0.0;
 
@@ -85,9 +88,10 @@ class _CompanyHomeSeeResumeBlocBuilderState extends State<CompanyHomeSeeResumeBl
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CompanyHomeSeeResumeCubit, CompanyHomeSeeResumeState<CompanyHomeSeeResumeResponseBody>>(
+    return BlocBuilder<CompanyHomeSeeResumeCubit,
+        CompanyHomeSeeResumeState<CompanyHomeSeeResumeResponseBody>>(
       buildWhen: (previous, current) =>
-      current is Loading ||
+          current is Loading ||
           current is Success<CompanyHomeSeeResumeResponseBody> ||
           current is Error,
       builder: (context, state) {
@@ -118,14 +122,14 @@ class _CompanyHomeSeeResumeBlocBuilderState extends State<CompanyHomeSeeResumeBl
                 onPressed: isDownloading
                     ? null
                     : () {
-                  if (cvUrl.isNotEmpty) {
-                    downloadCV(cvUrl);
-                  } else {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('CV link is empty')),
-                    );
-                  }
-                },
+                        if (cvUrl.isNotEmpty) {
+                          downloadCV(cvUrl);
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('CV link is empty')),
+                          );
+                        }
+                      },
               ),
               if (isDownloading)
                 SizedBox(

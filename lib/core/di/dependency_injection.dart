@@ -17,11 +17,6 @@ import 'package:carrerk/features/customer/ui/sign_up/data/repo/customer_sign_up_
 import 'package:carrerk/features/customer/ui/sign_up/logic/customer_sign_up_cubit.dart';
 import 'package:carrerk/features/developer/data/repo/developer_single_job_bookmark_repo.dart';
 import 'package:carrerk/features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
-import 'package:carrerk/features/developer/ui/courses/main_page/data/repo/developer_courses_main_page_roadmaps_repo.dart';
-import 'package:carrerk/features/developer/ui/courses/specific_category/data/repo/developer_courses_specific_category_repo.dart';
-import 'package:carrerk/features/developer/ui/courses/specific_category/logic/developer_courses_specific_category_cubit.dart';
-import 'package:carrerk/features/developer/ui/courses/specific_course/data/repo/specific_course_header_repo.dart';
-import 'package:carrerk/features/developer/ui/courses/specific_course/logic/specific_course_header_logic/specific_course_header_cubit.dart';
 import 'package:carrerk/features/developer/ui/home_main_page/data/repos/developer_courses_home_main_page_repo.dart';
 import 'package:carrerk/features/developer/ui/home_main_page/data/repos/developer_name_home_main_page_repo.dart';
 import 'package:carrerk/features/developer/ui/home_main_page/data/repos/developer_tags_home_main_page_repo.dart';
@@ -74,19 +69,30 @@ import '../../features/developer/logic/developer_add_job_bookmark_logic/develope
 import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
 import '../../features/developer/logic/developer_recommendations_logic/developer_recommendations_cubit.dart';
 import '../../features/developer/logic/developer_single_course_bookmark_logic/developer_single_course_bookmark_cubit.dart';
-import '../../features/developer/ui/courses/main_page/data/repo/developer_courses_main_page_ongoing_courses_repo.dart';
-import '../../features/developer/ui/courses/main_page/data/repo/developer_courses_main_page_related_courses_repo.dart';
-import '../../features/developer/ui/courses/main_page/logic/main_page_ongoing_courses_logic/developer_courses_main_page_ongoing_courses_cubit.dart';
-import '../../features/developer/ui/courses/main_page/logic/main_page_related_courses_logic/developer_courses_main_page_related_courses_cubit.dart';
-import '../../features/developer/ui/courses/main_page/logic/main_page_roadmaps_logic/developer_courses_main_page_roadmaps_cubit.dart';
-import '../../features/developer/ui/courses/roadmaps/data/repo/developer_courses_roadmaps_repo.dart';
-import '../../features/developer/ui/courses/roadmaps/logic/developer_courses_roadmaps_cubit.dart';
-import '../../features/developer/ui/courses/specific_course/data/repo/specific_course_lectures_repo.dart';
-import '../../features/developer/ui/courses/specific_course/data/repo/specific_course_overview_repo.dart';
-import '../../features/developer/ui/courses/specific_course/data/repo/specific_course_reviews_repo.dart';
-import '../../features/developer/ui/courses/specific_course/logic/specific_course_lectures_logic/specific_course_lectures_cubit.dart';
-import '../../features/developer/ui/courses/specific_course/logic/specific_course_overview_logic/specific_course_overview_cubit.dart';
-import '../../features/developer/ui/courses/specific_course/logic/specific_course_reviews_logic/specific_course_reviews_cubit.dart';
+import '../../features/developer/ui/courses/data/repos/developer_courses_ongoing_repo.dart';
+import '../../features/developer/ui/courses/data/repos/developer_courses_related_courses_repo.dart';
+import '../../features/developer/ui/courses/logic/ongoing_courses_logic/developer_courses_ongoing_cubit.dart';
+import '../../features/developer/ui/courses/logic/related_courses_logic/developer_courses_related_courses_cubit.dart';
+import '../../features/developer/ui/courses/ui/main_page/data/repo/developer_courses_main_page_roadmaps_repo.dart';
+import '../../features/developer/ui/courses/ui/main_page/logic/main_page_roadmaps_logic/developer_courses_main_page_roadmaps_cubit.dart';
+import '../../features/developer/ui/courses/ui/my_courses/data/repos/developer_courses_completed_repo.dart';
+import '../../features/developer/ui/courses/ui/my_courses/logic/developer_courses_completed_logic/developer_courses_completed_cubit.dart';
+import '../../features/developer/ui/courses/ui/roadmaps/data/repo/developer_courses_roadmaps_repo.dart';
+import '../../features/developer/ui/courses/ui/roadmaps/logic/developer_courses_roadmaps_cubit.dart';
+import '../../features/developer/ui/courses/ui/specific_category/data/repo/developer_courses_specific_category_repo.dart';
+import '../../features/developer/ui/courses/ui/specific_category/logic/developer_courses_specific_category_cubit.dart';
+import '../../features/developer/ui/courses/ui/specific_course/data/repo/specific_course_enroll_repo.dart';
+import '../../features/developer/ui/courses/ui/specific_course/data/repo/specific_course_header_repo.dart';
+import '../../features/developer/ui/courses/ui/specific_course/data/repo/specific_course_lectures_repo.dart';
+import '../../features/developer/ui/courses/ui/specific_course/data/repo/specific_course_lesson_complete_repo.dart';
+import '../../features/developer/ui/courses/ui/specific_course/data/repo/specific_course_overview_repo.dart';
+import '../../features/developer/ui/courses/ui/specific_course/data/repo/specific_course_reviews_repo.dart';
+import '../../features/developer/ui/courses/ui/specific_course/logic/specific_course_enroll_logic/specific_course_enroll_cubit.dart';
+import '../../features/developer/ui/courses/ui/specific_course/logic/specific_course_header_logic/specific_course_header_cubit.dart';
+import '../../features/developer/ui/courses/ui/specific_course/logic/specific_course_lectures_logic/specific_course_lectures_cubit.dart';
+import '../../features/developer/ui/courses/ui/specific_course/logic/specific_course_lesson_complete_logic/specific_course_lesson_complete_cubit.dart';
+import '../../features/developer/ui/courses/ui/specific_course/logic/specific_course_overview_logic/specific_course_overview_cubit.dart';
+import '../../features/developer/ui/courses/ui/specific_course/logic/specific_course_reviews_logic/specific_course_reviews_cubit.dart';
 import '../../features/developer/ui/home_main_page/logic/developer_name_home_main_page_logic/developer_name_home_main_page_cubit.dart';
 import '../../features/developer/ui/home_main_page/logic/developer_tags_home_main_page_logic/developer_tags_home_main_page_cubit.dart';
 import '../../features/developer/ui/jobs/apply/data/repo/developer_jobs_apply_repo.dart';
@@ -278,19 +284,26 @@ Future<void> setupGetIt() async {
     () => DeveloperCoursesMainPageRoadmapsCubit(getIt()),
   );
   //->Ongoing Courses
-  getIt.registerLazySingleton<DeveloperCoursesMainPageOngoingCoursesRepo>(
-    () => DeveloperCoursesMainPageOngoingCoursesRepo(getIt()),
+  getIt.registerLazySingleton<DeveloperCoursesOngoingRepo>(
+    () => DeveloperCoursesOngoingRepo(getIt()),
   );
-  getIt.registerFactory<DeveloperCoursesMainPageOngoingCoursesCubit>(
-    () => DeveloperCoursesMainPageOngoingCoursesCubit(getIt()),
+  getIt.registerFactory<DeveloperCoursesOngoingCubit>(
+    () => DeveloperCoursesOngoingCubit(getIt()),
+  );
+  //->Completed Courses
+  getIt.registerLazySingleton<DeveloperCoursesCompletedRepo>(
+    () => DeveloperCoursesCompletedRepo(getIt()),
+  );
+  getIt.registerFactory<DeveloperCoursesCompletedCubit>(
+    () => DeveloperCoursesCompletedCubit(getIt()),
   );
   //->Related Courses
-  getIt.registerLazySingleton<DeveloperCoursesMainPageRelatedCoursesRepo>(
-    () => DeveloperCoursesMainPageRelatedCoursesRepo(getIt()),
+  getIt.registerLazySingleton<DeveloperCoursesRelatedCoursesRepo>(
+    () => DeveloperCoursesRelatedCoursesRepo(getIt()),
   );
 
-  getIt.registerFactory<DeveloperCoursesMainPageRelatedCoursesCubit>(
-    () => DeveloperCoursesMainPageRelatedCoursesCubit(getIt()),
+  getIt.registerFactory<DeveloperCoursesRelatedCoursesCubit>(
+    () => DeveloperCoursesRelatedCoursesCubit(getIt()),
   );
   //-> Courses Roadmaps
   getIt.registerLazySingleton<DeveloperCoursesRoadmapsRepo>(
@@ -320,6 +333,20 @@ Future<void> setupGetIt() async {
   );
   getIt.registerFactory<SpecificCourseOverviewCubit>(
     () => SpecificCourseOverviewCubit(getIt()),
+  );
+  // -> Enroll
+  getIt.registerLazySingleton<SpecificCourseEnrollRepo>(
+    () => SpecificCourseEnrollRepo(getIt()),
+  );
+  getIt.registerFactory<SpecificCourseEnrollCubit>(
+    () => SpecificCourseEnrollCubit(getIt()),
+  );
+  // -> Lesson Complete
+  getIt.registerLazySingleton<SpecificCourseLessonCompleteRepo>(
+    () => SpecificCourseLessonCompleteRepo(getIt()),
+  );
+  getIt.registerFactory<SpecificCourseLessonCompleteCubit>(
+    () => SpecificCourseLessonCompleteCubit(getIt()),
   );
   //-> Lectures
   getIt.registerLazySingleton<SpecificCourseLecturesRepo>(

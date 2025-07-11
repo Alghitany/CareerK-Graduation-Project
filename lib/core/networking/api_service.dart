@@ -42,15 +42,20 @@ import '../../features/developer/data/models/developer_courses_and_jobs_main_pag
 import '../../features/developer/data/models/developer_recommendtions_models/developer_recommendations_response_body.dart';
 import '../../features/developer/data/models/developer_single_course_bookmark_models/developer_single_course_bookmark_response_model.dart';
 import '../../features/developer/data/models/developer_single_job_bookmark_models/developer_single_job_bookmark_response_model.dart';
-import '../../features/developer/ui/courses/main_page/data/models/main_page_ongoing_courses/developer_courses_main_page_ongoing_courses_response_body.dart';
-import '../../features/developer/ui/courses/main_page/data/models/main_page_related_courses/developer_courses_main_page_related_courses_response_body.dart';
-import '../../features/developer/ui/courses/main_page/data/models/main_page_roadmaps_models/developer_courses_main_page_roadmaps_response_model.dart';
-import '../../features/developer/ui/courses/roadmaps/data/models/developer_courses_roadmaps_response_body.dart';
-import '../../features/developer/ui/courses/specific_category/data/models/developer_courses_specific_category_response_body.dart';
-import '../../features/developer/ui/courses/specific_course/data/model/specific_course_header_models/specific_course_header_response_body.dart';
-import '../../features/developer/ui/courses/specific_course/data/model/specific_course_lectures_models/specific_course_lectures_response_body.dart';
-import '../../features/developer/ui/courses/specific_course/data/model/specific_course_overview_models/specific_course_overview_response_body.dart';
-import '../../features/developer/ui/courses/specific_course/data/model/specific_course_reviews_models/specific_course_reviews_response_body.dart';
+import '../../features/developer/ui/courses/data/models/ongoing_courses/developer_courses_ongoing_response_body.dart';
+import '../../features/developer/ui/courses/data/models/related_courses/developer_courses_related_courses_response_body.dart';
+import '../../features/developer/ui/courses/ui/main_page/data/models/main_page_roadmaps_models/developer_courses_main_page_roadmaps_response_model.dart';
+import '../../features/developer/ui/courses/ui/my_courses/data/models/developer_courses_completed_response_body.dart';
+import '../../features/developer/ui/courses/ui/roadmaps/data/models/developer_courses_roadmaps_response_body.dart';
+import '../../features/developer/ui/courses/ui/specific_category/data/models/developer_courses_specific_category_response_body.dart';
+import '../../features/developer/ui/courses/ui/specific_course/data/model/specific_course_enroll_models/specific_course_enroll_request_body.dart';
+import '../../features/developer/ui/courses/ui/specific_course/data/model/specific_course_enroll_models/specific_course_enroll_response.dart';
+import '../../features/developer/ui/courses/ui/specific_course/data/model/specific_course_header_models/specific_course_header_response_body.dart';
+import '../../features/developer/ui/courses/ui/specific_course/data/model/specific_course_lectures_models/specific_course_lectures_response_body.dart';
+import '../../features/developer/ui/courses/ui/specific_course/data/model/specific_course_lesson_complete_models/specific_course_lesson_complete_request_body.dart';
+import '../../features/developer/ui/courses/ui/specific_course/data/model/specific_course_lesson_complete_models/specific_course_lesson_complete_response.dart';
+import '../../features/developer/ui/courses/ui/specific_course/data/model/specific_course_overview_models/specific_course_overview_response_body.dart';
+import '../../features/developer/ui/courses/ui/specific_course/data/model/specific_course_reviews_models/specific_course_reviews_response_body.dart';
 import '../../features/developer/ui/home_main_page/data/models/developer_courses_home_main_page_models/developer_courses_home_main_page_response_body.dart';
 import '../../features/developer/ui/home_main_page/data/models/developer_name_home_main_page_models/developer_name_home_main_page_response_body.dart';
 import '../../features/developer/ui/home_main_page/data/models/developer_tags_home_main_page_models/developer_tags_home_main_page_response_body.dart';
@@ -130,14 +135,21 @@ abstract class ApiService {
   Future<List<DeveloperCoursesMainPageRoadmapsResponseModel>>
       getDeveloperCoursesMainPageRoadmaps();
 
+  //-> Completed Courses
+  @GET(ApiConstants.developerCoursesCompleted)
+  Future<List<DeveloperCoursesCompletedResponseBody>>
+      getDeveloperCompletedCourses(
+    @Query('status') String status,
+  );
+
   //-> Ongoing Courses
-  @GET(ApiConstants.developerCoursesMainPageOngoingCourses)
-  Future<List<DeveloperCoursesMainPageOngoingCoursesResponseBody>>
+  @GET(ApiConstants.developerCoursesOngoing)
+  Future<List<DeveloperCoursesOngoingResponseBody>>
       getDeveloperOngoingCourses();
 
   //-> Related Courses
   @GET(ApiConstants.developerCoursesMainPageRelatedCourses)
-  Future<List<DeveloperCoursesMainPageRelatedCoursesResponseBody>>
+  Future<List<DeveloperCoursesRelatedCoursesResponseBody>>
       getDeveloperRelatedCourses();
 
   //->Courses Roadmaps
@@ -169,6 +181,19 @@ abstract class ApiService {
   @GET(ApiConstants.developerSpecificCourseLectures)
   Future<List<SpecificCourseLecturesResponseBody>> getSpecificCourseLectures(
     @Path('courseId') String courseId,
+  );
+
+  //Enroll
+  @PATCH(ApiConstants.developerSpecificCourseEnroll)
+  Future<SpecificCourseEnrollResponse> enrollInSpecificCourse(
+    @Body() SpecificCourseEnrollRequestBody requestBody,
+    @Path('courseId') String courseId,
+  );
+
+  // Lesson Complete
+  @PATCH(ApiConstants.developerSpecificCourseLessonComplete)
+  Future<SpecificCourseLessonCompleteResponse> completeLesson(
+    @Body() SpecificCourseLessonCompleteRequestBody requestBody,
   );
 
   // -> Reviews
