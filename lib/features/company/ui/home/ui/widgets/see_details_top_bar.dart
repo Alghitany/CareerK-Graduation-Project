@@ -10,7 +10,6 @@ class SeeDetailsTopBar extends StatefulWidget {
 }
 
 class _SeeDetailsTopBarState extends State<SeeDetailsTopBar> {
-  bool isBookmarked = false;
 
   @override
   Widget build(BuildContext context) {

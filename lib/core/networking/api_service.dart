@@ -72,6 +72,7 @@ import '../../features/developer/ui/profile/ui/jobs_applied/data/models/develope
 import '../../features/developer/ui/profile/ui/jobs_applied/data/models/job_withdraw/developer_job_withdraw_response_body.dart';
 import '../../features/developer/ui/profile/ui/jobs_applied/data/models/service_delete/developer_service_delete_response_body.dart';
 import '../../features/developer/ui/profile/ui/main_page/data/models/profile_info_models/developer_profile_main_page_info_response_body.dart';
+import '../../features/developer/ui/profile/ui/main_page/data/models/profile_skills_models/developer_profile_main_page_skills_response_body.dart';
 import '../../features/developer/ui/profile/ui/my_cv/data/models/developer_profile_settings_delete_cv/developer_profile_settings_delete_cv_request_body.dart';
 import '../../features/developer/ui/profile/ui/my_cv/data/models/developer_profile_settings_delete_cv/developer_profile_settings_delete_cv_response.dart';
 import '../../features/developer/ui/profile/ui/my_cv/data/models/developer_profile_settings_get_my_cv_models/developer_profile_settings_get_my_cv_response_body.dart';
@@ -262,6 +263,9 @@ abstract class ApiService {
   @GET(ApiConstants.developerProfileInfo)
   Future<DeveloperProfileMainPageInfoResponseBody>
       getDeveloperProfileMainPageInfo();
+  // Skills
+  @GET(ApiConstants.developerProfileSkills)
+  Future<DeveloperProfileMainPageSkillsResponseBody> getDeveloperProfileMainPageSkills();
 
   // Edit Profile Use Dio Directly
 

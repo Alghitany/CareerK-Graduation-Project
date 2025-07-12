@@ -24,6 +24,7 @@ import 'package:carrerk/features/developer/ui/jobs/apply/ui/developer_jobs_apply
 import 'package:carrerk/features/developer/ui/jobs/main_page/developer_jobs_main_page_screen.dart';
 import 'package:carrerk/features/developer/ui/profile/ui/bookmarks/data/repos/developer_profile_services_bookmarked_repo.dart';
 import 'package:carrerk/features/developer/ui/profile/ui/bookmarks/logic/developer_profile_services_bookmarked_logic/developer_profile_services_bookmarked_cubit.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/main_page/logic/profile_skills_logic/developer_profile_main_page_skills_cubit.dart';
 import 'package:carrerk/features/developer/ui/profile/ui/my_cv/logic/developer_profile_settings_delete_cv_logic/developer_profile_settings_delete_cv_cubit.dart';
 import 'package:carrerk/features/developer/ui/profile/ui/my_cv/logic/developer_profile_settings_get_my_cv_logic/developer_profile_sittings_get_my_cv_cubit.dart';
 import 'package:carrerk/features/developer/ui/profile/ui/my_cv/ui/developer_profile_my_cv_screen.dart';
@@ -638,6 +639,10 @@ class AppRouter {
               ),
               BlocProvider(
                 create: (_) => getIt<DeveloperProfileEditCubit>(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperProfileMainPageSkillsCubit>()
+                  ..fetchDeveloperProfileMainPageSkills(),
               ),
             ],
             child: const DeveloperProfileMainPageScreen(),

@@ -28,7 +28,7 @@ DeveloperProfileMainPageInfoResponseBody
           trackLevel: json['track_level'] as String?,
           previousJob: json['previous_job'] as String?,
           typeOfJob: json['type_of_job'] as String?,
-          yearsOfExperience: json['years_of_experience'] as String?,
+          yearsOfExperience: (json['years_of_experience'] as num?)?.toInt(),
           expectedSalary: json['expected_salary'] as String?,
           uploadedCv: json['uploaded_cv'] as String?,
           interestedCourses: (json['interested_courses'] as List<dynamic>?)

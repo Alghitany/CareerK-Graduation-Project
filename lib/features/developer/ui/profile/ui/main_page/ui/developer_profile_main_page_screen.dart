@@ -2,9 +2,8 @@ import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/widgets/developer_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'widgets/developer_profile_main_page_info_bloc_builder.dart';
-import 'widgets/skills_progress.dart';
+import 'widgets/developer_profile_main_page_skills_progress_bloc_builder.dart';
 
 class DeveloperProfileMainPageScreen extends StatelessWidget {
   const DeveloperProfileMainPageScreen({super.key});
@@ -23,8 +22,7 @@ class DeveloperProfileMainPageScreen extends StatelessWidget {
               children: [
                 const DeveloperProfileMainPageInfoBlocBuilder(),
                 verticalSpace(16),
-                //TODO: Abdulrahman Will Do New Endpoint
-                const SkillsProgress(),
+                const DeveloperProfileMainPageSkillsProgressBlocBuilder(),
               ],
             ),
           ),
