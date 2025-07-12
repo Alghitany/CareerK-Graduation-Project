@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../../core/theming/styles.dart';
-import '../../../../../../core/widgets/app_choice_chip.dart';
+import '../../../../../../../core/theming/styles.dart';
+import '../../../../../../../core/widgets/app_choice_chip.dart';
 
 class ByInterestChipsList extends StatelessWidget {
   const ByInterestChipsList({super.key});

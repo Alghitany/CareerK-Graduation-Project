@@ -38,6 +38,7 @@ class ByInterestCommunityList extends StatelessWidget {
             communityName: community["name"]!,
             memberCount: community["count"]!,
             iconPath: community["icon"]!,
+            groupId: "",
           );
         },
       ),

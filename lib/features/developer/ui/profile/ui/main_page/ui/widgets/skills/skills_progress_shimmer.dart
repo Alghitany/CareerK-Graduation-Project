@@ -35,7 +35,8 @@ class SkillsProgressShimmer extends StatelessWidget {
             crossAxisSpacing: 16.w,
             childAspectRatio: 90 / 115,
           ),
-          itemCount: 6, // Showing shimmer for 6 placeholders
+          itemCount: 6,
+          // Showing shimmer for 6 placeholders
           itemBuilder: (context, index) {
             return Container(
               width: 93.w,

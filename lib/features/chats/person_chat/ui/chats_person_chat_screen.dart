@@ -1,3 +1,4 @@
+import 'package:carrerk/features/chats/person_chat/ui/widgets/exit_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,7 +8,6 @@ import '../../../../core/di/dependency_injection.dart';
 import '../../../../core/helpers/constants.dart';
 import '../../../../core/helpers/shared_pref_helper.dart';
 import '../../../../core/networking/socket_service.dart';
-import '../../../developer/ui/community/chat/widgets/exit_icon.dart';
 import '../data/models/get_chat_messages/get_chat_messages_response_body.dart';
 import '../logic/get_chat_messages/get_chat_messages_cubit.dart';
 import '../logic/send_messages/send_messages_cubit.dart';

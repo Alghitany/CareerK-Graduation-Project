@@ -1,12 +1,11 @@
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/theming/colors.dart';
+import 'package:carrerk/features/developer/ui/community/chat/ui/widgets/community_details/community_details_bloc_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'widgets/community_and_follow_icon.dart';
-import 'widgets/exit_icon.dart';
-import 'widgets/input_field_with_send_button.dart';
-import 'widgets/receive_message.dart';
+import '../../../../../chats/person_chat/ui/widgets/chat_messages/receive_messages.dart';
+import '../../../../../chats/person_chat/ui/widgets/exit_icon.dart';
 
 class DeveloperCommunityChatScreen extends StatefulWidget {
   const DeveloperCommunityChatScreen({super.key});
@@ -18,7 +17,14 @@ class DeveloperCommunityChatScreen extends StatefulWidget {
 
 class _DeveloperCommunityChatScreenState
     extends State<DeveloperCommunityChatScreen> {
-  List<Widget> messages = [const ReceiveMessage()];
+  List<Widget> messages = [
+    ReceiveMessage(
+      messageText: "Hello, world!",
+      time: DateTime.now(), // ✅ required
+      isSender: true,
+      senderName: "You",
+    )
+  ];
   final ScrollController _scrollController = ScrollController();
 
   void addMessage(Widget message) {
@@ -53,7 +59,7 @@ class _DeveloperCommunityChatScreenState
                 children: [
                   const ExitIcon(),
                   verticalSpace(16),
-                  const CommunityAndFollowIcon(),
+                  const CommunityDetailsBlocBuilder(),
                 ],
               ),
             ),
@@ -70,7 +76,12 @@ class _DeveloperCommunityChatScreenState
                 ),
               ),
             ),
-            InputFieldWithSendButton(onSend: addMessage),
+            // InputFieldWithSendButton(
+            //   onSend: (text) {
+            //     // ✅ Correct usage
+            //     print("User typed: $text");
+            //   },
+            // ),
           ],
         ),
       ),

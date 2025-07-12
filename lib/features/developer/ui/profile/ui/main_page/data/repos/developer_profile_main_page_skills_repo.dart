@@ -10,7 +10,7 @@ class DeveloperProfileMainPageSkillsRepo {
   DeveloperProfileMainPageSkillsRepo(this._service);
 
   Future<ApiResult<DeveloperProfileMainPageSkillsResponseBody>>
-  getDeveloperProfileMainPageSkills() async {
+      getDeveloperProfileMainPageSkills() async {
     try {
       final response = await _service.getDeveloperProfileMainPageSkills();
       return ApiResult.success(response);
