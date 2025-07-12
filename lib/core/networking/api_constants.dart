@@ -1,5 +1,5 @@
 class ApiConstants {
-  static const String apiBaseUrl = "https://6740d2116974.ngrok-free.app/";
+  static const String apiBaseUrl = "https://cc26f943a508.ngrok-free.app/";
   static const String baseImageUrl =
       "https://e419-197-164-8-153.ngrok-free.app/uploads/profile_pictures/";
 
@@ -25,6 +25,13 @@ class ApiConstants {
   // -> Developer Courses (Courses List)
   static const String developerHomeCourses =
       "api/developer/{developerId}/courses";
+
+  //-----> Community
+  //-> For You
+  static const String forYouCommunity = "api/community/groups";
+
+  //-> Specific Community
+  static const String specificCommunity = "api/community/groups/{groupId}";
 
   //-----> Jobs
   //-> Apply

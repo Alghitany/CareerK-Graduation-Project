@@ -15,8 +15,7 @@ import 'package:carrerk/features/customer/ui/home/ui/customer_home_main_page.dar
 import 'package:carrerk/features/customer/ui/jobs_post/customer_jobs_post.dart';
 import 'package:carrerk/features/customer/ui/profile/customer_profile_screen.dart';
 import 'package:carrerk/features/customer/ui/sign_up/compulsory_data/customer_sign_up_compulsory_data_screen.dart';
-import 'package:carrerk/features/developer/ui/community/all_communities/developer_community_all_communities_screen.dart';
-import 'package:carrerk/features/developer/ui/community/chat/developer_community_chat_screen.dart';
+import 'package:carrerk/features/developer/ui/community/chat/ui/developer_community_chat_screen.dart';
 import 'package:carrerk/features/developer/ui/jobs/all_categories/developer_jobs_all_categories_screen.dart';
 import 'package:carrerk/features/developer/ui/jobs/application_submitted/developer_jobs_application_submitted_screen.dart';
 import 'package:carrerk/features/developer/ui/jobs/apply/logic/developer_jobs_apply_cubit.dart';
@@ -79,9 +78,11 @@ import '../../features/customer/ui/sign_up/logic/customer_sign_up_cubit.dart';
 import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
 import '../../features/developer/logic/developer_recommendations_logic/developer_recommendations_cubit.dart';
 import '../../features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
+import '../../features/developer/ui/community/all_communities/logic/for_you_logic/developer_community_for_you_cubit.dart';
+import '../../features/developer/ui/community/all_communities/ui/developer_community_all_communities_screen.dart';
+import '../../features/developer/ui/community/chat/logic/specific_community_logic/specific_community_cubit.dart';
 import '../../features/developer/ui/courses/logic/ongoing_courses_logic/developer_courses_ongoing_cubit.dart';
 import '../../features/developer/ui/courses/logic/related_courses_logic/developer_courses_related_courses_cubit.dart';
-import '../../features/developer/ui/courses/ui/certification/developer_courses_certification_screen.dart';
 import '../../features/developer/ui/courses/ui/cv_updated/download_cv/developer_courses_cv_updated_download_cv_screen.dart';
 import '../../features/developer/ui/courses/ui/cv_updated/successful_update/developer_courses_cv_updated_successful_update_screen.dart';
 import '../../features/developer/ui/courses/ui/main_page/logic/main_page_roadmaps_logic/developer_courses_main_page_roadmaps_cubit.dart';
@@ -131,8 +132,6 @@ import '../../features/developer/ui/profile/ui/jobs_applied/ui/developer_profile
 import '../../features/developer/ui/profile/ui/main_page/logic/profile_info_logic/developer_profile_main_page_info_cubit.dart';
 import '../../features/developer/ui/profile/ui/main_page/ui/developer_profile_main_page_screen.dart';
 import '../../features/developer/ui/profile/ui/my_cv/logic/developer_profile_settings_update_uploaded_cv_logic/developer_profile_settings_update_uploaded_cv_cubit.dart';
-import '../../features/developer/ui/profile/ui/payment/add_new_cart/developer_profile_payment_add_new_card_screen.dart';
-import '../../features/developer/ui/profile/ui/payment/option/developer_profile_payment_option_screen.dart';
 import '../../features/developer/ui/profile/ui/settings/logic/developer_generate_cv_start_session_logic/developer_generate_cv_start_session_cubit.dart';
 import '../../features/developer/ui/profile/ui/settings/ui/developer_profile_settings_screen.dart';
 import '../../features/notifications/ui/notifications_screen.dart';
@@ -363,12 +362,22 @@ class AppRouter {
       // Community
       case Routes.developerCommunityAllCommunitiesScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperCommunityAllCommunitiesScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) =>
+                getIt<DeveloperCommunityForYouCubit>()..getCommunities(),
+            child: const DeveloperCommunityAllCommunitiesScreen(),
+          ),
         );
       case Routes.developerCommunityChatScreen:
+        final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-          builder: (_) => const DeveloperCommunityChatScreen(),
+          builder: (_) => BlocProvider<SpecificCommunityCubit>(
+            create: (_) => getIt<SpecificCommunityCubit>()
+              ..getSpecificCommunity(args.groupId!),
+            child: const DeveloperCommunityChatScreen(),
+          ),
         );
+
       // Notification
       case Routes.notificationsScreen:
         return MaterialPageRoute(
@@ -522,11 +531,6 @@ class AppRouter {
             ],
             child: const DeveloperCoursesMyCoursesScreen(),
           ),
-        );
-
-      case Routes.developerCoursesCertificationScreen:
-        return MaterialPageRoute(
-          builder: (_) => const DeveloperCoursesCertificationScreen(),
         );
       // Courses --> CvUpdated
       case Routes.developerCoursesCvUpdatedUpdateCvScreen:
@@ -766,16 +770,6 @@ class AppRouter {
             ],
             child: const DeveloperProfileJobsAndServicesAppliedScreen(),
           ),
-        );
-
-      // Profile --> Payment
-      case Routes.developerProfilePaymentOptionScreen:
-        return MaterialPageRoute(
-          builder: (_) => const DeveloperProfilePaymentOptionScreen(),
-        );
-      case Routes.developerProfilePaymentAddNewCartScreen:
-        return MaterialPageRoute(
-          builder: (_) => const DeveloperProfilePaymentAddNewCardScreen(),
         );
       // ---------------- Customer ----------------
       // sign up

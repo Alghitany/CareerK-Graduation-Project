@@ -10,7 +10,6 @@ class SeeDetailsTopBar extends StatefulWidget {
 }
 
 class _SeeDetailsTopBarState extends State<SeeDetailsTopBar> {
-
   @override
   Widget build(BuildContext context) {
     return Row(

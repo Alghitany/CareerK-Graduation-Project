@@ -74,10 +74,12 @@ class _DeveloperRecentlyPostedJobsListState
                       MultiBlocProvider(
                         providers: [
                           BlocProvider(
-                              create: (_) => getIt<DeveloperSingleJobBookmarkCubit>()
-                                ..bookmarkJob(job.id!)),
+                              create: (_) =>
+                                  getIt<DeveloperSingleJobBookmarkCubit>()
+                                    ..bookmarkJob(job.id!)),
                           BlocProvider(
-                              create: (_) => getIt<DeveloperAddJobBookmarkCubit>()),
+                              create: (_) =>
+                                  getIt<DeveloperAddJobBookmarkCubit>()),
                         ],
                         child: DeveloperJobBookmarkBlocBuilder(postId: job.id!),
                       ),

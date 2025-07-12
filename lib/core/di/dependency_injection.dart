@@ -72,6 +72,10 @@ import '../../features/developer/logic/developer_add_job_bookmark_logic/develope
 import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
 import '../../features/developer/logic/developer_recommendations_logic/developer_recommendations_cubit.dart';
 import '../../features/developer/logic/developer_single_course_bookmark_logic/developer_single_course_bookmark_cubit.dart';
+import '../../features/developer/ui/community/all_communities/data/repos/developer_community_for_you_repo.dart';
+import '../../features/developer/ui/community/all_communities/logic/for_you_logic/developer_community_for_you_cubit.dart';
+import '../../features/developer/ui/community/chat/data/repos/specific_community_repo.dart';
+import '../../features/developer/ui/community/chat/logic/specific_community_logic/specific_community_cubit.dart';
 import '../../features/developer/ui/courses/data/repos/developer_courses_ongoing_repo.dart';
 import '../../features/developer/ui/courses/data/repos/developer_courses_related_courses_repo.dart';
 import '../../features/developer/ui/courses/logic/ongoing_courses_logic/developer_courses_ongoing_cubit.dart';
@@ -184,6 +188,23 @@ Future<void> setupGetIt() async {
   );
   getIt.registerFactory<DeveloperSignupCubit>(
     () => DeveloperSignupCubit(getIt<DeveloperSignupRepo>()),
+  );
+  //-> Community
+  // All Communities
+  getIt.registerLazySingleton<DeveloperCommunityForYouRepo>(
+    () => DeveloperCommunityForYouRepo(getIt()),
+  );
+
+  getIt.registerFactory<DeveloperCommunityForYouCubit>(
+    () => DeveloperCommunityForYouCubit(getIt()),
+  );
+  // All Communities
+  getIt.registerLazySingleton<SpecificCommunityRepo>(
+    () => SpecificCommunityRepo(getIt()),
+  );
+
+  getIt.registerFactory<SpecificCommunityCubit>(
+    () => SpecificCommunityCubit(getIt()),
   );
   //-> Home Main Page
   // Developer Name
@@ -376,10 +397,10 @@ Future<void> setupGetIt() async {
   );
   //-> Skills
   getIt.registerLazySingleton<DeveloperProfileMainPageSkillsRepo>(
-        () => DeveloperProfileMainPageSkillsRepo(getIt()),
+    () => DeveloperProfileMainPageSkillsRepo(getIt()),
   );
   getIt.registerFactory<DeveloperProfileMainPageSkillsCubit>(
-        () => DeveloperProfileMainPageSkillsCubit(getIt()),
+    () => DeveloperProfileMainPageSkillsCubit(getIt()),
   );
   //-> Edit
   getIt.registerLazySingleton<DeveloperProfileEditRepo>(

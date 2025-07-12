@@ -13,7 +13,7 @@ class DeveloperProfileMainPageSkillsResponseBody {
   });
 
   factory DeveloperProfileMainPageSkillsResponseBody.fromJson(
-      Map<String, dynamic> json) =>
+          Map<String, dynamic> json) =>
       _$DeveloperProfileMainPageSkillsResponseBodyFromJson(json);
 
   Map<String, dynamic> toJson() =>

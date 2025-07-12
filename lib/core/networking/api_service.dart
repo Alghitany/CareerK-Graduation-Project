@@ -44,6 +44,8 @@ import '../../features/developer/data/models/developer_courses_and_jobs_main_pag
 import '../../features/developer/data/models/developer_recommendtions_models/developer_recommendations_response_body.dart';
 import '../../features/developer/data/models/developer_single_course_bookmark_models/developer_single_course_bookmark_response_model.dart';
 import '../../features/developer/data/models/developer_single_job_bookmark_models/developer_single_job_bookmark_response_model.dart';
+import '../../features/developer/ui/community/all_communities/data/models/for_you_models/developer_community_for_you_response_body.dart';
+import '../../features/developer/ui/community/chat/data/models/specific_community_models/specific_community_response_body.dart';
 import '../../features/developer/ui/courses/data/models/ongoing_courses/developer_courses_ongoing_response_body.dart';
 import '../../features/developer/ui/courses/data/models/related_courses/developer_courses_related_courses_response_body.dart';
 import '../../features/developer/ui/courses/ui/main_page/data/models/main_page_roadmaps_models/developer_courses_main_page_roadmaps_response_model.dart';
@@ -125,6 +127,17 @@ abstract class ApiService {
   @GET(ApiConstants.developerHomeCourses)
   Future<List<DeveloperCoursesHomeMainPageResponseBody>> getDeveloperCourses(
     @Path('developerId') String developerId,
+  );
+
+  // Community
+  //-> For You
+  @GET(ApiConstants.forYouCommunity)
+  Future<DeveloperCommunityForYouResponseBody> getDeveloperCommunityForYou();
+
+  //-> Specific Community
+  @GET(ApiConstants.specificCommunity)
+  Future<SpecificCommunityResponseBody> getDeveloperSpecificCommunity(
+    @Path("groupId") String groupId,
   );
 
   // Courses Main Page
@@ -263,9 +276,11 @@ abstract class ApiService {
   @GET(ApiConstants.developerProfileInfo)
   Future<DeveloperProfileMainPageInfoResponseBody>
       getDeveloperProfileMainPageInfo();
+
   // Skills
   @GET(ApiConstants.developerProfileSkills)
-  Future<DeveloperProfileMainPageSkillsResponseBody> getDeveloperProfileMainPageSkills();
+  Future<DeveloperProfileMainPageSkillsResponseBody>
+      getDeveloperProfileMainPageSkills();
 
   // Edit Profile Use Dio Directly
 
