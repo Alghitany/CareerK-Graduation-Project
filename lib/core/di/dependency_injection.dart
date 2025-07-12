@@ -23,6 +23,7 @@ import 'package:carrerk/features/developer/ui/home_main_page/data/repos/develope
 import 'package:carrerk/features/developer/ui/home_main_page/logic/developer_courses_home_main_page_logic/developer_courses_home_main_page_cubit.dart';
 import 'package:carrerk/features/developer/ui/jobs/search/data/repo/developer_jobs_recently_posted_repo.dart';
 import 'package:carrerk/features/developer/ui/profile/ui/bookmarks/data/repos/developer_profile_services_bookmarked_repo.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/main_page/data/repos/developer_profile_main_page_skills_repo.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -123,6 +124,7 @@ import '../../features/developer/ui/profile/ui/jobs_applied/logic/developer_prof
 import '../../features/developer/ui/profile/ui/jobs_applied/logic/developer_service_delete_logic/developer_service_delete_cubit.dart';
 import '../../features/developer/ui/profile/ui/main_page/data/repos/developer_profile_main_page_info_repo.dart';
 import '../../features/developer/ui/profile/ui/main_page/logic/profile_info_logic/developer_profile_main_page_info_cubit.dart';
+import '../../features/developer/ui/profile/ui/main_page/logic/profile_skills_logic/developer_profile_main_page_skills_cubit.dart';
 import '../../features/developer/ui/profile/ui/my_cv/data/repos/developer_profile_settings_delete_cv_repo.dart';
 import '../../features/developer/ui/profile/ui/my_cv/data/repos/developer_profile_settings_update_uploaded_my_cv_repo.dart';
 import '../../features/developer/ui/profile/ui/my_cv/data/repos/developer_profile_sittings_get_my_cv_repo.dart';
@@ -371,6 +373,13 @@ Future<void> setupGetIt() async {
   );
   getIt.registerFactory<DeveloperProfileMainPageInfoCubit>(
     () => DeveloperProfileMainPageInfoCubit(getIt()),
+  );
+  //-> Skills
+  getIt.registerLazySingleton<DeveloperProfileMainPageSkillsRepo>(
+        () => DeveloperProfileMainPageSkillsRepo(getIt()),
+  );
+  getIt.registerFactory<DeveloperProfileMainPageSkillsCubit>(
+        () => DeveloperProfileMainPageSkillsCubit(getIt()),
   );
   //-> Edit
   getIt.registerLazySingleton<DeveloperProfileEditRepo>(

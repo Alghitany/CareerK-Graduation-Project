@@ -5,19 +5,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
+import '../../../data/models/profile_skills_models/developer_profile_main_page_skills_response_body.dart';
+
 class SkillsProgress extends StatelessWidget {
-  const SkillsProgress({super.key});
+  final List<DeveloperSkill>? skills;
+
+  const SkillsProgress({super.key, required this.skills});
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, dynamic>> skills = [
-      {"color": Colors.orange, "percent": 86, "name": "HTML"},
-      {"color": Colors.green, "percent": 48, "name": "React"},
-      {"color": Colors.blue, "percent": 56, "name": "Java"},
-      {"color": Colors.red, "percent": 75, "name": "Flutter"},
-      {"color": Colors.purple, "percent": 65, "name": "Kotlin"},
-      {"color": Colors.teal, "percent": 80, "name": "Dart"},
-    ];
+    if (skills == null || skills!.isEmpty) {
+      return const Text("No skills found.");
+    }
+
     return Column(
       children: [
         Align(
@@ -37,9 +37,9 @@ class SkillsProgress extends StatelessWidget {
             crossAxisSpacing: 16.w,
             childAspectRatio: 90 / 115,
           ),
-          itemCount: skills.length,
+          itemCount: skills!.length,
           itemBuilder: (context, index) {
-            final skill = skills[index];
+            final skill = skills![index];
             return Container(
               width: 93.w,
               height: 138.h,
@@ -53,18 +53,19 @@ class SkillsProgress extends StatelessWidget {
                   CircularPercentIndicator(
                     radius: 30,
                     lineWidth: 8,
-                    percent: skill['percent'] / 100,
+                    percent: (skill.progressPercentage ?? 0) / 100,
                     center: Text(
-                      "${skill['percent'].toInt()}%",
+                      "${skill.progressPercentage ?? 0}%",
                       style: AppTextStyles.font14DunePoppinsMedium,
                     ),
-                    progressColor: skill['color'],
+                    progressColor: _getSkillColor(index),
                     backgroundColor: Colors.grey.shade300,
                     circularStrokeCap: CircularStrokeCap.round,
                   ),
                   verticalSpace(16),
                   Text(
-                    skill['name'],
+                    skill.skillName ?? "Unknown",
+                    textAlign: TextAlign.center,
                     style: AppTextStyles.font16BlackPoppinsMedium,
                   ),
                 ],
@@ -74,5 +75,21 @@ class SkillsProgress extends StatelessWidget {
         )
       ],
     );
+  }
+
+  Color _getSkillColor(int index) {
+    // You can customize this or map based on skill names
+    final colors = [
+      Colors.orange,
+      Colors.green,
+      Colors.blue,
+      Colors.red,
+      Colors.purple,
+      Colors.teal,
+      Colors.brown,
+      Colors.cyan,
+      Colors.indigo,
+    ];
+    return colors[index % colors.length];
   }
 }
