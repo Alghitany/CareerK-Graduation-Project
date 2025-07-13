@@ -13,10 +13,9 @@ class ProfileAllJobPostsBlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CompanyProfileAllJobPostsCubit,
-        CompanyProfileAllJobPostsState>(
+    return BlocBuilder<CompanyProfileAllJobPostsCubit, CompanyProfileAllJobPostsState>(
       buildWhen: (previous, current) =>
-          current is CompanyProfileAllJobPostsLoading ||
+      current is CompanyProfileAllJobPostsLoading ||
           current is CompanyProfileAllJobPostsSuccess ||
           current is CompanyProfileAllJobPostsError,
       builder: (context, state) {
@@ -35,7 +34,7 @@ class ProfileAllJobPostsBlocBuilder extends StatelessWidget {
   }
 
   Widget setupSuccess(CompanyProfileAllJobPostsResponseBody data) {
-    if (data.jobs.isEmpty) {
+    if ((data.jobs?.isEmpty ?? true)) {
       return Center(
         child: Text(
           'No job posts available.',
@@ -44,7 +43,7 @@ class ProfileAllJobPostsBlocBuilder extends StatelessWidget {
       );
     }
 
-    return AllJobPostsList(jobPosts: data.jobs);
+    return AllJobPostsList(jobPosts: data.jobs!);
   }
 
   Widget setupError(String error) {

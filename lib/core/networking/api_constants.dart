@@ -1,5 +1,5 @@
 class ApiConstants {
-  static const String apiBaseUrl = "https://cc26f943a508.ngrok-free.app/";
+  static const String apiBaseUrl = "https://120617d66b28.ngrok-free.app/";
   static const String baseImageUrl =
       "https://e419-197-164-8-153.ngrok-free.app/uploads/profile_pictures/";
 
@@ -32,6 +32,13 @@ class ApiConstants {
 
   //-> Specific Community
   static const String specificCommunity = "api/community/groups/{groupId}";
+
+  //-> Interest Community
+  static const String byInterestCommunity =
+      "api/community/groups/by-interest/{tag}";
+
+  //-> Tags Community
+  static const String communityTags = 'api/community/groups/tags';
 
   //-----> Jobs
   //-> Apply
@@ -212,7 +219,7 @@ class ApiConstants {
       "api/company/application/{applicationId}";
 
   //->Post Job
-  static const String companyJobsPost = "api/jobs/create-job-post";
+  static const String companyJobsPost = "api/job-post/create";
 
   //->Post Job
   static const String companyUpdateApplicationStatus =

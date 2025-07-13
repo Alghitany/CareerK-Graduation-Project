@@ -26,6 +26,11 @@ class RecentPeopleApplied extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (recentDevelopers.isEmpty){
+      return const Center(
+        child: Text("No Recent Applied People"),
+      );
+    }
     return Padding(
       padding: EdgeInsets.fromLTRB(16.w, 0.h, 16.w, 0.h),
       child: Column(

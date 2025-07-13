@@ -19,7 +19,7 @@ class JobsNumberBlocBuilder extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen(
           loading: () => const JobsNumberShimmer(),
-          success: (data) => JobsNumber(jobsText: data.jobs.length.toString()),
+          success: (data) => JobsNumber(jobsText: data.jobs?.length.toString() ?? "0"),
           error: (error) => const JobsNumber(jobsText: 'Error'),
           orElse: () => const SizedBox.shrink(),
         );

@@ -78,6 +78,8 @@ import '../../features/customer/ui/sign_up/logic/customer_sign_up_cubit.dart';
 import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
 import '../../features/developer/logic/developer_recommendations_logic/developer_recommendations_cubit.dart';
 import '../../features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
+import '../../features/developer/ui/community/all_communities/logic/by_interest_logic/developer_community_by_interest_cubit.dart';
+import '../../features/developer/ui/community/all_communities/logic/community_tags_logic/developer_community_tags_cubit.dart';
 import '../../features/developer/ui/community/all_communities/logic/for_you_logic/developer_community_for_you_cubit.dart';
 import '../../features/developer/ui/community/all_communities/ui/developer_community_all_communities_screen.dart';
 import '../../features/developer/ui/community/chat/logic/specific_community_logic/specific_community_cubit.dart';
@@ -263,9 +265,20 @@ class AppRouter {
       // Jobs
       case Routes.companyJobsScreen:
         return MaterialPageRoute(
-          builder: (_) => const CompanyJobsScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) => getIt<CompanyProfileAllJobPostsCubit>()
+                  ..getCompanyAllJobPosts(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<CompanyJobsDeletePostCubit>(),
+              ),
+            ],
+            child: const CompanyJobsScreen(),
+          ),
         );
-      // Profile
+    // Profile
       case Routes.companyProfileScreen:
         return MaterialPageRoute(
           builder: (_) => MultiBlocProvider(
@@ -362,9 +375,20 @@ class AppRouter {
       // Community
       case Routes.developerCommunityAllCommunitiesScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (_) =>
-                getIt<DeveloperCommunityForYouCubit>()..getCommunities(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) =>
+                    getIt<DeveloperCommunityForYouCubit>()..getCommunities(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperCommunityByInterestCubit>(),
+              ),
+              BlocProvider(
+                create: (_) =>
+                    getIt<DeveloperCommunityTagsCubit>()..getCommunityTags(),
+              ),
+            ],
             child: const DeveloperCommunityAllCommunitiesScreen(),
           ),
         );

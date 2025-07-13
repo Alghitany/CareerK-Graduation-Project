@@ -44,6 +44,8 @@ import '../../features/developer/data/models/developer_courses_and_jobs_main_pag
 import '../../features/developer/data/models/developer_recommendtions_models/developer_recommendations_response_body.dart';
 import '../../features/developer/data/models/developer_single_course_bookmark_models/developer_single_course_bookmark_response_model.dart';
 import '../../features/developer/data/models/developer_single_job_bookmark_models/developer_single_job_bookmark_response_model.dart';
+import '../../features/developer/ui/community/all_communities/data/models/by_interest_models/developer_community_by_interest_response_body.dart';
+import '../../features/developer/ui/community/all_communities/data/models/community_tags_models/community_tags_response_body.dart';
 import '../../features/developer/ui/community/all_communities/data/models/for_you_models/developer_community_for_you_response_body.dart';
 import '../../features/developer/ui/community/chat/data/models/specific_community_models/specific_community_response_body.dart';
 import '../../features/developer/ui/courses/data/models/ongoing_courses/developer_courses_ongoing_response_body.dart';
@@ -139,6 +141,17 @@ abstract class ApiService {
   Future<SpecificCommunityResponseBody> getDeveloperSpecificCommunity(
     @Path("groupId") String groupId,
   );
+
+  //-> Interest Community
+  @GET(ApiConstants.byInterestCommunity)
+  Future<DeveloperCommunityByInterestResponseBody>
+      getDeveloperCommunitiesByInterest(
+    @Path("tag") String tag,
+  );
+
+  //-> Tags Community
+  @GET(ApiConstants.communityTags)
+  Future<CommunityTagsResponseBody> getDeveloperCommunityTags();
 
   // Courses Main Page
   //-> Profile

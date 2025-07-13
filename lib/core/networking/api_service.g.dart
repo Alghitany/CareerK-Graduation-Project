@@ -14,7 +14,7 @@ class _ApiService implements ApiService {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'https://cc26f943a508.ngrok-free.app/';
+    baseUrl ??= 'https://120617d66b28.ngrok-free.app/';
   }
 
   final Dio _dio;
@@ -335,6 +335,74 @@ class _ApiService implements ApiService {
     late SpecificCommunityResponseBody _value;
     try {
       _value = SpecificCommunityResponseBody.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<DeveloperCommunityByInterestResponseBody>
+      getDeveloperCommunitiesByInterest(String tag) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options =
+        _setStreamType<DeveloperCommunityByInterestResponseBody>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/community/groups/by-interest/${tag}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DeveloperCommunityByInterestResponseBody _value;
+    try {
+      _value = DeveloperCommunityByInterestResponseBody.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<CommunityTagsResponseBody> getDeveloperCommunityTags() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<CommunityTagsResponseBody>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'api/community/groups/tags',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late CommunityTagsResponseBody _value;
+    try {
+      _value = CommunityTagsResponseBody.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -1747,7 +1815,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'api/jobs/create-job-post',
+          'api/job-post/create',
           queryParameters: queryParameters,
           data: _data,
         )

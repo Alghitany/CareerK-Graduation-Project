@@ -28,7 +28,7 @@ class ProfileImageNameAndLocation extends StatelessWidget {
         Padding(
           padding: EdgeInsets.fromLTRB(0.0.w, 8.h, 0.w, 0.h),
           child: AppEditProfilePicture(
-            profileImage: profileImage,
+            profileImage: profileImage ?? "",
             imageRadius: 60,
             editIconBackgroundRadius: 15,
             editIconHeight: 15,

@@ -8,14 +8,14 @@ class CompanyProfileAllJobPostsResponseBody {
   final int totalJobs;
 
   @JsonKey(name: 'companyName')
-  final String companyName;
+  final String? companyName;
 
-  final List<JobPostItem> jobs;
+  final List<JobPostItem>? jobs;
 
   CompanyProfileAllJobPostsResponseBody({
     required this.totalJobs,
-    required this.companyName,
-    required this.jobs,
+    this.companyName,
+    this.jobs,
   });
 
   factory CompanyProfileAllJobPostsResponseBody.fromJson(

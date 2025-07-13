@@ -4,11 +4,13 @@ import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:carrerk/core/widgets/app_search_text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../core/routing/routes.dart';
-import 'widgets/by_interest_chips_list.dart';
-import 'widgets/by_interest_community_list.dart';
+import '../logic/by_interest_logic/developer_community_by_interest_cubit.dart';
+import 'widgets/by_interest_communities/by_interest_bloc_builder.dart';
+import 'widgets/community_tags/community_tags_bloc_builder.dart';
 import 'widgets/for_you_communities/for_you_bloc_builder.dart';
 
 class DeveloperCommunityAllCommunitiesScreen extends StatelessWidget {
@@ -43,9 +45,15 @@ class DeveloperCommunityAllCommunitiesScreen extends StatelessWidget {
                 ),
               ),
               verticalSpace(8),
-              const ByInterestChipsList(),
+              CommunityTagsBlocBuilder(
+                onTagSelected: (tag) {
+                  context
+                      .read<DeveloperCommunityByInterestCubit>()
+                      .getCommunitiesByInterest(tag);
+                },
+              ),
               verticalSpace(16),
-              const ByInterestCommunityList(),
+              const ByInterestBlocBuilder(),
             ],
           ),
         ),

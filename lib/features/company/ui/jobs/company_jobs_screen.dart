@@ -7,7 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/widgets/company_bottom_navigation_bar.dart';
 import '../../../../core/widgets/company_floating_action_button.dart';
-import 'widgets/all_jobs.dart';
+import '../profile/ui/widgets/profile_all_job_posts_bloc_builder.dart';
 
 class CompanyJobsScreen extends StatefulWidget {
   const CompanyJobsScreen({super.key});
@@ -95,7 +95,7 @@ class _CompanyJobsScreenState extends State<CompanyJobsScreen> {
                 verticalSpace(8),
 
                 // Tab Content
-                if (selectedTabIndex == 0) const AllJobs(),
+                if (selectedTabIndex == 0) const ProfileAllJobPostsBlocBuilder(),
               ],
             ),
           ),

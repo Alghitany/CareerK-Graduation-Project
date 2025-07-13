@@ -11,9 +11,9 @@ CompanyProfileAllJobPostsResponseBody
             Map<String, dynamic> json) =>
         CompanyProfileAllJobPostsResponseBody(
           totalJobs: (json['totalJobs'] as num).toInt(),
-          companyName: json['companyName'] as String,
-          jobs: (json['jobs'] as List<dynamic>)
-              .map((e) => JobPostItem.fromJson(e as Map<String, dynamic>))
+          companyName: json['companyName'] as String?,
+          jobs: (json['jobs'] as List<dynamic>?)
+              ?.map((e) => JobPostItem.fromJson(e as Map<String, dynamic>))
               .toList(),
         );
 
