@@ -15,8 +15,12 @@ class AppArgument {
   final bool? isExisting;
   final bool? isCompany;
   final String? fileUrl;
+  final String? tag;
+  final bool? isCustomer;
+
 
   AppArgument({
+    this.isCustomer,
     this.applicationId,
     this.developerId,
     this.jobId,
@@ -31,5 +35,6 @@ class AppArgument {
     this.isExisting,
     this.isCompany,
     this.fileUrl,
+    this.tag,
   });
 }

@@ -1,7 +1,7 @@
 class ApiConstants {
-  static const String apiBaseUrl = "https://cc26f943a508.ngrok-free.app/";
+  static const String apiBaseUrl = "https://120617d66b28.ngrok-free.app/";
   static const String baseImageUrl =
-      "https://e419-197-164-8-153.ngrok-free.app/uploads/profile_pictures/";
+      "https://cc26f943a508.ngrok-free.app/uploads/profile_pictures/";
 
   //------ Authentication -------
   static const String authenticationLogin = "api/auth/login";
@@ -32,6 +32,13 @@ class ApiConstants {
 
   //-> Specific Community
   static const String specificCommunity = "api/community/groups/{groupId}";
+
+  //-> Interest Community
+  static const String byInterestCommunity =
+      "api/community/groups/by-interest/{tag}";
+
+  //-> Tags Community
+  static const String communityTags = 'api/community/groups/tags';
 
   //-----> Jobs
   //-> Apply
@@ -191,12 +198,26 @@ class ApiConstants {
       "api/service-application/{applicantId}";
 
   //------ Notifications ----
+  //get all
   static const String allNotification = "/api/notifications";
+  //mark one
+  static const String markOneNotification =
+      "/api/notifications/{notificationId}/read";
 
   //------ reject ----
   static const String rejectApplications =
       "api/service-application/{applicantId}/status";
-
+  // ------ View profile -----
+  static const String customerviewprofile = "/api/customer/profile";
+  // ------ get service posts -----
+  static const String customergetserviceposts = "/api/customer/service-posts";
+  // ------ get applications -----
+  static const String customergetapplications = "/api/customer/applicants";
+  // ------ edit profile -----
+  static const String customereditprofile = "/api/customer/edit-profile";
+  //->Delete Post
+  static const String customerJobsDeletePost =
+      "api/customer/service-posts/{jobId}";
   //------ company ------------
   //->Sign up
   static const String companySignup = "api/company/register";
@@ -212,7 +233,7 @@ class ApiConstants {
       "api/company/application/{applicationId}";
 
   //->Post Job
-  static const String companyJobsPost = "api/jobs/create-job-post";
+  static const String companyJobsPost = "api/job-post/create";
 
   //->Post Job
   static const String companyUpdateApplicationStatus =

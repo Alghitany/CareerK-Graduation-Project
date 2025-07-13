@@ -1,16 +1,13 @@
-import 'package:carrerk/features/customer/ui/applied/data/model/reject_applications_model/reject_application_response.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import '../../data/model/reject_applications_model/reject_application_response.dart';
 
-part 'reject_applications_state.freezed.dart';
+part 'reject_applications_state.freezed.dart'; // ✅ fixed to match your file name
 
 @freezed
-class RejectApplicationsState with _$RejectApplicationsState {
-  const factory RejectApplicationsState.initial() = _Initial;
-
-  const factory RejectApplicationsState.loading() = _Loading;
-
-  const factory RejectApplicationsState.success(
-      RejectApplicationResponse response) = _Success;
-
-  const factory RejectApplicationsState.error(String message) = _Error;
+class RejectApplicationState with _$RejectApplicationState {
+  const factory RejectApplicationState.initial() = Initial;
+  const factory RejectApplicationState.loading() = Loading;
+  const factory RejectApplicationState.success(
+      RejectApplicationResponseBody data) = Success;
+  const factory RejectApplicationState.error({required String error}) = Error;
 }

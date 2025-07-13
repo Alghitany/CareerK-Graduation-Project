@@ -154,10 +154,10 @@ class _CustomerPostJobFormState extends State<CustomerPostJobForm> {
             controller: cubit.priceRangeController,
             hintText: '1000 - 5000\$',
             validator: (price) {
-              // if (!AppRegex.isValidPriceRange(price!)) {
-              //   return "Please enter a valid price range";
-              // }
-              // return null;
+              if (!AppRegex.isValidPriceRange(price!)) {
+                return "Please enter a valid price range";
+              }
+              return null;
             },
           ),
           verticalSpace(16),
@@ -167,10 +167,10 @@ class _CustomerPostJobFormState extends State<CustomerPostJobForm> {
             controller: cubit.deadlineTaskController,
             hintText: '2025-07-01',
             validator: (date) {
-              // if (!AppRegex.isValidDate(date!)) {
-              //   return "Please enter a valid deadline";
-              // }
-              // return null;
+              if (!AppRegex.isValidDate(date!)) {
+                return "Please enter a valid deadline";
+              }
+              return null;
             },
           ),
         ],

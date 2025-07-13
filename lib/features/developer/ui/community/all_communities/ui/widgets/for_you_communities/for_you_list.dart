@@ -20,9 +20,9 @@ class ForYouList extends StatelessWidget {
         itemBuilder: (context, index) {
           final group = groups[index];
           return CommunityCard(
-            communityName: group.groupName,
+            communityName: group.interestTag,
             memberCount: group.memberCount.toString(),
-            iconPath: group.imageUrl,
+            iconPath: group.imageUrl ?? "",
             groupId: group.chatRoomId,
           );
         },

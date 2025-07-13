@@ -16,7 +16,7 @@ CompanyProfileInfoResponseBody _$CompanyProfileInfoResponseBodyFromJson(
       address: json['address'] as String,
       phoneNumber: json['phone_number'] as String,
       email: json['email'] as String,
-      profilePicture: json['profile_picture'] as String,
+      profilePicture: json['profile_picture'] as String?,
       briefDescription: json['brief_description'] as String,
     );
 

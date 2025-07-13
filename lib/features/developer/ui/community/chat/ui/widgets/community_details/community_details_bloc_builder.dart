@@ -17,9 +17,9 @@ class CommunityDetailsBlocBuilder extends StatelessWidget {
           return const CommunityAndFollowIconShimmer();
         } else if (state is SpecificCommunitySuccess) {
           return CommunityAndFollowIcon(
-            groupName: state.group.groupName,
+            groupName: state.group.groupName ?? "No Name",
             memberCount: state.group.memberCount,
-            imageUrl: state.group.imageUrl,
+            imageUrl: state.group.imageUrl ?? " ",
           );
         } else if (state is SpecificCommunityError) {
           return Center(child: Text("Error: ${state.error}"));

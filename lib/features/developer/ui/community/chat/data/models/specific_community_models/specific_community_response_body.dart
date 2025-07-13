@@ -38,10 +38,10 @@ class DeveloperCommunityGroup {
   final int memberCount;
 
   @JsonKey(name: 'group_name')
-  final String groupName;
+  final String? groupName; // ✅ Made nullable
 
   @JsonKey(name: 'image_url')
-  final String imageUrl;
+  final String? imageUrl; // ✅ Made nullable
 
   DeveloperCommunityGroup({
     required this.id,
@@ -50,8 +50,8 @@ class DeveloperCommunityGroup {
     required this.createdAt,
     this.deletedAt,
     required this.memberCount,
-    required this.groupName,
-    required this.imageUrl,
+    this.groupName,
+    this.imageUrl,
   });
 
   factory DeveloperCommunityGroup.fromJson(Map<String, dynamic> json) =>

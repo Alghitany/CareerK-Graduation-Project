@@ -5,7 +5,6 @@ part 'developer_community_for_you_response_body.g.dart';
 @JsonSerializable()
 class DeveloperCommunityForYouResponseBody {
   final bool success;
-
   final List<DeveloperCommunityGroup> groups;
 
   DeveloperCommunityForYouResponseBody({
@@ -41,10 +40,10 @@ class DeveloperCommunityGroup {
   final int memberCount;
 
   @JsonKey(name: 'group_name')
-  final String groupName;
+  final String? groupName;
 
   @JsonKey(name: 'image_url')
-  final String imageUrl;
+  final String? imageUrl;
 
   DeveloperCommunityGroup({
     required this.id,
@@ -53,8 +52,8 @@ class DeveloperCommunityGroup {
     required this.createdAt,
     this.deletedAt,
     required this.memberCount,
-    required this.groupName,
-    required this.imageUrl,
+    this.groupName,
+    this.imageUrl,
   });
 
   factory DeveloperCommunityGroup.fromJson(Map<String, dynamic> json) =>

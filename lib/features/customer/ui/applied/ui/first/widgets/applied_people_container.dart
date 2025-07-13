@@ -95,6 +95,9 @@
 //   }
 // }
 
+import 'dart:developer';
+
+import 'package:carrerk/features/customer/ui/applied/ui/first/widgets/reject_application_bloc_builder.dart';
 import 'package:carrerk/features/customer/ui/applied/ui/first/widgets/reject_view_profile_buttons.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -223,9 +226,8 @@ class _AppliedPeopleState extends State<AppliedPeople> {
                   ),
                 ),
                 verticalSpace(12),
-                RemoveViewProfileButtons(
+                RejectApplicationBlocBuilder(
                   applicationId: app.id,
-                  onRemove: () {},
                 )
               ],
             ),

@@ -30,8 +30,8 @@ DeveloperCommunityGroup _$DeveloperCommunityGroupFromJson(
       createdAt: json['created_at'] as String,
       deletedAt: json['deleted_at'] as String?,
       memberCount: (json['member_count'] as num).toInt(),
-      groupName: json['group_name'] as String,
-      imageUrl: json['image_url'] as String,
+      groupName: json['group_name'] as String?,
+      imageUrl: json['image_url'] as String?,
     );
 
 Map<String, dynamic> _$DeveloperCommunityGroupToJson(

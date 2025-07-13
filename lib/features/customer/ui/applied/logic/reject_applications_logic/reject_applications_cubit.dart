@@ -1,54 +1,38 @@
-import 'package:carrerk/core/networking/api_result.dart';
-import 'package:carrerk/features/customer/ui/applied/data/model/reject_applications_model/reject_application_response.dart';
-import 'package:carrerk/features/customer/ui/applied/data/model/reject_applications_model/reject_applications_request_model.dart';
-import 'package:carrerk/features/customer/ui/applied/data/repo/reject_applications_repo/reject_applications_repo.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter/foundation.dart';
 
 import 'reject_applications_state.dart';
+import '../../data/repo/reject_applications_repo/reject_applications_repo.dart';
 
-class RejectApplicationsCubit extends Cubit<RejectApplicationsState> {
-  final RejectApplicationsRepo _rejectApplicationsRepo;
+class RejectApplicationCubit extends Cubit<RejectApplicationState> {
+  final RejectApplicationRepo _repo;
 
-  RejectApplicationsCubit(this._rejectApplicationsRepo)
-      : super(const RejectApplicationsState.initial());
-
-  final TextEditingController statusController = TextEditingController();
-  final GlobalKey<FormState> rejectFormKey = GlobalKey<FormState>();
-
-  RejectApplicationResponse? applicationResponse;
+  RejectApplicationCubit(this._repo)
+      : super(const RejectApplicationState.initial());
 
   Future<void> rejectApplication({
     required String applicationId,
+    required String status,
   }) async {
-    if (!rejectFormKey.currentState!.validate()) return;
+    emit(const RejectApplicationState.loading());
 
-    emit(const RejectApplicationsState.loading());
-
-    final ApiResult<RejectApplicationResponse> response =
-        await _rejectApplicationsRepo.rejectApplication(
+    final response = await _repo.rejectApplication(
       applicationId: applicationId,
-      request: RejectApplicationsRequestModel(
-        status: statusController.text.trim(),
-      ),
+      status: status,
     );
 
     response.when(
       success: (data) {
-        applicationResponse = data;
-        emit(RejectApplicationsState.success(data));
+        emit(RejectApplicationState.success(data));
       },
       failure: (error) {
-        emit(RejectApplicationsState.error(
-          error.apiErrorModel.message ?? 'Something went wrong',
+        debugPrint(
+          '❌ Error rejecting application: ${error.apiErrorModel.message}',
+        );
+        emit(RejectApplicationState.error(
+          error: error.apiErrorModel.message ?? 'Unknown error',
         ));
       },
     );
-  }
-
-  @override
-  Future<void> close() {
-    statusController.dispose();
-    return super.close();
   }
 }

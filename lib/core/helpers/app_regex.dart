@@ -36,7 +36,7 @@ class AppRegex {
   }
 
   static bool isValidDescription(String description) {
-    return RegExp(r'^\s*(?:\S\s*){20,50}$').hasMatch(description);
+    return RegExp(r'^\s*(?:\S\s*){20,}$').hasMatch(description);
   }
 
   static bool isValidNumber(String? number) {
@@ -49,7 +49,7 @@ class AppRegex {
     if (number.isEmpty) return false;
 
     return RegExp(
-      r'^\d{1,3}(,\d{3})*(\s*-\s*\d{1,3}(,\d{3})*)?\s*(EGP|\$)$',
+      r'^\d+(\s*-\s*\d+)?\s*(EGP|\$)$',
     ).hasMatch(number);
   }
 
@@ -66,10 +66,10 @@ class AppRegex {
   }
 
   static bool isValidDate(String date) {
-    if (date.isNullOrEmpty()) return false;
+    if (date.isEmpty) return false;
 
     return RegExp(
-      r'^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$',
+      r'^\d{4}-(\d{1,2})-(\d{1,2})$',
     ).hasMatch(date);
   }
 

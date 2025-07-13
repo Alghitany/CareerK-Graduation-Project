@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../data/models/specific_community_models/specific_community_response_body.dart';
+
 part 'specific_community_state.freezed.dart';
 
 @freezed

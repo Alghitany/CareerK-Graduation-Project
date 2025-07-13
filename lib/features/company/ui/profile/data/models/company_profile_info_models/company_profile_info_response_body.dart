@@ -19,7 +19,7 @@ class CompanyProfileInfoResponseBody {
   final String email;
 
   @JsonKey(name: 'profile_picture')
-  final String profilePicture;
+  final String? profilePicture;
 
   @JsonKey(name: 'brief_description')
   final String briefDescription;
@@ -32,7 +32,7 @@ class CompanyProfileInfoResponseBody {
     required this.address,
     required this.phoneNumber,
     required this.email,
-    required this.profilePicture,
+    this.profilePicture,
     required this.briefDescription,
   });
 

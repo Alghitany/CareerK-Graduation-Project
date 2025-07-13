@@ -1,4 +1,5 @@
 import 'package:carrerk/core/helpers/spacing.dart';
+import 'package:carrerk/core/networking/api_constants.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -90,7 +91,7 @@ class _CommunityAndFollowIconState extends State<CommunityAndFollowIcon> {
   Widget _buildCommunityIcon(String url) {
     if (AppRegex.isSvg(url)) {
       return SvgPicture.network(
-        url,
+        "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(url)}",
         width: 24.w,
         height: 24.h,
         placeholderBuilder: (context) => const CircularProgressIndicator(),
@@ -99,7 +100,7 @@ class _CommunityAndFollowIconState extends State<CommunityAndFollowIcon> {
     } else {
       return ClipOval(
         child: Image.network(
-          url,
+          "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(url)}",
           width: 50.w,
           height: 50.h,
           fit: BoxFit.cover,
