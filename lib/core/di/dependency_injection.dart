@@ -98,7 +98,6 @@ import '../../features/developer/ui/community/all_communities/data/repos/develop
 import '../../features/developer/ui/community/all_communities/logic/by_interest_logic/developer_community_by_interest_cubit.dart';
 import '../../features/developer/ui/community/all_communities/logic/community_tags_logic/developer_community_tags_cubit.dart';
 import '../../features/developer/ui/community/all_communities/logic/for_you_logic/developer_community_for_you_cubit.dart';
-import '../../features/developer/ui/community/chat/apis/community_socket_service.dart';
 import '../../features/developer/ui/community/chat/data/repos/specific_community_repo.dart';
 import '../../features/developer/ui/community/chat/logic/specific_community_logic/specific_community_cubit.dart';
 import '../../features/developer/ui/courses/data/repos/developer_courses_ongoing_repo.dart';
@@ -655,7 +654,6 @@ Future<void> setupGetIt() async {
       () => SendMessagesCubit(getIt<SendMessagesRepo>()));
   //-> Socket
   getIt.registerLazySingleton<SocketService>(() => SocketService());
-  getIt.registerLazySingleton<CommunitySocketService>(() => CommunitySocketService());
 
   // Customer home
   getIt.registerLazySingleton<CustomerHomeRepo>(

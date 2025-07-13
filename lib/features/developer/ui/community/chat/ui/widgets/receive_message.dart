@@ -1,48 +1,54 @@
-import 'package:carrerk/core/helpers/spacing.dart';
-import 'package:carrerk/core/theming/colors.dart';
-import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ReceiveMessage extends StatelessWidget {
-  const ReceiveMessage({super.key});
+  final String messageText;
+  final DateTime time;
+  final bool isSender;
+  final String senderName;
+
+  const ReceiveMessage({
+    super.key,
+    required this.messageText,
+    required this.time,
+    required this.isSender,
+    required this.senderName,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.fromLTRB(0.w, 0.h, 0.w, 16.h),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 0.h),
-            decoration: BoxDecoration(
-                color: ColorsManager.mercury,
-                borderRadius: BorderRadius.circular(16)),
-            width: 224.w,
-            child: Column(
-              children: [
-                Text(
-                    'Lorem ipsum dolor sit amet consectetur. Congue donec imperdiet accumsan faucibus id amet vel leo at. Tellus vitae lacinia tristique consequat laoreet non mus ac interdum.  Tellus vitae lacinia tristique consequat. ',
-                    style: AppTextStyles.font12BlackPoppinsRegular),
-                verticalSpace(12),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Text(
-                    '08:20 AM',
-                    style: AppTextStyles.font12BlackPoppinsRegular,
-                  ),
-                )
-              ],
+    return Align(
+      alignment: isSender ? Alignment.centerRight : Alignment.centerLeft,
+      child: Container(
+        margin: EdgeInsets.symmetric(vertical: 4.h),
+        padding: EdgeInsets.all(12.w),
+        decoration: BoxDecoration(
+          color: isSender ? Colors.blueAccent : Colors.grey.shade300,
+          borderRadius: BorderRadius.circular(12.r),
+        ),
+        child: Column(
+          crossAxisAlignment:
+          isSender ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+          children: [
+            if (!isSender)
+              Text(
+                senderName,
+                style: TextStyle(
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            Text(
+              messageText,
+              style: TextStyle(fontSize: 14.sp, color: isSender ? Colors.white : Colors.black),
             ),
-          ),
-          horizontalSpace(2),
-          //TODO: Profile Picture Should appear here instead of this red avatar
-          const CircleAvatar(
-            backgroundColor: Colors.redAccent,
-          ),
-        ],
+            SizedBox(height: 4.h),
+            Text(
+              "${time.hour}:${time.minute.toString().padLeft(2, '0')}",
+              style: TextStyle(fontSize: 10.sp, color: isSender ? Colors.white70 : Colors.black54),
+            ),
+          ],
+        ),
       ),
     );
   }
