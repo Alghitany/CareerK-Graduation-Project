@@ -47,7 +47,7 @@ class HomePageTopBar extends StatelessWidget {
                       )
                     : ClipOval(
                         child: Image.network(
-                          "${ApiConstants.apiBaseUrl}$profilePicture",
+                          "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(profilePicture)}",
                           width: 56.r,
                           height: 56.r,
                           fit: BoxFit.cover,

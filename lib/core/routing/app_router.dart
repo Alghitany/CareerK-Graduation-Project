@@ -419,7 +419,10 @@ class AppRouter {
           builder: (_) => BlocProvider<SpecificCommunityCubit>(
             create: (_) => getIt<SpecificCommunityCubit>()
               ..getSpecificCommunity(args.groupId!),
-            child: const DeveloperCommunityChatScreen(),
+            child: DeveloperCommunityChatScreen(
+              userId: args.developerId,
+              communityId: args.groupId,
+            ),
           ),
         );
 
