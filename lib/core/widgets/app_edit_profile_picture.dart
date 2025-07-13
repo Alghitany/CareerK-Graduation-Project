@@ -19,14 +19,11 @@ class AppEditProfilePicture extends StatefulWidget {
   final Color? editIconBackgroundColor;
   final double? editIconHeight;
   final double? editIconWidth;
-  final String? profileImage;
-
   final void Function(File? imageFile)? onImageSelected;
   final String? profileImage;
 
   const AppEditProfilePicture({
     super.key,
-    this.profileImage,
     this.imageRadius,
     this.backgroundColor,
     this.defaultContentHeight,
@@ -64,9 +61,9 @@ class _AppEditProfilePictureState extends State<AppEditProfilePicture> {
                 onTap: () async {
                   Navigator.pop(context);
                   final pickedFile =
-                      await _picker.pickImage(source: ImageSource.camera);
+                  await _picker.pickImage(source: ImageSource.camera);
                   final file =
-                      pickedFile != null ? File(pickedFile.path) : null;
+                  pickedFile != null ? File(pickedFile.path) : null;
                   setState(() {
                     _localImagePath = file?.path;
                   });
@@ -79,9 +76,9 @@ class _AppEditProfilePictureState extends State<AppEditProfilePicture> {
                 onTap: () async {
                   Navigator.pop(context);
                   final pickedFile =
-                      await _picker.pickImage(source: ImageSource.gallery);
+                  await _picker.pickImage(source: ImageSource.gallery);
                   final file =
-                      pickedFile != null ? File(pickedFile.path) : null;
+                  pickedFile != null ? File(pickedFile.path) : null;
                   setState(() {
                     _localImagePath = file?.path;
                   });
@@ -174,7 +171,7 @@ class _AppEditProfilePictureState extends State<AppEditProfilePicture> {
             child: CircleAvatar(
               radius: widget.editIconBackgroundRadius ?? 17.5,
               backgroundColor:
-                  widget.editIconBackgroundColor ?? ColorsManager.surfieGreen,
+              widget.editIconBackgroundColor ?? ColorsManager.surfieGreen,
               child: SvgPicture.asset(
                 "assets/svgs/edit.svg",
                 height: widget.editIconHeight ?? 17.h,

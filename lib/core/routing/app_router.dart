@@ -5,7 +5,7 @@ import 'package:carrerk/core/widgets/pdf_viewer_screen.dart';
 import 'package:carrerk/features/authentication/reset_password/logic/reset_password_cubit.dart';
 import 'package:carrerk/features/authentication/verify_code/logic/verify_code_cubit.dart';
 import 'package:carrerk/features/authentication/verify_code/ui/verify_code_screen.dart';
-import 'package:carrerk/features/company/ui/profile/company_profile_screen.dart';
+
 
 import 'package:carrerk/features/customer/logic/customer_jobs_post_cubit.dart';
 import 'package:carrerk/features/customer/profile/customer_profile_screen.dart';
@@ -28,14 +28,7 @@ import 'package:carrerk/features/customer/ui/jobs_post/customer_jobs_post.dart';
 
 import 'package:carrerk/features/customer/ui/sign_up/compulsory_data/customer_sign_up_compulsory_data_screen.dart';
 import 'package:carrerk/features/developer/ui/community/chat/ui/developer_community_chat_screen.dart';
-import 'package:carrerk/features/developer/ui/community/all_communities/developer_community_all_communities_screen.dart';
-import 'package:carrerk/features/developer/ui/community/chat/developer_community_chat_screen.dart';
-import 'package:carrerk/features/developer/ui/courses/certification/developer_courses_certification_screen.dart';
-import 'package:carrerk/features/developer/ui/courses/cv_updated/download_cv/developer_courses_cv_updated_download_cv_screen.dart';
-import 'package:carrerk/features/developer/ui/courses/cv_updated/successful_update/developer_courses_cv_updated_successful_update_screen.dart';
-import 'package:carrerk/features/developer/ui/courses/main_page/ui/developer_courses_main_page_screen.dart';
-import 'package:carrerk/features/developer/ui/courses/my_courses/developer_courses_my_courses_screen.dart';
-import 'package:carrerk/features/developer/ui/courses/roadmaps/ui/developer_courses_roadmaps_screen.dart';
+
 
 import 'package:carrerk/features/developer/ui/jobs/all_categories/developer_jobs_all_categories_screen.dart';
 import 'package:carrerk/features/developer/ui/jobs/application_submitted/developer_jobs_application_submitted_screen.dart';
@@ -97,7 +90,7 @@ import '../../features/company/ui/profile/logic/company_profile_edit_logic/compa
 import '../../features/company/ui/profile/logic/company_profile_info_logic/company_profile_info_cubit.dart';
 import '../../features/company/ui/profile/ui/company_profile_screen.dart';
 
-import '../../features/company/ui/send_to_applicants/message-applicant/company_send_to_applicants_message_applicant_screen.dart';
+
 import '../../features/company/ui/sign_up/logic/company_sign_up_cubit.dart';
 import '../../features/customer/ui/jobs_post/widgets/_jobs_post_success.dart';
 import '../../features/customer/ui/sign_up/logic/customer_sign_up_cubit.dart';
@@ -105,17 +98,7 @@ import '../../features/customer/ui/sign_up/logic/customer_sign_up_cubit.dart';
 import '../../features/developer/logic/developer_courses_and_jobs_main_page_profile_logic/developer_courses_and_jobs_main_page_profile_cubit.dart';
 import '../../features/developer/logic/developer_recommendations_logic/developer_recommendations_cubit.dart';
 import '../../features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
-import '../../features/developer/ui/courses/main_page/logic/developer_courses_main_page_roadmaps_cubit.dart';
-import '../../features/developer/ui/courses/related_courses/developer_courses_related_courses_screen.dart';
-import '../../features/developer/ui/courses/roadmaps/logic/developer_courses_roadmaps_cubit.dart';
-import '../../features/developer/ui/courses/specific_category/logic/developer_courses_specific_category_cubit.dart';
-import '../../features/developer/ui/courses/specific_category/ui/developer_courses_specific_category_screen.dart';
 
-import '../../features/developer/ui/courses/specific_course/logic/specific_course_header_logic/specific_course_header_cubit.dart';
-import '../../features/developer/ui/courses/specific_course/logic/specific_course_lectures_logic/specific_course_lectures_cubit.dart';
-import '../../features/developer/ui/courses/specific_course/logic/specific_course_overview_logic/specific_course_overview_cubit.dart';
-import '../../features/developer/ui/courses/specific_course/logic/specific_course_reviews_logic/specific_course_reviews_cubit.dart';
-import '../../features/developer/ui/courses/specific_course/ui/developer_courses_specific_course_screen.dart';
 import '../../features/developer/ui/community/all_communities/logic/for_you_logic/developer_community_for_you_cubit.dart';
 import '../../features/developer/ui/community/all_communities/ui/developer_community_all_communities_screen.dart';
 import '../../features/developer/ui/community/chat/logic/specific_community_logic/specific_community_cubit.dart';

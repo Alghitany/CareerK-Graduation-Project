@@ -4,12 +4,13 @@ import 'package:carrerk/features/customer/profile/ui/customer_profile_edit_bloc_
 import 'package:carrerk/features/customer/profile/ui/profile_all_job_posts_bloc_builder.dart';
 import 'package:carrerk/features/customer/profile/ui/profile_info_bloc_builder.dart';
 import 'package:carrerk/features/customer/profile/ui/widgets/jobs_and_applicants_number/number_of_jobs_and_applicants.dart';
-import 'package:carrerk/features/developer/ui/community/chat/widgets/exit_icon.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/widgets/company_bottom_navigation_bar.dart';
 import '../../../../../core/widgets/company_floating_action_button.dart';
+import '../../chats/person_chat/ui/widgets/exit_icon.dart';
 
 class CustomerProfileScreen extends StatelessWidget {
   const CustomerProfileScreen({super.key});

@@ -38,13 +38,6 @@ import 'package:carrerk/features/developer/ui/home_main_page/logic/developer_cou
 import 'package:carrerk/features/developer/ui/jobs/search/data/repo/developer_jobs_recently_posted_repo.dart';
 import 'package:carrerk/features/developer/ui/profile/ui/bookmarks/data/repos/developer_profile_services_bookmarked_repo.dart';
 import 'package:carrerk/features/developer/ui/profile/ui/main_page/data/repos/developer_profile_main_page_skills_repo.dart';
-import 'package:carrerk/features/developer/ui/profile/cv_generate/data/repos/developer_profile_cv_generate_generated_repo.dart';
-import 'package:carrerk/features/developer/ui/profile/cv_generate/data/repos/developer_profile_cv_generate_send_data_repo.dart';
-import 'package:carrerk/features/developer/ui/profile/cv_generate/logic/generate_logic/developer_profile_cv_generate_generated_cubit.dart';
-import 'package:carrerk/features/developer/ui/profile/jobs_applied/data/repo/developer_job_withdraw_repo.dart';
-import 'package:carrerk/features/developer/ui/profile/jobs_applied/data/repo/developer_profile_applied_jobs_repo.dart';
-import 'package:carrerk/features/developer/ui/profile/settings/data/repos/developer_generate_cv_start_session_repo.dart';
-import 'package:carrerk/features/developer/ui/profile/settings/logic/developer_generate_cv_start_session_logic/developer_generate_cv_start_session_cubit.dart';
 import 'package:carrerk/features/notifications/data/repo/get_all/all_notifications_repo.dart';
 import 'package:carrerk/features/notifications/data/repo/mark_one/mark_notification_read_repo.dart';
 import 'package:carrerk/features/notifications/logic/get_all/all_notification_cubit.dart';
