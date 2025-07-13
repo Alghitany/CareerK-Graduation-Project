@@ -10,6 +10,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../../../../core/helpers/app_regex.dart';
+import '../../../../../../../core/helpers/constants.dart';
+import '../../../../../../../core/helpers/shared_pref_helper.dart';
 
 class CommunityCard extends StatelessWidget {
   final String communityName;
@@ -28,10 +30,23 @@ class CommunityCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        context.pushNamed(Routes.developerCommunityChatScreen,
-            arguments: AppArgument(groupId: groupId));
-      },
+        onTap: () async {
+          final userId =
+          await SharedPrefHelper.getSecuredString(SharedPrefKeys.userId);
+
+          if (userId.isNotEmpty) {
+            context.pushNamed(
+              Routes.developerCommunityChatScreen,
+              arguments: AppArgument(
+                groupId: groupId,
+                developerId: userId,
+              ),
+            );
+          } else {
+            // Handle error: maybe show a dialog or redirect to login
+            debugPrint("❌ User ID not found in secure storage");
+          }
+        },
       child: Card(
         elevation: 2,
         shape: RoundedRectangleBorder(

@@ -41,30 +41,40 @@ class _DeveloperCommunityChatScreenState
     communityId = widget.communityId;
 
     if (currentUserId != null && communityId != null) {
-      _socketService.connect(currentUserId!);
-      _socketService.joinRoom(communityId!);
-
-      _socketService.onReceiveMessage((data) {
-        final newMessage = ReceiveMessage(
-          messageText: data['message'] ?? '',
-          time: DateTime.now(), // Consider parsing from backend later
-          isSender: data['senderId'] == currentUserId,
-          senderName: data['senderName'] ?? 'Unknown',
-        );
-
-        setState(() {
-          _messages.add(newMessage);
-        });
-
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          _scrollController.animateTo(
-            _scrollController.position.maxScrollExtent,
-            duration: const Duration(milliseconds: 300),
-            curve: Curves.easeOut,
-          );
-        });
-      });
+      _initializeSocket();
     }
+  }
+
+  void _initializeSocket() {
+    _socketService.connect(currentUserId!);
+    _socketService.joinRoom(communityId!);
+
+    _socketService.onReceiveMessage((data) {
+      final newMessage = ReceiveMessage(
+        messageText: data['message'] ?? '',
+        time: DateTime.tryParse(data['createdAt'] ?? '') ?? DateTime.now(),
+        isSender: data['senderId'] == currentUserId,
+        senderName: data['senderName'] ?? 'Unknown',
+      );
+
+      setState(() {
+        _messages.add(newMessage);
+      });
+
+      _scrollToBottom();
+    });
+  }
+
+  void _scrollToBottom() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (_scrollController.hasClients) {
+        _scrollController.animateTo(
+          _scrollController.position.maxScrollExtent,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeOut,
+        );
+      }
+    });
   }
 
   void _sendMessage(String text) {
@@ -89,13 +99,7 @@ class _DeveloperCommunityChatScreenState
       _messages.add(myMessage);
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _scrollController.animateTo(
-        _scrollController.position.maxScrollExtent,
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeOut,
-      );
-    });
+    _scrollToBottom();
   }
 
   @override
