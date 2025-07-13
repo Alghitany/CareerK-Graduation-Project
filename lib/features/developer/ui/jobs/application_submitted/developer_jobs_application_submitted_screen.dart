@@ -38,7 +38,7 @@ class DeveloperJobsApplicationSubmittedScreen extends StatelessWidget {
             verticalSpace(40),
             AppTextButton(
               onPressed: () {
-                context.pushNamed(Routes.developerJobsAllCategoriesScreen);
+                context.pushNamed(Routes.developerHomeMainPageScreen);
               },
               buttonText: 'Explore Jobs',
               textStyle: AppTextStyles.font18WhitePoppinsMedium,

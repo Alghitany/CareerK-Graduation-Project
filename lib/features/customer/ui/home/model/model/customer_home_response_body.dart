@@ -30,12 +30,12 @@ class Profile {
   final String name;
 
   @JsonKey(name: 'profile_picture')
-  final String profilePicture;
+  final String? profilePicture;
 
   Profile({
     required this.id,
     required this.name,
-    required this.profilePicture,
+    this.profilePicture,
   });
 
   factory Profile.fromJson(Map<String, dynamic> json) =>

@@ -68,8 +68,8 @@ class CustomerTopBarBlocBuilder extends StatelessWidget {
                     shape: BoxShape.circle,
                     image: DecorationImage(
                       image: (profile.profilePicture != null)
-                          ? NetworkImage(profile.profilePicture)
-                          : AssetImage('assets/images/company_logo.png')
+                          ? NetworkImage(profile.profilePicture ?? " ")
+                          : const AssetImage('assets/images/company_logo.png')
                               as ImageProvider,
                       fit: BoxFit.cover,
                     ),

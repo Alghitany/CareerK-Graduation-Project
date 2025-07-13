@@ -25,7 +25,7 @@ Map<String, dynamic> _$CustomerHomeResponseBodyToJson(
 Profile _$ProfileFromJson(Map<String, dynamic> json) => Profile(
       id: json['id'] as String,
       name: json['name'] as String,
-      profilePicture: json['profile_picture'] as String,
+      profilePicture: json['profile_picture'] as String?,
     );
 
 Map<String, dynamic> _$ProfileToJson(Profile instance) => <String, dynamic>{
