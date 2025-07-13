@@ -9,25 +9,25 @@ class CustomerProfileInfoResponseBody {
   final String email;
 
   @JsonKey(name: 'profile_picture')
-  final String profilePicture;
+  final String? profilePicture;
 
   @JsonKey(name: 'brief_description')
-  final String briefDescription;
+  final String? briefDescription;
 
   @JsonKey(name: 'contact_email')
-  final String contactEmail;
+  final String? contactEmail;
 
   @JsonKey(name: 'phone_number')
-  final String phoneNumber;
+  final String? phoneNumber;
 
   CustomerProfileInfoResponseBody({
     required this.id,
     required this.name,
     required this.email,
-    required this.profilePicture,
-    required this.briefDescription,
-    required this.contactEmail,
-    required this.phoneNumber,
+    this.profilePicture,
+    this.briefDescription,
+    this.contactEmail,
+    this.phoneNumber,
   });
 
   factory CustomerProfileInfoResponseBody.fromJson(Map<String, dynamic> json) =>

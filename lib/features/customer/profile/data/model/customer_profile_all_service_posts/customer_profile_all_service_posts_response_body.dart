@@ -30,7 +30,7 @@ class ServicePostItem {
   final String createdAt;
 
   @JsonKey(name: 'profilePicture')
-  final String profilePicture;
+  final String? profilePicture;
 
   ServicePostItem({
     required this.id,
@@ -38,7 +38,7 @@ class ServicePostItem {
     required this.serviceType,
     required this.budgetRange,
     required this.createdAt,
-    required this.profilePicture,
+    this.profilePicture,
   });
 
   factory ServicePostItem.fromJson(Map<String, dynamic> json) =>

@@ -12,7 +12,7 @@ class JobsNumber extends StatelessWidget {
     return Column(
       children: [
         Text(
-          'Jobs',
+          'Services',
           style: AppTextStyles.font16GranitePoppinsMedium,
         ),
         verticalSpace(8),
