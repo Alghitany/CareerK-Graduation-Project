@@ -37,7 +37,7 @@ class DeveloperCoursesAndJobsMainPageProfileBlocBuilder
     final fullName = '${profileModel.firstName} ${profileModel.lastName}';
     return CoursesAndJobsMainPageTopBar(
       fullName: fullName,
-      profilePicture: profileModel.profilePicture,
+      profilePicture: profileModel.profilePicture ?? " ",
     );
   }
 

@@ -28,7 +28,7 @@ class ProfileIcons extends StatelessWidget {
                 onTap: () => _showDialog(
                   context,
                   "Phone",
-                  profileData.phoneNumber,
+                  profileData.phoneNumber ?? "No Number",
                   (newValue) {
                     context
                         .read<CustomerProfileEditCubit>()

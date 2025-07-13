@@ -30,7 +30,7 @@ ServicePostItem _$ServicePostItemFromJson(Map<String, dynamic> json) =>
       serviceType: json['serviceType'] as String,
       budgetRange: json['budgetRange'] as String,
       createdAt: json['createdAt'] as String,
-      profilePicture: json['profilePicture'] as String,
+      profilePicture: json['profilePicture'] as String?,
     );
 
 Map<String, dynamic> _$ServicePostItemToJson(ServicePostItem instance) =>

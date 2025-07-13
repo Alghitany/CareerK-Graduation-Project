@@ -12,10 +12,10 @@ CustomerProfileInfoResponseBody _$CustomerProfileInfoResponseBodyFromJson(
       id: json['id'] as String,
       name: json['name'] as String,
       email: json['email'] as String,
-      profilePicture: json['profile_picture'] as String,
-      briefDescription: json['brief_description'] as String,
-      contactEmail: json['contact_email'] as String,
-      phoneNumber: json['phone_number'] as String,
+      profilePicture: json['profile_picture'] as String?,
+      briefDescription: json['brief_description'] as String?,
+      contactEmail: json['contact_email'] as String?,
+      phoneNumber: json['phone_number'] as String?,
     );
 
 Map<String, dynamic> _$CustomerProfileInfoResponseBodyToJson(
