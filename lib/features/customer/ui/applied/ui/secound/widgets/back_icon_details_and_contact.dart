@@ -14,18 +14,6 @@ class BackIconDetailsAndContact extends StatelessWidget {
         const AppBackIcon(),
         horizontalSpace(16),
         Text('Details', style: AppTextStyles.font24RangoonGreenPoppinsSemiBold),
-        const Spacer(),
-        CircleAvatar(
-          radius: 18.r,
-          backgroundColor: Colors.grey.shade200,
-          child: const Icon(Icons.phone, size: 18),
-        ),
-        horizontalSpace(8),
-        CircleAvatar(
-          radius: 18.r,
-          backgroundColor: Colors.grey.shade200,
-          child: const Icon(Icons.message, size: 18),
-        ),
       ],
     );
   }

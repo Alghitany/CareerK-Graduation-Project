@@ -1,11 +1,20 @@
 import 'package:carrerk/features/customer/data/models/customer_jobs_post_request_body.dart';
 import 'package:carrerk/features/customer/data/models/customer_jobs_post_response.dart';
+import 'package:carrerk/features/customer/profile/data/model/customer_jobs_delete_post/customer_jobs_delete_post_response.dart';
+import 'package:carrerk/features/customer/profile/data/model/customer_profile_all_service_posts/customer_profile_all_service_posts_response_body.dart';
+import 'package:carrerk/features/customer/profile/data/model/customer_profile_applicants_number_models/customer_profile_applicants_number_response_body.dart';
+import 'package:carrerk/features/customer/profile/data/model/customer_profile_info/customer_profile_info_response_body.dart';
 import 'package:carrerk/features/customer/ui/applied/data/model/first_screen_model/applications_response_body.dart';
 import 'package:carrerk/features/customer/ui/applied/data/model/reject_applications_model/reject_application_response.dart';
+import 'package:carrerk/features/customer/ui/applied/data/model/reject_applications_model/reject_applications_request_model.dart';
 import 'package:carrerk/features/customer/ui/applied/data/model/secound_screen_model/application_details_response_body.dart';
 import 'package:carrerk/features/developer/ui/profile/ui/bookmarks/data/models/developer_profile_courses_bookmarked_models/developer_profile_courses_bookmarked_response_body.dart';
 import 'package:carrerk/features/developer/ui/profile/ui/bookmarks/data/models/developer_profile_jobs_bookmarked_models/developer_profile_jobs_bookmarked_response_body.dart';
 import 'package:carrerk/features/developer/ui/profile/ui/bookmarks/data/models/developer_profile_services_bookmarked_models/developer_profile_services_bookmarked_response_body.dart';
+import 'package:carrerk/features/notifications/data/model/get_all/all_notifications_response_model.dart';
+import 'package:carrerk/features/notifications/data/model/mark_one/mark_notification_read_request_model.dart';
+import 'package:carrerk/features/notifications/data/model/mark_one/mark_notification_read_response_model.dart';
+
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -25,6 +34,7 @@ import '../../features/chats/person_chat/data/models/get_chat_messages/get_chat_
 import '../../features/chats/person_chat/data/models/start_chat/start_chat_room_request_body.dart';
 import '../../features/chats/person_chat/data/models/start_chat/start_chat_room_response.dart';
 import '../../features/company/data/model/company_jobs_delete_post_response.dart';
+
 import '../../features/company/ui/home/data/models/update_application_status_model/company_update_application_status_request_body.dart';
 import '../../features/company/ui/home/data/models/update_application_status_model/company_update_application_status_response.dart';
 import '../../features/company/ui/home/ui/main_page/data/model/company_home_main_page_response_body.dart';
@@ -430,6 +440,22 @@ abstract class ApiService {
   Future<ChatsAllChatsResponseBody> getAllChats();
 
 //----------------- Customer
+// -> Delete Customer Job
+  @DELETE("${ApiConstants.customerJobsDeletePost}")
+  Future<CustomerJobsDeletePostResponse> deleteCustomerJobPost(
+    @Path("jobId") String jobId,
+  );
+
+// notification
+// get all
+  @GET(ApiConstants.allNotification)
+  Future<AllNotificationsResponseModel> getAllNotifications();
+// mark one
+  @PATCH(ApiConstants.markOneNotification)
+  Future<MarkNotificationReadResponseModel> markNotificationAsRead(
+    @Path('notificationId') String notificationId,
+    @Body() MarkNotificationReadRequestModel request,
+  );
   //->Post Job
   @POST(ApiConstants.customerJobsPost)
   Future<CustomerJobsPostResponse> customerJobsPost(
@@ -459,11 +485,10 @@ abstract class ApiService {
 
   // -------------reject
   @PATCH(ApiConstants.rejectApplications)
-  Future<RejectApplicationResponse> rejectApplication(
+  Future<RejectApplicationResponseBody> rejectApplication(
     @Path('applicantId') String applicantId,
-    @Body() Map<String, dynamic> body,
+    @Body() RejectApplicationRequestBody request,
   );
-
   @POST(ApiConstants.startChatRoom)
   Future<StartChatRoomResponse> startPrivateChat(
     @Body() StartChatRoomRequestBody body,
@@ -473,6 +498,18 @@ abstract class ApiService {
   Future<GetChatMessagesResponseBody> getChatMessages(
     @Path('chatRoomId') String chatRoomId,
   );
+//  customer profile
+// profile info
+  @GET(ApiConstants.customerviewprofile)
+  Future<CustomerProfileInfoResponseBody> getProfileInfo();
+// profile jobs_posts
+  @GET(ApiConstants.customergetserviceposts)
+  Future<CustomerProfileAllServicePostsResponseBody>
+      getProfileAllServicePosts();
+// profile bumber of applications
+  @GET(ApiConstants.customergetapplications)
+  Future<CustomerProfileApplicantsNumberResponseBody>
+      getProfileApplicationsNumber();
 
 //----------------- Customer
 // Customer Sign up Handled with dio

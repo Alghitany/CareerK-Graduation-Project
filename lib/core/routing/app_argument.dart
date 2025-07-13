@@ -16,8 +16,11 @@ class AppArgument {
   final bool? isCompany;
   final String? fileUrl;
   final String? tag;
+  final bool? isCustomer;
+
 
   AppArgument({
+    this.isCustomer,
     this.applicationId,
     this.developerId,
     this.jobId,
