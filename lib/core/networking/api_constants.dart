@@ -1,5 +1,5 @@
 class ApiConstants {
-  static const String apiBaseUrl = "https://bec97dd3ad0a.ngrok-free.app";
+  static const String apiBaseUrl = "https://120617d66b28.ngrok-free.app";
   static const String baseImageUrl =
       "https://cc26f943a508.ngrok-free.app/uploads/profile_pictures/";
 
