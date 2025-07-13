@@ -1,7 +1,7 @@
 class ApiConstants {
-  static const String apiBaseUrl = "https://94deaea98e01.ngrok-free.app/";
+  static const String apiBaseUrl = "https://cc26f943a508.ngrok-free.app/";
   static const String baseImageUrl =
-      "https://94deaea98e01.ngrok-free.app/uploads/profile_pictures/";
+      "https://cc26f943a508.ngrok-free.app/uploads/profile_pictures/";
 
   //------ Authentication -------
   static const String authenticationLogin = "api/auth/login";

@@ -709,10 +709,21 @@ class AppRouter {
               BlocProvider(
                 create: (_) => getIt<RejectApplicationCubit>(),
               ),
+              // Bloc providers for chat
+              BlocProvider(
+                create: (context) => getIt<GetChatMessagesCubit>()
+                  ..getMessages(args.chatRoomId!),
+              ),
+              BlocProvider(
+                create: (context) => getIt<SendMessagesCubit>(),
+              ),
             ],
-            child: const CustomerAppliedSecoundScreen(),
+            // vhvlh,v
+            child: CustomerAppliedSecoundScreen(),
           ),
         );
+
+        ;
 
       // chats
 

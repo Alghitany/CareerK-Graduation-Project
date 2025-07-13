@@ -41,7 +41,7 @@ class ContactUserSection extends StatelessWidget {
           Routes.chatsPersonChatScreen,
           arguments: AppArgument(
             chatRoomId: userId,
-            isExisting: true,
+            isExisting: false,
           ),
         );
       },
