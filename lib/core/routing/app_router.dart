@@ -15,8 +15,6 @@ import 'package:carrerk/features/customer/profile/logic/customer_profile_applica
 import 'package:carrerk/features/customer/profile/logic/customer_profile_edit_logic/customer_profile_edit_cubit.dart';
 import 'package:carrerk/features/customer/profile/logic/customer_profile_info_logic/customer_profile_info_cubit.dart';
 
-import 'package:carrerk/features/customer/ui/applied/data/repo/reject_applications_repo/reject_applications_repo.dart';
-import 'package:carrerk/features/customer/ui/applied/data/repo/secound_screen_repo/application_details_repo.dart';
 import 'package:carrerk/features/customer/ui/applied/logic/first_screen_logic/applications_cubit.dart';
 import 'package:carrerk/features/customer/ui/applied/logic/reject_applications_logic/reject_applications_cubit.dart';
 import 'package:carrerk/features/customer/ui/applied/logic/secound_screen_logic/application_details_cubit.dart';
@@ -419,10 +417,7 @@ class AppRouter {
           builder: (_) => BlocProvider<SpecificCommunityCubit>(
             create: (_) => getIt<SpecificCommunityCubit>()
               ..getSpecificCommunity(args.groupId!),
-            child: DeveloperCommunityChatScreen(
-              userId: args.developerId,
-              communityId: args.groupId,
-            ),
+            child: const DeveloperCommunityChatScreen(),
           ),
         );
 

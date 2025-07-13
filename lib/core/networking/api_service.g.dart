@@ -14,7 +14,7 @@ class _ApiService implements ApiService {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'https://120617d66b28.ngrok-free.app/';
+    baseUrl ??= 'https://bec97dd3ad0a.ngrok-free.app';
   }
 
   final Dio _dio;
