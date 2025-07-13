@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'all_notification_state.dart';
+part of 'mark_notification_read_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,22 +15,21 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$AllNotificationState {
+mixin _$MarkNotificationReadState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AllNotificationsResponseModel notifications)
+    required TResult Function(MarkNotificationReadResponseModel notification)
         success,
     required TResult Function(ErrorHandler errorHandler) error,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(AllNotificationsResponseModel notifications)? success,
+    TResult? Function(MarkNotificationReadResponseModel notification)? success,
     TResult? Function(ErrorHandler errorHandler)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -38,59 +37,57 @@ mixin _$AllNotificationState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AllNotificationsResponseModel notifications)? success,
+    TResult Function(MarkNotificationReadResponseModel notification)? success,
     TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(AllNotificationLoading value) loading,
-    required TResult Function(AllNotificationSuccess value) success,
-    required TResult Function(AllNotificationError value) error,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Error value) error,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(AllNotificationLoading value)? loading,
-    TResult? Function(AllNotificationSuccess value)? success,
-    TResult? Function(AllNotificationError value)? error,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(AllNotificationLoading value)? loading,
-    TResult Function(AllNotificationSuccess value)? success,
-    TResult Function(AllNotificationError value)? error,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AllNotificationStateCopyWith<$Res> {
-  factory $AllNotificationStateCopyWith(AllNotificationState value,
-          $Res Function(AllNotificationState) then) =
-      _$AllNotificationStateCopyWithImpl<$Res, AllNotificationState>;
+abstract class $MarkNotificationReadStateCopyWith<$Res> {
+  factory $MarkNotificationReadStateCopyWith(MarkNotificationReadState value,
+          $Res Function(MarkNotificationReadState) then) =
+      _$MarkNotificationReadStateCopyWithImpl<$Res, MarkNotificationReadState>;
 }
 
 /// @nodoc
-class _$AllNotificationStateCopyWithImpl<$Res,
-        $Val extends AllNotificationState>
-    implements $AllNotificationStateCopyWith<$Res> {
-  _$AllNotificationStateCopyWithImpl(this._value, this._then);
+class _$MarkNotificationReadStateCopyWithImpl<$Res,
+        $Val extends MarkNotificationReadState>
+    implements $MarkNotificationReadStateCopyWith<$Res> {
+  _$MarkNotificationReadStateCopyWithImpl(this._value, this._then);
 
-// ignore: unused_field
+  // ignore: unused_field
   final $Val _value;
-// ignore: unused_field
+  // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of AllNotificationState
+  /// Create a copy of MarkNotificationReadState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -103,13 +100,13 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$AllNotificationStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$MarkNotificationReadStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of AllNotificationState
+  /// Create a copy of MarkNotificationReadState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -120,7 +117,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'AllNotificationState.initial()';
+    return 'MarkNotificationReadState.initial()';
   }
 
   @override
@@ -137,7 +134,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AllNotificationsResponseModel notifications)
+    required TResult Function(MarkNotificationReadResponseModel notification)
         success,
     required TResult Function(ErrorHandler errorHandler) error,
   }) {
@@ -149,7 +146,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(AllNotificationsResponseModel notifications)? success,
+    TResult? Function(MarkNotificationReadResponseModel notification)? success,
     TResult? Function(ErrorHandler errorHandler)? error,
   }) {
     return initial?.call();
@@ -160,7 +157,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AllNotificationsResponseModel notifications)? success,
+    TResult Function(MarkNotificationReadResponseModel notification)? success,
     TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) {
@@ -174,9 +171,9 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(AllNotificationLoading value) loading,
-    required TResult Function(AllNotificationSuccess value) success,
-    required TResult Function(AllNotificationError value) error,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Error value) error,
   }) {
     return initial(this);
   }
@@ -185,9 +182,9 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(AllNotificationLoading value)? loading,
-    TResult? Function(AllNotificationSuccess value)? success,
-    TResult? Function(AllNotificationError value)? error,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Error value)? error,
   }) {
     return initial?.call(this);
   }
@@ -196,9 +193,9 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(AllNotificationLoading value)? loading,
-    TResult Function(AllNotificationSuccess value)? success,
-    TResult Function(AllNotificationError value)? error,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -208,47 +205,43 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements AllNotificationState {
+abstract class _Initial implements MarkNotificationReadState {
   const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$AllNotificationLoadingImplCopyWith<$Res> {
-  factory _$$AllNotificationLoadingImplCopyWith(
-          _$AllNotificationLoadingImpl value,
-          $Res Function(_$AllNotificationLoadingImpl) then) =
-      __$$AllNotificationLoadingImplCopyWithImpl<$Res>;
+abstract class _$$LoadingImplCopyWith<$Res> {
+  factory _$$LoadingImplCopyWith(
+          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
+      __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$AllNotificationLoadingImplCopyWithImpl<$Res>
-    extends _$AllNotificationStateCopyWithImpl<$Res,
-        _$AllNotificationLoadingImpl>
-    implements _$$AllNotificationLoadingImplCopyWith<$Res> {
-  __$$AllNotificationLoadingImplCopyWithImpl(
-      _$AllNotificationLoadingImpl _value,
-      $Res Function(_$AllNotificationLoadingImpl) _then)
+class __$$LoadingImplCopyWithImpl<$Res>
+    extends _$MarkNotificationReadStateCopyWithImpl<$Res, _$LoadingImpl>
+    implements _$$LoadingImplCopyWith<$Res> {
+  __$$LoadingImplCopyWithImpl(
+      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of AllNotificationState
+  /// Create a copy of MarkNotificationReadState
   /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$AllNotificationLoadingImpl implements AllNotificationLoading {
-  const _$AllNotificationLoadingImpl();
+class _$LoadingImpl implements _Loading {
+  const _$LoadingImpl();
 
   @override
   String toString() {
-    return 'AllNotificationState.loading()';
+    return 'MarkNotificationReadState.loading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AllNotificationLoadingImpl);
+        (other.runtimeType == runtimeType && other is _$LoadingImpl);
   }
 
   @override
@@ -259,7 +252,7 @@ class _$AllNotificationLoadingImpl implements AllNotificationLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AllNotificationsResponseModel notifications)
+    required TResult Function(MarkNotificationReadResponseModel notification)
         success,
     required TResult Function(ErrorHandler errorHandler) error,
   }) {
@@ -271,7 +264,7 @@ class _$AllNotificationLoadingImpl implements AllNotificationLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(AllNotificationsResponseModel notifications)? success,
+    TResult? Function(MarkNotificationReadResponseModel notification)? success,
     TResult? Function(ErrorHandler errorHandler)? error,
   }) {
     return loading?.call();
@@ -282,7 +275,7 @@ class _$AllNotificationLoadingImpl implements AllNotificationLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AllNotificationsResponseModel notifications)? success,
+    TResult Function(MarkNotificationReadResponseModel notification)? success,
     TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) {
@@ -296,9 +289,9 @@ class _$AllNotificationLoadingImpl implements AllNotificationLoading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(AllNotificationLoading value) loading,
-    required TResult Function(AllNotificationSuccess value) success,
-    required TResult Function(AllNotificationError value) error,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Error value) error,
   }) {
     return loading(this);
   }
@@ -307,9 +300,9 @@ class _$AllNotificationLoadingImpl implements AllNotificationLoading {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(AllNotificationLoading value)? loading,
-    TResult? Function(AllNotificationSuccess value)? success,
-    TResult? Function(AllNotificationError value)? error,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Error value)? error,
   }) {
     return loading?.call(this);
   }
@@ -318,9 +311,9 @@ class _$AllNotificationLoadingImpl implements AllNotificationLoading {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(AllNotificationLoading value)? loading,
-    TResult Function(AllNotificationSuccess value)? success,
-    TResult Function(AllNotificationError value)? error,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -330,90 +323,86 @@ class _$AllNotificationLoadingImpl implements AllNotificationLoading {
   }
 }
 
-abstract class AllNotificationLoading implements AllNotificationState {
-  const factory AllNotificationLoading() = _$AllNotificationLoadingImpl;
+abstract class _Loading implements MarkNotificationReadState {
+  const factory _Loading() = _$LoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$AllNotificationSuccessImplCopyWith<$Res> {
-  factory _$$AllNotificationSuccessImplCopyWith(
-          _$AllNotificationSuccessImpl value,
-          $Res Function(_$AllNotificationSuccessImpl) then) =
-      __$$AllNotificationSuccessImplCopyWithImpl<$Res>;
+abstract class _$$SuccessImplCopyWith<$Res> {
+  factory _$$SuccessImplCopyWith(
+          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
+      __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({AllNotificationsResponseModel notifications});
+  $Res call({MarkNotificationReadResponseModel notification});
 }
 
 /// @nodoc
-class __$$AllNotificationSuccessImplCopyWithImpl<$Res>
-    extends _$AllNotificationStateCopyWithImpl<$Res,
-        _$AllNotificationSuccessImpl>
-    implements _$$AllNotificationSuccessImplCopyWith<$Res> {
-  __$$AllNotificationSuccessImplCopyWithImpl(
-      _$AllNotificationSuccessImpl _value,
-      $Res Function(_$AllNotificationSuccessImpl) _then)
+class __$$SuccessImplCopyWithImpl<$Res>
+    extends _$MarkNotificationReadStateCopyWithImpl<$Res, _$SuccessImpl>
+    implements _$$SuccessImplCopyWith<$Res> {
+  __$$SuccessImplCopyWithImpl(
+      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of AllNotificationState
+  /// Create a copy of MarkNotificationReadState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? notifications = null,
+    Object? notification = null,
   }) {
-    return _then(_$AllNotificationSuccessImpl(
-      null == notifications
-          ? _value.notifications
-          : notifications // ignore: cast_nullable_to_non_nullable
-              as AllNotificationsResponseModel,
+    return _then(_$SuccessImpl(
+      null == notification
+          ? _value.notification
+          : notification // ignore: cast_nullable_to_non_nullable
+              as MarkNotificationReadResponseModel,
     ));
   }
 }
 
 /// @nodoc
 
-class _$AllNotificationSuccessImpl implements AllNotificationSuccess {
-  const _$AllNotificationSuccessImpl(this.notifications);
+class _$SuccessImpl implements _Success {
+  const _$SuccessImpl(this.notification);
 
   @override
-  final AllNotificationsResponseModel notifications;
+  final MarkNotificationReadResponseModel notification;
 
   @override
   String toString() {
-    return 'AllNotificationState.success(notifications: $notifications)';
+    return 'MarkNotificationReadState.success(notification: $notification)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AllNotificationSuccessImpl &&
-            (identical(other.notifications, notifications) ||
-                other.notifications == notifications));
+            other is _$SuccessImpl &&
+            (identical(other.notification, notification) ||
+                other.notification == notification));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, notifications);
+  int get hashCode => Object.hash(runtimeType, notification);
 
-  /// Create a copy of AllNotificationState
+  /// Create a copy of MarkNotificationReadState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$AllNotificationSuccessImplCopyWith<_$AllNotificationSuccessImpl>
-      get copyWith => __$$AllNotificationSuccessImplCopyWithImpl<
-          _$AllNotificationSuccessImpl>(this, _$identity);
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      __$$SuccessImplCopyWithImpl<_$SuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AllNotificationsResponseModel notifications)
+    required TResult Function(MarkNotificationReadResponseModel notification)
         success,
     required TResult Function(ErrorHandler errorHandler) error,
   }) {
-    return success(notifications);
+    return success(notification);
   }
 
   @override
@@ -421,10 +410,10 @@ class _$AllNotificationSuccessImpl implements AllNotificationSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(AllNotificationsResponseModel notifications)? success,
+    TResult? Function(MarkNotificationReadResponseModel notification)? success,
     TResult? Function(ErrorHandler errorHandler)? error,
   }) {
-    return success?.call(notifications);
+    return success?.call(notification);
   }
 
   @override
@@ -432,12 +421,12 @@ class _$AllNotificationSuccessImpl implements AllNotificationSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AllNotificationsResponseModel notifications)? success,
+    TResult Function(MarkNotificationReadResponseModel notification)? success,
     TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(notifications);
+      return success(notification);
     }
     return orElse();
   }
@@ -446,9 +435,9 @@ class _$AllNotificationSuccessImpl implements AllNotificationSuccess {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(AllNotificationLoading value) loading,
-    required TResult Function(AllNotificationSuccess value) success,
-    required TResult Function(AllNotificationError value) error,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Error value) error,
   }) {
     return success(this);
   }
@@ -457,9 +446,9 @@ class _$AllNotificationSuccessImpl implements AllNotificationSuccess {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(AllNotificationLoading value)? loading,
-    TResult? Function(AllNotificationSuccess value)? success,
-    TResult? Function(AllNotificationError value)? error,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Error value)? error,
   }) {
     return success?.call(this);
   }
@@ -468,9 +457,9 @@ class _$AllNotificationSuccessImpl implements AllNotificationSuccess {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(AllNotificationLoading value)? loading,
-    TResult Function(AllNotificationSuccess value)? success,
-    TResult Function(AllNotificationError value)? error,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -480,45 +469,44 @@ class _$AllNotificationSuccessImpl implements AllNotificationSuccess {
   }
 }
 
-abstract class AllNotificationSuccess implements AllNotificationState {
-  const factory AllNotificationSuccess(
-          final AllNotificationsResponseModel notifications) =
-      _$AllNotificationSuccessImpl;
+abstract class _Success implements MarkNotificationReadState {
+  const factory _Success(final MarkNotificationReadResponseModel notification) =
+      _$SuccessImpl;
 
-  AllNotificationsResponseModel get notifications;
+  MarkNotificationReadResponseModel get notification;
 
-  /// Create a copy of AllNotificationState
+  /// Create a copy of MarkNotificationReadState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AllNotificationSuccessImplCopyWith<_$AllNotificationSuccessImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$AllNotificationErrorImplCopyWith<$Res> {
-  factory _$$AllNotificationErrorImplCopyWith(_$AllNotificationErrorImpl value,
-          $Res Function(_$AllNotificationErrorImpl) then) =
-      __$$AllNotificationErrorImplCopyWithImpl<$Res>;
+abstract class _$$ErrorImplCopyWith<$Res> {
+  factory _$$ErrorImplCopyWith(
+          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
+      __$$ErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ErrorHandler errorHandler});
 }
 
 /// @nodoc
-class __$$AllNotificationErrorImplCopyWithImpl<$Res>
-    extends _$AllNotificationStateCopyWithImpl<$Res, _$AllNotificationErrorImpl>
-    implements _$$AllNotificationErrorImplCopyWith<$Res> {
-  __$$AllNotificationErrorImplCopyWithImpl(_$AllNotificationErrorImpl _value,
-      $Res Function(_$AllNotificationErrorImpl) _then)
+class __$$ErrorImplCopyWithImpl<$Res>
+    extends _$MarkNotificationReadStateCopyWithImpl<$Res, _$ErrorImpl>
+    implements _$$ErrorImplCopyWith<$Res> {
+  __$$ErrorImplCopyWithImpl(
+      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of AllNotificationState
+  /// Create a copy of MarkNotificationReadState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? errorHandler = null,
   }) {
-    return _then(_$AllNotificationErrorImpl(
+    return _then(_$ErrorImpl(
       null == errorHandler
           ? _value.errorHandler
           : errorHandler // ignore: cast_nullable_to_non_nullable
@@ -529,22 +517,22 @@ class __$$AllNotificationErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AllNotificationErrorImpl implements AllNotificationError {
-  const _$AllNotificationErrorImpl(this.errorHandler);
+class _$ErrorImpl implements _Error {
+  const _$ErrorImpl(this.errorHandler);
 
   @override
   final ErrorHandler errorHandler;
 
   @override
   String toString() {
-    return 'AllNotificationState.error(errorHandler: $errorHandler)';
+    return 'MarkNotificationReadState.error(errorHandler: $errorHandler)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AllNotificationErrorImpl &&
+            other is _$ErrorImpl &&
             (identical(other.errorHandler, errorHandler) ||
                 other.errorHandler == errorHandler));
   }
@@ -552,22 +540,20 @@ class _$AllNotificationErrorImpl implements AllNotificationError {
   @override
   int get hashCode => Object.hash(runtimeType, errorHandler);
 
-  /// Create a copy of AllNotificationState
+  /// Create a copy of MarkNotificationReadState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$AllNotificationErrorImplCopyWith<_$AllNotificationErrorImpl>
-      get copyWith =>
-          __$$AllNotificationErrorImplCopyWithImpl<_$AllNotificationErrorImpl>(
-              this, _$identity);
+  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+      __$$ErrorImplCopyWithImpl<_$ErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AllNotificationsResponseModel notifications)
+    required TResult Function(MarkNotificationReadResponseModel notification)
         success,
     required TResult Function(ErrorHandler errorHandler) error,
   }) {
@@ -579,7 +565,7 @@ class _$AllNotificationErrorImpl implements AllNotificationError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(AllNotificationsResponseModel notifications)? success,
+    TResult? Function(MarkNotificationReadResponseModel notification)? success,
     TResult? Function(ErrorHandler errorHandler)? error,
   }) {
     return error?.call(errorHandler);
@@ -590,7 +576,7 @@ class _$AllNotificationErrorImpl implements AllNotificationError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AllNotificationsResponseModel notifications)? success,
+    TResult Function(MarkNotificationReadResponseModel notification)? success,
     TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) {
@@ -604,9 +590,9 @@ class _$AllNotificationErrorImpl implements AllNotificationError {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(AllNotificationLoading value) loading,
-    required TResult Function(AllNotificationSuccess value) success,
-    required TResult Function(AllNotificationError value) error,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Error value) error,
   }) {
     return error(this);
   }
@@ -615,9 +601,9 @@ class _$AllNotificationErrorImpl implements AllNotificationError {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(AllNotificationLoading value)? loading,
-    TResult? Function(AllNotificationSuccess value)? success,
-    TResult? Function(AllNotificationError value)? error,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Error value)? error,
   }) {
     return error?.call(this);
   }
@@ -626,9 +612,9 @@ class _$AllNotificationErrorImpl implements AllNotificationError {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(AllNotificationLoading value)? loading,
-    TResult Function(AllNotificationSuccess value)? success,
-    TResult Function(AllNotificationError value)? error,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -638,15 +624,14 @@ class _$AllNotificationErrorImpl implements AllNotificationError {
   }
 }
 
-abstract class AllNotificationError implements AllNotificationState {
-  const factory AllNotificationError(final ErrorHandler errorHandler) =
-      _$AllNotificationErrorImpl;
+abstract class _Error implements MarkNotificationReadState {
+  const factory _Error(final ErrorHandler errorHandler) = _$ErrorImpl;
 
   ErrorHandler get errorHandler;
 
-  /// Create a copy of AllNotificationState
+  /// Create a copy of MarkNotificationReadState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AllNotificationErrorImplCopyWith<_$AllNotificationErrorImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

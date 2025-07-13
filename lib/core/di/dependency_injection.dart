@@ -4,15 +4,29 @@ import 'package:carrerk/features/chats/person_chat/data/repo/get_chat_messages_r
 import 'package:carrerk/features/chats/person_chat/logic/get_chat_messages/get_chat_messages_cubit.dart';
 import 'package:carrerk/features/company/data/repo/company_jobs_delete_post_repo.dart';
 import 'package:carrerk/features/company/logic/company_jobs_delete_post_cubit.dart';
+
 import 'package:carrerk/features/company/ui/home/ui/main_page/data/repo/company_home_main_page_repo.dart';
 import 'package:carrerk/features/company/ui/home/ui/see_details/data/repo/company_home_see_details_repo.dart';
 import 'package:carrerk/features/customer/data/repos/customer_jobs_post_repo.dart';
 import 'package:carrerk/features/customer/logic/customer_jobs_post_cubit.dart';
+import 'package:carrerk/features/customer/profile/data/repo/customer_jobs_delete_post_repo.dart';
+import 'package:carrerk/features/customer/profile/data/repo/customer_profile_all_service_posts_repo.dart';
+import 'package:carrerk/features/customer/profile/data/repo/customer_profile_applicants_number_repo.dart';
+import 'package:carrerk/features/customer/profile/data/repo/customer_profile_edit_repo.dart';
+import 'package:carrerk/features/customer/profile/data/repo/customer_profile_info_repo.dart';
+import 'package:carrerk/features/customer/profile/logic/customer_jobs_delete_post_logic/customer_jobs_delete_post_cubit.dart';
+import 'package:carrerk/features/customer/profile/logic/customer_profile_all_job_posts_logic/customer_profile_all_job_posts_cubit.dart';
+import 'package:carrerk/features/customer/profile/logic/customer_profile_applicants_number_logic/customer_profile_applicants_number_cubit.dart';
+import 'package:carrerk/features/customer/profile/logic/customer_profile_edit_logic/customer_profile_edit_cubit.dart';
+import 'package:carrerk/features/customer/profile/logic/customer_profile_info_logic/customer_profile_info_cubit.dart';
 import 'package:carrerk/features/customer/ui/applied/data/repo/first_screen_repo/applications_repo.dart';
+import 'package:carrerk/features/customer/ui/applied/data/repo/reject_applications_repo/reject_applications_repo.dart';
 import 'package:carrerk/features/customer/ui/applied/data/repo/secound_screen_repo/application_details_repo.dart';
 import 'package:carrerk/features/customer/ui/applied/logic/first_screen_logic/applications_cubit.dart';
+import 'package:carrerk/features/customer/ui/applied/logic/reject_applications_logic/reject_applications_cubit.dart';
 import 'package:carrerk/features/customer/ui/applied/logic/secound_screen_logic/application_details_cubit.dart';
 import 'package:carrerk/features/customer/ui/home/logic/customer_home_cubit.dart';
+
 import 'package:carrerk/features/customer/ui/sign_up/data/repo/customer_sign_up_repo.dart';
 import 'package:carrerk/features/customer/ui/sign_up/logic/customer_sign_up_cubit.dart';
 import 'package:carrerk/features/developer/data/repo/developer_single_job_bookmark_repo.dart';
@@ -24,6 +38,10 @@ import 'package:carrerk/features/developer/ui/home_main_page/logic/developer_cou
 import 'package:carrerk/features/developer/ui/jobs/search/data/repo/developer_jobs_recently_posted_repo.dart';
 import 'package:carrerk/features/developer/ui/profile/ui/bookmarks/data/repos/developer_profile_services_bookmarked_repo.dart';
 import 'package:carrerk/features/developer/ui/profile/ui/main_page/data/repos/developer_profile_main_page_skills_repo.dart';
+import 'package:carrerk/features/notifications/data/repo/get_all/all_notifications_repo.dart';
+import 'package:carrerk/features/notifications/data/repo/mark_one/mark_notification_read_repo.dart';
+import 'package:carrerk/features/notifications/logic/get_all/all_notification_cubit.dart';
+import 'package:carrerk/features/notifications/logic/mark_one/mark_notification_read_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -37,6 +55,7 @@ import '../../features/authentication/verify_code/data/repo/verify_code_repo.dar
 import '../../features/authentication/verify_code/logic/verify_code_cubit.dart';
 import '../../features/chat_bot/data/repo/chat_bot_repo.dart';
 import '../../features/chat_bot/logic/chat_bot_cubit.dart';
+
 import '../../features/chats/all_chats/data/repo/chats_all_chats_repo.dart';
 import '../../features/chats/all_chats/logic/chats_all_chats_cubit.dart';
 import '../../features/chats/person_chat/data/repo/send_messages_repo.dart';
@@ -64,6 +83,7 @@ import '../../features/company/ui/sign_up/logic/company_sign_up_cubit.dart';
 import '../../features/customer/ui/home/model/repo/customer_home_repo.dart';
 import '../../features/developer/data/repo/developer_add_course_bookmark_repo.dart';
 import '../../features/developer/data/repo/developer_add_job_bookmark_repo.dart';
+
 import '../../features/developer/data/repo/developer_courses_and_jobs_main_page_profile_repo.dart';
 import '../../features/developer/data/repo/developer_recommendations_repo.dart';
 import '../../features/developer/data/repo/developer_single_course_bookmark_repo.dart';
@@ -634,6 +654,32 @@ Future<void> setupGetIt() async {
 
   getIt.registerFactory<ApplicationDetailsCubit>(
       () => ApplicationDetailsCubit(getIt()));
+
+//  customer -- reject
+  getIt.registerLazySingleton<RejectApplicationRepo>(
+    () => RejectApplicationRepo(getIt()),
+  );
+
+  getIt.registerFactory<RejectApplicationCubit>(
+    () => RejectApplicationCubit(getIt()),
+  );
+// notification
+  getIt.registerLazySingleton<AllNotificationsRepo>(
+    () => AllNotificationsRepo(getIt<ApiService>()),
+  );
+
+  getIt.registerFactory<AllNotificationCubit>(
+    () => AllNotificationCubit(getIt<AllNotificationsRepo>()),
+  );
+
+  getIt.registerLazySingleton<MarkNotificationReadRepo>(
+    () => MarkNotificationReadRepo(getIt<ApiService>()),
+  );
+
+  getIt.registerFactory<MarkNotificationReadCubit>(
+    () => MarkNotificationReadCubit(getIt<MarkNotificationReadRepo>()),
+  );
+
   // Customer -> Signup
   getIt.registerLazySingleton<CustomerSignupRepo>(
     () => CustomerSignupRepo(getIt<Dio>()),
@@ -649,4 +695,42 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<ChatBotCubit>(
     () => ChatBotCubit(getIt()),
   );
+  // profile
+  // Profile Info
+  getIt.registerLazySingleton<CustomerProfileInfoRepo>(
+    () => CustomerProfileInfoRepo(getIt()),
+  );
+  getIt.registerFactory<CustomerProfileInfoCubit>(
+    () => CustomerProfileInfoCubit(getIt()),
+  );
+  // Company Applicants Number
+  getIt.registerLazySingleton<CustomerProfileApplicantsNumberRepo>(
+    () => CustomerProfileApplicantsNumberRepo(getIt()),
+  );
+
+  getIt.registerFactory<CustomerProfileApplicantsNumberCubit>(
+    () => CustomerProfileApplicantsNumberCubit(getIt()),
+  );
+  // All Job Posts
+  getIt.registerLazySingleton<CustomerProfileAllServicePostsRepo>(
+    () => CustomerProfileAllServicePostsRepo(getIt()),
+  );
+
+  getIt.registerFactory<CustomerProfileAllServicePostsCubit>(
+    () => CustomerProfileAllServicePostsCubit(getIt()),
+  );
+
+  // customer Profile Edit
+  getIt.registerLazySingleton<CustomerProfileEditRepo>(
+    () => CustomerProfileEditRepo(getIt()),
+  );
+
+  getIt.registerFactory<CustomerProfileEditCubit>(
+    () => CustomerProfileEditCubit(getIt()),
+  );
+
+  getIt.registerLazySingleton<CustomerJobsDeletePostRepo>(
+      () => CustomerJobsDeletePostRepo(getIt()));
+  getIt.registerLazySingleton<CustomerJobsDeletePostCubit>(
+      () => CustomerJobsDeletePostCubit(getIt()));
 }

@@ -1,5 +1,6 @@
 import 'package:carrerk/core/helpers/spacing.dart';
 import 'package:carrerk/core/widgets/cusomer_floating_action_button.dart';
+
 import 'package:carrerk/features/customer/ui/home/ui/widgets/customer_bloc_builder.dart';
 import 'package:carrerk/features/customer/ui/home/ui/widgets/home_page_top_bar_bloc_builder.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +28,6 @@ class CustomerHomeMainPageScreen extends StatelessWidget {
               const Expanded(
                 child: CustomerBlocBuilder(),
               ),
-              const RecommendationsList()
             ],
           ),
         ),

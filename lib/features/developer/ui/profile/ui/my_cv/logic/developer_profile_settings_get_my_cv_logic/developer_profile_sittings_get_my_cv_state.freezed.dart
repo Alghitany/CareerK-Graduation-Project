@@ -25,7 +25,6 @@ mixin _$DeveloperProfileSettingsGetMyCVState {
     required TResult Function(String error) error,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
@@ -44,7 +43,6 @@ mixin _$DeveloperProfileSettingsGetMyCVState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_DeveloperProfileSittingsMyCVInitial value)
@@ -56,7 +54,6 @@ mixin _$DeveloperProfileSettingsGetMyCVState {
     required TResult Function(DeveloperProfileSittingsMyCVError value) error,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_DeveloperProfileSittingsMyCVInitial value)? initial,
@@ -91,9 +88,9 @@ class _$DeveloperProfileSettingsGetMyCVStateCopyWithImpl<$Res,
     implements $DeveloperProfileSettingsGetMyCVStateCopyWith<$Res> {
   _$DeveloperProfileSettingsGetMyCVStateCopyWithImpl(this._value, this._then);
 
-// ignore: unused_field
+  // ignore: unused_field
   final $Val _value;
-// ignore: unused_field
+  // ignore: unused_field
   final $Res Function($Val) _then;
 
   /// Create a copy of DeveloperProfileSettingsGetMyCVState

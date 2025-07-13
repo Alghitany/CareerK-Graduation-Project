@@ -12,8 +12,11 @@ class RemoveViewProfileButtons extends StatelessWidget {
   final VoidCallback onRemove;
   final String applicationId;
 
-  const RemoveViewProfileButtons(
-      {super.key, required this.onRemove, required this.applicationId});
+  const RemoveViewProfileButtons({
+    super.key,
+    required this.onRemove,
+    required this.applicationId,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +32,10 @@ class RemoveViewProfileButtons extends StatelessWidget {
           borderRadius: 12.r,
           buttonText: 'Reject',
           textStyle: AppTextStyles.font11DuskyBluePoppinsMedium,
-          onPressed: onRemove,
+          onPressed: () {
+            print("✅ Reject pressed for $applicationId , button");
+            onRemove();
+          },
         ),
         horizontalSpace(38),
         AppTextButton(
@@ -42,10 +48,11 @@ class RemoveViewProfileButtons extends StatelessWidget {
           buttonText: 'View Profile',
           textStyle: AppTextStyles.font11WhitePoppinsMedium,
           onPressed: () {
-            print("application ID : ${applicationId}");
-            context.pushNamed(Routes.customerAppliedSecoundScreen,
-                arguments: AppArgument(applicationId: applicationId));
-            // context.pushNamed(Routes.customerAppliedSecoundScreen);
+            print("application ID : $applicationId");
+            context.pushNamed(
+              Routes.customerAppliedSecoundScreen,
+              arguments: AppArgument(applicationId: applicationId),
+            );
           },
         ),
       ],

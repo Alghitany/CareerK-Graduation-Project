@@ -1,4 +1,6 @@
+import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
+import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/styles.dart';
 import 'package:carrerk/core/widgets/app_back_icon.dart';
 import 'package:carrerk/core/widgets/app_text_button.dart';
@@ -35,6 +37,7 @@ class CustomerJobPostScreen extends StatelessWidget {
                     textStyle: AppTextStyles.font14WhitePoppinsMedium,
                     onPressed: () {
                       validateThenDoJobPost(context);
+                      context.pushNamed(Routes.customerJobPostSuccessScreen);
                     })
               ],
             ),

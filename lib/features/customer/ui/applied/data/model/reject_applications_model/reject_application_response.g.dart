@@ -6,38 +6,35 @@ part of 'reject_application_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-RejectApplicationResponse _$RejectApplicationResponseFromJson(
+RejectApplicationResponseBody _$RejectApplicationResponseBodyFromJson(
         Map<String, dynamic> json) =>
-    RejectApplicationResponse(
-      application: json['application'] == null
-          ? null
-          : ApplicationData.fromJson(
-              json['application'] as Map<String, dynamic>),
+    RejectApplicationResponseBody(
+      application:
+          Application.fromJson(json['application'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$RejectApplicationResponseToJson(
-        RejectApplicationResponse instance) =>
+Map<String, dynamic> _$RejectApplicationResponseBodyToJson(
+        RejectApplicationResponseBody instance) =>
     <String, dynamic>{
       'application': instance.application,
     };
 
-ApplicationData _$ApplicationDataFromJson(Map<String, dynamic> json) =>
-    ApplicationData(
-      id: json['id'] as String?,
-      developerId: json['developer_id'] as String?,
-      servicePostId: json['service_post_id'] as String?,
-      submittedAt: json['submitted_at'] as String?,
-      createdAt: json['created_at'] as String?,
-      status: json['status'] as String?,
-      name: json['name'] as String?,
-      email: json['email'] as String?,
-      phone: json['phone'] as String?,
-      yearsOfExperience: (json['years_of_experience'] as num?)?.toInt(),
-      expectedSalary: json['expected_salary'] as String?,
-      uploadedCv: json['uploaded_cv'] as String?,
+Application _$ApplicationFromJson(Map<String, dynamic> json) => Application(
+      id: json['id'] as String,
+      developerId: json['developer_id'] as String,
+      servicePostId: json['service_post_id'] as String,
+      submittedAt: json['submitted_at'] as String,
+      createdAt: json['created_at'] as String,
+      status: json['status'] as String,
+      name: json['name'] as String,
+      email: json['email'] as String,
+      phone: json['phone'] as String,
+      yearsOfExperience: (json['years_of_experience'] as num).toInt(),
+      expectedSalary: json['expected_salary'] as String,
+      uploadedCv: json['uploaded_cv'] as String,
     );
 
-Map<String, dynamic> _$ApplicationDataToJson(ApplicationData instance) =>
+Map<String, dynamic> _$ApplicationToJson(Application instance) =>
     <String, dynamic>{
       'id': instance.id,
       'developer_id': instance.developerId,
