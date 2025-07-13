@@ -132,8 +132,8 @@ class Routes {
       "/developerJobsAllCategoriesScreen";
   static const String developerJobsJobDetailsScreen =
       "/developerJobsJobDetailsScreen";
-  static const String developerProfileSavedJobsScreen =
-      "/developerProfileSavedJobsScreen";
+  static const String developerProfileBookmarksScreen =
+      "/developerProfileBookmarksScreen";
 
   // Profile
   static const String developerProfileMainPageScreen =
@@ -142,6 +142,8 @@ class Routes {
       "/developerProfileSettingsScreen";
   static const String developerProfileEditProfileScreen =
       "/developerProfileEditProfileScreen";
+  static const String developerProfileMyCVScreen =
+      "/developerProfileMyCVScreen";
   static const String developerProfileJobsAppliedScreen =
       "/developerProfileJobsAppliedScreen";
   static const String developerProfileCVGenerateScreen =
@@ -190,4 +192,7 @@ class Routes {
 
   // ---------------- PDF Viewer ----------------
   static const String pdfViewerScreen = "/pdfViewerScreen";
+
+  // ------------------ Chat Bot   ----------------
+  static const String chatBotScreen = "/chatBotScreen";
 }

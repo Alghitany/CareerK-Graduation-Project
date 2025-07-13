@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../features/developer/data/models/developer_add_job_bookmark_models/developer_add_job_bookmark_request_body.dart';
+import '../../../features/developer/logic/developer_add_job_bookmark_logic/developer_add_job_bookmark_cubit.dart';
 import '../../../features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
 import '../../../features/developer/logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_state.dart';
 
@@ -33,7 +35,7 @@ class DeveloperJobBookmarkBlocBuilder extends StatelessWidget {
   Widget setupLoading() {
     return IconButton(
       padding: EdgeInsets.zero,
-      onPressed: null, // Disable interaction during loading
+      onPressed: null,
       icon: SizedBox(
         width: 22.w,
         height: 22.h,
@@ -48,8 +50,19 @@ class DeveloperJobBookmarkBlocBuilder extends StatelessWidget {
   Widget setupSuccess(BuildContext context, bool isBookmarked) {
     return IconButton(
       padding: EdgeInsets.zero,
-      onPressed: () {
-        context.read<DeveloperSingleJobBookmarkCubit>().bookmarkJob(postId);
+      onPressed: () async {
+        // Save cubits before async gap (safe usage)
+        final addBookmarkCubit = context.read<DeveloperAddJobBookmarkCubit>();
+        final singleBookmarkCubit =
+            context.read<DeveloperSingleJobBookmarkCubit>();
+
+        await addBookmarkCubit.addJobBookmark(
+          jobId: postId,
+          body: const DeveloperAddJobBookmarkRequestBody(),
+        );
+
+        // Safe to use cubits here
+        singleBookmarkCubit.bookmarkJob(postId);
       },
       icon: SvgPicture.asset(
         isBookmarked
@@ -65,7 +78,6 @@ class DeveloperJobBookmarkBlocBuilder extends StatelessWidget {
     return IconButton(
       padding: EdgeInsets.zero,
       onPressed: () {
-        // Retry bookmarking on error
         context.read<DeveloperSingleJobBookmarkCubit>().bookmarkJob(postId);
       },
       icon: const Icon(Icons.error_outline, color: Colors.red),

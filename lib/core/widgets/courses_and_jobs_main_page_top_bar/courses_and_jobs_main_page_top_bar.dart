@@ -1,4 +1,6 @@
+import 'package:carrerk/core/helpers/app_regex.dart';
 import 'package:carrerk/core/helpers/extensions.dart';
+import 'package:carrerk/core/networking/api_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -49,11 +51,26 @@ class CoursesAndJobsMainPageTopBar extends StatelessWidget {
                 ),
               ),
               clipBehavior: Clip.hardEdge,
-              child: profilePicture != null && profilePicture!.isNotEmpty
-                  ? Image.network(
-                      profilePicture!,
-                      fit: BoxFit.cover,
-                    )
+              child: (profilePicture != null && profilePicture!.isNotEmpty)
+                  ? (AppRegex.isSvg(profilePicture)
+                      ? SvgPicture.network(
+                          "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(profilePicture)}",
+                          fit: BoxFit.cover,
+                          placeholderBuilder: (_) => Padding(
+                            padding: EdgeInsets.all(12.w),
+                            child: SvgPicture.asset(
+                              "assets/svgs/person_outlined.svg",
+                              colorFilter: const ColorFilter.mode(
+                                ColorsManager.lemonGrass,
+                                BlendMode.srcIn,
+                              ),
+                            ),
+                          ),
+                        )
+                      : Image.network(
+                          "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(profilePicture)}",
+                          fit: BoxFit.cover,
+                        ))
                   : Padding(
                       padding: EdgeInsets.all(12.w),
                       child: SvgPicture.asset(

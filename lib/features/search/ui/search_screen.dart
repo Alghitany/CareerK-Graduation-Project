@@ -5,6 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/helpers/enums.dart';
+import '../../../core/widgets/company_bottom_navigation_bar.dart';
+import '../../../core/widgets/company_floating_action_button.dart';
 import '../logic/search_courses_cubit.dart';
 import 'widgets/search_courses/search_courses_bloc_builder.dart';
 
@@ -21,6 +23,11 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const CompanyBottomNavigationBar(
+        selectedIndex: 1,
+      ),
+      floatingActionButton: const CompanyFloatingActionButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.0.w),

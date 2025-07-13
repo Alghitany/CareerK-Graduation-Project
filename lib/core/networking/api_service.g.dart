@@ -274,6 +274,75 @@ class _ApiService implements ApiService {
   }
 
   @override
+  Future<DeveloperCommunityForYouResponseBody>
+      getDeveloperCommunityForYou() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options =
+        _setStreamType<DeveloperCommunityForYouResponseBody>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/community/groups',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DeveloperCommunityForYouResponseBody _value;
+    try {
+      _value = DeveloperCommunityForYouResponseBody.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<SpecificCommunityResponseBody> getDeveloperSpecificCommunity(
+      String groupId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<SpecificCommunityResponseBody>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'api/community/groups/${groupId}',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late SpecificCommunityResponseBody _value;
+    try {
+      _value = SpecificCommunityResponseBody.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
   Future<DeveloperCoursesAndJobsMainPageProfileResponseModel>
       getDeveloperCoursesMainPageProfile() async {
     final _extra = <String, dynamic>{};
@@ -341,6 +410,122 @@ class _ApiService implements ApiService {
       _value = _result.data!
           .map((dynamic i) =>
               DeveloperCoursesMainPageRoadmapsResponseModel.fromJson(
+                  i as Map<String, dynamic>))
+          .toList();
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<List<DeveloperCoursesCompletedResponseBody>>
+      getDeveloperCompletedCourses(String status) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'status': status};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options =
+        _setStreamType<List<DeveloperCoursesCompletedResponseBody>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/courses-page/courses/ongoing',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            )));
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<DeveloperCoursesCompletedResponseBody> _value;
+    try {
+      _value = _result.data!
+          .map((dynamic i) => DeveloperCoursesCompletedResponseBody.fromJson(
+              i as Map<String, dynamic>))
+          .toList();
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<List<DeveloperCoursesOngoingResponseBody>>
+      getDeveloperOngoingCourses() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options =
+        _setStreamType<List<DeveloperCoursesOngoingResponseBody>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/courses-page/courses/ongoing',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            )));
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<DeveloperCoursesOngoingResponseBody> _value;
+    try {
+      _value = _result.data!
+          .map((dynamic i) => DeveloperCoursesOngoingResponseBody.fromJson(
+              i as Map<String, dynamic>))
+          .toList();
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<List<DeveloperCoursesRelatedCoursesResponseBody>>
+      getDeveloperRelatedCourses() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options =
+        _setStreamType<List<DeveloperCoursesRelatedCoursesResponseBody>>(
+            Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+                .compose(
+                  _dio.options,
+                  'api/courses-page/courses/related',
+                  queryParameters: queryParameters,
+                  data: _data,
+                )
+                .copyWith(
+                    baseUrl: _combineBaseUrls(
+                  _dio.options.baseUrl,
+                  baseUrl,
+                )));
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<DeveloperCoursesRelatedCoursesResponseBody> _value;
+    try {
+      _value = _result.data!
+          .map((dynamic i) =>
+              DeveloperCoursesRelatedCoursesResponseBody.fromJson(
                   i as Map<String, dynamic>))
           .toList();
     } on Object catch (e, s) {
@@ -507,7 +692,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              '/api/course-details/${courseId}/contents',
+              'api/course-details/${courseId}/contents',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -531,6 +716,79 @@ class _ApiService implements ApiService {
   }
 
   @override
+  Future<SpecificCourseEnrollResponse> enrollInSpecificCourse(
+    SpecificCourseEnrollRequestBody requestBody,
+    String courseId,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(requestBody.toJson());
+    final _options = _setStreamType<SpecificCourseEnrollResponse>(Options(
+      method: 'PATCH',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'api/course-enrollment/enroll/${courseId}',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late SpecificCourseEnrollResponse _value;
+    try {
+      _value = SpecificCourseEnrollResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<SpecificCourseLessonCompleteResponse> completeLesson(
+      SpecificCourseLessonCompleteRequestBody requestBody) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(requestBody.toJson());
+    final _options =
+        _setStreamType<SpecificCourseLessonCompleteResponse>(Options(
+      method: 'PATCH',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/course-enrollment/lessons/complete',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late SpecificCourseLessonCompleteResponse _value;
+    try {
+      _value = SpecificCourseLessonCompleteResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
   Future<SpecificCourseReviewsResponseBody> getSpecificCourseReviews(
       String courseId) async {
     final _extra = <String, dynamic>{};
@@ -544,7 +802,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          '/api/course-details/${courseId}/reviews',
+          'api/course-details/${courseId}/reviews',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -565,33 +823,31 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<DeveloperJobsJobDetailsResponseBody> getDeveloperJobDetails(
-      String jobId) async {
+  Future<JobDetailsResponseBody> jobDetails(String jobId) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options =
-        _setStreamType<DeveloperJobsJobDetailsResponseBody>(Options(
+    final _options = _setStreamType<JobDetailsResponseBody>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
-            .compose(
-              _dio.options,
-              'api/job-post/${jobId}',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            )));
+        .compose(
+          _dio.options,
+          'api/job-post/${jobId}',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late DeveloperJobsJobDetailsResponseBody _value;
+    late JobDetailsResponseBody _value;
     try {
-      _value = DeveloperJobsJobDetailsResponseBody.fromJson(_result.data!);
+      _value = JobDetailsResponseBody.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -635,6 +891,43 @@ class _ApiService implements ApiService {
   }
 
   @override
+  Future<DeveloperAddJobBookmarkResponse> addJobBookmark(
+    String jobId,
+    DeveloperAddJobBookmarkRequestBody developerAddJobBookmarkRequestBody,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(developerAddJobBookmarkRequestBody.toJson());
+    final _options = _setStreamType<DeveloperAddJobBookmarkResponse>(Options(
+      method: 'PATCH',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'api/bookmarks/${jobId}',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DeveloperAddJobBookmarkResponse _value;
+    try {
+      _value = DeveloperAddJobBookmarkResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
   Future<DeveloperSingleJobBookmarkResponseModel> bookmarkJob(
       String jobId) async {
     final _extra = <String, dynamic>{};
@@ -662,6 +955,43 @@ class _ApiService implements ApiService {
     late DeveloperSingleJobBookmarkResponseModel _value;
     try {
       _value = DeveloperSingleJobBookmarkResponseModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<DeveloperAddCourseBookmarkResponse> addCourseBookmark(
+    String courseId,
+    DeveloperAddCourseBookmarkRequestBody body,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(body.toJson());
+    final _options = _setStreamType<DeveloperAddCourseBookmarkResponse>(Options(
+      method: 'PATCH',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'api/course-bookmarks/${courseId}/bookmark',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DeveloperAddCourseBookmarkResponse _value;
+    try {
+      _value = DeveloperAddCourseBookmarkResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -819,6 +1149,77 @@ class _ApiService implements ApiService {
   }
 
   @override
+  Future<DeveloperProfileMainPageInfoResponseBody>
+      getDeveloperProfileMainPageInfo() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options =
+        _setStreamType<DeveloperProfileMainPageInfoResponseBody>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/developer/profile',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DeveloperProfileMainPageInfoResponseBody _value;
+    try {
+      _value = DeveloperProfileMainPageInfoResponseBody.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<DeveloperProfileMainPageSkillsResponseBody>
+      getDeveloperProfileMainPageSkills() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options =
+        _setStreamType<DeveloperProfileMainPageSkillsResponseBody>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/course-enrollment/skills',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DeveloperProfileMainPageSkillsResponseBody _value;
+    try {
+      _value =
+          DeveloperProfileMainPageSkillsResponseBody.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
   Future<DeveloperProfileAppliedJobsResponseBody>
       getDeveloperProfileAppliedJobs() async {
     final _extra = <String, dynamic>{};
@@ -846,6 +1247,79 @@ class _ApiService implements ApiService {
     late DeveloperProfileAppliedJobsResponseBody _value;
     try {
       _value = DeveloperProfileAppliedJobsResponseBody.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<DeveloperProfileSettingsGetMyCVResponseBody> getDeveloperMyCV() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options =
+        _setStreamType<DeveloperProfileSettingsGetMyCVResponseBody>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/developer/my-cv',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DeveloperProfileSettingsGetMyCVResponseBody _value;
+    try {
+      _value =
+          DeveloperProfileSettingsGetMyCVResponseBody.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<DeveloperProfileSettingsDeleteCVResponseBody> deleteMyCV(
+      DeveloperProfileSettingsDeleteCVRequestBody
+          developerProfileSettingsDeleteCVRequestBody) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(developerProfileSettingsDeleteCVRequestBody.toJson());
+    final _options =
+        _setStreamType<DeveloperProfileSettingsDeleteCVResponseBody>(Options(
+      method: 'DELETE',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/developer/my-cv',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DeveloperProfileSettingsDeleteCVResponseBody _value;
+    try {
+      _value =
+          DeveloperProfileSettingsDeleteCVResponseBody.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -960,6 +1434,126 @@ class _ApiService implements ApiService {
     try {
       _value =
           DeveloperProfileCVGenerateGeneratedResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<List<DeveloperProfileJobsBookmarkedResponseBody>>
+      getDeveloperJobBookmarks(String postType) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'postType': postType};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options =
+        _setStreamType<List<DeveloperProfileJobsBookmarkedResponseBody>>(
+            Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+                .compose(
+                  _dio.options,
+                  'api/bookmarks/',
+                  queryParameters: queryParameters,
+                  data: _data,
+                )
+                .copyWith(
+                    baseUrl: _combineBaseUrls(
+                  _dio.options.baseUrl,
+                  baseUrl,
+                )));
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<DeveloperProfileJobsBookmarkedResponseBody> _value;
+    try {
+      _value = _result.data!
+          .map((dynamic i) =>
+              DeveloperProfileJobsBookmarkedResponseBody.fromJson(
+                  i as Map<String, dynamic>))
+          .toList();
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<List<DeveloperProfileServicesBookmarkedResponseBody>>
+      getDeveloperBookmarkedServices(String postType) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'postType': postType};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options =
+        _setStreamType<List<DeveloperProfileServicesBookmarkedResponseBody>>(
+            Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+                .compose(
+                  _dio.options,
+                  'api/bookmarks/',
+                  queryParameters: queryParameters,
+                  data: _data,
+                )
+                .copyWith(
+                    baseUrl: _combineBaseUrls(
+                  _dio.options.baseUrl,
+                  baseUrl,
+                )));
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<DeveloperProfileServicesBookmarkedResponseBody> _value;
+    try {
+      _value = _result.data!
+          .map((dynamic i) =>
+              DeveloperProfileServicesBookmarkedResponseBody.fromJson(
+                  i as Map<String, dynamic>))
+          .toList();
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<List<DeveloperProfileCoursesBookmarkedResponseBody>>
+      getDeveloperProfileBookmarkedCourses() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options =
+        _setStreamType<List<DeveloperProfileCoursesBookmarkedResponseBody>>(
+            Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+                .compose(
+                  _dio.options,
+                  'api/course-bookmarks/bookmarks',
+                  queryParameters: queryParameters,
+                  data: _data,
+                )
+                .copyWith(
+                    baseUrl: _combineBaseUrls(
+                  _dio.options.baseUrl,
+                  baseUrl,
+                )));
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<DeveloperProfileCoursesBookmarkedResponseBody> _value;
+    try {
+      _value = _result.data!
+          .map((dynamic i) =>
+              DeveloperProfileCoursesBookmarkedResponseBody.fromJson(
+                  i as Map<String, dynamic>))
+          .toList();
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -1213,6 +1807,110 @@ class _ApiService implements ApiService {
   }
 
   @override
+  Future<CompanyProfileInfoResponseBody> getCompanyProfileInfo() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<CompanyProfileInfoResponseBody>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'api/company/profile',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late CompanyProfileInfoResponseBody _value;
+    try {
+      _value = CompanyProfileInfoResponseBody.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<CompanyProfileAllJobPostsResponseBody>
+      getCompanyProfileAllJobPosts() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options =
+        _setStreamType<CompanyProfileAllJobPostsResponseBody>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/company/job-posts',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late CompanyProfileAllJobPostsResponseBody _value;
+    try {
+      _value = CompanyProfileAllJobPostsResponseBody.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<CompanyProfileApplicantsNumberResponseBody>
+      companyProfileGetApplicantsNumber() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options =
+        _setStreamType<CompanyProfileApplicantsNumberResponseBody>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/company/applicants',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late CompanyProfileApplicantsNumberResponseBody _value;
+    try {
+      _value =
+          CompanyProfileApplicantsNumberResponseBody.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
   Future<CompanyJobsDeletePostResponse> deleteCompanyJobPost(
       String jobId) async {
     final _extra = <String, dynamic>{};
@@ -1226,7 +1924,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'api/jobs/delete-job-post/${jobId}',
+          'api/company/job-posts/${jobId}',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -1309,110 +2007,6 @@ class _ApiService implements ApiService {
     late ChatsAllChatsResponseBody _value;
     try {
       _value = ChatsAllChatsResponseBody.fromJson(_result.data!);
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
-      rethrow;
-    }
-    return _value;
-  }
-
-  @override
-  Future<CustomerJobsDeletePostResponse> deleteCustomerJobPost(
-      String jobId) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<CustomerJobsDeletePostResponse>(Options(
-      method: 'DELETE',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          'api/customer/service-posts/${jobId}',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        )));
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late CustomerJobsDeletePostResponse _value;
-    try {
-      _value = CustomerJobsDeletePostResponse.fromJson(_result.data!);
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
-      rethrow;
-    }
-    return _value;
-  }
-
-  @override
-  Future<AllNotificationsResponseModel> getAllNotifications() async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<AllNotificationsResponseModel>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/notifications',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        )));
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late AllNotificationsResponseModel _value;
-    try {
-      _value = AllNotificationsResponseModel.fromJson(_result.data!);
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
-      rethrow;
-    }
-    return _value;
-  }
-
-  @override
-  Future<MarkNotificationReadResponseModel> markNotificationAsRead(
-    String notificationId,
-    MarkNotificationReadRequestModel request,
-  ) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(request.toJson());
-    final _options = _setStreamType<MarkNotificationReadResponseModel>(Options(
-      method: 'PATCH',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/notifications/${notificationId}/read',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        )));
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late MarkNotificationReadResponseModel _value;
-    try {
-      _value = MarkNotificationReadResponseModel.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -1590,16 +2184,16 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<RejectApplicationResponseBody> rejectApplication(
+  Future<RejectApplicationResponse> rejectApplication(
     String applicantId,
-    RejectApplicationRequestBody request,
+    Map<String, dynamic> body,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    _data.addAll(request.toJson());
-    final _options = _setStreamType<RejectApplicationResponseBody>(Options(
+    _data.addAll(body);
+    final _options = _setStreamType<RejectApplicationResponse>(Options(
       method: 'PATCH',
       headers: _headers,
       extra: _extra,
@@ -1616,9 +2210,9 @@ class _ApiService implements ApiService {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late RejectApplicationResponseBody _value;
+    late RejectApplicationResponse _value;
     try {
-      _value = RejectApplicationResponseBody.fromJson(_result.data!);
+      _value = RejectApplicationResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -1695,19 +2289,20 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<CustomerProfileInfoResponseBody> getProfileInfo() async {
+  Future<ChatBotResponse> sendMessage(ChatBotRequestBody body) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<CustomerProfileInfoResponseBody>(Options(
-      method: 'GET',
+    final _data = <String, dynamic>{};
+    _data.addAll(body.toJson());
+    final _options = _setStreamType<ChatBotResponse>(Options(
+      method: 'POST',
       headers: _headers,
       extra: _extra,
     )
         .compose(
           _dio.options,
-          '/api/customer/profile',
+          'api/chatbot/ask',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -1717,81 +2312,9 @@ class _ApiService implements ApiService {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late CustomerProfileInfoResponseBody _value;
+    late ChatBotResponse _value;
     try {
-      _value = CustomerProfileInfoResponseBody.fromJson(_result.data!);
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
-      rethrow;
-    }
-    return _value;
-  }
-
-  @override
-  Future<CustomerProfileAllServicePostsResponseBody>
-      getProfileAllServicePosts() async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _options =
-        _setStreamType<CustomerProfileAllServicePostsResponseBody>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/customer/service-posts',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            )));
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late CustomerProfileAllServicePostsResponseBody _value;
-    try {
-      _value =
-          CustomerProfileAllServicePostsResponseBody.fromJson(_result.data!);
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
-      rethrow;
-    }
-    return _value;
-  }
-
-  @override
-  Future<CustomerProfileApplicantsNumberResponseBody>
-      getProfileApplicationsNumber() async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _options =
-        _setStreamType<CustomerProfileApplicantsNumberResponseBody>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/customer/applicants',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            )));
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late CustomerProfileApplicantsNumberResponseBody _value;
-    try {
-      _value =
-          CustomerProfileApplicantsNumberResponseBody.fromJson(_result.data!);
+      _value = ChatBotResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

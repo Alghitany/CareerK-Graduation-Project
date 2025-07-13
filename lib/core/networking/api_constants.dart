@@ -26,20 +26,34 @@ class ApiConstants {
   static const String developerHomeCourses =
       "api/developer/{developerId}/courses";
 
+  //-----> Community
+  //-> For You
+  static const String forYouCommunity = "api/community/groups";
+
+  //-> Specific Community
+  static const String specificCommunity = "api/community/groups/{groupId}";
+
   //-----> Jobs
   //-> Apply
   static const String developerJobsApply = "api/job-applications/apply";
 
   //-> Job Details
-  static const String developerJobsJobDetails = "api/job-post/{jobId}";
+  static const String jobDetails = "api/job-post/{jobId}";
 
   //-> Job Details
   static const String developerJobsServiceDetails =
       "api/service-post/{serviceId}";
 
-  //-> Single Job Bookmark
+  //-> Add Job Bookmark
+  static const String developerAddJobBookmark = "api/bookmarks/{jobId}";
+
+  //-> Get Job Bookmark
   static const String developerSingleJobBookmark =
       "/api/bookmarks/bookmark/{jobId}";
+
+  //-> Add Job Bookmark
+  static const String developerAddCourseBookmark =
+      "api/course-bookmarks/{courseId}/bookmark";
 
   //-> Single Course Bookmark
   static const String developerSingleCourseBookmark =
@@ -65,6 +79,18 @@ class ApiConstants {
   static const String developerCoursesMainPageRoadmaps =
       "api/courses-page/roadmaps/preview";
 
+  //->Completed Courses
+  static const String developerCoursesCompleted =
+      "/api/courses-page/courses/ongoing";
+
+  //->Ongoing Courses
+  static const String developerCoursesOngoing =
+      "api/courses-page/courses/ongoing";
+
+  //->Related Courses
+  static const String developerCoursesMainPageRelatedCourses =
+      "api/courses-page/courses/related";
+
   //-----> Roadmaps & Track Courses Base Path
   static const String developerTracksBasePath = "api/tracks-page/tracks";
 
@@ -78,16 +104,42 @@ class ApiConstants {
 
   //-----> Specific Course Lectures
   static const String developerSpecificCourseLectures =
-      "/api/course-details/{courseId}/contents";
+      "api/course-details/{courseId}/contents";
+
+  //-----> Specific Course Enroll
+  static const String developerSpecificCourseEnroll =
+      "api/course-enrollment/enroll/{courseId}";
+
+  //-----> Specific Course Enroll
+  static const String developerSpecificCourseLessonComplete =
+      "api/course-enrollment/lessons/complete";
 
   //-----> Specific Course Lectures
   static const String developerSpecificCourseReviews =
-      "/api/course-details/{courseId}/reviews";
+      "api/course-details/{courseId}/reviews";
 
   //-----> Profile
+  //-> Info
+  static const String developerProfileInfo = "api/developer/profile";
+
+  //-> Skills
+  static const String developerProfileSkills = "api/course-enrollment/skills";
+
+  //-> Edit
+  static const String developerProfileEdit = "api/developer/edit-profile";
+
   //-> Applied Jobs
   static const String developerProfileAppliedJobs =
       "api/developer/my-applications";
+
+  // Get My CV
+  static const String developerProfileSettingsGetMyCV = "api/developer/my-cv";
+
+  // Delete My CV
+  static const String developerDeleteMyCV = 'api/developer/my-cv';
+
+  // Update Uploaded CV
+  static const String developerUpdateUploadedCV = "api/developer/my-cv";
 
   //-> Generate CV With Ai
   // Start Session
@@ -101,6 +153,13 @@ class ApiConstants {
   // Generate
   static const String developerProfileGenerateCVGenerated =
       "api/cv-generation/{sessionId}/generate";
+
+  //-> Posts Bookmarked
+  static const String developerProfilePostsBookmarked = "api/bookmarks/";
+
+  //-> Courses Bookmarked
+  static const String developerProfileCoursesBookmarked =
+      "api/course-bookmarks/bookmarks";
 
   //-> Job Withdraw
   static const String developerJobWithdraw =
@@ -174,7 +233,20 @@ class ApiConstants {
       "/api/job-application/{applicationId}/status";
 
   //->Delete Post
-  static const String companyJobsDeletePost = "api/jobs/delete-job-post";
+  static const String companyJobsDeletePost = "api/company/job-posts/{jobId}";
+
+  //-> Profile
+  // Info
+  static const String companyProfileInfo = "api/company/profile";
+
+  // All Job Posts
+  static const String companyProfileAllJobPosts = "api/company/job-posts";
+
+  //->Profile Get Applicant
+  static const String companyProfileApplicantsNumber = "api/company/applicants";
+
+  //->Profile Edit
+  static const String companyProfileEdit = "api/company/edit-profile";
 
   //------ Search ------------
   static const String searchCourses = "api/courses-page/search-courses";
@@ -183,6 +255,9 @@ class ApiConstants {
   static const String allChats = "api/private-chats";
   static const String startChatRoom = "api/private-chats/start";
   static const String sendAndReceiveMessages = "api/private-chats/{chatRoomId}";
+
+  //------ chats ------------
+  static const String chatBot = "api/chatbot/ask";
 }
 
 class ApiErrors {

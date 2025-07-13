@@ -1,5 +1,6 @@
 import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
+import 'package:carrerk/core/networking/api_constants.dart';
 import 'package:carrerk/core/routing/app_argument.dart';
 import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/colors.dart';
@@ -11,7 +12,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../../../../../core/di/dependency_injection.dart';
+import '../../../../../../../core/helpers/app_regex.dart';
 import '../../../../../../../core/theming/styles.dart';
+import '../../../../../logic/developer_add_course_bookmark_logic/developer_add_course_bookmark_cubit.dart';
 import '../../../../../logic/developer_single_course_bookmark_logic/developer_single_course_bookmark_cubit.dart';
 import '../../../data/models/developer_courses_home_main_page_models/developer_courses_home_main_page_response_body.dart';
 
@@ -59,21 +62,38 @@ class _MainPageCoursesListState extends State<MainPageCoursesList> {
                               topLeft: Radius.circular(16),
                               topRight: Radius.circular(16),
                             ),
-                            child: SvgPicture.network(
-                              course.imageUrl ?? '',
-                              fit: BoxFit.cover,
-                              width: double.infinity,
-                              height: 134.h,
-                              placeholderBuilder: (context) =>
-                                  Shimmer.fromColors(
-                                baseColor: ColorsManager.ghostWhite,
-                                highlightColor: ColorsManager.mercury,
-                                child: SizedBox(
-                                  width: double.infinity,
-                                  height: 134.h,
-                                ),
-                              ),
-                            ),
+                            child: AppRegex.isSvg(course.imageUrl ?? '')
+                                ? SvgPicture.network(
+                                    "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(course.imageUrl)}",
+                                    fit: BoxFit.cover,
+                                    width: double.infinity,
+                                    height: 134.h,
+                                    placeholderBuilder: (context) =>
+                                        Shimmer.fromColors(
+                                      baseColor: ColorsManager.ghostWhite,
+                                      highlightColor: ColorsManager.mercury,
+                                      child: SizedBox(
+                                        width: double.infinity,
+                                        height: 134.h,
+                                      ),
+                                    ),
+                                  )
+                                : Image.network(
+                                    "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(course.imageUrl)}",
+                                    fit: BoxFit.cover,
+                                    width: double.infinity,
+                                    height: 134.h,
+                                    errorBuilder:
+                                        (context, error, stackTrace) =>
+                                            Shimmer.fromColors(
+                                      baseColor: ColorsManager.ghostWhite,
+                                      highlightColor: ColorsManager.mercury,
+                                      child: SizedBox(
+                                        width: double.infinity,
+                                        height: 134.h,
+                                      ),
+                                    ),
+                                  ),
                           ),
                         ),
                         Row(
@@ -140,16 +160,22 @@ class _MainPageCoursesListState extends State<MainPageCoursesList> {
                                 ),
                               ],
                             ),
-                            // BlocProvider only wraps the bookmark widget
                             Padding(
                               padding: EdgeInsets.only(bottom: 24.0.h),
-                              child: BlocProvider(
-                                create: (_) =>
-                                    getIt<DeveloperSingleCourseBookmarkCubit>()
+                              child: MultiBlocProvider(
+                                providers: [
+                                  BlocProvider(
+                                    create: (_) => getIt<
+                                        DeveloperSingleCourseBookmarkCubit>()
                                       ..bookmarkCourse(course.courseId!),
+                                  ),
+                                  BlocProvider(
+                                    create: (_) => getIt<
+                                        DeveloperAddCourseBookmarkCubit>(),
+                                  ),
+                                ],
                                 child: DeveloperCourseBookmarkBlocBuilder(
-                                  courseId: course.courseId ?? '',
-                                ),
+                                    courseId: course.courseId ?? ''),
                               ),
                             ),
                           ],

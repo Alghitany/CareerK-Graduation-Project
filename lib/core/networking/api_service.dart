@@ -8,6 +8,9 @@ import 'package:carrerk/features/customer/ui/applied/data/model/first_screen_mod
 import 'package:carrerk/features/customer/ui/applied/data/model/reject_applications_model/reject_application_response.dart';
 import 'package:carrerk/features/customer/ui/applied/data/model/reject_applications_model/reject_applications_request_model.dart';
 import 'package:carrerk/features/customer/ui/applied/data/model/secound_screen_model/application_details_response_body.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/bookmarks/data/models/developer_profile_courses_bookmarked_models/developer_profile_courses_bookmarked_response_body.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/bookmarks/data/models/developer_profile_jobs_bookmarked_models/developer_profile_jobs_bookmarked_response_body.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/bookmarks/data/models/developer_profile_services_bookmarked_models/developer_profile_services_bookmarked_response_body.dart';
 import 'package:carrerk/features/notifications/data/model/get_all/all_notifications_response_model.dart';
 import 'package:carrerk/features/notifications/data/model/mark_one/mark_notification_read_request_model.dart';
 import 'package:carrerk/features/notifications/data/model/mark_one/mark_notification_read_response_model.dart';
@@ -37,33 +40,54 @@ import '../../features/company/ui/home/ui/see_details/data/model/company_home_se
 import '../../features/company/ui/home/ui/see_resume/data/model/company_home_see_resume_response_body.dart';
 import '../../features/company/ui/jobs_post/data/models/company_jobs_post_request_body.dart';
 import '../../features/company/ui/jobs_post/data/models/company_jobs_post_response.dart';
+import '../../features/company/ui/profile/data/models/company_profile_all_jobs_posts_models/company_profile_all_job_posts_response_body.dart';
+import '../../features/company/ui/profile/data/models/company_profile_applicants_number_models/company_profile_applicants_number_response_body.dart';
+import '../../features/company/ui/profile/data/models/company_profile_info_models/company_profile_info_response_body.dart';
 import '../../features/customer/ui/home/model/model/customer_home_response_body.dart';
+import '../../features/developer/data/models/developer_add_course_bookmark_models/developer_add_course_bookmark_request_body.dart';
+import '../../features/developer/data/models/developer_add_course_bookmark_models/developer_add_course_bookmark_response.dart';
+import '../../features/developer/data/models/developer_add_job_bookmark_models/developer_add_job_bookmark_request_body.dart';
+import '../../features/developer/data/models/developer_add_job_bookmark_models/developer_add_job_bookmark_response.dart';
 import '../../features/developer/data/models/developer_courses_and_jobs_main_page_profile_models/developer_courses_and_jobs_main_page_profile_response_model.dart';
 import '../../features/developer/data/models/developer_recommendtions_models/developer_recommendations_response_body.dart';
 import '../../features/developer/data/models/developer_single_course_bookmark_models/developer_single_course_bookmark_response_model.dart';
 import '../../features/developer/data/models/developer_single_job_bookmark_models/developer_single_job_bookmark_response_model.dart';
-import '../../features/developer/ui/courses/main_page/data/models/developer_courses_main_page_roadmaps_response_model.dart';
-import '../../features/developer/ui/courses/roadmaps/data/models/developer_courses_roadmaps_response_body.dart';
-import '../../features/developer/ui/courses/specific_category/data/models/developer_courses_specific_category_response_body.dart';
-import '../../features/developer/ui/courses/specific_course/data/model/specific_course_header_models/specific_course_header_response_body.dart';
-import '../../features/developer/ui/courses/specific_course/data/model/specific_course_lectures_models/specific_course_lectures_response_body.dart';
-import '../../features/developer/ui/courses/specific_course/data/model/specific_course_overview_models/specific_course_overview_response_body.dart';
-import '../../features/developer/ui/courses/specific_course/data/model/specific_course_reviews_models/specific_course_reviews_response_body.dart';
+import '../../features/developer/ui/community/all_communities/data/models/for_you_models/developer_community_for_you_response_body.dart';
+import '../../features/developer/ui/community/chat/data/models/specific_community_models/specific_community_response_body.dart';
+import '../../features/developer/ui/courses/data/models/ongoing_courses/developer_courses_ongoing_response_body.dart';
+import '../../features/developer/ui/courses/data/models/related_courses/developer_courses_related_courses_response_body.dart';
+import '../../features/developer/ui/courses/ui/main_page/data/models/main_page_roadmaps_models/developer_courses_main_page_roadmaps_response_model.dart';
+import '../../features/developer/ui/courses/ui/my_courses/data/models/developer_courses_completed_response_body.dart';
+import '../../features/developer/ui/courses/ui/roadmaps/data/models/developer_courses_roadmaps_response_body.dart';
+import '../../features/developer/ui/courses/ui/specific_category/data/models/developer_courses_specific_category_response_body.dart';
+import '../../features/developer/ui/courses/ui/specific_course/data/model/specific_course_enroll_models/specific_course_enroll_request_body.dart';
+import '../../features/developer/ui/courses/ui/specific_course/data/model/specific_course_enroll_models/specific_course_enroll_response.dart';
+import '../../features/developer/ui/courses/ui/specific_course/data/model/specific_course_header_models/specific_course_header_response_body.dart';
+import '../../features/developer/ui/courses/ui/specific_course/data/model/specific_course_lectures_models/specific_course_lectures_response_body.dart';
+import '../../features/developer/ui/courses/ui/specific_course/data/model/specific_course_lesson_complete_models/specific_course_lesson_complete_request_body.dart';
+import '../../features/developer/ui/courses/ui/specific_course/data/model/specific_course_lesson_complete_models/specific_course_lesson_complete_response.dart';
+import '../../features/developer/ui/courses/ui/specific_course/data/model/specific_course_overview_models/specific_course_overview_response_body.dart';
+import '../../features/developer/ui/courses/ui/specific_course/data/model/specific_course_reviews_models/specific_course_reviews_response_body.dart';
 import '../../features/developer/ui/home_main_page/data/models/developer_courses_home_main_page_models/developer_courses_home_main_page_response_body.dart';
 import '../../features/developer/ui/home_main_page/data/models/developer_name_home_main_page_models/developer_name_home_main_page_response_body.dart';
 import '../../features/developer/ui/home_main_page/data/models/developer_tags_home_main_page_models/developer_tags_home_main_page_response_body.dart';
-import '../../features/developer/ui/jobs/job_details/data/models/developer_jobs_job_details_response_body.dart';
 import '../../features/developer/ui/jobs/search/data/models/developer_jobs_recently_posted_models/developer_jobs_recently_posted_response_body.dart';
 import '../../features/developer/ui/jobs/search/data/models/developer_services_recently_posted_models/developer_services_recently_posted_response_body.dart';
 import '../../features/developer/ui/jobs/service_details/data/model/developer_jobs_service_details_response_body.dart';
-import '../../features/developer/ui/profile/cv_generate/data/models/generate_models/developer_profile_cv_generate_generated_request_body.dart';
-import '../../features/developer/ui/profile/cv_generate/data/models/generate_models/developer_profile_cv_generate_generated_response.dart';
-import '../../features/developer/ui/profile/cv_generate/data/models/send_data_models/developer_profile_cv_generate_send_data_request_body.dart';
-import '../../features/developer/ui/profile/cv_generate/data/models/send_data_models/developer_profile_cv_generate_send_data_response.dart';
-import '../../features/developer/ui/profile/jobs_applied/data/models/developer_profile_applied_jobs_models/developer_profile_applied_jobs_response_body.dart';
-import '../../features/developer/ui/profile/jobs_applied/data/models/job_withdraw/developer_job_withdraw_response_body.dart';
-import '../../features/developer/ui/profile/jobs_applied/data/models/service_delete/developer_service_delete_response_body.dart';
-import '../../features/developer/ui/profile/settings/data/models/developer_generate_cv_start_session_models/developer_generate_cv_start_session_response.dart';
+import '../../features/developer/ui/profile/ui/cv_generate/data/models/generate_models/developer_profile_cv_generate_generated_request_body.dart';
+import '../../features/developer/ui/profile/ui/cv_generate/data/models/generate_models/developer_profile_cv_generate_generated_response.dart';
+import '../../features/developer/ui/profile/ui/cv_generate/data/models/send_data_models/developer_profile_cv_generate_send_data_request_body.dart';
+import '../../features/developer/ui/profile/ui/cv_generate/data/models/send_data_models/developer_profile_cv_generate_send_data_response.dart';
+import '../../features/developer/ui/profile/ui/jobs_applied/data/models/developer_profile_applied_jobs_models/developer_profile_applied_jobs_response_body.dart';
+import '../../features/developer/ui/profile/ui/jobs_applied/data/models/job_withdraw/developer_job_withdraw_response_body.dart';
+import '../../features/developer/ui/profile/ui/jobs_applied/data/models/service_delete/developer_service_delete_response_body.dart';
+import '../../features/developer/ui/profile/ui/main_page/data/models/profile_info_models/developer_profile_main_page_info_response_body.dart';
+import '../../features/developer/ui/profile/ui/main_page/data/models/profile_skills_models/developer_profile_main_page_skills_response_body.dart';
+import '../../features/developer/ui/profile/ui/my_cv/data/models/developer_profile_settings_delete_cv/developer_profile_settings_delete_cv_request_body.dart';
+import '../../features/developer/ui/profile/ui/my_cv/data/models/developer_profile_settings_delete_cv/developer_profile_settings_delete_cv_response.dart';
+import '../../features/developer/ui/profile/ui/my_cv/data/models/developer_profile_settings_get_my_cv_models/developer_profile_settings_get_my_cv_response_body.dart';
+import '../../features/developer/ui/profile/ui/settings/data/models/developer_generate_cv_start_session_models/developer_generate_cv_start_session_response.dart';
+import '../../features/post_details/data/models/post_details_models/job_details_response_body.dart';
 import '../../features/search/data/model/search_courses_response_body.dart';
 import 'api_constants.dart';
 
@@ -113,15 +137,44 @@ abstract class ApiService {
     @Path('developerId') String developerId,
   );
 
-  //->Courses Main Page Profile
+  // Community
+  //-> For You
+  @GET(ApiConstants.forYouCommunity)
+  Future<DeveloperCommunityForYouResponseBody> getDeveloperCommunityForYou();
+
+  //-> Specific Community
+  @GET(ApiConstants.specificCommunity)
+  Future<SpecificCommunityResponseBody> getDeveloperSpecificCommunity(
+    @Path("groupId") String groupId,
+  );
+
+  // Courses Main Page
+  //-> Profile
   @GET(ApiConstants.developerCoursesMainPageProfile)
   Future<DeveloperCoursesAndJobsMainPageProfileResponseModel>
       getDeveloperCoursesMainPageProfile();
 
-  //->Courses Main Page Roadmaps
+  //-> Roadmaps
   @GET(ApiConstants.developerCoursesMainPageRoadmaps)
   Future<List<DeveloperCoursesMainPageRoadmapsResponseModel>>
       getDeveloperCoursesMainPageRoadmaps();
+
+  //-> Completed Courses
+  @GET(ApiConstants.developerCoursesCompleted)
+  Future<List<DeveloperCoursesCompletedResponseBody>>
+      getDeveloperCompletedCourses(
+    @Query('status') String status,
+  );
+
+  //-> Ongoing Courses
+  @GET(ApiConstants.developerCoursesOngoing)
+  Future<List<DeveloperCoursesOngoingResponseBody>>
+      getDeveloperOngoingCourses();
+
+  //-> Related Courses
+  @GET(ApiConstants.developerCoursesMainPageRelatedCourses)
+  Future<List<DeveloperCoursesRelatedCoursesResponseBody>>
+      getDeveloperRelatedCourses();
 
   //->Courses Roadmaps
   @GET(ApiConstants.developerTracksBasePath)
@@ -154,6 +207,19 @@ abstract class ApiService {
     @Path('courseId') String courseId,
   );
 
+  //Enroll
+  @PATCH(ApiConstants.developerSpecificCourseEnroll)
+  Future<SpecificCourseEnrollResponse> enrollInSpecificCourse(
+    @Body() SpecificCourseEnrollRequestBody requestBody,
+    @Path('courseId') String courseId,
+  );
+
+  // Lesson Complete
+  @PATCH(ApiConstants.developerSpecificCourseLessonComplete)
+  Future<SpecificCourseLessonCompleteResponse> completeLesson(
+    @Body() SpecificCourseLessonCompleteRequestBody requestBody,
+  );
+
   // -> Reviews
   @GET(ApiConstants.developerSpecificCourseReviews)
   Future<SpecificCourseReviewsResponseBody> getSpecificCourseReviews(
@@ -161,8 +227,8 @@ abstract class ApiService {
   );
 
   //-> Job Details
-  @GET(ApiConstants.developerJobsJobDetails)
-  Future<DeveloperJobsJobDetailsResponseBody> getDeveloperJobDetails(
+  @GET(ApiConstants.jobDetails)
+  Future<JobDetailsResponseBody> jobDetails(
     @Path("jobId") String jobId,
   );
 
@@ -172,10 +238,25 @@ abstract class ApiService {
     @Path("serviceId") String serviceId,
   );
 
+  //-> Add Job Bookmark
+  @PATCH(ApiConstants.developerAddJobBookmark)
+  Future<DeveloperAddJobBookmarkResponse> addJobBookmark(
+    @Path("jobId") String jobId,
+    @Body()
+    DeveloperAddJobBookmarkRequestBody developerAddJobBookmarkRequestBody,
+  );
+
   //-> Single Job Bookmark
   @GET(ApiConstants.developerSingleJobBookmark)
   Future<DeveloperSingleJobBookmarkResponseModel> bookmarkJob(
     @Path("jobId") String jobId,
+  );
+
+  //-> Add Course Bookmark
+  @PATCH(ApiConstants.developerAddCourseBookmark)
+  Future<DeveloperAddCourseBookmarkResponse> addCourseBookmark(
+    @Path("courseId") String courseId,
+    @Body() DeveloperAddCourseBookmarkRequestBody body,
   );
 
   //-> Single Course Bookmark
@@ -199,10 +280,36 @@ abstract class ApiService {
   Future<DeveloperRecommendationsResponseBody> getDeveloperRecommendations();
 
   //-> Profile
+  // Info
+  @GET(ApiConstants.developerProfileInfo)
+  Future<DeveloperProfileMainPageInfoResponseBody>
+      getDeveloperProfileMainPageInfo();
+
+  // Skills
+  @GET(ApiConstants.developerProfileSkills)
+  Future<DeveloperProfileMainPageSkillsResponseBody>
+      getDeveloperProfileMainPageSkills();
+
+  // Edit Profile Use Dio Directly
+
+  //-> Settings
   // Applied Jobs
   @GET(ApiConstants.developerProfileAppliedJobs)
   Future<DeveloperProfileAppliedJobsResponseBody>
       getDeveloperProfileAppliedJobs();
+
+  // Get My CV
+  @GET(ApiConstants.developerProfileSettingsGetMyCV)
+  Future<DeveloperProfileSettingsGetMyCVResponseBody> getDeveloperMyCV();
+
+  // Edit My CV is done direct with dio
+  // Delete My CV
+  @DELETE(ApiConstants.developerDeleteMyCV)
+  Future<DeveloperProfileSettingsDeleteCVResponseBody> deleteMyCV(
+    @Body()
+    DeveloperProfileSettingsDeleteCVRequestBody
+        developerProfileSettingsDeleteCVRequestBody,
+  );
 
   // Generate CV With Ai Start Session
   @POST(ApiConstants.developerProfileGenerateCVStartSession)
@@ -222,6 +329,27 @@ abstract class ApiService {
     @Path('sessionId') String sessionId,
     @Body() DeveloperProfileCVGenerateGeneratedRequestBody requestBody,
   );
+
+  // Edit Profile done with dio directly
+  //-> Bookmarked
+  // Posts
+  @GET(ApiConstants.developerProfilePostsBookmarked)
+  Future<List<DeveloperProfileJobsBookmarkedResponseBody>>
+      getDeveloperJobBookmarks(
+    @Query("postType") String postType,
+  );
+
+  // Services
+  @GET(ApiConstants.developerProfilePostsBookmarked)
+  Future<List<DeveloperProfileServicesBookmarkedResponseBody>>
+      getDeveloperBookmarkedServices(
+    @Query("postType") String postType,
+  );
+
+  // Courses
+  @GET(ApiConstants.developerProfileCoursesBookmarked)
+  Future<List<DeveloperProfileCoursesBookmarkedResponseBody>>
+      getDeveloperProfileBookmarkedCourses();
 
   // Delete Job Application by ID
   @DELETE(ApiConstants.developerJobWithdraw)
@@ -266,8 +394,22 @@ abstract class ApiService {
     @Body() CompanyUpdateStatusRequestBody requestBody,
   );
 
+  //-> Profile
+  // Profile Info
+  @GET(ApiConstants.companyProfileInfo)
+  Future<CompanyProfileInfoResponseBody> getCompanyProfileInfo();
+
+  // Company All Job Posts
+  @GET(ApiConstants.companyProfileAllJobPosts)
+  Future<CompanyProfileAllJobPostsResponseBody> getCompanyProfileAllJobPosts();
+
+  // Company Get Applicants Number
+  @GET(ApiConstants.companyProfileApplicantsNumber)
+  Future<CompanyProfileApplicantsNumberResponseBody>
+      companyProfileGetApplicantsNumber();
+
   //-> Delete Job
-  @DELETE("${ApiConstants.companyJobsDeletePost}/{jobId}")
+  @DELETE(ApiConstants.companyJobsDeletePost)
   Future<CompanyJobsDeletePostResponse> deleteCompanyJobPost(
     @Path("jobId") String jobId,
   );
@@ -356,4 +498,10 @@ abstract class ApiService {
 
 //----------------- Customer
 // Customer Sign up Handled with dio
+
+//----------------- Chat Bot
+  @POST(ApiConstants.chatBot)
+  Future<ChatBotResponse> sendMessage(
+    @Body() ChatBotRequestBody body,
+  );
 }

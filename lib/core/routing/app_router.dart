@@ -27,6 +27,7 @@ import 'package:carrerk/features/customer/ui/home/ui/customer_home_main_page.dar
 import 'package:carrerk/features/customer/ui/jobs_post/customer_jobs_post.dart';
 
 import 'package:carrerk/features/customer/ui/sign_up/compulsory_data/customer_sign_up_compulsory_data_screen.dart';
+import 'package:carrerk/features/developer/ui/community/chat/ui/developer_community_chat_screen.dart';
 import 'package:carrerk/features/developer/ui/community/all_communities/developer_community_all_communities_screen.dart';
 import 'package:carrerk/features/developer/ui/community/chat/developer_community_chat_screen.dart';
 import 'package:carrerk/features/developer/ui/courses/certification/developer_courses_certification_screen.dart';
@@ -41,13 +42,12 @@ import 'package:carrerk/features/developer/ui/jobs/application_submitted/develop
 import 'package:carrerk/features/developer/ui/jobs/apply/logic/developer_jobs_apply_cubit.dart';
 import 'package:carrerk/features/developer/ui/jobs/apply/ui/developer_jobs_apply_screen.dart';
 import 'package:carrerk/features/developer/ui/jobs/main_page/developer_jobs_main_page_screen.dart';
-import 'package:carrerk/features/developer/ui/profile/edit_profile/developer_profile_edit_profile_screen.dart';
-import 'package:carrerk/features/developer/ui/profile/main_page/developer_profile_main_page_screen.dart';
-import 'package:carrerk/features/developer/ui/profile/payment/add_new_cart/developer_profile_payment_add_new_card_screen.dart';
-import 'package:carrerk/features/developer/ui/profile/payment/option/developer_profile_payment_option_screen.dart';
-import 'package:carrerk/features/developer/ui/profile/saved_jobs/developer_profile_saved_jobs_screen.dart';
-import 'package:carrerk/features/developer/ui/profile/settings/logic/developer_generate_cv_start_session_logic/developer_generate_cv_start_session_cubit.dart';
-import 'package:carrerk/features/developer/ui/profile/settings/ui/developer_profile_settings_screen.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/bookmarks/data/repos/developer_profile_services_bookmarked_repo.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/bookmarks/logic/developer_profile_services_bookmarked_logic/developer_profile_services_bookmarked_cubit.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/main_page/logic/profile_skills_logic/developer_profile_main_page_skills_cubit.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/my_cv/logic/developer_profile_settings_delete_cv_logic/developer_profile_settings_delete_cv_cubit.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/my_cv/logic/developer_profile_settings_get_my_cv_logic/developer_profile_sittings_get_my_cv_cubit.dart';
+import 'package:carrerk/features/developer/ui/profile/ui/my_cv/ui/developer_profile_my_cv_screen.dart';
 import 'package:carrerk/features/developer/ui/sign_up/logic/developer_sign_up_cubit.dart';
 import 'package:carrerk/features/developer/ui/sign_up_completed/cv_downloaded/developer_sign_up_completed_cv_downloaded.dart';
 import 'package:carrerk/features/developer/ui/sign_up_completed/cv_is_done/developer_sign_up_completed_cv_is_done.dart';
@@ -66,6 +66,8 @@ import '../../features/authentication/login/ui/login_screen.dart';
 import '../../features/authentication/onboarding/on_boarding_screen.dart';
 import '../../features/authentication/reset_password/ui/reset_password_screen.dart';
 import '../../features/authentication/successful_change_password/successful_change_password.dart';
+import '../../features/chat_bot/logic/chat_bot_cubit.dart';
+import '../../features/chat_bot/ui/chat_bot_screen.dart';
 import '../../features/chats/all_chats/logic/chats_all_chats_cubit.dart';
 import '../../features/chats/all_chats/ui/chats_all_chats.dart';
 import '../../features/chats/contact_list/all_chats/logic/contact_list_all_chats_cubit.dart';
@@ -89,6 +91,11 @@ import '../../features/company/ui/home/ui/send_offer/company_home_send_offer_scr
 import '../../features/company/ui/jobs/company_jobs_screen.dart';
 import '../../features/company/ui/jobs_post/logic/company_jobs_post_cubit.dart';
 import '../../features/company/ui/jobs_post/ui/success/company_job_post_success_screen.dart';
+import '../../features/company/ui/profile/logic/company_profile_all_job_posts_logic/company_profile_all_job_posts_cubit.dart';
+import '../../features/company/ui/profile/logic/company_profile_applicants_number_logic/company_profile_applicants_number_cubit.dart';
+import '../../features/company/ui/profile/logic/company_profile_edit_logic/company_profile_edit_cubit.dart';
+import '../../features/company/ui/profile/logic/company_profile_info_logic/company_profile_info_cubit.dart';
+import '../../features/company/ui/profile/ui/company_profile_screen.dart';
 
 import '../../features/company/ui/send_to_applicants/message-applicant/company_send_to_applicants_message_applicant_screen.dart';
 import '../../features/company/ui/sign_up/logic/company_sign_up_cubit.dart';
@@ -109,30 +116,65 @@ import '../../features/developer/ui/courses/specific_course/logic/specific_cours
 import '../../features/developer/ui/courses/specific_course/logic/specific_course_overview_logic/specific_course_overview_cubit.dart';
 import '../../features/developer/ui/courses/specific_course/logic/specific_course_reviews_logic/specific_course_reviews_cubit.dart';
 import '../../features/developer/ui/courses/specific_course/ui/developer_courses_specific_course_screen.dart';
+import '../../features/developer/ui/community/all_communities/logic/for_you_logic/developer_community_for_you_cubit.dart';
+import '../../features/developer/ui/community/all_communities/ui/developer_community_all_communities_screen.dart';
+import '../../features/developer/ui/community/chat/logic/specific_community_logic/specific_community_cubit.dart';
+import '../../features/developer/ui/courses/logic/ongoing_courses_logic/developer_courses_ongoing_cubit.dart';
+import '../../features/developer/ui/courses/logic/related_courses_logic/developer_courses_related_courses_cubit.dart';
+import '../../features/developer/ui/courses/ui/cv_updated/download_cv/developer_courses_cv_updated_download_cv_screen.dart';
+import '../../features/developer/ui/courses/ui/cv_updated/successful_update/developer_courses_cv_updated_successful_update_screen.dart';
+import '../../features/developer/ui/courses/ui/main_page/logic/main_page_roadmaps_logic/developer_courses_main_page_roadmaps_cubit.dart';
+import '../../features/developer/ui/courses/ui/main_page/ui/developer_courses_main_page_screen.dart';
+import '../../features/developer/ui/courses/ui/my_courses/logic/developer_courses_completed_logic/developer_courses_completed_cubit.dart';
+import '../../features/developer/ui/courses/ui/my_courses/ui/developer_courses_my_courses_screen.dart';
+import '../../features/developer/ui/courses/ui/related_courses/developer_courses_related_courses_screen.dart';
+import '../../features/developer/ui/courses/ui/roadmaps/logic/developer_courses_roadmaps_cubit.dart';
+import '../../features/developer/ui/courses/ui/roadmaps/ui/developer_courses_roadmaps_screen.dart';
+import '../../features/developer/ui/courses/ui/specific_category/logic/developer_courses_specific_category_cubit.dart';
+import '../../features/developer/ui/courses/ui/specific_category/ui/developer_courses_specific_category_screen.dart';
+import '../../features/developer/ui/courses/ui/specific_course/logic/specific_course_enroll_logic/specific_course_enroll_cubit.dart';
+import '../../features/developer/ui/courses/ui/specific_course/logic/specific_course_header_logic/specific_course_header_cubit.dart';
+import '../../features/developer/ui/courses/ui/specific_course/logic/specific_course_lectures_logic/specific_course_lectures_cubit.dart';
+import '../../features/developer/ui/courses/ui/specific_course/logic/specific_course_lesson_complete_logic/specific_course_lesson_complete_cubit.dart';
+import '../../features/developer/ui/courses/ui/specific_course/logic/specific_course_overview_logic/specific_course_overview_cubit.dart';
+import '../../features/developer/ui/courses/ui/specific_course/logic/specific_course_reviews_logic/specific_course_reviews_cubit.dart';
+import '../../features/developer/ui/courses/ui/specific_course/ui/developer_courses_specific_course_screen.dart';
 import '../../features/developer/ui/home_main_page/logic/developer_courses_home_main_page_logic/developer_courses_home_main_page_cubit.dart';
 import '../../features/developer/ui/home_main_page/logic/developer_name_home_main_page_logic/developer_name_home_main_page_cubit.dart';
 import '../../features/developer/ui/home_main_page/logic/developer_tags_home_main_page_logic/developer_tags_home_main_page_cubit.dart';
 import '../../features/developer/ui/home_main_page/ui/developer_home_main_page_screen.dart';
-import '../../features/developer/ui/jobs/job_details/logic/developer_jobs_job_details_cubit.dart';
-import '../../features/developer/ui/jobs/job_details/ui/developer_jobs_job_details_screen.dart';
 import '../../features/developer/ui/jobs/search/logic/developer_jobs_recently_posted_logic/developer_jobs_recently_posted_cubit.dart';
 import '../../features/developer/ui/jobs/search/logic/developer_services_recently_posted_logic/developer_services_recently_posted_cubit.dart';
 import '../../features/developer/ui/jobs/search/ui/developer_jobs_search_screen.dart';
 import '../../features/developer/ui/jobs/service_details/logic/developer_jobs_service_details_cubit.dart';
 import '../../features/developer/ui/jobs/service_details/ui/developer_jobs_service_details_screen.dart';
-import '../../features/developer/ui/profile/cv_generate/data/models/generate_models/developer_profile_cv_generate_generated_request_body.dart';
-import '../../features/developer/ui/profile/cv_generate/logic/generate_logic/developer_profile_cv_generate_generated_cubit.dart';
-import '../../features/developer/ui/profile/cv_generate/logic/send_data_logic/developer_profile_cv_generate_send_data_cubit.dart';
-import '../../features/developer/ui/profile/cv_generate/ui/cv_generated_view/developer_profile_cv_generated_view_screen.dart';
-import '../../features/developer/ui/profile/cv_generate/ui/send_data/developer_profile_cv_generate_screen.dart';
-import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_job_withdraw_repo.dart';
-import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_profile_applied_jobs_repo.dart';
-import '../../features/developer/ui/profile/jobs_applied/data/repo/developer_service_delete_repo.dart';
-import '../../features/developer/ui/profile/jobs_applied/logic/developer_job_withdraw_logic/developer_job_withdraw_cubit.dart';
-import '../../features/developer/ui/profile/jobs_applied/logic/developer_profile_applied_jobs_logic/developer_profile_applied_jobs_cubit.dart';
-import '../../features/developer/ui/profile/jobs_applied/logic/developer_service_delete_logic/developer_service_delete_cubit.dart';
-import '../../features/developer/ui/profile/jobs_applied/ui/developer_profile_jobs_and_services_applied_screen.dart';
+import '../../features/developer/ui/profile/logic/developer_profile_edit_cubit.dart';
+import '../../features/developer/ui/profile/ui/bookmarks/data/repos/developer_profile_courses_bookmarked_repo.dart';
+import '../../features/developer/ui/profile/ui/bookmarks/data/repos/developer_profile_jobs_bookmarked_repo.dart';
+import '../../features/developer/ui/profile/ui/bookmarks/developer_profile_bookmarks_screen.dart';
+import '../../features/developer/ui/profile/ui/bookmarks/logic/developer_profile_courses_bookmarked_logic/developer_profile_courses_bookmarked_cubit.dart';
+import '../../features/developer/ui/profile/ui/bookmarks/logic/developer_profile_jobs_logic/developer_profile_jobs_bookmarked_cubit.dart';
+import '../../features/developer/ui/profile/ui/cv_generate/data/models/generate_models/developer_profile_cv_generate_generated_request_body.dart';
+import '../../features/developer/ui/profile/ui/cv_generate/logic/generate_logic/developer_profile_cv_generate_generated_cubit.dart';
+import '../../features/developer/ui/profile/ui/cv_generate/logic/send_data_logic/developer_profile_cv_generate_send_data_cubit.dart';
+import '../../features/developer/ui/profile/ui/cv_generate/ui/cv_generated_view/developer_profile_cv_generated_view_screen.dart';
+import '../../features/developer/ui/profile/ui/cv_generate/ui/send_data/developer_profile_cv_generate_screen.dart';
+import '../../features/developer/ui/profile/ui/edit_profile/developer_profile_edit_profile_screen.dart';
+import '../../features/developer/ui/profile/ui/jobs_applied/data/repo/developer_job_withdraw_repo.dart';
+import '../../features/developer/ui/profile/ui/jobs_applied/data/repo/developer_profile_applied_jobs_repo.dart';
+import '../../features/developer/ui/profile/ui/jobs_applied/data/repo/developer_service_delete_repo.dart';
+import '../../features/developer/ui/profile/ui/jobs_applied/logic/developer_job_withdraw_logic/developer_job_withdraw_cubit.dart';
+import '../../features/developer/ui/profile/ui/jobs_applied/logic/developer_profile_applied_jobs_logic/developer_profile_applied_jobs_cubit.dart';
+import '../../features/developer/ui/profile/ui/jobs_applied/logic/developer_service_delete_logic/developer_service_delete_cubit.dart';
+import '../../features/developer/ui/profile/ui/jobs_applied/ui/developer_profile_jobs_and_services_applied_screen.dart';
+import '../../features/developer/ui/profile/ui/main_page/logic/profile_info_logic/developer_profile_main_page_info_cubit.dart';
+import '../../features/developer/ui/profile/ui/main_page/ui/developer_profile_main_page_screen.dart';
+import '../../features/developer/ui/profile/ui/my_cv/logic/developer_profile_settings_update_uploaded_cv_logic/developer_profile_settings_update_uploaded_cv_cubit.dart';
+import '../../features/developer/ui/profile/ui/settings/logic/developer_generate_cv_start_session_logic/developer_generate_cv_start_session_cubit.dart';
+import '../../features/developer/ui/profile/ui/settings/ui/developer_profile_settings_screen.dart';
 import '../../features/notifications/ui/notifications_screen.dart';
+import '../../features/post_details/logic/post_details_logic/job_details_cubit.dart';
+import '../../features/post_details/ui/job_details/job_details_screen.dart';
 import '../../features/sign_up_user_type/sign_up_user_type_screen.dart';
 import '../di/dependency_injection.dart';
 import 'company_router/signup_router.dart';
@@ -264,8 +306,29 @@ class AppRouter {
       // Profile
       case Routes.companyProfileScreen:
         return MaterialPageRoute(
-          builder: (_) => const CompanyProfileScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) =>
+                    getIt<CompanyProfileInfoCubit>()..getCompanyProfileInfo(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<CompanyProfileAllJobPostsCubit>()
+                  ..getCompanyAllJobPosts(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<CompanyProfileApplicantsNumberCubit>()
+                  ..getApplicantsNumber(),
+              ),
+              BlocProvider(create: (_) => getIt<CompanyJobsDeletePostCubit>()),
+              BlocProvider(
+                create: (_) => getIt<CompanyProfileEditCubit>(),
+              ),
+            ],
+            child: const CompanyProfileScreen(),
+          ),
         );
+
       // Jobs Post
       case Routes.companyJobsPostFlow:
         return MaterialPageRoute(
@@ -281,11 +344,6 @@ class AppRouter {
             create: (_) => getIt<CompanyJobsDeletePostCubit>(),
             child: CompanyJobPostSuccessScreen(jobId: args.jobId!),
           ),
-        );
-      // Send To Clients
-      case Routes.companySendToClientsScreen:
-        return MaterialPageRoute(
-          builder: (_) => const CompanySendToApplicantsMessageApplicantScreen(),
         );
 
       // ---------------- Developer ----------------
@@ -330,6 +388,10 @@ class AppRouter {
                 create: (_) => getIt<DeveloperRecommendationsCubit>()
                   ..fetchRecommendations(),
               ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperRecommendationsCubit>()
+                  ..fetchRecommendations(),
+              ),
             ],
             child: const DeveloperHomeMainPageScreen(),
           ),
@@ -338,12 +400,22 @@ class AppRouter {
       // Community
       case Routes.developerCommunityAllCommunitiesScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperCommunityAllCommunitiesScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) =>
+                getIt<DeveloperCommunityForYouCubit>()..getCommunities(),
+            child: const DeveloperCommunityAllCommunitiesScreen(),
+          ),
         );
       case Routes.developerCommunityChatScreen:
+        final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
-          builder: (_) => const DeveloperCommunityChatScreen(),
+          builder: (_) => BlocProvider<SpecificCommunityCubit>(
+            create: (_) => getIt<SpecificCommunityCubit>()
+              ..getSpecificCommunity(args.groupId!),
+            child: const DeveloperCommunityChatScreen(),
+          ),
         );
+
       // Notification
       case Routes.notificationsScreen:
         return MaterialPageRoute(
@@ -421,6 +493,14 @@ class AppRouter {
                 create: (_) => getIt<DeveloperCoursesMainPageRoadmapsCubit>()
                   ..getDeveloperCoursesMainPageRoadmaps(),
               ),
+              BlocProvider(
+                create: (_) =>
+                    getIt<DeveloperCoursesOngoingCubit>()..getOngoingCourses(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperCoursesRelatedCoursesCubit>()
+                  ..getRelatedCourses(),
+              ),
             ],
             child: const DeveloperCoursesMainPageScreen(),
           ),
@@ -428,8 +508,13 @@ class AppRouter {
 
       case Routes.developerCoursesRelatedCoursesScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperCoursesRelatedCoursesScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<DeveloperCoursesRelatedCoursesCubit>()
+              ..getRelatedCourses(),
+            child: const DeveloperCoursesRelatedCoursesScreen(),
+          ),
         );
+
       case Routes.developerCoursesSpecificCategoryScreen:
         final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
@@ -461,6 +546,12 @@ class AppRouter {
                 create: (context) => getIt<SpecificCourseReviewsCubit>()
                   ..getSpecificCourseReviews(args.courseId!),
               ),
+              BlocProvider(
+                create: (context) => getIt<SpecificCourseEnrollCubit>(),
+              ),
+              BlocProvider(
+                create: (context) => getIt<SpecificCourseLessonCompleteCubit>(),
+              ),
             ],
             child:
                 DeveloperCoursesSpecificCourseScreen(courseId: args.courseId!),
@@ -477,11 +568,19 @@ class AppRouter {
         );
       case Routes.developerCoursesMyCoursesScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperCoursesMyCoursesScreen(),
-        );
-      case Routes.developerCoursesCertificationScreen:
-        return MaterialPageRoute(
-          builder: (_) => const DeveloperCoursesCertificationScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) =>
+                    getIt<DeveloperCoursesOngoingCubit>()..getOngoingCourses(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperCoursesCompletedCubit>()
+                  ..getCompletedCourses(),
+              ),
+            ],
+            child: const DeveloperCoursesMyCoursesScreen(),
+          ),
         );
       // Courses --> CvUpdated
       case Routes.developerCoursesCvUpdatedUpdateCvScreen:
@@ -533,15 +632,19 @@ class AppRouter {
           builder: (_) => MultiBlocProvider(
             providers: [
               BlocProvider(
-                create: (_) => getIt<DeveloperJobsJobDetailsCubit>()
-                  ..fetchJobDetails(args.jobId!),
+                create: (_) =>
+                    getIt<JobDetailsCubit>()..fetchJobDetails(args.jobId!),
               ),
               BlocProvider(
                 create: (_) => getIt<DeveloperSingleJobBookmarkCubit>()
                   ..bookmarkJob(args.jobId!),
               ),
+              BlocProvider(create: (_) => getIt<CompanyJobsDeletePostCubit>()),
             ],
-            child: DeveloperJobsJobDetailsScreen(jobId: args.jobId!),
+            child: JobDetailsScreen(
+              jobId: args.jobId!,
+              isCompany: args.isCompany ?? false,
+            ),
           ),
         );
       case Routes.developerJobsServiceDetailsScreen:
@@ -582,18 +685,68 @@ class AppRouter {
       // Profile
       case Routes.developerProfileMainPageScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperProfileMainPageScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) => getIt<DeveloperProfileMainPageInfoCubit>()
+                  ..fetchDeveloperProfileMainPageInfo(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperProfileEditCubit>(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperProfileMainPageSkillsCubit>()
+                  ..fetchDeveloperProfileMainPageSkills(),
+              ),
+            ],
+            child: const DeveloperProfileMainPageScreen(),
+          ),
         );
+
       case Routes.developerProfileSettingsScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (_) => getIt<DeveloperGenerateCVStartSessionCubit>(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) => getIt<DeveloperGenerateCVStartSessionCubit>(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperProfileEditCubit>(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperProfileMainPageInfoCubit>()
+                  ..fetchDeveloperProfileMainPageInfo(),
+              ),
+            ],
             child: const DeveloperProfileSettingsScreen(),
           ),
         );
+
       case Routes.developerProfileEditProfileScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperProfileEditProfileScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<DeveloperProfileEditCubit>(),
+            child: const DeveloperProfileEditProfileScreen(),
+          ),
+        );
+      case Routes.developerProfileMyCVScreen:
+        return MaterialPageRoute(
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) =>
+                    getIt<DeveloperProfileSettingsGetMyCVCubit>()..getMyCV(),
+              ),
+              BlocProvider(
+                create: (_) =>
+                    getIt<DeveloperProfileSettingsUpdateUploadedCVCubit>(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<DeveloperProfileSettingsDeleteCVCubit>(),
+              ),
+            ],
+            child: const DeveloperProfileMyCvScreen(),
+          ),
         );
       case Routes.developerProfileCVGenerateScreen:
         final args = settings.arguments as AppArgument;
@@ -617,9 +770,33 @@ class AppRouter {
                 sessionId: args.sessionId!),
           ),
         );
-      case Routes.developerProfileSavedJobsScreen:
+      case Routes.developerProfileBookmarksScreen:
         return MaterialPageRoute(
-          builder: (_) => const DeveloperProfileSavedJobsScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              // Jobs Bookmarked
+              BlocProvider(
+                create: (context) => DeveloperProfileJobsBookmarkedCubit(
+                  getIt<DeveloperProfileJobsBookmarkedRepo>(),
+                )..getBookmarkedJobs(),
+              ),
+
+              // Services Bookmarked
+              BlocProvider(
+                create: (context) => DeveloperProfileServicesBookmarkedCubit(
+                  getIt<DeveloperProfileServicesBookmarkedRepo>(),
+                )..getBookmarkedServices(),
+              ),
+
+              // Courses Bookmarked
+              BlocProvider(
+                create: (context) => DeveloperProfileCoursesBookmarkedCubit(
+                  getIt<DeveloperProfileCoursesBookmarkedRepo>(),
+                )..getBookmarkedCourses(),
+              ),
+            ],
+            child: const DeveloperProfileBookmarksScreen(),
+          ),
         );
       case Routes.developerProfileJobsAppliedScreen:
         return MaterialPageRoute(
@@ -643,16 +820,6 @@ class AppRouter {
             ],
             child: const DeveloperProfileJobsAndServicesAppliedScreen(),
           ),
-        );
-
-      // Profile --> Payment
-      case Routes.developerProfilePaymentOptionScreen:
-        return MaterialPageRoute(
-          builder: (_) => const DeveloperProfilePaymentOptionScreen(),
-        );
-      case Routes.developerProfilePaymentAddNewCartScreen:
-        return MaterialPageRoute(
-          builder: (_) => const DeveloperProfilePaymentAddNewCardScreen(),
         );
       // ---------------- Customer ----------------
       // sign up
@@ -782,6 +949,15 @@ class AppRouter {
         final args = settings.arguments as AppArgument;
         return MaterialPageRoute(
           builder: (_) => PdfViewerScreen(url: args.fileUrl!),
+        );
+      // ---------------- ChatBot ----------------
+      case Routes.chatBotScreen:
+        final args = settings.arguments as AppArgument;
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<ChatBotCubit>(),
+            child: ChatBotScreen(id: args.developerId!),
+          ),
         );
       default:
         return null;

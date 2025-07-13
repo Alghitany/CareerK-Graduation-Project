@@ -1,5 +1,6 @@
 import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:carrerk/core/helpers/spacing.dart';
+import 'package:carrerk/core/networking/api_constants.dart';
 import 'package:carrerk/core/routing/app_argument.dart';
 import 'package:carrerk/core/routing/routes.dart';
 import 'package:carrerk/core/theming/styles.dart';
@@ -10,8 +11,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../../../../../core/di/dependency_injection.dart';
+import '../../../../../../../core/helpers/app_regex.dart';
 import '../../../../../../../core/widgets/job_bookmark/developer_job_bookmark_bloc_builder.dart';
 import '../../../../../data/models/developer_recommendtions_models/developer_recommendations_response_body.dart';
+import '../../../../../logic/developer_add_job_bookmark_logic/developer_add_job_bookmark_cubit.dart';
 import '../../../../../logic/developer_single_job_bookmark_logic/developer_single_job_bookmark_cubit.dart';
 
 class MainPageRecommendedJobsList extends StatefulWidget {
@@ -62,32 +65,54 @@ class _MainPageRecommendedJobsListState
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(12),
-                  child: Image.network(
-                    job.companyProfilePicture ?? '',
-                    width: 88.w,
-                    height: 88.h,
-                    fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) {
-                      return Image.asset(
-                        "assets/images/recommended_job.png",
-                        width: 88.w,
-                        height: 88.h,
-                        fit: BoxFit.cover,
-                      );
-                    },
-                    loadingBuilder: (context, child, loadingProgress) {
-                      if (loadingProgress == null) return child;
-                      return Shimmer.fromColors(
-                        baseColor: Colors.grey.shade300,
-                        highlightColor: Colors.grey.shade100,
-                        child: Container(
+                  child: AppRegex.isSvg(job.companyProfilePicture ?? '')
+                      ? SvgPicture.network(
+                          "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(job.companyProfilePicture)}",
                           width: 88.w,
                           height: 88.h,
-                          color: Colors.white,
+                          fit: BoxFit.cover,
+                          placeholderBuilder: (context) => Shimmer.fromColors(
+                            baseColor: Colors.grey.shade300,
+                            highlightColor: Colors.grey.shade100,
+                            child: Container(
+                              width: 88.w,
+                              height: 88.h,
+                              color: Colors.white,
+                            ),
+                          ),
+                          errorBuilder: (context, error, stackTrace) =>
+                              Image.asset(
+                            "assets/images/recommended_job.png",
+                            width: 88.w,
+                            height: 88.h,
+                            fit: BoxFit.cover,
+                          ),
+                        )
+                      : Image.network(
+                          "${ApiConstants.apiBaseUrl}${AppRegex.cutBaseUrl(job.companyProfilePicture)}",
+                          width: 88.w,
+                          height: 88.h,
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) =>
+                              Image.asset(
+                            "assets/images/recommended_job.png",
+                            width: 88.w,
+                            height: 88.h,
+                            fit: BoxFit.cover,
+                          ),
+                          loadingBuilder: (context, child, loadingProgress) {
+                            if (loadingProgress == null) return child;
+                            return Shimmer.fromColors(
+                              baseColor: Colors.grey.shade300,
+                              highlightColor: Colors.grey.shade100,
+                              child: Container(
+                                width: 88.w,
+                                height: 88.h,
+                                color: Colors.white,
+                              ),
+                            );
+                          },
                         ),
-                      );
-                    },
-                  ),
                 ),
 
                 horizontalSpace(12),
@@ -126,9 +151,14 @@ class _MainPageRecommendedJobsListState
                 ),
 
                 // BlocProvider wraps only the bookmark widget
-                BlocProvider(
-                  create: (_) => getIt<DeveloperSingleJobBookmarkCubit>()
-                    ..bookmarkJob(job.id!),
+                MultiBlocProvider(
+                  providers: [
+                    BlocProvider(
+                        create: (_) => getIt<DeveloperSingleJobBookmarkCubit>()
+                          ..bookmarkJob(job.id!)),
+                    BlocProvider(
+                        create: (_) => getIt<DeveloperAddJobBookmarkCubit>()),
+                  ],
                   child: DeveloperJobBookmarkBlocBuilder(postId: job.id!),
                 ),
               ],
