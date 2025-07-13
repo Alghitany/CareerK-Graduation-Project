@@ -42,7 +42,7 @@ class ApiConstants {
 
   //-----> Jobs
   //-> Apply
-  static const String developerJobsApply = "api/job-applications/apply";
+  static const String developerJobsApply = "api/job-application/apply";
 
   //-> Job Details
   static const String jobDetails = "api/job-post/{jobId}";
