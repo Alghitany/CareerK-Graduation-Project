@@ -16,7 +16,10 @@
 Here’s a short demo of the CareerK mobile app in action:
 
 
-https://github.com/user-attachments/assets/6abcf2db-efb3-4029-bb30-d32f4d124f1f
+
+https://github.com/user-attachments/assets/48f39b3b-9d0e-4829-a6de-10b6e4e2ab11
+
+
 
 
 ## 📂 Project Structure
