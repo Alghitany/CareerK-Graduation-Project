@@ -11,6 +11,14 @@
 - 🎓 Course enrollment, certification tracking, and CV generation
 - 🌐 Role-based navigation and dynamic UI
 
+## 🎥 Demo
+
+Here’s a short demo of the CareerK mobile app in action:
+
+
+https://github.com/user-attachments/assets/6abcf2db-efb3-4029-bb30-d32f4d124f1f
+
+
 ## 📂 Project Structure
 
 ```bash
