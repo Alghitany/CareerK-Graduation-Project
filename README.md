@@ -130,14 +130,15 @@ flutter pub get
 # Run the app
 flutter run
 ```
-## Tech Stack
+### ✅ 5. **Tech Stack**
+- **Flutter** – Cross-platform UI toolkit
+- **Dart** – Programming language
+- **Dio** – Networking
+- **Bloc / Cubit** – State management
+- **Socket.io** – Real-time communication
+- **Firebase** *(optional, coming soon)* – Backend services
+- **GetIt** – Dependency injection
 
-- Flutter (Dart)
-- Firebase
-- REST API
-- Bloc / Cubit for state management
-- Socket.IO (for real-time chat)
-- Clean Architecture
 ## License
 
-This project is licensed under the MIT Licenseز
+- This project is licensed under the MIT License.
