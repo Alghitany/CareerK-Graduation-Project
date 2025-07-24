@@ -138,6 +138,3 @@ flutter run
 - Bloc / Cubit for state management
 - Socket.IO (for real-time chat)
 - Clean Architecture
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
