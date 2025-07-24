@@ -1,4 +1,4 @@
-# 💼 CareerK
+# 💼 CareerK 
 
 **CareerK** is a Flutter-based mobile application that connects **Developers**, **Companies**, and **Customers** in a professional ecosystem. It offers job listings, freelance gigs, and course opportunities — all in one platform.
 
@@ -138,3 +138,6 @@ flutter run
 - Bloc / Cubit for state management
 - Socket.IO (for real-time chat)
 - Clean Architecture
+## License
+
+This project is licensed under the MIT Licenseز
