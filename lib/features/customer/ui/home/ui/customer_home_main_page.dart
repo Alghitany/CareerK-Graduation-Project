@@ -6,8 +6,6 @@ import 'package:carrerk/features/customer/ui/home/ui/widgets/home_page_top_bar_b
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../home/widgets/recommendations_list.dart';
-
 class CustomerHomeMainPageScreen extends StatelessWidget {
   const CustomerHomeMainPageScreen({super.key});
 

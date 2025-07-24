@@ -134,7 +134,7 @@ import '../../features/developer/ui/jobs/service_details/ui/developer_jobs_servi
 import '../../features/developer/ui/profile/logic/developer_profile_edit_cubit.dart';
 import '../../features/developer/ui/profile/ui/bookmarks/data/repos/developer_profile_courses_bookmarked_repo.dart';
 import '../../features/developer/ui/profile/ui/bookmarks/data/repos/developer_profile_jobs_bookmarked_repo.dart';
-import '../../features/developer/ui/profile/ui/bookmarks/developer_profile_bookmarks_screen.dart';
+import '../../features/developer/ui/profile/ui/bookmarks/ui/developer_profile_bookmarks_screen.dart';
 import '../../features/developer/ui/profile/ui/bookmarks/logic/developer_profile_courses_bookmarked_logic/developer_profile_courses_bookmarked_cubit.dart';
 import '../../features/developer/ui/profile/ui/bookmarks/logic/developer_profile_jobs_logic/developer_profile_jobs_bookmarked_cubit.dart';
 import '../../features/developer/ui/profile/ui/cv_generate/data/models/generate_models/developer_profile_cv_generate_generated_request_body.dart';
