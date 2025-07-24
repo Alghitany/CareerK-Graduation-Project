@@ -22,7 +22,7 @@ class CommunityDetailsBlocBuilder extends StatelessWidget {
             imageUrl: state.group.imageUrl ?? " ",
           );
         } else if (state is SpecificCommunityError) {
-          return Center(child: Text("Error: ${state.error}"));
+          return Center(child: Text("Error: ${state.apiErrorModel.getAllErrorMessages()}"));
         }
         return const SizedBox.shrink();
       },

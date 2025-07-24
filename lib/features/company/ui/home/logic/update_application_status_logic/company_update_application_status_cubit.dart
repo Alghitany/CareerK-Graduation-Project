@@ -20,9 +20,8 @@ class CompanyUpdateApplicationStatusCubit
         await _repo.updateApplicationStatus(applicationId, requestBody);
     response.when(success: (data) {
       emit(CompanyUpdateApplicationStatusState.success(data));
-    }, failure: (error) {
-      emit(CompanyUpdateApplicationStatusState.error(
-          error: error.apiErrorModel.message ?? ''));
+    }, failure: (apiErrorModel) {
+      emit(CompanyUpdateApplicationStatusState.error(apiErrorModel));
     });
   }
 }

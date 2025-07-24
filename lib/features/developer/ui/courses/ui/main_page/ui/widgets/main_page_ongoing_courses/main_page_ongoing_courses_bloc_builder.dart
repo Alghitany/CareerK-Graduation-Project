@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../../../../core/networking/api_error_model.dart';
 import '../../../../../data/models/ongoing_courses/developer_courses_ongoing_response_body.dart';
 import '../../../../../logic/ongoing_courses_logic/developer_courses_ongoing_cubit.dart';
 import '../../../../../logic/ongoing_courses_logic/developer_courses_ongoing_state.dart';
@@ -22,7 +23,7 @@ class MainPageOngoingCoursesBlocBuilder extends StatelessWidget {
         return state.maybeWhen(
           loading: () => setupLoading(),
           success: (courses) => setupSuccess(courses),
-          error: (error) => setupError(error),
+          error: (apiErrorModel) => setupError(apiErrorModel),
           orElse: () => const SizedBox.shrink(),
         );
       },
@@ -37,8 +38,8 @@ class MainPageOngoingCoursesBlocBuilder extends StatelessWidget {
     return OngoingCoursesList(courses: courses);
   }
 
-  Widget setupError(String error) {
-    return Center(child: Text("Error: $error"));
+  Widget setupError(ApiErrorModel apiErrorModel) {
+    return Center(child: Text("Error: ${apiErrorModel.getAllErrorMessages()}"));
   }
 }
 

@@ -15,7 +15,7 @@ class DeveloperProfileServicesBookmarkedRepo {
           await _apiService.getDeveloperBookmarkedServices("service");
       return ApiResult.success(response);
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ApiErrorHandler.handle(error));
     }
   }
 }

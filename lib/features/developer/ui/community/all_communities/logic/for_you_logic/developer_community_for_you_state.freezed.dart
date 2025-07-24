@@ -21,7 +21,7 @@ mixin _$DeveloperCommunityForYouState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<DeveloperCommunityGroup> groups) success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$DeveloperCommunityForYouState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<DeveloperCommunityGroup> groups)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$DeveloperCommunityForYouState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<DeveloperCommunityGroup> groups)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -144,7 +144,7 @@ class _$DeveloperCommunityForYouStateInitialImpl
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<DeveloperCommunityGroup> groups) success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return initial();
   }
@@ -155,7 +155,7 @@ class _$DeveloperCommunityForYouStateInitialImpl
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<DeveloperCommunityGroup> groups)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return initial?.call();
   }
@@ -166,7 +166,7 @@ class _$DeveloperCommunityForYouStateInitialImpl
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<DeveloperCommunityGroup> groups)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -271,7 +271,7 @@ class _$DeveloperCommunityForYouStateLoadingImpl
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<DeveloperCommunityGroup> groups) success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return loading();
   }
@@ -282,7 +282,7 @@ class _$DeveloperCommunityForYouStateLoadingImpl
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<DeveloperCommunityGroup> groups)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return loading?.call();
   }
@@ -293,7 +293,7 @@ class _$DeveloperCommunityForYouStateLoadingImpl
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<DeveloperCommunityGroup> groups)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -434,7 +434,7 @@ class _$DeveloperCommunityForYouStateSuccessImpl
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<DeveloperCommunityGroup> groups) success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return success(groups);
   }
@@ -445,7 +445,7 @@ class _$DeveloperCommunityForYouStateSuccessImpl
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<DeveloperCommunityGroup> groups)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return success?.call(groups);
   }
@@ -456,7 +456,7 @@ class _$DeveloperCommunityForYouStateSuccessImpl
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<DeveloperCommunityGroup> groups)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -529,7 +529,7 @@ abstract class _$$DeveloperCommunityForYouStateErrorImplCopyWith<$Res> {
           $Res Function(_$DeveloperCommunityForYouStateErrorImpl) then) =
       __$$DeveloperCommunityForYouStateErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String error});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -547,13 +547,13 @@ class __$$DeveloperCommunityForYouStateErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$DeveloperCommunityForYouStateErrorImpl(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -562,14 +562,14 @@ class __$$DeveloperCommunityForYouStateErrorImplCopyWithImpl<$Res>
 
 class _$DeveloperCommunityForYouStateErrorImpl
     implements DeveloperCommunityForYouStateError {
-  const _$DeveloperCommunityForYouStateErrorImpl({required this.error});
+  const _$DeveloperCommunityForYouStateErrorImpl(this.apiErrorModel);
 
   @override
-  final String error;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'DeveloperCommunityForYouState.error(error: $error)';
+    return 'DeveloperCommunityForYouState.error(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -577,11 +577,12 @@ class _$DeveloperCommunityForYouStateErrorImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeveloperCommunityForYouStateErrorImpl &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of DeveloperCommunityForYouState
   /// with the given fields replaced by the non-null parameter values.
@@ -599,9 +600,9 @@ class _$DeveloperCommunityForYouStateErrorImpl
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<DeveloperCommunityGroup> groups) success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
-    return error(this.error);
+    return error(apiErrorModel);
   }
 
   @override
@@ -610,9 +611,9 @@ class _$DeveloperCommunityForYouStateErrorImpl
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<DeveloperCommunityGroup> groups)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
-    return error?.call(this.error);
+    return error?.call(apiErrorModel);
   }
 
   @override
@@ -621,11 +622,11 @@ class _$DeveloperCommunityForYouStateErrorImpl
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<DeveloperCommunityGroup> groups)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(this.error);
+      return error(apiErrorModel);
     }
     return orElse();
   }
@@ -674,9 +675,10 @@ class _$DeveloperCommunityForYouStateErrorImpl
 abstract class DeveloperCommunityForYouStateError
     implements DeveloperCommunityForYouState {
   const factory DeveloperCommunityForYouStateError(
-      {required final String error}) = _$DeveloperCommunityForYouStateErrorImpl;
+          final ApiErrorModel apiErrorModel) =
+      _$DeveloperCommunityForYouStateErrorImpl;
 
-  String get error;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of DeveloperCommunityForYouState
   /// with the given fields replaced by the non-null parameter values.

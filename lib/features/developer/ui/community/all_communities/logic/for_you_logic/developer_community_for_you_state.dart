@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../../../core/networking/api_error_model.dart';
 import '../../data/models/for_you_models/developer_community_for_you_response_body.dart';
 
 part 'developer_community_for_you_state.freezed.dart';
@@ -16,6 +17,6 @@ class DeveloperCommunityForYouState with _$DeveloperCommunityForYouState {
     List<DeveloperCommunityGroup> groups,
   ) = DeveloperCommunityForYouStateSuccess;
 
-  const factory DeveloperCommunityForYouState.error({required String error}) =
+  const factory DeveloperCommunityForYouState.error(ApiErrorModel apiErrorModel) =
       DeveloperCommunityForYouStateError;
 }

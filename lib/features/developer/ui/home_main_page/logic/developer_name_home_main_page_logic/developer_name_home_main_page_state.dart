@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../../core/networking/api_error_model.dart';
 import '../../data/models/developer_name_home_main_page_models/developer_name_home_main_page_response_body.dart';
 
 part 'developer_name_home_main_page_state.freezed.dart';
@@ -15,7 +16,5 @@ class DeveloperNameHomeMainPageState with _$DeveloperNameHomeMainPageState {
     DeveloperNameHomeMainPageResponseBody data,
   ) = DeveloperNameSuccess;
 
-  const factory DeveloperNameHomeMainPageState.developerNameError({
-    required String error,
-  }) = DeveloperNameError;
+  const factory DeveloperNameHomeMainPageState.developerNameError(ApiErrorModel apiErrorModel) = DeveloperNameError;
 }

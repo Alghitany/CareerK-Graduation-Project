@@ -2,6 +2,7 @@ import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../../../core/networking/api_error_model.dart';
 import '../../data/models/developer_profile_applied_jobs_models/developer_profile_applied_jobs_response_body.dart';
 import '../../logic/developer_profile_applied_jobs_logic/developer_profile_applied_jobs_cubit.dart';
 import '../../logic/developer_profile_applied_jobs_logic/developer_profile_applied_jobs_state.dart';
@@ -22,7 +23,7 @@ class AppliedJobsBlocBuilder extends StatelessWidget {
         return state.maybeWhen(
           loading: () => setupLoading(),
           success: (data) => setupSuccess(data),
-          error: (error) => setupError(error),
+          error: (apiErrorModel) => setupError(apiErrorModel),
           orElse: () => const SizedBox.shrink(),
         );
       },
@@ -56,7 +57,7 @@ class AppliedJobsBlocBuilder extends StatelessWidget {
     );
   }
 
-  Widget setupError(String error) {
-    return Center(child: Text("Error: $error"));
+  Widget setupError(ApiErrorModel apiErrorModel) {
+    return Center(child: Text("Error: ${apiErrorModel.getAllErrorMessages()}"));
   }
 }

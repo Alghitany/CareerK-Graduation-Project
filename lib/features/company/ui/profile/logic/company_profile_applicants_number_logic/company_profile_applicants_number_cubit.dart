@@ -17,8 +17,8 @@ class CompanyProfileApplicantsNumberCubit
     response.when(
       success: (data) =>
           emit(CompanyProfileApplicantsNumberState.success(data)),
-      failure: (errorHandler) =>
-          emit(CompanyProfileApplicantsNumberState.error(errorHandler)),
+      failure: (apiErrorModel) =>
+          emit(CompanyProfileApplicantsNumberState.error(apiErrorModel)),
     );
   }
 }

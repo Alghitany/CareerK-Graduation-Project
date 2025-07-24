@@ -17,9 +17,9 @@ class CompanyProfileInfoCubit extends Cubit<CompanyProfileInfoState> {
       success: (profile) {
         emit(CompanyProfileInfoState.success(profile));
       },
-      failure: (error) {
+      failure: (apiErrorModel) {
         emit(CompanyProfileInfoState.error(
-            error: error.apiErrorModel.message ?? 'Unknown error'));
+            apiErrorModel));
       },
     );
   }

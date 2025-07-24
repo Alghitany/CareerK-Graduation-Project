@@ -19,10 +19,9 @@ class DeveloperCoursesHomeMainPageCubit
       success: (data) => emit(
         DeveloperCoursesHomeMainPageState.developerCoursesSuccess(data),
       ),
-      failure: (error) => emit(
+      failure: (apiErrorModel) => emit(
         DeveloperCoursesHomeMainPageState.developerCoursesError(
-          error:
-              error.apiErrorModel.message ?? 'Failed to load developer courses',
+            apiErrorModel
         ),
       ),
     );

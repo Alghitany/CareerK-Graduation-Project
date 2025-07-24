@@ -19,10 +19,9 @@ class DeveloperServicesRecentlyPostedCubit
       success: (data) => emit(
         DeveloperServicesRecentlyPostedState.recentlyPostedSuccess(data),
       ),
-      failure: (error) => emit(
+      failure: (apiErrorModel) => emit(
         DeveloperServicesRecentlyPostedState.recentlyPostedError(
-          error: error.apiErrorModel.message ??
-              'Failed to load recently posted services',
+            apiErrorModel
         ),
       ),
     );

@@ -21,10 +21,9 @@ class DeveloperProfileSettingsDeleteCVCubit
       success: (data) {
         emit(DeveloperProfileSettingsDeleteCVState.success(data));
       },
-      failure: (error) {
+      failure: (apiErrorModel) {
         emit(DeveloperProfileSettingsDeleteCVState.error(
-          error: error.apiErrorModel.message ?? "Unknown error",
-        ));
+            apiErrorModel        ));
       },
     );
   }

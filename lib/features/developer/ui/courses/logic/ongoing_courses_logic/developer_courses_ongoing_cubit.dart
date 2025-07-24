@@ -18,9 +18,9 @@ class DeveloperCoursesOngoingCubit extends Cubit<DeveloperCoursesOngoingState> {
       success: (courses) {
         emit(DeveloperCoursesOngoingState.success(courses));
       },
-      failure: (error) {
+      failure: (apiErrorModel) {
         emit(DeveloperCoursesOngoingState.error(
-            error: error.apiErrorModel.message ?? "Failed to load"));
+            apiErrorModel));
       },
     );
   }

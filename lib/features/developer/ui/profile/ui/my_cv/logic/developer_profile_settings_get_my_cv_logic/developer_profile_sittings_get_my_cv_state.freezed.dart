@@ -22,7 +22,7 @@ mixin _$DeveloperProfileSettingsGetMyCVState {
     required TResult Function() loading,
     required TResult Function(DeveloperProfileSettingsGetMyCVResponseBody data)
         success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,7 +31,7 @@ mixin _$DeveloperProfileSettingsGetMyCVState {
     TResult? Function()? loading,
     TResult? Function(DeveloperProfileSettingsGetMyCVResponseBody data)?
         success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,7 +39,7 @@ mixin _$DeveloperProfileSettingsGetMyCVState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(DeveloperProfileSettingsGetMyCVResponseBody data)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -147,7 +147,7 @@ class _$DeveloperProfileSittingsMyCVInitialImpl
     required TResult Function() loading,
     required TResult Function(DeveloperProfileSettingsGetMyCVResponseBody data)
         success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return initial();
   }
@@ -159,7 +159,7 @@ class _$DeveloperProfileSittingsMyCVInitialImpl
     TResult? Function()? loading,
     TResult? Function(DeveloperProfileSettingsGetMyCVResponseBody data)?
         success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return initial?.call();
   }
@@ -170,7 +170,7 @@ class _$DeveloperProfileSittingsMyCVInitialImpl
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(DeveloperProfileSettingsGetMyCVResponseBody data)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -276,7 +276,7 @@ class _$DeveloperProfileSittingsMyCVLoadingImpl
     required TResult Function() loading,
     required TResult Function(DeveloperProfileSettingsGetMyCVResponseBody data)
         success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return loading();
   }
@@ -288,7 +288,7 @@ class _$DeveloperProfileSittingsMyCVLoadingImpl
     TResult? Function()? loading,
     TResult? Function(DeveloperProfileSettingsGetMyCVResponseBody data)?
         success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return loading?.call();
   }
@@ -299,7 +299,7 @@ class _$DeveloperProfileSittingsMyCVLoadingImpl
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(DeveloperProfileSettingsGetMyCVResponseBody data)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -433,7 +433,7 @@ class _$DeveloperProfileSittingsMyCVSuccessImpl
     required TResult Function() loading,
     required TResult Function(DeveloperProfileSettingsGetMyCVResponseBody data)
         success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return success(data);
   }
@@ -445,7 +445,7 @@ class _$DeveloperProfileSittingsMyCVSuccessImpl
     TResult? Function()? loading,
     TResult? Function(DeveloperProfileSettingsGetMyCVResponseBody data)?
         success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return success?.call(data);
   }
@@ -456,7 +456,7 @@ class _$DeveloperProfileSittingsMyCVSuccessImpl
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(DeveloperProfileSettingsGetMyCVResponseBody data)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -529,7 +529,7 @@ abstract class _$$DeveloperProfileSittingsMyCVErrorImplCopyWith<$Res> {
           $Res Function(_$DeveloperProfileSittingsMyCVErrorImpl) then) =
       __$$DeveloperProfileSittingsMyCVErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String error});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -547,13 +547,13 @@ class __$$DeveloperProfileSittingsMyCVErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$DeveloperProfileSittingsMyCVErrorImpl(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -562,14 +562,14 @@ class __$$DeveloperProfileSittingsMyCVErrorImplCopyWithImpl<$Res>
 
 class _$DeveloperProfileSittingsMyCVErrorImpl
     implements DeveloperProfileSittingsMyCVError {
-  const _$DeveloperProfileSittingsMyCVErrorImpl({required this.error});
+  const _$DeveloperProfileSittingsMyCVErrorImpl(this.apiErrorModel);
 
   @override
-  final String error;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'DeveloperProfileSettingsGetMyCVState.error(error: $error)';
+    return 'DeveloperProfileSettingsGetMyCVState.error(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -577,11 +577,12 @@ class _$DeveloperProfileSittingsMyCVErrorImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeveloperProfileSittingsMyCVErrorImpl &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of DeveloperProfileSettingsGetMyCVState
   /// with the given fields replaced by the non-null parameter values.
@@ -600,9 +601,9 @@ class _$DeveloperProfileSittingsMyCVErrorImpl
     required TResult Function() loading,
     required TResult Function(DeveloperProfileSettingsGetMyCVResponseBody data)
         success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
-    return error(this.error);
+    return error(apiErrorModel);
   }
 
   @override
@@ -612,9 +613,9 @@ class _$DeveloperProfileSittingsMyCVErrorImpl
     TResult? Function()? loading,
     TResult? Function(DeveloperProfileSettingsGetMyCVResponseBody data)?
         success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
-    return error?.call(this.error);
+    return error?.call(apiErrorModel);
   }
 
   @override
@@ -623,11 +624,11 @@ class _$DeveloperProfileSittingsMyCVErrorImpl
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(DeveloperProfileSettingsGetMyCVResponseBody data)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(this.error);
+      return error(apiErrorModel);
     }
     return orElse();
   }
@@ -676,9 +677,10 @@ class _$DeveloperProfileSittingsMyCVErrorImpl
 abstract class DeveloperProfileSittingsMyCVError
     implements DeveloperProfileSettingsGetMyCVState {
   const factory DeveloperProfileSittingsMyCVError(
-      {required final String error}) = _$DeveloperProfileSittingsMyCVErrorImpl;
+          final ApiErrorModel apiErrorModel) =
+      _$DeveloperProfileSittingsMyCVErrorImpl;
 
-  String get error;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of DeveloperProfileSettingsGetMyCVState
   /// with the given fields replaced by the non-null parameter values.

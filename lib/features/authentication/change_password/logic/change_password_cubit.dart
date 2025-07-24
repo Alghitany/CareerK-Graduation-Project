@@ -23,8 +23,8 @@ class ChangePasswordCubit extends Cubit<ChangePasswordState> {
         await _changePasswordRepo.changePassword(changePasswordRequestBody);
     response.when(success: (changePasswordResponse) {
       emit(ChangePasswordState.success(changePasswordResponse));
-    }, failure: (error) {
-      emit(ChangePasswordState.error(error: error.apiErrorModel.message ?? ''));
+    }, failure: (apiErrorModel) {
+      emit(ChangePasswordState.error(apiErrorModel));
     });
   }
 }

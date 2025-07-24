@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../../core/networking/api_error_model.dart';
 import '../../../data/models/developer_name_home_main_page_models/developer_name_home_main_page_response_body.dart';
 import '../../../logic/developer_name_home_main_page_logic/developer_name_home_main_page_cubit.dart';
 import '../../../logic/developer_name_home_main_page_logic/developer_name_home_main_page_state.dart';
@@ -22,7 +23,7 @@ class DeveloperHomeTopBarBlocBuilder extends StatelessWidget {
         return state.maybeWhen(
           developerNameLoading: () => _buildLoading(),
           developerNameSuccess: (data) => _buildSuccess(data),
-          developerNameError: (error) => _buildError(error),
+          developerNameError: (apiErrorModel) => _buildError(apiErrorModel),
           orElse: () => const SizedBox.shrink(),
         );
       },
@@ -41,7 +42,7 @@ class DeveloperHomeTopBarBlocBuilder extends StatelessWidget {
     );
   }
 
-  Widget _buildError(String error) {
-    return Center(child: Text(error));
+  Widget _buildError(ApiErrorModel apiErrorModel) {
+    return Center(child: Text(apiErrorModel.getAllErrorMessages()));
   }
 }

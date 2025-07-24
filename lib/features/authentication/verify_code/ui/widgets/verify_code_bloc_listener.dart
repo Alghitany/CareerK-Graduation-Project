@@ -6,6 +6,7 @@ import 'package:carrerk/features/authentication/verify_code/ui/widgets/verified_
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/networking/api_error_model.dart';
 import '../../../../../core/theming/colors.dart';
 
 class VerifyCodeBlocListener extends StatelessWidget {
@@ -35,8 +36,8 @@ class VerifyCodeBlocListener extends StatelessWidget {
               builder: (context) => const VerifiedAlertDialog(),
             );
           },
-          error: (error) {
-            setupErrorState(context, error);
+          error: (apiErrorModel) {
+            setupErrorState(context, apiErrorModel);
           },
         );
       },
@@ -44,7 +45,7 @@ class VerifyCodeBlocListener extends StatelessWidget {
     );
   }
 
-  void setupErrorState(BuildContext context, String error) {
+  void setupErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
     context.pop();
     showDialog(
       context: context,
@@ -55,7 +56,7 @@ class VerifyCodeBlocListener extends StatelessWidget {
           size: 32,
         ),
         content: Text(
-          error,
+          apiErrorModel.getAllErrorMessages(),
           style: AppTextStyles.font15GlaucousPoppinsSemiBold,
         ),
         actions: [

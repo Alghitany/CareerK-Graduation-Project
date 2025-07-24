@@ -3,6 +3,7 @@ import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/networking/api_error_model.dart';
 import '../../../../../core/routing/routes.dart';
 import '../../../../../core/theming/colors.dart';
 import '../../logic/reset_password_cubit.dart';
@@ -58,8 +59,8 @@ class ResetPasswordBlocListener extends StatelessWidget {
               ),
             );
           },
-          error: (error) {
-            setupErrorState(context, error);
+          error: (apiErrorModel) {
+            setupErrorState(context, apiErrorModel);
           },
         );
       },
@@ -67,7 +68,7 @@ class ResetPasswordBlocListener extends StatelessWidget {
     );
   }
 
-  void setupErrorState(BuildContext context, String error) {
+  void setupErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
     context.pop();
     showDialog(
       context: context,
@@ -78,7 +79,7 @@ class ResetPasswordBlocListener extends StatelessWidget {
           size: 32,
         ),
         content: Text(
-          error,
+          apiErrorModel.getAllErrorMessages(),
           style: AppTextStyles.font15GlaucousPoppinsSemiBold,
         ),
         actions: [

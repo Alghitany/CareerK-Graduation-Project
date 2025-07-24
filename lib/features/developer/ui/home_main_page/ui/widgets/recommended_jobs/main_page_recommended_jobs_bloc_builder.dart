@@ -2,6 +2,7 @@ import 'package:carrerk/features/developer/ui/home_main_page/ui/widgets/recommen
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../../core/networking/api_error_model.dart';
 import '../../../../../data/models/developer_recommendtions_models/developer_recommendations_response_body.dart';
 import '../../../../../logic/developer_recommendations_logic/developer_recommendations_cubit.dart';
 import '../../../../../logic/developer_recommendations_logic/developer_recommendations_state.dart';
@@ -22,7 +23,7 @@ class MainPageRecommendedJobsBlocBuilder extends StatelessWidget {
         return state.maybeWhen(
           recommendationsLoading: () => _buildLoading(),
           recommendationsSuccess: (data) => _buildSuccess(data),
-          recommendationsError: (error) => _buildError(error),
+          recommendationsError: (apiErrorModel) => _buildError(apiErrorModel),
           orElse: () => const SizedBox.shrink(),
         );
       },
@@ -37,7 +38,7 @@ class MainPageRecommendedJobsBlocBuilder extends StatelessWidget {
     return MainPageRecommendedJobsList(jobs: data.jobRecommendations ?? []);
   }
 
-  Widget _buildError(String error) {
-    return Center(child: Text(error));
+  Widget _buildError(ApiErrorModel apiErrorModel) {
+    return Center(child: Text(apiErrorModel.getAllErrorMessages()));
   }
 }

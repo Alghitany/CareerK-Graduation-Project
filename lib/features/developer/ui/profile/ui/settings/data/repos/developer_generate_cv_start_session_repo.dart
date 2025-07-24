@@ -15,7 +15,7 @@ class DeveloperGenerateCVStartSessionRepo {
       final response = await _service.startDeveloperGenerateCVSession();
       return ApiResult.success(response);
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ApiErrorHandler.handle(error));
     }
   }
 }

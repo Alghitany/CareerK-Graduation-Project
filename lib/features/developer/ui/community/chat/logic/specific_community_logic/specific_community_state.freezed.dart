@@ -21,7 +21,7 @@ mixin _$SpecificCommunityState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(DeveloperCommunityGroup group) success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$SpecificCommunityState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(DeveloperCommunityGroup group)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$SpecificCommunityState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(DeveloperCommunityGroup group)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -138,7 +138,7 @@ class _$SpecificCommunityInitialImpl implements _SpecificCommunityInitial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(DeveloperCommunityGroup group) success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return initial();
   }
@@ -149,7 +149,7 @@ class _$SpecificCommunityInitialImpl implements _SpecificCommunityInitial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(DeveloperCommunityGroup group)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return initial?.call();
   }
@@ -160,7 +160,7 @@ class _$SpecificCommunityInitialImpl implements _SpecificCommunityInitial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(DeveloperCommunityGroup group)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -259,7 +259,7 @@ class _$SpecificCommunityLoadingImpl implements SpecificCommunityLoading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(DeveloperCommunityGroup group) success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return loading();
   }
@@ -270,7 +270,7 @@ class _$SpecificCommunityLoadingImpl implements SpecificCommunityLoading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(DeveloperCommunityGroup group)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return loading?.call();
   }
@@ -281,7 +281,7 @@ class _$SpecificCommunityLoadingImpl implements SpecificCommunityLoading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(DeveloperCommunityGroup group)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -407,7 +407,7 @@ class _$SpecificCommunitySuccessImpl implements SpecificCommunitySuccess {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(DeveloperCommunityGroup group) success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return success(group);
   }
@@ -418,7 +418,7 @@ class _$SpecificCommunitySuccessImpl implements SpecificCommunitySuccess {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(DeveloperCommunityGroup group)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return success?.call(group);
   }
@@ -429,7 +429,7 @@ class _$SpecificCommunitySuccessImpl implements SpecificCommunitySuccess {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(DeveloperCommunityGroup group)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -496,7 +496,7 @@ abstract class _$$SpecificCommunityErrorImplCopyWith<$Res> {
           $Res Function(_$SpecificCommunityErrorImpl) then) =
       __$$SpecificCommunityErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String error});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -514,13 +514,13 @@ class __$$SpecificCommunityErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$SpecificCommunityErrorImpl(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -528,14 +528,14 @@ class __$$SpecificCommunityErrorImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SpecificCommunityErrorImpl implements SpecificCommunityError {
-  const _$SpecificCommunityErrorImpl({required this.error});
+  const _$SpecificCommunityErrorImpl(this.apiErrorModel);
 
   @override
-  final String error;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'SpecificCommunityState.error(error: $error)';
+    return 'SpecificCommunityState.error(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -543,11 +543,12 @@ class _$SpecificCommunityErrorImpl implements SpecificCommunityError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SpecificCommunityErrorImpl &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of SpecificCommunityState
   /// with the given fields replaced by the non-null parameter values.
@@ -564,9 +565,9 @@ class _$SpecificCommunityErrorImpl implements SpecificCommunityError {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(DeveloperCommunityGroup group) success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
-    return error(this.error);
+    return error(apiErrorModel);
   }
 
   @override
@@ -575,9 +576,9 @@ class _$SpecificCommunityErrorImpl implements SpecificCommunityError {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(DeveloperCommunityGroup group)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
-    return error?.call(this.error);
+    return error?.call(apiErrorModel);
   }
 
   @override
@@ -586,11 +587,11 @@ class _$SpecificCommunityErrorImpl implements SpecificCommunityError {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(DeveloperCommunityGroup group)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(this.error);
+      return error(apiErrorModel);
     }
     return orElse();
   }
@@ -634,10 +635,10 @@ class _$SpecificCommunityErrorImpl implements SpecificCommunityError {
 }
 
 abstract class SpecificCommunityError implements SpecificCommunityState {
-  const factory SpecificCommunityError({required final String error}) =
+  const factory SpecificCommunityError(final ApiErrorModel apiErrorModel) =
       _$SpecificCommunityErrorImpl;
 
-  String get error;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of SpecificCommunityState
   /// with the given fields replaced by the non-null parameter values.

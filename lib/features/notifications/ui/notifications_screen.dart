@@ -123,8 +123,8 @@ class NotificationsScreen extends StatelessWidget {
                         notifications: notificationsResponse.notifications,
                       );
                     },
-                    error: (errorHandler) => Center(
-                      child: Text('Error: ${errorHandler.apiErrorModel}'),
+                    error: (apiErrorModel) => Center(
+                      child: Text('Error: ${apiErrorModel.getAllErrorMessages()}'),
                     ),
                   );
                 },

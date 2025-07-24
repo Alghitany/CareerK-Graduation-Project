@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../../core/networking/api_error_model.dart';
 import '../data/models/developer_profile_services_bookmarked_models/developer_profile_services_bookmarked_response_body.dart';
 import '../logic/developer_profile_services_bookmarked_logic/developer_profile_services_bookmarked_cubit.dart';
 import '../logic/developer_profile_services_bookmarked_logic/developer_profile_services_bookmarked_state.dart';
@@ -23,7 +24,7 @@ class BookmarkedServicesBlocBuilder extends StatelessWidget {
           initial: () => const SizedBox.shrink(),
           loading: () => const BookmarkedServicesListShimmer(),
           success: (data) => _buildSuccess(data),
-          error: (error) => _buildError(error),
+          error: (apiErrorModel) => _buildError(apiErrorModel),
         );
       },
     );
@@ -37,9 +38,9 @@ class BookmarkedServicesBlocBuilder extends StatelessWidget {
     return BookmarkedServicesList(services: data);
   }
 
-  Widget _buildError(String? error) {
+  Widget _buildError(ApiErrorModel apiErrorModel) {
     return Center(
-      child: Text("Error: ${error ?? 'Unknown error'}"),
+      child: Text("Error: ${apiErrorModel.getAllErrorMessages()}"),
     );
   }
 }

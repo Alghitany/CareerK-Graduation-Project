@@ -3,6 +3,7 @@ import 'package:carrerk/core/theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../../../../core/networking/api_error_model.dart';
 import '../../../../../../../../../core/theming/styles.dart';
 import '../../../../../logic/update_application_status_logic/company_update_application_status_cubit.dart';
 import '../../../../../logic/update_application_status_logic/company_update_application_status_state.dart';
@@ -18,7 +19,7 @@ class CompanyUpdateApplicationStatusBlocListener extends StatelessWidget {
       listener: (context, state) {
         state.whenOrNull(
           success: (data) => _showSuccessSnackBar(context, data.message),
-          error: (error) => _showErrorDialog(context, error),
+          error: (apiErrorModel) => _showErrorDialog(context, apiErrorModel),
         );
       },
       child: const SizedBox.shrink(),
@@ -43,7 +44,7 @@ class CompanyUpdateApplicationStatusBlocListener extends StatelessWidget {
     );
   }
 
-  void _showErrorDialog(BuildContext context, String error) {
+  void _showErrorDialog(BuildContext context, ApiErrorModel apiErrorModel) {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -53,7 +54,7 @@ class CompanyUpdateApplicationStatusBlocListener extends StatelessWidget {
           size: 32,
         ),
         content: Text(
-          error,
+          apiErrorModel.getAllErrorMessages(),
           style: AppTextStyles.font15GlaucousPoppinsSemiBold,
         ),
         actions: [

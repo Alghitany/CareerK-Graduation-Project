@@ -34,8 +34,8 @@ class LoginCubit extends Cubit<LoginState> {
       await SharedPrefHelper.setSecuredString(
           SharedPrefKeys.userId, loginResponse.user?.id ?? "");
       emit(LoginState.success(loginResponse));
-    }, failure: (error) {
-      emit(LoginState.error(error: error.apiErrorModel.message ?? ''));
+    }, failure: (apiErrorModel) {
+      emit(LoginState.error(apiErrorModel));
     });
   }
 

@@ -17,7 +17,7 @@ class DeveloperAddJobBookmarkRepo {
       final response = await _apiService.addJobBookmark(jobId, body);
       return ApiResult.success(response);
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ApiErrorHandler.handle(error));
     }
   }
 }

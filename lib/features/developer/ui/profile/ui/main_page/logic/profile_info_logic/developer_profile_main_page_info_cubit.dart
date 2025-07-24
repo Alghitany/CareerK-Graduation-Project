@@ -19,10 +19,9 @@ class DeveloperProfileMainPageInfoCubit
       success: (data) => emit(
         DeveloperProfileMainPageInfoState.success(data),
       ),
-      failure: (error) => emit(
+      failure: (apiErrorModel) => emit(
         DeveloperProfileMainPageInfoState.error(
-          error: error.apiErrorModel.message ?? 'Failed to load profile info',
-        ),
+            apiErrorModel        ),
       ),
     );
   }

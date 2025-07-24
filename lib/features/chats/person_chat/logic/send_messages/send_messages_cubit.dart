@@ -45,9 +45,9 @@ class SendMessagesCubit extends Cubit<SendMessagesState> {
 
     response.when(
       success: (res) => emit(SendMessagesState.sendMessageSuccess(res)),
-      failure: (error) => emit(
+      failure: (apiErrorModel) => emit(
         SendMessagesState.sendMessageError(
-          error: error.apiErrorModel.message ?? 'Message sending failed',
+          apiErrorModel,
         ),
       ),
     );

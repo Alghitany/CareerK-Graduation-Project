@@ -21,7 +21,7 @@ mixin _$DeveloperProfileEditState<T> {
     required TResult Function() initial,
     required TResult Function() editProfileLoading,
     required TResult Function(T data) editProfileSuccess,
-    required TResult Function(String error) editProfileError,
+    required TResult Function(ApiErrorModel apiErrorModel) editProfileError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$DeveloperProfileEditState<T> {
     TResult? Function()? initial,
     TResult? Function()? editProfileLoading,
     TResult? Function(T data)? editProfileSuccess,
-    TResult? Function(String error)? editProfileError,
+    TResult? Function(ApiErrorModel apiErrorModel)? editProfileError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$DeveloperProfileEditState<T> {
     TResult Function()? initial,
     TResult Function()? editProfileLoading,
     TResult Function(T data)? editProfileSuccess,
-    TResult Function(String error)? editProfileError,
+    TResult Function(ApiErrorModel apiErrorModel)? editProfileError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -135,7 +135,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() initial,
     required TResult Function() editProfileLoading,
     required TResult Function(T data) editProfileSuccess,
-    required TResult Function(String error) editProfileError,
+    required TResult Function(ApiErrorModel apiErrorModel) editProfileError,
   }) {
     return initial();
   }
@@ -146,7 +146,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? initial,
     TResult? Function()? editProfileLoading,
     TResult? Function(T data)? editProfileSuccess,
-    TResult? Function(String error)? editProfileError,
+    TResult? Function(ApiErrorModel apiErrorModel)? editProfileError,
   }) {
     return initial?.call();
   }
@@ -157,7 +157,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? initial,
     TResult Function()? editProfileLoading,
     TResult Function(T data)? editProfileSuccess,
-    TResult Function(String error)? editProfileError,
+    TResult Function(ApiErrorModel apiErrorModel)? editProfileError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -254,7 +254,7 @@ class _$EditProfileLoadingImpl<T> implements EditProfileLoading<T> {
     required TResult Function() initial,
     required TResult Function() editProfileLoading,
     required TResult Function(T data) editProfileSuccess,
-    required TResult Function(String error) editProfileError,
+    required TResult Function(ApiErrorModel apiErrorModel) editProfileError,
   }) {
     return editProfileLoading();
   }
@@ -265,7 +265,7 @@ class _$EditProfileLoadingImpl<T> implements EditProfileLoading<T> {
     TResult? Function()? initial,
     TResult? Function()? editProfileLoading,
     TResult? Function(T data)? editProfileSuccess,
-    TResult? Function(String error)? editProfileError,
+    TResult? Function(ApiErrorModel apiErrorModel)? editProfileError,
   }) {
     return editProfileLoading?.call();
   }
@@ -276,7 +276,7 @@ class _$EditProfileLoadingImpl<T> implements EditProfileLoading<T> {
     TResult Function()? initial,
     TResult Function()? editProfileLoading,
     TResult Function(T data)? editProfileSuccess,
-    TResult Function(String error)? editProfileError,
+    TResult Function(ApiErrorModel apiErrorModel)? editProfileError,
     required TResult orElse(),
   }) {
     if (editProfileLoading != null) {
@@ -401,7 +401,7 @@ class _$EditProfileSuccessImpl<T> implements EditProfileSuccess<T> {
     required TResult Function() initial,
     required TResult Function() editProfileLoading,
     required TResult Function(T data) editProfileSuccess,
-    required TResult Function(String error) editProfileError,
+    required TResult Function(ApiErrorModel apiErrorModel) editProfileError,
   }) {
     return editProfileSuccess(data);
   }
@@ -412,7 +412,7 @@ class _$EditProfileSuccessImpl<T> implements EditProfileSuccess<T> {
     TResult? Function()? initial,
     TResult? Function()? editProfileLoading,
     TResult? Function(T data)? editProfileSuccess,
-    TResult? Function(String error)? editProfileError,
+    TResult? Function(ApiErrorModel apiErrorModel)? editProfileError,
   }) {
     return editProfileSuccess?.call(data);
   }
@@ -423,7 +423,7 @@ class _$EditProfileSuccessImpl<T> implements EditProfileSuccess<T> {
     TResult Function()? initial,
     TResult Function()? editProfileLoading,
     TResult Function(T data)? editProfileSuccess,
-    TResult Function(String error)? editProfileError,
+    TResult Function(ApiErrorModel apiErrorModel)? editProfileError,
     required TResult orElse(),
   }) {
     if (editProfileSuccess != null) {
@@ -488,7 +488,7 @@ abstract class _$$EditProfileErrorImplCopyWith<T, $Res> {
           $Res Function(_$EditProfileErrorImpl<T>) then) =
       __$$EditProfileErrorImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({String error});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -505,13 +505,13 @@ class __$$EditProfileErrorImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$EditProfileErrorImpl<T>(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -519,14 +519,14 @@ class __$$EditProfileErrorImplCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$EditProfileErrorImpl<T> implements EditProfileError<T> {
-  const _$EditProfileErrorImpl({required this.error});
+  const _$EditProfileErrorImpl(this.apiErrorModel);
 
   @override
-  final String error;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'DeveloperProfileEditState<$T>.editProfileError(error: $error)';
+    return 'DeveloperProfileEditState<$T>.editProfileError(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -534,11 +534,12 @@ class _$EditProfileErrorImpl<T> implements EditProfileError<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EditProfileErrorImpl<T> &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of DeveloperProfileEditState
   /// with the given fields replaced by the non-null parameter values.
@@ -555,9 +556,9 @@ class _$EditProfileErrorImpl<T> implements EditProfileError<T> {
     required TResult Function() initial,
     required TResult Function() editProfileLoading,
     required TResult Function(T data) editProfileSuccess,
-    required TResult Function(String error) editProfileError,
+    required TResult Function(ApiErrorModel apiErrorModel) editProfileError,
   }) {
-    return editProfileError(error);
+    return editProfileError(apiErrorModel);
   }
 
   @override
@@ -566,9 +567,9 @@ class _$EditProfileErrorImpl<T> implements EditProfileError<T> {
     TResult? Function()? initial,
     TResult? Function()? editProfileLoading,
     TResult? Function(T data)? editProfileSuccess,
-    TResult? Function(String error)? editProfileError,
+    TResult? Function(ApiErrorModel apiErrorModel)? editProfileError,
   }) {
-    return editProfileError?.call(error);
+    return editProfileError?.call(apiErrorModel);
   }
 
   @override
@@ -577,11 +578,11 @@ class _$EditProfileErrorImpl<T> implements EditProfileError<T> {
     TResult Function()? initial,
     TResult Function()? editProfileLoading,
     TResult Function(T data)? editProfileSuccess,
-    TResult Function(String error)? editProfileError,
+    TResult Function(ApiErrorModel apiErrorModel)? editProfileError,
     required TResult orElse(),
   }) {
     if (editProfileError != null) {
-      return editProfileError(error);
+      return editProfileError(apiErrorModel);
     }
     return orElse();
   }
@@ -625,10 +626,10 @@ class _$EditProfileErrorImpl<T> implements EditProfileError<T> {
 }
 
 abstract class EditProfileError<T> implements DeveloperProfileEditState<T> {
-  const factory EditProfileError({required final String error}) =
+  const factory EditProfileError(final ApiErrorModel apiErrorModel) =
       _$EditProfileErrorImpl<T>;
 
-  String get error;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of DeveloperProfileEditState
   /// with the given fields replaced by the non-null parameter values.

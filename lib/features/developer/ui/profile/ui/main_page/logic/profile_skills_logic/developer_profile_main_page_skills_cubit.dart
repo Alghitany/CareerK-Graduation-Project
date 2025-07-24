@@ -19,10 +19,9 @@ class DeveloperProfileMainPageSkillsCubit
       success: (data) => emit(
         DeveloperProfileMainPageSkillsState.success(data),
       ),
-      failure: (error) => emit(
+      failure: (apiErrorModel) => emit(
         DeveloperProfileMainPageSkillsState.error(
-          error: error.apiErrorModel.message ?? 'Failed to load skills',
-        ),
+            apiErrorModel        ),
       ),
     );
   }

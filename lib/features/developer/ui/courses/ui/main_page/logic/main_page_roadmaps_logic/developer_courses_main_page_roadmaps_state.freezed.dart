@@ -23,7 +23,7 @@ mixin _$DeveloperCoursesMainPageRoadmapsState {
     required TResult Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)
         success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -33,7 +33,7 @@ mixin _$DeveloperCoursesMainPageRoadmapsState {
     TResult? Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)?
         success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,7 +43,7 @@ mixin _$DeveloperCoursesMainPageRoadmapsState {
     TResult Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)?
         success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -147,7 +147,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)
         success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return initial();
   }
@@ -160,7 +160,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)?
         success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return initial?.call();
   }
@@ -173,7 +173,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)?
         success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -278,7 +278,7 @@ class _$DeveloperCoursesMainPageRoadmapsLoadingImpl
     required TResult Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)
         success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return loading();
   }
@@ -291,7 +291,7 @@ class _$DeveloperCoursesMainPageRoadmapsLoadingImpl
     TResult? Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)?
         success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return loading?.call();
   }
@@ -304,7 +304,7 @@ class _$DeveloperCoursesMainPageRoadmapsLoadingImpl
     TResult Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)?
         success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -448,7 +448,7 @@ class _$DeveloperCoursesMainPageRoadmapsSuccessImpl
     required TResult Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)
         success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return success(roadmaps);
   }
@@ -461,7 +461,7 @@ class _$DeveloperCoursesMainPageRoadmapsSuccessImpl
     TResult? Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)?
         success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return success?.call(roadmaps);
   }
@@ -474,7 +474,7 @@ class _$DeveloperCoursesMainPageRoadmapsSuccessImpl
     TResult Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)?
         success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -547,7 +547,7 @@ abstract class _$$DeveloperCoursesMainPageRoadmapsErrorImplCopyWith<$Res> {
           $Res Function(_$DeveloperCoursesMainPageRoadmapsErrorImpl) then) =
       __$$DeveloperCoursesMainPageRoadmapsErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String error});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -565,13 +565,13 @@ class __$$DeveloperCoursesMainPageRoadmapsErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$DeveloperCoursesMainPageRoadmapsErrorImpl(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -580,14 +580,14 @@ class __$$DeveloperCoursesMainPageRoadmapsErrorImplCopyWithImpl<$Res>
 
 class _$DeveloperCoursesMainPageRoadmapsErrorImpl
     implements DeveloperCoursesMainPageRoadmapsError {
-  const _$DeveloperCoursesMainPageRoadmapsErrorImpl({required this.error});
+  const _$DeveloperCoursesMainPageRoadmapsErrorImpl(this.apiErrorModel);
 
   @override
-  final String error;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'DeveloperCoursesMainPageRoadmapsState.error(error: $error)';
+    return 'DeveloperCoursesMainPageRoadmapsState.error(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -595,11 +595,12 @@ class _$DeveloperCoursesMainPageRoadmapsErrorImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeveloperCoursesMainPageRoadmapsErrorImpl &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of DeveloperCoursesMainPageRoadmapsState
   /// with the given fields replaced by the non-null parameter values.
@@ -619,9 +620,9 @@ class _$DeveloperCoursesMainPageRoadmapsErrorImpl
     required TResult Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)
         success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
-    return error(this.error);
+    return error(apiErrorModel);
   }
 
   @override
@@ -632,9 +633,9 @@ class _$DeveloperCoursesMainPageRoadmapsErrorImpl
     TResult? Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)?
         success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
-    return error?.call(this.error);
+    return error?.call(apiErrorModel);
   }
 
   @override
@@ -645,11 +646,11 @@ class _$DeveloperCoursesMainPageRoadmapsErrorImpl
     TResult Function(
             List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps)?
         success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(this.error);
+      return error(apiErrorModel);
     }
     return orElse();
   }
@@ -698,10 +699,10 @@ class _$DeveloperCoursesMainPageRoadmapsErrorImpl
 abstract class DeveloperCoursesMainPageRoadmapsError
     implements DeveloperCoursesMainPageRoadmapsState {
   const factory DeveloperCoursesMainPageRoadmapsError(
-          {required final String error}) =
+          final ApiErrorModel apiErrorModel) =
       _$DeveloperCoursesMainPageRoadmapsErrorImpl;
 
-  String get error;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of DeveloperCoursesMainPageRoadmapsState
   /// with the given fields replaced by the non-null parameter values.

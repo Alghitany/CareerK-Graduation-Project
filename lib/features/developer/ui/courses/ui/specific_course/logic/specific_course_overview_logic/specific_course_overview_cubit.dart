@@ -18,8 +18,8 @@ class SpecificCourseOverviewCubit extends Cubit<SpecificCourseOverviewState> {
       success: (data) {
         emit(SpecificCourseOverviewState.success(data));
       },
-      failure: (errorHandler) {
-        emit(SpecificCourseOverviewState.error(errorHandler));
+      failure: (apiErrorModel) {
+        emit(SpecificCourseOverviewState.error(apiErrorModel));
       },
     );
   }

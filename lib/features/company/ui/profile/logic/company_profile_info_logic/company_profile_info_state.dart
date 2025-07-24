@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../../core/networking/api_error_model.dart';
 import '../../data/models/company_profile_info_models/company_profile_info_response_body.dart';
 
 part 'company_profile_info_state.freezed.dart';
@@ -14,7 +15,5 @@ class CompanyProfileInfoState with _$CompanyProfileInfoState {
     CompanyProfileInfoResponseBody profile,
   ) = CompanyProfileInfoSuccess;
 
-  const factory CompanyProfileInfoState.error({
-    required String error,
-  }) = CompanyProfileInfoError;
+  const factory CompanyProfileInfoState.error(ApiErrorModel apiErrorModel) = CompanyProfileInfoError;
 }

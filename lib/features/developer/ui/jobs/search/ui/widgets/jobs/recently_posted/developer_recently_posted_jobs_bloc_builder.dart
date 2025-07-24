@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../../../../core/networking/api_error_model.dart';
 import '../../../../data/models/developer_jobs_recently_posted_models/developer_jobs_recently_posted_response_body.dart';
 import '../../../../logic/developer_jobs_recently_posted_logic/developer_jobs_recently_posted_cubit.dart';
 import '../../../../logic/developer_jobs_recently_posted_logic/developer_jobs_recently_posted_state.dart';
@@ -22,7 +23,7 @@ class DeveloperRecentlyPostedJobsBlocBuilder extends StatelessWidget {
         return state.maybeWhen(
           recentlyPostedLoading: () => setupLoading(),
           recentlyPostedSuccess: (jobs) => setupSuccess(jobs),
-          recentlyPostedError: (error) => setupError(error),
+          recentlyPostedError: (apiErrorModel) => setupError(apiErrorModel),
           orElse: () => const SizedBox.shrink(),
         );
       },
@@ -37,7 +38,7 @@ class DeveloperRecentlyPostedJobsBlocBuilder extends StatelessWidget {
     return DeveloperRecentlyPostedJobsList(jobs: jobs);
   }
 
-  Widget setupError(String error) {
-    return Center(child: Text(error));
+  Widget setupError(ApiErrorModel apiErrorModel) {
+    return Center(child: Text(apiErrorModel.getAllErrorMessages()));
   }
 }

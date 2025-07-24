@@ -225,9 +225,9 @@ class DeveloperProfileCVGenerateSendDataCubit
 
     response.when(success: (result) {
       emit(DeveloperProfileCVGenerateSendDataState.success(result));
-    }, failure: (error) {
+    }, failure: (apiErrorModel) {
       emit(DeveloperProfileCVGenerateSendDataState.error(
-          error: error.apiErrorModel.message ?? 'Unknown error'));
+          apiErrorModel));
     });
   }
 }

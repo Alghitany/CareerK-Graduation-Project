@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../../../../core/networking/api_error_handler.dart';
+import '../../../../../../../../core/networking/api_error_model.dart';
 import '../../data/model/specific_course_overview_models/specific_course_overview_response_body.dart';
 
 part 'specific_course_overview_state.freezed.dart';
@@ -17,6 +18,5 @@ class SpecificCourseOverviewState with _$SpecificCourseOverviewState {
   ) = SpecificCourseOverviewSuccess;
 
   const factory SpecificCourseOverviewState.error(
-    ErrorHandler errorHandler,
-  ) = SpecificCourseOverviewError;
+ApiErrorModel apiErrorModel  ) = SpecificCourseOverviewError;
 }

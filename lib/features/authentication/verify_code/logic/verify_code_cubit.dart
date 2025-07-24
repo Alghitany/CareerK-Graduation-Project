@@ -19,8 +19,8 @@ class VerifyCodeCubit extends Cubit<VerifyCodeState> {
     final response = await _verifyCodeRepo.verifyCode(verifyCodeRequestBody);
     response.when(success: (verifyCodeResponse) {
       emit(VerifyCodeState.success(verifyCodeResponse));
-    }, failure: (error) {
-      emit(VerifyCodeState.error(error: error.apiErrorModel.message ?? ''));
+    }, failure: (apiErrorModel) {
+      emit(VerifyCodeState.error(apiErrorModel));
     });
   }
 }

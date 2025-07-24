@@ -18,10 +18,9 @@ class DeveloperJobsServiceDetailsCubit
     response.when(
       success: (data) =>
           emit(DeveloperJobsServiceDetailsState.serviceDetailsSuccess(data)),
-      failure: (error) => emit(
+      failure: (apiErrorModel) => emit(
         DeveloperJobsServiceDetailsState.serviceDetailsError(
-          error:
-              error.apiErrorModel.message ?? 'Failed to load service details',
+            apiErrorModel
         ),
       ),
     );

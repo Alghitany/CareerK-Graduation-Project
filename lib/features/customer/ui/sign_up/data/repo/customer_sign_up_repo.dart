@@ -54,7 +54,7 @@ class CustomerSignupRepo {
           CustomerSignupResponse.fromJson(response.data);
       return ApiResult.success(customerSignupResponse);
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ApiErrorHandler.handle(error));
     }
   }
 }

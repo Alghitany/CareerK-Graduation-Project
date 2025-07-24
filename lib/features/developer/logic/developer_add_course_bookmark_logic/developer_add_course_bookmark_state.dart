@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../core/networking/api_error_handler.dart';
+import '../../../../core/networking/api_error_model.dart';
 import '../../data/models/developer_add_course_bookmark_models/developer_add_course_bookmark_response.dart';
 
 part 'developer_add_course_bookmark_state.freezed.dart';
@@ -17,6 +18,5 @@ class DeveloperAddCourseBookmarkState with _$DeveloperAddCourseBookmarkState {
   ) = DeveloperAddCourseBookmarkSuccess;
 
   const factory DeveloperAddCourseBookmarkState.error(
-    ErrorHandler errorHandler,
-  ) = DeveloperAddCourseBookmarkError;
+ApiErrorModel apiErrorModel  ) = DeveloperAddCourseBookmarkError;
 }

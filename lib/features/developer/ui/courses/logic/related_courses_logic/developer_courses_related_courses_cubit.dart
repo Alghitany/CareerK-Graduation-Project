@@ -19,9 +19,9 @@ class DeveloperCoursesRelatedCoursesCubit
       success: (courses) {
         emit(DeveloperCoursesRelatedCoursesState.success(courses));
       },
-      failure: (error) {
+      failure: (apiErrorModel) {
         emit(DeveloperCoursesRelatedCoursesState.error(
-            error: error.apiErrorModel.message ?? "Failed to load"));
+            apiErrorModel));
       },
     );
   }

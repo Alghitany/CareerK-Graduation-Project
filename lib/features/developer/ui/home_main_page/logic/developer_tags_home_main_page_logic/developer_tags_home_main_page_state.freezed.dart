@@ -22,7 +22,7 @@ mixin _$DeveloperTagsHomeMainPageState {
     required TResult Function() loading,
     required TResult Function(List<DeveloperTagsHomeMainPageResponseBody> data)
         success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,7 +31,7 @@ mixin _$DeveloperTagsHomeMainPageState {
     TResult? Function()? loading,
     TResult? Function(List<DeveloperTagsHomeMainPageResponseBody> data)?
         success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,7 +39,7 @@ mixin _$DeveloperTagsHomeMainPageState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<DeveloperTagsHomeMainPageResponseBody> data)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -139,7 +139,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() loading,
     required TResult Function(List<DeveloperTagsHomeMainPageResponseBody> data)
         success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return initial();
   }
@@ -151,7 +151,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? loading,
     TResult? Function(List<DeveloperTagsHomeMainPageResponseBody> data)?
         success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return initial?.call();
   }
@@ -162,7 +162,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<DeveloperTagsHomeMainPageResponseBody> data)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -260,7 +260,7 @@ class _$DeveloperTagsLoadingImpl implements DeveloperTagsLoading {
     required TResult Function() loading,
     required TResult Function(List<DeveloperTagsHomeMainPageResponseBody> data)
         success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return loading();
   }
@@ -272,7 +272,7 @@ class _$DeveloperTagsLoadingImpl implements DeveloperTagsLoading {
     TResult? Function()? loading,
     TResult? Function(List<DeveloperTagsHomeMainPageResponseBody> data)?
         success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return loading?.call();
   }
@@ -283,7 +283,7 @@ class _$DeveloperTagsLoadingImpl implements DeveloperTagsLoading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<DeveloperTagsHomeMainPageResponseBody> data)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -417,7 +417,7 @@ class _$DeveloperTagsSuccessImpl implements DeveloperTagsSuccess {
     required TResult Function() loading,
     required TResult Function(List<DeveloperTagsHomeMainPageResponseBody> data)
         success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return success(data);
   }
@@ -429,7 +429,7 @@ class _$DeveloperTagsSuccessImpl implements DeveloperTagsSuccess {
     TResult? Function()? loading,
     TResult? Function(List<DeveloperTagsHomeMainPageResponseBody> data)?
         success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return success?.call(data);
   }
@@ -440,7 +440,7 @@ class _$DeveloperTagsSuccessImpl implements DeveloperTagsSuccess {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<DeveloperTagsHomeMainPageResponseBody> data)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -507,7 +507,7 @@ abstract class _$$DeveloperTagsErrorImplCopyWith<$Res> {
           $Res Function(_$DeveloperTagsErrorImpl) then) =
       __$$DeveloperTagsErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String error});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -524,13 +524,13 @@ class __$$DeveloperTagsErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$DeveloperTagsErrorImpl(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -538,14 +538,14 @@ class __$$DeveloperTagsErrorImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DeveloperTagsErrorImpl implements DeveloperTagsError {
-  const _$DeveloperTagsErrorImpl({required this.error});
+  const _$DeveloperTagsErrorImpl(this.apiErrorModel);
 
   @override
-  final String error;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'DeveloperTagsHomeMainPageState.error(error: $error)';
+    return 'DeveloperTagsHomeMainPageState.error(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -553,11 +553,12 @@ class _$DeveloperTagsErrorImpl implements DeveloperTagsError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeveloperTagsErrorImpl &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of DeveloperTagsHomeMainPageState
   /// with the given fields replaced by the non-null parameter values.
@@ -575,9 +576,9 @@ class _$DeveloperTagsErrorImpl implements DeveloperTagsError {
     required TResult Function() loading,
     required TResult Function(List<DeveloperTagsHomeMainPageResponseBody> data)
         success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
-    return error(this.error);
+    return error(apiErrorModel);
   }
 
   @override
@@ -587,9 +588,9 @@ class _$DeveloperTagsErrorImpl implements DeveloperTagsError {
     TResult? Function()? loading,
     TResult? Function(List<DeveloperTagsHomeMainPageResponseBody> data)?
         success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
-    return error?.call(this.error);
+    return error?.call(apiErrorModel);
   }
 
   @override
@@ -598,11 +599,11 @@ class _$DeveloperTagsErrorImpl implements DeveloperTagsError {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<DeveloperTagsHomeMainPageResponseBody> data)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(this.error);
+      return error(apiErrorModel);
     }
     return orElse();
   }
@@ -646,10 +647,10 @@ class _$DeveloperTagsErrorImpl implements DeveloperTagsError {
 }
 
 abstract class DeveloperTagsError implements DeveloperTagsHomeMainPageState {
-  const factory DeveloperTagsError({required final String error}) =
+  const factory DeveloperTagsError(final ApiErrorModel apiErrorModel) =
       _$DeveloperTagsErrorImpl;
 
-  String get error;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of DeveloperTagsHomeMainPageState
   /// with the given fields replaced by the non-null parameter values.

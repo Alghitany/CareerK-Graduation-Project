@@ -19,9 +19,9 @@ class DeveloperProfileCoursesBookmarkedCubit
       success: (data) {
         emit(DeveloperProfileCoursesBookmarkedState.success(data));
       },
-      failure: (errorHandler) {
+      failure: (apiErrorModel) {
         emit(DeveloperProfileCoursesBookmarkedState.error(
-          error: errorHandler.apiErrorModel.message,
+            apiErrorModel
         ));
       },
     );

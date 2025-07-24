@@ -21,7 +21,7 @@ mixin _$SendMessagesState<T> {
     required TResult Function() initial,
     required TResult Function() sendMessageLoading,
     required TResult Function(T data) sendMessageSuccess,
-    required TResult Function(String error) sendMessageError,
+    required TResult Function(ApiErrorModel apiErrorModel) sendMessageError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$SendMessagesState<T> {
     TResult? Function()? initial,
     TResult? Function()? sendMessageLoading,
     TResult? Function(T data)? sendMessageSuccess,
-    TResult? Function(String error)? sendMessageError,
+    TResult? Function(ApiErrorModel apiErrorModel)? sendMessageError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$SendMessagesState<T> {
     TResult Function()? initial,
     TResult Function()? sendMessageLoading,
     TResult Function(T data)? sendMessageSuccess,
-    TResult Function(String error)? sendMessageError,
+    TResult Function(ApiErrorModel apiErrorModel)? sendMessageError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,7 +134,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() initial,
     required TResult Function() sendMessageLoading,
     required TResult Function(T data) sendMessageSuccess,
-    required TResult Function(String error) sendMessageError,
+    required TResult Function(ApiErrorModel apiErrorModel) sendMessageError,
   }) {
     return initial();
   }
@@ -145,7 +145,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? initial,
     TResult? Function()? sendMessageLoading,
     TResult? Function(T data)? sendMessageSuccess,
-    TResult? Function(String error)? sendMessageError,
+    TResult? Function(ApiErrorModel apiErrorModel)? sendMessageError,
   }) {
     return initial?.call();
   }
@@ -156,7 +156,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? initial,
     TResult Function()? sendMessageLoading,
     TResult Function(T data)? sendMessageSuccess,
-    TResult Function(String error)? sendMessageError,
+    TResult Function(ApiErrorModel apiErrorModel)? sendMessageError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -253,7 +253,7 @@ class _$SendMessageLoadingImpl<T> implements SendMessageLoading<T> {
     required TResult Function() initial,
     required TResult Function() sendMessageLoading,
     required TResult Function(T data) sendMessageSuccess,
-    required TResult Function(String error) sendMessageError,
+    required TResult Function(ApiErrorModel apiErrorModel) sendMessageError,
   }) {
     return sendMessageLoading();
   }
@@ -264,7 +264,7 @@ class _$SendMessageLoadingImpl<T> implements SendMessageLoading<T> {
     TResult? Function()? initial,
     TResult? Function()? sendMessageLoading,
     TResult? Function(T data)? sendMessageSuccess,
-    TResult? Function(String error)? sendMessageError,
+    TResult? Function(ApiErrorModel apiErrorModel)? sendMessageError,
   }) {
     return sendMessageLoading?.call();
   }
@@ -275,7 +275,7 @@ class _$SendMessageLoadingImpl<T> implements SendMessageLoading<T> {
     TResult Function()? initial,
     TResult Function()? sendMessageLoading,
     TResult Function(T data)? sendMessageSuccess,
-    TResult Function(String error)? sendMessageError,
+    TResult Function(ApiErrorModel apiErrorModel)? sendMessageError,
     required TResult orElse(),
   }) {
     if (sendMessageLoading != null) {
@@ -400,7 +400,7 @@ class _$SendMessageSuccessImpl<T> implements SendMessageSuccess<T> {
     required TResult Function() initial,
     required TResult Function() sendMessageLoading,
     required TResult Function(T data) sendMessageSuccess,
-    required TResult Function(String error) sendMessageError,
+    required TResult Function(ApiErrorModel apiErrorModel) sendMessageError,
   }) {
     return sendMessageSuccess(data);
   }
@@ -411,7 +411,7 @@ class _$SendMessageSuccessImpl<T> implements SendMessageSuccess<T> {
     TResult? Function()? initial,
     TResult? Function()? sendMessageLoading,
     TResult? Function(T data)? sendMessageSuccess,
-    TResult? Function(String error)? sendMessageError,
+    TResult? Function(ApiErrorModel apiErrorModel)? sendMessageError,
   }) {
     return sendMessageSuccess?.call(data);
   }
@@ -422,7 +422,7 @@ class _$SendMessageSuccessImpl<T> implements SendMessageSuccess<T> {
     TResult Function()? initial,
     TResult Function()? sendMessageLoading,
     TResult Function(T data)? sendMessageSuccess,
-    TResult Function(String error)? sendMessageError,
+    TResult Function(ApiErrorModel apiErrorModel)? sendMessageError,
     required TResult orElse(),
   }) {
     if (sendMessageSuccess != null) {
@@ -487,7 +487,7 @@ abstract class _$$SendMessageErrorImplCopyWith<T, $Res> {
           $Res Function(_$SendMessageErrorImpl<T>) then) =
       __$$SendMessageErrorImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({String error});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -503,13 +503,13 @@ class __$$SendMessageErrorImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$SendMessageErrorImpl<T>(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -517,14 +517,14 @@ class __$$SendMessageErrorImplCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$SendMessageErrorImpl<T> implements SendMessageError<T> {
-  const _$SendMessageErrorImpl({required this.error});
+  const _$SendMessageErrorImpl(this.apiErrorModel);
 
   @override
-  final String error;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'SendMessagesState<$T>.sendMessageError(error: $error)';
+    return 'SendMessagesState<$T>.sendMessageError(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -532,11 +532,12 @@ class _$SendMessageErrorImpl<T> implements SendMessageError<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SendMessageErrorImpl<T> &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of SendMessagesState
   /// with the given fields replaced by the non-null parameter values.
@@ -553,9 +554,9 @@ class _$SendMessageErrorImpl<T> implements SendMessageError<T> {
     required TResult Function() initial,
     required TResult Function() sendMessageLoading,
     required TResult Function(T data) sendMessageSuccess,
-    required TResult Function(String error) sendMessageError,
+    required TResult Function(ApiErrorModel apiErrorModel) sendMessageError,
   }) {
-    return sendMessageError(error);
+    return sendMessageError(apiErrorModel);
   }
 
   @override
@@ -564,9 +565,9 @@ class _$SendMessageErrorImpl<T> implements SendMessageError<T> {
     TResult? Function()? initial,
     TResult? Function()? sendMessageLoading,
     TResult? Function(T data)? sendMessageSuccess,
-    TResult? Function(String error)? sendMessageError,
+    TResult? Function(ApiErrorModel apiErrorModel)? sendMessageError,
   }) {
-    return sendMessageError?.call(error);
+    return sendMessageError?.call(apiErrorModel);
   }
 
   @override
@@ -575,11 +576,11 @@ class _$SendMessageErrorImpl<T> implements SendMessageError<T> {
     TResult Function()? initial,
     TResult Function()? sendMessageLoading,
     TResult Function(T data)? sendMessageSuccess,
-    TResult Function(String error)? sendMessageError,
+    TResult Function(ApiErrorModel apiErrorModel)? sendMessageError,
     required TResult orElse(),
   }) {
     if (sendMessageError != null) {
-      return sendMessageError(error);
+      return sendMessageError(apiErrorModel);
     }
     return orElse();
   }
@@ -623,10 +624,10 @@ class _$SendMessageErrorImpl<T> implements SendMessageError<T> {
 }
 
 abstract class SendMessageError<T> implements SendMessagesState<T> {
-  const factory SendMessageError({required final String error}) =
+  const factory SendMessageError(final ApiErrorModel apiErrorModel) =
       _$SendMessageErrorImpl<T>;
 
-  String get error;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of SendMessagesState
   /// with the given fields replaced by the non-null parameter values.

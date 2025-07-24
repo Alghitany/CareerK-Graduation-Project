@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../../../core/networking/api_error_model.dart';
 import '../../data/models/developer_jobs_recently_posted_models/developer_jobs_recently_posted_response_body.dart';
 
 part 'developer_jobs_recently_posted_state.freezed.dart';
@@ -15,7 +16,5 @@ class DeveloperJobsRecentlyPostedState with _$DeveloperJobsRecentlyPostedState {
     List<DeveloperJobsRecentlyPostedResponseBody> data,
   ) = RecentlyPostedSuccess;
 
-  const factory DeveloperJobsRecentlyPostedState.recentlyPostedError({
-    required String error,
-  }) = RecentlyPostedError;
+  const factory DeveloperJobsRecentlyPostedState.recentlyPostedError(ApiErrorModel apiErrorModel) = RecentlyPostedError;
 }

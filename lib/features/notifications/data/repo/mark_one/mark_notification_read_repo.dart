@@ -19,7 +19,7 @@ class MarkNotificationReadRepo {
           await _apiService.markNotificationAsRead(notificationId, body);
       return ApiResult.success(response);
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ApiErrorHandler.handle(error));
     }
   }
 }

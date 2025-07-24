@@ -1,3 +1,4 @@
+import 'package:carrerk/core/networking/api_error_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -22,7 +23,7 @@ class ByInterestBlocBuilder extends StatelessWidget {
         return state.maybeWhen(
           loading: () => setupLoading(),
           success: (groups) => setupSuccess(groups),
-          error: (error) => setupError(error),
+          error: (apiErrorModel) => setupError(apiErrorModel),
           orElse: () => const SizedBox.shrink(),
         );
       },
@@ -37,7 +38,7 @@ class ByInterestBlocBuilder extends StatelessWidget {
     return ByInterestCommunityList(groups: groups);
   }
 
-  Widget setupError(String error) {
-    return Center(child: Text("Error: $error"));
+  Widget setupError(ApiErrorModel apiErrorModel) {
+    return Center(child: Text("Error: ${apiErrorModel.getAllErrorMessages()}"));
   }
 }

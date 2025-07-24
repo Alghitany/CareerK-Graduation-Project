@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../core/networking/api_error_model.dart';
+
 part 'customer_sign_up_state.freezed.dart';
 
 @freezed
@@ -12,7 +14,5 @@ class CustomerSignupState<T> with _$CustomerSignupState<T> {
   const factory CustomerSignupState.customerSignupSuccess(T data) =
       CustomerSignupSuccess<T>;
 
-  const factory CustomerSignupState.customerSignupError({
-    required String error,
-  }) = CustomerSignupError;
+  const factory CustomerSignupState.customerSignupError(ApiErrorModel apiErrorModel) = CustomerSignupError;
 }

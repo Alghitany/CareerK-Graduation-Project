@@ -21,7 +21,7 @@ mixin _$ChatsAllChatsState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(ChatsAllChatsResponseBody chats) success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$ChatsAllChatsState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(ChatsAllChatsResponseBody chats)? success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$ChatsAllChatsState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(ChatsAllChatsResponseBody chats)? success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -133,7 +133,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(ChatsAllChatsResponseBody chats) success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return initial();
   }
@@ -144,7 +144,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(ChatsAllChatsResponseBody chats)? success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return initial?.call();
   }
@@ -155,7 +155,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(ChatsAllChatsResponseBody chats)? success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -251,7 +251,7 @@ class _$ChatsAllChatsLoadingImpl implements ChatsAllChatsLoading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(ChatsAllChatsResponseBody chats) success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return loading();
   }
@@ -262,7 +262,7 @@ class _$ChatsAllChatsLoadingImpl implements ChatsAllChatsLoading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(ChatsAllChatsResponseBody chats)? success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return loading?.call();
   }
@@ -273,7 +273,7 @@ class _$ChatsAllChatsLoadingImpl implements ChatsAllChatsLoading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(ChatsAllChatsResponseBody chats)? success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -397,7 +397,7 @@ class _$ChatsAllChatsSuccessImpl implements ChatsAllChatsSuccess {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(ChatsAllChatsResponseBody chats) success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return success(chats);
   }
@@ -408,7 +408,7 @@ class _$ChatsAllChatsSuccessImpl implements ChatsAllChatsSuccess {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(ChatsAllChatsResponseBody chats)? success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return success?.call(chats);
   }
@@ -419,7 +419,7 @@ class _$ChatsAllChatsSuccessImpl implements ChatsAllChatsSuccess {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(ChatsAllChatsResponseBody chats)? success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -485,7 +485,7 @@ abstract class _$$ChatsAllChatsErrorImplCopyWith<$Res> {
           $Res Function(_$ChatsAllChatsErrorImpl) then) =
       __$$ChatsAllChatsErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ErrorHandler errorHandler});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -501,13 +501,13 @@ class __$$ChatsAllChatsErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? errorHandler = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$ChatsAllChatsErrorImpl(
-      null == errorHandler
-          ? _value.errorHandler
-          : errorHandler // ignore: cast_nullable_to_non_nullable
-              as ErrorHandler,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -515,14 +515,14 @@ class __$$ChatsAllChatsErrorImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ChatsAllChatsErrorImpl implements ChatsAllChatsError {
-  const _$ChatsAllChatsErrorImpl(this.errorHandler);
+  const _$ChatsAllChatsErrorImpl(this.apiErrorModel);
 
   @override
-  final ErrorHandler errorHandler;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'ChatsAllChatsState.error(errorHandler: $errorHandler)';
+    return 'ChatsAllChatsState.error(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -530,12 +530,12 @@ class _$ChatsAllChatsErrorImpl implements ChatsAllChatsError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChatsAllChatsErrorImpl &&
-            (identical(other.errorHandler, errorHandler) ||
-                other.errorHandler == errorHandler));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, errorHandler);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of ChatsAllChatsState
   /// with the given fields replaced by the non-null parameter values.
@@ -552,9 +552,9 @@ class _$ChatsAllChatsErrorImpl implements ChatsAllChatsError {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(ChatsAllChatsResponseBody chats) success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
-    return error(errorHandler);
+    return error(apiErrorModel);
   }
 
   @override
@@ -563,9 +563,9 @@ class _$ChatsAllChatsErrorImpl implements ChatsAllChatsError {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(ChatsAllChatsResponseBody chats)? success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
-    return error?.call(errorHandler);
+    return error?.call(apiErrorModel);
   }
 
   @override
@@ -574,11 +574,11 @@ class _$ChatsAllChatsErrorImpl implements ChatsAllChatsError {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(ChatsAllChatsResponseBody chats)? success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(errorHandler);
+      return error(apiErrorModel);
     }
     return orElse();
   }
@@ -622,10 +622,10 @@ class _$ChatsAllChatsErrorImpl implements ChatsAllChatsError {
 }
 
 abstract class ChatsAllChatsError implements ChatsAllChatsState {
-  const factory ChatsAllChatsError(final ErrorHandler errorHandler) =
+  const factory ChatsAllChatsError(final ApiErrorModel apiErrorModel) =
       _$ChatsAllChatsErrorImpl;
 
-  ErrorHandler get errorHandler;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of ChatsAllChatsState
   /// with the given fields replaced by the non-null parameter values.

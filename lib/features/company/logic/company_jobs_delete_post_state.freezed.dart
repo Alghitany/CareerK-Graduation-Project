@@ -21,7 +21,7 @@ mixin _$CompanyJobsDeletePostState<T> {
     required TResult Function() initial,
     required TResult Function() deleteLoading,
     required TResult Function(T data) deleteSuccess,
-    required TResult Function(String error) deleteError,
+    required TResult Function(ApiErrorModel apiErrorModel) deleteError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$CompanyJobsDeletePostState<T> {
     TResult? Function()? initial,
     TResult? Function()? deleteLoading,
     TResult? Function(T data)? deleteSuccess,
-    TResult? Function(String error)? deleteError,
+    TResult? Function(ApiErrorModel apiErrorModel)? deleteError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$CompanyJobsDeletePostState<T> {
     TResult Function()? initial,
     TResult Function()? deleteLoading,
     TResult Function(T data)? deleteSuccess,
-    TResult Function(String error)? deleteError,
+    TResult Function(ApiErrorModel apiErrorModel)? deleteError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -136,7 +136,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() initial,
     required TResult Function() deleteLoading,
     required TResult Function(T data) deleteSuccess,
-    required TResult Function(String error) deleteError,
+    required TResult Function(ApiErrorModel apiErrorModel) deleteError,
   }) {
     return initial();
   }
@@ -147,7 +147,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? initial,
     TResult? Function()? deleteLoading,
     TResult? Function(T data)? deleteSuccess,
-    TResult? Function(String error)? deleteError,
+    TResult? Function(ApiErrorModel apiErrorModel)? deleteError,
   }) {
     return initial?.call();
   }
@@ -158,7 +158,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? initial,
     TResult Function()? deleteLoading,
     TResult Function(T data)? deleteSuccess,
-    TResult Function(String error)? deleteError,
+    TResult Function(ApiErrorModel apiErrorModel)? deleteError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -254,7 +254,7 @@ class _$DeleteLoadingImpl<T> implements DeleteLoading<T> {
     required TResult Function() initial,
     required TResult Function() deleteLoading,
     required TResult Function(T data) deleteSuccess,
-    required TResult Function(String error) deleteError,
+    required TResult Function(ApiErrorModel apiErrorModel) deleteError,
   }) {
     return deleteLoading();
   }
@@ -265,7 +265,7 @@ class _$DeleteLoadingImpl<T> implements DeleteLoading<T> {
     TResult? Function()? initial,
     TResult? Function()? deleteLoading,
     TResult? Function(T data)? deleteSuccess,
-    TResult? Function(String error)? deleteError,
+    TResult? Function(ApiErrorModel apiErrorModel)? deleteError,
   }) {
     return deleteLoading?.call();
   }
@@ -276,7 +276,7 @@ class _$DeleteLoadingImpl<T> implements DeleteLoading<T> {
     TResult Function()? initial,
     TResult Function()? deleteLoading,
     TResult Function(T data)? deleteSuccess,
-    TResult Function(String error)? deleteError,
+    TResult Function(ApiErrorModel apiErrorModel)? deleteError,
     required TResult orElse(),
   }) {
     if (deleteLoading != null) {
@@ -401,7 +401,7 @@ class _$DeleteSuccessImpl<T> implements DeleteSuccess<T> {
     required TResult Function() initial,
     required TResult Function() deleteLoading,
     required TResult Function(T data) deleteSuccess,
-    required TResult Function(String error) deleteError,
+    required TResult Function(ApiErrorModel apiErrorModel) deleteError,
   }) {
     return deleteSuccess(data);
   }
@@ -412,7 +412,7 @@ class _$DeleteSuccessImpl<T> implements DeleteSuccess<T> {
     TResult? Function()? initial,
     TResult? Function()? deleteLoading,
     TResult? Function(T data)? deleteSuccess,
-    TResult? Function(String error)? deleteError,
+    TResult? Function(ApiErrorModel apiErrorModel)? deleteError,
   }) {
     return deleteSuccess?.call(data);
   }
@@ -423,7 +423,7 @@ class _$DeleteSuccessImpl<T> implements DeleteSuccess<T> {
     TResult Function()? initial,
     TResult Function()? deleteLoading,
     TResult Function(T data)? deleteSuccess,
-    TResult Function(String error)? deleteError,
+    TResult Function(ApiErrorModel apiErrorModel)? deleteError,
     required TResult orElse(),
   }) {
     if (deleteSuccess != null) {
@@ -488,7 +488,7 @@ abstract class _$$DeleteErrorImplCopyWith<T, $Res> {
           $Res Function(_$DeleteErrorImpl<T>) then) =
       __$$DeleteErrorImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({String error});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -504,13 +504,13 @@ class __$$DeleteErrorImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$DeleteErrorImpl<T>(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -518,14 +518,14 @@ class __$$DeleteErrorImplCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$DeleteErrorImpl<T> implements DeleteError<T> {
-  const _$DeleteErrorImpl({required this.error});
+  const _$DeleteErrorImpl(this.apiErrorModel);
 
   @override
-  final String error;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'CompanyJobsDeletePostState<$T>.deleteError(error: $error)';
+    return 'CompanyJobsDeletePostState<$T>.deleteError(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -533,11 +533,12 @@ class _$DeleteErrorImpl<T> implements DeleteError<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeleteErrorImpl<T> &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of CompanyJobsDeletePostState
   /// with the given fields replaced by the non-null parameter values.
@@ -554,9 +555,9 @@ class _$DeleteErrorImpl<T> implements DeleteError<T> {
     required TResult Function() initial,
     required TResult Function() deleteLoading,
     required TResult Function(T data) deleteSuccess,
-    required TResult Function(String error) deleteError,
+    required TResult Function(ApiErrorModel apiErrorModel) deleteError,
   }) {
-    return deleteError(error);
+    return deleteError(apiErrorModel);
   }
 
   @override
@@ -565,9 +566,9 @@ class _$DeleteErrorImpl<T> implements DeleteError<T> {
     TResult? Function()? initial,
     TResult? Function()? deleteLoading,
     TResult? Function(T data)? deleteSuccess,
-    TResult? Function(String error)? deleteError,
+    TResult? Function(ApiErrorModel apiErrorModel)? deleteError,
   }) {
-    return deleteError?.call(error);
+    return deleteError?.call(apiErrorModel);
   }
 
   @override
@@ -576,11 +577,11 @@ class _$DeleteErrorImpl<T> implements DeleteError<T> {
     TResult Function()? initial,
     TResult Function()? deleteLoading,
     TResult Function(T data)? deleteSuccess,
-    TResult Function(String error)? deleteError,
+    TResult Function(ApiErrorModel apiErrorModel)? deleteError,
     required TResult orElse(),
   }) {
     if (deleteError != null) {
-      return deleteError(error);
+      return deleteError(apiErrorModel);
     }
     return orElse();
   }
@@ -624,10 +625,10 @@ class _$DeleteErrorImpl<T> implements DeleteError<T> {
 }
 
 abstract class DeleteError<T> implements CompanyJobsDeletePostState<T> {
-  const factory DeleteError({required final String error}) =
+  const factory DeleteError(final ApiErrorModel apiErrorModel) =
       _$DeleteErrorImpl<T>;
 
-  String get error;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of CompanyJobsDeletePostState
   /// with the given fields replaced by the non-null parameter values.

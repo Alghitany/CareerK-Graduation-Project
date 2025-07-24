@@ -5,6 +5,7 @@ import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../../../../core/networking/api_error_model.dart';
 import '../../../../../../../../../core/theming/colors.dart';
 import '../../../logic/send_data_logic/developer_profile_cv_generate_send_data_cubit.dart';
 import '../../../logic/send_data_logic/developer_profile_cv_generate_send_data_state.dart';
@@ -38,8 +39,8 @@ class DeveloperProfileCVGenerateSendDataBlocListener extends StatelessWidget {
             context.pushNamed(Routes.developerProfileCvGeneratedViewScreen,
                 arguments: AppArgument(sessionId: sessionId));
           },
-          error: (error) {
-            setupErrorState(context, error);
+          error: (apiErrorModel) {
+            setupErrorState(context, apiErrorModel);
           },
         );
       },
@@ -47,7 +48,7 @@ class DeveloperProfileCVGenerateSendDataBlocListener extends StatelessWidget {
     );
   }
 
-  void setupErrorState(BuildContext context, String error) {
+  void setupErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
     context.pop(); // close loading
     showDialog(
       context: context,
@@ -58,7 +59,7 @@ class DeveloperProfileCVGenerateSendDataBlocListener extends StatelessWidget {
           size: 32,
         ),
         content: Text(
-          error,
+          apiErrorModel.getAllErrorMessages(),
           style: AppTextStyles.font15GlaucousPoppinsSemiBold,
         ),
         actions: [

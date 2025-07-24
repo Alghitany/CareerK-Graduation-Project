@@ -19,8 +19,8 @@ class DeveloperCoursesAndJobsMainPageProfileCubit
         emit(DeveloperCoursesAndJobsMainPageProfileState.success(
             profileResponseModel));
       },
-      failure: (errorHandler) {
-        emit(DeveloperCoursesAndJobsMainPageProfileState.error(errorHandler));
+      failure: (apiErrorModel) {
+        emit(DeveloperCoursesAndJobsMainPageProfileState.error(apiErrorModel));
       },
     );
   }

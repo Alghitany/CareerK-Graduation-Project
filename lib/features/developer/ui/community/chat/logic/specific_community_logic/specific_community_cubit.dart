@@ -18,10 +18,9 @@ class SpecificCommunityCubit extends Cubit<SpecificCommunityState> {
       success: (result) {
         emit(SpecificCommunityState.success(result.group));
       },
-      failure: (error) {
+      failure: (apiErrorModel) {
         emit(SpecificCommunityState.error(
-          error: error.apiErrorModel.message ?? "Failed to load community",
-        ));
+            apiErrorModel        ));
       },
     );
   }

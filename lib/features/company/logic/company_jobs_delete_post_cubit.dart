@@ -21,9 +21,9 @@ class CompanyJobsDeletePostCubit extends Cubit<CompanyJobsDeletePostState> {
         emit(CompanyJobsDeletePostState.deleteSuccess(data));
         onSuccess?.call();
       },
-      failure: (error) {
+      failure: (apiErrorModel) {
         emit(CompanyJobsDeletePostState.deleteError(
-          error: error.apiErrorModel.message ?? 'Delete failed',
+            apiErrorModel
         ));
       },
     );

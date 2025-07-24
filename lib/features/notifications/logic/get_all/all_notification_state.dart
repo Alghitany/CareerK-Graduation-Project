@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../../core/networking/api_error_handler.dart';
+import '../../../../core/networking/api_error_model.dart';
 import '../../data/model/get_all/all_notifications_response_model.dart';
 
 part 'all_notification_state.freezed.dart';
@@ -16,6 +17,5 @@ class AllNotificationState with _$AllNotificationState {
   ) = AllNotificationSuccess;
 
   const factory AllNotificationState.error(
-    ErrorHandler errorHandler,
-  ) = AllNotificationError;
+ApiErrorModel apiErrorModel  ) = AllNotificationError;
 }

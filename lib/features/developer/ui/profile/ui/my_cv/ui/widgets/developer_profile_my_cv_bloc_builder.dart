@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../../../core/networking/api_error_model.dart';
 import '../../../../../../../../core/widgets/preview_cv/cv_preview_and_download.dart';
 import '../../../../../../../../core/widgets/preview_cv/cv_shimmer.dart';
 import '../../data/models/developer_profile_settings_get_my_cv_models/developer_profile_settings_get_my_cv_response_body.dart';
@@ -26,7 +27,7 @@ class DeveloperProfileMyCVBlocBuilder extends StatelessWidget {
           initial: () => const SizedBox.shrink(),
           loading: () => _buildLoading(),
           success: (data) => _buildSuccess(data),
-          error: (error) => _buildError(error),
+          error: (apiErrorModel) => _buildError(apiErrorModel),
         );
       },
     );
@@ -49,7 +50,7 @@ class DeveloperProfileMyCVBlocBuilder extends StatelessWidget {
     );
   }
 
-  Widget _buildError(String error) {
-    return Center(child: Text(error));
+  Widget _buildError(ApiErrorModel apiErrorModel) {
+    return Center(child: Text(apiErrorModel.getAllErrorMessages()));
   }
 }

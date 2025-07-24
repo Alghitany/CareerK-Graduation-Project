@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../../../../core/networking/api_error_model.dart';
 import '../../data/models/main_page_roadmaps_models/developer_courses_main_page_roadmaps_response_model.dart';
 
 part 'developer_courses_main_page_roadmaps_state.freezed.dart';
@@ -16,7 +17,5 @@ class DeveloperCoursesMainPageRoadmapsState
     List<DeveloperCoursesMainPageRoadmapsResponseModel> roadmaps,
   ) = DeveloperCoursesMainPageRoadmapsSuccess;
 
-  const factory DeveloperCoursesMainPageRoadmapsState.error({
-    required String error,
-  }) = DeveloperCoursesMainPageRoadmapsError;
+  const factory DeveloperCoursesMainPageRoadmapsState.error(ApiErrorModel apiErrorModel) = DeveloperCoursesMainPageRoadmapsError;
 }

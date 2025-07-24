@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../core/networking/api_error_handler.dart';
+import '../../../../core/networking/api_error_model.dart';
 import '../../data/models/developer_add_job_bookmark_models/developer_add_job_bookmark_response.dart';
 
 part 'developer_add_job_bookmark_state.freezed.dart';
@@ -17,6 +18,5 @@ class DeveloperAddJobBookmarkState with _$DeveloperAddJobBookmarkState {
   ) = DeveloperAddJobBookmarkSuccess;
 
   const factory DeveloperAddJobBookmarkState.error(
-    ErrorHandler errorHandler,
-  ) = DeveloperAddJobBookmarkError;
+ApiErrorModel apiErrorModel  ) = DeveloperAddJobBookmarkError;
 }

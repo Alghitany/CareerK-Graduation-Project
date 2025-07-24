@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../../../../core/networking/api_error_model.dart';
 import '../../data/models/developer_profile_settings_get_my_cv_models/developer_profile_settings_get_my_cv_response_body.dart';
 
 part 'developer_profile_sittings_get_my_cv_state.freezed.dart';
@@ -18,5 +19,5 @@ class DeveloperProfileSettingsGetMyCVState
       DeveloperProfileSittingsMyCVSuccess;
 
   const factory DeveloperProfileSettingsGetMyCVState.error(
-      {required String error}) = DeveloperProfileSittingsMyCVError;
+      ApiErrorModel apiErrorModel) = DeveloperProfileSittingsMyCVError;
 }

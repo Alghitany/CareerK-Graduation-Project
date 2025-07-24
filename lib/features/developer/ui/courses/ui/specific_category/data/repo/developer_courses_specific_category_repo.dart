@@ -15,7 +15,7 @@ class DeveloperCoursesSpecificCategoryRepo {
           await _apiService.getDeveloperCoursesSpecificCategory(trackId);
       return ApiResult.success(response);
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ApiErrorHandler.handle(error));
     }
   }
 }

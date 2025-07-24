@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../../../core/networking/api_error_handler.dart';
+import '../../../../../../../core/networking/api_error_model.dart';
 import '../data/models/developer_courses_roadmaps_response_body.dart';
 
 part 'developer_courses_roadmaps_state.freezed.dart';
@@ -17,6 +18,5 @@ class DeveloperCoursesRoadmapsState with _$DeveloperCoursesRoadmapsState {
   ) = DeveloperCoursesRoadmapsSuccess;
 
   const factory DeveloperCoursesRoadmapsState.error(
-    ErrorHandler errorHandler,
-  ) = DeveloperCoursesRoadmapsError;
+ApiErrorModel apiErrorModel  ) = DeveloperCoursesRoadmapsError;
 }

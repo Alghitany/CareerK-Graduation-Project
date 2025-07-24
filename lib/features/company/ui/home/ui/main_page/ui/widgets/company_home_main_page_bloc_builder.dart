@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../../../core/helpers/spacing.dart';
+import '../../../../../../../../core/networking/api_error_model.dart';
 import '../../data/model/company_home_main_page_response_body.dart';
 import '../../logic/company_home_main_page_cubit.dart';
 import '../../logic/company_home_main_page_state.dart';
@@ -27,7 +28,7 @@ class CompanyHomeMainPageBlocBuilder extends StatelessWidget {
         return state.maybeWhen(
           loading: () => _buildLoading(),
           success: (data) => _buildSuccess(data),
-          error: (error) => _buildError(error),
+          error: (apiErrorModel) => _buildError(apiErrorModel),
           orElse: () => const SizedBox.shrink(),
         );
       },
@@ -67,7 +68,7 @@ class CompanyHomeMainPageBlocBuilder extends StatelessWidget {
     );
   }
 
-  Widget _buildError(String error) {
-    return Center(child: Text(error));
+  Widget _buildError(ApiErrorModel apiErrorModel) {
+    return Center(child: Text(apiErrorModel.getAllErrorMessages()));
   }
 }

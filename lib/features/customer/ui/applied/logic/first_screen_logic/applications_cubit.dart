@@ -19,11 +19,11 @@ class ApplicationsCubit extends Cubit<ApplicationsState> {
         debugPrint('✅ Applications fetched: ${data.applications.length}');
         emit(ApplicationsState.success(data));
       },
-      failure: (error) {
+      failure: (apiErrorModel) {
         debugPrint(
-            '❌ Error fetching applications: ${error.apiErrorModel.message}');
+            '❌ Error fetching applications: ${apiErrorModel.getAllErrorMessages()}');
         emit(ApplicationsState.error(
-          error: error.apiErrorModel.message ?? 'Unknown error',
+            apiErrorModel
         ));
       },
     );

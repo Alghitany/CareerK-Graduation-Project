@@ -6,6 +6,8 @@ import 'package:carrerk/features/customer/ui/home/ui/widgets/customer_jobs_shumm
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../../core/networking/api_error_model.dart';
+
 class ApplicationDetailsBlocBuilder extends StatelessWidget {
   const ApplicationDetailsBlocBuilder({super.key});
 
@@ -18,7 +20,7 @@ class ApplicationDetailsBlocBuilder extends StatelessWidget {
         return state.maybeWhen(
           loading: () => setupLoading(),
           success: (data) => setupSuccess(data),
-          error: (error) => setupError(error),
+          error: (apiErrorModel) => setupError(apiErrorModel),
           orElse: () => const SizedBox.shrink(),
         );
       },
@@ -33,7 +35,7 @@ class ApplicationDetailsBlocBuilder extends StatelessWidget {
     return ApplicationDetailsContent(data: data);
   }
 
-  Widget setupError(String error) {
-    return Center(child: Text("Error: $error"));
+  Widget setupError(ApiErrorModel apiErrorModel) {
+    return Center(child: Text("Error: ${apiErrorModel.getAllErrorMessages()}"));
   }
 }

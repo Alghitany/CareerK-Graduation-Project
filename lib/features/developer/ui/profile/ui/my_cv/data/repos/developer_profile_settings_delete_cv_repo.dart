@@ -17,7 +17,7 @@ class DeveloperProfileSettingsDeleteCVRepo {
       final response = await _apiService.deleteMyCV(body);
       return ApiResult.success(response);
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ApiErrorHandler.handle(error));
     }
   }
 }

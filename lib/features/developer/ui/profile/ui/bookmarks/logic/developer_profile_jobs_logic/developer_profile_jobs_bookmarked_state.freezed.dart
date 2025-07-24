@@ -23,7 +23,7 @@ mixin _$DeveloperProfileJobsBookmarkedState {
     required TResult Function(
             List<DeveloperProfileJobsBookmarkedResponseBody> data)
         success,
-    required TResult Function(String? error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,7 +32,7 @@ mixin _$DeveloperProfileJobsBookmarkedState {
     TResult? Function()? loading,
     TResult? Function(List<DeveloperProfileJobsBookmarkedResponseBody> data)?
         success,
-    TResult? Function(String? error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,7 +41,7 @@ mixin _$DeveloperProfileJobsBookmarkedState {
     TResult Function()? loading,
     TResult Function(List<DeveloperProfileJobsBookmarkedResponseBody> data)?
         success,
-    TResult Function(String? error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -144,7 +144,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(
             List<DeveloperProfileJobsBookmarkedResponseBody> data)
         success,
-    required TResult Function(String? error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return initial();
   }
@@ -156,7 +156,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? loading,
     TResult? Function(List<DeveloperProfileJobsBookmarkedResponseBody> data)?
         success,
-    TResult? Function(String? error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return initial?.call();
   }
@@ -168,7 +168,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? loading,
     TResult Function(List<DeveloperProfileJobsBookmarkedResponseBody> data)?
         success,
-    TResult Function(String? error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -272,7 +272,7 @@ class _$DeveloperProfileJobsBookmarkedLoadingImpl
     required TResult Function(
             List<DeveloperProfileJobsBookmarkedResponseBody> data)
         success,
-    required TResult Function(String? error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return loading();
   }
@@ -284,7 +284,7 @@ class _$DeveloperProfileJobsBookmarkedLoadingImpl
     TResult? Function()? loading,
     TResult? Function(List<DeveloperProfileJobsBookmarkedResponseBody> data)?
         success,
-    TResult? Function(String? error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return loading?.call();
   }
@@ -296,7 +296,7 @@ class _$DeveloperProfileJobsBookmarkedLoadingImpl
     TResult Function()? loading,
     TResult Function(List<DeveloperProfileJobsBookmarkedResponseBody> data)?
         success,
-    TResult Function(String? error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -438,7 +438,7 @@ class _$DeveloperProfileJobsBookmarkedSuccessImpl
     required TResult Function(
             List<DeveloperProfileJobsBookmarkedResponseBody> data)
         success,
-    required TResult Function(String? error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return success(data);
   }
@@ -450,7 +450,7 @@ class _$DeveloperProfileJobsBookmarkedSuccessImpl
     TResult? Function()? loading,
     TResult? Function(List<DeveloperProfileJobsBookmarkedResponseBody> data)?
         success,
-    TResult? Function(String? error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return success?.call(data);
   }
@@ -462,7 +462,7 @@ class _$DeveloperProfileJobsBookmarkedSuccessImpl
     TResult Function()? loading,
     TResult Function(List<DeveloperProfileJobsBookmarkedResponseBody> data)?
         success,
-    TResult Function(String? error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -534,7 +534,7 @@ abstract class _$$DeveloperProfileJobsBookmarkedErrorImplCopyWith<$Res> {
           $Res Function(_$DeveloperProfileJobsBookmarkedErrorImpl) then) =
       __$$DeveloperProfileJobsBookmarkedErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String? error});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -552,13 +552,13 @@ class __$$DeveloperProfileJobsBookmarkedErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$DeveloperProfileJobsBookmarkedErrorImpl(
-      error: freezed == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String?,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -567,14 +567,14 @@ class __$$DeveloperProfileJobsBookmarkedErrorImplCopyWithImpl<$Res>
 
 class _$DeveloperProfileJobsBookmarkedErrorImpl
     implements DeveloperProfileJobsBookmarkedError {
-  const _$DeveloperProfileJobsBookmarkedErrorImpl({this.error});
+  const _$DeveloperProfileJobsBookmarkedErrorImpl(this.apiErrorModel);
 
   @override
-  final String? error;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'DeveloperProfileJobsBookmarkedState.error(error: $error)';
+    return 'DeveloperProfileJobsBookmarkedState.error(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -582,11 +582,12 @@ class _$DeveloperProfileJobsBookmarkedErrorImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeveloperProfileJobsBookmarkedErrorImpl &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of DeveloperProfileJobsBookmarkedState
   /// with the given fields replaced by the non-null parameter values.
@@ -606,9 +607,9 @@ class _$DeveloperProfileJobsBookmarkedErrorImpl
     required TResult Function(
             List<DeveloperProfileJobsBookmarkedResponseBody> data)
         success,
-    required TResult Function(String? error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
-    return error(this.error);
+    return error(apiErrorModel);
   }
 
   @override
@@ -618,9 +619,9 @@ class _$DeveloperProfileJobsBookmarkedErrorImpl
     TResult? Function()? loading,
     TResult? Function(List<DeveloperProfileJobsBookmarkedResponseBody> data)?
         success,
-    TResult? Function(String? error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
-    return error?.call(this.error);
+    return error?.call(apiErrorModel);
   }
 
   @override
@@ -630,11 +631,11 @@ class _$DeveloperProfileJobsBookmarkedErrorImpl
     TResult Function()? loading,
     TResult Function(List<DeveloperProfileJobsBookmarkedResponseBody> data)?
         success,
-    TResult Function(String? error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(this.error);
+      return error(apiErrorModel);
     }
     return orElse();
   }
@@ -681,10 +682,11 @@ class _$DeveloperProfileJobsBookmarkedErrorImpl
 
 abstract class DeveloperProfileJobsBookmarkedError
     implements DeveloperProfileJobsBookmarkedState {
-  const factory DeveloperProfileJobsBookmarkedError({final String? error}) =
+  const factory DeveloperProfileJobsBookmarkedError(
+          final ApiErrorModel apiErrorModel) =
       _$DeveloperProfileJobsBookmarkedErrorImpl;
 
-  String? get error;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of DeveloperProfileJobsBookmarkedState
   /// with the given fields replaced by the non-null parameter values.

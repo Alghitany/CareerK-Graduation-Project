@@ -18,9 +18,9 @@ class DeveloperTagsHomeMainPageCubit
       success: (data) => emit(
         DeveloperTagsHomeMainPageState.success(data),
       ),
-      failure: (error) => emit(
+      failure: (apiErrorModel) => emit(
         DeveloperTagsHomeMainPageState.error(
-          error: error.apiErrorModel.message ?? 'Failed to load developer tags',
+            apiErrorModel
         ),
       ),
     );

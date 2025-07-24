@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../core/networking/api_error_model.dart';
+
 part 'reset_password_state.freezed.dart';
 
 @freezed
@@ -10,5 +12,5 @@ class ResetPasswordState<T> with _$ResetPasswordState<T> {
 
   const factory ResetPasswordState.success(T data) = Success<T>;
 
-  const factory ResetPasswordState.error({required String error}) = Error;
+  const factory ResetPasswordState.error(ApiErrorModel apiErrorModel) = Error;
 }

@@ -15,7 +15,7 @@ class CustomerProfileApplicantsNumberRepo {
       final response = await _apiService.getProfileApplicationsNumber();
       return ApiResult.success(response);
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ApiErrorHandler.handle(error));
     }
   }
 }

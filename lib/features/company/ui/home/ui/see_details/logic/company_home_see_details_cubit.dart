@@ -19,9 +19,9 @@ class CompanyHomeSeeDetailsCubit extends Cubit<
       success: (data) {
         emit(CompanyHomeSeeDetailsState.success(data));
       },
-      failure: (error) {
+      failure: (apiErrorModel) {
         emit(CompanyHomeSeeDetailsState.error(
-          error: error.apiErrorModel.message ?? 'Unknown error',
+          apiErrorModel,
         ));
       },
     );

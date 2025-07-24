@@ -19,9 +19,9 @@ class DeveloperNameHomeMainPageCubit
       success: (data) => emit(
         DeveloperNameHomeMainPageState.developerNameSuccess(data),
       ),
-      failure: (error) => emit(
+      failure: (apiErrorModel) => emit(
         DeveloperNameHomeMainPageState.developerNameError(
-          error: error.apiErrorModel.message ?? 'Failed to load developer name',
+            apiErrorModel
         ),
       ),
     );

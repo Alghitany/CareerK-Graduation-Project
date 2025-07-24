@@ -20,11 +20,10 @@ class DeveloperProfileSettingsUpdateUploadedCVCubit
       success: (DeveloperProfileSettingsUpdateUploadedCVResponseBody data) {
         emit(DeveloperProfileSettingsUpdateUploadedCVState.success(data));
       },
-      failure: (errorHandler) {
+      failure: (apiErrorModel) {
         emit(
           DeveloperProfileSettingsUpdateUploadedCVState.error(
-            error: errorHandler.apiErrorModel.message ?? "Unknown error",
-          ),
+              apiErrorModel          ),
         );
       },
     );

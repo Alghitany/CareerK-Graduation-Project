@@ -15,7 +15,7 @@ class DeveloperProfileMainPageInfoRepo {
       final response = await _service.getDeveloperProfileMainPageInfo();
       return ApiResult.success(response);
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ApiErrorHandler.handle(error));
     }
   }
 }

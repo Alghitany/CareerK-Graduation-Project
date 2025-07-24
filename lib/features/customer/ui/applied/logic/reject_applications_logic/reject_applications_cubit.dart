@@ -25,13 +25,11 @@ class RejectApplicationCubit extends Cubit<RejectApplicationState> {
       success: (data) {
         emit(RejectApplicationState.success(data));
       },
-      failure: (error) {
+      failure: (apiErrorModel) {
         debugPrint(
-          '❌ Error rejecting application: ${error.apiErrorModel.message}',
+          '❌ Error rejecting application: ${apiErrorModel.getAllErrorMessages()}',
         );
-        emit(RejectApplicationState.error(
-          error: error.apiErrorModel.message ?? 'Unknown error',
-        ));
+        emit(RejectApplicationState.error(apiErrorModel));
       },
     );
   }

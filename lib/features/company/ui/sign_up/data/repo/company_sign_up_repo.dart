@@ -65,7 +65,7 @@ class CompanySignupRepo {
           CompanySignupResponse.fromJson(response.data);
       return ApiResult.success(companySignupResponse);
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ApiErrorHandler.handle(error));
     }
   }
 }

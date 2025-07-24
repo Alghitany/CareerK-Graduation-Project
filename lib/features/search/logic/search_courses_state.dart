@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../core/networking/api_error_handler.dart';
+import '../../../core/networking/api_error_model.dart';
 import '../data/model/search_courses_response_body.dart';
 
 part 'search_courses_state.freezed.dart';
@@ -16,6 +17,5 @@ class SearchCoursesState with _$SearchCoursesState {
   ) = SearchCoursesSuccess;
 
   const factory SearchCoursesState.error(
-    ErrorHandler errorHandler,
-  ) = SearchCoursesError;
+ApiErrorModel apiErrorModel  ) = SearchCoursesError;
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../../../core/networking/api_error_model.dart';
 import '../../../data/models/for_you_models/developer_community_for_you_response_body.dart';
 import '../../../logic/for_you_logic/developer_community_for_you_cubit.dart';
 import '../../../logic/for_you_logic/developer_community_for_you_state.dart';
@@ -22,7 +23,7 @@ class ForYouBlocBuilder extends StatelessWidget {
         return state.maybeWhen(
           loading: () => setupLoading(),
           success: (groups) => setupSuccess(groups),
-          error: (error) => setupError(error),
+          error: (apiErrorModel) => setupError(apiErrorModel),
           orElse: () => const SizedBox.shrink(),
         );
       },
@@ -37,7 +38,7 @@ class ForYouBlocBuilder extends StatelessWidget {
     return ForYouList(groups: groups);
   }
 
-  Widget setupError(String error) {
-    return Center(child: Text("Error: $error"));
+  Widget setupError(ApiErrorModel apiErrorModel) {
+    return Center(child: Text("Error: ${apiErrorModel.getAllErrorMessages()}"));
   }
 }

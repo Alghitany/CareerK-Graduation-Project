@@ -19,10 +19,9 @@ class DeveloperProfileAppliedJobsCubit
       success: (data) => emit(
         DeveloperProfileAppliedJobsState.success(data),
       ),
-      failure: (error) => emit(
+      failure: (apiErrorModel) => emit(
         DeveloperProfileAppliedJobsState.error(
-          error: error.apiErrorModel.message ?? 'Failed to load applied jobs',
-        ),
+            apiErrorModel        ),
       ),
     );
   }

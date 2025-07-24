@@ -19,9 +19,9 @@ class CustomerProfileAllServicePostsCubit
       success: (servicePosts) {
         emit(CustomerProfileAllServicePostsState.success(servicePosts));
       },
-      failure: (error) {
+      failure: (apiErrorModel) {
         emit(CustomerProfileAllServicePostsState.error(
-            error: error.apiErrorModel.message ?? 'Failed to load data'));
+            apiErrorModel));
       },
     );
   }

@@ -22,7 +22,7 @@ mixin _$DeveloperJobsServiceDetailsState {
     required TResult Function() serviceDetailsLoading,
     required TResult Function(DeveloperJobsServiceDetailsResponseBody data)
         serviceDetailsSuccess,
-    required TResult Function(String error) serviceDetailsError,
+    required TResult Function(ApiErrorModel apiErrorModel) serviceDetailsError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,7 +31,7 @@ mixin _$DeveloperJobsServiceDetailsState {
     TResult? Function()? serviceDetailsLoading,
     TResult? Function(DeveloperJobsServiceDetailsResponseBody data)?
         serviceDetailsSuccess,
-    TResult? Function(String error)? serviceDetailsError,
+    TResult? Function(ApiErrorModel apiErrorModel)? serviceDetailsError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +40,7 @@ mixin _$DeveloperJobsServiceDetailsState {
     TResult Function()? serviceDetailsLoading,
     TResult Function(DeveloperJobsServiceDetailsResponseBody data)?
         serviceDetailsSuccess,
-    TResult Function(String error)? serviceDetailsError,
+    TResult Function(ApiErrorModel apiErrorModel)? serviceDetailsError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -142,7 +142,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() serviceDetailsLoading,
     required TResult Function(DeveloperJobsServiceDetailsResponseBody data)
         serviceDetailsSuccess,
-    required TResult Function(String error) serviceDetailsError,
+    required TResult Function(ApiErrorModel apiErrorModel) serviceDetailsError,
   }) {
     return initial();
   }
@@ -154,7 +154,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? serviceDetailsLoading,
     TResult? Function(DeveloperJobsServiceDetailsResponseBody data)?
         serviceDetailsSuccess,
-    TResult? Function(String error)? serviceDetailsError,
+    TResult? Function(ApiErrorModel apiErrorModel)? serviceDetailsError,
   }) {
     return initial?.call();
   }
@@ -166,7 +166,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? serviceDetailsLoading,
     TResult Function(DeveloperJobsServiceDetailsResponseBody data)?
         serviceDetailsSuccess,
-    TResult Function(String error)? serviceDetailsError,
+    TResult Function(ApiErrorModel apiErrorModel)? serviceDetailsError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -267,7 +267,7 @@ class _$ServiceDetailsLoadingImpl implements ServiceDetailsLoading {
     required TResult Function() serviceDetailsLoading,
     required TResult Function(DeveloperJobsServiceDetailsResponseBody data)
         serviceDetailsSuccess,
-    required TResult Function(String error) serviceDetailsError,
+    required TResult Function(ApiErrorModel apiErrorModel) serviceDetailsError,
   }) {
     return serviceDetailsLoading();
   }
@@ -279,7 +279,7 @@ class _$ServiceDetailsLoadingImpl implements ServiceDetailsLoading {
     TResult? Function()? serviceDetailsLoading,
     TResult? Function(DeveloperJobsServiceDetailsResponseBody data)?
         serviceDetailsSuccess,
-    TResult? Function(String error)? serviceDetailsError,
+    TResult? Function(ApiErrorModel apiErrorModel)? serviceDetailsError,
   }) {
     return serviceDetailsLoading?.call();
   }
@@ -291,7 +291,7 @@ class _$ServiceDetailsLoadingImpl implements ServiceDetailsLoading {
     TResult Function()? serviceDetailsLoading,
     TResult Function(DeveloperJobsServiceDetailsResponseBody data)?
         serviceDetailsSuccess,
-    TResult Function(String error)? serviceDetailsError,
+    TResult Function(ApiErrorModel apiErrorModel)? serviceDetailsError,
     required TResult orElse(),
   }) {
     if (serviceDetailsLoading != null) {
@@ -420,7 +420,7 @@ class _$ServiceDetailsSuccessImpl implements ServiceDetailsSuccess {
     required TResult Function() serviceDetailsLoading,
     required TResult Function(DeveloperJobsServiceDetailsResponseBody data)
         serviceDetailsSuccess,
-    required TResult Function(String error) serviceDetailsError,
+    required TResult Function(ApiErrorModel apiErrorModel) serviceDetailsError,
   }) {
     return serviceDetailsSuccess(data);
   }
@@ -432,7 +432,7 @@ class _$ServiceDetailsSuccessImpl implements ServiceDetailsSuccess {
     TResult? Function()? serviceDetailsLoading,
     TResult? Function(DeveloperJobsServiceDetailsResponseBody data)?
         serviceDetailsSuccess,
-    TResult? Function(String error)? serviceDetailsError,
+    TResult? Function(ApiErrorModel apiErrorModel)? serviceDetailsError,
   }) {
     return serviceDetailsSuccess?.call(data);
   }
@@ -444,7 +444,7 @@ class _$ServiceDetailsSuccessImpl implements ServiceDetailsSuccess {
     TResult Function()? serviceDetailsLoading,
     TResult Function(DeveloperJobsServiceDetailsResponseBody data)?
         serviceDetailsSuccess,
-    TResult Function(String error)? serviceDetailsError,
+    TResult Function(ApiErrorModel apiErrorModel)? serviceDetailsError,
     required TResult orElse(),
   }) {
     if (serviceDetailsSuccess != null) {
@@ -514,7 +514,7 @@ abstract class _$$ServiceDetailsErrorImplCopyWith<$Res> {
           $Res Function(_$ServiceDetailsErrorImpl) then) =
       __$$ServiceDetailsErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String error});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -531,13 +531,13 @@ class __$$ServiceDetailsErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$ServiceDetailsErrorImpl(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -545,14 +545,14 @@ class __$$ServiceDetailsErrorImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ServiceDetailsErrorImpl implements ServiceDetailsError {
-  const _$ServiceDetailsErrorImpl({required this.error});
+  const _$ServiceDetailsErrorImpl(this.apiErrorModel);
 
   @override
-  final String error;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'DeveloperJobsServiceDetailsState.serviceDetailsError(error: $error)';
+    return 'DeveloperJobsServiceDetailsState.serviceDetailsError(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -560,11 +560,12 @@ class _$ServiceDetailsErrorImpl implements ServiceDetailsError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ServiceDetailsErrorImpl &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of DeveloperJobsServiceDetailsState
   /// with the given fields replaced by the non-null parameter values.
@@ -582,9 +583,9 @@ class _$ServiceDetailsErrorImpl implements ServiceDetailsError {
     required TResult Function() serviceDetailsLoading,
     required TResult Function(DeveloperJobsServiceDetailsResponseBody data)
         serviceDetailsSuccess,
-    required TResult Function(String error) serviceDetailsError,
+    required TResult Function(ApiErrorModel apiErrorModel) serviceDetailsError,
   }) {
-    return serviceDetailsError(error);
+    return serviceDetailsError(apiErrorModel);
   }
 
   @override
@@ -594,9 +595,9 @@ class _$ServiceDetailsErrorImpl implements ServiceDetailsError {
     TResult? Function()? serviceDetailsLoading,
     TResult? Function(DeveloperJobsServiceDetailsResponseBody data)?
         serviceDetailsSuccess,
-    TResult? Function(String error)? serviceDetailsError,
+    TResult? Function(ApiErrorModel apiErrorModel)? serviceDetailsError,
   }) {
-    return serviceDetailsError?.call(error);
+    return serviceDetailsError?.call(apiErrorModel);
   }
 
   @override
@@ -606,11 +607,11 @@ class _$ServiceDetailsErrorImpl implements ServiceDetailsError {
     TResult Function()? serviceDetailsLoading,
     TResult Function(DeveloperJobsServiceDetailsResponseBody data)?
         serviceDetailsSuccess,
-    TResult Function(String error)? serviceDetailsError,
+    TResult Function(ApiErrorModel apiErrorModel)? serviceDetailsError,
     required TResult orElse(),
   }) {
     if (serviceDetailsError != null) {
-      return serviceDetailsError(error);
+      return serviceDetailsError(apiErrorModel);
     }
     return orElse();
   }
@@ -656,10 +657,10 @@ class _$ServiceDetailsErrorImpl implements ServiceDetailsError {
 }
 
 abstract class ServiceDetailsError implements DeveloperJobsServiceDetailsState {
-  const factory ServiceDetailsError({required final String error}) =
+  const factory ServiceDetailsError(final ApiErrorModel apiErrorModel) =
       _$ServiceDetailsErrorImpl;
 
-  String get error;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of DeveloperJobsServiceDetailsState
   /// with the given fields replaced by the non-null parameter values.

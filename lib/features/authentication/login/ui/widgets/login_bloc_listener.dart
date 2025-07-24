@@ -3,6 +3,7 @@ import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/networking/api_error_model.dart';
 import '../../../../../core/routing/routes.dart';
 import '../../../../../core/theming/colors.dart';
 import '../../logic/login_cubit.dart';
@@ -42,16 +43,16 @@ class LoginBlocListener extends StatelessWidget {
                 context.pushNamed(Routes.developerHomeMainPageScreen);
                 break;
               default:
-                setupErrorState(context, 'Unknown user role: $role');
+                setupErrorState(context, ApiErrorModel());
             }
-          }, error: (error) {
-            setupErrorState(context, error);
+          }, error: (apiErrorModel) {
+            setupErrorState(context, apiErrorModel);
           });
         },
         child: const SizedBox.shrink());
   }
 
-  void setupErrorState(BuildContext context, String error) {
+  void setupErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
     context.pop();
     showDialog(
         context: context,
@@ -62,7 +63,7 @@ class LoginBlocListener extends StatelessWidget {
                 size: 32,
               ),
               content: Text(
-                error,
+                apiErrorModel.getAllErrorMessages(),
                 style: AppTextStyles.font15GlaucousPoppinsSemiBold,
               ),
               actions: [

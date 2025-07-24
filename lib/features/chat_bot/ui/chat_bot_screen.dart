@@ -128,12 +128,12 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
                   });
                   _scrollToBottom();
                 },
-                error: (error) {
+                error: (apiErrorModel) {
                   setState(() {
                     isBotTyping = false;
                   });
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text(error)),
+                    SnackBar(content: Text(apiErrorModel.getAllErrorMessages())),
                   );
                 },
               );

@@ -22,7 +22,7 @@ mixin _$DeveloperCoursesOngoingState {
     required TResult Function() loading,
     required TResult Function(List<DeveloperCoursesOngoingResponseBody> courses)
         success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,7 +31,7 @@ mixin _$DeveloperCoursesOngoingState {
     TResult? Function()? loading,
     TResult? Function(List<DeveloperCoursesOngoingResponseBody> courses)?
         success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +40,7 @@ mixin _$DeveloperCoursesOngoingState {
     TResult Function()? loading,
     TResult Function(List<DeveloperCoursesOngoingResponseBody> courses)?
         success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -147,7 +147,7 @@ class _$DeveloperCoursesOngoingStateInitialImpl
     required TResult Function() loading,
     required TResult Function(List<DeveloperCoursesOngoingResponseBody> courses)
         success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return initial();
   }
@@ -159,7 +159,7 @@ class _$DeveloperCoursesOngoingStateInitialImpl
     TResult? Function()? loading,
     TResult? Function(List<DeveloperCoursesOngoingResponseBody> courses)?
         success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return initial?.call();
   }
@@ -171,7 +171,7 @@ class _$DeveloperCoursesOngoingStateInitialImpl
     TResult Function()? loading,
     TResult Function(List<DeveloperCoursesOngoingResponseBody> courses)?
         success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -276,7 +276,7 @@ class _$DeveloperCoursesOngoingStateLoadingImpl
     required TResult Function() loading,
     required TResult Function(List<DeveloperCoursesOngoingResponseBody> courses)
         success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return loading();
   }
@@ -288,7 +288,7 @@ class _$DeveloperCoursesOngoingStateLoadingImpl
     TResult? Function()? loading,
     TResult? Function(List<DeveloperCoursesOngoingResponseBody> courses)?
         success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return loading?.call();
   }
@@ -300,7 +300,7 @@ class _$DeveloperCoursesOngoingStateLoadingImpl
     TResult Function()? loading,
     TResult Function(List<DeveloperCoursesOngoingResponseBody> courses)?
         success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -441,7 +441,7 @@ class _$DeveloperCoursesOngoingSuccessImpl
     required TResult Function() loading,
     required TResult Function(List<DeveloperCoursesOngoingResponseBody> courses)
         success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return success(courses);
   }
@@ -453,7 +453,7 @@ class _$DeveloperCoursesOngoingSuccessImpl
     TResult? Function()? loading,
     TResult? Function(List<DeveloperCoursesOngoingResponseBody> courses)?
         success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return success?.call(courses);
   }
@@ -465,7 +465,7 @@ class _$DeveloperCoursesOngoingSuccessImpl
     TResult Function()? loading,
     TResult Function(List<DeveloperCoursesOngoingResponseBody> courses)?
         success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -537,7 +537,7 @@ abstract class _$$DeveloperCoursesOngoingErrorImplCopyWith<$Res> {
           $Res Function(_$DeveloperCoursesOngoingErrorImpl) then) =
       __$$DeveloperCoursesOngoingErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String error});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -555,13 +555,13 @@ class __$$DeveloperCoursesOngoingErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$DeveloperCoursesOngoingErrorImpl(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -570,14 +570,14 @@ class __$$DeveloperCoursesOngoingErrorImplCopyWithImpl<$Res>
 
 class _$DeveloperCoursesOngoingErrorImpl
     implements DeveloperCoursesOngoingError {
-  const _$DeveloperCoursesOngoingErrorImpl({required this.error});
+  const _$DeveloperCoursesOngoingErrorImpl(this.apiErrorModel);
 
   @override
-  final String error;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'DeveloperCoursesOngoingState.error(error: $error)';
+    return 'DeveloperCoursesOngoingState.error(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -585,11 +585,12 @@ class _$DeveloperCoursesOngoingErrorImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeveloperCoursesOngoingErrorImpl &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of DeveloperCoursesOngoingState
   /// with the given fields replaced by the non-null parameter values.
@@ -608,9 +609,9 @@ class _$DeveloperCoursesOngoingErrorImpl
     required TResult Function() loading,
     required TResult Function(List<DeveloperCoursesOngoingResponseBody> courses)
         success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
-    return error(this.error);
+    return error(apiErrorModel);
   }
 
   @override
@@ -620,9 +621,9 @@ class _$DeveloperCoursesOngoingErrorImpl
     TResult? Function()? loading,
     TResult? Function(List<DeveloperCoursesOngoingResponseBody> courses)?
         success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
-    return error?.call(this.error);
+    return error?.call(apiErrorModel);
   }
 
   @override
@@ -632,11 +633,11 @@ class _$DeveloperCoursesOngoingErrorImpl
     TResult Function()? loading,
     TResult Function(List<DeveloperCoursesOngoingResponseBody> courses)?
         success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(this.error);
+      return error(apiErrorModel);
     }
     return orElse();
   }
@@ -683,10 +684,10 @@ class _$DeveloperCoursesOngoingErrorImpl
 
 abstract class DeveloperCoursesOngoingError
     implements DeveloperCoursesOngoingState {
-  const factory DeveloperCoursesOngoingError({required final String error}) =
-      _$DeveloperCoursesOngoingErrorImpl;
+  const factory DeveloperCoursesOngoingError(
+      final ApiErrorModel apiErrorModel) = _$DeveloperCoursesOngoingErrorImpl;
 
-  String get error;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of DeveloperCoursesOngoingState
   /// with the given fields replaced by the non-null parameter values.

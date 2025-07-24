@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../../core/networking/api_error_model.dart';
+
 part 'company_profile_edit_state.freezed.dart';
 
 @freezed
@@ -12,7 +14,5 @@ class CompanyProfileEditState<T> with _$CompanyProfileEditState<T> {
   const factory CompanyProfileEditState.profileEditSuccess(T data) =
       ProfileEditSuccess<T>;
 
-  const factory CompanyProfileEditState.profileEditError({
-    required String error,
-  }) = ProfileEditError;
+  const factory CompanyProfileEditState.profileEditError(ApiErrorModel apiErrorModel) = ProfileEditError;
 }

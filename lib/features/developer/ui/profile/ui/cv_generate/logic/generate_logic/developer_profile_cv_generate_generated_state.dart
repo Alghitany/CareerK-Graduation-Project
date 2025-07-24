@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../../../../core/networking/api_error_model.dart';
 import '../../data/models/generate_models/developer_profile_cv_generate_generated_response.dart';
 
 part 'developer_profile_cv_generate_generated_state.freezed.dart';
@@ -15,7 +16,5 @@ class DeveloperProfileCVGenerateGeneratedState
     DeveloperProfileCVGenerateGeneratedResponse data,
   ) = Success;
 
-  const factory DeveloperProfileCVGenerateGeneratedState.error({
-    required String error,
-  }) = Error;
+  const factory DeveloperProfileCVGenerateGeneratedState.error(ApiErrorModel apiErrorModel) = Error;
 }

@@ -79,9 +79,9 @@ class CompanyProfileEditCubit extends Cubit<CompanyProfileEditState> {
 
     response.when(
       success: (res) => emit(CompanyProfileEditState.profileEditSuccess(res)),
-      failure: (error) => emit(
+      failure: (apiErrorModel) => emit(
         CompanyProfileEditState.profileEditError(
-          error: error.apiErrorModel.message ?? 'Profile update failed',
+          apiErrorModel,
         ),
       ),
     );

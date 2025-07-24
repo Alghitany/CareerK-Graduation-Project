@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../../core/networking/api_error_model.dart';
 import '../../data/models/developer_tags_home_main_page_models/developer_tags_home_main_page_response_body.dart';
 
 part 'developer_tags_home_main_page_state.freezed.dart';
@@ -14,7 +15,5 @@ class DeveloperTagsHomeMainPageState with _$DeveloperTagsHomeMainPageState {
     List<DeveloperTagsHomeMainPageResponseBody> data,
   ) = DeveloperTagsSuccess;
 
-  const factory DeveloperTagsHomeMainPageState.error({
-    required String error,
-  }) = DeveloperTagsError;
+  const factory DeveloperTagsHomeMainPageState.error(ApiErrorModel apiErrorModel) = DeveloperTagsError;
 }

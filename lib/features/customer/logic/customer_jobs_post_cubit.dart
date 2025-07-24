@@ -62,9 +62,9 @@ class CustomerJobsPostCubit extends Cubit<CustomerJobsPostState> {
       success: (data) {
         emit(CustomerJobsPostState.success(data));
       },
-      failure: (error) {
+      failure: (apiErrorModel) {
         emit(CustomerJobsPostState.error(
-            error: error.apiErrorModel.message ?? 'Something went wrong'));
+            apiErrorModel));
       },
     );
   }

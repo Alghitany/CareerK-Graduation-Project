@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../core/networking/api_error_model.dart';
 import '../../data/models/post_details_models/job_details_response_body.dart';
 
 part 'job_details_state.freezed.dart';
@@ -14,7 +15,5 @@ class JobDetailsState with _$JobDetailsState {
     JobDetailsResponseBody data,
   ) = JobDetailsSuccess;
 
-  const factory JobDetailsState.jobDetailsError({
-    required String error,
-  }) = JobDetailsError;
+  const factory JobDetailsState.jobDetailsError(ApiErrorModel apiErrorModel) = JobDetailsError;
 }

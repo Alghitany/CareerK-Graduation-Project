@@ -18,8 +18,8 @@ class SpecificCourseLecturesCubit extends Cubit<SpecificCourseLecturesState> {
       success: (data) {
         emit(SpecificCourseLecturesState.success(data));
       },
-      failure: (errorHandler) {
-        emit(SpecificCourseLecturesState.error(errorHandler));
+      failure: (apiErrorModel) {
+        emit(SpecificCourseLecturesState.error(apiErrorModel));
       },
     );
   }

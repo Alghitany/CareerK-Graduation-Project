@@ -19,11 +19,8 @@ class DeveloperCommunityByInterestCubit
       success: (result) {
         emit(DeveloperCommunityByInterestState.success(result.groups));
       },
-      failure: (error) {
-        emit(DeveloperCommunityByInterestState.error(
-          error: error.apiErrorModel.message ??
-              "Failed to load interest-based communities",
-        ));
+      failure: (apiErrorModel) {
+        emit(DeveloperCommunityByInterestState.error(apiErrorModel));
       },
     );
   }

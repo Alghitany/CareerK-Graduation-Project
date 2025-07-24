@@ -22,9 +22,9 @@ class SpecificCourseEnrollCubit extends Cubit<SpecificCourseEnrollState> {
       success: (data) {
         emit(SpecificCourseEnrollState.success(data));
       },
-      failure: (error) {
+      failure: (apiErrorModel) {
         emit(SpecificCourseEnrollState.error(
-            error: error.apiErrorModel.message ?? "Something Went Wrong"));
+            apiErrorModel));
       },
     );
   }

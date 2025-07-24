@@ -20,8 +20,8 @@ class ChatBotCubit extends Cubit<ChatBotState> {
       success: (chatBotResponse) {
         emit(ChatBotState.success(chatBotResponse));
       },
-      failure: (error) {
-        emit(ChatBotState.error(error: error.apiErrorModel.message ?? ''));
+      failure: (apiErrorModel) {
+        emit(ChatBotState.error(apiErrorModel));
       },
     );
   }

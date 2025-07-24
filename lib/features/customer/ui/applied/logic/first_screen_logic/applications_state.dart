@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../../core/networking/api_error_model.dart';
+
 part 'applications_state.freezed.dart';
 
 @freezed
@@ -10,5 +12,5 @@ class ApplicationsState<T> with _$ApplicationsState<T> {
 
   const factory ApplicationsState.success(T data) = Success<T>;
 
-  const factory ApplicationsState.error({required String error}) = Error;
+  const factory ApplicationsState.error(ApiErrorModel apiErrorModel) = Error;
 }

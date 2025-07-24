@@ -18,10 +18,9 @@ class DeveloperServiceDeleteCubit extends Cubit<DeveloperServiceDeleteState> {
       success: (data) => emit(
         DeveloperServiceDeleteState.success(data),
       ),
-      failure: (error) => emit(
+      failure: (apiErrorModel) => emit(
         DeveloperServiceDeleteState.error(
-          error: error.apiErrorModel.message ??
-              'Failed to delete service application',
+            apiErrorModel
         ),
       ),
     );

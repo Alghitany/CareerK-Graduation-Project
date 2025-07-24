@@ -26,8 +26,8 @@ class MarkNotificationReadCubit extends Cubit<MarkNotificationReadState> {
       success: (notificationResponse) {
         emit(MarkNotificationReadState.success(notificationResponse));
       },
-      failure: (errorHandler) {
-        emit(MarkNotificationReadState.error(errorHandler));
+      failure: (apiErrorModel) {
+        emit(MarkNotificationReadState.error(apiErrorModel));
       },
     );
   }

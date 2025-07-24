@@ -18,8 +18,8 @@ class DeveloperCoursesRoadmapsCubit
       success: (roadmaps) {
         emit(DeveloperCoursesRoadmapsState.success(roadmaps));
       },
-      failure: (errorHandler) {
-        emit(DeveloperCoursesRoadmapsState.error(errorHandler));
+      failure: (apiErrorModel) {
+        emit(DeveloperCoursesRoadmapsState.error(apiErrorModel));
       },
     );
   }

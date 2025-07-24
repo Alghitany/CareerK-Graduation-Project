@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../../core/networking/api_error_model.dart';
 import '../../data/models/related_courses/developer_courses_related_courses_response_body.dart';
 
 part 'developer_courses_related_courses_state.freezed.dart';
@@ -18,5 +19,5 @@ class DeveloperCoursesRelatedCoursesState
   ) = DeveloperCoursesRelatedCoursesSuccess;
 
   const factory DeveloperCoursesRelatedCoursesState.error(
-      {required String error}) = DeveloperCoursesRelatedCoursesError;
+      ApiErrorModel apiErrorModel) = DeveloperCoursesRelatedCoursesError;
 }

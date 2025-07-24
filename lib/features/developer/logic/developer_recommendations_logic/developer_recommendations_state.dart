@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../core/networking/api_error_model.dart';
 import '../../data/models/developer_recommendtions_models/developer_recommendations_response_body.dart';
 
 part 'developer_recommendations_state.freezed.dart';
@@ -15,7 +16,5 @@ class DeveloperRecommendationsState with _$DeveloperRecommendationsState {
     DeveloperRecommendationsResponseBody data,
   ) = RecommendationsSuccess;
 
-  const factory DeveloperRecommendationsState.recommendationsError({
-    required String error,
-  }) = RecommendationsError;
+  const factory DeveloperRecommendationsState.recommendationsError(ApiErrorModel apiErrorModel) = RecommendationsError;
 }

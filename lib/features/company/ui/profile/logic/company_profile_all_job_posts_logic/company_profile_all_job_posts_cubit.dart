@@ -19,9 +19,9 @@ class CompanyProfileAllJobPostsCubit
       success: (jobPosts) {
         emit(CompanyProfileAllJobPostsState.success(jobPosts));
       },
-      failure: (error) {
+      failure: (apiErrorModel) {
         emit(CompanyProfileAllJobPostsState.error(
-            error: error.apiErrorModel.message ?? 'Failed to load data'));
+            apiErrorModel));
       },
     );
   }

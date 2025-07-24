@@ -22,7 +22,7 @@ mixin _$DeveloperCoursesSpecificCategoryState {
     required TResult Function() loading,
     required TResult Function(DeveloperCoursesSpecificCategoryResponseBody data)
         success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,7 +31,7 @@ mixin _$DeveloperCoursesSpecificCategoryState {
     TResult? Function()? loading,
     TResult? Function(DeveloperCoursesSpecificCategoryResponseBody data)?
         success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +40,7 @@ mixin _$DeveloperCoursesSpecificCategoryState {
     TResult Function()? loading,
     TResult Function(DeveloperCoursesSpecificCategoryResponseBody data)?
         success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -143,7 +143,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() loading,
     required TResult Function(DeveloperCoursesSpecificCategoryResponseBody data)
         success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return initial();
   }
@@ -155,7 +155,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? loading,
     TResult? Function(DeveloperCoursesSpecificCategoryResponseBody data)?
         success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return initial?.call();
   }
@@ -167,7 +167,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? loading,
     TResult Function(DeveloperCoursesSpecificCategoryResponseBody data)?
         success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -271,7 +271,7 @@ class _$DeveloperCoursesSpecificCategoryLoadingImpl
     required TResult Function() loading,
     required TResult Function(DeveloperCoursesSpecificCategoryResponseBody data)
         success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return loading();
   }
@@ -283,7 +283,7 @@ class _$DeveloperCoursesSpecificCategoryLoadingImpl
     TResult? Function()? loading,
     TResult? Function(DeveloperCoursesSpecificCategoryResponseBody data)?
         success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return loading?.call();
   }
@@ -295,7 +295,7 @@ class _$DeveloperCoursesSpecificCategoryLoadingImpl
     TResult Function()? loading,
     TResult Function(DeveloperCoursesSpecificCategoryResponseBody data)?
         success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -430,7 +430,7 @@ class _$DeveloperCoursesSpecificCategorySuccessImpl
     required TResult Function() loading,
     required TResult Function(DeveloperCoursesSpecificCategoryResponseBody data)
         success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return success(data);
   }
@@ -442,7 +442,7 @@ class _$DeveloperCoursesSpecificCategorySuccessImpl
     TResult? Function()? loading,
     TResult? Function(DeveloperCoursesSpecificCategoryResponseBody data)?
         success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return success?.call(data);
   }
@@ -454,7 +454,7 @@ class _$DeveloperCoursesSpecificCategorySuccessImpl
     TResult Function()? loading,
     TResult Function(DeveloperCoursesSpecificCategoryResponseBody data)?
         success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -527,7 +527,7 @@ abstract class _$$DeveloperCoursesSpecificCategoryErrorImplCopyWith<$Res> {
           $Res Function(_$DeveloperCoursesSpecificCategoryErrorImpl) then) =
       __$$DeveloperCoursesSpecificCategoryErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ErrorHandler errorHandler});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -545,13 +545,13 @@ class __$$DeveloperCoursesSpecificCategoryErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? errorHandler = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$DeveloperCoursesSpecificCategoryErrorImpl(
-      null == errorHandler
-          ? _value.errorHandler
-          : errorHandler // ignore: cast_nullable_to_non_nullable
-              as ErrorHandler,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -560,14 +560,14 @@ class __$$DeveloperCoursesSpecificCategoryErrorImplCopyWithImpl<$Res>
 
 class _$DeveloperCoursesSpecificCategoryErrorImpl
     implements DeveloperCoursesSpecificCategoryError {
-  const _$DeveloperCoursesSpecificCategoryErrorImpl(this.errorHandler);
+  const _$DeveloperCoursesSpecificCategoryErrorImpl(this.apiErrorModel);
 
   @override
-  final ErrorHandler errorHandler;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'DeveloperCoursesSpecificCategoryState.error(errorHandler: $errorHandler)';
+    return 'DeveloperCoursesSpecificCategoryState.error(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -575,12 +575,12 @@ class _$DeveloperCoursesSpecificCategoryErrorImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeveloperCoursesSpecificCategoryErrorImpl &&
-            (identical(other.errorHandler, errorHandler) ||
-                other.errorHandler == errorHandler));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, errorHandler);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of DeveloperCoursesSpecificCategoryState
   /// with the given fields replaced by the non-null parameter values.
@@ -599,9 +599,9 @@ class _$DeveloperCoursesSpecificCategoryErrorImpl
     required TResult Function() loading,
     required TResult Function(DeveloperCoursesSpecificCategoryResponseBody data)
         success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
-    return error(errorHandler);
+    return error(apiErrorModel);
   }
 
   @override
@@ -611,9 +611,9 @@ class _$DeveloperCoursesSpecificCategoryErrorImpl
     TResult? Function()? loading,
     TResult? Function(DeveloperCoursesSpecificCategoryResponseBody data)?
         success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
-    return error?.call(errorHandler);
+    return error?.call(apiErrorModel);
   }
 
   @override
@@ -623,11 +623,11 @@ class _$DeveloperCoursesSpecificCategoryErrorImpl
     TResult Function()? loading,
     TResult Function(DeveloperCoursesSpecificCategoryResponseBody data)?
         success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(errorHandler);
+      return error(apiErrorModel);
     }
     return orElse();
   }
@@ -676,10 +676,10 @@ class _$DeveloperCoursesSpecificCategoryErrorImpl
 abstract class DeveloperCoursesSpecificCategoryError
     implements DeveloperCoursesSpecificCategoryState {
   const factory DeveloperCoursesSpecificCategoryError(
-          final ErrorHandler errorHandler) =
+          final ApiErrorModel apiErrorModel) =
       _$DeveloperCoursesSpecificCategoryErrorImpl;
 
-  ErrorHandler get errorHandler;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of DeveloperCoursesSpecificCategoryState
   /// with the given fields replaced by the non-null parameter values.

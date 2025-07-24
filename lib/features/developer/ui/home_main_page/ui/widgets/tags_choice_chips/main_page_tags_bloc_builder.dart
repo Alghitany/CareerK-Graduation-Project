@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../../core/networking/api_error_model.dart';
 import '../../../data/models/developer_tags_home_main_page_models/developer_tags_home_main_page_response_body.dart';
 import '../../../logic/developer_courses_home_main_page_logic/developer_courses_home_main_page_cubit.dart';
 import '../../../logic/developer_tags_home_main_page_logic/developer_tags_home_main_page_cubit.dart';
@@ -31,7 +32,7 @@ class _DeveloperTagsBlocBuilderState extends State<DeveloperTagsBlocBuilder> {
         return state.maybeWhen(
           loading: () => _buildLoading(),
           success: (data) => _buildSuccess(context, data),
-          error: (error) => _buildError(error),
+          error: (apiErrorModel) => _buildError(apiErrorModel),
           orElse: () => const SizedBox.shrink(),
         );
       },
@@ -61,7 +62,7 @@ class _DeveloperTagsBlocBuilderState extends State<DeveloperTagsBlocBuilder> {
     );
   }
 
-  Widget _buildError(String error) {
-    return Center(child: Text(error));
+  Widget _buildError(ApiErrorModel apiErrorModel) {
+    return Center(child: Text(apiErrorModel.getAllErrorMessages()));
   }
 }

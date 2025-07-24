@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../../core/theming/colors.dart';
 import '../../../../../../../core/theming/styles.dart';
+import '../../../../../../core/networking/api_error_model.dart';
 import '../../logic/developer_profile_edit_cubit.dart';
 import '../../logic/developer_profile_edit_state.dart';
 
@@ -30,9 +31,9 @@ class DeveloperProfileEditBlocListener extends StatelessWidget {
 
             showSuccessSnackBar(context, 'Profile updated successfully!');
           },
-          editProfileError: (error) {
+          editProfileError: (apiErrorModel) {
             context.pop(); // Dismiss loading dialog
-            showErrorSnackBar(context, error);
+            showErrorSnackBar(context, apiErrorModel);
           },
         );
       },
@@ -66,10 +67,10 @@ class DeveloperProfileEditBlocListener extends StatelessWidget {
     );
   }
 
-  void showErrorSnackBar(BuildContext context, String error) {
+  void showErrorSnackBar(BuildContext context, ApiErrorModel apiErrorModel) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text(error, style: AppTextStyles.font14WhitePoppinsMedium),
+        content: Text(apiErrorModel.getAllErrorMessages(), style: AppTextStyles.font14WhitePoppinsMedium),
         backgroundColor: ColorsManager.artyClickRed,
       ),
     );

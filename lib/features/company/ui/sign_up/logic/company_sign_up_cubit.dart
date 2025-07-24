@@ -105,9 +105,9 @@ class CompanySignupCubit extends Cubit<CompanySignupState> {
       success: (companySignupResponse) {
         emit(CompanySignupState.companySignupSuccess(companySignupResponse));
       },
-      failure: (error) {
+      failure: (apiErrorModel) {
         emit(CompanySignupState.companySignupError(
-          error: error.apiErrorModel.message ?? 'Signup failed',
+            apiErrorModel
         ));
       },
     );

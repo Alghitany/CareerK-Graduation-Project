@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../../../core/networking/api_error_model.dart';
 import '../../data/models/profile_skills_models/developer_profile_main_page_skills_response_body.dart';
 import '../../logic/profile_skills_logic/developer_profile_main_page_skills_cubit.dart';
 import '../../logic/profile_skills_logic/developer_profile_main_page_skills_state.dart';
@@ -21,7 +22,7 @@ class DeveloperProfileMainPageSkillsProgressBlocBuilder
         return state.maybeWhen(
           loading: () => setupLoading(),
           success: (data) => setupSuccess(data),
-          error: (error) => setupError(error),
+          error: (apiErrorModel) => setupError(apiErrorModel),
           orElse: () => const SizedBox.shrink(),
         );
       },
@@ -36,7 +37,7 @@ class DeveloperProfileMainPageSkillsProgressBlocBuilder
     return SkillsProgress(skills: data.skills);
   }
 
-  Widget setupError(String error) {
-    return Center(child: Text("Error: $error"));
+  Widget setupError(ApiErrorModel apiErrorModel) {
+    return Center(child: Text("Error: ${apiErrorModel.getAllErrorMessages()}"));
   }
 }

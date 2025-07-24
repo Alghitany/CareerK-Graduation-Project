@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../../../core/helpers/spacing.dart';
+import '../../../../../../../../core/networking/api_error_model.dart';
 import '../../../widgets/developer_details/developer_details.dart';
 import '../../../widgets/developer_details/developer_details_shimmer.dart';
 import '../../../widgets/name_title_and_image/name_title_and_image.dart';
@@ -27,7 +28,7 @@ class SeeDetailsBlocBuilder extends StatelessWidget {
         return state.maybeWhen(
           loading: () => _buildLoading(),
           success: (data) => _buildSuccess(data),
-          error: (error) => _buildError(error),
+          error: (apiErrorModel) => _buildError(apiErrorModel),
           orElse: () => const SizedBox.shrink(),
         );
       },
@@ -67,7 +68,7 @@ class SeeDetailsBlocBuilder extends StatelessWidget {
     );
   }
 
-  Widget _buildError(String error) {
-    return Center(child: Text(error));
+  Widget _buildError(ApiErrorModel apiErrorModel) {
+    return Center(child: Text(apiErrorModel.getAllErrorMessages()));
   }
 }

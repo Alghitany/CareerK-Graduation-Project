@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../core/networking/api_error_model.dart';
+
 part 'start_chat_room_state.freezed.dart';
 
 @freezed
@@ -10,5 +12,5 @@ class StartChatRoomState<T> with _$StartChatRoomState<T> {
 
   const factory StartChatRoomState.success(T data) = Success<T>;
 
-  const factory StartChatRoomState.error({required String error}) = Error;
+  const factory StartChatRoomState.error(ApiErrorModel apiErrorModel) = Error;
 }

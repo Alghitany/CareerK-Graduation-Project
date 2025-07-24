@@ -21,7 +21,7 @@ mixin _$ContactListAllChatsState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(ContactListAllChatsResponseBody chats) success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$ContactListAllChatsState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(ContactListAllChatsResponseBody chats)? success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$ContactListAllChatsState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(ContactListAllChatsResponseBody chats)? success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,7 +134,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(ContactListAllChatsResponseBody chats) success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return initial();
   }
@@ -145,7 +145,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(ContactListAllChatsResponseBody chats)? success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return initial?.call();
   }
@@ -156,7 +156,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(ContactListAllChatsResponseBody chats)? success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -255,7 +255,7 @@ class _$ContactListAllChatsLoadingImpl implements ContactListAllChatsLoading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(ContactListAllChatsResponseBody chats) success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return loading();
   }
@@ -266,7 +266,7 @@ class _$ContactListAllChatsLoadingImpl implements ContactListAllChatsLoading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(ContactListAllChatsResponseBody chats)? success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return loading?.call();
   }
@@ -277,7 +277,7 @@ class _$ContactListAllChatsLoadingImpl implements ContactListAllChatsLoading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(ContactListAllChatsResponseBody chats)? success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -403,7 +403,7 @@ class _$ContactListAllChatsSuccessImpl implements ContactListAllChatsSuccess {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(ContactListAllChatsResponseBody chats) success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return success(chats);
   }
@@ -414,7 +414,7 @@ class _$ContactListAllChatsSuccessImpl implements ContactListAllChatsSuccess {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(ContactListAllChatsResponseBody chats)? success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return success?.call(chats);
   }
@@ -425,7 +425,7 @@ class _$ContactListAllChatsSuccessImpl implements ContactListAllChatsSuccess {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(ContactListAllChatsResponseBody chats)? success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -493,7 +493,7 @@ abstract class _$$ContactListAllChatsErrorImplCopyWith<$Res> {
           $Res Function(_$ContactListAllChatsErrorImpl) then) =
       __$$ContactListAllChatsErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ErrorHandler errorHandler});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -511,13 +511,13 @@ class __$$ContactListAllChatsErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? errorHandler = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$ContactListAllChatsErrorImpl(
-      null == errorHandler
-          ? _value.errorHandler
-          : errorHandler // ignore: cast_nullable_to_non_nullable
-              as ErrorHandler,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -525,14 +525,14 @@ class __$$ContactListAllChatsErrorImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ContactListAllChatsErrorImpl implements ContactListAllChatsError {
-  const _$ContactListAllChatsErrorImpl(this.errorHandler);
+  const _$ContactListAllChatsErrorImpl(this.apiErrorModel);
 
   @override
-  final ErrorHandler errorHandler;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'ContactListAllChatsState.error(errorHandler: $errorHandler)';
+    return 'ContactListAllChatsState.error(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -540,12 +540,12 @@ class _$ContactListAllChatsErrorImpl implements ContactListAllChatsError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ContactListAllChatsErrorImpl &&
-            (identical(other.errorHandler, errorHandler) ||
-                other.errorHandler == errorHandler));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, errorHandler);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of ContactListAllChatsState
   /// with the given fields replaced by the non-null parameter values.
@@ -562,9 +562,9 @@ class _$ContactListAllChatsErrorImpl implements ContactListAllChatsError {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(ContactListAllChatsResponseBody chats) success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
-    return error(errorHandler);
+    return error(apiErrorModel);
   }
 
   @override
@@ -573,9 +573,9 @@ class _$ContactListAllChatsErrorImpl implements ContactListAllChatsError {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(ContactListAllChatsResponseBody chats)? success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
-    return error?.call(errorHandler);
+    return error?.call(apiErrorModel);
   }
 
   @override
@@ -584,11 +584,11 @@ class _$ContactListAllChatsErrorImpl implements ContactListAllChatsError {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(ContactListAllChatsResponseBody chats)? success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(errorHandler);
+      return error(apiErrorModel);
     }
     return orElse();
   }
@@ -632,10 +632,10 @@ class _$ContactListAllChatsErrorImpl implements ContactListAllChatsError {
 }
 
 abstract class ContactListAllChatsError implements ContactListAllChatsState {
-  const factory ContactListAllChatsError(final ErrorHandler errorHandler) =
+  const factory ContactListAllChatsError(final ApiErrorModel apiErrorModel) =
       _$ContactListAllChatsErrorImpl;
 
-  ErrorHandler get errorHandler;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of ContactListAllChatsState
   /// with the given fields replaced by the non-null parameter values.

@@ -18,7 +18,7 @@ class DeveloperProfileCVGenerateSendDataRepo {
           await _apiService.sendDeveloperCVData(sessionId, requestBody);
       return ApiResult.success(response);
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ApiErrorHandler.handle(error));
     }
   }
 }

@@ -15,7 +15,7 @@ class ChatBotRepo {
       final response = await _apiService.sendMessage(chatBotRequestBody);
       return ApiResult.success(response);
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ApiErrorHandler.handle(error));
     }
   }
 }

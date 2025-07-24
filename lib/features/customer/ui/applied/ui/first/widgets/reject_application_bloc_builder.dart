@@ -1,10 +1,11 @@
-import 'package:carrerk/features/customer/ui/applied/data/model/reject_applications_model/reject_application_response.dart';
 import 'package:carrerk/features/customer/ui/applied/logic/reject_applications_logic/reject_applications_cubit.dart';
 import 'package:carrerk/features/customer/ui/applied/logic/reject_applications_logic/reject_applications_state.dart';
 import 'package:carrerk/features/customer/ui/applied/ui/first/widgets/reject_buttons_shimmer.dart';
 import 'package:carrerk/features/customer/ui/applied/ui/first/widgets/reject_view_profile_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../../../../core/networking/api_error_model.dart';
 
 class RejectApplicationBlocBuilder extends StatelessWidget {
   final String applicationId;
@@ -30,7 +31,7 @@ class RejectApplicationBlocBuilder extends StatelessWidget {
             // لو مش هو، نظهر الـ buttons عادي
             return setupInitial(context);
           },
-          error: (error) => setupError(error),
+          error: (apiErrorModel) => setupError(apiErrorModel),
           orElse: () => setupInitial(context),
         );
       },
@@ -50,7 +51,7 @@ class RejectApplicationBlocBuilder extends StatelessWidget {
     );
   }
 
-  Widget setupError(String error) {
-    return Center(child: Text("❌ $error"));
+  Widget setupError(ApiErrorModel apiErrorModel) {
+    return Center(child: Text("❌ ${apiErrorModel.getAllErrorMessages()}"));
   }
 }

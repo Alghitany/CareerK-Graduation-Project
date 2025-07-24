@@ -24,8 +24,8 @@ class NotificationsBlocBuilder extends StatelessWidget {
               notifications: notificationsResponse.notifications,
             );
           },
-          error: (errorHandler) => Center(
-            child: Text('❌ ${errorHandler.apiErrorModel}'),
+          error: (apiErrorModel) => Center(
+            child: Text('❌ ${apiErrorModel.getAllErrorMessages()}'),
           ),
           orElse: () => const SizedBox(),
         );

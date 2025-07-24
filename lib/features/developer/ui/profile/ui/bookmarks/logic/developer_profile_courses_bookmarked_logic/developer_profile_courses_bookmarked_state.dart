@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../../../../core/networking/api_error_model.dart';
 import '../../data/models/developer_profile_courses_bookmarked_models/developer_profile_courses_bookmarked_response_body.dart';
 
 part 'developer_profile_courses_bookmarked_state.freezed.dart';
@@ -16,7 +17,7 @@ class DeveloperProfileCoursesBookmarkedState
           List<DeveloperProfileCoursesBookmarkedResponseBody> data) =
       DeveloperProfileCoursesBookmarkedSuccess;
 
-  const factory DeveloperProfileCoursesBookmarkedState.error({
-    String? error,
-  }) = DeveloperProfileCoursesBookmarkedError;
+  const factory DeveloperProfileCoursesBookmarkedState.error(
+    ApiErrorModel apiErrorModel
+  ) = DeveloperProfileCoursesBookmarkedError;
 }

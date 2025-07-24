@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../../../../core/networking/api_error_model.dart';
 import '../../data/model/specific_course_lesson_complete_models/specific_course_lesson_complete_response.dart';
 
 part 'specific_course_lesson_complete_state.freezed.dart';
@@ -16,6 +17,6 @@ class SpecificCourseLessonCompleteState
     SpecificCourseLessonCompleteResponse data,
   ) = SpecificCourseLessonCompleteSuccess;
 
-  const factory SpecificCourseLessonCompleteState.error({String? error}) =
+  const factory SpecificCourseLessonCompleteState.error(ApiErrorModel apiErrorModel) =
       SpecificCourseLessonCompleteError;
 }

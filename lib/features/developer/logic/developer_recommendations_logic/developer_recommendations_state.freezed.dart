@@ -22,7 +22,7 @@ mixin _$DeveloperRecommendationsState {
     required TResult Function() recommendationsLoading,
     required TResult Function(DeveloperRecommendationsResponseBody data)
         recommendationsSuccess,
-    required TResult Function(String error) recommendationsError,
+    required TResult Function(ApiErrorModel apiErrorModel) recommendationsError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,7 +31,7 @@ mixin _$DeveloperRecommendationsState {
     TResult? Function()? recommendationsLoading,
     TResult? Function(DeveloperRecommendationsResponseBody data)?
         recommendationsSuccess,
-    TResult? Function(String error)? recommendationsError,
+    TResult? Function(ApiErrorModel apiErrorModel)? recommendationsError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +40,7 @@ mixin _$DeveloperRecommendationsState {
     TResult Function()? recommendationsLoading,
     TResult Function(DeveloperRecommendationsResponseBody data)?
         recommendationsSuccess,
-    TResult Function(String error)? recommendationsError,
+    TResult Function(ApiErrorModel apiErrorModel)? recommendationsError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -142,7 +142,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() recommendationsLoading,
     required TResult Function(DeveloperRecommendationsResponseBody data)
         recommendationsSuccess,
-    required TResult Function(String error) recommendationsError,
+    required TResult Function(ApiErrorModel apiErrorModel) recommendationsError,
   }) {
     return initial();
   }
@@ -154,7 +154,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? recommendationsLoading,
     TResult? Function(DeveloperRecommendationsResponseBody data)?
         recommendationsSuccess,
-    TResult? Function(String error)? recommendationsError,
+    TResult? Function(ApiErrorModel apiErrorModel)? recommendationsError,
   }) {
     return initial?.call();
   }
@@ -166,7 +166,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? recommendationsLoading,
     TResult Function(DeveloperRecommendationsResponseBody data)?
         recommendationsSuccess,
-    TResult Function(String error)? recommendationsError,
+    TResult Function(ApiErrorModel apiErrorModel)? recommendationsError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -268,7 +268,7 @@ class _$RecommendationsLoadingImpl implements RecommendationsLoading {
     required TResult Function() recommendationsLoading,
     required TResult Function(DeveloperRecommendationsResponseBody data)
         recommendationsSuccess,
-    required TResult Function(String error) recommendationsError,
+    required TResult Function(ApiErrorModel apiErrorModel) recommendationsError,
   }) {
     return recommendationsLoading();
   }
@@ -280,7 +280,7 @@ class _$RecommendationsLoadingImpl implements RecommendationsLoading {
     TResult? Function()? recommendationsLoading,
     TResult? Function(DeveloperRecommendationsResponseBody data)?
         recommendationsSuccess,
-    TResult? Function(String error)? recommendationsError,
+    TResult? Function(ApiErrorModel apiErrorModel)? recommendationsError,
   }) {
     return recommendationsLoading?.call();
   }
@@ -292,7 +292,7 @@ class _$RecommendationsLoadingImpl implements RecommendationsLoading {
     TResult Function()? recommendationsLoading,
     TResult Function(DeveloperRecommendationsResponseBody data)?
         recommendationsSuccess,
-    TResult Function(String error)? recommendationsError,
+    TResult Function(ApiErrorModel apiErrorModel)? recommendationsError,
     required TResult orElse(),
   }) {
     if (recommendationsLoading != null) {
@@ -421,7 +421,7 @@ class _$RecommendationsSuccessImpl implements RecommendationsSuccess {
     required TResult Function() recommendationsLoading,
     required TResult Function(DeveloperRecommendationsResponseBody data)
         recommendationsSuccess,
-    required TResult Function(String error) recommendationsError,
+    required TResult Function(ApiErrorModel apiErrorModel) recommendationsError,
   }) {
     return recommendationsSuccess(data);
   }
@@ -433,7 +433,7 @@ class _$RecommendationsSuccessImpl implements RecommendationsSuccess {
     TResult? Function()? recommendationsLoading,
     TResult? Function(DeveloperRecommendationsResponseBody data)?
         recommendationsSuccess,
-    TResult? Function(String error)? recommendationsError,
+    TResult? Function(ApiErrorModel apiErrorModel)? recommendationsError,
   }) {
     return recommendationsSuccess?.call(data);
   }
@@ -445,7 +445,7 @@ class _$RecommendationsSuccessImpl implements RecommendationsSuccess {
     TResult Function()? recommendationsLoading,
     TResult Function(DeveloperRecommendationsResponseBody data)?
         recommendationsSuccess,
-    TResult Function(String error)? recommendationsError,
+    TResult Function(ApiErrorModel apiErrorModel)? recommendationsError,
     required TResult orElse(),
   }) {
     if (recommendationsSuccess != null) {
@@ -514,7 +514,7 @@ abstract class _$$RecommendationsErrorImplCopyWith<$Res> {
           $Res Function(_$RecommendationsErrorImpl) then) =
       __$$RecommendationsErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String error});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -531,13 +531,13 @@ class __$$RecommendationsErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$RecommendationsErrorImpl(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -545,14 +545,14 @@ class __$$RecommendationsErrorImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$RecommendationsErrorImpl implements RecommendationsError {
-  const _$RecommendationsErrorImpl({required this.error});
+  const _$RecommendationsErrorImpl(this.apiErrorModel);
 
   @override
-  final String error;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'DeveloperRecommendationsState.recommendationsError(error: $error)';
+    return 'DeveloperRecommendationsState.recommendationsError(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -560,11 +560,12 @@ class _$RecommendationsErrorImpl implements RecommendationsError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RecommendationsErrorImpl &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of DeveloperRecommendationsState
   /// with the given fields replaced by the non-null parameter values.
@@ -583,9 +584,9 @@ class _$RecommendationsErrorImpl implements RecommendationsError {
     required TResult Function() recommendationsLoading,
     required TResult Function(DeveloperRecommendationsResponseBody data)
         recommendationsSuccess,
-    required TResult Function(String error) recommendationsError,
+    required TResult Function(ApiErrorModel apiErrorModel) recommendationsError,
   }) {
-    return recommendationsError(error);
+    return recommendationsError(apiErrorModel);
   }
 
   @override
@@ -595,9 +596,9 @@ class _$RecommendationsErrorImpl implements RecommendationsError {
     TResult? Function()? recommendationsLoading,
     TResult? Function(DeveloperRecommendationsResponseBody data)?
         recommendationsSuccess,
-    TResult? Function(String error)? recommendationsError,
+    TResult? Function(ApiErrorModel apiErrorModel)? recommendationsError,
   }) {
-    return recommendationsError?.call(error);
+    return recommendationsError?.call(apiErrorModel);
   }
 
   @override
@@ -607,11 +608,11 @@ class _$RecommendationsErrorImpl implements RecommendationsError {
     TResult Function()? recommendationsLoading,
     TResult Function(DeveloperRecommendationsResponseBody data)?
         recommendationsSuccess,
-    TResult Function(String error)? recommendationsError,
+    TResult Function(ApiErrorModel apiErrorModel)? recommendationsError,
     required TResult orElse(),
   }) {
     if (recommendationsError != null) {
-      return recommendationsError(error);
+      return recommendationsError(apiErrorModel);
     }
     return orElse();
   }
@@ -657,10 +658,10 @@ class _$RecommendationsErrorImpl implements RecommendationsError {
 }
 
 abstract class RecommendationsError implements DeveloperRecommendationsState {
-  const factory RecommendationsError({required final String error}) =
+  const factory RecommendationsError(final ApiErrorModel apiErrorModel) =
       _$RecommendationsErrorImpl;
 
-  String get error;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of DeveloperRecommendationsState
   /// with the given fields replaced by the non-null parameter values.

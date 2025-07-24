@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../core/networking/api_error_handler.dart';
+import '../../../../../core/networking/api_error_model.dart';
 import '../data/model/conact_list_all_chats_response_body.dart';
 
 part 'contact_list_all_chats_state.freezed.dart';
@@ -16,6 +17,6 @@ class ContactListAllChatsState with _$ContactListAllChatsState {
   ) = ContactListAllChatsSuccess;
 
   const factory ContactListAllChatsState.error(
-    ErrorHandler errorHandler,
+      ApiErrorModel apiErrorModel
   ) = ContactListAllChatsError;
 }

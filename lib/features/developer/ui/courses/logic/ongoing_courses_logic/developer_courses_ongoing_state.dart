@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../../core/networking/api_error_model.dart';
 import '../../data/models/ongoing_courses/developer_courses_ongoing_response_body.dart';
 
 part 'developer_courses_ongoing_state.freezed.dart';
@@ -16,6 +17,6 @@ class DeveloperCoursesOngoingState with _$DeveloperCoursesOngoingState {
     List<DeveloperCoursesOngoingResponseBody> courses,
   ) = DeveloperCoursesOngoingSuccess;
 
-  const factory DeveloperCoursesOngoingState.error({required String error}) =
+  const factory DeveloperCoursesOngoingState.error(ApiErrorModel apiErrorModel) =
       DeveloperCoursesOngoingError;
 }

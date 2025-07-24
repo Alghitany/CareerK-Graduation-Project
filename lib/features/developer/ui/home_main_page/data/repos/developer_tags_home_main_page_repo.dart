@@ -15,7 +15,7 @@ class DeveloperTagsHomeMainPageRepo {
       final response = await _service.getDeveloperTracks();
       return ApiResult.success(response);
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ApiErrorHandler.handle(error));
     }
   }
 }

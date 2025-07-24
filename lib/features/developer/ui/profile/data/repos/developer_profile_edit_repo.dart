@@ -96,7 +96,7 @@ class DeveloperProfileEditRepo {
           DeveloperProfileEditResponse.fromJson(response.data);
       return ApiResult.success(developerProfileEditResponse);
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ApiErrorHandler.handle(error));
     }
   }
 }

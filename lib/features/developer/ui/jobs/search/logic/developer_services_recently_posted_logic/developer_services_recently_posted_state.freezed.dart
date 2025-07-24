@@ -23,7 +23,7 @@ mixin _$DeveloperServicesRecentlyPostedState {
     required TResult Function(
             List<DeveloperServicesRecentlyPostedResponseBody> data)
         recentlyPostedSuccess,
-    required TResult Function(String error) recentlyPostedError,
+    required TResult Function(ApiErrorModel apiErrorModel) recentlyPostedError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,7 +32,7 @@ mixin _$DeveloperServicesRecentlyPostedState {
     TResult? Function()? recentlyPostedLoading,
     TResult? Function(List<DeveloperServicesRecentlyPostedResponseBody> data)?
         recentlyPostedSuccess,
-    TResult? Function(String error)? recentlyPostedError,
+    TResult? Function(ApiErrorModel apiErrorModel)? recentlyPostedError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,7 +41,7 @@ mixin _$DeveloperServicesRecentlyPostedState {
     TResult Function()? recentlyPostedLoading,
     TResult Function(List<DeveloperServicesRecentlyPostedResponseBody> data)?
         recentlyPostedSuccess,
-    TResult Function(String error)? recentlyPostedError,
+    TResult Function(ApiErrorModel apiErrorModel)? recentlyPostedError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -144,7 +144,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(
             List<DeveloperServicesRecentlyPostedResponseBody> data)
         recentlyPostedSuccess,
-    required TResult Function(String error) recentlyPostedError,
+    required TResult Function(ApiErrorModel apiErrorModel) recentlyPostedError,
   }) {
     return initial();
   }
@@ -156,7 +156,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? recentlyPostedLoading,
     TResult? Function(List<DeveloperServicesRecentlyPostedResponseBody> data)?
         recentlyPostedSuccess,
-    TResult? Function(String error)? recentlyPostedError,
+    TResult? Function(ApiErrorModel apiErrorModel)? recentlyPostedError,
   }) {
     return initial?.call();
   }
@@ -168,7 +168,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? recentlyPostedLoading,
     TResult Function(List<DeveloperServicesRecentlyPostedResponseBody> data)?
         recentlyPostedSuccess,
-    TResult Function(String error)? recentlyPostedError,
+    TResult Function(ApiErrorModel apiErrorModel)? recentlyPostedError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -270,7 +270,7 @@ class _$RecentlyPostedLoadingImpl implements RecentlyPostedLoading {
     required TResult Function(
             List<DeveloperServicesRecentlyPostedResponseBody> data)
         recentlyPostedSuccess,
-    required TResult Function(String error) recentlyPostedError,
+    required TResult Function(ApiErrorModel apiErrorModel) recentlyPostedError,
   }) {
     return recentlyPostedLoading();
   }
@@ -282,7 +282,7 @@ class _$RecentlyPostedLoadingImpl implements RecentlyPostedLoading {
     TResult? Function()? recentlyPostedLoading,
     TResult? Function(List<DeveloperServicesRecentlyPostedResponseBody> data)?
         recentlyPostedSuccess,
-    TResult? Function(String error)? recentlyPostedError,
+    TResult? Function(ApiErrorModel apiErrorModel)? recentlyPostedError,
   }) {
     return recentlyPostedLoading?.call();
   }
@@ -294,7 +294,7 @@ class _$RecentlyPostedLoadingImpl implements RecentlyPostedLoading {
     TResult Function()? recentlyPostedLoading,
     TResult Function(List<DeveloperServicesRecentlyPostedResponseBody> data)?
         recentlyPostedSuccess,
-    TResult Function(String error)? recentlyPostedError,
+    TResult Function(ApiErrorModel apiErrorModel)? recentlyPostedError,
     required TResult orElse(),
   }) {
     if (recentlyPostedLoading != null) {
@@ -432,7 +432,7 @@ class _$RecentlyPostedSuccessImpl implements RecentlyPostedSuccess {
     required TResult Function(
             List<DeveloperServicesRecentlyPostedResponseBody> data)
         recentlyPostedSuccess,
-    required TResult Function(String error) recentlyPostedError,
+    required TResult Function(ApiErrorModel apiErrorModel) recentlyPostedError,
   }) {
     return recentlyPostedSuccess(data);
   }
@@ -444,7 +444,7 @@ class _$RecentlyPostedSuccessImpl implements RecentlyPostedSuccess {
     TResult? Function()? recentlyPostedLoading,
     TResult? Function(List<DeveloperServicesRecentlyPostedResponseBody> data)?
         recentlyPostedSuccess,
-    TResult? Function(String error)? recentlyPostedError,
+    TResult? Function(ApiErrorModel apiErrorModel)? recentlyPostedError,
   }) {
     return recentlyPostedSuccess?.call(data);
   }
@@ -456,7 +456,7 @@ class _$RecentlyPostedSuccessImpl implements RecentlyPostedSuccess {
     TResult Function()? recentlyPostedLoading,
     TResult Function(List<DeveloperServicesRecentlyPostedResponseBody> data)?
         recentlyPostedSuccess,
-    TResult Function(String error)? recentlyPostedError,
+    TResult Function(ApiErrorModel apiErrorModel)? recentlyPostedError,
     required TResult orElse(),
   }) {
     if (recentlyPostedSuccess != null) {
@@ -526,7 +526,7 @@ abstract class _$$RecentlyPostedErrorImplCopyWith<$Res> {
           $Res Function(_$RecentlyPostedErrorImpl) then) =
       __$$RecentlyPostedErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String error});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -543,13 +543,13 @@ class __$$RecentlyPostedErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$RecentlyPostedErrorImpl(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -557,14 +557,14 @@ class __$$RecentlyPostedErrorImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$RecentlyPostedErrorImpl implements RecentlyPostedError {
-  const _$RecentlyPostedErrorImpl({required this.error});
+  const _$RecentlyPostedErrorImpl(this.apiErrorModel);
 
   @override
-  final String error;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'DeveloperServicesRecentlyPostedState.recentlyPostedError(error: $error)';
+    return 'DeveloperServicesRecentlyPostedState.recentlyPostedError(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -572,11 +572,12 @@ class _$RecentlyPostedErrorImpl implements RecentlyPostedError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RecentlyPostedErrorImpl &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of DeveloperServicesRecentlyPostedState
   /// with the given fields replaced by the non-null parameter values.
@@ -595,9 +596,9 @@ class _$RecentlyPostedErrorImpl implements RecentlyPostedError {
     required TResult Function(
             List<DeveloperServicesRecentlyPostedResponseBody> data)
         recentlyPostedSuccess,
-    required TResult Function(String error) recentlyPostedError,
+    required TResult Function(ApiErrorModel apiErrorModel) recentlyPostedError,
   }) {
-    return recentlyPostedError(error);
+    return recentlyPostedError(apiErrorModel);
   }
 
   @override
@@ -607,9 +608,9 @@ class _$RecentlyPostedErrorImpl implements RecentlyPostedError {
     TResult? Function()? recentlyPostedLoading,
     TResult? Function(List<DeveloperServicesRecentlyPostedResponseBody> data)?
         recentlyPostedSuccess,
-    TResult? Function(String error)? recentlyPostedError,
+    TResult? Function(ApiErrorModel apiErrorModel)? recentlyPostedError,
   }) {
-    return recentlyPostedError?.call(error);
+    return recentlyPostedError?.call(apiErrorModel);
   }
 
   @override
@@ -619,11 +620,11 @@ class _$RecentlyPostedErrorImpl implements RecentlyPostedError {
     TResult Function()? recentlyPostedLoading,
     TResult Function(List<DeveloperServicesRecentlyPostedResponseBody> data)?
         recentlyPostedSuccess,
-    TResult Function(String error)? recentlyPostedError,
+    TResult Function(ApiErrorModel apiErrorModel)? recentlyPostedError,
     required TResult orElse(),
   }) {
     if (recentlyPostedError != null) {
-      return recentlyPostedError(error);
+      return recentlyPostedError(apiErrorModel);
     }
     return orElse();
   }
@@ -670,10 +671,10 @@ class _$RecentlyPostedErrorImpl implements RecentlyPostedError {
 
 abstract class RecentlyPostedError
     implements DeveloperServicesRecentlyPostedState {
-  const factory RecentlyPostedError({required final String error}) =
+  const factory RecentlyPostedError(final ApiErrorModel apiErrorModel) =
       _$RecentlyPostedErrorImpl;
 
-  String get error;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of DeveloperServicesRecentlyPostedState
   /// with the given fields replaced by the non-null parameter values.

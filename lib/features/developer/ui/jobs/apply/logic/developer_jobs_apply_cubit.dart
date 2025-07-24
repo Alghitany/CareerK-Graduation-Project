@@ -50,9 +50,9 @@ class DeveloperJobsApplyCubit extends Cubit<DeveloperJobsApplyState> {
 
     response.when(
       success: (res) => emit(DeveloperJobsApplyState.jobsApplySuccess(res)),
-      failure: (error) => emit(
+      failure: (apiErrorModel) => emit(
         DeveloperJobsApplyState.jobsApplyError(
-          error: error.apiErrorModel.message ?? 'Job application failed',
+            apiErrorModel
         ),
       ),
     );

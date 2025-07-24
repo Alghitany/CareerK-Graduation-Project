@@ -99,9 +99,9 @@ class DeveloperProfileEditCubit extends Cubit<DeveloperProfileEditState> {
         emit(DeveloperProfileEditState.editProfileSuccess(
             developerProfileEditResponse));
       },
-      failure: (error) {
+      failure: (apiErrorModel) {
         emit(DeveloperProfileEditState.editProfileError(
-            error: error.apiErrorModel.message ?? 'Edit failed'));
+            apiErrorModel));
       },
     );
   }

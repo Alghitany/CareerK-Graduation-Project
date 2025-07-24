@@ -21,7 +21,7 @@ mixin _$DeveloperCommunityTagsState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<String> tags) success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$DeveloperCommunityTagsState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<String> tags)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$DeveloperCommunityTagsState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<String> tags)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -141,7 +141,7 @@ class _$DeveloperCommunityTagsInitialImpl
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<String> tags) success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return initial();
   }
@@ -152,7 +152,7 @@ class _$DeveloperCommunityTagsInitialImpl
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<String> tags)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return initial?.call();
   }
@@ -163,7 +163,7 @@ class _$DeveloperCommunityTagsInitialImpl
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<String> tags)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -265,7 +265,7 @@ class _$DeveloperCommunityTagsLoadingImpl
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<String> tags) success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return loading();
   }
@@ -276,7 +276,7 @@ class _$DeveloperCommunityTagsLoadingImpl
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<String> tags)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return loading?.call();
   }
@@ -287,7 +287,7 @@ class _$DeveloperCommunityTagsLoadingImpl
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<String> tags)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -424,7 +424,7 @@ class _$DeveloperCommunityTagsSuccessImpl
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<String> tags) success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return success(tags);
   }
@@ -435,7 +435,7 @@ class _$DeveloperCommunityTagsSuccessImpl
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<String> tags)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return success?.call(tags);
   }
@@ -446,7 +446,7 @@ class _$DeveloperCommunityTagsSuccessImpl
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<String> tags)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -515,7 +515,7 @@ abstract class _$$DeveloperCommunityTagsErrorImplCopyWith<$Res> {
           $Res Function(_$DeveloperCommunityTagsErrorImpl) then) =
       __$$DeveloperCommunityTagsErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String error});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -533,13 +533,13 @@ class __$$DeveloperCommunityTagsErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$DeveloperCommunityTagsErrorImpl(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -547,14 +547,14 @@ class __$$DeveloperCommunityTagsErrorImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DeveloperCommunityTagsErrorImpl implements DeveloperCommunityTagsError {
-  const _$DeveloperCommunityTagsErrorImpl({required this.error});
+  const _$DeveloperCommunityTagsErrorImpl(this.apiErrorModel);
 
   @override
-  final String error;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'DeveloperCommunityTagsState.error(error: $error)';
+    return 'DeveloperCommunityTagsState.error(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -562,11 +562,12 @@ class _$DeveloperCommunityTagsErrorImpl implements DeveloperCommunityTagsError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeveloperCommunityTagsErrorImpl &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of DeveloperCommunityTagsState
   /// with the given fields replaced by the non-null parameter values.
@@ -583,9 +584,9 @@ class _$DeveloperCommunityTagsErrorImpl implements DeveloperCommunityTagsError {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<String> tags) success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
-    return error(this.error);
+    return error(apiErrorModel);
   }
 
   @override
@@ -594,9 +595,9 @@ class _$DeveloperCommunityTagsErrorImpl implements DeveloperCommunityTagsError {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<String> tags)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
-    return error?.call(this.error);
+    return error?.call(apiErrorModel);
   }
 
   @override
@@ -605,11 +606,11 @@ class _$DeveloperCommunityTagsErrorImpl implements DeveloperCommunityTagsError {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<String> tags)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(this.error);
+      return error(apiErrorModel);
     }
     return orElse();
   }
@@ -654,10 +655,10 @@ class _$DeveloperCommunityTagsErrorImpl implements DeveloperCommunityTagsError {
 
 abstract class DeveloperCommunityTagsError
     implements DeveloperCommunityTagsState {
-  const factory DeveloperCommunityTagsError({required final String error}) =
+  const factory DeveloperCommunityTagsError(final ApiErrorModel apiErrorModel) =
       _$DeveloperCommunityTagsErrorImpl;
 
-  String get error;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of DeveloperCommunityTagsState
   /// with the given fields replaced by the non-null parameter values.

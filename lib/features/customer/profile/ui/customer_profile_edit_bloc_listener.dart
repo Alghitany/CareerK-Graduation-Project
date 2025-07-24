@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../../core/theming/colors.dart';
 import '../../../../../../../core/theming/styles.dart';
+import '../../../../core/networking/api_error_model.dart';
 
 class CustomerProfileEditBlocListener extends StatelessWidget {
   const CustomerProfileEditBlocListener({super.key});
@@ -61,8 +62,8 @@ class CustomerProfileEditBlocListener extends StatelessWidget {
               ),
             );
           },
-          profileEditError: (error) {
-            setupErrorState(context, error);
+          profileEditError: (apiErrorModel) {
+            setupErrorState(context, apiErrorModel);
           },
         );
       },
@@ -70,7 +71,7 @@ class CustomerProfileEditBlocListener extends StatelessWidget {
     );
   }
 
-  void setupErrorState(BuildContext context, String error) {
+  void setupErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
     context.pop(); // dismiss loading
     showDialog(
       context: context,
@@ -81,7 +82,7 @@ class CustomerProfileEditBlocListener extends StatelessWidget {
           size: 32,
         ),
         content: Text(
-          error,
+          apiErrorModel.getAllErrorMessages(),
           style: AppTextStyles.font15GlaucousPoppinsSemiBold,
         ),
         actions: [

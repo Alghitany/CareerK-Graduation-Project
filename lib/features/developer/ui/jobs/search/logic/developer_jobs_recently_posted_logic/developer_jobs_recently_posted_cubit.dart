@@ -19,10 +19,9 @@ class DeveloperJobsRecentlyPostedCubit
       success: (data) => emit(
         DeveloperJobsRecentlyPostedState.recentlyPostedSuccess(data),
       ),
-      failure: (error) => emit(
+      failure: (apiErrorModel) => emit(
         DeveloperJobsRecentlyPostedState.recentlyPostedError(
-          error: error.apiErrorModel.message ??
-              'Failed to load recently posted jobs',
+            apiErrorModel
         ),
       ),
     );

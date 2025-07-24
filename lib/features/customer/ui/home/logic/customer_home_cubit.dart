@@ -18,10 +18,8 @@ class CustomerHomeCubit extends Cubit<CustomerHomeState> {
       success: (data) {
         emit(CustomerHomeState.success(data));
       },
-      failure: (error) {
-        emit(CustomerHomeState.error(
-          error: error.apiErrorModel.message ?? 'Something went wrong',
-        ));
+      failure: (apiErrorModel) {
+        emit(CustomerHomeState.error(apiErrorModel));
       },
     );
   }

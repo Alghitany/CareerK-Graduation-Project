@@ -22,7 +22,7 @@ mixin _$DeveloperNameHomeMainPageState {
     required TResult Function() developerNameLoading,
     required TResult Function(DeveloperNameHomeMainPageResponseBody data)
         developerNameSuccess,
-    required TResult Function(String error) developerNameError,
+    required TResult Function(ApiErrorModel apiErrorModel) developerNameError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,7 +31,7 @@ mixin _$DeveloperNameHomeMainPageState {
     TResult? Function()? developerNameLoading,
     TResult? Function(DeveloperNameHomeMainPageResponseBody data)?
         developerNameSuccess,
-    TResult? Function(String error)? developerNameError,
+    TResult? Function(ApiErrorModel apiErrorModel)? developerNameError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +40,7 @@ mixin _$DeveloperNameHomeMainPageState {
     TResult Function()? developerNameLoading,
     TResult Function(DeveloperNameHomeMainPageResponseBody data)?
         developerNameSuccess,
-    TResult Function(String error)? developerNameError,
+    TResult Function(ApiErrorModel apiErrorModel)? developerNameError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -140,7 +140,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() developerNameLoading,
     required TResult Function(DeveloperNameHomeMainPageResponseBody data)
         developerNameSuccess,
-    required TResult Function(String error) developerNameError,
+    required TResult Function(ApiErrorModel apiErrorModel) developerNameError,
   }) {
     return initial();
   }
@@ -152,7 +152,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? developerNameLoading,
     TResult? Function(DeveloperNameHomeMainPageResponseBody data)?
         developerNameSuccess,
-    TResult? Function(String error)? developerNameError,
+    TResult? Function(ApiErrorModel apiErrorModel)? developerNameError,
   }) {
     return initial?.call();
   }
@@ -164,7 +164,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? developerNameLoading,
     TResult Function(DeveloperNameHomeMainPageResponseBody data)?
         developerNameSuccess,
-    TResult Function(String error)? developerNameError,
+    TResult Function(ApiErrorModel apiErrorModel)? developerNameError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -262,7 +262,7 @@ class _$DeveloperNameLoadingImpl implements DeveloperNameLoading {
     required TResult Function() developerNameLoading,
     required TResult Function(DeveloperNameHomeMainPageResponseBody data)
         developerNameSuccess,
-    required TResult Function(String error) developerNameError,
+    required TResult Function(ApiErrorModel apiErrorModel) developerNameError,
   }) {
     return developerNameLoading();
   }
@@ -274,7 +274,7 @@ class _$DeveloperNameLoadingImpl implements DeveloperNameLoading {
     TResult? Function()? developerNameLoading,
     TResult? Function(DeveloperNameHomeMainPageResponseBody data)?
         developerNameSuccess,
-    TResult? Function(String error)? developerNameError,
+    TResult? Function(ApiErrorModel apiErrorModel)? developerNameError,
   }) {
     return developerNameLoading?.call();
   }
@@ -286,7 +286,7 @@ class _$DeveloperNameLoadingImpl implements DeveloperNameLoading {
     TResult Function()? developerNameLoading,
     TResult Function(DeveloperNameHomeMainPageResponseBody data)?
         developerNameSuccess,
-    TResult Function(String error)? developerNameError,
+    TResult Function(ApiErrorModel apiErrorModel)? developerNameError,
     required TResult orElse(),
   }) {
     if (developerNameLoading != null) {
@@ -412,7 +412,7 @@ class _$DeveloperNameSuccessImpl implements DeveloperNameSuccess {
     required TResult Function() developerNameLoading,
     required TResult Function(DeveloperNameHomeMainPageResponseBody data)
         developerNameSuccess,
-    required TResult Function(String error) developerNameError,
+    required TResult Function(ApiErrorModel apiErrorModel) developerNameError,
   }) {
     return developerNameSuccess(data);
   }
@@ -424,7 +424,7 @@ class _$DeveloperNameSuccessImpl implements DeveloperNameSuccess {
     TResult? Function()? developerNameLoading,
     TResult? Function(DeveloperNameHomeMainPageResponseBody data)?
         developerNameSuccess,
-    TResult? Function(String error)? developerNameError,
+    TResult? Function(ApiErrorModel apiErrorModel)? developerNameError,
   }) {
     return developerNameSuccess?.call(data);
   }
@@ -436,7 +436,7 @@ class _$DeveloperNameSuccessImpl implements DeveloperNameSuccess {
     TResult Function()? developerNameLoading,
     TResult Function(DeveloperNameHomeMainPageResponseBody data)?
         developerNameSuccess,
-    TResult Function(String error)? developerNameError,
+    TResult Function(ApiErrorModel apiErrorModel)? developerNameError,
     required TResult orElse(),
   }) {
     if (developerNameSuccess != null) {
@@ -503,7 +503,7 @@ abstract class _$$DeveloperNameErrorImplCopyWith<$Res> {
           $Res Function(_$DeveloperNameErrorImpl) then) =
       __$$DeveloperNameErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String error});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -520,13 +520,13 @@ class __$$DeveloperNameErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$DeveloperNameErrorImpl(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -534,14 +534,14 @@ class __$$DeveloperNameErrorImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DeveloperNameErrorImpl implements DeveloperNameError {
-  const _$DeveloperNameErrorImpl({required this.error});
+  const _$DeveloperNameErrorImpl(this.apiErrorModel);
 
   @override
-  final String error;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'DeveloperNameHomeMainPageState.developerNameError(error: $error)';
+    return 'DeveloperNameHomeMainPageState.developerNameError(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -549,11 +549,12 @@ class _$DeveloperNameErrorImpl implements DeveloperNameError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeveloperNameErrorImpl &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of DeveloperNameHomeMainPageState
   /// with the given fields replaced by the non-null parameter values.
@@ -571,9 +572,9 @@ class _$DeveloperNameErrorImpl implements DeveloperNameError {
     required TResult Function() developerNameLoading,
     required TResult Function(DeveloperNameHomeMainPageResponseBody data)
         developerNameSuccess,
-    required TResult Function(String error) developerNameError,
+    required TResult Function(ApiErrorModel apiErrorModel) developerNameError,
   }) {
-    return developerNameError(error);
+    return developerNameError(apiErrorModel);
   }
 
   @override
@@ -583,9 +584,9 @@ class _$DeveloperNameErrorImpl implements DeveloperNameError {
     TResult? Function()? developerNameLoading,
     TResult? Function(DeveloperNameHomeMainPageResponseBody data)?
         developerNameSuccess,
-    TResult? Function(String error)? developerNameError,
+    TResult? Function(ApiErrorModel apiErrorModel)? developerNameError,
   }) {
-    return developerNameError?.call(error);
+    return developerNameError?.call(apiErrorModel);
   }
 
   @override
@@ -595,11 +596,11 @@ class _$DeveloperNameErrorImpl implements DeveloperNameError {
     TResult Function()? developerNameLoading,
     TResult Function(DeveloperNameHomeMainPageResponseBody data)?
         developerNameSuccess,
-    TResult Function(String error)? developerNameError,
+    TResult Function(ApiErrorModel apiErrorModel)? developerNameError,
     required TResult orElse(),
   }) {
     if (developerNameError != null) {
-      return developerNameError(error);
+      return developerNameError(apiErrorModel);
     }
     return orElse();
   }
@@ -643,10 +644,10 @@ class _$DeveloperNameErrorImpl implements DeveloperNameError {
 }
 
 abstract class DeveloperNameError implements DeveloperNameHomeMainPageState {
-  const factory DeveloperNameError({required final String error}) =
+  const factory DeveloperNameError(final ApiErrorModel apiErrorModel) =
       _$DeveloperNameErrorImpl;
 
-  String get error;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of DeveloperNameHomeMainPageState
   /// with the given fields replaced by the non-null parameter values.

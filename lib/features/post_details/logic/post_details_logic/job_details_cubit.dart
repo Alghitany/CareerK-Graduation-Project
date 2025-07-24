@@ -15,10 +15,9 @@ class JobDetailsCubit extends Cubit<JobDetailsState> {
 
     response.when(
       success: (data) => emit(JobDetailsState.jobDetailsSuccess(data)),
-      failure: (error) => emit(
+      failure: (apiErrorModel) => emit(
         JobDetailsState.jobDetailsError(
-          error: error.apiErrorModel.message ?? 'Failed to load job details',
-        ),
+            apiErrorModel        ),
       ),
     );
   }

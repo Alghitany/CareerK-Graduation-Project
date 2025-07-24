@@ -23,7 +23,8 @@ mixin _$DeveloperCoursesHomeMainPageState {
     required TResult Function(
             List<DeveloperCoursesHomeMainPageResponseBody> data)
         developerCoursesSuccess,
-    required TResult Function(String error) developerCoursesError,
+    required TResult Function(ApiErrorModel apiErrorModel)
+        developerCoursesError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,7 +33,7 @@ mixin _$DeveloperCoursesHomeMainPageState {
     TResult? Function()? developerCoursesLoading,
     TResult? Function(List<DeveloperCoursesHomeMainPageResponseBody> data)?
         developerCoursesSuccess,
-    TResult? Function(String error)? developerCoursesError,
+    TResult? Function(ApiErrorModel apiErrorModel)? developerCoursesError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,7 +42,7 @@ mixin _$DeveloperCoursesHomeMainPageState {
     TResult Function()? developerCoursesLoading,
     TResult Function(List<DeveloperCoursesHomeMainPageResponseBody> data)?
         developerCoursesSuccess,
-    TResult Function(String error)? developerCoursesError,
+    TResult Function(ApiErrorModel apiErrorModel)? developerCoursesError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -145,7 +146,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function(
             List<DeveloperCoursesHomeMainPageResponseBody> data)
         developerCoursesSuccess,
-    required TResult Function(String error) developerCoursesError,
+    required TResult Function(ApiErrorModel apiErrorModel)
+        developerCoursesError,
   }) {
     return initial();
   }
@@ -157,7 +159,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? developerCoursesLoading,
     TResult? Function(List<DeveloperCoursesHomeMainPageResponseBody> data)?
         developerCoursesSuccess,
-    TResult? Function(String error)? developerCoursesError,
+    TResult? Function(ApiErrorModel apiErrorModel)? developerCoursesError,
   }) {
     return initial?.call();
   }
@@ -169,7 +171,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? developerCoursesLoading,
     TResult Function(List<DeveloperCoursesHomeMainPageResponseBody> data)?
         developerCoursesSuccess,
-    TResult Function(String error)? developerCoursesError,
+    TResult Function(ApiErrorModel apiErrorModel)? developerCoursesError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -273,7 +275,8 @@ class _$DeveloperCoursesLoadingImpl implements DeveloperCoursesLoading {
     required TResult Function(
             List<DeveloperCoursesHomeMainPageResponseBody> data)
         developerCoursesSuccess,
-    required TResult Function(String error) developerCoursesError,
+    required TResult Function(ApiErrorModel apiErrorModel)
+        developerCoursesError,
   }) {
     return developerCoursesLoading();
   }
@@ -285,7 +288,7 @@ class _$DeveloperCoursesLoadingImpl implements DeveloperCoursesLoading {
     TResult? Function()? developerCoursesLoading,
     TResult? Function(List<DeveloperCoursesHomeMainPageResponseBody> data)?
         developerCoursesSuccess,
-    TResult? Function(String error)? developerCoursesError,
+    TResult? Function(ApiErrorModel apiErrorModel)? developerCoursesError,
   }) {
     return developerCoursesLoading?.call();
   }
@@ -297,7 +300,7 @@ class _$DeveloperCoursesLoadingImpl implements DeveloperCoursesLoading {
     TResult Function()? developerCoursesLoading,
     TResult Function(List<DeveloperCoursesHomeMainPageResponseBody> data)?
         developerCoursesSuccess,
-    TResult Function(String error)? developerCoursesError,
+    TResult Function(ApiErrorModel apiErrorModel)? developerCoursesError,
     required TResult orElse(),
   }) {
     if (developerCoursesLoading != null) {
@@ -437,7 +440,8 @@ class _$DeveloperCoursesSuccessImpl implements DeveloperCoursesSuccess {
     required TResult Function(
             List<DeveloperCoursesHomeMainPageResponseBody> data)
         developerCoursesSuccess,
-    required TResult Function(String error) developerCoursesError,
+    required TResult Function(ApiErrorModel apiErrorModel)
+        developerCoursesError,
   }) {
     return developerCoursesSuccess(data);
   }
@@ -449,7 +453,7 @@ class _$DeveloperCoursesSuccessImpl implements DeveloperCoursesSuccess {
     TResult? Function()? developerCoursesLoading,
     TResult? Function(List<DeveloperCoursesHomeMainPageResponseBody> data)?
         developerCoursesSuccess,
-    TResult? Function(String error)? developerCoursesError,
+    TResult? Function(ApiErrorModel apiErrorModel)? developerCoursesError,
   }) {
     return developerCoursesSuccess?.call(data);
   }
@@ -461,7 +465,7 @@ class _$DeveloperCoursesSuccessImpl implements DeveloperCoursesSuccess {
     TResult Function()? developerCoursesLoading,
     TResult Function(List<DeveloperCoursesHomeMainPageResponseBody> data)?
         developerCoursesSuccess,
-    TResult Function(String error)? developerCoursesError,
+    TResult Function(ApiErrorModel apiErrorModel)? developerCoursesError,
     required TResult orElse(),
   }) {
     if (developerCoursesSuccess != null) {
@@ -533,7 +537,7 @@ abstract class _$$DeveloperCoursesErrorImplCopyWith<$Res> {
           $Res Function(_$DeveloperCoursesErrorImpl) then) =
       __$$DeveloperCoursesErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String error});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -550,13 +554,13 @@ class __$$DeveloperCoursesErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$DeveloperCoursesErrorImpl(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -564,14 +568,14 @@ class __$$DeveloperCoursesErrorImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DeveloperCoursesErrorImpl implements DeveloperCoursesError {
-  const _$DeveloperCoursesErrorImpl({required this.error});
+  const _$DeveloperCoursesErrorImpl(this.apiErrorModel);
 
   @override
-  final String error;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'DeveloperCoursesHomeMainPageState.developerCoursesError(error: $error)';
+    return 'DeveloperCoursesHomeMainPageState.developerCoursesError(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -579,11 +583,12 @@ class _$DeveloperCoursesErrorImpl implements DeveloperCoursesError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeveloperCoursesErrorImpl &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of DeveloperCoursesHomeMainPageState
   /// with the given fields replaced by the non-null parameter values.
@@ -602,9 +607,10 @@ class _$DeveloperCoursesErrorImpl implements DeveloperCoursesError {
     required TResult Function(
             List<DeveloperCoursesHomeMainPageResponseBody> data)
         developerCoursesSuccess,
-    required TResult Function(String error) developerCoursesError,
+    required TResult Function(ApiErrorModel apiErrorModel)
+        developerCoursesError,
   }) {
-    return developerCoursesError(error);
+    return developerCoursesError(apiErrorModel);
   }
 
   @override
@@ -614,9 +620,9 @@ class _$DeveloperCoursesErrorImpl implements DeveloperCoursesError {
     TResult? Function()? developerCoursesLoading,
     TResult? Function(List<DeveloperCoursesHomeMainPageResponseBody> data)?
         developerCoursesSuccess,
-    TResult? Function(String error)? developerCoursesError,
+    TResult? Function(ApiErrorModel apiErrorModel)? developerCoursesError,
   }) {
-    return developerCoursesError?.call(error);
+    return developerCoursesError?.call(apiErrorModel);
   }
 
   @override
@@ -626,11 +632,11 @@ class _$DeveloperCoursesErrorImpl implements DeveloperCoursesError {
     TResult Function()? developerCoursesLoading,
     TResult Function(List<DeveloperCoursesHomeMainPageResponseBody> data)?
         developerCoursesSuccess,
-    TResult Function(String error)? developerCoursesError,
+    TResult Function(ApiErrorModel apiErrorModel)? developerCoursesError,
     required TResult orElse(),
   }) {
     if (developerCoursesError != null) {
-      return developerCoursesError(error);
+      return developerCoursesError(apiErrorModel);
     }
     return orElse();
   }
@@ -678,10 +684,10 @@ class _$DeveloperCoursesErrorImpl implements DeveloperCoursesError {
 
 abstract class DeveloperCoursesError
     implements DeveloperCoursesHomeMainPageState {
-  const factory DeveloperCoursesError({required final String error}) =
+  const factory DeveloperCoursesError(final ApiErrorModel apiErrorModel) =
       _$DeveloperCoursesErrorImpl;
 
-  String get error;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of DeveloperCoursesHomeMainPageState
   /// with the given fields replaced by the non-null parameter values.

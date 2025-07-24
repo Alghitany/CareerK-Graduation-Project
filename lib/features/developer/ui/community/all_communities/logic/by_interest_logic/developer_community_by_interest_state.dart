@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../../../core/networking/api_error_model.dart';
 import '../../data/models/by_interest_models/developer_community_by_interest_response_body.dart';
 
 part 'developer_community_by_interest_state.freezed.dart';
@@ -18,5 +19,5 @@ class DeveloperCommunityByInterestState
   ) = DeveloperCommunityByInterestSuccess;
 
   const factory DeveloperCommunityByInterestState.error(
-      {required String error}) = DeveloperCommunityByInterestError;
+      ApiErrorModel apiErrorModel) = DeveloperCommunityByInterestError;
 }

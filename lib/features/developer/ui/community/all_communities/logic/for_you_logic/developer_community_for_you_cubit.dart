@@ -19,10 +19,9 @@ class DeveloperCommunityForYouCubit
       success: (result) {
         emit(DeveloperCommunityForYouState.success(result.groups));
       },
-      failure: (error) {
+      failure: (apiErrorModel) {
         emit(DeveloperCommunityForYouState.error(
-          error: error.apiErrorModel.message ?? "Failed to load communities",
-        ));
+            apiErrorModel        ));
       },
     );
   }

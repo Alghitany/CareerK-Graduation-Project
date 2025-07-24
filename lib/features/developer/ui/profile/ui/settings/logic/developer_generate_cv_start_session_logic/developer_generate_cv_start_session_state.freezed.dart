@@ -22,7 +22,7 @@ mixin _$DeveloperGenerateCVStartSessionState {
     required TResult Function() sessionStarting,
     required TResult Function(DeveloperGenerateCVStartSessionResponseBody data)
         sessionStartedSuccess,
-    required TResult Function(String error) sessionStartError,
+    required TResult Function(ApiErrorModel apiErrorModel) sessionStartError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,7 +31,7 @@ mixin _$DeveloperGenerateCVStartSessionState {
     TResult? Function()? sessionStarting,
     TResult? Function(DeveloperGenerateCVStartSessionResponseBody data)?
         sessionStartedSuccess,
-    TResult? Function(String error)? sessionStartError,
+    TResult? Function(ApiErrorModel apiErrorModel)? sessionStartError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +40,7 @@ mixin _$DeveloperGenerateCVStartSessionState {
     TResult Function()? sessionStarting,
     TResult Function(DeveloperGenerateCVStartSessionResponseBody data)?
         sessionStartedSuccess,
-    TResult Function(String error)? sessionStartError,
+    TResult Function(ApiErrorModel apiErrorModel)? sessionStartError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -141,7 +141,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() sessionStarting,
     required TResult Function(DeveloperGenerateCVStartSessionResponseBody data)
         sessionStartedSuccess,
-    required TResult Function(String error) sessionStartError,
+    required TResult Function(ApiErrorModel apiErrorModel) sessionStartError,
   }) {
     return initial();
   }
@@ -153,7 +153,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? sessionStarting,
     TResult? Function(DeveloperGenerateCVStartSessionResponseBody data)?
         sessionStartedSuccess,
-    TResult? Function(String error)? sessionStartError,
+    TResult? Function(ApiErrorModel apiErrorModel)? sessionStartError,
   }) {
     return initial?.call();
   }
@@ -165,7 +165,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? sessionStarting,
     TResult Function(DeveloperGenerateCVStartSessionResponseBody data)?
         sessionStartedSuccess,
-    TResult Function(String error)? sessionStartError,
+    TResult Function(ApiErrorModel apiErrorModel)? sessionStartError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -262,7 +262,7 @@ class _$SessionStartingImpl implements SessionStarting {
     required TResult Function() sessionStarting,
     required TResult Function(DeveloperGenerateCVStartSessionResponseBody data)
         sessionStartedSuccess,
-    required TResult Function(String error) sessionStartError,
+    required TResult Function(ApiErrorModel apiErrorModel) sessionStartError,
   }) {
     return sessionStarting();
   }
@@ -274,7 +274,7 @@ class _$SessionStartingImpl implements SessionStarting {
     TResult? Function()? sessionStarting,
     TResult? Function(DeveloperGenerateCVStartSessionResponseBody data)?
         sessionStartedSuccess,
-    TResult? Function(String error)? sessionStartError,
+    TResult? Function(ApiErrorModel apiErrorModel)? sessionStartError,
   }) {
     return sessionStarting?.call();
   }
@@ -286,7 +286,7 @@ class _$SessionStartingImpl implements SessionStarting {
     TResult Function()? sessionStarting,
     TResult Function(DeveloperGenerateCVStartSessionResponseBody data)?
         sessionStartedSuccess,
-    TResult Function(String error)? sessionStartError,
+    TResult Function(ApiErrorModel apiErrorModel)? sessionStartError,
     required TResult orElse(),
   }) {
     if (sessionStarting != null) {
@@ -413,7 +413,7 @@ class _$SessionStartedSuccessImpl implements SessionStartedSuccess {
     required TResult Function() sessionStarting,
     required TResult Function(DeveloperGenerateCVStartSessionResponseBody data)
         sessionStartedSuccess,
-    required TResult Function(String error) sessionStartError,
+    required TResult Function(ApiErrorModel apiErrorModel) sessionStartError,
   }) {
     return sessionStartedSuccess(data);
   }
@@ -425,7 +425,7 @@ class _$SessionStartedSuccessImpl implements SessionStartedSuccess {
     TResult? Function()? sessionStarting,
     TResult? Function(DeveloperGenerateCVStartSessionResponseBody data)?
         sessionStartedSuccess,
-    TResult? Function(String error)? sessionStartError,
+    TResult? Function(ApiErrorModel apiErrorModel)? sessionStartError,
   }) {
     return sessionStartedSuccess?.call(data);
   }
@@ -437,7 +437,7 @@ class _$SessionStartedSuccessImpl implements SessionStartedSuccess {
     TResult Function()? sessionStarting,
     TResult Function(DeveloperGenerateCVStartSessionResponseBody data)?
         sessionStartedSuccess,
-    TResult Function(String error)? sessionStartError,
+    TResult Function(ApiErrorModel apiErrorModel)? sessionStartError,
     required TResult orElse(),
   }) {
     if (sessionStartedSuccess != null) {
@@ -506,7 +506,7 @@ abstract class _$$SessionStartErrorImplCopyWith<$Res> {
           $Res Function(_$SessionStartErrorImpl) then) =
       __$$SessionStartErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String error});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -523,13 +523,13 @@ class __$$SessionStartErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$SessionStartErrorImpl(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -537,14 +537,14 @@ class __$$SessionStartErrorImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SessionStartErrorImpl implements SessionStartError {
-  const _$SessionStartErrorImpl({required this.error});
+  const _$SessionStartErrorImpl(this.apiErrorModel);
 
   @override
-  final String error;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'DeveloperGenerateCVStartSessionState.sessionStartError(error: $error)';
+    return 'DeveloperGenerateCVStartSessionState.sessionStartError(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -552,11 +552,12 @@ class _$SessionStartErrorImpl implements SessionStartError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SessionStartErrorImpl &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of DeveloperGenerateCVStartSessionState
   /// with the given fields replaced by the non-null parameter values.
@@ -574,9 +575,9 @@ class _$SessionStartErrorImpl implements SessionStartError {
     required TResult Function() sessionStarting,
     required TResult Function(DeveloperGenerateCVStartSessionResponseBody data)
         sessionStartedSuccess,
-    required TResult Function(String error) sessionStartError,
+    required TResult Function(ApiErrorModel apiErrorModel) sessionStartError,
   }) {
-    return sessionStartError(error);
+    return sessionStartError(apiErrorModel);
   }
 
   @override
@@ -586,9 +587,9 @@ class _$SessionStartErrorImpl implements SessionStartError {
     TResult? Function()? sessionStarting,
     TResult? Function(DeveloperGenerateCVStartSessionResponseBody data)?
         sessionStartedSuccess,
-    TResult? Function(String error)? sessionStartError,
+    TResult? Function(ApiErrorModel apiErrorModel)? sessionStartError,
   }) {
-    return sessionStartError?.call(error);
+    return sessionStartError?.call(apiErrorModel);
   }
 
   @override
@@ -598,11 +599,11 @@ class _$SessionStartErrorImpl implements SessionStartError {
     TResult Function()? sessionStarting,
     TResult Function(DeveloperGenerateCVStartSessionResponseBody data)?
         sessionStartedSuccess,
-    TResult Function(String error)? sessionStartError,
+    TResult Function(ApiErrorModel apiErrorModel)? sessionStartError,
     required TResult orElse(),
   }) {
     if (sessionStartError != null) {
-      return sessionStartError(error);
+      return sessionStartError(apiErrorModel);
     }
     return orElse();
   }
@@ -648,10 +649,10 @@ class _$SessionStartErrorImpl implements SessionStartError {
 
 abstract class SessionStartError
     implements DeveloperGenerateCVStartSessionState {
-  const factory SessionStartError({required final String error}) =
+  const factory SessionStartError(final ApiErrorModel apiErrorModel) =
       _$SessionStartErrorImpl;
 
-  String get error;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of DeveloperGenerateCVStartSessionState
   /// with the given fields replaced by the non-null parameter values.

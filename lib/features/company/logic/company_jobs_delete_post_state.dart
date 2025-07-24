@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../core/networking/api_error_model.dart';
+
 part 'company_jobs_delete_post_state.freezed.dart';
 
 @freezed
@@ -11,7 +13,5 @@ class CompanyJobsDeletePostState<T> with _$CompanyJobsDeletePostState<T> {
   const factory CompanyJobsDeletePostState.deleteSuccess(T data) =
       DeleteSuccess<T>;
 
-  const factory CompanyJobsDeletePostState.deleteError({
-    required String error,
-  }) = DeleteError;
+  const factory CompanyJobsDeletePostState.deleteError(ApiErrorModel apiErrorModel) = DeleteError;
 }

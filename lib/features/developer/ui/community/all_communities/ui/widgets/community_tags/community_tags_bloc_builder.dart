@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../../../core/networking/api_error_model.dart';
 import '../../../logic/community_tags_logic/developer_community_tags_cubit.dart';
 import '../../../logic/community_tags_logic/developer_community_tags_state.dart';
 import 'by_interest_chips_list.dart';
@@ -31,7 +32,7 @@ class _CommunityTagsBlocBuilderState extends State<CommunityTagsBlocBuilder> {
         return state.maybeWhen(
           loading: () => const ByInterestChipsListShimmer(),
           success: (tags) => _buildSuccess(tags),
-          error: (error) => _buildError(error),
+          error: (apiErrorModel) => _buildError(apiErrorModel),
           orElse: () => const SizedBox.shrink(),
         );
       },
@@ -52,7 +53,7 @@ class _CommunityTagsBlocBuilderState extends State<CommunityTagsBlocBuilder> {
     );
   }
 
-  Widget _buildError(String error) {
-    return Center(child: Text("Error: $error"));
+  Widget _buildError(ApiErrorModel apiErrorModel) {
+    return Center(child: Text("Error: ${apiErrorModel.getAllErrorMessages()}"));
   }
 }

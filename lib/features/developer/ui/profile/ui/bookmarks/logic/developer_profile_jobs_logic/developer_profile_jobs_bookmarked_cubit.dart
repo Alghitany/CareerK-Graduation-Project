@@ -20,9 +20,9 @@ class DeveloperProfileJobsBookmarkedCubit
         // data is expected to be List<DeveloperProfileJobsBookmarkedResponseBody>
         emit(DeveloperProfileJobsBookmarkedState.success(data));
       },
-      failure: (errorHandler) {
+      failure: (apiErrorModel) {
         emit(DeveloperProfileJobsBookmarkedState.error(
-          error: errorHandler.apiErrorModel.message,
+            apiErrorModel
         ));
       },
     );

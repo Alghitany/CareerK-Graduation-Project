@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import '../../../../../../core/networking/api_error_model.dart';
 import '../../data/model/reject_applications_model/reject_application_response.dart';
 
 part 'reject_applications_state.freezed.dart'; // ✅ fixed to match your file name
@@ -9,5 +10,5 @@ class RejectApplicationState with _$RejectApplicationState {
   const factory RejectApplicationState.loading() = Loading;
   const factory RejectApplicationState.success(
       RejectApplicationResponseBody data) = Success;
-  const factory RejectApplicationState.error({required String error}) = Error;
+  const factory RejectApplicationState.error(ApiErrorModel apiErrorModel) = Error;
 }

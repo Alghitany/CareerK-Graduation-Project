@@ -21,10 +21,10 @@ class GetChatMessagesCubit extends Cubit<GetChatMessagesState> {
         debugPrint('✅ Initial messages fetched: ${data.messages.length}');
         emit(GetChatMessagesState.success(data));
       },
-      failure: (error) {
-        debugPrint('❌ Error fetching messages: ${error.apiErrorModel.message}');
+      failure: (apiErrorModel) {
+        debugPrint('❌ Error fetching messages: $apiErrorModel');
         emit(GetChatMessagesState.error(
-          error: error.apiErrorModel.message ?? 'Unknown error',
+          apiErrorModel
         ));
       },
     );

@@ -15,7 +15,7 @@ class DeveloperJobWithdrawRepo {
       final response = await _service.deleteJobApplication(applicationId);
       return ApiResult.success(response);
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ApiErrorHandler.handle(error));
     }
   }
 }

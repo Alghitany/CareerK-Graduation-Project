@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../core/routing/routes.dart';
 import '../../../../../../core/theming/colors.dart';
+import '../../../../../core/networking/api_error_model.dart';
 
 class JobsPostBlocListener extends StatelessWidget {
   const JobsPostBlocListener({super.key});
@@ -36,8 +37,8 @@ class JobsPostBlocListener extends StatelessWidget {
               arguments: AppArgument(jobId: data.job!.id!),
             );
           },
-          error: (errorMessage) {
-            setupErrorState(context, errorMessage);
+          error: (apiErrorModel) {
+            setupErrorState(context, apiErrorModel);
           },
         );
       },
@@ -45,7 +46,7 @@ class JobsPostBlocListener extends StatelessWidget {
     );
   }
 
-  void setupErrorState(BuildContext context, String error) {
+  void setupErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
     context.pop(); // remove loading
     showDialog(
       context: context,
@@ -56,7 +57,7 @@ class JobsPostBlocListener extends StatelessWidget {
           size: 32,
         ),
         content: Text(
-          error,
+          apiErrorModel.getAllErrorMessages(),
           style: AppTextStyles.font15GlaucousPoppinsSemiBold,
         ),
         actions: [

@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../../core/networking/api_error_model.dart';
 import '../../data/models/company_profile_all_jobs_posts_models/company_profile_all_job_posts_response_body.dart';
 
 part 'company_profile_all_job_posts_state.freezed.dart';
@@ -16,7 +17,5 @@ class CompanyProfileAllJobPostsState with _$CompanyProfileAllJobPostsState {
     CompanyProfileAllJobPostsResponseBody response,
   ) = CompanyProfileAllJobPostsSuccess;
 
-  const factory CompanyProfileAllJobPostsState.error({
-    required String error,
-  }) = CompanyProfileAllJobPostsError;
+  const factory CompanyProfileAllJobPostsState.error(ApiErrorModel apiErrorModel) = CompanyProfileAllJobPostsError;
 }

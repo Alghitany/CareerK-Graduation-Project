@@ -2,6 +2,7 @@ import 'package:carrerk/core/helpers/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../../core/networking/api_error_model.dart';
 import '../../../../../../../core/routing/routes.dart';
 import '../../../../../../../core/theming/colors.dart';
 import '../../../../../../../core/theming/styles.dart';
@@ -34,8 +35,8 @@ class CompanySignupBlocListener extends StatelessWidget {
             context.pop(); // close loading
             showSuccessDialog(context);
           },
-          companySignupError: (error) {
-            setupErrorState(context, error);
+          companySignupError: (apiErrorModel) {
+            setupErrorState(context, apiErrorModel);
           },
         );
       },
@@ -75,7 +76,7 @@ class CompanySignupBlocListener extends StatelessWidget {
     );
   }
 
-  void setupErrorState(BuildContext context, String error) {
+  void setupErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
     context.pop(); // close loading
     showDialog(
       context: context,
@@ -86,7 +87,7 @@ class CompanySignupBlocListener extends StatelessWidget {
           size: 32,
         ),
         content: Text(
-          error,
+          apiErrorModel.getAllErrorMessages(),
           style: AppTextStyles.font15GlaucousPoppinsSemiBold,
         ),
         actions: [

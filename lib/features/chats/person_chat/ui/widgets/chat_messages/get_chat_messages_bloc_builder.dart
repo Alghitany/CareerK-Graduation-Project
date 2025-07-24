@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../core/networking/api_error_model.dart';
 import '../../../data/models/get_chat_messages/get_chat_messages_response_body.dart';
 import '../../../logic/get_chat_messages/get_chat_messages_cubit.dart';
 import '../../../logic/get_chat_messages/get_chat_messages_state.dart';
@@ -28,7 +29,7 @@ class GetChatMessagesBlocBuilder extends StatelessWidget {
                 "🟢 Chat UI rebuilt with ${data.messages.length} messages");
             return _setupSuccess(data.messages);
           },
-          error: (error) => _setupError(error),
+          error: (apiErrorModel) => _setupError(apiErrorModel),
           orElse: () {
             debugPrint("⚪️ No state matched, showing empty view");
             return const SizedBox.shrink();
@@ -50,7 +51,7 @@ class GetChatMessagesBlocBuilder extends StatelessWidget {
     );
   }
 
-  Widget _setupError(String error) {
-    return Center(child: Text("❌ $error"));
+  Widget _setupError(ApiErrorModel apiErrorModel) {
+    return Center(child: Text("❌ ${apiErrorModel.getAllErrorMessages()}"));
   }
 }

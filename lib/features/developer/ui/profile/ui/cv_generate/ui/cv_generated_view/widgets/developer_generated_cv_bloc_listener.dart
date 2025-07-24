@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../../../../core/networking/api_error_model.dart';
 import '../../../../../../../../../core/theming/colors.dart';
 import '../../../../../../../../../core/theming/styles.dart';
 import '../../../logic/generate_logic/developer_profile_cv_generate_generated_cubit.dart';
@@ -30,8 +31,8 @@ class DeveloperGeneratedCVBlocListener extends StatelessWidget {
           success: (response) {
             Navigator.of(context, rootNavigator: true).pop(); // Close loading
           },
-          error: (error) {
-            _showErrorDialog(context, error);
+          error: (apiErrorModel) {
+            _showErrorDialog(context, apiErrorModel);
           },
         );
       },
@@ -39,7 +40,7 @@ class DeveloperGeneratedCVBlocListener extends StatelessWidget {
     );
   }
 
-  void _showErrorDialog(BuildContext context, String error) {
+  void _showErrorDialog(BuildContext context, ApiErrorModel apiErrorModel) {
     Navigator.of(context, rootNavigator: true).pop(); // Close loading
     showDialog(
       context: context,
@@ -50,7 +51,7 @@ class DeveloperGeneratedCVBlocListener extends StatelessWidget {
           size: 32,
         ),
         content: Text(
-          error,
+          apiErrorModel.getAllErrorMessages(),
           style: AppTextStyles.font15GlaucousPoppinsSemiBold,
         ),
         actions: [

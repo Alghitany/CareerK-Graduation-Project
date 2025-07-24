@@ -21,7 +21,7 @@ mixin _$CustomerProfileInfoState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(CustomerProfileInfoResponseBody response) success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$CustomerProfileInfoState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(CustomerProfileInfoResponseBody response)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$CustomerProfileInfoState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(CustomerProfileInfoResponseBody response)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -138,7 +138,7 @@ class _$CustomerProfileInfoInitialImpl implements _CustomerProfileInfoInitial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(CustomerProfileInfoResponseBody response) success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return initial();
   }
@@ -149,7 +149,7 @@ class _$CustomerProfileInfoInitialImpl implements _CustomerProfileInfoInitial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(CustomerProfileInfoResponseBody response)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return initial?.call();
   }
@@ -160,7 +160,7 @@ class _$CustomerProfileInfoInitialImpl implements _CustomerProfileInfoInitial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(CustomerProfileInfoResponseBody response)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -260,7 +260,7 @@ class _$CustomerProfileInfoLoadingImpl implements CustomerProfileInfoLoading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(CustomerProfileInfoResponseBody response) success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return loading();
   }
@@ -271,7 +271,7 @@ class _$CustomerProfileInfoLoadingImpl implements CustomerProfileInfoLoading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(CustomerProfileInfoResponseBody response)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return loading?.call();
   }
@@ -282,7 +282,7 @@ class _$CustomerProfileInfoLoadingImpl implements CustomerProfileInfoLoading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(CustomerProfileInfoResponseBody response)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -409,7 +409,7 @@ class _$CustomerProfileInfoSuccessImpl implements CustomerProfileInfoSuccess {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(CustomerProfileInfoResponseBody response) success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return success(response);
   }
@@ -420,7 +420,7 @@ class _$CustomerProfileInfoSuccessImpl implements CustomerProfileInfoSuccess {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(CustomerProfileInfoResponseBody response)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return success?.call(response);
   }
@@ -431,7 +431,7 @@ class _$CustomerProfileInfoSuccessImpl implements CustomerProfileInfoSuccess {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(CustomerProfileInfoResponseBody response)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -499,7 +499,7 @@ abstract class _$$CustomerProfileInfoErrorImplCopyWith<$Res> {
           $Res Function(_$CustomerProfileInfoErrorImpl) then) =
       __$$CustomerProfileInfoErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String error});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -517,13 +517,13 @@ class __$$CustomerProfileInfoErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$CustomerProfileInfoErrorImpl(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -531,14 +531,14 @@ class __$$CustomerProfileInfoErrorImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CustomerProfileInfoErrorImpl implements CustomerProfileInfoError {
-  const _$CustomerProfileInfoErrorImpl({required this.error});
+  const _$CustomerProfileInfoErrorImpl(this.apiErrorModel);
 
   @override
-  final String error;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'CustomerProfileInfoState.error(error: $error)';
+    return 'CustomerProfileInfoState.error(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -546,11 +546,12 @@ class _$CustomerProfileInfoErrorImpl implements CustomerProfileInfoError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CustomerProfileInfoErrorImpl &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of CustomerProfileInfoState
   /// with the given fields replaced by the non-null parameter values.
@@ -567,9 +568,9 @@ class _$CustomerProfileInfoErrorImpl implements CustomerProfileInfoError {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(CustomerProfileInfoResponseBody response) success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
-    return error(this.error);
+    return error(apiErrorModel);
   }
 
   @override
@@ -578,9 +579,9 @@ class _$CustomerProfileInfoErrorImpl implements CustomerProfileInfoError {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(CustomerProfileInfoResponseBody response)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
-    return error?.call(this.error);
+    return error?.call(apiErrorModel);
   }
 
   @override
@@ -589,11 +590,11 @@ class _$CustomerProfileInfoErrorImpl implements CustomerProfileInfoError {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(CustomerProfileInfoResponseBody response)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(this.error);
+      return error(apiErrorModel);
     }
     return orElse();
   }
@@ -637,10 +638,10 @@ class _$CustomerProfileInfoErrorImpl implements CustomerProfileInfoError {
 }
 
 abstract class CustomerProfileInfoError implements CustomerProfileInfoState {
-  const factory CustomerProfileInfoError({required final String error}) =
+  const factory CustomerProfileInfoError(final ApiErrorModel apiErrorModel) =
       _$CustomerProfileInfoErrorImpl;
 
-  String get error;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of CustomerProfileInfoState
   /// with the given fields replaced by the non-null parameter values.

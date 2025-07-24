@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../../core/networking/api_error_handler.dart';
+import '../../../../../../core/networking/api_error_model.dart';
 import '../../data/models/company_profile_applicants_number_models/company_profile_applicants_number_response_body.dart';
 
 part 'company_profile_applicants_number_state.freezed.dart';
@@ -19,6 +20,5 @@ class CompanyProfileApplicantsNumberState
   ) = CompanyProfileApplicantsNumberSuccess;
 
   const factory CompanyProfileApplicantsNumberState.error(
-    ErrorHandler errorHandler,
-  ) = CompanyProfileApplicantsNumberError;
+ApiErrorModel apiErrorModel  ) = CompanyProfileApplicantsNumberError;
 }

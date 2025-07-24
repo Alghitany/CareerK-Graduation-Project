@@ -19,9 +19,9 @@ class StartChatRoomCubit extends Cubit<StartChatRoomState> {
       success: (StartChatRoomResponse response) {
         emit(StartChatRoomState.success(response));
       },
-      failure: (error) {
+      failure: (apiErrorModel) {
         emit(StartChatRoomState.error(
-          error: error.apiErrorModel.message ?? 'Unknown error',
+            apiErrorModel
         ));
       },
     );

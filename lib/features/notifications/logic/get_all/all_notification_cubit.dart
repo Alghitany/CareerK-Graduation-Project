@@ -17,8 +17,8 @@ class AllNotificationCubit extends Cubit<AllNotificationState> {
       success: (notifications) {
         emit(AllNotificationState.success(notifications));
       },
-      failure: (errorHandler) {
-        emit(AllNotificationState.error(errorHandler));
+      failure: (apiErrorModel) {
+        emit(AllNotificationState.error(apiErrorModel));
       },
     );
   }

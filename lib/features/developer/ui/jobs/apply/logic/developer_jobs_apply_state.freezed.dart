@@ -21,7 +21,7 @@ mixin _$DeveloperJobsApplyState<T> {
     required TResult Function() initial,
     required TResult Function() jobsApplyLoading,
     required TResult Function(T data) jobsApplySuccess,
-    required TResult Function(String error) jobsApplyError,
+    required TResult Function(ApiErrorModel apiErrorModel) jobsApplyError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$DeveloperJobsApplyState<T> {
     TResult? Function()? initial,
     TResult? Function()? jobsApplyLoading,
     TResult? Function(T data)? jobsApplySuccess,
-    TResult? Function(String error)? jobsApplyError,
+    TResult? Function(ApiErrorModel apiErrorModel)? jobsApplyError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$DeveloperJobsApplyState<T> {
     TResult Function()? initial,
     TResult Function()? jobsApplyLoading,
     TResult Function(T data)? jobsApplySuccess,
-    TResult Function(String error)? jobsApplyError,
+    TResult Function(ApiErrorModel apiErrorModel)? jobsApplyError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -135,7 +135,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() initial,
     required TResult Function() jobsApplyLoading,
     required TResult Function(T data) jobsApplySuccess,
-    required TResult Function(String error) jobsApplyError,
+    required TResult Function(ApiErrorModel apiErrorModel) jobsApplyError,
   }) {
     return initial();
   }
@@ -146,7 +146,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? initial,
     TResult? Function()? jobsApplyLoading,
     TResult? Function(T data)? jobsApplySuccess,
-    TResult? Function(String error)? jobsApplyError,
+    TResult? Function(ApiErrorModel apiErrorModel)? jobsApplyError,
   }) {
     return initial?.call();
   }
@@ -157,7 +157,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? initial,
     TResult Function()? jobsApplyLoading,
     TResult Function(T data)? jobsApplySuccess,
-    TResult Function(String error)? jobsApplyError,
+    TResult Function(ApiErrorModel apiErrorModel)? jobsApplyError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -254,7 +254,7 @@ class _$JobsApplyLoadingImpl<T> implements JobsApplyLoading<T> {
     required TResult Function() initial,
     required TResult Function() jobsApplyLoading,
     required TResult Function(T data) jobsApplySuccess,
-    required TResult Function(String error) jobsApplyError,
+    required TResult Function(ApiErrorModel apiErrorModel) jobsApplyError,
   }) {
     return jobsApplyLoading();
   }
@@ -265,7 +265,7 @@ class _$JobsApplyLoadingImpl<T> implements JobsApplyLoading<T> {
     TResult? Function()? initial,
     TResult? Function()? jobsApplyLoading,
     TResult? Function(T data)? jobsApplySuccess,
-    TResult? Function(String error)? jobsApplyError,
+    TResult? Function(ApiErrorModel apiErrorModel)? jobsApplyError,
   }) {
     return jobsApplyLoading?.call();
   }
@@ -276,7 +276,7 @@ class _$JobsApplyLoadingImpl<T> implements JobsApplyLoading<T> {
     TResult Function()? initial,
     TResult Function()? jobsApplyLoading,
     TResult Function(T data)? jobsApplySuccess,
-    TResult Function(String error)? jobsApplyError,
+    TResult Function(ApiErrorModel apiErrorModel)? jobsApplyError,
     required TResult orElse(),
   }) {
     if (jobsApplyLoading != null) {
@@ -401,7 +401,7 @@ class _$JobsApplySuccessImpl<T> implements JobsApplySuccess<T> {
     required TResult Function() initial,
     required TResult Function() jobsApplyLoading,
     required TResult Function(T data) jobsApplySuccess,
-    required TResult Function(String error) jobsApplyError,
+    required TResult Function(ApiErrorModel apiErrorModel) jobsApplyError,
   }) {
     return jobsApplySuccess(data);
   }
@@ -412,7 +412,7 @@ class _$JobsApplySuccessImpl<T> implements JobsApplySuccess<T> {
     TResult? Function()? initial,
     TResult? Function()? jobsApplyLoading,
     TResult? Function(T data)? jobsApplySuccess,
-    TResult? Function(String error)? jobsApplyError,
+    TResult? Function(ApiErrorModel apiErrorModel)? jobsApplyError,
   }) {
     return jobsApplySuccess?.call(data);
   }
@@ -423,7 +423,7 @@ class _$JobsApplySuccessImpl<T> implements JobsApplySuccess<T> {
     TResult Function()? initial,
     TResult Function()? jobsApplyLoading,
     TResult Function(T data)? jobsApplySuccess,
-    TResult Function(String error)? jobsApplyError,
+    TResult Function(ApiErrorModel apiErrorModel)? jobsApplyError,
     required TResult orElse(),
   }) {
     if (jobsApplySuccess != null) {
@@ -488,7 +488,7 @@ abstract class _$$JobsApplyErrorImplCopyWith<T, $Res> {
           $Res Function(_$JobsApplyErrorImpl<T>) then) =
       __$$JobsApplyErrorImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({String error});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -505,13 +505,13 @@ class __$$JobsApplyErrorImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$JobsApplyErrorImpl<T>(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -519,14 +519,14 @@ class __$$JobsApplyErrorImplCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$JobsApplyErrorImpl<T> implements JobsApplyError<T> {
-  const _$JobsApplyErrorImpl({required this.error});
+  const _$JobsApplyErrorImpl(this.apiErrorModel);
 
   @override
-  final String error;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'DeveloperJobsApplyState<$T>.jobsApplyError(error: $error)';
+    return 'DeveloperJobsApplyState<$T>.jobsApplyError(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -534,11 +534,12 @@ class _$JobsApplyErrorImpl<T> implements JobsApplyError<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$JobsApplyErrorImpl<T> &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of DeveloperJobsApplyState
   /// with the given fields replaced by the non-null parameter values.
@@ -555,9 +556,9 @@ class _$JobsApplyErrorImpl<T> implements JobsApplyError<T> {
     required TResult Function() initial,
     required TResult Function() jobsApplyLoading,
     required TResult Function(T data) jobsApplySuccess,
-    required TResult Function(String error) jobsApplyError,
+    required TResult Function(ApiErrorModel apiErrorModel) jobsApplyError,
   }) {
-    return jobsApplyError(error);
+    return jobsApplyError(apiErrorModel);
   }
 
   @override
@@ -566,9 +567,9 @@ class _$JobsApplyErrorImpl<T> implements JobsApplyError<T> {
     TResult? Function()? initial,
     TResult? Function()? jobsApplyLoading,
     TResult? Function(T data)? jobsApplySuccess,
-    TResult? Function(String error)? jobsApplyError,
+    TResult? Function(ApiErrorModel apiErrorModel)? jobsApplyError,
   }) {
-    return jobsApplyError?.call(error);
+    return jobsApplyError?.call(apiErrorModel);
   }
 
   @override
@@ -577,11 +578,11 @@ class _$JobsApplyErrorImpl<T> implements JobsApplyError<T> {
     TResult Function()? initial,
     TResult Function()? jobsApplyLoading,
     TResult Function(T data)? jobsApplySuccess,
-    TResult Function(String error)? jobsApplyError,
+    TResult Function(ApiErrorModel apiErrorModel)? jobsApplyError,
     required TResult orElse(),
   }) {
     if (jobsApplyError != null) {
-      return jobsApplyError(error);
+      return jobsApplyError(apiErrorModel);
     }
     return orElse();
   }
@@ -625,10 +626,10 @@ class _$JobsApplyErrorImpl<T> implements JobsApplyError<T> {
 }
 
 abstract class JobsApplyError<T> implements DeveloperJobsApplyState<T> {
-  const factory JobsApplyError({required final String error}) =
+  const factory JobsApplyError(final ApiErrorModel apiErrorModel) =
       _$JobsApplyErrorImpl<T>;
 
-  String get error;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of DeveloperJobsApplyState
   /// with the given fields replaced by the non-null parameter values.

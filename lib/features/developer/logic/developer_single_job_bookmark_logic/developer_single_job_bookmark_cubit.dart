@@ -18,8 +18,8 @@ class DeveloperSingleJobBookmarkCubit
       success: (bookmarkResponse) {
         emit(DeveloperSingleJobBookmarkState.success(bookmarkResponse));
       },
-      failure: (errorHandler) {
-        emit(DeveloperSingleJobBookmarkState.error(errorHandler));
+      failure: (apiErrorModel) {
+        emit(DeveloperSingleJobBookmarkState.error(apiErrorModel));
       },
     );
   }

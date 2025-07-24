@@ -19,9 +19,9 @@ class CompanyHomeSeeResumeCubit
       success: (data) {
         emit(CompanyHomeSeeResumeState.success(data));
       },
-      failure: (error) {
+      failure: (apiErrorModel) {
         emit(CompanyHomeSeeResumeState.error(
-            error: error.apiErrorModel.message ?? 'Unknown error'));
+            apiErrorModel));
       },
     );
   }

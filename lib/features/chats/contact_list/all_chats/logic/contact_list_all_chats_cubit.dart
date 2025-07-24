@@ -17,8 +17,8 @@ class ContactListAllChatsCubit extends Cubit<ContactListAllChatsState> {
       success: (chats) {
         emit(ContactListAllChatsState.success(chats));
       },
-      failure: (errorHandler) {
-        emit(ContactListAllChatsState.error(errorHandler));
+      failure: (apiErrorModel) {
+        emit(ContactListAllChatsState.error(apiErrorModel));
       },
     );
   }

@@ -22,9 +22,9 @@ class SpecificCourseLessonCompleteCubit
       success: (data) {
         emit(SpecificCourseLessonCompleteState.success(data));
       },
-      failure: (error) {
+      failure: (apiErrorModel) {
         emit(SpecificCourseLessonCompleteState.error(
-          error: error.apiErrorModel.message ?? "Something Went Wrong",
+            apiErrorModel
         ));
       },
     );

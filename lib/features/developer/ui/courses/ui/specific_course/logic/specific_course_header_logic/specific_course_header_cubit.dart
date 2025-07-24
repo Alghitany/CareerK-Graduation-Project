@@ -18,8 +18,8 @@ class SpecificCourseHeaderCubit extends Cubit<SpecificCourseHeaderState> {
       success: (data) {
         emit(SpecificCourseHeaderState.success(data));
       },
-      failure: (errorHandler) {
-        emit(SpecificCourseHeaderState.error(errorHandler));
+      failure: (apiErrorModel) {
+        emit(SpecificCourseHeaderState.error(apiErrorModel));
       },
     );
   }

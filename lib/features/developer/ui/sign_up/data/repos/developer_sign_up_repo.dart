@@ -99,7 +99,7 @@ class DeveloperSignupRepo {
           DeveloperSignupResponse.fromJson(response.data);
       return ApiResult.success(developerSignupResponse);
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ApiErrorHandler.handle(error));
     }
   }
 }

@@ -23,7 +23,7 @@ mixin _$DeveloperSingleJobBookmarkState {
     required TResult Function(
             DeveloperSingleJobBookmarkResponseModel responseModel)
         success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,7 +32,7 @@ mixin _$DeveloperSingleJobBookmarkState {
     TResult? Function()? loading,
     TResult? Function(DeveloperSingleJobBookmarkResponseModel responseModel)?
         success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,7 +41,7 @@ mixin _$DeveloperSingleJobBookmarkState {
     TResult Function()? loading,
     TResult Function(DeveloperSingleJobBookmarkResponseModel responseModel)?
         success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -147,7 +147,7 @@ class _$DeveloperSingleJobBookmarkInitialImpl
     required TResult Function(
             DeveloperSingleJobBookmarkResponseModel responseModel)
         success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return initial();
   }
@@ -159,7 +159,7 @@ class _$DeveloperSingleJobBookmarkInitialImpl
     TResult? Function()? loading,
     TResult? Function(DeveloperSingleJobBookmarkResponseModel responseModel)?
         success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return initial?.call();
   }
@@ -171,7 +171,7 @@ class _$DeveloperSingleJobBookmarkInitialImpl
     TResult Function()? loading,
     TResult Function(DeveloperSingleJobBookmarkResponseModel responseModel)?
         success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -275,7 +275,7 @@ class _$DeveloperSingleJobBookmarkLoadingImpl
     required TResult Function(
             DeveloperSingleJobBookmarkResponseModel responseModel)
         success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return loading();
   }
@@ -287,7 +287,7 @@ class _$DeveloperSingleJobBookmarkLoadingImpl
     TResult? Function()? loading,
     TResult? Function(DeveloperSingleJobBookmarkResponseModel responseModel)?
         success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return loading?.call();
   }
@@ -299,7 +299,7 @@ class _$DeveloperSingleJobBookmarkLoadingImpl
     TResult Function()? loading,
     TResult Function(DeveloperSingleJobBookmarkResponseModel responseModel)?
         success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -432,7 +432,7 @@ class _$DeveloperSingleJobBookmarkSuccessImpl
     required TResult Function(
             DeveloperSingleJobBookmarkResponseModel responseModel)
         success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return success(responseModel);
   }
@@ -444,7 +444,7 @@ class _$DeveloperSingleJobBookmarkSuccessImpl
     TResult? Function()? loading,
     TResult? Function(DeveloperSingleJobBookmarkResponseModel responseModel)?
         success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return success?.call(responseModel);
   }
@@ -456,7 +456,7 @@ class _$DeveloperSingleJobBookmarkSuccessImpl
     TResult Function()? loading,
     TResult Function(DeveloperSingleJobBookmarkResponseModel responseModel)?
         success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -526,7 +526,7 @@ abstract class _$$DeveloperSingleJobBookmarkErrorImplCopyWith<$Res> {
           $Res Function(_$DeveloperSingleJobBookmarkErrorImpl) then) =
       __$$DeveloperSingleJobBookmarkErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ErrorHandler errorHandler});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -544,13 +544,13 @@ class __$$DeveloperSingleJobBookmarkErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? errorHandler = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$DeveloperSingleJobBookmarkErrorImpl(
-      null == errorHandler
-          ? _value.errorHandler
-          : errorHandler // ignore: cast_nullable_to_non_nullable
-              as ErrorHandler,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -559,14 +559,14 @@ class __$$DeveloperSingleJobBookmarkErrorImplCopyWithImpl<$Res>
 
 class _$DeveloperSingleJobBookmarkErrorImpl
     implements DeveloperSingleJobBookmarkError {
-  const _$DeveloperSingleJobBookmarkErrorImpl(this.errorHandler);
+  const _$DeveloperSingleJobBookmarkErrorImpl(this.apiErrorModel);
 
   @override
-  final ErrorHandler errorHandler;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'DeveloperSingleJobBookmarkState.error(errorHandler: $errorHandler)';
+    return 'DeveloperSingleJobBookmarkState.error(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -574,12 +574,12 @@ class _$DeveloperSingleJobBookmarkErrorImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeveloperSingleJobBookmarkErrorImpl &&
-            (identical(other.errorHandler, errorHandler) ||
-                other.errorHandler == errorHandler));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, errorHandler);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of DeveloperSingleJobBookmarkState
   /// with the given fields replaced by the non-null parameter values.
@@ -599,9 +599,9 @@ class _$DeveloperSingleJobBookmarkErrorImpl
     required TResult Function(
             DeveloperSingleJobBookmarkResponseModel responseModel)
         success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
-    return error(errorHandler);
+    return error(apiErrorModel);
   }
 
   @override
@@ -611,9 +611,9 @@ class _$DeveloperSingleJobBookmarkErrorImpl
     TResult? Function()? loading,
     TResult? Function(DeveloperSingleJobBookmarkResponseModel responseModel)?
         success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
-    return error?.call(errorHandler);
+    return error?.call(apiErrorModel);
   }
 
   @override
@@ -623,11 +623,11 @@ class _$DeveloperSingleJobBookmarkErrorImpl
     TResult Function()? loading,
     TResult Function(DeveloperSingleJobBookmarkResponseModel responseModel)?
         success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(errorHandler);
+      return error(apiErrorModel);
     }
     return orElse();
   }
@@ -673,9 +673,10 @@ class _$DeveloperSingleJobBookmarkErrorImpl
 abstract class DeveloperSingleJobBookmarkError
     implements DeveloperSingleJobBookmarkState {
   const factory DeveloperSingleJobBookmarkError(
-      final ErrorHandler errorHandler) = _$DeveloperSingleJobBookmarkErrorImpl;
+          final ApiErrorModel apiErrorModel) =
+      _$DeveloperSingleJobBookmarkErrorImpl;
 
-  ErrorHandler get errorHandler;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of DeveloperSingleJobBookmarkState
   /// with the given fields replaced by the non-null parameter values.

@@ -23,7 +23,7 @@ mixin _$CompanyProfileApplicantsNumberState {
     required TResult Function(
             CompanyProfileApplicantsNumberResponseBody response)
         success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,7 +32,7 @@ mixin _$CompanyProfileApplicantsNumberState {
     TResult? Function()? loading,
     TResult? Function(CompanyProfileApplicantsNumberResponseBody response)?
         success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,7 +41,7 @@ mixin _$CompanyProfileApplicantsNumberState {
     TResult Function()? loading,
     TResult Function(CompanyProfileApplicantsNumberResponseBody response)?
         success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -150,7 +150,7 @@ class _$CompanyProfileApplicantsNumberInitialImpl
     required TResult Function(
             CompanyProfileApplicantsNumberResponseBody response)
         success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return initial();
   }
@@ -162,7 +162,7 @@ class _$CompanyProfileApplicantsNumberInitialImpl
     TResult? Function()? loading,
     TResult? Function(CompanyProfileApplicantsNumberResponseBody response)?
         success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return initial?.call();
   }
@@ -174,7 +174,7 @@ class _$CompanyProfileApplicantsNumberInitialImpl
     TResult Function()? loading,
     TResult Function(CompanyProfileApplicantsNumberResponseBody response)?
         success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -281,7 +281,7 @@ class _$CompanyProfileApplicantsNumberLoadingImpl
     required TResult Function(
             CompanyProfileApplicantsNumberResponseBody response)
         success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return loading();
   }
@@ -293,7 +293,7 @@ class _$CompanyProfileApplicantsNumberLoadingImpl
     TResult? Function()? loading,
     TResult? Function(CompanyProfileApplicantsNumberResponseBody response)?
         success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return loading?.call();
   }
@@ -305,7 +305,7 @@ class _$CompanyProfileApplicantsNumberLoadingImpl
     TResult Function()? loading,
     TResult Function(CompanyProfileApplicantsNumberResponseBody response)?
         success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -441,7 +441,7 @@ class _$CompanyProfileApplicantsNumberSuccessImpl
     required TResult Function(
             CompanyProfileApplicantsNumberResponseBody response)
         success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return success(response);
   }
@@ -453,7 +453,7 @@ class _$CompanyProfileApplicantsNumberSuccessImpl
     TResult? Function()? loading,
     TResult? Function(CompanyProfileApplicantsNumberResponseBody response)?
         success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return success?.call(response);
   }
@@ -465,7 +465,7 @@ class _$CompanyProfileApplicantsNumberSuccessImpl
     TResult Function()? loading,
     TResult Function(CompanyProfileApplicantsNumberResponseBody response)?
         success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -538,7 +538,7 @@ abstract class _$$CompanyProfileApplicantsNumberErrorImplCopyWith<$Res> {
           $Res Function(_$CompanyProfileApplicantsNumberErrorImpl) then) =
       __$$CompanyProfileApplicantsNumberErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ErrorHandler errorHandler});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -556,13 +556,13 @@ class __$$CompanyProfileApplicantsNumberErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? errorHandler = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$CompanyProfileApplicantsNumberErrorImpl(
-      null == errorHandler
-          ? _value.errorHandler
-          : errorHandler // ignore: cast_nullable_to_non_nullable
-              as ErrorHandler,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -571,14 +571,14 @@ class __$$CompanyProfileApplicantsNumberErrorImplCopyWithImpl<$Res>
 
 class _$CompanyProfileApplicantsNumberErrorImpl
     implements CompanyProfileApplicantsNumberError {
-  const _$CompanyProfileApplicantsNumberErrorImpl(this.errorHandler);
+  const _$CompanyProfileApplicantsNumberErrorImpl(this.apiErrorModel);
 
   @override
-  final ErrorHandler errorHandler;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'CompanyProfileApplicantsNumberState.error(errorHandler: $errorHandler)';
+    return 'CompanyProfileApplicantsNumberState.error(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -586,12 +586,12 @@ class _$CompanyProfileApplicantsNumberErrorImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CompanyProfileApplicantsNumberErrorImpl &&
-            (identical(other.errorHandler, errorHandler) ||
-                other.errorHandler == errorHandler));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, errorHandler);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of CompanyProfileApplicantsNumberState
   /// with the given fields replaced by the non-null parameter values.
@@ -611,9 +611,9 @@ class _$CompanyProfileApplicantsNumberErrorImpl
     required TResult Function(
             CompanyProfileApplicantsNumberResponseBody response)
         success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
-    return error(errorHandler);
+    return error(apiErrorModel);
   }
 
   @override
@@ -623,9 +623,9 @@ class _$CompanyProfileApplicantsNumberErrorImpl
     TResult? Function()? loading,
     TResult? Function(CompanyProfileApplicantsNumberResponseBody response)?
         success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
-    return error?.call(errorHandler);
+    return error?.call(apiErrorModel);
   }
 
   @override
@@ -635,11 +635,11 @@ class _$CompanyProfileApplicantsNumberErrorImpl
     TResult Function()? loading,
     TResult Function(CompanyProfileApplicantsNumberResponseBody response)?
         success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(errorHandler);
+      return error(apiErrorModel);
     }
     return orElse();
   }
@@ -688,10 +688,10 @@ class _$CompanyProfileApplicantsNumberErrorImpl
 abstract class CompanyProfileApplicantsNumberError
     implements CompanyProfileApplicantsNumberState {
   const factory CompanyProfileApplicantsNumberError(
-          final ErrorHandler errorHandler) =
+          final ApiErrorModel apiErrorModel) =
       _$CompanyProfileApplicantsNumberErrorImpl;
 
-  ErrorHandler get errorHandler;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of CompanyProfileApplicantsNumberState
   /// with the given fields replaced by the non-null parameter values.

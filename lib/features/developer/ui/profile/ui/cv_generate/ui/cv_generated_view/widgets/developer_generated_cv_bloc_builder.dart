@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../../../../core/networking/api_error_model.dart';
 import '../../../data/models/generate_models/developer_profile_cv_generate_generated_response.dart';
 import '../../../logic/generate_logic/developer_profile_cv_generate_generated_cubit.dart';
 import '../../../logic/generate_logic/developer_profile_cv_generate_generated_state.dart';
@@ -20,7 +21,7 @@ class DeveloperGeneratedCVBlocBuilder extends StatelessWidget {
         return state.maybeWhen(
           loading: () => _buildLoading(),
           success: (data) => _buildSuccess(data),
-          error: (error) => _buildError(error),
+          error: (apiErrorModel) => _buildError(apiErrorModel),
           orElse: () => const SizedBox.shrink(),
         );
       },
@@ -37,7 +38,7 @@ class DeveloperGeneratedCVBlocBuilder extends StatelessWidget {
     );
   }
 
-  Widget _buildError(String error) {
-    return Center(child: Text(error));
+  Widget _buildError(ApiErrorModel apiErrorModel) {
+    return Center(child: Text(apiErrorModel.getAllErrorMessages()));
   }
 }

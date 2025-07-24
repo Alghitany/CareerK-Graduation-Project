@@ -21,7 +21,7 @@ mixin _$SpecificCourseOverviewState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(SpecificCourseOverviewResponseBody data) success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$SpecificCourseOverviewState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(SpecificCourseOverviewResponseBody data)? success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$SpecificCourseOverviewState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(SpecificCourseOverviewResponseBody data)? success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -136,7 +136,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(SpecificCourseOverviewResponseBody data) success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return initial();
   }
@@ -147,7 +147,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(SpecificCourseOverviewResponseBody data)? success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return initial?.call();
   }
@@ -158,7 +158,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(SpecificCourseOverviewResponseBody data)? success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -258,7 +258,7 @@ class _$SpecificCourseOverviewLoadingImpl
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(SpecificCourseOverviewResponseBody data) success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return loading();
   }
@@ -269,7 +269,7 @@ class _$SpecificCourseOverviewLoadingImpl
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(SpecificCourseOverviewResponseBody data)? success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return loading?.call();
   }
@@ -280,7 +280,7 @@ class _$SpecificCourseOverviewLoadingImpl
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(SpecificCourseOverviewResponseBody data)? success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -410,7 +410,7 @@ class _$SpecificCourseOverviewSuccessImpl
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(SpecificCourseOverviewResponseBody data) success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return success(data);
   }
@@ -421,7 +421,7 @@ class _$SpecificCourseOverviewSuccessImpl
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(SpecificCourseOverviewResponseBody data)? success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return success?.call(data);
   }
@@ -432,7 +432,7 @@ class _$SpecificCourseOverviewSuccessImpl
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(SpecificCourseOverviewResponseBody data)? success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -502,7 +502,7 @@ abstract class _$$SpecificCourseOverviewErrorImplCopyWith<$Res> {
           $Res Function(_$SpecificCourseOverviewErrorImpl) then) =
       __$$SpecificCourseOverviewErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ErrorHandler errorHandler});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -520,13 +520,13 @@ class __$$SpecificCourseOverviewErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? errorHandler = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$SpecificCourseOverviewErrorImpl(
-      null == errorHandler
-          ? _value.errorHandler
-          : errorHandler // ignore: cast_nullable_to_non_nullable
-              as ErrorHandler,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -534,14 +534,14 @@ class __$$SpecificCourseOverviewErrorImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SpecificCourseOverviewErrorImpl implements SpecificCourseOverviewError {
-  const _$SpecificCourseOverviewErrorImpl(this.errorHandler);
+  const _$SpecificCourseOverviewErrorImpl(this.apiErrorModel);
 
   @override
-  final ErrorHandler errorHandler;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'SpecificCourseOverviewState.error(errorHandler: $errorHandler)';
+    return 'SpecificCourseOverviewState.error(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -549,12 +549,12 @@ class _$SpecificCourseOverviewErrorImpl implements SpecificCourseOverviewError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SpecificCourseOverviewErrorImpl &&
-            (identical(other.errorHandler, errorHandler) ||
-                other.errorHandler == errorHandler));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, errorHandler);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of SpecificCourseOverviewState
   /// with the given fields replaced by the non-null parameter values.
@@ -571,9 +571,9 @@ class _$SpecificCourseOverviewErrorImpl implements SpecificCourseOverviewError {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(SpecificCourseOverviewResponseBody data) success,
-    required TResult Function(ErrorHandler errorHandler) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
-    return error(errorHandler);
+    return error(apiErrorModel);
   }
 
   @override
@@ -582,9 +582,9 @@ class _$SpecificCourseOverviewErrorImpl implements SpecificCourseOverviewError {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(SpecificCourseOverviewResponseBody data)? success,
-    TResult? Function(ErrorHandler errorHandler)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
-    return error?.call(errorHandler);
+    return error?.call(apiErrorModel);
   }
 
   @override
@@ -593,11 +593,11 @@ class _$SpecificCourseOverviewErrorImpl implements SpecificCourseOverviewError {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(SpecificCourseOverviewResponseBody data)? success,
-    TResult Function(ErrorHandler errorHandler)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(errorHandler);
+      return error(apiErrorModel);
     }
     return orElse();
   }
@@ -642,10 +642,10 @@ class _$SpecificCourseOverviewErrorImpl implements SpecificCourseOverviewError {
 
 abstract class SpecificCourseOverviewError
     implements SpecificCourseOverviewState {
-  const factory SpecificCourseOverviewError(final ErrorHandler errorHandler) =
+  const factory SpecificCourseOverviewError(final ApiErrorModel apiErrorModel) =
       _$SpecificCourseOverviewErrorImpl;
 
-  ErrorHandler get errorHandler;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of SpecificCourseOverviewState
   /// with the given fields replaced by the non-null parameter values.

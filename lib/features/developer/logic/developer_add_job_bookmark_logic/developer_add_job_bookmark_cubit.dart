@@ -21,8 +21,8 @@ class DeveloperAddJobBookmarkCubit extends Cubit<DeveloperAddJobBookmarkState> {
       success: (bookmarkResponse) {
         emit(DeveloperAddJobBookmarkState.success(bookmarkResponse));
       },
-      failure: (errorHandler) {
-        emit(DeveloperAddJobBookmarkState.error(errorHandler));
+      failure: (apiErrorModel) {
+        emit(DeveloperAddJobBookmarkState.error(apiErrorModel));
       },
     );
   }

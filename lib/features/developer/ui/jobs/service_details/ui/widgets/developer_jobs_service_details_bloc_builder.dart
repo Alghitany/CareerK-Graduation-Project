@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../../core/helpers/spacing.dart';
+import '../../../../../../../core/networking/api_error_model.dart';
 import '../../data/model/developer_jobs_service_details_response_body.dart';
 import '../../logic/developer_jobs_service_details_cubit.dart';
 import '../../logic/developer_jobs_service_details_state.dart';
@@ -26,7 +27,7 @@ class DeveloperJobsServiceDetailsBlocBuilder extends StatelessWidget {
         return state.maybeWhen(
           serviceDetailsLoading: () => _buildLoading(),
           serviceDetailsSuccess: (data) => _buildSuccess(data),
-          serviceDetailsError: (error) => _buildError(error),
+          serviceDetailsError: (apiErrorModel) => _buildError(apiErrorModel),
           orElse: () => const SizedBox.shrink(),
         );
       },
@@ -65,7 +66,7 @@ class DeveloperJobsServiceDetailsBlocBuilder extends StatelessWidget {
           );
   }
 
-  Widget _buildError(String error) {
-    return Center(child: Text(error));
+  Widget _buildError(ApiErrorModel apiErrorModel) {
+    return Center(child: Text(apiErrorModel.getAllErrorMessages()));
   }
 }

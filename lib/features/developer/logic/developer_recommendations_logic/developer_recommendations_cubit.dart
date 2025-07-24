@@ -19,10 +19,9 @@ class DeveloperRecommendationsCubit
       success: (data) => emit(
         DeveloperRecommendationsState.recommendationsSuccess(data),
       ),
-      failure: (error) => emit(
+      failure: (apiErrorModel) => emit(
         DeveloperRecommendationsState.recommendationsError(
-          error:
-              error.apiErrorModel.message ?? 'Failed to load recommendations',
+            apiErrorModel
         ),
       ),
     );

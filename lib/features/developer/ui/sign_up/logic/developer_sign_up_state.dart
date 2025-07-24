@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../core/networking/api_error_model.dart';
+
 part 'developer_sign_up_state.freezed.dart';
 
 @freezed
@@ -13,5 +15,5 @@ class DeveloperSignupState<T> with _$DeveloperSignupState<T> {
       DeveloperSignupSuccess<T>;
 
   const factory DeveloperSignupState.developerSignupError(
-      {required String error}) = DeveloperSignupError;
+      ApiErrorModel apiErrorModel) = DeveloperSignupError;
 }

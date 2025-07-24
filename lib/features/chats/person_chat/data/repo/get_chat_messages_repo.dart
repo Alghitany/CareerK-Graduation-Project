@@ -14,7 +14,7 @@ class GetChatMessagesRepo {
       final response = await _apiService.getChatMessages(chatRoomId);
       return ApiResult.success(response);
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ApiErrorHandler.handle(error));
     }
   }
 }

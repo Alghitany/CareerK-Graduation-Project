@@ -45,14 +45,14 @@ class DeveloperServiceDeleteBlocListener extends StatelessWidget {
             );
             onDeleteSuccess();
           },
-          error: (error) {
+          error: (apiErrorModel) {
             context.pop(); // remove loading dialog
             showDialog(
               context: context,
               builder: (_) => AlertDialog(
                 icon: const Icon(Icons.error, color: Colors.red, size: 32),
                 content: Text(
-                  error,
+                  apiErrorModel.getAllErrorMessages(),
                   style: AppTextStyles.font15GlaucousPoppinsSemiBold,
                 ),
                 actions: [

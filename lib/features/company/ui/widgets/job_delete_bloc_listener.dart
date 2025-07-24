@@ -39,14 +39,14 @@ class JobDeleteBlocListener extends StatelessWidget {
             );
             onDeleteSuccess();
           },
-          deleteError: (error) {
+          deleteError: (apiErrorModel) {
             context.pop(); // remove loading
             showDialog(
               context: context,
               builder: (_) => AlertDialog(
                 icon: const Icon(Icons.error, color: Colors.red, size: 32),
                 content: Text(
-                  error,
+                  apiErrorModel.getAllErrorMessages(),
                   style: AppTextStyles.font15GlaucousPoppinsSemiBold,
                 ),
                 actions: [

@@ -4,6 +4,7 @@ import 'package:carrerk/features/customer/ui/sign_up/logic/customer_sign_up_stat
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../../core/networking/api_error_model.dart';
 import '../../../../../../../core/routing/routes.dart';
 import '../../../../../../../core/theming/colors.dart';
 import '../../../../../../../core/theming/styles.dart';
@@ -34,8 +35,8 @@ class CustomerSignupBlocListener extends StatelessWidget {
             context.pop(); // close loading
             showSuccessDialog(context);
           },
-          customerSignupError: (error) {
-            setupErrorState(context, error);
+          customerSignupError: (apiErrorModel) {
+            setupErrorState(context, apiErrorModel);
           },
         );
       },
@@ -75,7 +76,7 @@ class CustomerSignupBlocListener extends StatelessWidget {
     );
   }
 
-  void setupErrorState(BuildContext context, String error) {
+  void setupErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
     context.pop(); // close loading
     showDialog(
       context: context,
@@ -86,7 +87,7 @@ class CustomerSignupBlocListener extends StatelessWidget {
           size: 32,
         ),
         content: Text(
-          error,
+          apiErrorModel.getAllErrorMessages(),
           style: AppTextStyles.font15GlaucousPoppinsSemiBold,
         ),
         actions: [

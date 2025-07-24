@@ -18,9 +18,9 @@ class CustomerProfileInfoCubit extends Cubit<CustomerProfileInfoState> {
       success: (profile) {
         emit(CustomerProfileInfoState.success(profile));
       },
-      failure: (error) {
+      failure: (apiErrorModel) {
         emit(CustomerProfileInfoState.error(
-          error: error.apiErrorModel.message ?? 'Failed to load data',
+            apiErrorModel
         ));
       },
     );

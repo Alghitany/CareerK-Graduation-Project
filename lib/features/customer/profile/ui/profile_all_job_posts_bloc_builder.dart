@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../core/theming/styles.dart';
+import '../../../../core/networking/api_error_model.dart';
 
 class ProfileAllJobPostsBlocBuilder extends StatelessWidget {
   const ProfileAllJobPostsBlocBuilder({super.key});
@@ -23,7 +24,7 @@ class ProfileAllJobPostsBlocBuilder extends StatelessWidget {
         return state.maybeWhen(
           loading: () => setupLoading(),
           success: (data) => setupSuccess(data),
-          error: (error) => setupError(error),
+          error: (apiErrorModel) => setupError(apiErrorModel),
           orElse: () => const SizedBox.shrink(),
         );
       },
@@ -47,7 +48,7 @@ class ProfileAllJobPostsBlocBuilder extends StatelessWidget {
     return AllJobsList(jobs: data.posts);
   }
 
-  Widget setupError(String error) {
-    return Center(child: Text("Error: $error"));
+  Widget setupError(ApiErrorModel apiErrorModel) {
+    return Center(child: Text("Error: ${apiErrorModel.getAllErrorMessages()}"));
   }
 }

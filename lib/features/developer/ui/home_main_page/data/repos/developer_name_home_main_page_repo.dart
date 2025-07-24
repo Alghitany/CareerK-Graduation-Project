@@ -15,7 +15,7 @@ class DeveloperNameHomeMainPageRepo {
       final response = await _service.getDeveloperNameHomeMainPage();
       return ApiResult.success(response);
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ApiErrorHandler.handle(error));
     }
   }
 }

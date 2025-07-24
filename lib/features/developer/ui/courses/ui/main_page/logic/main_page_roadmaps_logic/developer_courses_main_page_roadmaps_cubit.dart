@@ -18,9 +18,9 @@ class DeveloperCoursesMainPageRoadmapsCubit
       success: (roadmaps) {
         emit(DeveloperCoursesMainPageRoadmapsState.success(roadmaps));
       },
-      failure: (error) {
+      failure: (apiErrorModel) {
         emit(DeveloperCoursesMainPageRoadmapsState.error(
-            error: error.apiErrorModel.message ?? 'Failed to load data'));
+            apiErrorModel));
       },
     );
   }

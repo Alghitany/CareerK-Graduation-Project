@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../core/networking/api_error_model.dart';
+
 part 'verify_code_state.freezed.dart';
 
 @freezed
@@ -10,5 +12,5 @@ class VerifyCodeState<T> with _$VerifyCodeState<T> {
 
   const factory VerifyCodeState.success(T data) = Success<T>;
 
-  const factory VerifyCodeState.error({required String error}) = Error;
+  const factory VerifyCodeState.error(ApiErrorModel apiErrorModel) = Error;
 }

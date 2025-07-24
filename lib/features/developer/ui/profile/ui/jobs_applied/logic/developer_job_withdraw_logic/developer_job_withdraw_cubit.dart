@@ -18,10 +18,9 @@ class DeveloperJobWithdrawCubit extends Cubit<DeveloperJobWithdrawState> {
       success: (data) => emit(
         DeveloperJobWithdrawState.success(data),
       ),
-      failure: (error) => emit(
+      failure: (apiErrorModel) => emit(
         DeveloperJobWithdrawState.error(
-          error: error.apiErrorModel.message ??
-              'Failed to withdraw job application',
+            apiErrorModel
         ),
       ),
     );

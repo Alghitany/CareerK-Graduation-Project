@@ -1,6 +1,8 @@
 import 'package:carrerk/features/developer/ui/profile/ui/bookmarks/data/models/developer_profile_jobs_bookmarked_models/developer_profile_jobs_bookmarked_response_body.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../../../../core/networking/api_error_model.dart';
+
 part 'developer_profile_jobs_bookmarked_state.freezed.dart';
 
 @freezed
@@ -15,7 +17,7 @@ class DeveloperProfileJobsBookmarkedState
     List<DeveloperProfileJobsBookmarkedResponseBody> data,
   ) = DeveloperProfileJobsBookmarkedSuccess;
 
-  const factory DeveloperProfileJobsBookmarkedState.error({
-    String? error,
-  }) = DeveloperProfileJobsBookmarkedError;
+  const factory DeveloperProfileJobsBookmarkedState.error(
+    ApiErrorModel apiErrorModel
+  ) = DeveloperProfileJobsBookmarkedError;
 }

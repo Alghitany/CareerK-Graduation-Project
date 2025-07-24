@@ -98,7 +98,7 @@ class _CompanyHomeSeeResumeBlocBuilderState
         return state.maybeWhen(
           loading: () => const CvShimmer(),
           success: (data) => _buildSuccess(data),
-          error: (error) => Center(child: Text(error)),
+          error: (apiErrorModel) => Center(child: Text(apiErrorModel.getAllErrorMessages())),
           orElse: () => const SizedBox.shrink(),
         );
       },

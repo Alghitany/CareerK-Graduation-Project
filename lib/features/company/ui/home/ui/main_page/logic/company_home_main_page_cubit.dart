@@ -18,9 +18,9 @@ class CompanyHomeMainPageCubit
       success: (data) {
         emit(CompanyHomeMainPageState.success(data));
       },
-      failure: (error) {
+      failure: (apiErrorModel) {
         emit(CompanyHomeMainPageState.error(
-            error: error.apiErrorModel.message ?? 'Unknown error'));
+            apiErrorModel));
       },
     );
   }

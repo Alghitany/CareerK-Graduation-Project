@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../../../../core/networking/api_error_model.dart';
 import '../../data/models/profile_info_models/developer_profile_main_page_info_response_body.dart';
 
 part 'developer_profile_main_page_info_state.freezed.dart';
@@ -15,7 +16,5 @@ class DeveloperProfileMainPageInfoState
     DeveloperProfileMainPageInfoResponseBody data,
   ) = Success;
 
-  const factory DeveloperProfileMainPageInfoState.error({
-    required String error,
-  }) = Error;
+  const factory DeveloperProfileMainPageInfoState.error(ApiErrorModel apiErrorModel) = Error;
 }

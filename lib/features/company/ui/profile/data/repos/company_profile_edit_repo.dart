@@ -26,7 +26,7 @@ class CompanyProfileEditRepo {
       final parsedResponse = CompanyProfileEditResponse.fromJson(response.data);
       return ApiResult.success(parsedResponse);
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ApiErrorHandler.handle(error));
     }
   }
 }

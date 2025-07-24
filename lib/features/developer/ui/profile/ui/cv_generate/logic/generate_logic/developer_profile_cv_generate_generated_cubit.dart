@@ -26,10 +26,9 @@ class DeveloperProfileCVGenerateGeneratedCubit
       success: (data) {
         emit(DeveloperProfileCVGenerateGeneratedState.success(data));
       },
-      failure: (error) {
+      failure: (apiErrorModel) {
         emit(DeveloperProfileCVGenerateGeneratedState.error(
-          error: error.apiErrorModel.message ?? 'Failed to generate CV',
-        ));
+            apiErrorModel        ));
       },
     );
   }

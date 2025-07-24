@@ -23,7 +23,7 @@ mixin _$DeveloperCoursesCompletedState {
     required TResult Function(
             List<DeveloperCoursesCompletedResponseBody> courses)
         success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,7 +32,7 @@ mixin _$DeveloperCoursesCompletedState {
     TResult? Function()? loading,
     TResult? Function(List<DeveloperCoursesCompletedResponseBody> courses)?
         success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,7 +41,7 @@ mixin _$DeveloperCoursesCompletedState {
     TResult Function()? loading,
     TResult Function(List<DeveloperCoursesCompletedResponseBody> courses)?
         success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -149,7 +149,7 @@ class _$DeveloperCoursesCompletedStateInitialImpl
     required TResult Function(
             List<DeveloperCoursesCompletedResponseBody> courses)
         success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return initial();
   }
@@ -161,7 +161,7 @@ class _$DeveloperCoursesCompletedStateInitialImpl
     TResult? Function()? loading,
     TResult? Function(List<DeveloperCoursesCompletedResponseBody> courses)?
         success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return initial?.call();
   }
@@ -173,7 +173,7 @@ class _$DeveloperCoursesCompletedStateInitialImpl
     TResult Function()? loading,
     TResult Function(List<DeveloperCoursesCompletedResponseBody> courses)?
         success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -279,7 +279,7 @@ class _$DeveloperCoursesCompletedStateLoadingImpl
     required TResult Function(
             List<DeveloperCoursesCompletedResponseBody> courses)
         success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return loading();
   }
@@ -291,7 +291,7 @@ class _$DeveloperCoursesCompletedStateLoadingImpl
     TResult? Function()? loading,
     TResult? Function(List<DeveloperCoursesCompletedResponseBody> courses)?
         success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return loading?.call();
   }
@@ -303,7 +303,7 @@ class _$DeveloperCoursesCompletedStateLoadingImpl
     TResult Function()? loading,
     TResult Function(List<DeveloperCoursesCompletedResponseBody> courses)?
         success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -445,7 +445,7 @@ class _$DeveloperCoursesCompletedSuccessImpl
     required TResult Function(
             List<DeveloperCoursesCompletedResponseBody> courses)
         success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return success(courses);
   }
@@ -457,7 +457,7 @@ class _$DeveloperCoursesCompletedSuccessImpl
     TResult? Function()? loading,
     TResult? Function(List<DeveloperCoursesCompletedResponseBody> courses)?
         success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return success?.call(courses);
   }
@@ -469,7 +469,7 @@ class _$DeveloperCoursesCompletedSuccessImpl
     TResult Function()? loading,
     TResult Function(List<DeveloperCoursesCompletedResponseBody> courses)?
         success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -541,7 +541,7 @@ abstract class _$$DeveloperCoursesCompletedErrorImplCopyWith<$Res> {
           $Res Function(_$DeveloperCoursesCompletedErrorImpl) then) =
       __$$DeveloperCoursesCompletedErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String error});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -559,13 +559,13 @@ class __$$DeveloperCoursesCompletedErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$DeveloperCoursesCompletedErrorImpl(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -574,14 +574,14 @@ class __$$DeveloperCoursesCompletedErrorImplCopyWithImpl<$Res>
 
 class _$DeveloperCoursesCompletedErrorImpl
     implements DeveloperCoursesCompletedError {
-  const _$DeveloperCoursesCompletedErrorImpl({required this.error});
+  const _$DeveloperCoursesCompletedErrorImpl(this.apiErrorModel);
 
   @override
-  final String error;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'DeveloperCoursesCompletedState.error(error: $error)';
+    return 'DeveloperCoursesCompletedState.error(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -589,11 +589,12 @@ class _$DeveloperCoursesCompletedErrorImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeveloperCoursesCompletedErrorImpl &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of DeveloperCoursesCompletedState
   /// with the given fields replaced by the non-null parameter values.
@@ -613,9 +614,9 @@ class _$DeveloperCoursesCompletedErrorImpl
     required TResult Function(
             List<DeveloperCoursesCompletedResponseBody> courses)
         success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
-    return error(this.error);
+    return error(apiErrorModel);
   }
 
   @override
@@ -625,9 +626,9 @@ class _$DeveloperCoursesCompletedErrorImpl
     TResult? Function()? loading,
     TResult? Function(List<DeveloperCoursesCompletedResponseBody> courses)?
         success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
-    return error?.call(this.error);
+    return error?.call(apiErrorModel);
   }
 
   @override
@@ -637,11 +638,11 @@ class _$DeveloperCoursesCompletedErrorImpl
     TResult Function()? loading,
     TResult Function(List<DeveloperCoursesCompletedResponseBody> courses)?
         success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(this.error);
+      return error(apiErrorModel);
     }
     return orElse();
   }
@@ -688,10 +689,10 @@ class _$DeveloperCoursesCompletedErrorImpl
 
 abstract class DeveloperCoursesCompletedError
     implements DeveloperCoursesCompletedState {
-  const factory DeveloperCoursesCompletedError({required final String error}) =
-      _$DeveloperCoursesCompletedErrorImpl;
+  const factory DeveloperCoursesCompletedError(
+      final ApiErrorModel apiErrorModel) = _$DeveloperCoursesCompletedErrorImpl;
 
-  String get error;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of DeveloperCoursesCompletedState
   /// with the given fields replaced by the non-null parameter values.

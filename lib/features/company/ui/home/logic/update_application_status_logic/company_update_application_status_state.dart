@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../../core/networking/api_error_model.dart';
+
 part 'company_update_application_status_state.freezed.dart';
 
 @freezed
@@ -13,5 +15,5 @@ class CompanyUpdateApplicationStatusState<T>
       Success<T>;
 
   const factory CompanyUpdateApplicationStatusState.error(
-      {required String error}) = Error;
+      ApiErrorModel apiErrorModel) = Error;
 }

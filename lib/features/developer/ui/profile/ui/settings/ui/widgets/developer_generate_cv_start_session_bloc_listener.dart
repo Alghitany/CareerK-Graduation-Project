@@ -4,6 +4,7 @@ import 'package:carrerk/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../../../core/networking/api_error_model.dart';
 import '../../../../../../../../core/routing/routes.dart';
 import '../../../../../../../../core/theming/colors.dart';
 import '../../logic/developer_generate_cv_start_session_logic/developer_generate_cv_start_session_cubit.dart';
@@ -40,8 +41,8 @@ class DeveloperGenerateCVStartSessionBlocListener extends StatelessWidget {
               arguments: AppArgument(sessionId: response.sessionId),
             );
           },
-          sessionStartError: (error) {
-            _showErrorDialog(context, error);
+          sessionStartError: (apiErrorModel) {
+            _showErrorDialog(context, apiErrorModel);
           },
         );
       },
@@ -49,7 +50,7 @@ class DeveloperGenerateCVStartSessionBlocListener extends StatelessWidget {
     );
   }
 
-  void _showErrorDialog(BuildContext context, String error) {
+  void _showErrorDialog(BuildContext context, ApiErrorModel apiErrorModel) {
     context.pop();
     showDialog(
       context: context,
@@ -60,7 +61,7 @@ class DeveloperGenerateCVStartSessionBlocListener extends StatelessWidget {
           size: 32,
         ),
         content: Text(
-          error,
+          apiErrorModel.getAllErrorMessages(),
           style: AppTextStyles.font15GlaucousPoppinsSemiBold,
         ),
         actions: [

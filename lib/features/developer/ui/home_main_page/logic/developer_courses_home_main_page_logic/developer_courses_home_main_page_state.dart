@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../../core/networking/api_error_model.dart';
 import '../../data/models/developer_courses_home_main_page_models/developer_courses_home_main_page_response_body.dart';
 
 part 'developer_courses_home_main_page_state.freezed.dart';
@@ -16,7 +17,5 @@ class DeveloperCoursesHomeMainPageState
     List<DeveloperCoursesHomeMainPageResponseBody> data,
   ) = DeveloperCoursesSuccess;
 
-  const factory DeveloperCoursesHomeMainPageState.developerCoursesError({
-    required String error,
-  }) = DeveloperCoursesError;
+  const factory DeveloperCoursesHomeMainPageState.developerCoursesError(ApiErrorModel apiErrorModel) = DeveloperCoursesError;
 }

@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../core/helpers/spacing.dart';
+import '../../../../core/networking/api_error_model.dart';
 
 class ProfileInfoBlocBuilder extends StatelessWidget {
   const ProfileInfoBlocBuilder({super.key});
@@ -25,7 +26,7 @@ class ProfileInfoBlocBuilder extends StatelessWidget {
         return state.maybeWhen(
           loading: () => setupLoading(),
           success: (data) => setupSuccess(data),
-          error: (error) => setupError(error),
+          error: (apiErrorModel) => setupError(apiErrorModel),
           orElse: () => const SizedBox.shrink(),
         );
       },
@@ -55,7 +56,7 @@ class ProfileInfoBlocBuilder extends StatelessWidget {
     );
   }
 
-  Widget setupError(String error) {
-    return Center(child: Text("Error: $error"));
+  Widget setupError(ApiErrorModel apiErrorModel) {
+    return Center(child: Text("Error: ${apiErrorModel.getAllErrorMessages()}"));
   }
 }

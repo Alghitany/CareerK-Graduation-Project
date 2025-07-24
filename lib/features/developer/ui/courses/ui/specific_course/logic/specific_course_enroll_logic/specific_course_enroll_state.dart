@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../../../../core/networking/api_error_model.dart';
 import '../../data/model/specific_course_enroll_models/specific_course_enroll_response.dart';
 
 part 'specific_course_enroll_state.freezed.dart';
@@ -15,6 +16,6 @@ class SpecificCourseEnrollState with _$SpecificCourseEnrollState {
     SpecificCourseEnrollResponse data,
   ) = SpecificCourseEnrollSuccess;
 
-  const factory SpecificCourseEnrollState.error({String? error}) =
+  const factory SpecificCourseEnrollState.error(ApiErrorModel apiErrorModel) =
       SpecificCourseEnrollError;
 }

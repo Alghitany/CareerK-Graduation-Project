@@ -2,6 +2,7 @@ import 'package:carrerk/features/notifications/data/model/mark_one/mark_notifica
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../../core/networking/api_error_handler.dart';
+import '../../../../core/networking/api_error_model.dart';
 
 part 'mark_notification_read_state.freezed.dart';
 
@@ -13,6 +14,5 @@ class MarkNotificationReadState with _$MarkNotificationReadState {
     MarkNotificationReadResponseModel notification,
   ) = _Success;
   const factory MarkNotificationReadState.error(
-    ErrorHandler errorHandler,
-  ) = _Error;
+ApiErrorModel apiErrorModel  ) = _Error;
 }

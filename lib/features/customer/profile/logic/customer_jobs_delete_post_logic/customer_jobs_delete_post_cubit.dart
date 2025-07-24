@@ -24,10 +24,10 @@ class CustomerJobsDeletePostCubit extends Cubit<CustomerJobsDeletePostState> {
           emit(CustomerJobsDeletePostState.deleteSuccess(data));
         }
       },
-      failure: (error) {
+      failure: (apiErrorModel) {
         if (!isClosed) {
           emit(CustomerJobsDeletePostState.deleteError(
-            error: error.apiErrorModel.message ?? 'Delete failed',
+              apiErrorModel
           ));
         }
       },

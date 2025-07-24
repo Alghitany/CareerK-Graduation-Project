@@ -15,7 +15,7 @@ class DeveloperServicesRecentlyPostedRepo {
       final response = await _service.getDeveloperRecentlyPostedServices();
       return ApiResult.success(response);
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ApiErrorHandler.handle(error));
     }
   }
 }

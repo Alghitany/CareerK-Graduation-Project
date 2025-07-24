@@ -24,12 +24,11 @@ class DeveloperGenerateCVStartSessionCubit
               DeveloperGenerateCVStartSessionState.sessionStartedSuccess(data));
         }
       },
-      failure: (error) {
+      failure: (apiErrorModel) {
         if (!isClosed) {
           emit(
             DeveloperGenerateCVStartSessionState.sessionStartError(
-              error: error.apiErrorModel.message ?? 'Failed to start session',
-            ),
+                apiErrorModel            ),
           );
         }
       },

@@ -40,14 +40,14 @@ class StartChatRoomBlocListener extends StatelessWidget {
               ),
             );
           },
-          error: (error) {
+          error: (apiErrorModel) {
             context.pop(); // Dismiss the loading dialog
             showDialog(
               context: context,
               builder: (context) => AlertDialog(
                 icon: const Icon(Icons.error, color: Colors.red, size: 32),
                 content: Text(
-                  error,
+                  apiErrorModel.getAllErrorMessages(),
                   style: AppTextStyles.font15GlaucousPoppinsSemiBold,
                 ),
                 actions: [

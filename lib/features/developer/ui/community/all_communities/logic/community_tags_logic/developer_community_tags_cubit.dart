@@ -18,10 +18,9 @@ class DeveloperCommunityTagsCubit extends Cubit<DeveloperCommunityTagsState> {
       success: (result) {
         emit(DeveloperCommunityTagsState.success(result.tags));
       },
-      failure: (error) {
+      failure: (apiErrorModel) {
         emit(DeveloperCommunityTagsState.error(
-          error: error.apiErrorModel.message ?? "Failed to load community tags",
-        ));
+            apiErrorModel        ));
       },
     );
   }

@@ -21,7 +21,7 @@ mixin _$CompanySignupState<T> {
     required TResult Function() initial,
     required TResult Function() companySignupLoading,
     required TResult Function(T data) companySignupSuccess,
-    required TResult Function(String error) companySignupError,
+    required TResult Function(ApiErrorModel apiErrorModel) companySignupError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$CompanySignupState<T> {
     TResult? Function()? initial,
     TResult? Function()? companySignupLoading,
     TResult? Function(T data)? companySignupSuccess,
-    TResult? Function(String error)? companySignupError,
+    TResult? Function(ApiErrorModel apiErrorModel)? companySignupError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$CompanySignupState<T> {
     TResult Function()? initial,
     TResult Function()? companySignupLoading,
     TResult Function(T data)? companySignupSuccess,
-    TResult Function(String error)? companySignupError,
+    TResult Function(ApiErrorModel apiErrorModel)? companySignupError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -136,7 +136,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() initial,
     required TResult Function() companySignupLoading,
     required TResult Function(T data) companySignupSuccess,
-    required TResult Function(String error) companySignupError,
+    required TResult Function(ApiErrorModel apiErrorModel) companySignupError,
   }) {
     return initial();
   }
@@ -147,7 +147,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? initial,
     TResult? Function()? companySignupLoading,
     TResult? Function(T data)? companySignupSuccess,
-    TResult? Function(String error)? companySignupError,
+    TResult? Function(ApiErrorModel apiErrorModel)? companySignupError,
   }) {
     return initial?.call();
   }
@@ -158,7 +158,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? initial,
     TResult Function()? companySignupLoading,
     TResult Function(T data)? companySignupSuccess,
-    TResult Function(String error)? companySignupError,
+    TResult Function(ApiErrorModel apiErrorModel)? companySignupError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -258,7 +258,7 @@ class _$CompanySignupLoadingImpl<T> implements CompanySignupLoading<T> {
     required TResult Function() initial,
     required TResult Function() companySignupLoading,
     required TResult Function(T data) companySignupSuccess,
-    required TResult Function(String error) companySignupError,
+    required TResult Function(ApiErrorModel apiErrorModel) companySignupError,
   }) {
     return companySignupLoading();
   }
@@ -269,7 +269,7 @@ class _$CompanySignupLoadingImpl<T> implements CompanySignupLoading<T> {
     TResult? Function()? initial,
     TResult? Function()? companySignupLoading,
     TResult? Function(T data)? companySignupSuccess,
-    TResult? Function(String error)? companySignupError,
+    TResult? Function(ApiErrorModel apiErrorModel)? companySignupError,
   }) {
     return companySignupLoading?.call();
   }
@@ -280,7 +280,7 @@ class _$CompanySignupLoadingImpl<T> implements CompanySignupLoading<T> {
     TResult Function()? initial,
     TResult Function()? companySignupLoading,
     TResult Function(T data)? companySignupSuccess,
-    TResult Function(String error)? companySignupError,
+    TResult Function(ApiErrorModel apiErrorModel)? companySignupError,
     required TResult orElse(),
   }) {
     if (companySignupLoading != null) {
@@ -408,7 +408,7 @@ class _$CompanySignupSuccessImpl<T> implements CompanySignupSuccess<T> {
     required TResult Function() initial,
     required TResult Function() companySignupLoading,
     required TResult Function(T data) companySignupSuccess,
-    required TResult Function(String error) companySignupError,
+    required TResult Function(ApiErrorModel apiErrorModel) companySignupError,
   }) {
     return companySignupSuccess(data);
   }
@@ -419,7 +419,7 @@ class _$CompanySignupSuccessImpl<T> implements CompanySignupSuccess<T> {
     TResult? Function()? initial,
     TResult? Function()? companySignupLoading,
     TResult? Function(T data)? companySignupSuccess,
-    TResult? Function(String error)? companySignupError,
+    TResult? Function(ApiErrorModel apiErrorModel)? companySignupError,
   }) {
     return companySignupSuccess?.call(data);
   }
@@ -430,7 +430,7 @@ class _$CompanySignupSuccessImpl<T> implements CompanySignupSuccess<T> {
     TResult Function()? initial,
     TResult Function()? companySignupLoading,
     TResult Function(T data)? companySignupSuccess,
-    TResult Function(String error)? companySignupError,
+    TResult Function(ApiErrorModel apiErrorModel)? companySignupError,
     required TResult orElse(),
   }) {
     if (companySignupSuccess != null) {
@@ -498,7 +498,7 @@ abstract class _$$CompanySignupErrorImplCopyWith<T, $Res> {
           $Res Function(_$CompanySignupErrorImpl<T>) then) =
       __$$CompanySignupErrorImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({String error});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -515,13 +515,13 @@ class __$$CompanySignupErrorImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$CompanySignupErrorImpl<T>(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -529,14 +529,14 @@ class __$$CompanySignupErrorImplCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$CompanySignupErrorImpl<T> implements CompanySignupError<T> {
-  const _$CompanySignupErrorImpl({required this.error});
+  const _$CompanySignupErrorImpl(this.apiErrorModel);
 
   @override
-  final String error;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'CompanySignupState<$T>.companySignupError(error: $error)';
+    return 'CompanySignupState<$T>.companySignupError(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -544,11 +544,12 @@ class _$CompanySignupErrorImpl<T> implements CompanySignupError<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CompanySignupErrorImpl<T> &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of CompanySignupState
   /// with the given fields replaced by the non-null parameter values.
@@ -565,9 +566,9 @@ class _$CompanySignupErrorImpl<T> implements CompanySignupError<T> {
     required TResult Function() initial,
     required TResult Function() companySignupLoading,
     required TResult Function(T data) companySignupSuccess,
-    required TResult Function(String error) companySignupError,
+    required TResult Function(ApiErrorModel apiErrorModel) companySignupError,
   }) {
-    return companySignupError(error);
+    return companySignupError(apiErrorModel);
   }
 
   @override
@@ -576,9 +577,9 @@ class _$CompanySignupErrorImpl<T> implements CompanySignupError<T> {
     TResult? Function()? initial,
     TResult? Function()? companySignupLoading,
     TResult? Function(T data)? companySignupSuccess,
-    TResult? Function(String error)? companySignupError,
+    TResult? Function(ApiErrorModel apiErrorModel)? companySignupError,
   }) {
-    return companySignupError?.call(error);
+    return companySignupError?.call(apiErrorModel);
   }
 
   @override
@@ -587,11 +588,11 @@ class _$CompanySignupErrorImpl<T> implements CompanySignupError<T> {
     TResult Function()? initial,
     TResult Function()? companySignupLoading,
     TResult Function(T data)? companySignupSuccess,
-    TResult Function(String error)? companySignupError,
+    TResult Function(ApiErrorModel apiErrorModel)? companySignupError,
     required TResult orElse(),
   }) {
     if (companySignupError != null) {
-      return companySignupError(error);
+      return companySignupError(apiErrorModel);
     }
     return orElse();
   }
@@ -637,10 +638,10 @@ class _$CompanySignupErrorImpl<T> implements CompanySignupError<T> {
 }
 
 abstract class CompanySignupError<T> implements CompanySignupState<T> {
-  const factory CompanySignupError({required final String error}) =
+  const factory CompanySignupError(final ApiErrorModel apiErrorModel) =
       _$CompanySignupErrorImpl<T>;
 
-  String get error;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of CompanySignupState
   /// with the given fields replaced by the non-null parameter values.

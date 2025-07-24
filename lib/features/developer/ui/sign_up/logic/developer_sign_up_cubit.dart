@@ -108,9 +108,9 @@ class DeveloperSignupCubit extends Cubit<DeveloperSignupState> {
         emit(DeveloperSignupState.developerSignupSuccess(
             developerSignupResponse));
       },
-      failure: (error) {
+      failure: (apiErrorModel) {
         emit(DeveloperSignupState.developerSignupError(
-            error: error.apiErrorModel.message ?? 'Signup failed'));
+            apiErrorModel));
       },
     );
   }

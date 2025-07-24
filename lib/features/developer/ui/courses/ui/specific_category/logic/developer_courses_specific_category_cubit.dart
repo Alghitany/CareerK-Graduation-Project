@@ -19,8 +19,8 @@ class DeveloperCoursesSpecificCategoryCubit
       success: (data) {
         emit(DeveloperCoursesSpecificCategoryState.success(data));
       },
-      failure: (errorHandler) {
-        emit(DeveloperCoursesSpecificCategoryState.error(errorHandler));
+      failure: (apiErrorModel) {
+        emit(DeveloperCoursesSpecificCategoryState.error(apiErrorModel));
       },
     );
   }

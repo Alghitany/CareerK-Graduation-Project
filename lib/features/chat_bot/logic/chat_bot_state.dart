@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../core/networking/api_error_model.dart';
 import '../data/models/chat_bot_response.dart';
 
 part 'chat_bot_state.freezed.dart';
@@ -12,5 +13,5 @@ class ChatBotState with _$ChatBotState {
 
   const factory ChatBotState.success(ChatBotResponse data) = Success;
 
-  const factory ChatBotState.error({required String error}) = Error;
+  const factory ChatBotState.error(ApiErrorModel apiErrorModel) = Error;
 }

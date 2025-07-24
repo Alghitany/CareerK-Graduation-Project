@@ -16,8 +16,8 @@ class ChatsAllChatsCubit extends Cubit<ChatsAllChatsState> {
       success: (chats) {
         emit(ChatsAllChatsState.success(chats));
       },
-      failure: (errorHandler) {
-        emit(ChatsAllChatsState.error(errorHandler));
+      failure: (apiErrorModel) {
+        emit(ChatsAllChatsState.error(apiErrorModel));
       },
     );
   }

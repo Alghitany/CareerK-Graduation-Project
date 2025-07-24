@@ -23,10 +23,9 @@ class DeveloperProfileSettingsGetMyCVCubit
         _cvData = data;
         emit(DeveloperProfileSettingsGetMyCVState.success(data));
       },
-      failure: (errorHandler) {
+      failure: (apiErrorModel) {
         emit(DeveloperProfileSettingsGetMyCVState.error(
-          error: errorHandler.apiErrorModel.message ?? 'Unknown error',
-        ));
+            apiErrorModel        ));
       },
     );
   }

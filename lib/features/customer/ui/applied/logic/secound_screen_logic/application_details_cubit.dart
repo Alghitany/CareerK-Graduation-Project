@@ -20,12 +20,10 @@ class ApplicationDetailsCubit extends Cubit<ApplicationDetailsState> {
         debugPrint('✅ Application details fetched for id: $applicationId');
         emit(ApplicationDetailsState.success(data));
       },
-      failure: (error) {
+      failure: (apiErrorModel) {
         debugPrint(
-            '❌ Error fetching application details: ${error.apiErrorModel.message}');
-        emit(ApplicationDetailsState.error(
-          error: error.apiErrorModel.message ?? 'Unknown error',
-        ));
+            '❌ Error fetching application details: ${apiErrorModel.getAllErrorMessages()}');
+        emit(ApplicationDetailsState.error(apiErrorModel));
       },
     );
   }

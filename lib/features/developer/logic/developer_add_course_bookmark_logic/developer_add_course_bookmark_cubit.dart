@@ -23,8 +23,8 @@ class DeveloperAddCourseBookmarkCubit
       success: (bookmarkResponse) {
         emit(DeveloperAddCourseBookmarkState.success(bookmarkResponse));
       },
-      failure: (errorHandler) {
-        emit(DeveloperAddCourseBookmarkState.error(errorHandler));
+      failure: (apiErrorModel) {
+        emit(DeveloperAddCourseBookmarkState.error(apiErrorModel));
       },
     );
   }

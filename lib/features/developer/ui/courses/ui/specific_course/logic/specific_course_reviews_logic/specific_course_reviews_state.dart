@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../../../../core/networking/api_error_handler.dart';
+import '../../../../../../../../core/networking/api_error_model.dart';
 import '../../data/model/specific_course_reviews_models/specific_course_reviews_response_body.dart';
 
 part 'specific_course_reviews_state.freezed.dart';
@@ -17,6 +18,5 @@ class SpecificCourseReviewsState with _$SpecificCourseReviewsState {
   ) = SpecificCourseReviewsSuccess;
 
   const factory SpecificCourseReviewsState.error(
-    ErrorHandler errorHandler,
-  ) = SpecificCourseReviewsError;
+ApiErrorModel apiErrorModel  ) = SpecificCourseReviewsError;
 }
