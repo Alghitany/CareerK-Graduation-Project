@@ -147,7 +147,7 @@ flutter run
 - **Dio** – Networking
 - **Bloc / Cubit** – State management
 - **Socket.io** – Real-time communication
-- **Firebase** *(optional, coming soon)* – Backend services
+- **Firebase** - CI/CD
 - **GetIt** – Dependency injection
 
 ## 📄 License
