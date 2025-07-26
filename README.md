@@ -163,7 +163,8 @@ You can view the full presentation slides for the CareerK project here:
 
 Explore the complete documentation to understand the architecture, features, and implementation details of the CareerK app:
 
-👉[Click to View]([Careerk Documentation.pdf](https://drive.google.com/file/d/1prpdwC-0EHWuTvrC-zRPDju2Aa7P5vz2/view?usp=sharing))
+👉[Click to View]([DOC final book GPP.pdf](https://github.com/user-attachments/files/21443085/DOC.final.book.GPP.pdf))
+
 
 ## 📄 License
 
