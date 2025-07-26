@@ -150,6 +150,21 @@ flutter run
 - **Firebase** - CI/CD
 - **GetIt** – Dependency injection
 
+## 📑 Presentation Slides
+
+You can view the full presentation slides for the CareerK project here:
+
+👉 [Click to View the Slides]([Careerk Presentation.pdf](https://github.com/user-attachments/files/21441676/Careerk.Presentation.pdf)
+)
+
+> 🖥️ The slides cover project goals, features, architecture, and demo walkthrough.
+
+## 📚 Full Documentation
+
+Explore the complete documentation to understand the architecture, features, and implementation details of the CareerK app:
+
+👉[Click to View]([Careerk Documentation.pdf](https://drive.google.com/file/d/1prpdwC-0EHWuTvrC-zRPDju2Aa7P5vz2/view?usp=sharing))
+
 ## 📄 License
 
 - This project is licensed under the MIT License.
